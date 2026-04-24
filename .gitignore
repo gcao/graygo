@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.so
+*.log
+*.bak
+
+tmp/
+checkpoints/
+models/
+games.db*
+node_modules/
