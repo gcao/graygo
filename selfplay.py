@@ -1,4 +1,4 @@
-"""MCTS self-play for Gray Go v6 — torus augmentation + 3 new aux targets.
+"""MCTS self-play for Gray Go v6 — joint MCTS + 3 aux targets.
 
 New auxiliary targets:
 - aux3: opponent action distribution (S*S+1, including pass)
@@ -77,11 +77,6 @@ class SelfPlayConfig:
     # Opening randomization
     randomize_first_n: int = 4
 
-    # Augmentation
-    aug_symmetries: int = 2
-    aug_shifts: int = 2
-
-
 # ─────────────────────────────────────────────────────────────
 # MCTS wrapper
 # ─────────────────────────────────────────────────────────────
@@ -130,15 +125,14 @@ def _step_state(state, black_action, white_action):
     state.step(black_action, white_action)
 
 
-def run_mcts(state, model, num_visits=400, c_puct=1.5, tau=0.01,
-                rng=None, dirichlet_alpha=0.15, dirichlet_epsilon=0.30,
-                add_noise=True, max_candidates=20):
-    """Run MCTS search using color-flip inference."""
+def run_mcts_with_eval_fn(state, eval_fn, num_visits=400, c_puct=1.5, tau=0.01,
+                          rng=None, dirichlet_alpha=0.15, dirichlet_epsilon=0.30,
+                          add_noise=True, max_candidates=20):
+    """Run MCTS search using a supplied eval callback."""
     board_size = state.size
     seed = int(rng.integers(0, 2**31)) if rng is not None else 42
 
     if CPP_MCTS_AVAILABLE:
-        eval_fn = _make_eval_fn(model, board_size)
         result = _mcts_cpp.run_mcts_cpp(
             state, eval_fn, _copy_state, _step_state,
             num_visits=num_visits,
@@ -156,6 +150,24 @@ def run_mcts(state, model, num_visits=400, c_puct=1.5, tau=0.01,
         return _MCTSResult(visit_counts, result["total_visits"])
     else:
         raise ImportError("Python MCTS fallback not implemented. Build mcts_engine_callback.")
+
+
+def run_mcts(state, model, num_visits=400, c_puct=1.5, tau=0.01,
+             rng=None, dirichlet_alpha=0.15, dirichlet_epsilon=0.30,
+             add_noise=True, max_candidates=20):
+    """Run MCTS search using color-flip inference."""
+    return run_mcts_with_eval_fn(
+        state,
+        _make_eval_fn(model, state.size),
+        num_visits=num_visits,
+        c_puct=c_puct,
+        tau=tau,
+        rng=rng,
+        dirichlet_alpha=dirichlet_alpha,
+        dirichlet_epsilon=dirichlet_epsilon,
+        add_noise=add_noise,
+        max_candidates=max_candidates,
+    )
 
 
 def marginalize_policy(result: _MCTSResult, player: int, n_actions: int) -> np.ndarray:
@@ -338,74 +350,6 @@ def compute_aux5_target(state, player: int, board_size: int) -> np.ndarray:
 
 
 # ─────────────────────────────────────────────────────────────
-# Augmentation (D4 symmetries x torus shifts)
-# ─────────────────────────────────────────────────────────────
-
-def _apply_d4(array: np.ndarray, op: int) -> np.ndarray:
-    if op < 4:
-        return np.rot90(array, op, axes=(-2, -1))
-    flipped = np.flip(array, axis=-1)
-    return np.rot90(flipped, op - 4, axes=(-2, -1))
-
-
-def _apply_d4_policy(policy: np.ndarray, board_size: int, op: int) -> np.ndarray:
-    board = policy[:-1].reshape(board_size, board_size)
-    transformed = _apply_d4(board, op)
-    return np.concatenate([transformed.reshape(-1), policy[-1:]])
-
-
-def augment_game(
-    samples: list[TrainingSample],
-    board_size: int,
-    n_sym: int,
-    n_shift: int,
-    rng: np.random.Generator,
-) -> list[TrainingSample]:
-    """Generate spatially augmented copies using D4 symmetries and torus shifts."""
-    s = board_size
-    augmented: list[TrainingSample] = []
-
-    for sample in samples:
-        for _ in range(n_sym):
-            sym_op = int(rng.integers(0, 8))
-            for _ in range(n_shift):
-                dx = int(rng.integers(0, s))
-                dy = int(rng.integers(0, s))
-
-                new_state = _apply_d4(sample.state, sym_op)
-                new_state = np.roll(new_state, shift=(dy, dx), axis=(-2, -1))
-
-                new_p = _apply_d4_policy(sample.policy, s, sym_op)
-                p_board = new_p[:-1].reshape(s, s)
-                p_board = np.roll(p_board, shift=(dy, dx), axis=(-2, -1))
-                new_p = np.concatenate([p_board.reshape(-1), new_p[-1:]])
-
-                new_a1 = _apply_d4(sample.aux1_target, sym_op)
-                new_a1 = np.roll(new_a1, shift=(dy, dx), axis=(-2, -1))
-
-                new_a3 = _apply_d4_policy(sample.aux3_target, s, sym_op)
-                a3_board = new_a3[:-1].reshape(s, s)
-                a3_board = np.roll(a3_board, shift=(dy, dx), axis=(-2, -1))
-                new_a3 = np.concatenate([a3_board.reshape(-1), new_a3[-1:]])
-
-                new_a5 = _apply_d4(sample.aux5_target, sym_op)
-                new_a5 = np.roll(new_a5, shift=(dy, dx), axis=(-2, -1))
-
-                augmented.append(TrainingSample(
-                    state=new_state.astype(np.float32).copy(),
-                    policy=new_p.astype(np.float32).copy(),
-                    value_target=sample.value_target,
-                    aux1_target=new_a1.astype(np.float32).copy(),
-                    aux2_target=sample.aux2_target,
-                    aux3_target=new_a3.astype(np.float32).copy(),
-                    aux4_target=sample.aux4_target,
-                    aux5_target=new_a5.astype(np.float32).copy(),
-                ))
-
-    return augmented
-
-
-# ─────────────────────────────────────────────────────────────
 # Single game
 # ─────────────────────────────────────────────────────────────
 
@@ -533,7 +477,7 @@ def play_game(model, cfg: SelfPlayConfig, rng: np.random.Generator):
 # ─────────────────────────────────────────────────────────────
 
 def generate_selfplay_data(model, cfg: SelfPlayConfig) -> list[TrainingSample]:
-    """Generate self-play data, apply spatial augmentation, return samples."""
+    """Generate raw self-play data. Training applies online augmentation."""
     rng = np.random.default_rng(cfg.rng_seed)
     all_samples: list[TrainingSample] = []
     t0 = time.time()
@@ -545,12 +489,7 @@ def generate_selfplay_data(model, cfg: SelfPlayConfig) -> list[TrainingSample]:
         samples, final_state = play_game(model, cfg, rng)
         play_time = time.time() - pt0
 
-        at0 = time.time()
-        aug_samples = augment_game(samples, cfg.board_size,
-                                      cfg.aug_symmetries, cfg.aug_shifts, rng)
-        aug_time = time.time() - at0
-
-        all_samples.extend(aug_samples)
+        all_samples.extend(samples)
 
         winner = final_state.winner_player()
         if winner == -1:
@@ -562,8 +501,8 @@ def generate_selfplay_data(model, cfg: SelfPlayConfig) -> list[TrainingSample]:
         if (game_idx + 1) % 10 == 0 or game_idx == 0:
             print(
                 f"  Game {game_idx + 1}/{cfg.games_per_iteration}: "
-                f"{final_state.turn_number} turns, {dt:.1f}s (play={play_time:.1f}s, aug={aug_time:.1f}s), "
-                f"{len(aug_samples)} samples ({cfg.aug_symmetries * cfg.aug_shifts}x aug) | "
+                f"{final_state.turn_number} turns, {dt:.1f}s (play={play_time:.1f}s), "
+                f"{len(samples)} raw samples | "
                 f"B/W/D: {wins[BLACK_PLAYER]}/{wins[WHITE_PLAYER]}/{wins[None]} | "
                 f"total: {len(all_samples)}, {elapsed:.0f}s",
                 flush=True,

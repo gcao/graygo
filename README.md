@@ -15,7 +15,7 @@ written to `checkpoints/` by default.
   the C++ callback MCTS engine.
 - `selfplay_cpp.py`: pure C++/libtorch self-play wrapper for faster generation.
 - `train.py`: replay buffer, online augmentation, and multi-head loss.
-- `gate.py`: candidate-vs-champion promotion gate.
+- `gate.py`: reduced-visit joint-MCTS candidate-vs-champion promotion gate.
 - `run.py`: end-to-end self-play, train, gate, save loop.
 - `mcts_engine_callback.cpp`: C++ joint-action MCTS with Python model callback.
 - `mcts_engine.cpp`: pure C++ self-play engine with libtorch inference.
@@ -62,15 +62,16 @@ The network returns:
 (policy_logits, value, aux1, aux2, aux3, aux4, aux5)
 ```
 
-- Policy: `1x1 conv -> BatchNorm -> Linear`, producing `S*S + 1` logits. The
-  last action is pass.
-- Value: `1x1 conv -> BatchNorm -> Linear -> Linear -> tanh`, producing a
-  scalar from the encoded player's perspective.
+- Policy: convolutional board logits plus a separate pass logit from globally
+  pooled trunk features, producing `S*S + 1` logits.
+- Value: `1x1 conv -> BatchNorm -> global average pool -> Linear -> tanh`,
+  producing a scalar from the encoded player's perspective.
 - Aux1: spatial next-state stone delta, shape `S x S`.
-- Aux2: scalar territory control ratio.
-- Aux3: categorical opponent action distribution, shape `S*S + 1`, including
-  pass.
-- Aux4: scalar position complexity, sigmoid-bounded to `[0, 1]`.
+- Aux2: scalar territory control ratio from globally pooled features.
+- Aux3: categorical opponent action distribution, with convolutional board
+  logits plus a separate pass logit.
+- Aux4: scalar position complexity from globally pooled features,
+  sigmoid-bounded to `[0, 1]`.
 - Aux5: spatial influence map, shape `S x S`.
 
 The default 12-block, 128-filter model has about 3.63M parameters.
@@ -89,7 +90,7 @@ For each game:
 1. Start from an empty `GameState`.
 2. For the first `randomize_first_n` turns, choose uniformly from legal actions
    for each player. The stored policy target is uniform over legal actions and
-   aux4 is set to `0.5`.
+   aux4 is the normalized entropy of that uniform legal-action policy.
 3. After the randomized opening, run joint-action MCTS with model evaluation.
 4. Convert joint visit counts into player-specific policy targets.
 5. Sample the joint move from visit counts using `temp_high` before
@@ -133,17 +134,16 @@ and empty/gray regions by relative wraparound BFS distance to each color.
 
 ### Augmentation
 
-Self-play applies spatial augmentation to generated samples:
+Self-play stores raw Black-perspective and White-perspective samples in the
+replay buffer. Augmentation is applied online during training, not before
+storage:
 
-- Two random D4 board symmetries.
-- Two random torus shifts.
+- One random D4 board symmetry per sampled position.
+- One random torus shift per sampled position.
 
 The pass action is preserved during spatial transforms. Spatial targets
 (`policy` board part, aux1, aux3 board part, aux5) are transformed with the
 board; pass logits/targets and scalar targets are preserved.
-
-`train.py` also applies an additional random D4 symmetry and torus shift online
-when sampling replay batches.
 
 ## C++ Self-Play Paths
 
@@ -158,7 +158,7 @@ There are two acceleration paths:
 With `--use-cpp-selfplay`, `run.py` exports the current champion to
 `checkpoints/champion_traced.pt` at the start of each iteration, verifies all
 heads, runs C++ self-play, converts returned numpy arrays back into
-`TrainingSample` objects, and then applies the same augmentation pipeline.
+`TrainingSample` objects, and stores the raw samples in replay.
 
 ## Training Loop
 
@@ -168,14 +168,19 @@ Each `run.py` iteration does:
 2. Append samples to the replay buffer.
 3. Copy champion weights into the candidate.
 4. Train the candidate on replay data.
-5. Gate the candidate against the champion.
+5. Gate the candidate against the champion with reduced-visit joint MCTS.
 6. Promote the candidate if gate win rate exceeds `gating_threshold`.
 7. Optionally flush the replay buffer after a strong promotion.
-8. Save champion, candidate, and JSONL metadata.
+8. Save champion, candidate, JSONL metadata, and latest full training state.
 
-The default replay buffer holds 2M samples. The default gate is policy-only:
-it samples directly from masked network policies rather than running MCTS. The
-default gate threshold is `0.48`; the buffer flush threshold is `0.55`.
+The default replay buffer holds 2M samples. The default gate uses 64 MCTS visits
+per move. The default gate threshold is `0.48`; the buffer flush threshold is
+`0.55`.
+
+`--resume` first looks for `checkpoints/training_state.pt`, which stores the
+champion, candidate, optimizer, scheduler, replay buffer, metadata, and next
+iteration. If that file is not present, resume falls back to the latest
+`champion_iter_*.pt` weight checkpoint.
 
 The training objective is:
 

@@ -12,14 +12,10 @@ from __future__ import annotations
 
 import time
 from pathlib import Path
-from typing import Optional
-
-import numpy as np
 
 from selfplay import (
     SelfPlayConfig,
     TrainingSample,
-    augment_game,
 )
 
 try:
@@ -94,14 +90,8 @@ def generate_selfplay_data_cpp(
     aux4 = result["aux4"]          # (N,)
     aux5 = result["aux5"]          # (N, S, S)
 
-    # Group samples by game (2 samples per turn, alternating black/white)
-    # Then apply augmentation.
-    s = cfg.board_size
-    rng = np.random.default_rng(seed + 99)
-
-    # Each game produces 2*turns samples. We need to figure out game boundaries.
-    # Since we don't have explicit boundaries from C++, we augment all samples
-    # together in one batch.
+    # Each game produces 2*turns raw samples, alternating black/white
+    # perspectives. Training applies online augmentation.
     samples = []
     for i in range(n_raw):
         samples.append(TrainingSample(
@@ -115,16 +105,8 @@ def generate_selfplay_data_cpp(
             aux5_target=aux5[i],
         ))
 
-    # Apply spatial augmentation.
-    t_aug = time.time()
-    augmented = augment_game(
-        samples, cfg.board_size, cfg.aug_symmetries, cfg.aug_shifts, rng
-    )
-    aug_time = time.time() - t_aug
-
     total_time = time.time() - t0
-    aug_factor = cfg.aug_symmetries * cfg.aug_shifts
-    print(f"  C++ self-play total: {len(augmented)} samples ({aug_factor}x aug) in {total_time:.1f}s "
-          f"(raw={raw_time:.1f}s, aug={aug_time:.1f}s)", flush=True)
+    print(f"  C++ self-play total: {len(samples)} raw samples in {total_time:.1f}s "
+          f"(raw={raw_time:.1f}s)", flush=True)
 
-    return augmented
+    return samples

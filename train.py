@@ -36,6 +36,8 @@ class TrainConfig:
     l2_regularization: float = 1e-4
     replay_buffer_size: int = 2_000_000
     rng_seed: Optional[int] = None
+    grad_clip_norm: float = 5.0
+    online_augmentation: bool = True
 
     # Auxiliary loss weights
     lambda_aux1: float = 0.5
@@ -60,6 +62,16 @@ class ReplayBuffer:
 
     def extend(self, samples: list[TrainingSample]) -> None:
         self._data.extend(samples)
+
+    def state_dict(self) -> dict:
+        return {
+            "maxlen": self._data.maxlen,
+            "data": list(self._data),
+        }
+
+    def load_state_dict(self, state: dict) -> None:
+        maxlen = state.get("maxlen", self._data.maxlen)
+        self._data = deque(state.get("data", []), maxlen=maxlen)
 
     def sample_batch(self, batch_size: int, rng: np.random.Generator) -> list[TrainingSample]:
         data_len = len(self._data)
@@ -129,7 +141,33 @@ def apply_random_symmetry(
 # Training
 # ─────────────────────────────────────────────────────────────
 
-def train_model(model, replay_buffer: ReplayBuffer, cfg: TrainConfig) -> dict[str, float]:
+def create_optimizer(model, cfg: TrainConfig):
+    require_torch()
+    import torch
+    return torch.optim.Adam(
+        model.parameters(),
+        lr=cfg.learning_rate,
+        weight_decay=cfg.l2_regularization,
+    )
+
+
+def create_scheduler(optimizer, cfg: TrainConfig):
+    if cfg.lr_decay <= 0:
+        return None
+    require_torch()
+    import torch
+    return torch.optim.lr_scheduler.CosineAnnealingLR(
+        optimizer, T_max=int(cfg.lr_decay), eta_min=cfg.learning_rate * 0.1
+    )
+
+
+def train_model(
+    model,
+    replay_buffer: ReplayBuffer,
+    cfg: TrainConfig,
+    optimizer=None,
+    scheduler=None,
+) -> dict[str, float]:
     """Train model with policy + value + 5 aux losses."""
     require_torch()
     import torch
@@ -138,18 +176,10 @@ def train_model(model, replay_buffer: ReplayBuffer, cfg: TrainConfig) -> dict[st
         raise ValueError("Cannot train with empty buffer.")
 
     rng = np.random.default_rng(cfg.rng_seed)
-    optimizer = torch.optim.Adam(
-        model.parameters(),
-        lr=cfg.learning_rate,
-        weight_decay=cfg.l2_regularization,
-    )
-
-    # LR scheduler (CosineAnnealing if lr_decay > 0, interpreted as T_max in batches)
-    scheduler = None
-    if cfg.lr_decay > 0:
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            optimizer, T_max=int(cfg.lr_decay), eta_min=cfg.learning_rate * 0.1
-        )
+    if optimizer is None:
+        optimizer = create_optimizer(model, cfg)
+    if scheduler is None:
+        scheduler = create_scheduler(optimizer, cfg)
     model.train()
     device = next(model.parameters()).device
 
@@ -181,11 +211,12 @@ def train_model(model, replay_buffer: ReplayBuffer, cfg: TrainConfig) -> dict[st
         a4_targets = np.array([s.aux4_target for s in batch], dtype=np.float32)
         a5_targets = np.stack([s.aux5_target for s in batch]).astype(np.float32)
 
-        for i in range(states.shape[0]):
-            states[i], p_targets[i], a1_targets[i], a3_targets[i], a5_targets[i] = \
-                apply_random_symmetry(
-                    states[i], p_targets[i], a1_targets[i], a3_targets[i], a5_targets[i], rng
-                )
+        if cfg.online_augmentation:
+            for i in range(states.shape[0]):
+                states[i], p_targets[i], a1_targets[i], a3_targets[i], a5_targets[i] = \
+                    apply_random_symmetry(
+                        states[i], p_targets[i], a1_targets[i], a3_targets[i], a5_targets[i], rng
+                    )
 
         states_t = torch.from_numpy(states).to(device)
         p_t = torch.from_numpy(p_targets).to(device)
@@ -231,7 +262,10 @@ def train_model(model, replay_buffer: ReplayBuffer, cfg: TrainConfig) -> dict[st
         optimizer.zero_grad(set_to_none=True)
         loss.backward()
 
-        grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=float('inf'))
+        grad_norm = torch.nn.utils.clip_grad_norm_(
+            model.parameters(),
+            max_norm=cfg.grad_clip_norm,
+        )
         batch_grad_norms.append(float(grad_norm))
 
         optimizer.step()

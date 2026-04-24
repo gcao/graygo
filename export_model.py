@@ -9,6 +9,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import copy
 import sys
 from pathlib import Path
 
@@ -18,14 +19,30 @@ import torch
 from model import GrayGoNet
 
 
+def infer_model_shape(state_dict: dict, metadata: dict | None = None) -> tuple[int, int, int]:
+    filters = state_dict["stem_conv.conv.weight"].shape[0]
+    block_indices = {int(k.split(".")[1]) for k in state_dict if k.startswith("res_blocks.")}
+    blocks = len(block_indices)
+
+    board_size = None
+    config = (metadata or {}).get("config", {})
+    if "board_size" in config:
+        board_size = int(config["board_size"])
+    elif "board_size" in (metadata or {}):
+        board_size = int(metadata["board_size"])
+    elif "policy_fc.weight" in state_dict:
+        board_size = int(round((state_dict["policy_fc.weight"].shape[0] - 1) ** 0.5))
+    if board_size is None:
+        board_size = 9
+
+    return blocks, filters, board_size
+
+
 def load_checkpoint(path: Path, device: torch.device, from_v5: bool = False) -> GrayGoNet:
     ckpt = torch.load(path, map_location=device, weights_only=False)
     sd = ckpt["state_dict"]
 
-    filters = sd["stem_conv.conv.weight"].shape[0]
-    block_indices = {int(k.split(".")[1]) for k in sd if k.startswith("res_blocks.")}
-    blocks = len(block_indices)
-    board_size = int(round((sd["policy_fc.weight"].shape[0] - 1) ** 0.5))
+    blocks, filters, board_size = infer_model_shape(sd, ckpt.get("metadata", {}))
 
     model = GrayGoNet(board_size=board_size, blocks=blocks, filters=filters)
 
@@ -46,15 +63,14 @@ def load_checkpoint(path: Path, device: torch.device, from_v5: bool = False) -> 
 
 
 def export(model: GrayGoNet, output_path: Path) -> None:
-    model.eval()
-    model = model.cpu()
-    board_size = model.board_size
+    export_model = copy.deepcopy(model).cpu().eval()
+    board_size = export_model.board_size
     dummy = torch.randn(1, 6, board_size, board_size)
 
     with torch.no_grad():
-        orig_out = model(dummy)
+        orig_out = export_model(dummy)
 
-    traced = torch.jit.trace(model, dummy)
+    traced = torch.jit.trace(export_model, dummy)
     traced.save(str(output_path))
     print(f"Saved traced model to {output_path}")
 

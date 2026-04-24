@@ -6,7 +6,8 @@ Changes from v5 (model_v4.py is reused as base):
   - aux4: position complexity (scalar) — entropy of MCTS visit distribution
   - aux5: influence map (spatial 9x9) — predicted territory ownership
 - Same backbone: 12 blocks, 128 filters, circular convolutions
-- Same policy head: single, player-relative, color-flip at inference
+- Geometry-compatible heads: convolutional board logits, separate pass logits,
+  and pooled scalar heads
 """
 
 from __future__ import annotations
@@ -72,16 +73,16 @@ if TORCH_AVAILABLE:
             self.stem_bn = nn.BatchNorm2d(filters)
             self.res_blocks = nn.ModuleList([ResidualBlock(filters) for _ in range(blocks)])
 
-            # Policy head (single — player-relative)
+            # Policy head (single, player-relative): board logits + pass logit
             self.policy_conv = nn.Conv2d(filters, 2, kernel_size=1)
             self.policy_bn = nn.BatchNorm2d(2)
-            self.policy_fc = nn.Linear(2 * board_size * board_size, self.action_size)
+            self.policy_board = nn.Conv2d(2, 1, kernel_size=1)
+            self.policy_pass = nn.Linear(filters, 1)
 
             # Value head (from current player's perspective)
-            self.value_conv = nn.Conv2d(filters, 1, kernel_size=1)
-            self.value_bn = nn.BatchNorm2d(1)
-            self.value_fc1 = nn.Linear(board_size * board_size, filters * 2)
-            self.value_fc2 = nn.Linear(filters * 2, 1)
+            self.value_conv = nn.Conv2d(filters, filters, kernel_size=1)
+            self.value_bn = nn.BatchNorm2d(filters)
+            self.value_fc = nn.Linear(filters, 1)
 
             # Aux1: spatial (S x S) — next-state stone delta
             self.aux1_conv1 = nn.Conv2d(filters, 32, kernel_size=1)
@@ -89,21 +90,20 @@ if TORCH_AVAILABLE:
             self.aux1_conv2 = nn.Conv2d(32, 1, kernel_size=1)
 
             # Aux2: scalar — territory control ratio
-            self.aux2_conv = nn.Conv2d(filters, 1, kernel_size=1)
-            self.aux2_bn = nn.BatchNorm2d(1)
-            self.aux2_fc1 = nn.Linear(board_size * board_size, filters)
-            self.aux2_fc2 = nn.Linear(filters, 1)
+            self.aux2_conv = nn.Conv2d(filters, filters, kernel_size=1)
+            self.aux2_bn = nn.BatchNorm2d(filters)
+            self.aux2_fc = nn.Linear(filters, 1)
 
-            # Aux3: categorical (S*S+1) — opponent action distribution
+            # Aux3: categorical (S*S+1) — opponent board action + pass
             self.aux3_conv = nn.Conv2d(filters, 2, kernel_size=1)
             self.aux3_bn = nn.BatchNorm2d(2)
-            self.aux3_fc = nn.Linear(2 * board_size * board_size, self.action_size)
+            self.aux3_board = nn.Conv2d(2, 1, kernel_size=1)
+            self.aux3_pass = nn.Linear(filters, 1)
 
             # Aux4: scalar — position complexity (NEW)
-            self.aux4_conv = nn.Conv2d(filters, 1, kernel_size=1)
-            self.aux4_bn = nn.BatchNorm2d(1)
-            self.aux4_fc1 = nn.Linear(board_size * board_size, 64)
-            self.aux4_fc2 = nn.Linear(64, 1)
+            self.aux4_conv = nn.Conv2d(filters, filters, kernel_size=1)
+            self.aux4_bn = nn.BatchNorm2d(filters)
+            self.aux4_fc = nn.Linear(filters, 1)
 
             # Aux5: spatial (S x S) — influence map (NEW)
             self.aux5_conv1 = nn.Conv2d(filters, 32, kernel_size=1)
@@ -119,14 +119,15 @@ if TORCH_AVAILABLE:
 
             # Policy
             p = F.relu(self.policy_bn(self.policy_conv(x)), inplace=True)
-            p = p.view(p.size(0), -1)
-            policy_logits = self.policy_fc(p)
+            p_board = self.policy_board(p).view(p.size(0), -1)
+            pooled = F.adaptive_avg_pool2d(x, 1).view(x.size(0), -1)
+            p_pass = self.policy_pass(pooled)
+            policy_logits = torch.cat([p_board, p_pass], dim=1)
 
             # Value
             v = F.relu(self.value_bn(self.value_conv(x)), inplace=True)
-            v = v.view(v.size(0), -1)
-            v = F.relu(self.value_fc1(v), inplace=True)
-            value = torch.tanh(self.value_fc2(v)).squeeze(-1)
+            v = F.adaptive_avg_pool2d(v, 1).view(v.size(0), -1)
+            value = torch.tanh(self.value_fc(v)).squeeze(-1)
 
             # Aux1: spatial stone delta
             a1 = F.relu(self.aux1_bn(self.aux1_conv1(x)), inplace=True)
@@ -134,19 +135,19 @@ if TORCH_AVAILABLE:
 
             # Aux2: scalar territory control
             a2 = F.relu(self.aux2_bn(self.aux2_conv(x)), inplace=True)
-            a2 = a2.view(a2.size(0), -1)
-            a2 = F.relu(self.aux2_fc1(a2), inplace=True)
-            aux2 = self.aux2_fc2(a2).squeeze(-1)
+            a2 = F.adaptive_avg_pool2d(a2, 1).view(a2.size(0), -1)
+            aux2 = self.aux2_fc(a2).squeeze(-1)
 
             # Aux3: opponent action logits, including pass
             a3 = F.relu(self.aux3_bn(self.aux3_conv(x)), inplace=True)
-            aux3 = self.aux3_fc(a3.view(a3.size(0), -1))
+            a3_board = self.aux3_board(a3).view(a3.size(0), -1)
+            a3_pass = self.aux3_pass(pooled)
+            aux3 = torch.cat([a3_board, a3_pass], dim=1)
 
             # Aux4: scalar position complexity
             a4 = F.relu(self.aux4_bn(self.aux4_conv(x)), inplace=True)
-            a4 = a4.view(a4.size(0), -1)
-            a4 = F.relu(self.aux4_fc1(a4), inplace=True)
-            aux4 = torch.sigmoid(self.aux4_fc2(a4)).squeeze(-1)  # [0,1] range
+            a4 = F.adaptive_avg_pool2d(a4, 1).view(a4.size(0), -1)
+            aux4 = torch.sigmoid(self.aux4_fc(a4)).squeeze(-1)  # [0,1] range
 
             # Aux5: spatial influence map
             a5 = F.relu(self.aux5_bn(self.aux5_conv1(x)), inplace=True)
