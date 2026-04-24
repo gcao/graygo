@@ -92,7 +92,7 @@ def parse_args():
     p.add_argument("--train-epochs", type=float, default=2.0)
     p.add_argument("--learning-rate", type=float, default=5e-4)
     p.add_argument("--lr-decay", type=float, default=0.0,
-                   help="CosineAnnealing T_max (iterations). 0=disabled")
+                   help="CosineAnnealing T_max in optimizer batches. 0=disabled")
     p.add_argument("--l2", type=float, default=1e-4)
     p.add_argument("--lambda-aux1", type=float, default=0.5)
     p.add_argument("--lambda-aux2", type=float, default=0.25)
@@ -159,6 +159,11 @@ def main() -> int:
     if device.type == "cuda" and not torch.cuda.is_available():
         print("CUDA unavailable, falling back to CPU.", flush=True)
         device = torch.device("cpu")
+    runtime_device = device.type
+
+    def notify(message: str) -> None:
+        if not args.no_slack:
+            _slack_notify(message, channel=args.slack_channel)
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -232,9 +237,10 @@ def main() -> int:
           f"params={params:,}", flush=True)
     print(f"Architecture: single policy, 5 aux heads (v6)", flush=True)
     print(f"MCTS: visits={args.mcts_visits}, c_puct={args.mcts_cpuct}", flush=True)
-    print(f"Augmentation: 8x (color x {args.aug_symmetries} sym x {args.aug_shifts} shifts)", flush=True)
+    print(f"Augmentation: {args.aug_symmetries * args.aug_shifts}x "
+          f"({args.aug_symmetries} sym x {args.aug_shifts} shifts)", flush=True)
     print(f"Learning rate: {args.learning_rate}", flush=True)
-    print(f"Gating: threshold={args.gating_threshold}, flush at WR>{args.buffer_flush_wr}", flush=True)
+    print(f"Gating: policy-only threshold={args.gating_threshold}, flush at WR>{args.buffer_flush_wr}", flush=True)
     print(f"Buffer: {args.replay_buffer_size:,} samples", flush=True)
 
     candidate = copy.deepcopy(champion).to(device)
@@ -266,8 +272,7 @@ def main() -> int:
         print(f"\n{'='*60}", flush=True)
         print(f"=== Iteration {iteration + 1}/{max_label} ===", flush=True)
         print(f"{'='*60}", flush=True)
-        if not args.no_slack:
-            _slack_notify(f"♟️ *GrayGo v6* — Iteration {iteration + 1} starting\nModel: {args.blocks}b{args.filters}f | Buffer: {len(replay_buffer):,}")
+        notify(f"♟️ *GrayGo v6* — Iteration {iteration + 1} starting\nModel: {args.blocks}b{args.filters}f | Buffer: {len(replay_buffer):,}")
 
         # ── Self-play ──
         selfplay_cfg = SelfPlayConfig(
@@ -294,7 +299,7 @@ def main() -> int:
             # Re-export traced model each iteration (champion may have been promoted)
             export_traced_model(champion, traced_path)
             samples = generate_selfplay_data_cpp(
-                traced_path, selfplay_cfg, device=args.device
+                traced_path, selfplay_cfg, device=runtime_device
             )
         else:
             samples = generate_selfplay_data(champion, selfplay_cfg)
@@ -302,8 +307,7 @@ def main() -> int:
         replay_buffer.extend(samples)
         print(f"Self-play: {len(samples)} samples in {selfplay_time:.1f}s, "
               f"buffer: {len(replay_buffer)}", flush=True)
-        if not args.no_slack:
-            _slack_notify(f"♟️ *GrayGo v6* Iter {iteration + 1} self-play done\n{len(samples):,} samples in {selfplay_time/3600:.1f}h | Buffer: {len(replay_buffer):,}")
+        notify(f"♟️ *GrayGo v6* Iter {iteration + 1} self-play done\n{len(samples):,} samples in {selfplay_time/3600:.1f}h | Buffer: {len(replay_buffer):,}")
 
         # ── Train ──
         candidate.load_state_dict(champion.state_dict())
@@ -330,8 +334,7 @@ def main() -> int:
             champion.load_state_dict(candidate.state_dict())
             promoted = True
             print("Promoted by default (first iteration).", flush=True)
-            if not args.no_slack:
-                _slack_notify(f"♟️ *GrayGo v6* Iter 1 promoted (first iteration)\nTrain loss: {metrics['loss']:.4f}")
+            notify(f"♟️ *GrayGo v6* Iter 1 promoted (first iteration)\nTrain loss: {metrics['loss']:.4f}")
         else:
             gate_cfg = GateConfig(
                 board_size=args.board_size,
@@ -354,9 +357,8 @@ def main() -> int:
                 f"(W/L/D: {result.wins}/{result.losses}/{result.draws})",
                 flush=True,
             )
-            if not args.no_slack:
-                emoji = "✅" if promoted else "❌"
-                _slack_notify(f"♟️ *GrayGo v6* Iter {iteration + 1} gate result {emoji}\nWR: {result.win_rate:.1%} (W{result.wins}/L{result.losses}/D{result.draws}) | Train loss: {metrics['loss']:.4f}")
+            emoji = "✅" if promoted else "❌"
+            notify(f"♟️ *GrayGo v6* Iter {iteration + 1} policy gate result {emoji}\nWR: {result.win_rate:.1%} (W{result.wins}/L{result.losses}/D{result.draws}) | Train loss: {metrics['loss']:.4f}")
             if promoted:
                 champion.load_state_dict(candidate.state_dict())
                 print("Candidate PROMOTED.", flush=True)
@@ -385,7 +387,7 @@ def main() -> int:
                 "max_turns": args.max_turns,
                 "aug_symmetries": args.aug_symmetries,
                 "aug_shifts": args.aug_shifts,
-                "aug_total": 8,
+                "aug_total": args.aug_symmetries * args.aug_shifts,
                 "dirichlet_alpha": args.dirichlet_alpha,
                 "dirichlet_epsilon": args.dirichlet_epsilon,
                 "randomize_first_n": args.randomize_first_n,
@@ -422,8 +424,7 @@ def main() -> int:
                     time.sleep(1)
 
     print(f"\nDone after {iteration} iterations. Output: {output_dir}", flush=True)
-    if not args.no_slack:
-        _slack_notify(f"♟️ *GrayGo v6* training stopped after {iteration} iterations")
+    notify(f"♟️ *GrayGo v6* training stopped after {iteration} iterations")
     return 0
 
 

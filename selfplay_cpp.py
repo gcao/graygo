@@ -90,18 +90,18 @@ def generate_selfplay_data_cpp(
     values = result["values"]      # (N,)
     aux1 = result["aux1"]          # (N, S, S)
     aux2 = result["aux2"]          # (N,)
-    aux3 = result["aux3"]          # (N, S, S)
+    aux3 = result["aux3"]          # (N, S*S+1)
     aux4 = result["aux4"]          # (N,)
     aux5 = result["aux5"]          # (N, S, S)
 
     # Group samples by game (2 samples per turn, alternating black/white)
-    # Then apply augmentation per-game
+    # Then apply augmentation.
     s = cfg.board_size
     rng = np.random.default_rng(seed + 99)
 
     # Each game produces 2*turns samples. We need to figure out game boundaries.
     # Since we don't have explicit boundaries from C++, we augment all samples
-    # together in one batch (augment_game handles color-flip + sym + shift).
+    # together in one batch.
     samples = []
     for i in range(n_raw):
         samples.append(TrainingSample(
@@ -115,7 +115,7 @@ def generate_selfplay_data_cpp(
             aux5_target=aux5[i],
         ))
 
-    # Apply 8x augmentation
+    # Apply spatial augmentation.
     t_aug = time.time()
     augmented = augment_game(
         samples, cfg.board_size, cfg.aug_symmetries, cfg.aug_shifts, rng
@@ -123,7 +123,8 @@ def generate_selfplay_data_cpp(
     aug_time = time.time() - t_aug
 
     total_time = time.time() - t0
-    print(f"  C++ self-play total: {len(augmented)} samples (8x aug) in {total_time:.1f}s "
+    aug_factor = cfg.aug_symmetries * cfg.aug_shifts
+    print(f"  C++ self-play total: {len(augmented)} samples ({aug_factor}x aug) in {total_time:.1f}s "
           f"(raw={raw_time:.1f}s, aug={aug_time:.1f}s)", flush=True)
 
     return augmented

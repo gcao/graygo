@@ -3,7 +3,7 @@
 Loss = L_policy + L_value 
        + 0.5 * L_aux1   (stone delta, spatial)
        + 0.25 * L_aux2   (territory control, scalar)
-       + 0.3 * L_aux3    (opponent move dist, spatial)
+       + 0.3 * L_aux3    (opponent action distribution)
        + 0.15 * L_aux4   (position complexity, scalar)
        + 0.2 * L_aux5    (influence map, spatial)
 """
@@ -108,8 +108,10 @@ def apply_random_symmetry(
     ta1 = _apply_d4(aux1, op)
     ta1 = np.roll(ta1, shift=(dy, dx), axis=(-2, -1))
 
-    ta3 = _apply_d4(aux3, op)
-    ta3 = np.roll(ta3, shift=(dy, dx), axis=(-2, -1))
+    a3_board = aux3[:-1].reshape(s, s)
+    a3_board = _apply_d4(a3_board, op)
+    a3_board = np.roll(a3_board, shift=(dy, dx), axis=(-2, -1))
+    ta3 = np.concatenate([a3_board.reshape(-1), aux3[-1:]])
 
     ta5 = _apply_d4(aux5, op)
     ta5 = np.roll(ta5, shift=(dy, dx), axis=(-2, -1))
@@ -142,7 +144,7 @@ def train_model(model, replay_buffer: ReplayBuffer, cfg: TrainConfig) -> dict[st
         weight_decay=cfg.l2_regularization,
     )
 
-    # LR scheduler (CosineAnnealing if lr_decay > 0, interpreted as T_max in iterations)
+    # LR scheduler (CosineAnnealing if lr_decay > 0, interpreted as T_max in batches)
     scheduler = None
     if cfg.lr_decay > 0:
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
@@ -209,8 +211,9 @@ def train_model(model, replay_buffer: ReplayBuffer, cfg: TrainConfig) -> dict[st
         # Aux2: territory control (scalar MSE)
         a2_loss = torch.mean((pred_a2 - a2_t) ** 2)
 
-        # Aux3: opponent move distribution (spatial BCE)
-        a3_loss = torch.nn.functional.binary_cross_entropy_with_logits(pred_a3, a3_t)
+        # Aux3: opponent action distribution, including pass
+        a3_log = torch.log_softmax(pred_a3, dim=1)
+        a3_loss = -(a3_t * a3_log).sum(dim=1).mean()
 
         # Aux4: position complexity (scalar MSE, pred is sigmoid-bounded)
         a4_loss = torch.mean((pred_a4 - a4_t) ** 2)

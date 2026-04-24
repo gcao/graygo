@@ -35,6 +35,7 @@
 #include <memory>
 #include <deque>
 #include <utility>
+#include <limits>
 
 namespace py = pybind11;
 
@@ -1140,26 +1141,30 @@ static float compute_aux2(const GameState& final_state, int player) {
 }
 
 static void compute_aux3(int opponent_action, int board_size, float* out) {
-    std::memset(out, 0, board_size * board_size * sizeof(float));
-    if (opponent_action < board_size * board_size) {
+    int n_actions = board_size * board_size + 1;
+    std::memset(out, 0, n_actions * sizeof(float));
+    if (opponent_action >= 0 && opponent_action < n_actions) {
         out[opponent_action] = 1.0f;
     }
+}
+
+static float compute_policy_entropy(const std::vector<float>& policy) {
+    double entropy = 0.0;
+    for (float p : policy) {
+        if (p > 1e-10f) {
+            entropy -= p * std::log(p);
+        }
+    }
+    double max_entropy = std::log((double)policy.size());
+    if (max_entropy > 0) return (float)(entropy / max_entropy);
+    return 0.0f;
 }
 
 static float compute_aux4(const MCTSResult& mcts, int player, int board_size) {
     int n_actions = board_size * board_size + 1;
     std::vector<float> policy;
     marginalize_policy(mcts, player, n_actions, policy);
-
-    double entropy = 0.0;
-    for (int i = 0; i < n_actions; i++) {
-        if (policy[i] > 1e-10f) {
-            entropy -= policy[i] * std::log(policy[i]);
-        }
-    }
-    double max_entropy = std::log((double)n_actions);
-    if (max_entropy > 0) return (float)(entropy / max_entropy);
-    return 0.0f;
+    return compute_policy_entropy(policy);
 }
 
 static void compute_aux5(const GameState& state, int player, int board_size, float* out) {
@@ -1167,8 +1172,8 @@ static void compute_aux5(const GameState& state, int player, int board_size, flo
     int my_color = (player == BLACK_PLAYER) ? BLACK : WHITE;
     int opp_color = (player == BLACK_PLAYER) ? WHITE : BLACK;
 
-    std::vector<float> dist_my(s * s, 1e9f);
-    std::vector<float> dist_opp(s * s, 1e9f);
+    std::vector<float> dist_my(s * s, std::numeric_limits<float>::infinity());
+    std::vector<float> dist_opp(s * s, std::numeric_limits<float>::infinity());
 
     std::deque<int> q_my, q_opp;
 
@@ -1236,9 +1241,19 @@ static void compute_aux5(const GameState& state, int player, int board_size, flo
         if (cell == my_color) { out[i] = 1.0f; continue; }
         if (cell == opp_color) { out[i] = -1.0f; continue; }
         if (cell == GRAY) { out[i] = 0.0f; continue; }
-        float total = dist_my[i] + dist_opp[i];
-        if (total > 1e-6f) {
-            out[i] = (dist_opp[i] - dist_my[i]) / total;
+        bool finite_my = std::isfinite(dist_my[i]);
+        bool finite_opp = std::isfinite(dist_opp[i]);
+        if (finite_my && finite_opp) {
+            float total = dist_my[i] + dist_opp[i];
+            if (total > 1e-6f) {
+                out[i] = (dist_opp[i] - dist_my[i]) / total;
+            } else {
+                out[i] = 0.0f;
+            }
+        } else if (finite_my) {
+            out[i] = 1.0f;
+        } else if (finite_opp) {
+            out[i] = -1.0f;
         } else {
             out[i] = 0.0f;
         }
@@ -1273,7 +1288,7 @@ struct GameSamples {
     std::vector<float> values;
     std::vector<std::vector<float>> aux1;       // each (S*S,)
     std::vector<float> aux2;
-    std::vector<std::vector<float>> aux3;       // each (S*S,)
+    std::vector<std::vector<float>> aux3;       // each (S*S+1,)
     std::vector<float> aux4;
     std::vector<std::vector<float>> aux5;       // each (S*S,)
 };
@@ -1304,7 +1319,7 @@ static GameSamples play_one_game(ModelWrapper& model, const SelfPlayConfig& cfg,
 
         int b_move, w_move;
         std::vector<float> bp(n_actions, 0.0f), wp(n_actions, 0.0f);
-        float aux4_b = 0.5f, aux4_w = 0.5f;
+        float aux4_b = 0.0f, aux4_w = 0.0f;
 
         if (turn < cfg.randomize_first_n) {
             // Random moves
@@ -1331,6 +1346,9 @@ static GameSamples play_one_game(ModelWrapper& model, const SelfPlayConfig& cfg,
                 w_move = w_legal[dist(rng)];
                 for (int i : w_legal) wp[i] = 1.0f / w_legal.size();
             }
+
+            aux4_b = compute_policy_entropy(bp);
+            aux4_w = compute_policy_entropy(wp);
         } else {
             // MCTS search
             MCTSResult mcts = run_mcts(
@@ -1380,7 +1398,7 @@ static GameSamples play_one_game(ModelWrapper& model, const SelfPlayConfig& cfg,
     for (auto& rec : records) {
         // Aux targets
         std::vector<float> aux1_b(board_pts), aux1_w(board_pts);
-        std::vector<float> aux3_b(board_pts), aux3_w(board_pts);
+        std::vector<float> aux3_b(n_actions), aux3_w(n_actions);
         std::vector<float> aux5_b(board_pts), aux5_w(board_pts);
 
         compute_aux1(rec.state_before, rec.state_after, BLACK_PLAYER, s, aux1_b.data());
@@ -1527,7 +1545,7 @@ static py::dict run_selfplay_games(
     auto values_np = py::array_t<float>(n_samples);
     auto aux1_np = py::array_t<float>({n_samples, s, s});
     auto aux2_np = py::array_t<float>(n_samples);
-    auto aux3_np = py::array_t<float>({n_samples, s, s});
+    auto aux3_np = py::array_t<float>({n_samples, s * s + 1});
     auto aux4_np = py::array_t<float>(n_samples);
     auto aux5_np = py::array_t<float>({n_samples, s, s});
 
@@ -1546,7 +1564,7 @@ static py::dict run_selfplay_games(
         v_ptr[i] = all_values[i];
         std::memcpy(a1_ptr + i * board_pts, all_aux1[i].data(), board_pts * sizeof(float));
         a2_ptr[i] = all_aux2[i];
-        std::memcpy(a3_ptr + i * board_pts, all_aux3[i].data(), board_pts * sizeof(float));
+        std::memcpy(a3_ptr + i * (board_pts + 1), all_aux3[i].data(), (board_pts + 1) * sizeof(float));
         a4_ptr[i] = all_aux4[i];
         std::memcpy(a5_ptr + i * board_pts, all_aux5[i].data(), board_pts * sizeof(float));
     }
@@ -1596,7 +1614,7 @@ PYBIND11_MODULE(mcts_engine, m) {
           "\n"
           "Returns dict with numpy arrays:\n"
           "  states: (N, 6, S, S), policies: (N, S*S+1), values: (N,),\n"
-          "  aux1: (N, S, S), aux2: (N,), aux3: (N, S, S), aux4: (N,), aux5: (N, S, S)\n"
+          "  aux1: (N, S, S), aux2: (N,), aux3: (N, S*S+1), aux4: (N,), aux5: (N, S, S)\n"
           "  n_samples: int, wins_black: int, wins_white: int, draws: int"
     );
 }

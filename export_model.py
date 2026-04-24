@@ -29,18 +29,18 @@ def load_checkpoint(path: Path, device: torch.device, from_v5: bool = False) -> 
 
     model = GrayGoNet(board_size=board_size, blocks=blocks, filters=filters)
 
-    if from_v5:
-        model_sd = model.state_dict()
-        loaded = 0
-        for k, v in sd.items():
-            if k in model_sd and model_sd[k].shape == v.shape:
-                model_sd[k] = v
-                loaded += 1
-        model.load_state_dict(model_sd)
-        print(f"Loaded {loaded}/{len(model_sd)} params from v5 checkpoint")
-    else:
-        model.load_state_dict(sd)
-        print(f"Loaded all {len(sd)} params")
+    model_sd = model.state_dict()
+    loaded = 0
+    skipped = 0
+    for k, v in sd.items():
+        if k in model_sd and model_sd[k].shape == v.shape:
+            model_sd[k] = v
+            loaded += 1
+        else:
+            skipped += 1
+    model.load_state_dict(model_sd)
+    source = "v5 checkpoint" if from_v5 else "checkpoint"
+    print(f"Loaded {loaded}/{len(model_sd)} params from {source}, skipped {skipped}")
 
     return model
 

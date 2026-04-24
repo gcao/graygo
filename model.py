@@ -2,7 +2,7 @@
 
 Changes from v5 (model_v4.py is reused as base):
 - 3 new auxiliary heads for implicit knowledge extraction:
-  - aux3: opponent move distribution (spatial 9x9) — predicts where opponent played
+  - aux3: opponent action distribution (S*S+1) — predicts opponent move/pass
   - aux4: position complexity (scalar) — entropy of MCTS visit distribution
   - aux5: influence map (spatial 9x9) — predicted territory ownership
 - Same backbone: 12 blocks, 128 filters, circular convolutions
@@ -94,10 +94,10 @@ if TORCH_AVAILABLE:
             self.aux2_fc1 = nn.Linear(board_size * board_size, filters)
             self.aux2_fc2 = nn.Linear(filters, 1)
 
-            # Aux3: spatial (S x S) — opponent move distribution (NEW)
-            self.aux3_conv1 = nn.Conv2d(filters, 32, kernel_size=1)
-            self.aux3_bn = nn.BatchNorm2d(32)
-            self.aux3_conv2 = nn.Conv2d(32, 1, kernel_size=1)
+            # Aux3: categorical (S*S+1) — opponent action distribution
+            self.aux3_conv = nn.Conv2d(filters, 2, kernel_size=1)
+            self.aux3_bn = nn.BatchNorm2d(2)
+            self.aux3_fc = nn.Linear(2 * board_size * board_size, self.action_size)
 
             # Aux4: scalar — position complexity (NEW)
             self.aux4_conv = nn.Conv2d(filters, 1, kernel_size=1)
@@ -138,9 +138,9 @@ if TORCH_AVAILABLE:
             a2 = F.relu(self.aux2_fc1(a2), inplace=True)
             aux2 = self.aux2_fc2(a2).squeeze(-1)
 
-            # Aux3: spatial opponent move distribution
-            a3 = F.relu(self.aux3_bn(self.aux3_conv1(x)), inplace=True)
-            a3 = self.aux3_conv2(a3).squeeze(1)
+            # Aux3: opponent action logits, including pass
+            a3 = F.relu(self.aux3_bn(self.aux3_conv(x)), inplace=True)
+            aux3 = self.aux3_fc(a3.view(a3.size(0), -1))
 
             # Aux4: scalar position complexity
             a4 = F.relu(self.aux4_bn(self.aux4_conv(x)), inplace=True)
@@ -152,7 +152,7 @@ if TORCH_AVAILABLE:
             a5 = F.relu(self.aux5_bn(self.aux5_conv1(x)), inplace=True)
             a5 = self.aux5_conv2(a5).squeeze(1)
 
-            return policy_logits, value, a1, aux2, a3, aux4, a5
+            return policy_logits, value, a1, aux2, aux3, aux4, a5
 
 
 # ─────────────────────────────────────────────────────────────

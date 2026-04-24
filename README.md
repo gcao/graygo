@@ -68,11 +68,12 @@ The network returns:
   scalar from the encoded player's perspective.
 - Aux1: spatial next-state stone delta, shape `S x S`.
 - Aux2: scalar territory control ratio.
-- Aux3: spatial opponent move distribution, shape `S x S`.
+- Aux3: categorical opponent action distribution, shape `S*S + 1`, including
+  pass.
 - Aux4: scalar position complexity, sigmoid-bounded to `[0, 1]`.
 - Aux5: spatial influence map, shape `S x S`.
 
-The default 12-block, 128-filter model has about 3.62M parameters.
+The default 12-block, 128-filter model has about 3.63M parameters.
 
 ## Self-Play Design
 
@@ -123,7 +124,7 @@ Each stored sample contains:
 - Value: final game outcome from that player's perspective.
 - Aux1: stone delta between the pre-move and post-move state.
 - Aux2: final territory margin from that player's perspective.
-- Aux3: one-hot spatial location of the opponent's simultaneous move.
+- Aux3: one-hot opponent action distribution, including pass.
 - Aux4: normalized entropy of the player's marginalized MCTS policy.
 - Aux5: BFS-based influence estimate from the pre-move state.
 
@@ -132,15 +133,14 @@ and empty/gray regions by relative wraparound BFS distance to each color.
 
 ### Augmentation
 
-Self-play applies 8x augmentation to generated samples:
+Self-play applies spatial augmentation to generated samples:
 
-- Color reversal: original plus reversed perspective.
 - Two random D4 board symmetries.
 - Two random torus shifts.
 
 The pass action is preserved during spatial transforms. Spatial targets
-(`policy` board part, aux1, aux3, aux5) are transformed with the board; scalar
-targets are copied or sign-flipped according to perspective.
+(`policy` board part, aux1, aux3 board part, aux5) are transformed with the
+board; pass logits/targets and scalar targets are preserved.
 
 `train.py` also applies an additional random D4 symmetry and torus shift online
 when sampling replay batches.
@@ -173,8 +173,9 @@ Each `run.py` iteration does:
 7. Optionally flush the replay buffer after a strong promotion.
 8. Save champion, candidate, and JSONL metadata.
 
-The default replay buffer holds 2M samples. The default gate threshold is `0.48`;
-the buffer flush threshold is `0.55`.
+The default replay buffer holds 2M samples. The default gate is policy-only:
+it samples directly from masked network policies rather than running MCTS. The
+default gate threshold is `0.48`; the buffer flush threshold is `0.55`.
 
 The training objective is:
 
@@ -187,8 +188,8 @@ loss = policy_loss + value_loss
      + 0.20 * aux5_loss
 ```
 
-Policy loss is soft-target cross entropy over MCTS visit distributions. Value,
-aux1, aux2, aux4, and aux5 use MSE. Aux3 uses binary cross entropy with logits.
+Policy and aux3 losses are soft-target cross entropy over action
+distributions. Value, aux1, aux2, aux4, and aux5 use MSE.
 
 ## Build
 

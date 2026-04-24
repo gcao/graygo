@@ -1,6 +1,7 @@
-"""Gating evaluation for Gray Go v6 — uses v6 model inference.
+"""Policy-only gating evaluation for Gray Go v6.
 
-Same logic as gate_v4 but with v6 predict/predict_batch functions.
+The gate samples directly from masked model policies. It does not run MCTS, so
+it measures raw policy quality rather than search-time playing strength.
 """
 
 from __future__ import annotations
@@ -47,7 +48,7 @@ def _normalize(policy: np.ndarray, legal: np.ndarray) -> np.ndarray:
 
 
 def evaluate_models(candidate, champion, cfg: GateConfig) -> GateResult:
-    """Play N games: candidate vs champion using color-flip inference."""
+    """Play N policy-only games: candidate vs champion using color-flip inference."""
     rng = np.random.default_rng(cfg.rng_seed)
     N = cfg.num_games
     s = cfg.board_size

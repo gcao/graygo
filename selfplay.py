@@ -1,7 +1,7 @@
-"""MCTS self-play for Gray Go v6 — 8x augmentation + 3 new aux targets.
+"""MCTS self-play for Gray Go v6 — torus augmentation + 3 new aux targets.
 
 New auxiliary targets:
-- aux3: opponent move distribution (9x9 spatial)
+- aux3: opponent action distribution (S*S+1, including pass)
 - aux4: position complexity (scalar, MCTS visit entropy)
 - aux5: influence map (9x9 spatial, territory ownership)
 """
@@ -39,7 +39,7 @@ try:
     print('Using C++ MCTS callback engine', flush=True)
 except ImportError:
     CPP_MCTS_AVAILABLE = False
-    print('C++ MCTS callback engine not available, falling back to Python MCTS', flush=True)
+    print('C++ MCTS callback engine not available; build mcts_engine_callback before Python self-play', flush=True)
 
 
 @dataclass
@@ -50,7 +50,7 @@ class TrainingSample:
     value_target: float        # +1 if current player won, -1 if lost, 0 draw
     aux1_target: np.ndarray    # (S, S) — spatial: next-state stone delta
     aux2_target: float         # scalar: territory margin
-    aux3_target: np.ndarray    # (S, S) — spatial: opponent move distribution (NEW)
+    aux3_target: np.ndarray    # (S*S+1,) — opponent action distribution
     aux4_target: float         # scalar: position complexity (NEW)
     aux5_target: np.ndarray    # (S, S) — spatial: influence map (NEW)
 
@@ -236,30 +236,32 @@ def compute_aux2_target(final_state, player: int) -> float:
 
 
 def compute_aux3_target(opponent_action: int, board_size: int) -> np.ndarray:
-    """Spatial: opponent move distribution (one-hot on board, 0 for pass)."""
+    """Categorical opponent action distribution, including pass."""
     s = board_size
-    target = np.zeros((s, s), dtype=np.float32)
-    if opponent_action < s * s:
-        y = opponent_action // s
-        x = opponent_action % s
-        target[y, x] = 1.0
+    n_actions = s * s + 1
+    target = np.zeros(n_actions, dtype=np.float32)
+    if 0 <= opponent_action < n_actions:
+        target[opponent_action] = 1.0
     return target
+
+
+def compute_policy_entropy(policy: np.ndarray) -> float:
+    """Normalized entropy for an action distribution."""
+    nonzero = policy[policy > 1e-10]
+    if len(nonzero) == 0:
+        return 0.0
+    entropy = -np.sum(nonzero * np.log(nonzero))
+    max_entropy = np.log(policy.shape[0])
+    if max_entropy > 0:
+        return float(entropy / max_entropy)
+    return 0.0
 
 
 def compute_aux4_from_mcts(result: _MCTSResult, player: int, board_size: int) -> float:
     """Scalar: position complexity = entropy of marginalized visit distribution."""
     n_actions = board_size * board_size + 1
     policy = marginalize_policy(result, player, n_actions)
-    # Compute entropy
-    nonzero = policy[policy > 1e-10]
-    if len(nonzero) == 0:
-        return 0.0
-    entropy = -np.sum(nonzero * np.log(nonzero))
-    # Normalize to [0, 1] by max possible entropy
-    max_entropy = np.log(n_actions)
-    if max_entropy > 0:
-        return float(entropy / max_entropy)
-    return 0.0
+    return compute_policy_entropy(policy)
 
 
 def compute_aux5_target(state, player: int, board_size: int) -> np.ndarray:
@@ -311,46 +313,32 @@ def compute_aux5_target(state, player: int, board_size: int) -> np.ndarray:
                     dist_opp[ny, nx] = new_dist
                     q_opp.append((ny, nx))
 
-    # Influence: +1 = my territory, -1 = opponent territory
-    total = dist_my + dist_opp
-    mask = total > 1e-6
-    target[mask] = (dist_opp[mask] - dist_my[mask]) / total[mask]
+    # Influence: +1 = my territory, -1 = opponent territory.
+    finite_my = np.isfinite(dist_my)
+    finite_opp = np.isfinite(dist_opp)
+
+    both = finite_my & finite_opp
+    total = dist_my[both] + dist_opp[both]
+    valid = total > 1e-6
+    both_indices = np.where(both)
+    if both_indices[0].size:
+        y_idx = both_indices[0][valid]
+        x_idx = both_indices[1][valid]
+        target[y_idx, x_idx] = (dist_opp[y_idx, x_idx] - dist_my[y_idx, x_idx]) / total[valid]
+
+    target[finite_my & ~finite_opp] = 1.0
+    target[finite_opp & ~finite_my] = -1.0
+
     # Stones: already owned
     target[grid == my_color] = 1.0
     target[grid == opp_color] = -1.0
     target[grid == GRAY] = 0.0
 
-    return target
+    return np.nan_to_num(target, nan=0.0, posinf=1.0, neginf=-1.0).astype(np.float32)
 
 
 # ─────────────────────────────────────────────────────────────
-# Color-reversal augmentation
-# ─────────────────────────────────────────────────────────────
-
-def reverse_color_perspective(sample: TrainingSample) -> TrainingSample:
-    """Create the color-reversed version of a sample."""
-    reversed_state = sample.state.copy()
-    temp = reversed_state[0].copy()
-    reversed_state[0] = reversed_state[1]
-    reversed_state[1] = temp
-    temp = reversed_state[3].copy()
-    reversed_state[3] = reversed_state[4]
-    reversed_state[4] = temp
-
-    return TrainingSample(
-        state=reversed_state.astype(np.float32),
-        policy=sample.policy.astype(np.float32).copy(),
-        value_target=-sample.value_target,
-        aux1_target=-sample.aux1_target.astype(np.float32),
-        aux2_target=-sample.aux2_target,
-        aux3_target=sample.aux3_target.astype(np.float32).copy(),  # opponent dist stays (it's already from this player's view of opponent)
-        aux4_target=sample.aux4_target,  # complexity is symmetric
-        aux5_target=-sample.aux5_target.astype(np.float32),  # negate influence map
-    )
-
-
-# ─────────────────────────────────────────────────────────────
-# Augmentation (8x = color × sym × shift)
+# Augmentation (D4 symmetries x torus shifts)
 # ─────────────────────────────────────────────────────────────
 
 def _apply_d4(array: np.ndarray, op: int) -> np.ndarray:
@@ -373,15 +361,11 @@ def augment_game(
     n_shift: int,
     rng: np.random.Generator,
 ) -> list[TrainingSample]:
-    """Generate 8x augmented copies: color × sym × shift."""
+    """Generate spatially augmented copies using D4 symmetries and torus shifts."""
     s = board_size
     augmented: list[TrainingSample] = []
 
-    all_samples = list(samples)
     for sample in samples:
-        all_samples.append(reverse_color_perspective(sample))
-
-    for sample in all_samples:
         for _ in range(n_sym):
             sym_op = int(rng.integers(0, 8))
             for _ in range(n_shift):
@@ -399,8 +383,10 @@ def augment_game(
                 new_a1 = _apply_d4(sample.aux1_target, sym_op)
                 new_a1 = np.roll(new_a1, shift=(dy, dx), axis=(-2, -1))
 
-                new_a3 = _apply_d4(sample.aux3_target, sym_op)
-                new_a3 = np.roll(new_a3, shift=(dy, dx), axis=(-2, -1))
+                new_a3 = _apply_d4_policy(sample.aux3_target, s, sym_op)
+                a3_board = new_a3[:-1].reshape(s, s)
+                a3_board = np.roll(a3_board, shift=(dy, dx), axis=(-2, -1))
+                new_a3 = np.concatenate([a3_board.reshape(-1), new_a3[-1:]])
 
                 new_a5 = _apply_d4(sample.aux5_target, sym_op)
                 new_a5 = np.roll(new_a5, shift=(dy, dx), axis=(-2, -1))
@@ -454,8 +440,8 @@ def play_game(model, cfg: SelfPlayConfig, rng: np.random.Generator):
             else:
                 wp[-1] = 1.0
 
-            aux4_b = 0.5  # random play → max uncertainty
-            aux4_w = 0.5
+            aux4_b = compute_policy_entropy(bp)
+            aux4_w = compute_policy_entropy(wp)
         else:
             root = run_mcts(
                 state, model,
@@ -479,7 +465,7 @@ def play_game(model, cfg: SelfPlayConfig, rng: np.random.Generator):
 
         state.step(b_move, w_move)
 
-        # Compute aux3 (opponent move distribution) and aux5 (influence map)
+        # Compute aux3 (opponent action distribution) and aux5 (influence map)
         # From Black's perspective, opponent is White (w_move)
         # From White's perspective, opponent is Black (b_move)
         aux3_b = compute_aux3_target(w_move, s)  # Black's view: opponent=White played w_move
@@ -547,7 +533,7 @@ def play_game(model, cfg: SelfPlayConfig, rng: np.random.Generator):
 # ─────────────────────────────────────────────────────────────
 
 def generate_selfplay_data(model, cfg: SelfPlayConfig) -> list[TrainingSample]:
-    """Generate self-play data: play games, augment 8x, return all samples."""
+    """Generate self-play data, apply spatial augmentation, return samples."""
     rng = np.random.default_rng(cfg.rng_seed)
     all_samples: list[TrainingSample] = []
     t0 = time.time()
@@ -577,7 +563,7 @@ def generate_selfplay_data(model, cfg: SelfPlayConfig) -> list[TrainingSample]:
             print(
                 f"  Game {game_idx + 1}/{cfg.games_per_iteration}: "
                 f"{final_state.turn_number} turns, {dt:.1f}s (play={play_time:.1f}s, aug={aug_time:.1f}s), "
-                f"{len(aug_samples)} samples (8x) | "
+                f"{len(aug_samples)} samples ({cfg.aug_symmetries * cfg.aug_shifts}x aug) | "
                 f"B/W/D: {wins[BLACK_PLAYER]}/{wins[WHITE_PLAYER]}/{wins[None]} | "
                 f"total: {len(all_samples)}, {elapsed:.0f}s",
                 flush=True,
