@@ -124,6 +124,8 @@ def parse_args():
 
     # Training
     p.add_argument("--replay-buffer-size", type=int, default=2_000_000)
+    p.add_argument("--replay-checkpoint-interval", type=int, default=1,
+                   help="Save replay_buffer.pt every N completed iterations. 0 disables replay serialization")
     p.add_argument("--batch-size", type=int, default=512)
     p.add_argument("--train-batches", type=int, default=0, help="0 = epoch-based")
     p.add_argument("--train-epochs", type=float, default=2.0)
@@ -206,6 +208,10 @@ def main() -> int:
     signal.signal(signal.SIGINT, _handle_signal)
     signal.signal(signal.SIGTERM, _handle_signal)
 
+    if args.replay_checkpoint_interval < 0:
+        print("--replay-checkpoint-interval must be >= 0", flush=True)
+        return 1
+
     device = torch.device(args.device)
     if device.type == "cuda" and not torch.cuda.is_available():
         print("CUDA unavailable, falling back to CPU.", flush=True)
@@ -220,6 +226,7 @@ def main() -> int:
     output_dir.mkdir(parents=True, exist_ok=True)
     history_path = output_dir / "history.jsonl"
     training_state_path = output_dir / "training_state.pt"
+    replay_state_path = output_dir / "replay_buffer.pt"
 
     run_forever = args.iterations == 0
     max_label = "inf" if run_forever else str(args.iterations)
@@ -291,6 +298,10 @@ def main() -> int:
     print(f"Gating: reduced-visit joint MCTS, visits={args.gating_visits}, "
           f"threshold={args.gating_threshold}, flush at WR>{args.buffer_flush_wr}", flush=True)
     print(f"Buffer: {args.replay_buffer_size:,} samples", flush=True)
+    if args.replay_checkpoint_interval == 0:
+        print("Replay checkpointing: disabled", flush=True)
+    else:
+        print(f"Replay checkpointing: every {args.replay_checkpoint_interval} iteration(s)", flush=True)
 
     candidate = copy.deepcopy(champion).to(device)
     replay_buffer = ReplayBuffer(maxlen=args.replay_buffer_size)
@@ -313,6 +324,8 @@ def main() -> int:
     )
     optimizer = create_optimizer(candidate, train_cfg)
     scheduler = create_scheduler(optimizer, train_cfg)
+    loaded_replay_buffer = False
+    replay_checkpoint_available = False
 
     if training_state is not None:
         if "candidate_state_dict" in training_state:
@@ -321,7 +334,21 @@ def main() -> int:
                   f"skipped {skipped}", flush=True)
         if "replay_buffer" in training_state:
             replay_buffer.load_state_dict(training_state["replay_buffer"])
+            loaded_replay_buffer = True
             print(f"Loaded replay buffer: {len(replay_buffer):,} samples", flush=True)
+        else:
+            replay_path = training_state.get("replay_buffer_path")
+            if replay_path:
+                replay_file = output_dir / replay_path
+                if replay_file.exists():
+                    replay_buffer.load_state_dict(
+                        torch.load(replay_file, map_location="cpu", weights_only=False)
+                    )
+                    loaded_replay_buffer = True
+                    replay_checkpoint_available = True
+                    print(f"Loaded replay buffer: {len(replay_buffer):,} samples from {replay_file}", flush=True)
+                else:
+                    print(f"Replay buffer checkpoint not found: {replay_file}", flush=True)
         if "optimizer_state_dict" in training_state:
             try:
                 optimizer.load_state_dict(training_state["optimizer_state_dict"])
@@ -405,6 +432,7 @@ def main() -> int:
         # ── Gate ──
         promoted = False
         gate_summary = None
+        buffer_flushed = False
         if iteration == 0 and not args.resume and not args.resume_from_v5:
             champion.load_state_dict(candidate.state_dict())
             promoted = True
@@ -444,6 +472,7 @@ def main() -> int:
                 # Buffer flush on strong promotion
                 if result.win_rate > args.buffer_flush_wr and len(replay_buffer) > 0:
                     replay_buffer.clear()
+                    buffer_flushed = True
                     print(f"Buffer FLUSHED (WR {result.win_rate:.3f} > {args.buffer_flush_wr}).", flush=True)
             else:
                 candidate.load_state_dict(champion.state_dict())
@@ -482,6 +511,7 @@ def main() -> int:
                 "gating_temperature": args.gating_temperature,
                 "buffer_flush_wr": args.buffer_flush_wr,
                 "replay_buffer_size": args.replay_buffer_size,
+                "replay_checkpoint_interval": args.replay_checkpoint_interval,
             },
         }
         torch.save(
@@ -492,15 +522,37 @@ def main() -> int:
             {"state_dict": candidate.state_dict(), "metadata": metadata},
             output_dir / f"candidate_iter_{iteration:04d}.pt",
         )
+        save_replay = (
+            args.replay_checkpoint_interval > 0
+            and (
+                (iteration + 1) % args.replay_checkpoint_interval == 0
+                or buffer_flushed
+                or (loaded_replay_buffer and not replay_checkpoint_available)
+            )
+        )
+        if save_replay:
+            torch.save(replay_buffer.state_dict(), replay_state_path)
+            replay_checkpoint_available = True
+        elif buffer_flushed:
+            replay_checkpoint_available = False
+
+        replay_buffer_path = (
+            replay_state_path.name
+            if replay_checkpoint_available
+            else None
+        )
         torch.save(
             {
                 "champion_state_dict": champion.state_dict(),
                 "candidate_state_dict": candidate.state_dict(),
                 "optimizer_state_dict": optimizer.state_dict(),
                 "scheduler_state_dict": scheduler.state_dict() if scheduler is not None else None,
-                "replay_buffer": replay_buffer.state_dict(),
                 "metadata": metadata,
                 "next_iteration": iteration + 1,
+                "replay_buffer_path": replay_buffer_path,
+                "replay_buffer_size": len(replay_buffer),
+                "replay_buffer_saved_this_iteration": save_replay,
+                "replay_checkpoint_interval": args.replay_checkpoint_interval,
             },
             training_state_path,
         )

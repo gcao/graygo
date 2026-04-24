@@ -30,6 +30,7 @@
 #include <algorithm>
 #include <numeric>
 #include <cassert>
+#include <memory>
 
 namespace py = pybind11;
 
@@ -138,27 +139,189 @@ static void build_candidates(
 }
 
 // ──────────────────────────────────────────────────────────────
-// PUCT selection
+// Matrix-game PUCT selection
 // ──────────────────────────────────────────────────────────────
 
-static int select_puct(const Node& node, float c_puct) {
-    double sqrt_total = std::sqrt((double)node.visit_count);
-    double best_score = -1e18;
-    int best_idx = 0;
+struct LocalMatrixSolution {
+    std::vector<int> black_actions;
+    std::vector<int> white_actions;
+    std::vector<double> black_prior;
+    std::vector<double> white_prior;
+    std::vector<double> avg_black;
+    std::vector<double> avg_white;
+    std::vector<int> black_visits;
+    std::vector<int> white_visits;
+    std::vector<std::vector<double>> q_matrix;
+};
 
-    const int nc = (int)node.candidates.size();
-    for (int i = 0; i < nc; i++) {
-        int n = node.child_N[i];
-        double q = (n > 0) ? node.child_W[i] / n : 0.0;
-        float p = node.policy_black[node.candidates[i].black]
-                * node.policy_white[node.candidates[i].white];
-        double score = q + c_puct * p * sqrt_total / (1.0 + n);
-        if (score > best_score) {
-            best_score = score;
-            best_idx = i;
+static void normalize_probs(std::vector<double>& probs) {
+    double sum = 0.0;
+    for (double v : probs) sum += v;
+    if (sum <= 1e-12) {
+        if (probs.empty()) return;
+        double uniform = 1.0 / (double)probs.size();
+        for (double& v : probs) v = uniform;
+        return;
+    }
+    for (double& v : probs) v /= sum;
+}
+
+static std::vector<double> positive_regret_strategy(
+    const std::vector<double>& regrets,
+    const std::vector<double>& fallback_prior
+) {
+    std::vector<double> out(regrets.size(), 0.0);
+    double sum = 0.0;
+    for (size_t i = 0; i < regrets.size(); i++) {
+        out[i] = std::max(0.0, regrets[i]);
+        sum += out[i];
+    }
+    if (sum <= 1e-12) {
+        out = fallback_prior;
+        normalize_probs(out);
+        return out;
+    }
+    for (double& v : out) v /= sum;
+    return out;
+}
+
+static LocalMatrixSolution solve_local_matrix_game(const Node& node, int iterations = 24) {
+    LocalMatrixSolution sol;
+    if (node.candidates.empty()) return sol;
+
+    std::unordered_map<int, int> b_map;
+    std::unordered_map<int, int> w_map;
+
+    for (const auto& action : node.candidates) {
+        if (b_map.find(action.black) == b_map.end()) {
+            int idx = (int)sol.black_actions.size();
+            b_map[action.black] = idx;
+            sol.black_actions.push_back(action.black);
+        }
+        if (w_map.find(action.white) == w_map.end()) {
+            int idx = (int)sol.white_actions.size();
+            w_map[action.white] = idx;
+            sol.white_actions.push_back(action.white);
         }
     }
-    return best_idx;
+
+    int nb = (int)sol.black_actions.size();
+    int nw = (int)sol.white_actions.size();
+    sol.black_prior.resize(nb, 0.0);
+    sol.white_prior.resize(nw, 0.0);
+    sol.avg_black.resize(nb, 0.0);
+    sol.avg_white.resize(nw, 0.0);
+    sol.black_visits.resize(nb, 0);
+    sol.white_visits.resize(nw, 0);
+    sol.q_matrix.assign(nb, std::vector<double>(nw, 0.0));
+
+    for (int i = 0; i < nb; i++) sol.black_prior[i] = node.policy_black[sol.black_actions[i]];
+    for (int j = 0; j < nw; j++) sol.white_prior[j] = node.policy_white[sol.white_actions[j]];
+    normalize_probs(sol.black_prior);
+    normalize_probs(sol.white_prior);
+
+    for (int idx = 0; idx < (int)node.candidates.size(); idx++) {
+        const auto& action = node.candidates[idx];
+        int bi = b_map[action.black];
+        int wj = w_map[action.white];
+        int n = node.child_N[idx];
+        double q = (n > 0) ? (node.child_W[idx] / n) : 0.0;
+        sol.q_matrix[bi][wj] = q;
+        sol.black_visits[bi] += n;
+        sol.white_visits[wj] += n;
+    }
+
+    std::vector<double> sigma_b = sol.black_prior;
+    std::vector<double> sigma_w = sol.white_prior;
+    std::vector<double> regret_b(nb, 0.0), regret_w(nw, 0.0);
+
+    for (int iter = 0; iter < iterations; iter++) {
+        std::vector<double> black_payoff(nb, 0.0);
+        for (int i = 0; i < nb; i++) {
+            for (int j = 0; j < nw; j++) black_payoff[i] += sigma_w[j] * sol.q_matrix[i][j];
+        }
+        double exp_black = 0.0;
+        for (int i = 0; i < nb; i++) exp_black += sigma_b[i] * black_payoff[i];
+        for (int i = 0; i < nb; i++) regret_b[i] += black_payoff[i] - exp_black;
+
+        std::vector<double> white_payoff(nw, 0.0);
+        for (int j = 0; j < nw; j++) {
+            for (int i = 0; i < nb; i++) white_payoff[j] += sigma_b[i] * (-sol.q_matrix[i][j]);
+        }
+        double exp_white = 0.0;
+        for (int j = 0; j < nw; j++) exp_white += sigma_w[j] * white_payoff[j];
+        for (int j = 0; j < nw; j++) regret_w[j] += white_payoff[j] - exp_white;
+
+        sigma_b = positive_regret_strategy(regret_b, sol.black_prior);
+        sigma_w = positive_regret_strategy(regret_w, sol.white_prior);
+
+        for (int i = 0; i < nb; i++) sol.avg_black[i] += sigma_b[i];
+        for (int j = 0; j < nw; j++) sol.avg_white[j] += sigma_w[j];
+    }
+
+    normalize_probs(sol.avg_black);
+    normalize_probs(sol.avg_white);
+    return sol;
+}
+
+static int select_puct(const Node& node, float c_puct) {
+    if (node.candidates.empty()) return 0;
+    if (node.candidates.size() == 1) return 0;
+
+    LocalMatrixSolution sol = solve_local_matrix_game(node, 24);
+    double sqrt_total = std::sqrt((double)(node.visit_count + 1));
+
+    int best_b_idx = 0;
+    double best_b_score = -1e18;
+    for (int i = 0; i < (int)sol.black_actions.size(); i++) {
+        double q_against_white = 0.0;
+        for (int j = 0; j < (int)sol.white_actions.size(); j++) {
+            q_against_white += sol.avg_white[j] * sol.q_matrix[i][j];
+        }
+        double u = c_puct * sol.black_prior[i] * sqrt_total / (1.0 + sol.black_visits[i]);
+        double score = q_against_white + u;
+        if (score > best_b_score) {
+            best_b_score = score;
+            best_b_idx = i;
+        }
+    }
+
+    int best_w_idx = 0;
+    double best_w_score = -1e18;
+    for (int j = 0; j < (int)sol.white_actions.size(); j++) {
+        double q_against_black = 0.0;
+        for (int i = 0; i < (int)sol.black_actions.size(); i++) {
+            q_against_black += sol.avg_black[i] * sol.q_matrix[i][j];
+        }
+        double u = c_puct * sol.white_prior[j] * sqrt_total / (1.0 + sol.white_visits[j]);
+        double score = (-q_against_black) + u;
+        if (score > best_w_score) {
+            best_w_score = score;
+            best_w_idx = j;
+        }
+    }
+
+    int best_black = sol.black_actions[best_b_idx];
+    int best_white = sol.white_actions[best_w_idx];
+    for (int idx = 0; idx < (int)node.candidates.size(); idx++) {
+        const auto& action = node.candidates[idx];
+        if (action.black == best_black && action.white == best_white) return idx;
+    }
+
+    double best_joint_score = -1e18;
+    int best_joint_idx = 0;
+    for (int idx = 0; idx < (int)node.candidates.size(); idx++) {
+        const auto& action = node.candidates[idx];
+        int n = node.child_N[idx];
+        double q = (n > 0) ? (node.child_W[idx] / n) : 0.0;
+        double p = node.policy_black[action.black] * node.policy_white[action.white];
+        double score = q + c_puct * p * sqrt_total / (1.0 + n);
+        if (score > best_joint_score) {
+            best_joint_score = score;
+            best_joint_idx = idx;
+        }
+    }
+    return best_joint_idx;
 }
 
 // ──────────────────────────────────────────────────────────────

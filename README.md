@@ -155,6 +155,11 @@ There are two acceleration paths:
   self-play through libtorch. This is used when `run.py` is launched with
   `--use-cpp-selfplay`.
 
+Both paths use the same local matrix-game child selection rule inside the
+joint-action tree. Candidate priors and child values are reduced to local mixed
+strategies, then each player chooses a PUCT action against the other player's
+current local mixture.
+
 With `--use-cpp-selfplay`, `run.py` exports the current champion to
 `checkpoints/champion_traced.pt` at the start of each iteration, verifies all
 heads, runs C++ self-play, converts returned numpy arrays back into
@@ -171,16 +176,21 @@ Each `run.py` iteration does:
 5. Gate the candidate against the champion with reduced-visit joint MCTS.
 6. Promote the candidate if gate win rate exceeds `gating_threshold`.
 7. Optionally flush the replay buffer after a strong promotion.
-8. Save champion, candidate, JSONL metadata, and latest full training state.
+8. Save champion, candidate, JSONL metadata, and latest resumable training
+   state.
 
 The default replay buffer holds 2M samples. The default gate uses 64 MCTS visits
 per move. The default gate threshold is `0.48`; the buffer flush threshold is
 `0.55`.
 
 `--resume` first looks for `checkpoints/training_state.pt`, which stores the
-champion, candidate, optimizer, scheduler, replay buffer, metadata, and next
-iteration. If that file is not present, resume falls back to the latest
-`champion_iter_*.pt` weight checkpoint.
+champion, candidate, optimizer, scheduler, metadata, next iteration, and a
+pointer to `replay_buffer.pt` when replay checkpointing is enabled. By default,
+`run.py` writes `replay_buffer.pt` every iteration. Use
+`--replay-checkpoint-interval N` to write it every `N` completed iterations, or
+`--replay-checkpoint-interval 0` to disable replay serialization and resume
+with model/optimizer/scheduler state only. If `training_state.pt` is not
+present, resume falls back to the latest `champion_iter_*.pt` weight checkpoint.
 
 The training objective is:
 
