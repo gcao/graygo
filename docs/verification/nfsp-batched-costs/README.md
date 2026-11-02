@@ -24,4 +24,21 @@ Thirty-two affected tests pass in 34.185 seconds, including nine new arithmetic/
 
 The [allocation](../../experiments/nfsp-batched-cost-measurement-allocation.json) pins the unchanged complete model/reuse/native inputs, frozen package `a05655e` / `f4c8b427d823d204df6bd46371b38b35bcb776d783ca04addd6831f84e666cbd`, selected inference layout and exposure catalog before launch. Its original invocation is limited to 1,800 seconds, with a 1,860-second outer watchdog. The 65,792 diagnostic learner records remain separate from at most 2,480 additional complete evaluation games, source-core evaluation and 128 marginal-only probe calls. Materialized offline rows and benchmark optimizer steps do not become fresh learner records.
 
-The actual selected-source run and independent artifact audit are pending. Old recorded H_P/science component overruns remain authoritative until this work yields reviewed evidence. No original learning run is restarted or extended.
+The original selected-source run and independent artifact audit are complete. Driver **2594033** / profiler **2594039** are terminal; the original invocation takes **1,025.477355 process-wall seconds** under its recorded ceiling. Its physical GPU interval is 1,025.4773564 seconds / **0.2848548212 device-hours**. All original inputs are unchanged. The frozen independent audit takes **7.289225 CPU process-wall seconds** and reproduces the following empirical prices:
+
+| Candidate stage | Per-seed device-hour ceiling |
+|---|---:|
+| H_P, 8M pilot | 56.236005 |
+| H_D, cumulative 20M development | 91.965357 |
+| H_N, 80M confirmation | 254.932641 |
+| Separate 96k scientific games and probes | 24.819918 |
+
+The pilot remains above its initial **24-hour** component, and science/probes remain above **16 hours**. The source-bound empirical accounting is verified; the initial scope is not feasible at these ceilings. The slowest 0.274265-second baseline wave occurs in the real average/tactical endpoint. Version-diverse training actors and tactical evaluation are the dominant pilot components. The previous scalar prices and this profile use different execution/work accounting; their ratio is not a matched speedup estimate. No older learning/evaluation results are relabeled.
+
+Actual work is **65,792 diagnostic learner records**, separately **2,480** additional complete evaluation games / **207,451 physical rounds**, 128 marginal-only calls, and the retained scalar core's own evaluation work. Offline rows still supply zero new environment actions. The real scientific subset contributes 14,642 physical rounds; its scored database agrees exactly with its wave log.
+
+Parent CUDA high-water measurements are 835,935,232 allocated and 1,012,924,416 reserved bytes; lifetime peak RSS is 2,850,013,184 bytes. A separately checked **1,004-sample** physical-GPU memory log observes at most **1,389 MiB used**. Sampling does not prove the absolute device peak. Complete root identities/countdowns, both actual look prefixes, sampled device/time/memory identity and source scored/wave counts are [additionally verified](additional-verification.json) without new games or inference.
+
+The [full report](measurement/report.json), [source plan](measurement/plan.json), [clean learner manifest](measurement/run.json), [original job](measurement/job.json), [driver](measurement/driver.py), [memory log](measurement/memory.jsonl), complete core reports and actual endpoint/scientific SQLite evidence are retained. The [independent audit](audit.json) binds the large original sealed buffers/model payloads retained in the ignored original run. Portable numeric reanalysis needs the retained JSON, while a fresh current-input artifact audit needs those original files. No original learning run was restarted or extended.
+
+The [reconciled partial ledger](../nfsp-resource-ledger-batched-r4/README.md) enters the new H values, preserves both component overruns and missing C1/C4 device prices, and replaces the completed R4 table reservation with actual disjoint intervals plus its residual unknown-overhead reserve. It does not select a production campaign.

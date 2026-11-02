@@ -1,0 +1,92 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "8e8dd50e791f51cd76b8382d64047700027916f3113ab408690f557feafd4c72",
+  "archived_report_sha256": "8cf225e9bb05bcfcba609646a3de2318b4c6c6ad05984ba0b3f762bfebe1e654",
+  "case_sha256": "b64366480d241db6b3a3c2b63c40a2867b0b40844cb0753e7075f559b8cc7def",
+  "child_pid": 2596047,
+  "commands": [
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "plan",
+        "--name",
+        "corrected-R4-cohort-evidence",
+        "--learner-source-sha",
+        "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+        "--reuse",
+        "4",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/plan.json"
+      ],
+      "name": "plan",
+      "returncode": 0,
+      "seconds": 0.16546776506584138
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "audit-case",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/plan.json",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-primary-ca45a53/tabular",
+        "--time-cap-seconds",
+        "600",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json"
+      ],
+      "name": "case",
+      "returncode": 0,
+      "seconds": 35.00984558404889
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/current.json"
+      ],
+      "name": "current",
+      "returncode": 0,
+      "seconds": 0.2652417179197073
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json",
+        "--archived",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/archived.json"
+      ],
+      "name": "archived",
+      "returncode": 0,
+      "seconds": 0.1653829530114308
+    }
+  ],
+  "current_archived_numerics_match": true,
+  "current_report_sha256": "a63e734541fe485ff78aeb2e8faa027ea913fc4bb05459c4ffe0ae025a60d856",
+  "driver_sha256": "5760a2c4e1d22a98eecdeac60d9ae4ad2713ec95c335ebf3c30a316995695016",
+  "fresh_primary_case_audit_verified": true,
+  "measured_driver_seconds": 35.84342504804954,
+  "missing_cases": 35,
+  "new_learning_records": 0,
+  "original_driver_pid": 2595746,
+  "original_inputs_unchanged": true,
+  "status": "verified",
+  "tool_commit": "30f8d912ac61efb5f69a80b2744b2438e89f51b0",
+  "tool_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "version": 1,
+  "watchdog_seconds": 660
+}

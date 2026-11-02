@@ -1,0 +1,680 @@
+{
+  "a2_complete": false,
+  "actors": {
+    "distinct_mixed_groups": 32,
+    "paired_public_states": true,
+    "requests_per_sample": 32,
+    "samples_seconds": {
+      "distinct_mixed": [
+        0.12175377190578729,
+        0.12184750603046268,
+        0.12120509892702103,
+        0.1208233570214361
+      ],
+      "shared_average": [
+        0.007654870045371354,
+        0.00764975103083998,
+        0.007615696988068521,
+        0.007658367045223713
+      ],
+      "shared_q": [
+        0.00883286795578897,
+        0.008260350092314184,
+        0.008276420063339174,
+        0.008286518976092339
+      ]
+    },
+    "scope": "actual private commitment path; distinct immutable versions stress scalar Q/average groups; measurement actors have received benchmark supervised updates, not deployment qualification",
+    "snapshot_copy_seconds": [
+      0.008822028059512377,
+      0.008247476071119308,
+      0.008259196998551488,
+      0.008287740056402981,
+      0.008688127039931715,
+      0.008304251939989626,
+      0.00835736095905304,
+      0.008584583993069828,
+      0.008240793948061764,
+      0.008309951983392239,
+      0.008344335947185755,
+      0.00830998201854527,
+      0.008678429992869496,
+      0.008277791901491582,
+      0.008457075920887291,
+      0.008506839047186077
+    ],
+    "snapshots": 16
+  },
+  "candidate_price_forecast_available": true,
+  "dense_collection": {
+    "actor_seconds": 0.09403528389520943,
+    "buffer_record_offset": 500000,
+    "collector_local_records": 256,
+    "completed_games": 128,
+    "new_profile_records": 256,
+    "new_stream_offset": 3422,
+    "resolver_storage_bookkeeping_seconds": 0.062346129096113145,
+    "root_rounds_played": [
+      199
+    ],
+    "scope": "real legal dense-root collection and full-buffer overwrite/Algorithm-R work; explicit local record namespace, no optimizer clock set",
+    "snapshot_seconds_included": false,
+    "total_seconds": 0.15638141299132258
+  },
+  "elapsed_seconds": 149.25573504110798,
+  "evaluation": {
+    "baseline_seconds_per_round": [
+      0.003772405712516047,
+      0.0036657110322266817,
+      0.0038330829702317715,
+      0.0038108209846541286,
+      0.007876247130389485,
+      0.007606004946865141,
+      0.004189478000625968,
+      0.003980258945375681,
+      0.003639083064917941,
+      0.003520230995491147,
+      0.00364613498095423,
+      0.003660402027890086,
+      0.0078056913092344376,
+      0.007491342956200242,
+      0.00411005096975714,
+      0.0038480520015582442
+    ],
+    "matches": [
+      {
+        "pair": {
+          "improvement": null,
+          "incumbent": [],
+          "incumbent_utility": null,
+          "root_sha256": "e90f0ddb3977ce9e492757dfbc378369d485bfd206a4d6f40d2ecc1e05d45f2d",
+          "subject": [
+            {
+              "black_score_units": 142,
+              "black_utility": -1.0,
+              "opponent_component": null,
+              "rounds": 200,
+              "subject_component": null,
+              "subject_utility": -1.0,
+              "termination": "round_limit",
+              "trajectory_sha256": "782907096df87a08c8eb99b0b6c1eec7909cf7d1d7fa09c9bd9f075210f7b3e5",
+              "white_score_units": 182
+            },
+            {
+              "black_score_units": 318,
+              "black_utility": 1.0,
+              "opponent_component": null,
+              "rounds": 200,
+              "subject_component": null,
+              "subject_utility": -1.0,
+              "termination": "round_limit",
+              "trajectory_sha256": "a7052ad134101ebcb523425087236b1577d8221da1373a7969295faff4ab005c",
+              "white_score_units": 6
+            }
+          ],
+          "utility": -1.0
+        },
+        "paired_games": 2,
+        "physical_rounds": 400,
+        "representation": "q/random",
+        "seconds": 1.5089622850064188
+      },
+      {
+        "pair": {
+          "improvement": null,
+          "incumbent": [],
+          "incumbent_utility": null,
+          "root_sha256": "e90f0ddb3977ce9e492757dfbc378369d485bfd206a4d6f40d2ecc1e05d45f2d",
+          "subject": [
+            {
+              "black_score_units": 0,
+              "black_utility": -1.0,
+              "opponent_component": null,
+              "rounds": 85,
+              "subject_component": null,
+              "subject_utility": -1.0,
+              "termination": "mutual_pass",
+              "trajectory_sha256": "2fccd09fce2056c81814d95ea8def89d3ebf8bcbf68d6a7afc69fda6fc7ecd69",
+              "white_score_units": 324
+            },
+            {
+              "black_score_units": 324,
+              "black_utility": 1.0,
+              "opponent_component": null,
+              "rounds": 84,
+              "subject_component": null,
+              "subject_utility": -1.0,
+              "termination": "mutual_pass",
+              "trajectory_sha256": "30e5bca70174826f2b9afaa24ecbac782da723a059163e683613690aa0fb84d1",
+              "white_score_units": 0
+            }
+          ],
+          "utility": -1.0
+        },
+        "paired_games": 2,
+        "physical_rounds": 169,
+        "representation": "q/tactical",
+        "seconds": 1.331085765035823
+      },
+      {
+        "pair": {
+          "improvement": null,
+          "incumbent": [],
+          "incumbent_utility": null,
+          "root_sha256": "e90f0ddb3977ce9e492757dfbc378369d485bfd206a4d6f40d2ecc1e05d45f2d",
+          "subject": [
+            {
+              "black_score_units": 162,
+              "black_utility": 0.0,
+              "opponent_component": null,
+              "rounds": 200,
+              "subject_component": null,
+              "subject_utility": 0.0,
+              "termination": "round_limit",
+              "trajectory_sha256": "5ecdb8cff7e1e04993ce4d53cf4fea1f6dfe666aebfca81a6f38da5473d95b05",
+              "white_score_units": 162
+            },
+            {
+              "black_score_units": 156,
+              "black_utility": -1.0,
+              "opponent_component": null,
+              "rounds": 200,
+              "subject_component": null,
+              "subject_utility": 1.0,
+              "termination": "round_limit",
+              "trajectory_sha256": "a4976a8d3796e6c36e20b91e80bad02e57bcf1eeb705c8e69f6f262baebbf978",
+              "white_score_units": 168
+            }
+          ],
+          "utility": 0.5
+        },
+        "paired_games": 2,
+        "physical_rounds": 400,
+        "representation": "average/random",
+        "seconds": 1.4556332259671763
+      },
+      {
+        "pair": {
+          "improvement": null,
+          "incumbent": [],
+          "incumbent_utility": null,
+          "root_sha256": "e90f0ddb3977ce9e492757dfbc378369d485bfd206a4d6f40d2ecc1e05d45f2d",
+          "subject": [
+            {
+              "black_score_units": 0,
+              "black_utility": -1.0,
+              "opponent_component": null,
+              "rounds": 87,
+              "subject_component": null,
+              "subject_utility": -1.0,
+              "termination": "mutual_pass",
+              "trajectory_sha256": "8218d158991347e8c97cd7e53457452b513e23d7126b606065e3aada4ab07d7a",
+              "white_score_units": 324
+            },
+            {
+              "black_score_units": 324,
+              "black_utility": 1.0,
+              "opponent_component": null,
+              "rounds": 81,
+              "subject_component": null,
+              "subject_utility": -1.0,
+              "termination": "mutual_pass",
+              "trajectory_sha256": "884c616ceeb0d923d6ee17e06def33c94f77c3eb48c3ab831a425b2bf70069e2",
+              "white_score_units": 0
+            }
+          ],
+          "utility": -1.0
+        },
+        "paired_games": 2,
+        "physical_rounds": 168,
+        "representation": "average/tactical",
+        "seconds": 1.3113561399513856
+      },
+      {
+        "pair": {
+          "improvement": null,
+          "incumbent": [],
+          "incumbent_utility": null,
+          "root_sha256": "e90f0ddb3977ce9e492757dfbc378369d485bfd206a4d6f40d2ecc1e05d45f2d",
+          "subject": [
+            {
+              "black_score_units": 324,
+              "black_utility": 1.0,
+              "opponent_component": null,
+              "rounds": 101,
+              "subject_component": null,
+              "subject_utility": 1.0,
+              "termination": "mutual_pass",
+              "trajectory_sha256": "6860eaa16b72d9cde31fa8ab0e828e82da12c6817e3d67710ecd8f56d597dbb4",
+              "white_score_units": 0
+            },
+            {
+              "black_score_units": 162,
+              "black_utility": 0.0,
+              "opponent_component": null,
+              "rounds": 200,
+              "subject_component": null,
+              "subject_utility": -0.0,
+              "termination": "round_limit",
+              "trajectory_sha256": "f885e9bb67fcb438ba1612f6efe532767c1a4bc1347b06cefdd7f36892d5b1f5",
+              "white_score_units": 162
+            }
+          ],
+          "utility": 0.5
+        },
+        "paired_games": 2,
+        "physical_rounds": 301,
+        "representation": "average/average",
+        "seconds": 2.1452580030309036
+      }
+    ],
+    "measurement_weights": "profiling-only optimizer outputs",
+    "neural_seconds_per_round": [
+      0.00712710300010267,
+      0.006895761936903,
+      0.007109981961548328,
+      0.007182036992162466
+    ],
+    "policy_integrity_seconds": [
+      0.007336235023103654,
+      0.006933010998181999
+    ],
+    "strength_claim": false
+  },
+  "evaluation_game_budgets_per_seed": {
+    "confirmation": 44000,
+    "pilot": 36000,
+    "screening_cumulative": 40000
+  },
+  "execution_authorized": false,
+  "forecast": {
+    "H_D": 88.1100276482534,
+    "H_N": 250.69190832340206,
+    "H_P": 52.76607850776489,
+    "basis": "one allocated process/device; no eight-job amortization assumed",
+    "concurrency": 1,
+    "margin": 2.0,
+    "per_seed": {
+      "confirmation": {
+        "allocated_process_hours": 250.69190832340206,
+        "allocated_single_device_hours": 250.69190832340206,
+        "ceiling_seconds": 902490.8699642475,
+        "components_seconds": {
+          "Q": 46195.314720220864,
+          "checkpoints": 2732.6269017710583,
+          "collection": 19483.165342535358,
+          "evaluation": 69310.97474742746,
+          "evaluation_policy_integrity": 645.5886820331216,
+          "frozen_snapshots": 1378.4507063268684,
+          "one_restore": 3.091967345913872,
+          "private_actors": 304618.7650761567,
+          "public_archives": 0.10791427502408624,
+          "setup": 0.14650871697813272,
+          "supervised_average": 6868.872371530742,
+          "target_refresh": 8.330043783644214
+        },
+        "evaluation_games": 44000,
+        "full_checkpoint_count_upper": 791,
+        "projected_seconds_before_margin": 451245.4349821237,
+        "q_updates": 624972,
+        "records": 80000000,
+        "supervised_update_upper": 146485,
+        "target_refreshes": 6250
+      },
+      "pilot": {
+        "allocated_process_hours": 52.76607850776489,
+        "allocated_single_device_hours": 52.76607850776489,
+        "ceiling_seconds": 189957.8826279536,
+        "components_seconds": {
+          "Q": 4617.668793484569,
+          "checkpoints": 297.0997642886359,
+          "collection": 1948.3165342535358,
+          "evaluation": 56708.97933880429,
+          "evaluation_policy_integrity": 528.2089216634631,
+          "frozen_snapshots": 137.8530104579404,
+          "one_restore": 3.091967345913872,
+          "private_actors": 30461.87650761567,
+          "public_archives": 0.08393332501873374,
+          "setup": 0.14650871697813272,
+          "supervised_average": 274.78302964242175,
+          "target_refresh": 0.8330043783644214
+        },
+        "evaluation_games": 36000,
+        "full_checkpoint_count_upper": 86,
+        "projected_seconds_before_margin": 94978.9413139768,
+        "q_updates": 62472,
+        "records": 8000000,
+        "supervised_update_upper": 5860,
+        "target_refreshes": 625
+      },
+      "screening_cumulative": {
+        "allocated_process_hours": 88.1100276482534,
+        "allocated_single_device_hours": 88.1100276482534,
+        "ceiling_seconds": 317196.09953371226,
+        "components_seconds": {
+          "Q": 11547.128616310656,
+          "checkpoints": 704.7482780800201,
+          "collection": 4870.7913356338395,
+          "evaluation": 63009.97704311588,
+          "evaluation_policy_integrity": 586.8988018482924,
+          "frozen_snapshots": 344.6237041167915,
+          "one_restore": 3.091967345913872,
+          "private_actors": 76154.69126903918,
+          "public_archives": 0.09592380002140999,
+          "setup": 0.14650871697813272,
+          "supervised_average": 1373.7744743061485,
+          "target_refresh": 2.081844542408362
+        },
+        "evaluation_games": 40000,
+        "full_checkpoint_count_upper": 204,
+        "projected_seconds_before_margin": 158598.04976685613,
+        "q_updates": 156220,
+        "records": 20000000,
+        "supervised_update_upper": 29297,
+        "target_refreshes": 1562
+      }
+    },
+    "scientific_and_probe_device_hours": 77.39485895036616,
+    "scientific_and_probe_seconds_with_margin": 278621.4922213182,
+    "scope": "observed-component forecast with declared event/game upper counts and margin, not a runtime theorem or learned strength"
+  },
+  "formal_learning_run": false,
+  "fresh_profile_records": 65792,
+  "full_buffers": {
+    "replay_allocated_bytes": 137500000,
+    "replay_size": 500000,
+    "reservoir_allocated_bytes": 65500000,
+    "reservoir_size": 500000
+  },
+  "full_component_coverage": true,
+  "io": {
+    "buffer_roundtrip_verified": true,
+    "checkpoint": "/home/gcao/proj/graygo/runs/nfsp-batched-cost-437fe91/core/full-io/weights/000000500256",
+    "checkpoint_manifest_sha256": "c667454a812aa53e9c09235d9faa52982fa2620c1e095b5d2534adea7f256746",
+    "frozen_snapshots_in_payload": 16,
+    "full_checkpoint_restore_seconds": 3.091967345913872,
+    "full_checkpoint_write_seconds": 3.454648421960883,
+    "metadata_log_length_each": 199,
+    "model_roundtrip_verified": true,
+    "payload_bytes": 119470797,
+    "public_model_load_seconds": 0.033187018940225244,
+    "public_payload_seconds": 0.011990475002676249,
+    "training_resume_or_public_agent": false
+  },
+  "kernels": {
+    "actual_optimizer_updates_each": 68,
+    "counter_semantics": "functional optimization benchmark; no NFSP fresh clock is fabricated and no training resume is emitted",
+    "measured_q_loss_targets": 32768,
+    "measured_supervised_targets": 32768,
+    "measured_updates_each": 64,
+    "new_fresh_learner_records": 0,
+    "q_seconds": [
+      0.07208615099079907,
+      0.07274889596737921,
+      0.07221238606143743,
+      0.07207481900695711,
+      0.07203160796780139,
+      0.07215433800593019,
+      0.07295096304733306,
+      0.07265527104027569,
+      0.0722709980327636,
+      0.07214325305540115,
+      0.07221314299385995,
+      0.07256852590944618,
+      0.07229404407553375,
+      0.07208513503428549,
+      0.07214534690137953,
+      0.07209805794991553,
+      0.07303468498867005,
+      0.07212799391709268,
+      0.07218430005013943,
+      0.0723128590034321,
+      0.07314486103132367,
+      0.0725440209498629,
+      0.07237483910284936,
+      0.0723265609703958,
+      0.07225285307504237,
+      0.07228843891061842,
+      0.07319862698204815,
+      0.07391581498086452,
+      0.07306304399389774,
+      0.07245814602356404,
+      0.07236579398158938,
+      0.072569643962197,
+      0.0723173130536452,
+      0.07227646803949028,
+      0.07263141905423254,
+      0.07275244500488043,
+      0.07260416401550174,
+      0.07227422902360559,
+      0.07217050495091826,
+      0.0722714540315792,
+      0.07270807796157897,
+      0.07257235492579639,
+      0.07217631605453789,
+      0.07213939807843417,
+      0.07228978700004518,
+      0.07295987801626325,
+      0.07254743808880448,
+      0.07232522405683994,
+      0.07352340896613896,
+      0.07229831500444561,
+      0.07254388800356537,
+      0.07253369898535311,
+      0.0723836689721793,
+      0.07233428594190627,
+      0.07233310397714376,
+      0.07314476801548153,
+      0.07227470597717911,
+      0.07218040898442268,
+      0.07225471804849803,
+      0.07231393898837268,
+      0.07256491598673165,
+      0.07220477506052703,
+      0.0734381559304893,
+      0.07253084611147642
+    ],
+    "q_starts": "actual full-corpus nonterminal-only sampling; source transitions/flags unchanged",
+    "replay_and_augmentation_included": true,
+    "supervised_seconds": [
+      0.04595857404638082,
+      0.04602311609778553,
+      0.04592768696602434,
+      0.04605708899907768,
+      0.046433861018158495,
+      0.04614458198193461,
+      0.0460234860656783,
+      0.04600015189498663,
+      0.04598004510626197,
+      0.04593722498975694,
+      0.04599547409452498,
+      0.045932576060295105,
+      0.046414655982516706,
+      0.04630265606101602,
+      0.0460726679302752,
+      0.046371515025384724,
+      0.04635587602388114,
+      0.046029680990614,
+      0.04594251897651702,
+      0.04613093996886164,
+      0.04617091501131654,
+      0.04599847295321524,
+      0.046080935979261994,
+      0.0460852540563792,
+      0.046000496950000525,
+      0.046004584059119225,
+      0.04590459796600044,
+      0.046156448079273105,
+      0.046122624073177576,
+      0.045985468896105886,
+      0.04604854597710073,
+      0.046009482932277024,
+      0.046025112038478255,
+      0.04609120590612292,
+      0.045997892040759325,
+      0.04616967204492539,
+      0.04614526696968824,
+      0.04662435001228005,
+      0.046087340102531016,
+      0.046016080072149634,
+      0.04605460201855749,
+      0.0460449029924348,
+      0.04640098800882697,
+      0.04624324291944504,
+      0.045974040986038744,
+      0.046012732898816466,
+      0.04622961801942438,
+      0.04689130198676139,
+      0.04656733793672174,
+      0.04607965797185898,
+      0.04638540907762945,
+      0.04637344600632787,
+      0.046002133982256055,
+      0.0460024339845404,
+      0.04598770698066801,
+      0.04594984604045749,
+      0.04596721800044179,
+      0.04597705602645874,
+      0.04616207198705524,
+      0.046252771047875285,
+      0.04622459097299725,
+      0.04597261198796332,
+      0.045988090918399394,
+      0.04606938292272389
+    ],
+    "target_copy_seconds": [
+      0.0013328070053830743,
+      0.001067201024852693,
+      0.0010591460159048438,
+      0.0010617409134283662,
+      0.0010536960326135159,
+      0.001055198023095727,
+      0.0010477950563654304,
+      0.0010539659997448325
+    ],
+    "warmup_updates_each": 4
+  },
+  "materialized_dataset": {
+    "label_semantics": "synthetic executed-action one-hot cost targets, not historical NFSP greedy labels",
+    "materialized_rows": 500000,
+    "new_environment_actions": 0,
+    "record_semantics": "new offline materialization indices; no optimizer or aggregate learner clocks are set",
+    "retained_links_remapped": 497148,
+    "sequence_links_retained": true,
+    "source_historical_q_count_known": false,
+    "source_original_insertions": 600000,
+    "source_retained_rows": 500000
+  },
+  "memory": {
+    "peak_cuda_allocated_bytes": 835935232,
+    "peak_cuda_reserved_bytes": 1012924416,
+    "process_lifetime_peak_rss_bytes": 2850013184
+  },
+  "offline_rows_reused": 500000,
+  "plan": {
+    "actor_iterations_each": 4,
+    "checkpoint_every_records": 102400,
+    "dense_benchmark_sha256": "d66cc2185f96e0bbf9d5dc46c700d0c16a5a52ed4a926dbd954bc947bca2ab27",
+    "dense_collection_records": 256,
+    "diagnostic": false,
+    "evaluation_game_budgets_per_seed": {
+      "confirmation": 44000,
+      "pilot": 36000,
+      "screening_cumulative": 40000
+    },
+    "input_checkpoint_manifest_sha256": "57f0e5467dd5945f555a8801159c1d3aeb1894f1fa672a5e9875e20ba3705954",
+    "kernel_iterations_each": 64,
+    "kernel_warmup_each": 4,
+    "margin": 2.0,
+    "native_schema": {
+      "codec": "graygo/rule-state/1",
+      "encoding_version": "graygo/encoding/1",
+      "native_decoder": {
+        "abi": 1,
+        "path": "/home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so",
+        "sha256": "f40906ebe6df9974ebf890ef6d665ee2459ac56863b62aa2e2bcaf200e040289"
+      },
+      "rule_version": "graygo/1",
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "storage": "rule-state"
+    },
+    "records_per_pipeline_phase": 32768,
+    "reserve_bytes": 21474836480,
+    "runtime": {
+      "augmentation": true,
+      "batch": 512,
+      "blocks": 8,
+      "capacity": 500000,
+      "deterministic": true,
+      "device": "cuda",
+      "envs": 16,
+      "handoff_end": 7000000,
+      "learning_rate": 0.0003,
+      "learning_start": 4096,
+      "max_grad_norm": 0.5,
+      "native_library": "/home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so",
+      "norm_groups": 8,
+      "q_reuse": 4,
+      "reservoir_open": 5000000,
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "seed": 17,
+      "target_every": 12800,
+      "uniform_comparison": false,
+      "width": 64
+    },
+    "scope": "hardware-only, source-bound offline materialization and actual source kernels; no A2/learning-scope grant",
+    "source_sha256": "f4c8b427d823d204df6bd46371b38b35bcb776d783ca04addd6831f84e666cbd",
+    "target": "one-step",
+    "time_ceiling_seconds": 1795.4942788529443,
+    "tool_sha256": "e8c9f6721242b0ebc880a6b7207f0faa4b7582c05149632e08658789c920b73a",
+    "version": "graygo/full-buffer-nfsp-cost-measurement/1"
+  },
+  "rates_seconds": {
+    "actor_per_record": 0.003807734563451959,
+    "baseline_eval_round": 0.007876247130389485,
+    "checkpoint_restore": 3.091967345913872,
+    "checkpoint_write": 3.454648421960883,
+    "collection_per_record": 0.00024353956678169197,
+    "neural_eval_round": 0.007182036992162466,
+    "policy_integrity": 0.007336235023103654,
+    "public_archive": 0.011990475002676249,
+    "public_model_load": 0.033187018940225244,
+    "q_update": 0.07391581498086452,
+    "setup": 0.14650871697813272,
+    "snapshot": 0.008822028059512377,
+    "supervised_update": 0.04689130198676139,
+    "target_copy": 0.0013328070053830743
+  },
+  "reference_pipeline_report_sha256": "b700baed057f39882b9c0caeccff0999797b94cb766890838505758731bc4cb6",
+  "reference_pipeline_timing_observers": [
+    {
+      "actor_seconds": 24.84570867801085,
+      "collection_seconds": 31.888055886374786,
+      "phase": "closed",
+      "records": 32768,
+      "resolver_storage_bookkeeping_seconds": 6.364775768481195,
+      "snapshot_copies": 57,
+      "snapshot_copy_seconds": 0.6775714398827404
+    },
+    {
+      "actor_seconds": 34.45283891714644,
+      "collection_seconds": 41.618003804585896,
+      "phase": "early_open_diagnostic",
+      "records": 32768,
+      "resolver_storage_bookkeeping_seconds": 6.652141898404807,
+      "snapshot_copies": 58,
+      "snapshot_copy_seconds": 0.5130229890346527
+    }
+  ],
+  "scope": "measured complete component forecast; assumed maximum observed per-event cost plus margin, not a hardware/runtime bound, training outcome or selected scope",
+  "status": "complete",
+  "version": "graygo/full-buffer-nfsp-cost-measurement/1"
+}

@@ -1,0 +1,21 @@
+{
+  "a2_complete": false,
+  "case_result_sha256": "2d499106ca5f6f04f2b03970309867e942d997cec5c963f69fa5b978d6a3227e",
+  "case_status": "complete",
+  "completed_case_commitment_seconds": "9422.739873325976000",
+  "control_loop_and_measured_setup_are_disjoint": true,
+  "execution_authorized": false,
+  "independent_case_sha256": "b64366480d241db6b3a3c2b63c40a2867b0b40844cb0753e7075f559b8cc7def",
+  "measured_pre_initial_save_setup_seconds": "1.415806275967043",
+  "neural_case_still_separate": true,
+  "no_new_scope_funded": true,
+  "old_whole_case_reservation_seconds": "15330",
+  "original_parent_pid": 2538230,
+  "reason_for_residual_reserve": "constructor records setup before its initial checkpoint save; result loop timestamp precedes final report write/return, so retain the unmeasured portion of the original thirty-second overhead allowance",
+  "recorded_learner_loop_process_seconds": "9392.739873325976",
+  "records": 15000000,
+  "released_reservation_seconds": "5907.260126674024000",
+  "remaining_unmeasured_case_overhead_reserve_seconds": "28.584193724032957",
+  "training_manifest_sha256": "481446fa95e06dffd03906d11a9f1917e74b7c840ca466634e931717540325fc",
+  "version": 1
+}

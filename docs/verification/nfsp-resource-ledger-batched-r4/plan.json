@@ -1,0 +1,47 @@
+{
+  "corrective_device_hours": "0",
+  "diagnostic_selected": false,
+  "evidence_sha256": {
+    "B_U": "19b80d7dcbcf3184424b724d045a77be648e4e8782a08afba784020db1a15f20",
+    "H_D": "42905e9f7acd40f386c0c923fdae980a0a75f8b5059cf6f30ab14c0a1ed65f5f",
+    "H_N": "42905e9f7acd40f386c0c923fdae980a0a75f8b5059cf6f30ab14c0a1ed65f5f",
+    "H_P": "42905e9f7acd40f386c0c923fdae980a0a75f8b5059cf6f30ab14c0a1ed65f5f",
+    "P": "b73250ae551e01d47833d1c04acca97832fa54d5449dd027523ae8052af4f41b",
+    "U": "b73250ae551e01d47833d1c04acca97832fa54d5449dd027523ae8052af4f41b"
+  },
+  "extensions": [],
+  "fixed": {
+    "a2_seeds": 3,
+    "confirmation_runs": 12,
+    "development_seeds": 3,
+    "initial_pilot_max_device_hours_per_seed": 24,
+    "per_promotion_device_hours": 8,
+    "scientific_and_probe_inference_device_hours": 16,
+    "short_a2_device_hours": 96
+  },
+  "learner_source_sha256": "f4c8b427d823d204df6bd46371b38b35bcb776d783ca04addd6831f84e666cbd",
+  "name": "selected-batched-R4-prices-and-settled-control-outside-initial-scope",
+  "other_unreused_device_hours": "0.3280563443055555555555555555",
+  "project_device_hour_ceiling": null,
+  "promotion_rounds": 0,
+  "r4_selected": true,
+  "retrace_selected": false,
+  "scope": "numeric device-ceiling arithmetic only; references are not independent pricing qualification or execution authority",
+  "selected_reuse": 4,
+  "selected_target": "one-step",
+  "term_device_hours": {
+    "B_0": null,
+    "B_U": "0",
+    "C1": null,
+    "C4": null,
+    "CT": null,
+    "D": null,
+    "H_D": "91.96535705814888",
+    "H_N": "254.93264058128787",
+    "H_P": "56.23600506967005",
+    "P": "0",
+    "U": "0"
+  },
+  "version": "graygo/nfsp-resource-ledger/1",
+  "zero_opening_selected": false
+}

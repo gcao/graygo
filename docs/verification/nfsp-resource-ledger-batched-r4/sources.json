@@ -1,0 +1,11 @@
+{
+  "control_settlement_path": "docs/verification/nfsp-eligibility-R4-tabular/control-settlement.json",
+  "control_settlement_sha256": "a1662ac607f35673be5815966183de923fd3439e7d65de39ca9282e3e4dd8feb",
+  "original_reservation_replaced_by_disjoint_components": true,
+  "price_audit_path": "docs/verification/nfsp-batched-costs/audit.json",
+  "price_audit_sha256": "42905e9f7acd40f386c0c923fdae980a0a75f8b5059cf6f30ab14c0a1ed65f5f",
+  "prior_inventory_path": "docs/verification/nfsp-resource-ledger-measured-r4/usage.json",
+  "prior_inventory_sha256": "b2e6e4c9509e765a3fd7882902e131a18b114552348b8dda862d4365dd775e07",
+  "scope": "declared subset only; preserves old actual controls and scalar profile, adds new non-overlapping profile/audits, retains unknown overhead reserve; not complete project consumption",
+  "version": 1
+}

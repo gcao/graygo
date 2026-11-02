@@ -1,0 +1,45 @@
+{
+  "actual_two_look_prefix_counts_verified": true,
+  "all_explicit_case_roots_and_terminal_countdowns_verified": true,
+  "execution_authorized": false,
+  "gpu_memory_samples": 1004,
+  "maximum_observed_gpu_used_mib": 1389,
+  "memory_log_sha256": "e4e307321344bdfbbb72cdb5cf2cbe6d434cbba5acb48a134c5a674e67d2ff59",
+  "observation_is_absolute_peak_proof": false,
+  "original_job_sha256": "401d6fde7758900c1cd58fe608ade61d6c20884eab176d2e17df1428d439fb60",
+  "original_report_sha256": "706aee8f88b7c0b9d5937ec58b85302c9e4f3322dd4fc81bf6d0cdc95b0a3dce",
+  "physical_allocation_device_hours": "0.2848548212222222222222222222",
+  "physical_allocation_seconds": "1025.4773564",
+  "sampled_physical_gpu_uuid_verified": true,
+  "science_physical_rounds": 14642,
+  "scientific_scored_rounds_match_wave_log": true,
+  "scope": "additional read-only clock/memory/root/score accounting checks; no new games or model inference",
+  "slowest_baseline_case_waves": [
+    [
+      0.27426513098180294,
+      "average/tactical",
+      "full 500/2000 endpoint"
+    ],
+    [
+      0.2713681630557403,
+      "q/tactical",
+      "empty"
+    ],
+    [
+      0.2669763519661501,
+      "average/tactical",
+      "empty"
+    ],
+    [
+      0.035963942063972354,
+      "q/tactical",
+      "mixed-tail"
+    ],
+    [
+      0.035709109040908515,
+      "average/tactical",
+      "mixed-tail"
+    ]
+  ],
+  "version": 1
+}

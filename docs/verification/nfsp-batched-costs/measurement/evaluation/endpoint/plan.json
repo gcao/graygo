@@ -1,0 +1,62 @@
+{
+  "evaluation_version": "graygo/paired-evaluation/2",
+  "execution": {
+    "budget_boundary": "between complete groups; final group and IO may overrun",
+    "maximum_physical_games_per_group": 32,
+    "pair_batch_size": 16,
+    "version": "graygo/frozen-pair-execution/1"
+  },
+  "incumbent": null,
+  "incumbent_sha256": null,
+  "opening_distribution": {
+    "kind": "official-empty",
+    "version": 1
+  },
+  "opening_semantics": "declared new episode roots; continuation-prefix mixtures require strategies.py",
+  "opening_sha256": "982a363d689223c4cddab3156812568128fe56eca7dc7fc6d302a8a323e4f45f",
+  "opponent": {
+    "kind": "tactical",
+    "source_sha256": "f4c8b427d823d204df6bd46371b38b35bcb776d783ca04addd6831f84e666cbd",
+    "version": "graygo/baselines/1"
+  },
+  "opponent_sha256": "ca55fa63e51d898178f943e4c1294cedcfb6c098595f48ff6e89c345d8813733",
+  "plan": {
+    "calibration_sha256": null,
+    "comparison": "utility",
+    "confidence_sha256": "d696bde7f0cf69b70e50aac4367c20e13ab90439d7a63a04843e6905a7dce292",
+    "decision_protocol_sha256": null,
+    "endpoint": "utility",
+    "label": "cost-only-full-endpoint",
+    "looks": [
+      500,
+      2000
+    ],
+    "pair_batch_size": 16,
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "seed": 17,
+    "subject_label": "benchmark-weights"
+  },
+  "rule_version": "graygo/1",
+  "source_sha256": "f4c8b427d823d204df6bd46371b38b35bcb776d783ca04addd6831f84e666cbd",
+  "subject": {
+    "encoding_version": "graygo/encoding/1",
+    "inference": {
+      "batch_size": 32,
+      "device": "cuda:0",
+      "padding": "zero spatial/globals and pass-only mask; never sampled",
+      "placement": "SHA-256 encoded public observation to fixed row; collisions use separate forwards",
+      "version": "graygo/fixed-evaluation-inference/1"
+    },
+    "kind": "average",
+    "model_class": "PolicyNet",
+    "origin": null,
+    "source_sha256": "f4c8b427d823d204df6bd46371b38b35bcb776d783ca04addd6831f84e666cbd",
+    "weights_sha256": "f4aaaac88aa2fd98d042d2f42019b1c983832d403febcb143c797b81e2adf8b5"
+  },
+  "subject_sha256": "1ca850f44d357e2a61d0cbf70b0bcbc356a00111695a222e358a0a10ea528c80",
+  "unit": "agents exchange colors on the same complete opening; within-pair dependence retained; no trajectory deduplication"
+}
