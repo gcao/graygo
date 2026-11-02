@@ -1,0 +1,27 @@
+{
+  "accounting": "CPU process wall, not accelerator campaign price; earlier measured construction costs and additional test/audit/development overhead remain separately recorded",
+  "attempt_cap": 200000,
+  "candidate_policy_used": false,
+  "construction_time_ceiling_seconds": 1800,
+  "design_cpu_probe_ceiling_seconds": 28800,
+  "directions": {
+    "decrease": 16,
+    "increase": 16
+  },
+  "frozen_worktree": "/home/gcao/proj/graygo/.worktrees/probes-multigroup-7da67d9",
+  "generator": "graygo/reachable-multigroup-collision-probes/1",
+  "individual_value_gap": "1/20",
+  "minimum_range_separation": "1/10",
+  "prior_feasibility_report_sha256": "4e33fc74b176992025b76961e07fce814cca0f76a4b6c96c93815e14c31699b9",
+  "purpose": "candidate-independent complete collision-probe construction",
+  "run_dir": "/home/gcao/proj/graygo/runs/collision-probe-diverse-7da67d9",
+  "scientific_conclusion_selected": false,
+  "scope": "one new immutable construction run; stop at completion/cap, retain partial proofs; no restart from a timeout; independent proof/source-seed verification separately bounded",
+  "seed": 974214,
+  "source_commit": "7da67d9",
+  "source_sha256": "8376aead9575a4ff63ec35c1f78ff0ab1ca847c1f1f6b4218ad8e036463b505b",
+  "target_distinct_complete_game_classes": 32,
+  "training_selected": false,
+  "verification_time_ceiling_seconds": 3600,
+  "version": 1
+}
