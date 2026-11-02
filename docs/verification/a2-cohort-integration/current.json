@@ -1,0 +1,200 @@
+{
+  "a2_complete": false,
+  "analysis_mode": "current_inputs",
+  "assessor_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "cases": {
+    "delayed/tabular/0": {
+      "average_band": "above_0.25",
+      "case_sha256": "5ef622e3e61157f461be9965c05f54bae6638b9a48a46a5340ecb57ccd7a5660",
+      "final_five_maxima": {
+        "max_average_gap": 1.8303571428571428,
+        "max_early_error": 1.1486072198540087,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": false,
+      "q_credit_passed": false,
+      "status": "numeric_miss",
+      "violations": [
+        {
+          "metric": "max_average_gap",
+          "records": 13000000,
+          "threshold": 0.1,
+          "value": 1.8303571428571428
+        },
+        {
+          "metric": "max_early_error",
+          "records": 13000000,
+          "threshold": 0.1,
+          "value": 1.1314038448797143
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 13500000,
+          "threshold": 0.1,
+          "value": 1.7104072398190044
+        },
+        {
+          "metric": "max_early_error",
+          "records": 13500000,
+          "threshold": 0.1,
+          "value": 1.1378611975709008
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 14000000,
+          "threshold": 0.1,
+          "value": 1.565217391304348
+        },
+        {
+          "metric": "max_early_error",
+          "records": 14000000,
+          "threshold": 0.1,
+          "value": 1.142208031029108
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 14500000,
+          "threshold": 0.1,
+          "value": 1.4910714285714286
+        },
+        {
+          "metric": "max_early_error",
+          "records": 14500000,
+          "threshold": 0.1,
+          "value": 1.1464682221412659
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 15000000,
+          "threshold": 0.1,
+          "value": 1.3852813852813854
+        },
+        {
+          "metric": "max_early_error",
+          "records": 15000000,
+          "threshold": 0.1,
+          "value": 1.1486072198540087
+        }
+      ]
+    }
+  },
+  "control_interpretation_required": true,
+  "controls": {
+    "case_misses": [
+      "delayed/tabular/0"
+    ],
+    "complete": false,
+    "missing_cases": [
+      "asymmetric/tabular/0",
+      "asymmetric/tabular/1",
+      "asymmetric/tabular/2",
+      "rps/tabular/0",
+      "rps/tabular/1",
+      "rps/tabular/2",
+      "gray-pure/tabular/0",
+      "gray-pure/tabular/1",
+      "gray-pure/tabular/2",
+      "gray-mixed/tabular/0",
+      "gray-mixed/tabular/1",
+      "gray-mixed/tabular/2",
+      "delayed/tabular/1",
+      "delayed/tabular/2",
+      "branching/tabular/0",
+      "branching/tabular/1",
+      "branching/tabular/2"
+    ],
+    "numeric_passed": false,
+    "status": "incomplete"
+  },
+  "current_input_snapshots_verified": true,
+  "extension_authorized": false,
+  "independent_training_trajectory_verified": false,
+  "learner_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "marginal_extension": {
+    "budget_reference_sha256": null,
+    "numeric_eligible": false,
+    "reason": "complete original neural cohort required",
+    "resource_authorization_verified": false,
+    "selected": false
+  },
+  "missing_cases": [
+    "asymmetric/neural/0",
+    "asymmetric/neural/1",
+    "asymmetric/neural/2",
+    "asymmetric/tabular/0",
+    "asymmetric/tabular/1",
+    "asymmetric/tabular/2",
+    "rps/neural/0",
+    "rps/neural/1",
+    "rps/neural/2",
+    "rps/tabular/0",
+    "rps/tabular/1",
+    "rps/tabular/2",
+    "gray-pure/neural/0",
+    "gray-pure/neural/1",
+    "gray-pure/neural/2",
+    "gray-pure/tabular/0",
+    "gray-pure/tabular/1",
+    "gray-pure/tabular/2",
+    "gray-mixed/neural/0",
+    "gray-mixed/neural/1",
+    "gray-mixed/neural/2",
+    "gray-mixed/tabular/0",
+    "gray-mixed/tabular/1",
+    "gray-mixed/tabular/2",
+    "delayed/neural/0",
+    "delayed/neural/1",
+    "delayed/neural/2",
+    "delayed/tabular/1",
+    "delayed/tabular/2",
+    "branching/neural/0",
+    "branching/neural/1",
+    "branching/neural/2",
+    "branching/tabular/0",
+    "branching/tabular/1",
+    "branching/tabular/2"
+  ],
+  "neural": {
+    "case_misses": [],
+    "complete": false,
+    "missing_cases": [
+      "asymmetric/neural/0",
+      "asymmetric/neural/1",
+      "asymmetric/neural/2",
+      "rps/neural/0",
+      "rps/neural/1",
+      "rps/neural/2",
+      "gray-pure/neural/0",
+      "gray-pure/neural/1",
+      "gray-pure/neural/2",
+      "gray-mixed/neural/0",
+      "gray-mixed/neural/1",
+      "gray-mixed/neural/2",
+      "delayed/neural/0",
+      "delayed/neural/1",
+      "delayed/neural/2",
+      "branching/neural/0",
+      "branching/neural/1",
+      "branching/neural/2"
+    ],
+    "numeric_passed": false,
+    "status": "incomplete"
+  },
+  "neural_deployment_band": "incomplete",
+  "original_cohort_registration_verified": false,
+  "pilot_authorized": false,
+  "plan_sha256": "d56fc9e6956d240723be58b401d20aaabddaffa898ac53e031920e1113ef6086",
+  "present_cases": 1,
+  "required_cases": 36,
+  "resource_scope_verified": false,
+  "scope": "numerical fixed-cohort assessment of source-bound audited case snapshots; control outcomes remain separate; original registration/trajectory, comparator/fixture checks, 9x9 smoke and filled resource/entry decision remain required",
+  "version": "graygo/nfsp-a2-assessment/1",
+  "worst_delayed_average_gap": null
+}

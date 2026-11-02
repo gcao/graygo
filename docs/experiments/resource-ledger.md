@@ -130,3 +130,8 @@ The independent audit driver adds **32.506782 measured seconds** under its separ
 ## Matrix audit v2 historical verification settled
 
 One predeclared read-only recheck of the original full 15M-record asymmetric tabular case completed in **8.587573 measured CPU driver seconds** under its 600/660-second watchdogs. Its [receipt and settlement](matrix-audit-v2-historical-recheck-settlement.json) reproduce the old numerical grade, retain original input checksums and keep one unresolved historical greedy label explicit. This is verification overhead, not another control trial, new learner source-reuse approval, A2 cohort or accelerator/campaign price. No original training handle was restarted.
+
+
+## A2 cohort assessment integration settled
+
+The [one-case read-only integration](a2-assessment-integration-settlement.json) completed in **34.404609 measured CPU driver seconds**, including **33.573688 seconds** for a fresh audit/case snapshot of the already completed corrected table. The component interval is within its driver total, not additive. The 600/660-second watchdogs were retained, original inputs stayed unchanged, and copied current/archived reports reproduce the same numerical assessment. The report has one failed control case and 35 missing evidence slots; no training, extension, pilot or cohort is selected. Initial import/test/development/archiving overhead outside this interval remains additional.

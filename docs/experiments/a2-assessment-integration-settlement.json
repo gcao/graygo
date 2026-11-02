@@ -1,0 +1,22 @@
+{
+  "a2_complete": false,
+  "allocation": "docs/experiments/a2-assessment-integration-allocation.json",
+  "allocation_sha256": "d89d5614caabcd83fb94f7f74cf0d0f14a91cc4da7071ad71a2912a8d0743b49",
+  "case_audit_ceiling_seconds": 600,
+  "case_audit_command_seconds": 33.57368759601377,
+  "case_file_sha256": "55b2fe304b1efefade31733e3c063ced75b51d3ef5b0e85e5846d259572c92d0",
+  "current_and_archived_numerics_match": true,
+  "logical_case_sha256": "5ef622e3e61157f461be9965c05f54bae6638b9a48a46a5340ecb57ccd7a5660",
+  "measured_cpu_driver_seconds": 34.4046089000185,
+  "missing_cases": 35,
+  "new_learning_records": 0,
+  "original_driver_pid": 2525954,
+  "original_inputs_unchanged": true,
+  "outer_ceiling_seconds": 660,
+  "scope": "settles fresh read-only case audit and assessment integration overhead; case interval is within driver total; imports/test/development/archiving outside the interval remain additional",
+  "status": "verified_terminal",
+  "tool_commit": "30f8d912ac61efb5f69a80b2744b2438e89f51b0",
+  "tool_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "training_selected": false,
+  "version": 1
+}

@@ -1,0 +1,92 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "d89d5614caabcd83fb94f7f74cf0d0f14a91cc4da7071ad71a2912a8d0743b49",
+  "archived_report_sha256": "9a57cef3473c4790b4b97cd6649ed5ca0c57db8f140bf70754cf5233df449ba8",
+  "case_sha256": "55b2fe304b1efefade31733e3c063ced75b51d3ef5b0e85e5846d259572c92d0",
+  "child_pid": 2526172,
+  "commands": [
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "plan",
+        "--name",
+        "corrected-R1-cohort-evidence",
+        "--learner-source-sha",
+        "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+        "--reuse",
+        "1",
+        "--output",
+        "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91/plan.json"
+      ],
+      "name": "plan",
+      "returncode": 0,
+      "seconds": 0.16527125501306728
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "audit-case",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91/plan.json",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/tabular",
+        "--time-cap-seconds",
+        "600",
+        "--output",
+        "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91/case.json"
+      ],
+      "name": "case",
+      "returncode": 0,
+      "seconds": 33.57368759601377
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91/case.json",
+        "--output",
+        "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91/current.json"
+      ],
+      "name": "current",
+      "returncode": 0,
+      "seconds": 0.26548993994947523
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91/case.json",
+        "--archived",
+        "--output",
+        "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91/archived.json"
+      ],
+      "name": "archived",
+      "returncode": 0,
+      "seconds": 0.16627069097012281
+    }
+  ],
+  "current_archived_numerics_match": true,
+  "current_report_sha256": "9655292d66b17253dcd5a95f232888fbb0abf16142b0a7c1322c974b8be154e2",
+  "driver_sha256": "93ce1afc69b34eb9935750872c46d1f093ec10cd3b6342dea89edf5b878de419",
+  "fresh_primary_case_audit_verified": true,
+  "measured_driver_seconds": 34.4046089000185,
+  "missing_cases": 35,
+  "new_learning_records": 0,
+  "original_driver_pid": 2525954,
+  "original_inputs_unchanged": true,
+  "status": "verified",
+  "tool_commit": "30f8d912ac61efb5f69a80b2744b2438e89f51b0",
+  "tool_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "version": 1,
+  "watchdog_seconds": 660
+}

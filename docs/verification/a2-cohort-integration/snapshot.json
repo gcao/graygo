@@ -1,0 +1,14 @@
+{
+  "copied_archived_report_reproduced_read_only": true,
+  "copied_files_sha256": {
+    "archived.json": "9a57cef3473c4790b4b97cd6649ed5ca0c57db8f140bf70754cf5233df449ba8",
+    "case.json": "55b2fe304b1efefade31733e3c063ced75b51d3ef5b0e85e5846d259572c92d0",
+    "current.json": "9655292d66b17253dcd5a95f232888fbb0abf16142b0a7c1322c974b8be154e2",
+    "driver.py": "93ce1afc69b34eb9935750872c46d1f093ec10cd3b6342dea89edf5b878de419",
+    "job.json": "e3468fb428a08213f8b8ed2ef154aea1a5596a705875a97a99d30e95f30fb2cb",
+    "plan.json": "a5ed30ce4a252fea1ccea29131920fcadf1f1e8ea08440db9ca1931e23b304de"
+  },
+  "new_learning_records": 0,
+  "original_root": "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91",
+  "version": 1
+}
