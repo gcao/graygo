@@ -26,12 +26,23 @@ Objective: implement Gray Go following `docs/design.md`, including its verificat
 - Fixed A2/9×9 exploration, logical-mode label eligibility and 5M–7M episode hand-off schedules are implemented. Marginal epsilon-greedy action probabilities include exploration hitting a greedy action.
 - The formal PPO matrix preflight completed 24M aggregate records from a pinned source, with all 12 trials and reference controls. A separate weight-based audit confirms route **NFSP**. Unselected PPO bounded/delayed runs are skipped under the declared staged selection plan.
 
+## Selected NFSP backend and controls
+
+- `nfsp.py` implements expected one-step targets using online epsilon-greedy probabilities and frozen target-network values. Terminal successors do not bootstrap; continuing replay cuts do. Targets are projected to `[-1,1]`, and raw excursions are reported.
+- Q and average policy have independent encoders/optimizers. The board average policy has no unused PPO critic. Masked soft-target cross-entropy preserves frozen greedy ties.
+- Fresh Q/ordinary counters drive reuse, warm-up, supervised cadence and 12,800-record hard refresh. Actual replay insertions must match the Q clock. Target refresh follows the boundary's optimizer work and remains fixed when reuse changes.
+- `nfsp_collection.py` freezes actor parameters and epsilon per episode. Logical mode, acting policy, version, marginal behavior probability and supplemental origin are separate. Both commitments precede transition resolution. Forced coverage includes the actual root edge; its entire episode is excluded from reservoir labels.
+- Opaque 50/100/200-round controls, a forced-action indexing variant, a 40-equivalent-action stress variant and a meaningful two-round branching game are implemented. Codebooks are randomly permuted independently of semantic order, with exact manifest/digest support.
+- Exact finite Markov solving, policy/action-value evaluation and best responses are implemented for those adapters. Latent episode mixtures continue to use the complete-history evaluator.
+- Supported-coverage scheduling gives each horizon/controller equal rounds, with randomized ten-episode blocks containing eight ordinary and one episode per forced branch. Mid-block and mid-episode resume checks pass.
+- The full suite passes **100 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
+
 ## Remaining work toward the full objective
 
-1. Implement and verify the selected NFSP update/collector, true tabular NFSP controls and production-path resume. Reference exact-BR fictitious play is not a substitute for the Q-learning control.
-2. Implement opaque delayed/branching tasks, balanced supplemental coverage, target/reuse comparisons and exact per-branch value/policy gates.
+1. Build the NFSP run orchestrator, complete trainer/buffer/episode checkpoint bundles, actual tabular NFSP controls with reservoir-averaged targets, and task-specific neural adapters. The shared update/collector and direct tabular Q estimates are implemented; exact-BR fictitious play does not replace the required Q-learning control.
+2. Wire the implemented opaque/branching tasks and balanced supplemental schedule into production-path training/evaluation. Run the one-step reuse comparison and exact per-branch Q/greedy and average-policy gates before selecting any conditional Retrace work.
 3. Run the selected NFSP A2 protocol across short mixed tasks, bounded Gray Go and the delayed family with three seeds, final-five gates and fixed aggregate counters.
-4. Integrate the ninth-review development/confirmation cohorts, baseline confidence gates, opening checks and pilot safeguards.
+4. Integrate the ninth-review development/confirmation cohorts, baseline confidence gates, opening checks and pilot safeguards. Keep packed-feature storage's current overhead explicit; the design's compact rule-state/regenerated-feature backend is still pending.
 5. Profile the complete selected learner, fill its cost ledger and run only the eligible declared pilot/screening/confirmation stages.
 6. Implement protected evaluation/promotion, gray-rule/exposure comparisons, certified collision probes and required reports. Optional modeling/search remains conditional.
 

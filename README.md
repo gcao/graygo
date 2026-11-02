@@ -39,7 +39,7 @@ The optional `audit-native --library PATH` command compares reference-engine tra
 
 ## Current implementation
 
-The repository contains the immutable reference engine, full-state encoding, random/tactical baselines, policy/value/Q networks, finite-game solvers, checkpoint storage and recovery, and CLI commands. The trainer, learning gates, and scientific comparisons are tracked as remaining work; synthetic network updates are not trained-game results.
+The repository contains the immutable reference engine, full-state encoding, random/tactical baselines, policy/value/Q networks, finite-game solvers, checkpoint storage and recovery, and CLI commands. The completed PPO matrix preflight selected NFSP; its independently audited evidence is in [the preflight report](docs/verification/ppo-preflight.md). The shared NFSP update/collection backend, compact buffers and solved delayed/branching controls are implemented. The NFSP campaign driver, convergence gates and scientific comparisons remain in progress; synthetic updates are not trained-game results.
 
 ## Learning preflight
 
@@ -56,3 +56,15 @@ The repository contains the immutable reference engine, full-state encoding, ran
 The preflight first checks tabular exact-best-response fictitious-play reference results. This is separate from the later NFSP Q/replay/reservoir control. Each neural trial uses the shared PPO update code, 50/50 current/history opponents selected before commitments, and critic-only opponent buckets. In a one-step game, the stored two-role probability table is an exact frozen historical policy.
 
 Preflight runs are resumable by repeating the command with the same plan. Finished trials are checksum-verified and reused. `summary.json` selects a route only after all 12 formal trials have complete evidence; shortened diagnostics report `pending`. A passing protocol must use one deployment representation consistently across both games and all seeds. SIGINT/SIGTERM requests stop at a rollout boundary and save state.
+
+## NFSP verification
+
+The one-step backend in `nfsp.py` is shared by compact task and board models. `nfsp_collection.py` provides frozen per-episode native self-play and independently sampled simultaneous actions. `tasks.py` supplies opaque delayed/branching controls and balanced value-only coverage; `public_game.py` computes exact fixed-policy/action values and responses. Training-run orchestration and the tabular reservoir-average control remain required before formal NFSP A2 runs.
+
+```sh
+.venv/bin/python -m unittest discover -s tests -v
+# Partial storage benchmark; includes checksummed save/load, not full learner cost.
+.venv/bin/graygo profile-buffers --buffer-dir artifacts/buffers --records 10000
+```
+
+See [NFSP backend verification](docs/verification/nfsp-backend.md) for the checks and their limits.

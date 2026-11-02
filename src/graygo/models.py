@@ -86,6 +86,18 @@ class PolicyValueNet(nn.Module):
         return self.actor(self.encoder(spatial, globals), globals)
 
 
+class PolicyNet(nn.Module):
+    """Independent public-input average policy for the NFSP branch."""
+    def __init__(self, config=ModelConfig()):
+        super().__init__()
+        self.config = config
+        self.encoder = Encoder(config)
+        self.head = ActionHead(config.width)
+
+    def forward(self, spatial, globals):
+        return self.head(self.encoder(spatial, globals), globals)
+
+
 class QNet(nn.Module):
     def __init__(self, config=ModelConfig()):
         super().__init__()
