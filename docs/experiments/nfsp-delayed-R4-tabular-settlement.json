@@ -1,0 +1,20 @@
+{
+  "audit_sha256": "cbda6be8e1217991d9df1bba4cdb0f2d4a48f7b3835fea03573dc31a4d6d8684",
+  "completed_trial_seconds": 9250.354252206045,
+  "experimental_control_ceiling_seconds": 43200,
+  "frozen_plan_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+  "new_allocation_selected": false,
+  "now_completed_trials": 16,
+  "now_recorded_seconds": 19409.089618491882,
+  "prior_completed_trials": 15,
+  "prior_recorded_seconds": 10158.735366285837,
+  "purpose": "settle only completed seed-0 R4 tabular reservation",
+  "remaining_unallocated_seconds": 23790.910381508118,
+  "reserved_seconds": 18900,
+  "result_sha256": "3da6bacbfce0b6648801a2fed3b518a9f798a0498bba9071f64373f37ed58872",
+  "scope": "CPU control/profile process-wall ledger only; audits/tests/bootstrap and complete project costs remain separate",
+  "source_sha256": "ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e",
+  "training_manifest_sha256": "aead09d72d3ffb82f45e0069b7c3bc1aa008682f38e0789f0966ecb324b3ff8c",
+  "unused_reservation_seconds": 9649.645747793955,
+  "version": 1
+}

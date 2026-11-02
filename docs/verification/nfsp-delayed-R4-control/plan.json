@@ -1,0 +1,1038 @@
+{
+  "aggregate_process_time_ceiling_seconds": 37800,
+  "audit_tool_sha256": "734c82c4e1e6f66e5eae83dbfb5c6cf4b4391793132390a7557320ca70e2da75",
+  "budget_profiles": [
+    {
+      "complete_pipeline": true,
+      "device": "cpu",
+      "format_version": 1,
+      "learner": "tabular",
+      "limits": "partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast",
+      "margin": 2.0,
+      "phase_weighted_15M_seconds": 9174.978318688227,
+      "phases": [
+        "pre",
+        "post"
+      ],
+      "profile_cases": [
+        {
+          "acting_policy_counts": {
+            "average": 0,
+            "q": 50000,
+            "uniform": 0
+          },
+          "case": "tabular-R4-pre",
+          "counters": {
+            "fresh_ordinary": 40000,
+            "fresh_q": 50000,
+            "q_loss_targets": 184320,
+            "q_updates": 360,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 3
+          },
+          "coverage": {
+            "overlap_counts": [
+              [
+                [
+                  74749,
+                  57098,
+                  0
+                ],
+                [
+                  18703,
+                  13899,
+                  0
+                ]
+              ],
+              [
+                [
+                  8713,
+                  6000,
+                  0
+                ],
+                [
+                  2955,
+                  2203,
+                  0
+                ]
+              ]
+            ],
+            "overlap_sums": [
+              [
+                [
+                  [
+                    73861.57058906197,
+                    2892.481563620735,
+                    3101.2495053401217,
+                    422101589.0
+                  ],
+                  [
+                    55637.9102054742,
+                    2208.5691935226787,
+                    2252.9326511274558,
+                    1368495975.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                [
+                  [
+                    18428.205062342873,
+                    718.6579542942345,
+                    821.8794572092593,
+                    104607889.0
+                  ],
+                  [
+                    13528.177611431836,
+                    519.1397460969165,
+                    551.4464628060814,
+                    329998950.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    8600.98330121726,
+                    331.63539769873023,
+                    364.7789482458029,
+                    49413361.0
+                  ],
+                  [
+                    5798.52488318426,
+                    257.58624396706,
+                    262.7458957519848,
+                    138973271.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                [
+                  [
+                    2937.0940298652436,
+                    105.5623631651979,
+                    112.51367067359388,
+                    16017043.0
+                  ],
+                  [
+                    2168.755440726775,
+                    83.96938430890441,
+                    87.17170986160636,
+                    55389287.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ]
+              ]
+            ],
+            "root_episodes": [
+              [
+                80,
+                20
+              ],
+              [
+                64,
+                16
+              ],
+              [
+                32,
+                8
+              ],
+              [
+                32,
+                8
+              ],
+              [
+                16,
+                4
+              ],
+              [
+                16,
+                4
+              ]
+            ],
+            "sampled_start_targets": 184320,
+            "visit_records": 50000
+          },
+          "formal_protocol": false,
+          "fresh_records_per_second": 1558.2472691949592,
+          "learner": "tabular",
+          "logical_replay_bytes": 391500000,
+          "logical_reservoir_bytes": 189500000,
+          "phase": "pre",
+          "q_reuse": 4,
+          "records": 50000,
+          "replay_size": 50000,
+          "reservoir_size": 0,
+          "seconds_including_setup": 32.08733362698695,
+          "status": "complete",
+          "timings": {
+            "checkpoint": 0.7825657680514269,
+            "collection": 22.699588157469407,
+            "evaluation": 0.1129437509807758,
+            "learning": 8.204091724241152,
+            "setup": 0.09060603898251429
+          }
+        },
+        {
+          "acting_policy_counts": {
+            "average": 34800,
+            "q": 15200,
+            "uniform": 0
+          },
+          "case": "tabular-R4-post",
+          "counters": {
+            "fresh_ordinary": 40000,
+            "fresh_q": 50000,
+            "q_loss_targets": 184320,
+            "q_updates": 360,
+            "supervised_targets": 159840,
+            "supervised_updates": 62,
+            "target_refreshes": 3
+          },
+          "coverage": {
+            "overlap_counts": [
+              [
+                [
+                  74749,
+                  57098,
+                  0
+                ],
+                [
+                  18703,
+                  13899,
+                  0
+                ]
+              ],
+              [
+                [
+                  8713,
+                  6000,
+                  0
+                ],
+                [
+                  2955,
+                  2203,
+                  0
+                ]
+              ]
+            ],
+            "overlap_sums": [
+              [
+                [
+                  [
+                    73627.87639589621,
+                    2706.6986106957775,
+                    2714.3721150080673,
+                    422101589.0
+                  ],
+                  [
+                    55518.102623502695,
+                    2114.857896778034,
+                    2057.75127655128,
+                    1368495975.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                [
+                  [
+                    18370.989024507922,
+                    672.5597022657748,
+                    719.0917587117292,
+                    104607889.0
+                  ],
+                  [
+                    13495.412564720928,
+                    493.7669895752333,
+                    506.81243860628456,
+                    329998950.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    8600.994787165839,
+                    328.10800191480666,
+                    363.8192289036233,
+                    49413361.0
+                  ],
+                  [
+                    5789.99930258206,
+                    248.60120156453922,
+                    261.8318008489441,
+                    138973271.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                [
+                  [
+                    2937.096334206455,
+                    105.55856808903627,
+                    112.51052647642791,
+                    16017043.0
+                  ],
+                  [
+                    2167.6637490308212,
+                    83.06875142757781,
+                    87.17007886990905,
+                    55389287.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ]
+              ]
+            ],
+            "root_episodes": [
+              [
+                80,
+                20
+              ],
+              [
+                64,
+                16
+              ],
+              [
+                32,
+                8
+              ],
+              [
+                32,
+                8
+              ],
+              [
+                16,
+                4
+              ],
+              [
+                16,
+                4
+              ]
+            ],
+            "sampled_start_targets": 184320,
+            "visit_records": 50000
+          },
+          "formal_protocol": false,
+          "fresh_records_per_second": 1676.0961163622637,
+          "learner": "tabular",
+          "logical_replay_bytes": 391500000,
+          "logical_reservoir_bytes": 189500000,
+          "phase": "post",
+          "q_reuse": 4,
+          "records": 50000,
+          "replay_size": 50000,
+          "reservoir_size": 4350,
+          "seconds_including_setup": 29.83122477994766,
+          "status": "complete",
+          "timings": {
+            "checkpoint": 0.8023650349350646,
+            "collection": 20.29865163337672,
+            "evaluation": 0.11242724797921255,
+            "learning": 8.245573059713934,
+            "setup": 0.17613099497975782
+          }
+        }
+      ],
+      "profile_plan_sha256": "25b42d12ea264f376a886999f94f6200ecdd5fc95f47fc84ab181605ef106481",
+      "proposed_time_ceiling_seconds": 18900,
+      "q_reuse": 4,
+      "source_sha256": "ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e",
+      "target": "one-step",
+      "task": "delayed"
+    },
+    {
+      "complete_pipeline": true,
+      "device": "cpu",
+      "format_version": 1,
+      "learner": "neural",
+      "limits": "partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast",
+      "margin": 2.0,
+      "phase_weighted_15M_seconds": 9372.443350800313,
+      "phases": [
+        "pre",
+        "post"
+      ],
+      "profile_cases": [
+        {
+          "acting_policy_counts": {
+            "average": 0,
+            "q": 50000,
+            "uniform": 0
+          },
+          "case": "neural-R4-pre",
+          "counters": {
+            "fresh_ordinary": 40000,
+            "fresh_q": 50000,
+            "q_loss_targets": 184320,
+            "q_updates": 360,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 3
+          },
+          "coverage": {
+            "overlap_counts": [
+              [
+                [
+                  74749,
+                  57098,
+                  0
+                ],
+                [
+                  18703,
+                  13899,
+                  0
+                ]
+              ],
+              [
+                [
+                  8713,
+                  6000,
+                  0
+                ],
+                [
+                  2955,
+                  2203,
+                  0
+                ]
+              ]
+            ],
+            "overlap_sums": [
+              [
+                [
+                  [
+                    21032.85087693695,
+                    12808.475776761072,
+                    61164.30212028255,
+                    422101589.0
+                  ],
+                  [
+                    9028.026469043578,
+                    3579.7896455328446,
+                    46800.757001280785,
+                    1368495975.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                [
+                  [
+                    5755.672342703332,
+                    3636.1336046410725,
+                    15271.371918577002,
+                    104607889.0
+                  ],
+                  [
+                    2466.216411625746,
+                    1074.7259665590245,
+                    11339.393186393892,
+                    329998950.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    2641.462311192952,
+                    1607.2478150683455,
+                    7078.630435294239,
+                    49413361.0
+                  ],
+                  [
+                    1206.9678578784426,
+                    513.8683726512827,
+                    4819.238873267081,
+                    138973271.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                [
+                  [
+                    927.6812185440476,
+                    530.7960205257405,
+                    2352.1124535936397,
+                    16017043.0
+                  ],
+                  [
+                    360.3626633614994,
+                    119.22106681461446,
+                    1770.105933878338,
+                    55389287.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ]
+              ]
+            ],
+            "root_episodes": [
+              [
+                80,
+                20
+              ],
+              [
+                64,
+                16
+              ],
+              [
+                32,
+                8
+              ],
+              [
+                32,
+                8
+              ],
+              [
+                16,
+                4
+              ],
+              [
+                16,
+                4
+              ]
+            ],
+            "sampled_start_targets": 184320,
+            "visit_records": 50000
+          },
+          "formal_protocol": false,
+          "fresh_records_per_second": 1525.6638840217813,
+          "learner": "neural",
+          "logical_replay_bytes": 391500000,
+          "logical_reservoir_bytes": 189500000,
+          "phase": "pre",
+          "q_reuse": 4,
+          "records": 50000,
+          "replay_size": 50000,
+          "reservoir_size": 0,
+          "seconds_including_setup": 32.77261821797583,
+          "status": "complete",
+          "timings": {
+            "checkpoint": 0.7833094340167008,
+            "collection": 23.686642794171348,
+            "evaluation": 0.07917987601831555,
+            "learning": 7.936404562031385,
+            "setup": 0.09012803097721189
+          }
+        },
+        {
+          "acting_policy_counts": {
+            "average": 34800,
+            "q": 15200,
+            "uniform": 0
+          },
+          "case": "neural-R4-post",
+          "counters": {
+            "fresh_ordinary": 40000,
+            "fresh_q": 50000,
+            "q_loss_targets": 184320,
+            "q_updates": 360,
+            "supervised_targets": 31744,
+            "supervised_updates": 62,
+            "target_refreshes": 3
+          },
+          "coverage": {
+            "overlap_counts": [
+              [
+                [
+                  74749,
+                  57098,
+                  0
+                ],
+                [
+                  18703,
+                  13899,
+                  0
+                ]
+              ],
+              [
+                [
+                  8713,
+                  6000,
+                  0
+                ],
+                [
+                  2955,
+                  2203,
+                  0
+                ]
+              ]
+            ],
+            "overlap_sums": [
+              [
+                [
+                  [
+                    13863.015651294216,
+                    6343.904399485327,
+                    31527.37230640836,
+                    422101589.0
+                  ],
+                  [
+                    7369.058221512616,
+                    2002.2494315770455,
+                    28328.715960253263,
+                    1368495975.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                [
+                  [
+                    3635.957840709568,
+                    1705.7773801616859,
+                    7001.479987912346,
+                    104607889.0
+                  ],
+                  [
+                    1809.8739718103068,
+                    481.3532572130207,
+                    6002.877841579262,
+                    329998950.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    2716.5272871335756,
+                    1692.755068753846,
+                    7089.426870301366,
+                    49413361.0
+                  ],
+                  [
+                    1216.9651815907166,
+                    562.4932633701246,
+                    4866.948392449878,
+                    138973271.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ],
+                [
+                  [
+                    939.6410939333073,
+                    533.4981640903279,
+                    2345.8109152454417,
+                    16017043.0
+                  ],
+                  [
+                    332.3288779179582,
+                    92.21058424585499,
+                    1764.7046414446086,
+                    55389287.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                ]
+              ]
+            ],
+            "root_episodes": [
+              [
+                80,
+                20
+              ],
+              [
+                64,
+                16
+              ],
+              [
+                32,
+                8
+              ],
+              [
+                32,
+                8
+              ],
+              [
+                16,
+                4
+              ],
+              [
+                16,
+                4
+              ]
+            ],
+            "sampled_start_targets": 184320,
+            "visit_records": 50000
+          },
+          "formal_protocol": false,
+          "fresh_records_per_second": 1640.6402257942532,
+          "learner": "neural",
+          "logical_replay_bytes": 391500000,
+          "logical_reservoir_bytes": 189500000,
+          "phase": "post",
+          "q_reuse": 4,
+          "records": 50000,
+          "replay_size": 50000,
+          "reservoir_size": 4350,
+          "seconds_including_setup": 30.47590764501365,
+          "status": "complete",
+          "timings": {
+            "checkpoint": 0.8677290280465968,
+            "collection": 21.14141763484804,
+            "evaluation": 0.07830460998229682,
+            "learning": 8.088451488583814,
+            "setup": 0.09123202098999172
+          }
+        }
+      ],
+      "profile_plan_sha256": "25b42d12ea264f376a886999f94f6200ecdd5fc95f47fc84ab181605ef106481",
+      "proposed_time_ceiling_seconds": 18900,
+      "q_reuse": 4,
+      "source_sha256": "ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e",
+      "target": "one-step",
+      "task": "delayed"
+    }
+  ],
+  "control_allocation": {
+    "ceiling_seconds": 43200,
+    "later_cohort_rule": "all remaining seeds/tasks require a fresh ledger/cost decision; no blanket three-seed allocation",
+    "projected_maximum_seconds": 29058.735366285837,
+    "recorded_spent_seconds": 10158.735366285837,
+    "reserved_ceiling_seconds": 18900,
+    "scope": "only seed-0 R4 tabular trial reserved; no other new tabular allocation until its ledger is settled",
+    "unallocated_seconds": 14141.264633714163
+  },
+  "device_accounting": "both trials use CPU as profiled; CPU process wall times are not GPU-hours or a 9x9 campaign price",
+  "driver_sha256": "7f2ddad436ad781db239a32bff55806a50aa40bdf68d6a96ce81c4958a010072",
+  "format_version": 1,
+  "not_selected": [
+    "other seeds",
+    "Retrace",
+    "uncorrected diagnostic",
+    "marginal extension",
+    "later opening",
+    "9x9 learning or confirmation"
+  ],
+  "r1_evidence": {
+    "neural": {
+      "actual_elapsed_seconds": 7354.825361600029,
+      "audit_sha256": "338827df7a72e7be7da185467c6eebaa09bf3ea052a924d9b4f3c3f5066b658f",
+      "average_numerical_gap_band_passed": true,
+      "checkpoint_manifest_sha256": "b9b163832e5bcb68da707e33efef5ed5c6166147ebbf30e6be3bab867ba858c3",
+      "final_five_max_average_gap": 2.641001832115464e-06,
+      "final_five_max_early_error": 1.9562109605899636,
+      "final_five_max_greedy_gap": 0.0,
+      "manifest_sha256": "9f8d220b6291d2aaddc0429ca6515f5f1106df375365c5527ebc2395f80bd4b2",
+      "q_credit_passed": false,
+      "result_sha256": "48f364398a5eedafe157c0c95e871cd0464590e1658ec1a1eec43f1e5ef84616"
+    },
+    "tabular": {
+      "actual_elapsed_seconds": 7218.410642870003,
+      "audit_sha256": "06926b8a88ad00e25a260b09903dcaaa6098119491bdaae3b99063980332c3c7",
+      "average_numerical_gap_band_passed": false,
+      "checkpoint_manifest_sha256": "4193a43386db91d28332b24660045eaf14a39dd134404875dc2f03aaab4e2458",
+      "final_five_max_average_gap": 0.6318537859007833,
+      "final_five_max_early_error": 1.1583649069070816,
+      "final_five_max_greedy_gap": 0.0,
+      "manifest_sha256": "dd655c2cc133fafeddbb73fdb969638b36c79f6f11678f6731a000a7a6f5ffd3",
+      "q_credit_passed": false,
+      "result_sha256": "51442e9ca34fb17c5f832841a9eed7628a5031dbda2a1b6edd5d43e14dd11a3a"
+    }
+  },
+  "recorded_controls": {
+    "ceiling_seconds": 43200,
+    "elapsed_seconds": 10158.735366285837,
+    "excluded": "unit tests, independent audits and bootstrap overhead are not a complete development-cost total",
+    "trials": [
+      {
+        "checkpoint_manifest_sha256": "e73aaf8788f0337b4ac3f1bbf95c2ee4088e7d3eddc5a06aa67dd1f8be2f3f88",
+        "elapsed_seconds": 1338.7451892039971,
+        "manifest_sha256": "b599d5918394a3e4ae5c15328d2a0b08ebe7cbac0d743abafd248dd605db3ec6",
+        "purpose": "matrix",
+        "records": 15000000,
+        "result_sha256": "4dfd6fb0c299e21c2949fe45e700e33f997af0b00cc23cda0cbd34c94fe30516",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-asymmetric-primary-6a92132/tabular",
+        "task": "asymmetric"
+      },
+      {
+        "checkpoint_manifest_sha256": "4193a43386db91d28332b24660045eaf14a39dd134404875dc2f03aaab4e2458",
+        "elapsed_seconds": 7218.410642870003,
+        "manifest_sha256": "dd655c2cc133fafeddbb73fdb969638b36c79f6f11678f6731a000a7a6f5ffd3",
+        "purpose": "a2",
+        "records": 15000000,
+        "result_sha256": "51442e9ca34fb17c5f832841a9eed7628a5031dbda2a1b6edd5d43e14dd11a3a",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-delayed-R1-primary-9fefeee/tabular",
+        "task": "delayed"
+      },
+      {
+        "checkpoint_manifest_sha256": "23ff2f4b650ac32a75a5d601a740b7717dc1be8280d688ad7a3b55074a1fa038",
+        "elapsed_seconds": 9.386666339996736,
+        "manifest_sha256": "93d585dc588cd89f31092a1ff7e4860b1383581b0bcfabc149fca2019aee6309",
+        "purpose": "matrix",
+        "records": 100000,
+        "result_sha256": "e29f88af36682476911c83a573188fc092da38c8e9335a98040c81b88e507a41",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-matrix-profile-6a92132/post/tabular",
+        "task": "asymmetric"
+      },
+      {
+        "checkpoint_manifest_sha256": "54a49d8cd7814936a542fe0bbc33a6b63a2ed101cd81612c907f2eccc84103e9",
+        "elapsed_seconds": 8.6998783639865,
+        "manifest_sha256": "b8d45ba8a75dc093e1d75dc36b07d51a733fab889f80545e0ded805f7938461a",
+        "purpose": "matrix",
+        "records": 100000,
+        "result_sha256": "f854ddd4627cd0e6c2f0152d961eb3fabc1830ee63ed4217e4dbd1422a131ad1",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-matrix-profile-6a92132/pre/tabular",
+        "task": "asymmetric"
+      },
+      {
+        "checkpoint_manifest_sha256": "4cbdfdd7ed3d663f9cada2fa696e52fff774b0a2284688585f34a9527a940b38",
+        "elapsed_seconds": 9.305035030993167,
+        "manifest_sha256": "a1eddfbd4742e6007e54d14a29be9b286d9ff7faa54c0d37c4fbbbdc6f109b4d",
+        "purpose": "matrix",
+        "records": 100000,
+        "result_sha256": "2dc2a50bc0f7a4ab61a9bb281c4a8f6439025d45243c9ff6efca3f8fee6a6838",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-rps-primary-6a92132/profiles/post-tabular",
+        "task": "rps"
+      },
+      {
+        "checkpoint_manifest_sha256": "36f54753c22a9153f5f796f2e5caa5803781ba10d51d0e36db4787f5125c19b5",
+        "elapsed_seconds": 8.622963652946055,
+        "manifest_sha256": "9293e223a2d9587f064374af5a823e0be71de06782b889af8080dbd1aafa017b",
+        "purpose": "matrix",
+        "records": 100000,
+        "result_sha256": "9d89e5e859a9de4e6e095832a361f215c4c94656900a6cbb87c49dbb8a432198",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-rps-primary-6a92132/profiles/pre-tabular",
+        "task": "rps"
+      },
+      {
+        "checkpoint_manifest_sha256": "21882cd1dccd1ff245deb87d592ec2ddb55fa5f87e589543e8704628d2f5f498",
+        "elapsed_seconds": 1341.0014055719948,
+        "manifest_sha256": "e67c1a86a488f107ccb127d2a35c657a341e41aad252e36fb895a9bb205d79cb",
+        "purpose": "matrix",
+        "records": 15000000,
+        "result_sha256": "e9c74494717f72a62d4a0a69ae3bc565676330fddf031367328619a95901ac9f",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-rps-primary-6a92132/trials/tabular",
+        "task": "rps"
+      },
+      {
+        "checkpoint_manifest_sha256": "8e1ae63e54164fdbfe8959f5d0b707026a44f795dad803da6a1e7ca914633d8e",
+        "elapsed_seconds": 24.189032648981083,
+        "manifest_sha256": "d6fb86ab5ba45459211fd609caf334141238a2a91da920ea8cc832bb82ab50e9",
+        "purpose": "profile",
+        "records": 50000,
+        "result_sha256": "8583a3483261bcdb5ce88fc001c01f351c6b92b7cf4cd88507a026cc2791a421",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-94a3860/tabular-R1-post",
+        "task": "delayed"
+      },
+      {
+        "checkpoint_manifest_sha256": "335342c7a594430a30a4e18c11a83b9d18943e1587e76268f244ccb05becd373",
+        "elapsed_seconds": 26.27139743900625,
+        "manifest_sha256": "5926bd88a6c4bae117ea551adf1edd9dea84588197be4393887a8141b8e49c79",
+        "purpose": "profile",
+        "records": 50000,
+        "result_sha256": "32c3daf2b21ff93687f67935fe4f779c3a8da7a237b53c9c7e25f40361c4b361",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-94a3860/tabular-R1-pre",
+        "task": "delayed"
+      },
+      {
+        "checkpoint_manifest_sha256": "1a5c7ccfcf695b9e5af873d642e94fd7b50e2b9f0509a26643b66810ba5f42e5",
+        "elapsed_seconds": 29.938982944993768,
+        "manifest_sha256": "0f76a5b1688854a2826cb1579e6d1e3a86ce2217bbb9ad52f7521378120faad3",
+        "purpose": "profile",
+        "records": 50000,
+        "result_sha256": "0db98b2f910a5c66caeca266b8d1aeea26b7701fb8470620d38fbc600fa1936e",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-94a3860/tabular-R4-post",
+        "task": "delayed"
+      },
+      {
+        "checkpoint_manifest_sha256": "97471c513950ab49c6ae027f4c784a3f530905a8e6908c502c2acd70ff38272d",
+        "elapsed_seconds": 32.463548425992485,
+        "manifest_sha256": "bc482ee3278390ab27573d5b08cb3f811c171c6d85de848276ea79e80b91d1fd",
+        "purpose": "profile",
+        "records": 50000,
+        "result_sha256": "4fe346410976bad314ca3dc0a30bcb67b7957fa806d227293ceb81b3f5fdadba",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-94a3860/tabular-R4-pre",
+        "task": "delayed"
+      },
+      {
+        "checkpoint_manifest_sha256": "b1affd9d9dc1772601a47823a4d25635eaf41ec775b73e704a3dad2d46dec1be",
+        "elapsed_seconds": 23.98126772197429,
+        "manifest_sha256": "0ee6ceb861c2231280c1b675efdd3cdd31b4f74b4579e61fe3e9020b60451b76",
+        "purpose": "profile",
+        "records": 50000,
+        "result_sha256": "becf91a72903eb4ca5974bc689e8811098dd6b231d6e3ef7ef3c228f38239f2b",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-9fefeee/tabular-R1-post",
+        "task": "delayed"
+      },
+      {
+        "checkpoint_manifest_sha256": "48e97f4e3a8c927aa849b0fd277ca389d75e2a74174111e734014e080dd89a85",
+        "elapsed_seconds": 26.06753469799878,
+        "manifest_sha256": "8d5c70cabe042394caf88f653f225f34331895551335c4a67ab9fba91cb95d0e",
+        "purpose": "profile",
+        "records": 50000,
+        "result_sha256": "50fefec8c8e330c042c1ff5933f62a450d2a6bd11134e0741c0957f8703d3cc2",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-9fefeee/tabular-R1-pre",
+        "task": "delayed"
+      },
+      {
+        "checkpoint_manifest_sha256": "cf2c1df85fba6b8452faee3ddd2aaa193f0f183d83bfa1e6b8d95f83f0cdd5e3",
+        "elapsed_seconds": 29.655093784967903,
+        "manifest_sha256": "d2870a8adf09f42a5f6907b3b331674d4ec48dbf97aab954217d8f19b13a6eae",
+        "purpose": "profile",
+        "records": 50000,
+        "result_sha256": "02d8c42a0df3e29d2f7c545a65cab7848cb6736921e4d9f700f987417e00fa22",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-9fefeee/tabular-R4-post",
+        "task": "delayed"
+      },
+      {
+        "checkpoint_manifest_sha256": "d61c4bb6a24e69cdf550a284f398b2d53a6a3a1192789b08821ba263cb7c3f4e",
+        "elapsed_seconds": 31.996727588004433,
+        "manifest_sha256": "d56728545ee391ee84fa5fee44d22b5cf6b11ac08c57d537305df64e2b589fe5",
+        "purpose": "profile",
+        "records": 50000,
+        "result_sha256": "464e2bdbe1ce111c43feffca134f80197123b175c36cac73d408b62887d8b77d",
+        "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-9fefeee/tabular-R4-pre",
+        "task": "delayed"
+      }
+    ],
+    "unit": "recorded tabular control/profile process wall seconds"
+  },
+  "scope": "seed-0 paired one-step R4 delayed screen after complete independently audited R1; full objective unchanged",
+  "selection_reason": "supported delayed-credit miss",
+  "source_commit": "9fefeeea1a343fe5d36f3cb42991b78dd335b001",
+  "source_sha256": "ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e",
+  "trial_settings": [
+    {
+      "batch": 512,
+      "blocks": 8,
+      "budget_profile_sha256": "093c2f4871f484f936ba0ca69b9d592025cf10d3997c731c42f44dc138c439b2",
+      "capacity": 500000,
+      "device": "cpu",
+      "epsilon_decay": 7500000,
+      "equivalent_actions": 40,
+      "eval_batch": 128,
+      "eval_every": 500000,
+      "handoff_end": 7000000,
+      "hidden": 64,
+      "horizons": [
+        50,
+        100,
+        200
+      ],
+      "learner": "tabular",
+      "learning_rate": 0.0003,
+      "learning_start": 4096,
+      "max_grad_norm": 0.5,
+      "max_nodes": 100000,
+      "norm_groups": 8,
+      "purpose": "a2",
+      "q_reuse": 4,
+      "records": 15000000,
+      "reservoir_open": 5000000,
+      "seed": 0,
+      "target_every": 12800,
+      "task": "delayed",
+      "time_cap_seconds": 18900,
+      "uniform_comparison": false,
+      "width": 64
+    },
+    {
+      "batch": 512,
+      "blocks": 8,
+      "budget_profile_sha256": "9bf44c9e4fdd0067a1c6c9f46487d4d73d6e8ecaf4fdda8e1be43532d1493328",
+      "capacity": 500000,
+      "device": "cpu",
+      "epsilon_decay": 7500000,
+      "equivalent_actions": 40,
+      "eval_batch": 128,
+      "eval_every": 500000,
+      "handoff_end": 7000000,
+      "hidden": 64,
+      "horizons": [
+        50,
+        100,
+        200
+      ],
+      "learner": "neural",
+      "learning_rate": 0.0003,
+      "learning_start": 4096,
+      "max_grad_norm": 0.5,
+      "max_nodes": 100000,
+      "norm_groups": 8,
+      "purpose": "a2",
+      "q_reuse": 4,
+      "records": 15000000,
+      "reservoir_open": 5000000,
+      "seed": 0,
+      "target_every": 12800,
+      "task": "delayed",
+      "time_cap_seconds": 18900,
+      "uniform_comparison": false,
+      "width": 64
+    }
+  ]
+}

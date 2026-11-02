@@ -12,6 +12,7 @@ These are completed sequential **CPU process wall times**, not accelerator-hours
 | RPS NFSP first screen (both completed cases) | 2782.993 | 0.77305 |
 | Delayed R1 first screen (completed tabular case) | 7218.411 | 2.00511 |
 | Delayed R1 first screen (completed neural case) | 7354.825 | 2.04301 |
+| Delayed R4 first screen (completed tabular case) | 9250.354 | 2.56954 |
 
 The historical delayed cost is retained even though its source cannot fund the corrected evaluator. The corrected cost report enters C1 and the separate tabular-control ceiling; C4 remains conditional. RPS is complete and independently audited. The delayed tabular case completed the full 15M records and reports a gate miss; its independent task audit now confirms the grade. Its matching neural case is also complete and independently audited; its average numerical gap passes, while supported credit misses. R1 delayed first-screen trial settings are bound to the measured budget hashes before launch. H_P, H_D, H_N, CE and the full-study envelope remain unfilled until their applicable selection/profiling steps. CPU terminal/opaque-task costs never substitute for 9×9 accelerator measurements.
 
@@ -32,7 +33,7 @@ The generated catalog has 32 geometric pairs but one complete-game strategic cla
 
 ## First R4 delayed allocation
 
-The frozen plan in `nfsp-delayed-R4-primary-plan.json` inventories fifteen completed tabular control/profile leaf runs by manifest/result/final-checkpoint hashes. Their 10,158.735 process-wall seconds include unused historical profiles. The single first-screen R4 tabular case reserves 18,900 seconds, for 29,058.735 seconds total (8.07187 hours) within the twelve-hour experimental-control ceiling. No remaining cohort is silently funded. Both R4 cases use CPU; the neural case has its own 18,900-second matched-profile ceiling. GPU/campaign prices are not inferred from these numbers.
+The frozen plan in `nfsp-delayed-R4-primary-plan.json` inventories fifteen completed tabular control/profile leaf runs by manifest/result/final-checkpoint hashes. Their 10,158.735 process-wall seconds include unused historical profiles. At launch, the single first-screen R4 tabular case reserved 18,900 seconds, for 29,058.735 seconds total (8.07187 hours) within the twelve-hour experimental-control ceiling. No remaining cohort is silently funded. Both R4 cases use CPU; the neural case has its own 18,900-second matched-profile ceiling. GPU/campaign prices are not inferred from these numbers.
 
 
 ## Scientific-evaluator integration diagnostic
@@ -52,3 +53,10 @@ The [frozen evidence](../verification/board-milestone-diagnostic/README.md) uses
 The clean `0b15b8c` integration driver completed four actual CLI invocations across two 16,384-record full-model CUDA trajectories in **61.154 process-wall seconds**, or **0.01699 hours of a GPU-equipped process**. The persisted clocks charge 26.021 seconds uninterrupted and 32.286 seconds across the three resumed sessions, with zero recovery-gap charge. These clocks are a breakdown within the driver total. The driver measurement includes command startup/reporting outside the component clocks; its own initial import/setup, independent saved-artifact audit, tests and development are additional overhead.
 
 This is allocated process time, not measured kernel-active GPU time. The [frozen native/CUDA evidence](../verification/board-execution-diagnostic/README.md) uses Q reuse four, full capacity declarations but partial live buffers, untrained game lengths and reduced diagnostic opening/hand-off clocks. It does not price H_P/H_D/H_N or select a development/confirmation campaign. No direct timing comparison isolates Q reuse across the differently configured historical diagnostics.
+
+
+## R4 completed control settlement and broader probe feasibility
+
+The original seed-0 R4 tabular trial is complete at 15M records and independently audited. Its measured **9,250.354 CPU process-wall seconds** replace the 18,900-second launch reservation. The [sealed settlement](nfsp-delayed-R4-tabular-settlement.json) binds the original plan, run/result/audit hashes and releases the unused 9,649.646 seconds. Sixteen recorded tabular control/profile leaf trials now total **19,409.090 seconds (5.39141 hours)**, leaving **23,790.910 seconds** unallocated within the twelve-hour experimental-control ceiling. Tests, audits and bootstrap remain additional overhead. No remaining cohort or new target trial is selected by this settlement; the already funded neural R4 case continues separately.
+
+The candidate-independent multigroup probe feasibility run completed 9,382 proposals in **180.021 CPU process-wall seconds** under a 180-second between-attempt ceiling. Its eleven prototype classes are preliminary construction evidence, with source/script and original artifacts retained in [probe-diversity-feasibility](../verification/probe-diversity-feasibility/README.md). The small production-constructor check added 3.230 seconds for its fixed 200-attempt prefix. Actual trace recertification, tests and independent audits are additional overhead not comprehensively summed here. These costs belong to probe construction, not the tabular-control ceiling or accelerator campaign pricing.
