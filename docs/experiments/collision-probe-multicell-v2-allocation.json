@@ -1,0 +1,31 @@
+{
+  "accounting": "new construction/verification ceilings; prior measured construction/audit costs and additional development/test/setup overhead remain separately recorded, not a complete project-cost total",
+  "attempt_cap": 200000,
+  "candidate_policy_used": false,
+  "construction_time_ceiling_seconds": 1800,
+  "controlled_changed_cells": 2,
+  "design_cpu_probe_ceiling_seconds": 28800,
+  "directions": {
+    "decrease": 16,
+    "increase": 16
+  },
+  "frozen_worktree": "/home/gcao/proj/graygo/.worktrees/probes-multicell-05ff21d",
+  "generator": "graygo/reachable-multigroup-collision-probes/2",
+  "individual_value_gap": "1/20",
+  "maximum_complete_legal_actions": 6,
+  "minimum_range_separation": "1/10",
+  "previous_completed_allocation_settlement_sha256": "b0de69451385f00ebffe2da81940dd0b1055c1cd28ca2495370f2e51121a5fd5",
+  "purpose": "separately selected controlled two-point probe construction",
+  "required_collision_shift": "1/20",
+  "run_dir": "/home/gcao/proj/graygo/runs/collision-probe-multicell-05ff21d",
+  "scientific_conclusion_selected": false,
+  "scope": "one fresh immutable search; no extension/restart of the stopped original; stop at full 32-class coverage or cap; retain incomplete proofs; no weakened criteria or automatic campaign",
+  "seed": 974215,
+  "selection_reason": "original independently reproduced one-point run ended at 24/32; a second controlled point expands exact group/liberty/score interactions and adds complete-game classes in the fixed 500-proposal development prefix",
+  "source_commit": "05ff21d",
+  "source_sha256": "d23aa0aaab9df622094b134e7a9a2ce3ad6abf81b28bad610736b7cc0e36226d",
+  "target_distinct_complete_game_classes": 32,
+  "training_selected": false,
+  "verification_time_ceiling_seconds": 3600,
+  "version": 1
+}
