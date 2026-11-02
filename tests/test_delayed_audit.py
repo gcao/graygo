@@ -37,6 +37,9 @@ class DelayedAuditTests(unittest.TestCase):
                 before={p.relative_to(directory):digest(p) for p in Path(directory).rglob('*') if p.is_file()}
                 result=AUDIT(directory,require_formal=False)
                 self.assertTrue(result['verified']);self.assertEqual(result['records'],320)
+                self.assertEqual(result['eligibility_version'],2)
+                self.assertEqual(result['q_eligible_records']+result['excluded_passive_root_records'],320)
+                self.assertGreater(result['excluded_passive_root_records'],0)
                 self.assertFalse(result['formal_protocol']);self.assertFalse(result['formal_case_passed'])
                 after={p.relative_to(directory):digest(p) for p in Path(directory).rglob('*') if p.is_file()}
                 self.assertEqual(before,after)
@@ -55,5 +58,13 @@ class DelayedAuditTests(unittest.TestCase):
             def change(state):state['rng']['action_black']['state']['state']+=1
             self.reseal(directory,change)
             with self.assertRaisesRegex(ValueError,'private draw count'):AUDIT(directory,require_formal=False)
+
+    def test_validly_sealed_wrong_eligible_clock_is_independently_detected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            self.fixture(directory)
+            def change(state):state['backend']['counters']['fresh_q']+=1
+            self.reseal(directory,change)
+            with self.assertRaisesRegex(ValueError,'eligible Q budget accounting'):
+                AUDIT(directory,require_formal=False)
 
 if __name__=='__main__':unittest.main()

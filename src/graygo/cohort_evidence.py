@@ -60,7 +60,7 @@ def _archive(root,manifest,runtime,journal,record):
         raise ValueError('milestone archive source/origin/clock differs')
     counters=NFSPCadence(**meta['counters']);counters.validate()
     expected=max(0,record//runtime.batch-runtime.learning_start//runtime.batch+1)*runtime.q_reuse
-    if (counters.fresh_q!=record or counters.fresh_ordinary!=record or counters.q_updates!=expected
+    if (counters.fresh_records!=record or counters.fresh_q!=record or counters.fresh_ordinary!=record or counters.q_updates!=expected
             or counters.q_loss_targets!=expected*runtime.batch or counters.target_refreshes!=record//runtime.target_every
             or counters.supervised_targets!=counters.supervised_updates*runtime.batch
             or counters.supervised_updates>record//runtime.batch

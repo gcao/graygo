@@ -140,7 +140,7 @@ class NFSPMatrixTrainer:
             finally:fcntl.flock(lock,fcntl.LOCK_UN)
 
     @property
-    def records(self):return self.backend.counters.fresh_q
+    def records(self):return self.backend.counters.fresh_records
 
     @torch.no_grad()
     def _tables(self):

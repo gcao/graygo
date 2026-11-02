@@ -255,3 +255,8 @@ The version-two probe constructor (`build-probes --generator multicell`) explore
 
 
 The complete [32-family version-two benchmark](docs/verification/probe-multicell-v2-construction/benchmark.json) is now frozen and independently source-seed reproduced. It contains 64 distinct reachable roots with exact full-action certificates and balanced collision directions. Local canonical copy: `artifacts/collision-benchmark-v2.json`. Structural coverage is complete; [audit scope](docs/verification/probe-multicell-v2-audit/README.md) remains separate from learned-policy and controlled-performance claims.
+
+
+## Supplemental value eligibility
+
+Supplemental coverage retains the forcing role's conditional root-action target and both normal suffixes, while excluding the other role's opponent-intervened root target. Every collected own-side record still counts toward the aggregate allocation, epsilon and 5M/7M schedule. Only value-eligible records drive Q reuse and target refresh; replay and losses enforce that mask. Complete-round checkpoints preserve both clocks, per-role eligibility and exact private-RNG continuation. See [the causal correction and evidence scope](docs/verification/nfsp-q-eligibility.md).

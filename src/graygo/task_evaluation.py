@@ -32,7 +32,7 @@ def predict(adapter,backend,epsilon,batch_size=128):
 def native_opponent_weights(adapter,backend):
     """One component is selected once per episode; weights follow the live ramp."""
     schedule=adapter.config.schedule();eta=schedule.best_response_probability
-    average=(1-eta)*schedule.ramp(backend.counters.fresh_q) if backend.average_ready else 0.
+    average=(1-eta)*schedule.ramp(backend.counters.fresh_records) if backend.average_ready else 0.
     fallback=1-eta-average
     return np.array([eta if adapter.config.uniform_comparison else eta+fallback,average,
                      fallback if adapter.config.uniform_comparison else 0.])

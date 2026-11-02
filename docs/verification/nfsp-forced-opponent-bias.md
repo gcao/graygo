@@ -41,3 +41,8 @@ Reproduce with the original package on `PYTHONPATH` and a fresh output path:
 ```sh
 PYTHONPATH=/home/gcao/proj/graygo/.worktrees/nfsp-tasks-9fefeee/src .venv/bin/python tools/diagnose_forced_opponent.py runs/forced-opponent-diagnostic-repeat
 ```
+
+
+## Correction status
+
+The [shared correction](nfsp-q-eligibility.md) is now implemented: passive pre-forcing targets are masked, Q sampling/losses enforce eligibility, aggregate and eligible freshness are separate, and task updates respect exact eligible boundaries after both commitments are fixed. The stationary regression no longer pushes exact native Q away from its correct value. Exact CPU/CUDA odd-clock continuation and independent corrected-run audits pass. Original diagnostic artifacts/source are unchanged. Full corrected convergence and matched resource pricing remain unproven; no new long training or target variant is selected by this implementation status.

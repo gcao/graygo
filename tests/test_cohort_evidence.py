@@ -45,7 +45,7 @@ class CohortFixture:
         initial=directory/'weights'/'000000000000';seal=store.verify(initial);meta=deepcopy(seal['metadata'])
         reuse=self.journals[seed].runtime.config.q_reuse
         updates=max(0,record//512-8+1)*reuse;sl=int(record>5000000)
-        meta['counters']=asdict(NFSPCadence(fresh_q=record,fresh_ordinary=record,q_updates=updates,q_loss_targets=updates*512,
+        meta['counters']=asdict(NFSPCadence(fresh_records=record,fresh_q=record,fresh_ordinary=record,q_updates=updates,q_loss_targets=updates*512,
                              supervised_updates=sl,supervised_targets=sl*512,target_refreshes=record//12800))
         path=directory/'weights'/f'{record:012d}'
         if not path.exists():store.save(record,lambda p:os.link(initial/'models.pt',p/'models.pt'),kind='weights',metadata=meta,
@@ -174,7 +174,7 @@ class CohortEvidenceTests(unittest.TestCase):
                 for opponent in OPPONENTS:
                     fixture.scores(100,record,'greedy_q',opponent)
                     paths[record,opponent]=fixture.cohort.location(100,record,'greedy_q',opponent)
-            runtime.backend.counters=NFSPCadence(fresh_q=5000000,fresh_ordinary=5000000,
+            runtime.backend.counters=NFSPCadence(fresh_records=5000000,fresh_q=5000000,fresh_ordinary=5000000,
                 q_updates=5000000//512-8+1,q_loss_targets=(5000000//512-8+1)*512,target_refreshes=5000000//12800)
             before={str(path):hashes(path) for path in paths.values()};state=torch.get_rng_state().clone()
             original=journal._write_decision

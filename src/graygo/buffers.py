@@ -129,6 +129,7 @@ class ReplayBuffer:
         self.arrays=_allocate(capacity,layout,max_bytes)
         self.arrays["next_index"].fill(-1)
         self.size=self.cursor=self.insertions=0
+        self.q_insertions=0;self.q_size=0
         self._tails={}
 
     @property
@@ -149,11 +150,13 @@ class ReplayBuffer:
             raise ValueError("bounded reward and positive behavior probability required")
         if np.float32(behavior_prob)<=0:raise ValueError("behavior probability underflows float32 storage")
         if self.insertions>=2**64-1:raise OverflowError("replay ordinal exhausted")
+        if self.q_insertions is None:raise ValueError("legacy replay has unknown historical Q eligibility; use its original source for continuation")
         packed=self.spec.pack(observation);following=self.spec.pack(next_observation)
         if not observation.legal[action]:raise ValueError("replay source action was illegal")
         if bool(next_observation.legal.any())==bool(terminated):
             raise ValueError("next observation terminal mask disagrees with done")
         a=self.arrays;index=self.cursor
+        overwritten_q=int(a['value_mask'][index]) if self.size==self.capacity else 0
         previous=self._tails.get(stream)
         link=False
         if previous is not None and previous[0]!=index:
@@ -177,19 +180,30 @@ class ReplayBuffer:
         if terminated:self._tails.pop(stream,None)
         else:self._tails[stream]=(index,self.insertions)
         self.insertions+=1;self.size=min(self.size+1,self.capacity);self.cursor=self.insertions%self.capacity
+        self.q_insertions+=int(value_mask);self.q_size+=int(value_mask)-overwritten_q
         return index
 
     def sample(self,count,rng):
         data=self.sample_sequences(count,1,rng)
         return {name:array[:,0] for name,array in data.items()}
 
-    def sample_sequences(self,count,length,rng):
+    def sample_q(self,count,rng):
+        data=self.sample_sequences(count,1,rng,q_only=True)
+        return {name:array[:,0] for name,array in data.items()}
+
+    def sample_sequences(self,count,length,rng,*,q_only=False):
         if type(count) is not int or count<1 or type(length) is not int or length<1 or not self.size:
             raise ValueError("positive sample dimensions and nonempty replay required")
+        if type(q_only) is not bool:raise ValueError('explicit Q-start eligibility flag required')
         indices=np.full((count,length),-1,dtype=np.int64)
         valid=np.zeros((count,length),dtype=bool)
-        starts=rng.integers(0,self.size,count)
         a=self.arrays
+        if q_only and self.q_size!=self.size:
+            eligible=np.flatnonzero(a['value_mask'][:self.size])
+            if len(eligible)!=self.q_size:raise ValueError('live replay Q eligibility count differs')
+            if not len(eligible):raise ValueError('no Q-eligible replay starts')
+            starts=eligible[rng.integers(0,len(eligible),count)]
+        else:starts=rng.integers(0,self.size,count)
         for row,start in enumerate(starts):
             index=int(start)
             for col in range(length):
@@ -197,6 +211,7 @@ class ReplayBuffer:
                 if a["terminated"][index]:break
                 following=int(a["next_index"][index])
                 if following<0 or int(a["ordinal"][following])!=int(a["next_ordinal"][index]):break
+                if q_only and not a['value_mask'][following]:break
                 index=following
         safe=np.maximum(indices,0)
         data={name:array[safe].copy() for name,array in a.items() if name not in ("next_index","next_ordinal")}
@@ -210,7 +225,8 @@ class ReplayBuffer:
 
     def save(self,path):
         _save(path,{"format_version":FORMAT_VERSION,"kind":"replay","capacity":self.capacity,
-                    "spec":spec_metadata(self.spec),"size":self.size,"cursor":self.cursor,"insertions":self.insertions},self.arrays,self.size)
+                    "spec":spec_metadata(self.spec),"size":self.size,"cursor":self.cursor,"insertions":self.insertions,
+                    "eligibility_version":2,"q_insertions":self.q_insertions,"q_size":self.q_size},self.arrays,self.size)
 
     @classmethod
     def load(cls,path,*,max_bytes=DEFAULT_MAX_BYTES):
@@ -224,6 +240,16 @@ class ReplayBuffer:
         _restore_arrays(result.arrays,arrays,size)
         result.size,result.insertions,result.cursor=size,insertions,meta["cursor"]
         a=result.arrays
+        result.q_size=int(np.count_nonzero(a['value_mask'][:size]))
+        if 'eligibility_version' in meta:
+            if meta['eligibility_version']!=2 or meta['q_size']!=result.q_size:raise ValueError('replay eligibility version/live count differs')
+            result.q_insertions=None if meta['q_insertions'] is None else _integer(meta['q_insertions'],'historical Q insertions',maximum=insertions)
+            if result.q_insertions is not None and not result.q_size<=result.q_insertions<=result.q_size+insertions-size:
+                raise ValueError('historical/live replay Q eligibility differs')
+        else:
+            # Before wrap, the complete mask history remains available. After
+            # wrap it cannot be inferred from retained records alone.
+            result.q_insertions=result.q_size if insertions==size else None
         if size and set(map(int,a["ordinal"][:size]))!=set(range(insertions-size,insertions)):
             raise ValueError("invalid live replay generations")
         if size:

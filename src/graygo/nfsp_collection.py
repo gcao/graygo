@@ -122,7 +122,7 @@ class JointEpisode:
         if black.rng is white.rng:raise ValueError('players require independent private action RNG streams')
         self.log=[]
 
-    def step(self,replay,reservoir,reservoir_rng,schedule,*,record,opening_enabled=True,on_reservoir_change=None,label_rule='greedy',precommitted=None):
+    def step(self,replay,reservoir,reservoir_rng,schedule,*,record,opening_enabled=True,on_reservoir_change=None,label_rule='greedy',precommitted=None,on_record=None):
         if self.game.terminal(self.state):raise ValueError('episode is complete')
         if label_rule not in ('greedy','executed'):raise ValueError('invalid averaging-label control')
         if type(record) is not int or record<0:raise ValueError('nonnegative aggregate record clock required')
@@ -148,11 +148,14 @@ class JointEpisode:
         if not np.isfinite(reward) or not -1<=reward<=1:raise ValueError('invalid terminal utility')
         for index,role in enumerate((BLACK,WHITE)):
             own,other=commitments[role],commitments[3-role]
+            # Forcing our action gives a conditional Q(s,a) sample. Forcing the
+            # opponent changes our transition kernel at the pre-forcing root.
+            q_eligible=not (self.steps==0 and self.forced_root is not None and self.forced_root[0]!=role)
             next_observation=self.game.observation(next_state,role)
             replay.add(observations[role],own.action,reward if role==BLACK else -reward,next_observation,done,
                        behavior_prob=own.probability,stream=2*self.episode_id+index,step=self.steps,
                        opponent_version=other.policy_version,policy_version=own.policy_version,mode=int(own.logical_best_response),
-                       actor_mask=not self.supplemental,value_mask=True,supplemental=self.supplemental)
+                       actor_mask=not self.supplemental,value_mask=q_eligible,supplemental=self.supplemental)
             if own.greedy is not None:
                 label=own.greedy
                 if label_rule=='executed':
@@ -161,13 +164,14 @@ class JointEpisode:
                                 rng=reservoir_rng,best_response_mode=own.logical_best_response,
                                 supplemental=self.supplemental,enabled=opening_enabled)
                 if changed is not None and on_reservoir_change is not None:on_reservoir_change(reservoir,changed)
+            if on_record is not None:on_record(role=role,record=record+index,ordinary=int(not self.supplemental),q_eligible=int(q_eligible))
         event={'step':self.steps,'record':record,'actions':[commitments[r].action for r in (BLACK,WHITE)],
                'probabilities':[commitments[r].probability for r in (BLACK,WHITE)],
                'modes':[commitments[r].logical_best_response for r in (BLACK,WHITE)],
                'acting_policies':[commitments[r].acting_policy for r in (BLACK,WHITE)],
                'versions':[commitments[r].policy_version for r in (BLACK,WHITE)],
                'epsilons':[commitments[r].epsilon for r in (BLACK,WHITE)],
-               'supplemental':self.supplemental,'terminated':done,'reward_black':reward}
+               'supplemental':self.supplemental,'q_eligible':[not (self.steps==0 and self.forced_root is not None and self.forced_root[0]!=role) for role in (BLACK,WHITE)],'terminated':done,'reward_black':reward}
         self.state=next_state;self.steps+=1;self.log.append(event)
         return event
 

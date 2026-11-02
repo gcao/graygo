@@ -82,7 +82,7 @@ class TaskTrainerTests(unittest.TestCase):
     def test_delayed_credit_is_separate_from_weak_average_opponent(self):
         config=replace(self.config(),horizons=(3,),equivalent_actions=3)
         adapter=TaskAdapter(config);q,average=adapter.models();backend=NFSPBackend(q,average,config.backend_config())
-        backend.counters.fresh_q=8;backend.counters.supervised_updates=1
+        backend.counters.fresh_records=backend.counters.fresh_q=8;backend.counters.supervised_updates=1
         epsilon=.05;native_good=.1*(1-epsilon/2)+.9*.5
         with torch.no_grad():
             for state in adapter.states:
@@ -136,9 +136,11 @@ class TaskTrainerTests(unittest.TestCase):
         config=replace(self.config(records=120),horizons=(3,),eval_every=24,q_reuse=4)
         with tempfile.TemporaryDirectory() as d:
             trainer=NFSPTaskTrainer(config,d,reserve_bytes=0);result=trainer.run(verbose=False)
-            self.assertEqual(result['completed_episodes'],20);self.assertEqual(result['counters']['fresh_q'],120)
-            self.assertEqual(result['counters']['fresh_ordinary'],96);self.assertEqual(result['counters']['target_refreshes'],15)
+            self.assertEqual(result['completed_episodes'],20);self.assertEqual(result['counters']['fresh_records'],120)
+            self.assertEqual(result['counters']['fresh_q'],116);self.assertEqual(result['excluded_q_records'],4)
+            self.assertEqual(result['counters']['fresh_ordinary'],96);self.assertEqual(result['counters']['target_refreshes'],14)
             self.assertEqual(result['per_role_records'],[60,60]);self.assertEqual(int(trainer.metrics['visits'][...,1].sum()),24)
+            self.assertEqual(result['per_role_q_records'],[58,58])
             self.assertGreater(int(trainer.metrics['replay_starts'][...,1].sum()),0)
             self.assertEqual(int(trainer.metrics['replay_starts'].sum()),result['counters']['q_loss_targets'])
             self.assertEqual(int(trainer.metrics['overlap_counts'].sum()),result['counters']['q_loss_targets'])
@@ -163,10 +165,9 @@ class TaskTrainerTests(unittest.TestCase):
         from graygo.nfsp import OneStepBatch
         config=replace(self.config(),horizons=(3,),equivalent_actions=2)
         with tempfile.TemporaryDirectory() as d:
-            t=NFSPTaskTrainer(config,d,reserve_bytes=0);ordinary=t.collect_round()
-            t.backend.counters.advance(2,ordinary,t.backend.config)
+            t=NFSPTaskTrainer(config,d,reserve_bytes=0);t.collect_round()
             controller=t.active.state.controller
-            data=t.replay.sample(32,np.random.default_rng(2))
+            data=t.replay.sample_q(32,np.random.default_rng(2))
             selected=(data['stream']%2)==controller-1
             data={key:value[selected] for key,value in data.items()}
             batch=OneStepBatch.from_replay(data,t.device)

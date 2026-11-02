@@ -147,7 +147,9 @@ def audit(root, *, require_formal=True, budget_profile=None):
     adapter = TaskAdapter(config); require(manifest['adapter'] == json.loads(json.dumps(adapter.manifest())), 'opaque state/codebook/oracle inventory differs')
     store = CheckpointStore(root); bundle = store.latest(); seal = store.verify(bundle)
     state = torch.load(bundle / 'trainer.pt', weights_only=True, map_location='cpu'); counts = state['backend']['counters']; n = config.records
-    require(seal['step'] == counts['fresh_q'] == n and state['config'] == config.plan(), 'trial is incomplete or configuration differs')
+    corrected=manifest.get('eligibility_version',1)==2
+    require(seal['step'] == counts.get('fresh_records',counts['fresh_q']) == n and state['config'] == config.plan(), 'trial is incomplete or configuration differs')
+    require(corrected==(state['backend'].get('clock_version',1)==2),'eligibility/clock schema differs')
     require(seal['metadata']['source_sha256'] == source_digest(), 'sealed source differs')
     audit_state = state['episode_audit']; path = root / 'episodes.bin'
     require(path.stat().st_size == audit_state['bytes'] == state['episodes'] * HEADER_DTYPE.itemsize, 'completed episode inventory differs')
@@ -156,9 +158,16 @@ def audit(root, *, require_formal=True, budget_profile=None):
     require(schema['itemsize'] == HEADER_DTYPE.itemsize and schema['dtype'] == json.loads(json.dumps(HEADER_DTYPE.descr)), 'episode header schema differs')
     completed = np.memmap(path, dtype=HEADER_DTYPE, mode='r', shape=(state['episodes'],)) if state['episodes'] else np.empty(0, dtype=HEADER_DTYPE)
     headers = np.concatenate((completed, partial_header(state['active']))) if state['active'] else completed
+    excluded_ordinals=np.sort(np.array([int(row['start_record'])+2-int(row['forced_role']) for row in headers
+                                       if corrected and row['supplemental'] and int(row['steps'])>0],dtype=np.int64))
+    def q_at(record):return record-int(np.searchsorted(excluded_ordinals,record,side='left'))
+    q_total=q_at(n)
+    require(counts['fresh_q']==q_total,'eligible Q budget accounting differs')
     replay = ReplayBuffer.load(bundle / 'replay.npz'); reservoir = ReservoirBuffer.load(bundle / 'reservoir.npz')
     require(replay.spec == reservoir.spec == adapter.spec and replay.capacity == reservoir.capacity == config.capacity, 'buffer schema/capacity differs')
     require(replay.insertions == n and replay.size == min(n, config.capacity) and reservoir.opening_record == config.reservoir_open, 'buffer insertion/opening clocks differ')
+    if corrected:
+        require(replay.q_insertions==q_total and replay.q_size==int(replay.arrays['value_mask'][:replay.size].sum()),'replay Q eligibility history/live count differs')
     expected_records = np.full(config.capacity, -1, dtype=np.int64); expected_versions = np.zeros(config.capacity, dtype=np.uint64)
     rng = {name: np.random.default_rng(config.seed + offset) for name, offset in
            (('mode_black', 101), ('mode_white', 102), ('reservoir', 105), ('q_replay', 106), ('supervised', 107))}
@@ -180,7 +189,7 @@ def audit(root, *, require_formal=True, budget_profile=None):
             require(row['reward_black'] == (1 if entry.forced_root == 0 else -1) * (1 if entry.controller == 1 else -1), 'forced root does not produce its terminal outcome')
         ready = bool(supervised_events)
         require(bool(row['average_ready']) == ready, 'average readiness differs from first publication')
-        require(int(row['generation']) == q_updates(start, config) + len(supervised_events), 'frozen snapshot generation differs')
+        require(int(row['generation']) == q_updates(q_at(start), config) + len(supervised_events), 'frozen snapshot generation differs')
         ramp = min(1., max(0., (start - config.reservoir_open) / (config.handoff_end - config.reservoir_open)))
         eps = .01 + .09 * max(0., 1 - start / config.epsilon_decay)
         for role, name in enumerate(('mode_black', 'mode_white')):
@@ -218,10 +227,18 @@ def audit(root, *, require_formal=True, budget_profile=None):
     require(state['completed_rounds'] == sum(int(row['steps']) for row in completed) and state['per_role'] == [n // 2] * 2, 'completed/per-role round counts differ')
     require(coverage.state_dict() == state['coverage'], 'coverage continuation state differs')
     require(mode_visits.tolist() == state['best_response_visits'] and acting_counts.tolist() == [state['acting_counts'][k] for k in ('q', 'average', 'uniform')], 'record-weighted episode mode metrics differ')
-    require(counts['q_updates'] == q_updates(n, config) and counts['q_loss_targets'] == counts['q_updates'] * config.batch and counts['target_refreshes'] == n // config.target_every, 'Q/reuse/refresh accounting differs')
+    require(counts['q_updates'] == q_updates(q_total, config) and counts['q_loss_targets'] == counts['q_updates'] * config.batch and counts['target_refreshes'] == q_total // config.target_every, 'Q/reuse/refresh accounting differs')
+    if corrected:require(state['per_role_q']==[n//2-int(forced_counts[1]),n//2-int(forced_counts[0])],'per-role Q exclusions differ')
     require(counts['supervised_updates'] == len(supervised_events) and counts['supervised_targets'] == supervised_targets, 'ordinary publication/target accounting differs')
-    for boundary in range(config.learning_start, n + 1, config.batch):
-        for _ in range(config.q_reuse):rng['q_replay'].integers(0, min(boundary, config.capacity), config.batch)
+    excluded_before=0
+    for boundary in range(config.learning_start, q_total + 1, config.batch):
+        aggregate=boundary+excluded_before
+        while excluded_before<len(excluded_ordinals) and excluded_ordinals[excluded_before]<aggregate:
+            excluded_before+=1;aggregate+=1
+        low=max(0,aggregate-config.capacity)
+        invalid_live=int(np.searchsorted(excluded_ordinals,aggregate)-np.searchsorted(excluded_ordinals,low))
+        eligible_live=min(aggregate,config.capacity)-invalid_live
+        for _ in range(config.q_reuse):rng['q_replay'].integers(0, eligible_live, config.batch)
     for name, generator in rng.items():require(generator.bit_generator.state == state['rng'][name], name + ' continuation RNG differs')
     for role, name in enumerate(('action_black', 'action_white')):
         generator = np.random.default_rng(config.seed + 103 + role)
@@ -235,6 +252,8 @@ def audit(root, *, require_formal=True, budget_profile=None):
     np.testing.assert_array_equal(reservoir.arrays['policy_version'][:reservoir.size], expected_versions[:reservoir.size])
     with np.load(bundle / 'metrics.npz', allow_pickle=False) as metrics:
         require(int(metrics['visits'].sum()) == n and int(metrics['visits'][..., 0].sum()) == ordinary, 'visit/origin totals differ')
+        if corrected:
+            require(int(metrics['q_eligible_visits'].sum())==q_total and metrics['q_eligible_visits'].sum(axis=(0,2,3)).tolist()==state['per_role_q'],'Q-eligible visit/role totals differ')
         require(int(metrics['replay_starts'].sum()) == int(metrics['overlap_counts'].sum()) == counts['q_loss_targets'], 'sample/overlap target totals differ')
         np.testing.assert_array_equal(metrics['root_episodes'], root_episodes)
     # Decode retained records in bounded chunks, independent of the task evaluator.
@@ -273,7 +292,10 @@ def audit(root, *, require_formal=True, budget_profile=None):
         np.testing.assert_array_equal(a['opponent_version'][selection], 2 * rows['generation'] + (rows['acting'][local, 1 - role] == 1))
         np.testing.assert_array_equal(a['supplemental'][selection], rows['supplemental'])
         np.testing.assert_array_equal(a['actor_mask'][selection], ~rows['supplemental'])
-        require(a['value_mask'][selection].all() and legal[local, a['action'][selection]].all(), 'retained action/value eligibility differs')
+        controllers = root_controllers[rows['root']]
+        expected_value=~(rows['supplemental'] & (depths==0) & (role+1!=controllers)) if corrected else np.ones(len(records),dtype=bool)
+        np.testing.assert_array_equal(a['value_mask'][selection],expected_value)
+        require(legal[local, a['action'][selection]].all(), 'retained action/value eligibility differs')
         terminal = np.array([int(depth) + 1 == adapter.roots[int(row['root'])].horizon for row, depth in zip(rows, depths)])
         np.testing.assert_array_equal(a['terminated'][selection], terminal)
         expected_reward = np.where(terminal, rows['reward_black'] * np.where(role == 0, 1, -1), 0).astype(np.float32)
@@ -355,6 +377,11 @@ def audit(root, *, require_formal=True, budget_profile=None):
         ready = bool(np.searchsorted(event_records, step, side='right'))
         require(evaluation['average_ready'] == ready, 'evaluation average availability differs')
         epsilon = .01 + .09 * max(0., 1 - step / config.epsilon_decay)
+        if corrected:
+            clock=evaluation['counters'];eligible=q_at(step)
+            require(clock['fresh_records']==step and clock['fresh_q']==eligible and clock['q_updates']==q_updates(eligible,config)
+                    and clock['q_loss_targets']==clock['q_updates']*config.batch and clock['target_refreshes']==eligible//config.target_every,
+                    'scheduled evaluation aggregate/eligible/update/refresh clock differs')
         close(evaluation['epsilon'], epsilon, 'evaluation epsilon differs', atol=0)
         q, avg, target, greedy = predict(adapter, weights, config, epsilon)
         oracle = analytical_roots(adapter, q, avg, target, greedy, step, ready)
@@ -370,6 +397,7 @@ def audit(root, *, require_formal=True, budget_profile=None):
     require(result['status'] == 'complete' and result['records'] == n and result['formal_case_passed'] == passed and result['q_credit_passed'] == credit and result['average_readiness'] == band, 'reported completed-run decisions differ')
     close([result['final_five_max_average_gap'], result['final_five_max_greedy_gap'], result['final_five_max_early_error']], [average_gap, greedy_gap, error], 'reported final-five maxima differ')
     return {'format_version': 1, 'verified': True, 'task': config.task, 'learner': config.learner, 'seed': config.seed, 'records': n,
+        'eligibility_version':2 if corrected else 1,'q_eligible_records':q_total,'excluded_passive_root_records':n-q_total,
         'source_sha256': source_digest(), 'auditor_sha256': digest(Path(__file__)), 'training_manifest_sha256': digest(root / 'run.json'), 'checkpoint_manifest_sha256': digest(bundle / 'manifest.json'),
         'episode_audit_sha256': digest(path), 'physical_complete_games': len(completed), 'active_episode_steps': 0 if not state['active'] else state['active']['episode']['steps'],
         'eligible_labels': seen, 'accepted_reservoir_changes': changes, 'ordinary_records': ordinary, 'q_updates': counts['q_updates'],

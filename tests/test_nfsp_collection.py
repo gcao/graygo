@@ -95,7 +95,9 @@ class CollectionTests(unittest.TestCase):
         while not game.terminal(episode.state):episode.step(replay,reservoir,rng,schedule,record=2*episode.steps)
         self.assertEqual(episode.log[0]['actions'][0],1);self.assertEqual(episode.log[0]['probabilities'][0],1.)
         self.assertEqual(reservoir.seen,0);self.assertTrue(replay.arrays['supplemental'][:6].all())
-        self.assertFalse(replay.arrays['actor_mask'][:6].any());self.assertTrue(replay.arrays['value_mask'][:6].all())
+        self.assertFalse(replay.arrays['actor_mask'][:6].any())
+        np.testing.assert_array_equal(replay.arrays['value_mask'][:6],[True,False,True,True,True,True])
+        self.assertEqual((replay.insertions,replay.q_insertions,replay.q_size),(6,5,5))
         sequence=replay.sample_sequences(64,4,rng)
         for row in range(64):
             count=int(sequence['valid'][row].sum())

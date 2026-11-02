@@ -90,7 +90,7 @@ class BoardNFSPRuntime:
         self.timings={'collection':0.,'learning':0.,'checkpoint':0.};self.loss={'q_updates':0,'q_loss_sum':0.,'supervised_updates':0,'supervised_loss_sum':0.,'projected_targets':0}
 
     @property
-    def records(self):return self.backend.counters.fresh_q
+    def records(self):return self.backend.counters.fresh_records
     def _snapshot(self):
         version=self.backend.counters.q_updates+self.backend.counters.supervised_updates
         if self.snapshot is None or self.snapshot.version!=version:self.snapshot=FrozenPolicies(self.backend.q,self.backend.average,version=version,average_ready=self.backend.average_ready)
@@ -108,7 +108,7 @@ class BoardNFSPRuntime:
         self.timings['learning']+=time.perf_counter()-start
         for q in stats['q']:self.loss['q_updates']+=1;self.loss['q_loss_sum']+=q['loss'];self.loss['projected_targets']+=q['projected_targets']
         if stats['supervised'] is not None:self.loss['supervised_updates']+=1;self.loss['supervised_loss_sum']+=stats['supervised']['loss']
-        if self.collector.records!=self.records or self.replay.insertions!=self.records:raise ValueError('board collector/fresh clocks disagree')
+        if self.collector.records!=self.records or self.replay.insertions!=self.records or self.replay.q_insertions!=self.backend.counters.fresh_q:raise ValueError('board collector/fresh clocks disagree')
         return stats
 
     def run_profile(self,until_records,*,time_cap_seconds,stop_requested=lambda:False):
@@ -155,7 +155,7 @@ class BoardNFSPRuntime:
         self.backend.load_state_dict(state['backend']);self.replay=ReplayBuffer.load(Path(path)/'replay.npz');self.reservoir=ReservoirBuffer.load(Path(path)/'reservoir.npz')
         if self.replay.spec!=self.spec or self.reservoir.spec!=self.spec or self.replay.capacity!=self.config.capacity or self.reservoir.capacity!=self.config.capacity or self.reservoir.opening_record!=self.config.reservoir_open:raise ValueError('runtime buffer identity differs')
         self.collector.load_state_dict(state['collector'],self.backend.q,self.backend.average)
-        if self.collector.records!=self.records or self.replay.insertions!=self.records or meta['step']!=self.records:raise ValueError('runtime record accounting differs')
+        if self.collector.records!=self.records or self.replay.insertions!=self.records or self.replay.q_insertions!=self.backend.counters.fresh_q or meta['step']!=self.records:raise ValueError('runtime record accounting differs')
         for k,v in state['rng'].items():self.rng[k].bit_generator.state=v
         self.timings=state['timings'];self.loss=state['loss'];self.snapshot=None
         torch.set_rng_state(state['torch_rng'].cpu())

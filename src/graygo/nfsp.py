@@ -48,6 +48,10 @@ class OneStepBatch:
     @classmethod
     def from_replay(cls,data,device):
         def tensor(name,dtype):return torch.as_tensor(data[name],device=device,dtype=dtype)
+        if 'value_mask' not in data:raise ValueError('replay Q eligibility is required')
+        eligible=torch.as_tensor(data['value_mask'],device=device)
+        if eligible.dtype!=torch.bool or eligible.shape!=(len(data['action']),) or not bool(eligible.all()):
+            raise ValueError('ineligible replay start cannot enter a Q loss')
         return cls({'spatial':tensor('spatial',torch.float32),'globals':tensor('globals',torch.float32)},
                    tensor('legal',torch.bool),tensor('action',torch.long),tensor('reward',torch.float32),
                    {'spatial':tensor('next_spatial',torch.float32),'globals':tensor('next_globals',torch.float32)},
@@ -144,6 +148,7 @@ def update_average(policy,optimizer,data,*,device,max_grad_norm=.5):
 
 @dataclass
 class NFSPCadence:
+    fresh_records: int=0
     fresh_q: int=0
     fresh_ordinary: int=0
     q_updates: int=0
@@ -153,25 +158,28 @@ class NFSPCadence:
     target_refreshes: int=0
 
     def validate(self):
-        if any(type(v) is not int or v<0 for v in asdict(self).values()) or self.fresh_ordinary>self.fresh_q:
+        if any(type(v) is not int or v<0 for v in asdict(self).values()) or not self.fresh_ordinary<=self.fresh_q<=self.fresh_records:
             raise ValueError('invalid NFSP counters')
 
     def until_q_boundary(self,config):return config.batch-self.fresh_q%config.batch
 
-    def advance(self,count,ordinary,config):
+    def advance(self,count,ordinary,config,*,q_eligible=None):
         """Call once per chronological chunk, never crossing an update boundary.
 
 Returning a supervised cadence event with an empty reservoir does not create
 backlogged updates. Target refresh occurs after the boundary's Q optimizer work.
 """
         self.validate()
-        if type(count) is not int or type(ordinary) is not int or not 0<=ordinary<=count or not 1<=count<=self.until_q_boundary(config) or ordinary>config.batch-self.fresh_ordinary%config.batch:
+        q_eligible=count if q_eligible is None else q_eligible
+        if (type(count) is not int or type(ordinary) is not int or type(q_eligible) is not int
+                or count<1 or not 0<=ordinary<=q_eligible<=count or q_eligible>self.until_q_boundary(config)
+                or ordinary>config.batch-self.fresh_ordinary%config.batch):
             raise ValueError('fresh chunks must stop at each Q cadence boundary')
         old_ordinary=self.fresh_ordinary
-        self.fresh_q+=count;self.fresh_ordinary+=ordinary
-        q_due=self.fresh_q%config.batch==0 and self.fresh_q>=config.learning_start
+        self.fresh_records+=count;self.fresh_q+=q_eligible;self.fresh_ordinary+=ordinary
+        q_due=q_eligible>0 and self.fresh_q%config.batch==0 and self.fresh_q>=config.learning_start
         sl_due=self.fresh_ordinary//config.batch>old_ordinary//config.batch
-        refresh=self.fresh_q%config.target_every==0
+        refresh=q_eligible>0 and self.fresh_q%config.target_every==0
         return q_due,sl_due,refresh
 
 
@@ -191,18 +199,21 @@ class NFSPBackend:
     @property
     def average_ready(self):return self.counters.supervised_updates>0
 
-    def learn_after_fresh(self,count,ordinary,replay,reservoir,rng,*,epsilon,supervised_rng=None,sample_observer=None,q_observer=None,q_transform=None,supervised_transform=None):
+    def learn_after_fresh(self,count,ordinary,replay,reservoir,rng,*,epsilon,q_eligible=None,supervised_rng=None,sample_observer=None,q_observer=None,q_transform=None,supervised_transform=None):
         if replay.spec!=reservoir.spec:raise ValueError('replay and reservoir schemas differ')
         # Validate available samples before advancing a recoverable clock.
-        if replay.insertions!=self.counters.fresh_q+count:
-            raise ValueError('fresh Q records must match actual replay insertions exactly')
-        if replay.size<min(self.config.learning_start,self.counters.fresh_q+count):
-            raise ValueError('replay does not contain the newly collected records')
-        q_due,sl_due,refresh=self.counters.advance(count,ordinary,self.config)
+        q_eligible=count if q_eligible is None else q_eligible
+        if replay.insertions!=self.counters.fresh_records+count:
+            raise ValueError('aggregate fresh records must match actual replay insertions exactly')
+        if replay.q_insertions!=self.counters.fresh_q+q_eligible:
+            raise ValueError('fresh Q-eligible records must match actual replay eligibility exactly')
+        if replay.size!=min(replay.insertions,replay.capacity) or not 0<=replay.q_size<=min(replay.size,replay.q_insertions):
+            raise ValueError('live replay/eligibility counts disagree')
+        q_due,sl_due,refresh=self.counters.advance(count,ordinary,self.config,q_eligible=q_eligible)
         report={'q':[],'supervised':None,'target_refreshed':False}
         if q_due:
             for _ in range(self.config.q_reuse):
-                data=replay.sample(self.config.batch,rng)
+                data=replay.sample_q(self.config.batch,rng)
                 if q_transform is not None:data=q_transform(data)
                 if sample_observer is not None:sample_observer(data)
                 batch=OneStepBatch.from_replay(data,self.device)
@@ -224,11 +235,12 @@ class NFSPBackend:
         return report
 
     def state_dict(self):
-        return {'config':asdict(self.config),'q':self.q.state_dict(),'target':self.target.state_dict(),
+        return {'clock_version':2,'config':asdict(self.config),'q':self.q.state_dict(),'target':self.target.state_dict(),
                 'average':self.average.state_dict(),'q_optimizer':self.q_optimizer.state_dict(),
                 'average_optimizer':None if self.average_optimizer is None else self.average_optimizer.state_dict(),'counters':asdict(self.counters)}
 
     def load_state_dict(self,state):
+        if state.get('clock_version')!=2:raise ValueError('NFSP clock/eligibility version differs; use the original source for historical continuation')
         if state['config']!=asdict(self.config):raise ValueError('NFSP resume settings differ')
         counters=NFSPCadence(**state['counters']);counters.validate()
         if counters.q_loss_targets!=counters.q_updates*self.config.batch or (not self.exact_average and counters.supervised_targets!=counters.supervised_updates*self.config.batch) or counters.supervised_targets<counters.supervised_updates*self.config.batch:

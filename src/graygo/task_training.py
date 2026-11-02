@@ -121,11 +121,11 @@ class NFSPTaskTrainer:
         self.coverage=BalancedCoverage(config.horizons if self.adapter.delayed else (2,),seed=config.seed+108) if not self.adapter.board else None
         self.active=None;self.active_root=None;self.active_start=None;self.cached=None
         self.episodes=self.completed_rounds=0;self.next_eval=config.eval_every;self.evaluations=[];self.last_saved=-1
-        self.per_role=[0,0];self.best_response_visits=[0,0];self.acting_counts={'q':0,'average':0,'uniform':0}
+        self.per_role=[0,0];self.per_role_q=[0,0];self.best_response_visits=[0,0];self.acting_counts={'q':0,'average':0,'uniform':0}
         self.termination_counts={'horizon':0,'mutual_pass':0,'round_limit':0};self.outcomes=[0,0,0]
         self.elapsed=0.;self._started=None;self.timings={k:0. for k in ('setup','collection','learning','evaluation','checkpoint')}
         shape=(len(self.adapter.states),2,self.adapter.actions,2)
-        self.metrics={'visits':np.zeros(shape,dtype=np.uint64),'replay_starts':np.zeros(shape,dtype=np.uint64),
+        self.metrics={'visits':np.zeros(shape,dtype=np.uint64),'q_eligible_visits':np.zeros(shape,dtype=np.uint64),'replay_starts':np.zeros(shape,dtype=np.uint64),
             'overlap_counts':np.zeros((2,2,3),dtype=np.uint64),'overlap_sums':np.zeros((2,2,3,4),dtype=np.float64),
             'root_episodes':np.zeros((len(self.adapter.roots),2),dtype=np.uint64)}
         self.loss={'q_updates':0,'q_loss_sum':0.,'supervised_updates':0,'supervised_loss_sum':0.,'projected_targets':0,'raw_min':None,'raw_max':None}
@@ -144,6 +144,8 @@ class NFSPTaskTrainer:
                     'encoding_version':self.adapter.spec.version,'rules':None if not self.adapter.board else self.adapter.roots[0].to_dict()['rules'],
                     'rule_version':None if not self.adapter.board else self.adapter.roots[0].to_dict()['rule_version'],'baseline_version':None,
                     'shared_parameters_across_roles':True,'counter_unit':'two own-side fresh records per simultaneous round; supplemental records included',
+                    'eligibility_version':2,'q_eligibility':'exclude only the passive pre-forcing root; keep own forced action and normal suffixes',
+                    'record_clocks':'aggregate fresh records drive budget/epsilon/opening/ramp; eligible Q records drive Q reuse and target refresh',
                     'backend_settings':asdict(config.backend_config()),'schedule':asdict(self.schedule),
                     'model':{'q_class':type(self.backend.q).__name__,'average_class':type(self.backend.average).__name__,'public_inputs_only':True},
                     'q_optimizer':{'class':'Adam','defaults':dict(self.backend.q_optimizer.defaults)},
@@ -170,7 +172,7 @@ class NFSPTaskTrainer:
             finally:fcntl.flock(file,fcntl.LOCK_UN)
 
     @property
-    def records(self):return self.backend.counters.fresh_q
+    def records(self):return self.backend.counters.fresh_records
     def elapsed_now(self):return self.elapsed+(time.monotonic()-self._started if self._started is not None else 0.)
 
     def _start_episode(self):
@@ -201,15 +203,33 @@ class NFSPTaskTrainer:
         self.active=None;self.active_root=self.active_start=None
 
     def collect_round(self):
+        started=time.monotonic();learning=0.
         if self.active is None:self._start_episode()
         episode=self.active;state=episode.state;index=self.adapter.index[state]
         callback=self.backend.average.observe_reservoir_change if self.backend.exact_average else None
-        event=episode.step(self.replay,self.reservoir,self.rng['reservoir'],self.schedule,record=self.records,on_reservoir_change=callback)
+        def learned_record(*,role,record,ordinary,q_eligible):
+            nonlocal learning
+            if self.records!=record:raise ValueError('chronological own-side record callback differs from aggregate clock')
+            at=time.monotonic()
+            stats=self.backend.learn_after_fresh(1,ordinary,self.replay,self.reservoir,self.rng['q_replay'],
+                epsilon=self.schedule.epsilon(record+1),q_eligible=q_eligible,supervised_rng=self.rng['supervised'],q_observer=self._observe_q)
+            learning+=time.monotonic()-at;self.per_role_q[role-1]+=q_eligible
+            for q in stats['q']:
+                self.loss['q_updates']+=1;self.loss['q_loss_sum']+=q['loss'];self.loss['projected_targets']+=q['projected_targets']
+                self.loss['raw_min']=q['raw_target_min'] if self.loss['raw_min'] is None else min(self.loss['raw_min'],q['raw_target_min'])
+                self.loss['raw_max']=q['raw_target_max'] if self.loss['raw_max'] is None else max(self.loss['raw_max'],q['raw_target_max'])
+            if stats['supervised'] is not None:
+                self.loss['supervised_updates']+=1
+                if stats['supervised']['loss'] is not None:self.loss['supervised_loss_sum']+=stats['supervised']['loss']
+        event=episode.step(self.replay,self.reservoir,self.rng['reservoir'],self.schedule,record=self.records,
+                           on_reservoir_change=callback,on_record=learned_record)
         for role in range(2):
             self.metrics['visits'][index,role,event['actions'][role],int(episode.supplemental)]+=1
+            self.metrics['q_eligible_visits'][index,role,event['actions'][role],int(episode.supplemental)]+=int(event['q_eligible'][role])
             self.per_role[role]+=1;self.best_response_visits[role]+=int(event['modes'][role]);self.acting_counts[event['acting_policies'][role]]+=1
         ordinary=0 if episode.supplemental else 2
         if event['terminated']:self._finish_episode(event)
+        self.timings['learning']+=learning;self.timings['collection']+=max(0.,time.monotonic()-started-learning)
         return ordinary
 
     @torch.no_grad()
@@ -233,7 +253,8 @@ class NFSPTaskTrainer:
         return result
 
     def coverage_summary(self):
-        return {'visit_records':int(self.metrics['visits'].sum()),'sampled_start_targets':int(self.metrics['replay_starts'].sum()),
+        return {'visit_records':int(self.metrics['visits'].sum()),'q_eligible_records':int(self.metrics['q_eligible_visits'].sum()),
+                'excluded_q_records':self.records-self.backend.counters.fresh_q,'sampled_start_targets':int(self.metrics['replay_starts'].sum()),
             'root_episodes':self.metrics['root_episodes'].tolist(),'overlap_counts':self.metrics['overlap_counts'].tolist(),
             'overlap_sums':self.metrics['overlap_sums'].tolist()}
 
@@ -242,14 +263,17 @@ class NFSPTaskTrainer:
         if self.active is not None:
             active={'episode':self.active.state_dict(self.adapter.encode_state),'snapshot':self.active.actors[BLACK].snapshot.state_dict(),
                     'root_index':self.active_root,'start_record':self.active_start}
-        return {'format_version':1,'task_schema':ADAPTER_VERSION,'config':self.config.plan(),'backend':self.backend.state_dict(),
+        return {'format_version':2,'task_schema':ADAPTER_VERSION,'config':self.config.plan(),'backend':self.backend.state_dict(),
             'active':active,'episodes':self.episodes,'completed_rounds':self.completed_rounds,'next_eval':self.next_eval,'evaluations':self.evaluations,
-            'per_role':self.per_role,'best_response_visits':self.best_response_visits,'acting_counts':self.acting_counts,
+            'per_role':self.per_role,'per_role_q':self.per_role_q,'best_response_visits':self.best_response_visits,'acting_counts':self.acting_counts,
             'termination_counts':self.termination_counts,'outcomes':self.outcomes,'elapsed':self.elapsed_now(),'timings':self.timings,'loss':self.loss,
             'coverage':None if self.coverage is None else self.coverage.state_dict(),'rng':{k:v.bit_generator.state for k,v in self.rng.items()},
             'torch_rng':torch.get_rng_state(),'cuda_rng':torch.cuda.get_rng_state_all() if self.device.type=='cuda' else [],'episode_audit':self.audit.prefix(self.episodes)}
 
     def save(self,*,weights=False):
+        if (self.records%2 or self.per_role!=[self.records//2]*2 or self.replay.insertions!=self.records
+                or self.replay.q_insertions!=self.backend.counters.fresh_q or sum(self.per_role_q)!=self.backend.counters.fresh_q):
+            raise ValueError('only a complete jointly committed round may become durable')
         start=time.monotonic()
         if weights:
             destination=self.root/'weights'/f'{self.records:012d}'
@@ -273,11 +297,11 @@ class NFSPTaskTrainer:
     def _restore(self):
         path=self.store.latest();meta=self.store.verify(path)
         if meta['metadata']['source_sha256']!=self.manifest['source_sha256']:raise ValueError('checkpoint source differs')
-        state=torch.load(path/'trainer.pt',weights_only=True,map_location=self.device)
-        if state['format_version']!=1 or state['task_schema']!=ADAPTER_VERSION or state['config']!=self.config.plan():raise ValueError('checkpoint plan/schema differs')
+        state=torch.load(path/'trainer.pt',weights_only=True,map_location='cpu')
+        if state['format_version']!=2 or state['task_schema']!=ADAPTER_VERSION or state['config']!=self.config.plan():raise ValueError('checkpoint plan/schema differs')
         self.backend.load_state_dict(state['backend']);self.replay=ReplayBuffer.load(path/'replay.npz');self.reservoir=ReservoirBuffer.load(path/'reservoir.npz')
         if self.replay.spec!=self.adapter.spec or self.reservoir.spec!=self.adapter.spec or self.replay.capacity!=self.config.capacity or self.reservoir.capacity!=self.config.capacity or self.reservoir.opening_record!=self.config.reservoir_open:raise ValueError('buffer checkpoint plan differs')
-        for name in ('episodes','completed_rounds','next_eval','evaluations','per_role','best_response_visits','acting_counts','termination_counts','outcomes','timings','elapsed','loss'):setattr(self,name,state[name])
+        for name in ('episodes','completed_rounds','next_eval','evaluations','per_role','per_role_q','best_response_visits','acting_counts','termination_counts','outcomes','timings','elapsed','loss'):setattr(self,name,state[name])
         with np.load(path/'metrics.npz',allow_pickle=False) as data:
             if set(data.files)!=set(self.metrics):raise ValueError('metrics inventory differs')
             for name,expected in self.metrics.items():
@@ -298,6 +322,16 @@ class NFSPTaskTrainer:
         if self.records!=2*(self.completed_rounds+active_steps) or self.replay.insertions!=self.records or meta['step']!=self.records or self.per_role!=[self.records//2]*2 or sum(self.acting_counts.values())!=self.records:raise ValueError('resume record accounting differs')
         if int(self.metrics['visits'].sum())!=self.records or int(self.metrics['replay_starts'].sum())!=self.backend.counters.q_loss_targets or int(self.metrics['overlap_counts'].sum())!=self.backend.counters.q_loss_targets:raise ValueError('metrics/fresh/start counts differ')
         if int(self.metrics['visits'][...,0].sum())!=self.backend.counters.fresh_ordinary or int(self.metrics['root_episodes'].sum())!=self.episodes+(self.active is not None):raise ValueError('coverage counters differ')
+        if (self.replay.q_insertions!=self.backend.counters.fresh_q or int(self.metrics['q_eligible_visits'].sum())!=self.backend.counters.fresh_q
+                or self.metrics['q_eligible_visits'].sum(axis=(0,2,3)).tolist()!=self.per_role_q):
+            raise ValueError('Q eligibility/role/visit/replay counters differ')
+        excluded=[0,0]
+        if self.coverage is not None:
+            for root_index,root in enumerate(self.adapter.roots):
+                count=int(self.metrics['root_episodes'][root_index,1])
+                if self.active is not None and self.active_root==root_index and self.active.supplemental and not self.active.steps:count-=1
+                excluded[2-root.controller]+=count
+        if self.per_role_q!=[total-missing for total,missing in zip(self.per_role,excluded)]:raise ValueError('per-role intervention exclusion differs')
         self.audit.restore_prefix(state['episode_audit'])
         if state['episode_audit']['episodes']!=self.episodes:raise ValueError('episode audit count differs')
         torch.set_rng_state(state['torch_rng'].cpu())
@@ -321,6 +355,7 @@ class NFSPTaskTrainer:
         if self.config.task=='branching':passed=passed and credit
         return {'status':status,'task':self.config.task,'learner':self.config.learner,'seed':self.config.seed,'records':self.records,
             'completed_episodes':self.episodes,'active_episode_steps':0 if self.active is None else self.active.steps,'per_role_records':self.per_role,
+            'per_role_q_records':self.per_role_q,'excluded_q_records':self.records-self.backend.counters.fresh_q,
             'best_response_visits':self.best_response_visits,'acting_policy_counts':self.acting_counts,'termination_counts':self.termination_counts,'outcomes':self.outcomes,
             'counters':asdict(self.backend.counters),'reservoir_seen':self.reservoir.seen,'reservoir_size':self.reservoir.size,
             'coverage':self.coverage_summary(),'evaluations':self.evaluations,'final_five_max_average_gap':avg,'final_five_max_greedy_gap':qgap,
@@ -339,16 +374,7 @@ class NFSPTaskTrainer:
                     requested=stop_requested()
                     if requested:status=requested if isinstance(requested,str) else 'interrupted';break
                     if self.elapsed_now()>=self.config.time_cap_seconds:status='budget_limited';break
-                    self.store.ensure_space();start=time.monotonic();ordinary=self.collect_round();self.timings['collection']+=time.monotonic()-start
-                    start=time.monotonic();stats=self.backend.learn_after_fresh(2,ordinary,self.replay,self.reservoir,self.rng['q_replay'],epsilon=self.schedule.epsilon(self.records+2),supervised_rng=self.rng['supervised'],q_observer=self._observe_q)
-                    self.timings['learning']+=time.monotonic()-start
-                    for q in stats['q']:
-                        self.loss['q_updates']+=1;self.loss['q_loss_sum']+=q['loss'];self.loss['projected_targets']+=q['projected_targets']
-                        self.loss['raw_min']=q['raw_target_min'] if self.loss['raw_min'] is None else min(self.loss['raw_min'],q['raw_target_min'])
-                        self.loss['raw_max']=q['raw_target_max'] if self.loss['raw_max'] is None else max(self.loss['raw_max'],q['raw_target_max'])
-                    if stats['supervised'] is not None:
-                        self.loss['supervised_updates']+=1
-                        if stats['supervised']['loss'] is not None:self.loss['supervised_loss_sum']+=stats['supervised']['loss']
+                    self.store.ensure_space();self.collect_round()
                     if self.records==self.next_eval or self.records==self.config.records:
                         if self.records==self.next_eval:self.next_eval+=self.config.eval_every
                         evaluation=self.evaluate();self.save(weights=True)
