@@ -147,7 +147,10 @@ class BoardNFSPRuntime:
     def restore(self,path):
         meta=CheckpointStore.verify(path)
         if meta['metadata']['source_sha256']!=source_digest() or meta['metadata']['native_schema']!=self.spec.to_dict():raise ValueError('runtime source/decoder identity changed')
-        state=torch.load(Path(path)/'runtime.pt',weights_only=True,map_location=self.backend.device)
+        # Load storage on CPU, then let each model/optimizer restore its own
+        # device layout. Mapping the entire bundle to CUDA moves Adam's CPU
+        # step counters and changes the otherwise identical runtime state.
+        state=torch.load(Path(path)/'runtime.pt',weights_only=True,map_location='cpu')
         if state['version']!=RUNTIME_VERSION or state['config']!=self.config.plan() or state['settings']!=self.settings:raise ValueError('runtime resume configuration/settings differ')
         self.backend.load_state_dict(state['backend']);self.replay=ReplayBuffer.load(Path(path)/'replay.npz');self.reservoir=ReservoirBuffer.load(Path(path)/'reservoir.npz')
         if self.replay.spec!=self.spec or self.reservoir.spec!=self.spec or self.replay.capacity!=self.config.capacity or self.reservoir.capacity!=self.config.capacity or self.reservoir.opening_record!=self.config.reservoir_open:raise ValueError('runtime buffer identity differs')

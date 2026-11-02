@@ -132,6 +132,36 @@ def profile_board(args):
                      stop_requested=_signal_flag())
 
 
+def run_board_diagnostic(args,*,prior_setup_seconds=0.):
+    started=time.monotonic()
+    from .board_execution import BoardExecutor,BoardExecutionPlan
+    from .board_journal import BoardJournalPlan
+    from .board_runtime import BoardRuntimeConfig
+    if _rules(args)!=Rules():raise ValueError('board execution diagnostic uses official 9x9/200-round gray rules')
+    if type(args.records) is not int or args.records<2 or args.records%2 or args.records>65536:
+        raise ValueError('execution diagnostic has an even total horizon at most 65536 records')
+    if args.until_records is not None and (args.until_records<0 or args.until_records%2 or args.until_records>args.records):
+        raise ValueError('paired operational endpoint within the unchanged diagnostic horizon required')
+    config=BoardRuntimeConfig(seed=args.seed,envs=args.envs,device=args.device,q_reuse=args.q_reuse,
+        native_library=args.native_library,reservoir_open=args.reservoir_open,handoff_end=args.handoff_end)
+    points=tuple(sorted({0,args.records,*[n for n in (4096,args.reservoir_open,args.handoff_end) if n<=args.records]}))
+    journal=BoardJournalPlan('diagnostic',args.records,points,args.evaluation_seed)
+    execution=BoardExecutionPlan(args.time_cap_hours*3600,args.checkpoint_every,args.heartbeat_seconds)
+    stopped=_signal_flag()
+    with BoardExecutor(args.run_dir,config,journal,execution,resume=args.resume,
+            prior_setup_seconds=prior_setup_seconds+time.monotonic()-started) as run:
+        until=args.records if args.until_records is None else args.until_records
+        boundary=min(until,args.reservoir_open) if args.opening_decision and run.runtime.records<=args.reservoir_open else until
+        result=run.run(boundary,stop_requested=stopped)
+        if (args.opening_decision and run.runtime.records==args.reservoir_open
+                and result['status'] in ('opening_pending','checkpoint_boundary')):
+            run.journal.diagnostic_opening(args.opening_decision)
+            result=run.run(until,stop_requested=stopped)
+    # Include the final, durably closed session clock in the command receipt.
+    result.update(run.report(result['status']))
+    return result
+
+
 def generate_exposure(args):
     import fcntl
     from .curriculum import create_catalog,ExposureCatalog
@@ -360,9 +390,10 @@ def calibrate_promotion(args):
 
 
 def main(argv=None):
+    command_started=time.monotonic()
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board","generate-exposure","build-probes","verify-probes","science-evaluate","science-report"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board","run-board-diagnostic","generate-exposure","build-probes","verify-probes","science-evaluate","science-report"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
@@ -426,6 +457,15 @@ def main(argv=None):
         elif name=="generate-exposure":
             p.add_argument("--catalog",required=True);p.add_argument("--train-families",type=int,default=64)
             p.add_argument("--heldout-families",type=int,default=32);p.add_argument("--max-attempts",type=int,default=100000)
+        elif name=="run-board-diagnostic":
+            p.add_argument("--run-dir",required=True);p.add_argument("--records",type=int,default=16384)
+            p.add_argument("--until-records",type=int);p.add_argument("--time-cap-hours",type=float,required=True)
+            p.add_argument("--device",default="cpu");p.add_argument("--envs",type=int,default=16)
+            p.add_argument("--q-reuse",type=int,choices=(1,4),default=1);p.add_argument("--native-library")
+            p.add_argument("--reservoir-open",type=int,default=8192);p.add_argument("--handoff-end",type=int,default=12288)
+            p.add_argument("--evaluation-seed",type=int,default=41);p.add_argument("--checkpoint-every",type=int,default=4096)
+            p.add_argument("--heartbeat-seconds",type=float,default=30.)
+            p.add_argument("--opening-decision",choices=("pass","no_go"));p.add_argument("--resume",action="store_true")
         elif name=="profile-board":
             p.add_argument("--run-dir",required=True);p.add_argument("--records",type=int,default=16384)
             p.add_argument("--time-cap-hours",type=float,required=True);p.add_argument("--device",default="cpu")
@@ -478,7 +518,9 @@ def main(argv=None):
             metadata.update({"rule_version":None,"baseline_version":None,"encoding_version":"graygo/matrix-role/1"})
             if args.command=="preflight":metadata.update({"seed":None,"seeds":[0,1,2]})
             if args.command=="train-nfsp":metadata["encoding_version"]="graygo/nfsp-matrix-role/1"
-        result=globals()[args.command.replace("-","_")](args)
+        if args.command=="run-board-diagnostic":
+            result=run_board_diagnostic(args,prior_setup_seconds=time.monotonic()-command_started)
+        else:result=globals()[args.command.replace("-","_")](args)
         if args.command=="solve":metadata["rules"]=result["state"]["rules"]
         if args.command=="train-nfsp-task":
             actual=json.loads((Path(args.run_dir)/"run.json").read_text())

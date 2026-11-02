@@ -212,3 +212,15 @@ Call `capture_if_due()` and `before_advance(count)` before collecting a chunk. A
 ```
 
 The check compares uninterrupted and resumed 16,384-record trajectories, including a crash after the opening decision but before another full checkpoint. Public weight loading preserves training CPU/CUDA RNGs. All declared weights remain permanent; completed runs retain one verified heavy resume bundle. An active/time-capped run cannot be finalized as a completed endpoint. See [journal verification and remaining controller work](docs/verification/board-milestones.md).
+
+
+## Locked board execution diagnostics
+
+`run-board-diagnostic` executes the real board runtime under an exclusive process lock and a persistent resource clock. It stops exactly at public archives, optimizer/checkpoint boundaries and an undecided opening. Resume preserves the original source/config/ceiling and charges each invocation's setup; an unclean interval is conservatively charged. Disk checks cover full-capacity checkpoint headroom, and safe partial stops preserve recovery generations.
+
+```sh
+.venv/bin/graygo run-board-diagnostic --run-dir runs/board-execution --records 16384 --until-records 4096 --time-cap-hours .08333333333333333 --device cuda --q-reuse 4
+.venv/bin/graygo run-board-diagnostic --run-dir runs/board-execution --records 16384 --time-cap-hours .08333333333333333 --device cuda --q-reuse 4 --resume --opening-decision pass
+```
+
+This command is bounded to 65,536 records and one cumulative hour, with a deliberately reduced diagnostic opening/hand-off. Its manual opening control is diagnostic only. The full formal entry/A2/resource/cohort controller remains required before development or confirmation training. See [execution verification, failure handling and scope](docs/verification/board-execution.md).
