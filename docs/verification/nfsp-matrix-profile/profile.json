@@ -1,0 +1,157 @@
+{
+  "plan": {
+    "cases": [
+      [
+        "pre",
+        "neural"
+      ],
+      [
+        "pre",
+        "tabular"
+      ],
+      [
+        "post",
+        "neural"
+      ],
+      [
+        "post",
+        "tabular"
+      ]
+    ],
+    "pid": 2193094,
+    "records_per_case": 100000,
+    "scope": "terminal matrix full path; no multiround/9x9 pricing",
+    "source_commit": "6a92132319c755fc6b1f8b1b5e4ebea8e75e1e98",
+    "source_sha256": "4c13ba875326ed1f843cb3ca31433063e72793cb8a677d4968a0652766eb3e0c"
+  },
+  "results": [
+    {
+      "acting_policy_counts": {
+        "average": 0,
+        "q": 100000,
+        "uniform": 0
+      },
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 8.991256358975079,
+      "episode_audit_bytes": 6050000,
+      "learner": "neural",
+      "phase": "pre",
+      "records": 100000,
+      "records_per_second": 11121.916226999792,
+      "replay_allocation_bytes": 14200000,
+      "replay_size": 100000,
+      "reservoir_allocation_bytes": 3800000,
+      "reservoir_size": 0,
+      "timings": {
+        "checkpoint": 0.4417217790032737,
+        "collection": 7.60514634026913,
+        "evaluation": 0.0006370560149662197,
+        "learning": 0.9715677517815493
+      }
+    },
+    {
+      "acting_policy_counts": {
+        "average": 0,
+        "q": 100000,
+        "uniform": 0
+      },
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 8.6998783639865,
+      "episode_audit_bytes": 6050000,
+      "learner": "tabular",
+      "phase": "pre",
+      "records": 100000,
+      "records_per_second": 11494.413578694855,
+      "replay_allocation_bytes": 14200000,
+      "replay_size": 100000,
+      "reservoir_allocation_bytes": 3800000,
+      "reservoir_size": 0,
+      "timings": {
+        "checkpoint": 0.44215011497726664,
+        "collection": 7.646422448917292,
+        "evaluation": 0.0006045539630576968,
+        "learning": 0.6410492449067533
+      }
+    },
+    {
+      "acting_policy_counts": {
+        "average": 88768,
+        "q": 11232,
+        "uniform": 0
+      },
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 98688,
+        "supervised_updates": 771,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 10.031037354958244,
+      "episode_audit_bytes": 6050000,
+      "learner": "neural",
+      "phase": "post",
+      "records": 100000,
+      "records_per_second": 9969.058678718904,
+      "replay_allocation_bytes": 14200000,
+      "replay_size": 100000,
+      "reservoir_allocation_bytes": 3800000,
+      "reservoir_size": 9955,
+      "timings": {
+        "checkpoint": 0.4727677100454457,
+        "collection": 8.007890236389358,
+        "evaluation": 0.0006232890300452709,
+        "learning": 1.5789873983012512
+      }
+    },
+    {
+      "acting_policy_counts": {
+        "average": 88768,
+        "q": 11232,
+        "uniform": 0
+      },
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 3890224,
+        "supervised_updates": 771,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 9.386666339996736,
+      "episode_audit_bytes": 6050000,
+      "learner": "tabular",
+      "phase": "post",
+      "records": 100000,
+      "records_per_second": 10653.40946166355,
+      "replay_allocation_bytes": 14200000,
+      "replay_size": 100000,
+      "reservoir_allocation_bytes": 3800000,
+      "reservoir_size": 9955,
+      "timings": {
+        "checkpoint": 0.4655362920020707,
+        "collection": 8.23133639479056,
+        "evaluation": 0.0005933629581704736,
+        "learning": 0.7182186499121599
+      }
+    }
+  ]
+}

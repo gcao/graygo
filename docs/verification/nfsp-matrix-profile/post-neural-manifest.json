@@ -1,0 +1,158 @@
+{
+  "average_method": "masked frozen-label cross-entropy",
+  "backend_settings": {
+    "batch": 128,
+    "learning_rate": 0.0003,
+    "learning_start": 4096,
+    "max_grad_norm": 0.5,
+    "q_reuse": 1,
+    "target_every": 12800
+  },
+  "baseline_version": null,
+  "command": {
+    "config": {
+      "batch": 128,
+      "capacity": 200000,
+      "device": "cpu",
+      "epsilon_decay": 7500000,
+      "eval_every": 50000,
+      "handoff_end": 1000,
+      "hidden": 64,
+      "label_rule": "greedy",
+      "learner": "neural",
+      "learning_rate": 0.0003,
+      "learning_start": 4096,
+      "max_grad_norm": 0.5,
+      "q_reuse": 1,
+      "records": 100000,
+      "reservoir_open": 0,
+      "seed": 0,
+      "target_every": 12800,
+      "task": "asymmetric",
+      "time_cap_seconds": 1800,
+      "uniform_comparison": false
+    },
+    "operation": "nfsp-matrix"
+  },
+  "config": {
+    "batch": 128,
+    "capacity": 200000,
+    "device": "cpu",
+    "epsilon_decay": 7500000,
+    "eval_every": 50000,
+    "handoff_end": 1000,
+    "hidden": 64,
+    "label_rule": "greedy",
+    "learner": "neural",
+    "learning_rate": 0.0003,
+    "learning_start": 4096,
+    "max_grad_norm": 0.5,
+    "q_reuse": 1,
+    "records": 100000,
+    "reservoir_open": 0,
+    "seed": 0,
+    "target_every": 12800,
+    "task": "asymmetric",
+    "time_cap_seconds": 1800,
+    "uniform_comparison": false
+  },
+  "counter_unit": "two own-side fresh records per physical one-round game",
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_threads": 24,
+  "created_at": "2026-11-02T02:37:10.799879+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 131367452672,
+  "encoding_version": "graygo/nfsp-matrix-role/1",
+  "episode_sampling": "independent role modes, ramp choices and actions; policy frozen for each one-round episode",
+  "format_version": 1,
+  "git_commit": "6a92132319c755fc6b1f8b1b5e4ebea8e75e1e98",
+  "git_dirty": false,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "hostname": "home-ai",
+  "model": {
+    "hidden": 64,
+    "learner": "neural",
+    "public_inputs": "two-role one-hot; no opponent identity"
+  },
+  "oracle_value": -0.14285714285714285,
+  "payoffs": [
+    [
+      1.0,
+      -1.0
+    ],
+    [
+      -1.0,
+      0.5
+    ]
+  ],
+  "pid": 2193094,
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "q_loss": "mean squared error; online-pi expected target values; projected target",
+  "q_optimizer": {
+    "class": "Adam",
+    "defaults": {
+      "amsgrad": false,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "capturable": false,
+      "decoupled_weight_decay": false,
+      "differentiable": false,
+      "eps": 1e-08,
+      "foreach": null,
+      "fused": null,
+      "lr": 0.0003,
+      "maximize": false,
+      "weight_decay": 0
+    }
+  },
+  "rng_stream_seeds": {
+    "action_black": 103,
+    "action_white": 104,
+    "mode_black": 101,
+    "mode_white": 102,
+    "q_replay": 106,
+    "reservoir": 105,
+    "supervised": 107
+  },
+  "rule_version": null,
+  "rules": null,
+  "run_id": "6d806d14fdda474f829eeba7ab607f05",
+  "schedule": {
+    "best_response_probability": 0.1,
+    "epsilon_decay_records": 7500000,
+    "handoff_end": 1000,
+    "reservoir_open": 0
+  },
+  "seed": 0,
+  "shared_parameters_across_roles": true,
+  "source_sha256": "4c13ba875326ed1f843cb3ca31433063e72793cb8a677d4968a0652766eb3e0c",
+  "supervised_optimizer": {
+    "class": "Adam",
+    "defaults": {
+      "amsgrad": false,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "capturable": false,
+      "decoupled_weight_decay": false,
+      "differentiable": false,
+      "eps": 1e-08,
+      "foreach": null,
+      "fused": null,
+      "lr": 0.0003,
+      "maximize": false,
+      "weight_decay": 0
+    }
+  },
+  "target_refresh_order": "after optimizer work at exact fresh-record boundary",
+  "task_schema": "graygo/nfsp-matrix-role/1"
+}

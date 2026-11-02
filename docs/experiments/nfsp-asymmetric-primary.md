@@ -1,0 +1,7 @@
+# First asymmetric NFSP primary screen
+
+The immutable plan beside this document starts seed 0 with the tabular NFSP Q/reservoir control, followed by the neural learner. Each receives the full 15M aggregate fresh-record primary recipe, with 5M opening, 5M–7M hand-off, fixed 7.5M A2 epsilon clock, R=1, 128-target updates, 12,800-record target refresh and final-five original-game gaps. A one-hour per-case ceiling is entered from the complete terminal-matrix profiles with more than a twofold runtime margin.
+
+The source is pinned at `6a92132319c755fc6b1f8b1b5e4ebea8e75e1e98`. `tools/run_nfsp_matrix_screen.py` records its own hash in the immutable plan, holds a whole-run writer lock and saves interrupted cases at a balanced chunk boundary. Run artifacts are `/home/gcao/proj/graygo/runs/nfsp-asymmetric-primary-6a92132` on `ai`. The original launch handle is PID 2193858; live status must be checked with the operating system, not inferred from this historical document or a state file. No restart is authorized merely because observation times out.
+
+The driver and model checkpoints preserve actual counters and all scheduled evaluations. Both controls and neural evidence will be audited before their final-five gate is used. This first screen does not satisfy the required RPS/chain first-screen set, three seeds, bounded Gray Go, delayed/branching gates, 9×9 profile or deployment readiness. Those remain active work. No run outcome is asserted in this launch record.

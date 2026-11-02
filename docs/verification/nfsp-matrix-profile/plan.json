@@ -1,0 +1,25 @@
+{
+  "cases": [
+    [
+      "pre",
+      "neural"
+    ],
+    [
+      "pre",
+      "tabular"
+    ],
+    [
+      "post",
+      "neural"
+    ],
+    [
+      "post",
+      "tabular"
+    ]
+  ],
+  "pid": 2193094,
+  "records_per_case": 100000,
+  "scope": "terminal matrix full path; no multiround/9x9 pricing",
+  "source_commit": "6a92132319c755fc6b1f8b1b5e4ebea8e75e1e98",
+  "source_sha256": "4c13ba875326ed1f843cb3ca31433063e72793cb8a677d4968a0652766eb3e0c"
+}

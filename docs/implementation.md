@@ -47,9 +47,13 @@ Resume bundles include all three models, both optimizers where applicable, buffe
 
 Short diagnostic configurations cannot satisfy the formal-protocol flag. The default 15M-record primary recipe still requires three seeds, final-five checks, the other bounded/delayed/branching tasks and the complete cost ledger before A2 exit. No NFSP convergence or 9×9 strength claim is established by the trainer verification.
 
+## Current learning evidence
+
+Four full-path terminal-matrix timing diagnostics are recorded in `verification/nfsp-matrix-profile.md`. They include Q, averaging, audit, evaluation and checkpoint costs, with pre/post-opening scopes explicit. They do not price multiround or 9×9 work. The immutable first asymmetric screen plan is in `experiments/nfsp-asymmetric-primary-plan.json`; its source is isolated from subsequent development. Treat process/state files as observations, not gate results.
+
 ## Remaining work toward the full objective
 
-1. Extend the implemented resumable matrix NFSP trainer to multiround task/board collection, full episode/buffer checkpoint bundles and per-branch evaluation. The neural and actual tabular reservoir-average matrix paths, shared loss/sampler/counters and CLI are implemented. Their formal learning runs remain pending profiling.
+1. Extend the implemented resumable matrix NFSP trainer to multiround task/board collection, full episode/buffer checkpoint bundles and per-branch evaluation. The neural and actual tabular reservoir-average matrix paths, shared loss/sampler/counters and CLI are implemented. The terminal-matrix path is profiled; the seed-0 asymmetric tabular/neural first screen has been launched from pinned source with a two-hour combined ceiling. Its outcome and remaining task families are still pending.
 2. Wire the implemented opaque/branching tasks and balanced supplemental schedule into production-path training/evaluation. Run the one-step reuse comparison and exact per-branch Q/greedy and average-policy gates before selecting any conditional Retrace work.
 3. Run the selected NFSP A2 protocol across short mixed tasks, bounded Gray Go and the delayed family with three seeds, final-five gates and fixed aggregate counters.
 4. Integrate the ninth-review development/confirmation cohorts, baseline confidence gates, opening checks and pilot safeguards. Keep packed-feature storage's current overhead explicit; the design's compact rule-state/regenerated-feature backend is still pending.
