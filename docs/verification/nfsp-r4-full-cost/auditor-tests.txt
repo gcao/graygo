@@ -1,0 +1,18 @@
+test_checkpoint_seal_checks_actual_files_not_just_manifest_reference (test_nfsp_cost_audit.CostAuditTests.test_checkpoint_seal_checks_actual_files_not_just_manifest_reference) ... ok
+test_collection_cannot_double_subtract_overlapping_timing_scopes (test_nfsp_cost_audit.CostAuditTests.test_collection_cannot_double_subtract_overlapping_timing_scopes) ... ok
+test_cpu_and_reduced_or_changed_schedule_never_have_production_shape (test_nfsp_cost_audit.CostAuditTests.test_cpu_and_reduced_or_changed_schedule_never_have_production_shape) ... ok
+test_duplicate_keys_and_nonfinite_json_cannot_hide_changed_numbers (test_nfsp_cost_audit.CostAuditTests.test_duplicate_keys_and_nonfinite_json_cannot_hide_changed_numbers) ... ok
+test_evaluation_color_pair_rounds_and_total_area_are_checked (test_nfsp_cost_audit.CostAuditTests.test_evaluation_color_pair_rounds_and_total_area_are_checked) ... ok
+test_forecast_cannot_omit_checkpoint_or_integrity_costs (test_nfsp_cost_audit.CostAuditTests.test_forecast_cannot_omit_checkpoint_or_integrity_costs) ... ok
+test_lower_ceiling_or_scientific_price_is_rejected (test_nfsp_cost_audit.CostAuditTests.test_lower_ceiling_or_scientific_price_is_rejected) ... ok
+test_missing_actor_snapshot_or_averaging_work_is_rejected (test_nfsp_cost_audit.CostAuditTests.test_missing_actor_snapshot_or_averaging_work_is_rejected) ... ok
+test_offline_rows_do_not_become_fresh_learning_records (test_nfsp_cost_audit.CostAuditTests.test_offline_rows_do_not_become_fresh_learning_records) ... ok
+test_real_complete_measurement_recalculates_all_components (test_nfsp_cost_audit.CostAuditTests.test_real_complete_measurement_recalculates_all_components) ... ok
+test_screening_cannot_remove_its_pilot_prefix (test_nfsp_cost_audit.CostAuditTests.test_screening_cannot_remove_its_pilot_prefix) ... ok
+test_undercounted_q_reuse_and_target_refresh_are_rejected (test_nfsp_cost_audit.CostAuditTests.test_undercounted_q_reuse_and_target_refresh_are_rejected) ... ok
+test_version_diverse_stress_and_all_measured_samples_are_required (test_nfsp_cost_audit.CostAuditTests.test_version_diverse_stress_and_all_measured_samples_are_required) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.052s
+
+OK
