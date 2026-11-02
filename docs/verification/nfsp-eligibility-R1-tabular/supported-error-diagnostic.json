@@ -1,0 +1,286 @@
+{
+  "audit_sha256": "c39b1c9a847f690ddbc93d2c15080b52b0befad7c4cdc614b26f923326dddfc2",
+  "largest_supported_errors": [
+    {
+      "error": 1.1486072198540087,
+      "expected": -1.0,
+      "kind": "early_values",
+      "loss_bearing_replay_starts_by_ordinary_supplemental": [
+        6294,
+        1232
+      ],
+      "player": 2,
+      "predicted": 0.14860721985400865,
+      "public_state": {
+        "branch": 1,
+        "controller": 2,
+        "depth": 5,
+        "horizon": 100
+      },
+      "root": "h100/controller2",
+      "state_index": 407,
+      "visit_records_by_ordinary_supplemental": [
+        6247,
+        1250
+      ]
+    },
+    {
+      "error": 1.1449303210840622,
+      "expected": -1.0,
+      "kind": "early_values",
+      "loss_bearing_replay_starts_by_ordinary_supplemental": [
+        6424,
+        1306
+      ],
+      "player": 2,
+      "predicted": 0.1449303210840622,
+      "public_state": {
+        "branch": 1,
+        "controller": 2,
+        "depth": 1,
+        "horizon": 100
+      },
+      "root": "h100/controller2",
+      "state_index": 399,
+      "visit_records_by_ordinary_supplemental": [
+        6247,
+        1250
+      ]
+    },
+    {
+      "error": 1.1447640772312415,
+      "expected": -1.0,
+      "kind": "early_values",
+      "loss_bearing_replay_starts_by_ordinary_supplemental": [
+        6390,
+        1239
+      ],
+      "player": 2,
+      "predicted": 0.14476407723124157,
+      "public_state": {
+        "branch": 1,
+        "controller": 2,
+        "depth": 2,
+        "horizon": 100
+      },
+      "root": "h100/controller2",
+      "state_index": 401,
+      "visit_records_by_ordinary_supplemental": [
+        6247,
+        1250
+      ]
+    },
+    {
+      "action": 1,
+      "error": 1.1442142575979233,
+      "expected": -1.0,
+      "kind": "root_action_values",
+      "loss_bearing_replay_starts_by_ordinary_supplemental": [
+        6252,
+        1194
+      ],
+      "player": 2,
+      "predicted": 0.14421425759792328,
+      "public_state": {
+        "branch": -1,
+        "controller": 2,
+        "depth": 0,
+        "horizon": 100
+      },
+      "root": "h100/controller2",
+      "visit_records_by_ordinary_supplemental": [
+        6247,
+        1250
+      ]
+    },
+    {
+      "error": 1.114763438899253,
+      "expected": -1.0,
+      "kind": "early_values",
+      "loss_bearing_replay_starts_by_ordinary_supplemental": [
+        4484,
+        609
+      ],
+      "player": 2,
+      "predicted": 0.11476343889925293,
+      "public_state": {
+        "branch": 0,
+        "controller": 1,
+        "depth": 2,
+        "horizon": 200
+      },
+      "root": "h200/controller1",
+      "state_index": 599,
+      "visit_records_by_ordinary_supplemental": [
+        4507,
+        625
+      ]
+    },
+    {
+      "error": 1.1142744997442628,
+      "expected": -1.0,
+      "kind": "early_values",
+      "loss_bearing_replay_starts_by_ordinary_supplemental": [
+        4411,
+        647
+      ],
+      "player": 2,
+      "predicted": 0.11427449974426293,
+      "public_state": {
+        "branch": 0,
+        "controller": 1,
+        "depth": 1,
+        "horizon": 200
+      },
+      "root": "h200/controller1",
+      "state_index": 597,
+      "visit_records_by_ordinary_supplemental": [
+        4507,
+        625
+      ]
+    },
+    {
+      "error": 1.1123189425142481,
+      "expected": -0.9990000000270083,
+      "kind": "early_values",
+      "loss_bearing_replay_starts_by_ordinary_supplemental": [
+        4925,
+        0
+      ],
+      "player": 2,
+      "predicted": 0.11331894248723984,
+      "public_state": {
+        "branch": -1,
+        "controller": 1,
+        "depth": 0,
+        "horizon": 200
+      },
+      "root": "h200/controller1",
+      "state_index": 596,
+      "visit_records_by_ordinary_supplemental": [
+        5000,
+        1250
+      ]
+    },
+    {
+      "action": 0,
+      "error": 1.1123189425142481,
+      "expected": -0.9990000000270083,
+      "kind": "root_action_values",
+      "loss_bearing_replay_starts_by_ordinary_supplemental": [
+        4925,
+        0
+      ],
+      "player": 2,
+      "predicted": 0.11331894248723984,
+      "public_state": {
+        "branch": -1,
+        "controller": 1,
+        "depth": 0,
+        "horizon": 200
+      },
+      "root": "h200/controller1",
+      "visit_records_by_ordinary_supplemental": [
+        5000,
+        1250
+      ]
+    },
+    {
+      "error": 1.110109797991568,
+      "expected": -1.0,
+      "kind": "early_values",
+      "loss_bearing_replay_starts_by_ordinary_supplemental": [
+        4510,
+        642
+      ],
+      "player": 2,
+      "predicted": 0.11010979799156802,
+      "public_state": {
+        "branch": 0,
+        "controller": 1,
+        "depth": 5,
+        "horizon": 200
+      },
+      "root": "h200/controller1",
+      "state_index": 605,
+      "visit_records_by_ordinary_supplemental": [
+        4507,
+        625
+      ]
+    },
+    {
+      "error": 1.1006035498975613,
+      "expected": -1.0,
+      "kind": "early_values",
+      "loss_bearing_replay_starts_by_ordinary_supplemental": [
+        1147,
+        643
+      ],
+      "player": 1,
+      "predicted": 0.10060354989756136,
+      "public_state": {
+        "branch": 0,
+        "controller": 2,
+        "depth": 5,
+        "horizon": 200
+      },
+      "root": "h200/controller2",
+      "state_index": 1004,
+      "visit_records_by_ordinary_supplemental": [
+        1141,
+        625
+      ]
+    },
+    {
+      "error": 1.0975371478398857,
+      "expected": -1.0,
+      "kind": "early_values",
+      "loss_bearing_replay_starts_by_ordinary_supplemental": [
+        1203,
+        602
+      ],
+      "player": 1,
+      "predicted": 0.09753714783988564,
+      "public_state": {
+        "branch": 0,
+        "controller": 2,
+        "depth": 2,
+        "horizon": 200
+      },
+      "root": "h200/controller2",
+      "state_index": 998,
+      "visit_records_by_ordinary_supplemental": [
+        1141,
+        625
+      ]
+    },
+    {
+      "error": 1.0969646085239086,
+      "expected": -1.0,
+      "kind": "early_values",
+      "loss_bearing_replay_starts_by_ordinary_supplemental": [
+        3689,
+        1302
+      ],
+      "player": 1,
+      "predicted": 0.09696460852390855,
+      "public_state": {
+        "branch": 0,
+        "controller": 2,
+        "depth": 5,
+        "horizon": 100
+      },
+      "root": "h100/controller2",
+      "state_index": 406,
+      "visit_records_by_ordinary_supplemental": [
+        3753,
+        1250
+      ]
+    }
+  ],
+  "metrics_sha256": "1966aee8648233d9d10f63bcbfc1edf7550ea18c111785ea92d0034c915985ac",
+  "records": 15000000,
+  "scope": "read-only final archived values and sealed visit/replay counts; no causal optimizer/target claim or new experiment selection",
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "version": 1
+}

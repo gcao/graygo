@@ -1,0 +1,24 @@
+{
+  "audit_pid": 2497167,
+  "audit_sha256": "c39b1c9a847f690ddbc93d2c15080b52b0befad7c4cdc614b26f923326dddfc2",
+  "auditor_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/audit_nfsp_delayed.py",
+    "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/tabular",
+    "--budget-profile",
+    "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/tabular-budget.json",
+    "--output",
+    "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/tabular-audit.json"
+  ],
+  "driver_sha256": "901c8129f428b39e1469ee2764acfb5aa9bec5257eb1adeb2c0244e1fbb2e053",
+  "elapsed_driver_seconds": 32.50678236101521,
+  "new_learning_records": 0,
+  "original_driver_pid": 2497166,
+  "original_inputs_unchanged": true,
+  "returncode": 0,
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "status": "verified",
+  "version": 1,
+  "watchdog_seconds": 600
+}

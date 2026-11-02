@@ -1,0 +1,16 @@
+{
+  "copied_files_sha256": {
+    "audit-job.json": "82d0dcce0d5a4f42b56fe39b4434423c9a1c8acc4833d2ec545fa18bf4b904bd",
+    "audit.json": "c39b1c9a847f690ddbc93d2c15080b52b0befad7c4cdc614b26f923326dddfc2",
+    "audit_driver.py": "901c8129f428b39e1469ee2764acfb5aa9bec5257eb1adeb2c0244e1fbb2e053",
+    "audit_nfsp_delayed.py": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+    "budget.json": "a149482e1b5c5afdd8ed99631fd351b0813c955026cfd9ca4642d8296cc04130",
+    "final-checkpoint-manifest.json": "0c7f1c5b378339233670631dfc4239127bac4a5100f8c5405bbfafef5b78441c",
+    "result.json": "e3d33e4d4f7a1f271bff6481356208fd5bf382039b9348bcce64fe908b96317e",
+    "run.json": "1a58167031140cd4819ca7b0cfdb00b063c4e3e6773a3fe750edf404aa74069d"
+  },
+  "new_learning_records": 0,
+  "original_inputs_unchanged": true,
+  "original_root": "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/tabular",
+  "version": 1
+}
