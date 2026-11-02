@@ -219,39 +219,13 @@ def _seal(path, inventory):
     return manifest
 
 
-def audit(root, repo, allocation, tool, *, expected_source, expected_tool, expected_allocation):
+def verify_artifacts(root, repo, a, report, inventory):
     import numpy as np
     import torch
     from graygo.buffers import ReplayBuffer, ReservoirBuffer
-    from graygo.manifest import source_digest
     from graygo.models import ModelConfig, QNet, PolicyNet
     torch.set_num_threads(1)
-    root = Path(root).resolve(); repo = Path(repo).resolve(); allocation = Path(allocation).resolve(); tool = Path(tool).resolve()
-    require(sha(allocation) == expected_allocation and sha(tool) == expected_tool and source_digest() == expected_source, 'caller-pinned source/allocation differs')
-    inventory = {str(p): sha(p) for p in [allocation, tool, root/'driver.py', root/'job.json', root/'plan.json', root/'run.json', root/'report.json', root/'pipeline/report.json']}
-    a = load(allocation); job = load(root/'job.json'); report = load(root/'report.json'); plan = report['plan']; manifest = load(root/'run.json')
-    require(job['status'] == 'complete_measurement_unreviewed' and job['returncode'] == 0 and job['original_inputs_unchanged'] is True, 'original measurement not terminal and successful')
-    require(job['allocation_sha256'] == expected_allocation and job['tool_sha256'] == plan['tool_sha256'] == expected_tool
-            and job['driver_sha256'] == sha(root/'driver.py') and job['report_sha256'] == sha(root/'report.json'), 'original job bindings differ')
-    require(plan == load(root/'plan.json') == manifest['command'] and manifest['git_dirty'] is False
-            and manifest['source_sha256'] == plan['source_sha256'] == job['learner_source_sha256'] == a['learner_source_sha256'] == expected_source, 'plan/source manifest differs')
-    require(manifest['git_commit'] == a['learner_source_commit'] and job['physical_device_uuid'] == a['physical_device_uuid'], 'source commit/device binding differs')
-    require(job['production_training_selected'] is False and a['production_learning_selected'] is False
-            and a['pilot_selected'] is False and a['confirmation_selected'] is False, 'measurement allocation is not isolated')
-    for key in ('formal_learning_run', 'a2_complete', 'execution_authorized'):
-        require(report[key] is False, 'profile claims ' + key)
-    require(production_shape(report) and report['candidate_price_forecast_available'] is True and report['full_component_coverage'] is True, 'not the full selected CUDA profile')
-    c = plan['runtime']
-    for field, expected in [('selected_reuse', c['q_reuse']), ('target', plan['target']), ('device', c['device']),
-                            ('reference_pipeline_records_per_phase', plan['records_per_pipeline_phase']), ('dense_collection_records', plan['dense_collection_records']),
-                            ('total_new_profile_own_records', report['fresh_profile_records']), ('kernel_iterations_each', plan['kernel_iterations_each']),
-                            ('kernel_warmup_updates_each', plan['kernel_warmup_each']), ('actor_iterations_each', plan['actor_iterations_each']),
-                            ('forecast_margin', plan['margin']), ('process_time_ceiling_seconds', plan['time_ceiling_seconds']),
-                            ('disk_reserve_bytes', plan['reserve_bytes']), ('outer_watchdog_seconds', job['outer_watchdog_seconds'])]:
-        require(a[field] == expected, 'allocation mismatch: ' + field)
-    span = Decimal(str(job['allocation_interval_end_epoch'])) - Decimal(str(job['allocation_interval_start_epoch']))
-    require(span > 0 and abs(span - Decimal(str(job['measured_driver_seconds']))) < Decimal('.01')
-            and job['measured_driver_seconds'] <= a['outer_watchdog_seconds'] and report['elapsed_seconds'] <= a['process_time_ceiling_seconds'], 'invalid original allocation interval/cap')
+    plan = report['plan']; c = plan['runtime']
     source = repo / a['buffer_checkpoint']; native = repo / a['native_library']; benchmark = repo / a['dense_benchmark']
     require(str(native.resolve()) == c['native_library'] and sha(native) == a['native_library_sha256'] == plan['native_schema']['native_decoder']['sha256'], 'native decoder differs')
     require(sha(benchmark) == a['dense_benchmark_file_sha256'], 'dense benchmark input differs')
@@ -318,6 +292,43 @@ def audit(root, repo, allocation, tool, *, expected_source, expected_tool, expec
     public = torch.load(public_path, map_location='cpu', weights_only=True)
     require(public['profile_only'] is True and all(set(public[name]) == set(payload[name])
             and all(torch.equal(value, payload[name][key]) for key, value in public[name].items()) for name in ('q', 'average')), 'public-load timing payload differs')
+    return pipeline
+
+
+def audit(root, repo, allocation, tool, *, expected_source, expected_tool, expected_allocation):
+    import numpy as np
+    import torch
+    from graygo.buffers import ReplayBuffer, ReservoirBuffer
+    from graygo.manifest import source_digest
+    from graygo.models import ModelConfig, QNet, PolicyNet
+    torch.set_num_threads(1)
+    root = Path(root).resolve(); repo = Path(repo).resolve(); allocation = Path(allocation).resolve(); tool = Path(tool).resolve()
+    require(sha(allocation) == expected_allocation and sha(tool) == expected_tool and source_digest() == expected_source, 'caller-pinned source/allocation differs')
+    inventory = {str(p): sha(p) for p in [allocation, tool, root/'driver.py', root/'job.json', root/'plan.json', root/'run.json', root/'report.json', root/'pipeline/report.json']}
+    a = load(allocation); job = load(root/'job.json'); report = load(root/'report.json'); plan = report['plan']; manifest = load(root/'run.json')
+    require(job['status'] == 'complete_measurement_unreviewed' and job['returncode'] == 0 and job['original_inputs_unchanged'] is True, 'original measurement not terminal and successful')
+    require(job['allocation_sha256'] == expected_allocation and job['tool_sha256'] == plan['tool_sha256'] == expected_tool
+            and job['driver_sha256'] == sha(root/'driver.py') and job['report_sha256'] == sha(root/'report.json'), 'original job bindings differ')
+    require(plan == load(root/'plan.json') == manifest['command'] and manifest['git_dirty'] is False
+            and manifest['source_sha256'] == plan['source_sha256'] == job['learner_source_sha256'] == a['learner_source_sha256'] == expected_source, 'plan/source manifest differs')
+    require(manifest['git_commit'] == a['learner_source_commit'] and job['physical_device_uuid'] == a['physical_device_uuid'], 'source commit/device binding differs')
+    require(job['production_training_selected'] is False and a['production_learning_selected'] is False
+            and a['pilot_selected'] is False and a['confirmation_selected'] is False, 'measurement allocation is not isolated')
+    for key in ('formal_learning_run', 'a2_complete', 'execution_authorized'):
+        require(report[key] is False, 'profile claims ' + key)
+    require(production_shape(report) and report['candidate_price_forecast_available'] is True and report['full_component_coverage'] is True, 'not the full selected CUDA profile')
+    c = plan['runtime']
+    for field, expected in [('selected_reuse', c['q_reuse']), ('target', plan['target']), ('device', c['device']),
+                            ('reference_pipeline_records_per_phase', plan['records_per_pipeline_phase']), ('dense_collection_records', plan['dense_collection_records']),
+                            ('total_new_profile_own_records', report['fresh_profile_records']), ('kernel_iterations_each', plan['kernel_iterations_each']),
+                            ('kernel_warmup_updates_each', plan['kernel_warmup_each']), ('actor_iterations_each', plan['actor_iterations_each']),
+                            ('forecast_margin', plan['margin']), ('process_time_ceiling_seconds', plan['time_ceiling_seconds']),
+                            ('disk_reserve_bytes', plan['reserve_bytes']), ('outer_watchdog_seconds', job['outer_watchdog_seconds'])]:
+        require(a[field] == expected, 'allocation mismatch: ' + field)
+    span = Decimal(str(job['allocation_interval_end_epoch'])) - Decimal(str(job['allocation_interval_start_epoch']))
+    require(span > 0 and abs(span - Decimal(str(job['measured_driver_seconds']))) < Decimal('.01')
+            and job['measured_driver_seconds'] <= a['outer_watchdog_seconds'] and report['elapsed_seconds'] <= a['process_time_ceiling_seconds'], 'invalid original allocation interval/cap')
+    pipeline = verify_artifacts(root, repo, a, report, inventory)
     computed = recompute(report, pipeline)
     memory = report['memory']; require(0 < memory['peak_cuda_allocated_bytes'] <= memory['peak_cuda_reserved_bytes'] <= a['reported_vram_mib'] * 1024**2, 'memory profile exceeds declared device')
     violations = []
