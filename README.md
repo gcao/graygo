@@ -39,7 +39,7 @@ The optional `audit-native --library PATH` command compares reference-engine tra
 
 ## Current implementation
 
-The repository contains the immutable reference engine, full-state encoding, random/tactical baselines, policy/value/Q networks, finite-game solvers, checkpoint storage and recovery, and CLI commands. The completed PPO matrix preflight selected NFSP; its independently audited evidence is in [the preflight report](docs/verification/ppo-preflight.md). The shared NFSP update/collection backend, compact buffers and solved delayed/branching controls are implemented. The resumable neural/tabular NFSP matrix driver is available; multiround orchestration, formal convergence gates and scientific comparisons remain in progress; synthetic updates are not trained-game results.
+The repository contains the immutable reference engine, full-state encoding, random/tactical baselines, policy/value/Q networks, finite-game solvers, checkpoint storage and recovery, and CLI commands. The completed PPO matrix preflight selected NFSP; its independently audited evidence is in [the preflight report](docs/verification/ppo-preflight.md). The shared NFSP update/collection backend, compact buffers and solved delayed/branching controls are implemented. The resumable neural/tabular NFSP matrix driver is available; multiround solved-task training is also integrated; formal convergence gates, production 9×9 stages and scientific comparisons remain in progress; synthetic updates are not trained-game results.
 
 ## Learning preflight
 
@@ -80,3 +80,14 @@ See [NFSP backend verification](docs/verification/nfsp-backend.md) for the check
 ```
 
 `--records`, `--reservoir-open` and `--handoff-end` can produce diagnostic profiles; such changed recipes cannot pass the formal-protocol flag. `--label-rule executed` is restricted to `pure82`. The exact tabular average is published at supervised cadence, while Q uses the same optimizer/loss/replay path as the neural learner. Runs save permanent public weights, bounded resume bundles and a checkpointed binary per-episode audit. SIGINT/SIGTERM saves at the next balanced collection chunk.
+
+## Multiround NFSP tasks
+
+```sh
+# A short profile uses the real multiround collector/update path and remains nonformal.
+.venv/bin/graygo train-nfsp-task --task delayed --learner neural --purpose profile --records 50000 --time-cap-hours .25 --run-dir runs/delayed-profile
+# Actual reachable mixed Gray Go root, complete tabular state identity.
+.venv/bin/graygo train-nfsp-task --task gray-mixed --learner tabular --purpose profile --records 10000 --time-cap-hours .25 --run-dir runs/gray-mixed-profile
+```
+
+`delayed-forced` retains the forced-action indexing diagnostic; `delayed` uses 40 equivalent intermediate choices by default. `branching` gives later actions meaningful payoffs. Bounded neural Go tasks use the full board encoder. Resume with the identical command plus `--resume`; active episodes retain their original frozen parameters even if the learner has updated since episode start. Use `tools/profile_nfsp_tasks.py` from a pinned worktree for complete paired cost profiles before full A2 allocations. The budget artifact must match source, task, learner and Q reuse. Full A2 exit still requires the specified cohorts and all gates.

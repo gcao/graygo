@@ -35,7 +35,7 @@ Objective: implement Gray Go following `docs/design.md`, including its verificat
 - Opaque 50/100/200-round controls, a forced-action indexing variant, a 40-equivalent-action stress variant and a meaningful two-round branching game are implemented. Codebooks are randomly permuted independently of semantic order, with exact manifest/digest support.
 - Exact finite Markov solving, policy/action-value evaluation and best responses are implemented for those adapters. Latent episode mixtures continue to use the complete-history evaluator.
 - Supported-coverage scheduling gives each horizon/controller equal rounds, with randomized ten-episode blocks containing eight ordinary and one episode per forced branch. Mid-block and mid-episode resume checks pass.
-- The full suite passes **114 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
+- The full suite passes **122 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
 
 ## Resumable matrix NFSP trainer
 
@@ -51,13 +51,25 @@ Short diagnostic configurations cannot satisfy the formal-protocol flag. The def
 
 Four full-path terminal-matrix timing diagnostics are recorded in `verification/nfsp-matrix-profile.md`. They include Q, averaging, audit, evaluation and checkpoint costs, with pre/post-opening scopes explicit. They do not price multiround or 9×9 work. The immutable first asymmetric screen plan is in `experiments/nfsp-asymmetric-primary-plan.json`; its source is isolated from subsequent development. Treat process/state files as observations, not gate results.
 
+## Multiround NFSP integration
+
+`train-nfsp-task` now integrates native simultaneous collection, frozen episode actors, replay/reservoir updates, complete resume and exact evaluation for opaque delayed/branching tasks and actual pure/mixed Gray Go roots. Bounded neural runs use the declared circular board encoder; tabular bounded controls index the complete public rule state. Delayed controllers/horizons use randomized 8/1/1 blocks with balanced round allocations. A 15M run over 50/100/200 rounds contains complete coverage macrocycles.
+
+The checkpoints preserve active episode state, old frozen policy weights, mode/ramp choices, private action RNGs and trajectory history. Budget/chunk boundaries remain nonterminal. Coverage and replay counts are separate by public state, role, action and supplemental origin. Target/behavior overlap is measured using the same pre-update Q prediction as the loss, with mode/origin/fresh-age bins; no second diagnostic network forward changes the profiled work.
+
+Exact delayed evaluation checks root action values and early target-policy values at depths 1/2/5 on both supported branches, with last-depth errors reported separately. Deployed average-policy gaps are graded separately from greedy-Q credit and readiness bands. Fixed-pair two-round value checks use exhaustive finite-game evaluation. The branch control retains its meaningful mixed continuation matrices; no test threshold or game was simplified to manufacture a pass.
+
+Full runs require an explicit time ceiling and matching declared complete-pipeline budget-profile hash. `purpose=profile` cannot satisfy formal gates. `tools/profile_nfsp_tasks.py` produces paired pre/post, R=1/R=4 costs; terminal-matrix costs are not substituted for these. Runtime settings, optimizer defaults, actual host memory/affinity/filesystem and complete adapter/codebook metadata are recorded.
+
+The suite passes **122 tests**, including exact mid-episode resume for neural/tabular delayed and mixed-Go runs. See `verification/nfsp-multiround.md`. No delayed-credit convergence or 9×9 strength claim follows from these implementation checks.
+
 ## Remaining work toward the full objective
 
-1. Extend the implemented resumable matrix NFSP trainer to multiround task/board collection, full episode/buffer checkpoint bundles and per-branch evaluation. The neural and actual tabular reservoir-average matrix paths, shared loss/sampler/counters and CLI are implemented. The terminal-matrix path is profiled; the seed-0 asymmetric tabular/neural first screen has been launched from pinned source with a two-hour combined ceiling. Its outcome and remaining task families are still pending.
-2. Wire the implemented opaque/branching tasks and balanced supplemental schedule into production-path training/evaluation. Run the one-step reuse comparison and exact per-branch Q/greedy and average-policy gates before selecting any conditional Retrace work.
+1. Independently audit completed matrix trials, finish the declared first-screen set (RPS and delayed family), then the required seed/task cohorts. The seed-0 tabular asymmetric run reports a complete 15M final-five pass; that is provisional until its archive-based audit. The neural trial is still being observed by its original process handle.
+2. Profile the now-integrated complete delayed/bounded pipeline, enter C1/C4 ceilings, and run the selected one-step comparisons with actual tabular controls. Per-branch gates and full multiround resume are implemented; learning evidence and any conditional Retrace selection remain pending.
 3. Run the selected NFSP A2 protocol across short mixed tasks, bounded Gray Go and the delayed family with three seeds, final-five gates and fixed aggregate counters.
 4. Integrate the ninth-review development/confirmation cohorts, baseline confidence gates, opening checks and pilot safeguards. Keep packed-feature storage's current overhead explicit; the design's compact rule-state/regenerated-feature backend is still pending.
 5. Profile the complete selected learner, fill its cost ledger and run only the eligible declared pilot/screening/confirmation stages.
 6. Implement protected evaluation/promotion, gray-rule/exposure comparisons, certified collision probes and required reports. Optional modeling/search remains conditional.
 
-The Python engine is the independently readable reference. Its throughput must be measured before choosing a batched/native production backend. The reviewer prototype is used for differential evidence only. The matrix trainer now has a verified complete resume protocol; full multiround/board trainer orchestration and its production resume integration remain pending.
+The Python engine is the independently readable reference. Its throughput must be measured before choosing a batched/native production backend. The reviewer prototype is used for differential evidence only. Both matrix and finite multiround trainers now have verified complete resume protocols. Large-board collection optimization, compact rule-state storage, pilot/confirmation orchestration and their production-scale verification remain pending.

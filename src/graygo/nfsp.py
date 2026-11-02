@@ -107,10 +107,11 @@ bootstraps even if no following record was retained; true termination never does
                      'projected_targets':int((raw!=projected).sum()),'targets':len(raw)}
 
 
-def update_q(online,target,optimizer,batch,*,epsilon,max_grad_norm=.5):
+def update_q(online,target,optimizer,batch,*,epsilon,max_grad_norm=.5,diagnostics=None):
     labels,stats=one_step_targets(online,target,batch,epsilon)
     predictions=online(**batch.inputs)
     _bounded(predictions,batch.legal)
+    if diagnostics is not None:diagnostics(predictions.detach(),batch)
     selected=predictions.gather(1,batch.actions[:,None]).squeeze(1)
     loss=(selected-labels).square().mean()
     optimizer.zero_grad(set_to_none=True);loss.backward()
@@ -190,7 +191,7 @@ class NFSPBackend:
     @property
     def average_ready(self):return self.counters.supervised_updates>0
 
-    def learn_after_fresh(self,count,ordinary,replay,reservoir,rng,*,epsilon,supervised_rng=None,sample_observer=None):
+    def learn_after_fresh(self,count,ordinary,replay,reservoir,rng,*,epsilon,supervised_rng=None,sample_observer=None,q_observer=None):
         if replay.spec!=reservoir.spec:raise ValueError('replay and reservoir schemas differ')
         # Validate available samples before advancing a recoverable clock.
         if replay.insertions!=self.counters.fresh_q+count:
@@ -204,7 +205,8 @@ class NFSPBackend:
                 data=replay.sample(self.config.batch,rng)
                 if sample_observer is not None:sample_observer(data)
                 batch=OneStepBatch.from_replay(data,self.device)
-                report['q'].append(update_q(self.q,self.target,self.q_optimizer,batch,epsilon=epsilon,max_grad_norm=self.config.max_grad_norm))
+                callback=None if q_observer is None else lambda prediction,b: q_observer(data,prediction,b,epsilon)
+                report['q'].append(update_q(self.q,self.target,self.q_optimizer,batch,epsilon=epsilon,max_grad_norm=self.config.max_grad_norm,diagnostics=callback))
                 self.counters.q_updates+=1;self.counters.q_loss_targets+=self.config.batch
         if sl_due and reservoir.size>=self.config.batch:
             if self.exact_average:

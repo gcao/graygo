@@ -17,21 +17,22 @@ EPISODE_DTYPE=np.dtype([
 
 
 class EpisodeAudit:
-    def __init__(self,root,*,create=False):
+    def __init__(self,root,*,create=False,dtype=EPISODE_DTYPE):
+        self.dtype=np.dtype(dtype)
         self.path=Path(root)/'episodes.bin';schema=Path(root)/'episodes.schema.json'
-        expected={'format_version':1,'dtype':json.loads(json.dumps(EPISODE_DTYPE.descr)),
-                  'itemsize':EPISODE_DTYPE.itemsize,'acting_codes':{'q':0,'average':1,'uniform':2}}
+        expected={'format_version':1,'dtype':json.loads(json.dumps(self.dtype.descr)),
+                  'itemsize':self.dtype.itemsize,'acting_codes':{'q':0,'average':1,'uniform':2}}
         if create:
             with self.path.open('xb'):pass
             with schema.open('x') as file:json.dump(expected,file,sort_keys=True,indent=2)
         elif json.loads(schema.read_text())!=expected:raise ValueError('episode audit schema differs')
 
     def append(self,rows):
-        if rows.dtype!=EPISODE_DTYPE or rows.ndim!=1:raise ValueError('invalid episode audit rows')
+        if rows.dtype!=self.dtype or rows.ndim!=1:raise ValueError('invalid episode audit rows')
         with self.path.open('ab') as file:file.write(rows.tobytes())
 
     def prefix(self,episodes):
-        size=episodes*EPISODE_DTYPE.itemsize
+        size=episodes*self.dtype.itemsize
         if self.path.stat().st_size!=size:raise ValueError('episode audit length differs from physical episodes')
         with self.path.open('rb') as file:os.fsync(file.fileno())
         return {'episodes':episodes,'bytes':size,'sha256':self._digest(size)}
@@ -46,7 +47,7 @@ class EpisodeAudit:
         return h.hexdigest()
 
     def restore_prefix(self,state):
-        if type(state['episodes']) is not int or state['episodes']<0 or state['bytes']!=state['episodes']*EPISODE_DTYPE.itemsize:
+        if type(state['episodes']) is not int or state['episodes']<0 or state['bytes']!=state['episodes']*self.dtype.itemsize:
             raise ValueError('invalid episode audit checkpoint counters')
         size=state['bytes']
         if self.path.stat().st_size<size or self._digest(size)!=state['sha256']:raise ValueError('committed episode audit prefix is corrupt')

@@ -43,6 +43,10 @@ def make_manifest(*, seed, command, rules=None):
                     if line.startswith("model name")), None)
     design = Path(__file__).resolve().parents[2] / "docs" / "design.md"
     design_sha = hashlib.sha256(design.read_bytes()).hexdigest() if design.exists() else None
+    host_memory=None
+    if Path("/proc/meminfo").exists():
+        memory={line.split(":",1)[0]:int(line.split()[1])*1024 for line in Path("/proc/meminfo").read_text().splitlines() if line.startswith(("MemTotal:","MemAvailable:","SwapTotal:"))}
+        host_memory={"total_bytes":memory.get("MemTotal"),"available_bytes":memory.get("MemAvailable"),"swap_bytes":memory.get("SwapTotal")}
     return {"format_version": 1, "run_id": uuid.uuid4().hex,
             "created_at": datetime.now(timezone.utc).isoformat(), "seed": seed, "command": command,
             "rule_version": RULE_VERSION, "encoding_version": ENCODING_VERSION, "baseline_version": BASELINE_VERSION,
@@ -50,7 +54,8 @@ def make_manifest(*, seed, command, rules=None):
             "git_commit": _command(["git","rev-parse","HEAD"]),
             "git_dirty": bool(_command(["git","status","--porcelain"])),
             "hostname": socket.gethostname(), "platform": platform.platform(), "cpu": cpu,
-            "cpu_threads": os.cpu_count(), "python": sys.version, "dependencies": versions,
+            "cpu_threads": os.cpu_count(), "cpu_affinity": sorted(os.sched_getaffinity(0)) if hasattr(os,"sched_getaffinity") else None,
+            "host_memory":host_memory,"filesystem":_command(["stat","-f","-c","%T",str(Path.cwd())]), "python": sys.version, "dependencies": versions,
             "gpu": _command(["nvidia-smi","--query-gpu=name,memory.total,driver_version","--format=csv,noheader"]),
             "disk_free_bytes": shutil.disk_usage(Path.cwd()).free}
 

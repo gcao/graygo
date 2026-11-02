@@ -62,3 +62,17 @@ class CommandTests(unittest.TestCase):
             self.assertEqual(other['result']['counters'],report['result']['counters'])
             self.assertIsNone(other['manifest']['rules'])
             self.assertEqual(other['manifest']['encoding_version'],'graygo/nfsp-matrix-role/1')
+
+    def test_multiround_cli_preserves_actual_task_rules_and_active_episode(self):
+        with tempfile.TemporaryDirectory() as folder:
+            output=Path(folder)/'report.json';run=Path(folder)/'run'
+            args=('train-nfsp-task','--task','gray-mixed','--learner','tabular','--records','2',
+                  '--purpose','profile','--time-cap-hours','.05','--run-dir',str(run),'--output',str(output))
+            a=self.run_cli(*args);self.assertEqual(a.returncode,0,a.stderr)
+            report=json.loads(output.read_text())
+            self.assertEqual(report['manifest']['rules']['size'],3)
+            self.assertEqual(report['manifest']['rules']['max_rounds'],6)
+            self.assertEqual(report['result']['active_episode_steps'],1)
+            self.assertFalse(report['result']['formal_case_passed'])
+            b=self.run_cli(*args,'--resume');self.assertEqual(b.returncode,0,b.stderr)
+            self.assertEqual(json.loads(output.read_text())['result']['counters'],report['result']['counters'])

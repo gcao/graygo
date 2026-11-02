@@ -6,6 +6,7 @@ import random
 import statistics
 import sys
 import time
+from pathlib import Path
 from .engine import BLACK, WHITE, Rules, State, resolve, score
 from .agents import uniform, tactical
 from .manifest import make_manifest, write_report
@@ -63,7 +64,6 @@ def profile(args):
 
 def solve(args):
     from .solving import FiniteSolver
-    from pathlib import Path
     if args.state:
         state=State.from_dict(json.loads(Path(args.state).read_text()))
     else:
@@ -185,10 +185,36 @@ def train_nfsp(args):
         for name,handler in previous.items():signal.signal(name,handler)
 
 
+def train_nfsp_task(args):
+    import hashlib
+    import signal
+    from .task_training import NFSPTaskConfig,NFSPTaskTrainer
+    from .manifest import source_digest
+    budget_hash=None
+    if args.budget_profile:
+        profile=Path(args.budget_profile).read_bytes();budget=json.loads(profile)
+        if budget.get("source_sha256")!=source_digest() or budget.get("task")!=args.task or budget.get("learner")!=args.learner or budget.get("q_reuse")!=args.q_reuse:
+            raise ValueError("budget profile does not match this source/task/learner/reuse")
+        if not budget.get("complete_pipeline") or set(budget.get("phases",[]))!={"pre","post"}:
+            raise ValueError("budget profile must cover pre/post-opening complete learner work")
+        budget_hash=hashlib.sha256(profile).hexdigest()
+    config=NFSPTaskConfig(time_cap_seconds=args.time_cap_hours*3600,task=args.task,learner=args.learner,seed=args.seed,
+        records=args.records,eval_every=args.eval_every,device=args.device,q_reuse=args.q_reuse,
+        reservoir_open=args.reservoir_open,handoff_end=args.handoff_end,uniform_comparison=args.uniform_comparison,
+        horizons=tuple(args.horizons),equivalent_actions=args.equivalent_actions,hidden=args.hidden,
+        width=args.width,blocks=args.blocks,norm_groups=args.norm_groups,eval_batch=args.eval_batch,
+        capacity=args.capacity,purpose=args.purpose,budget_profile_sha256=budget_hash)
+    stopped=[];previous={}
+    for name in (signal.SIGINT,signal.SIGTERM):previous[name]=signal.signal(name,lambda signum,frame:stopped.append(signum))
+    try:return NFSPTaskTrainer(config,args.run_dir,resume=args.resume).run(stop_requested=lambda:bool(stopped))
+    finally:
+        for name,handler in previous.items():signal.signal(name,handler)
+
+
 def main(argv=None):
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
@@ -211,6 +237,18 @@ def main(argv=None):
             p.add_argument("--buffer-dir",required=True);p.add_argument("--capacity",type=int,default=500000)
             p.add_argument("--records",type=int,default=10000);p.add_argument("--iterations",type=int,default=50)
             p.add_argument("--batch",type=int,default=512)
+        elif name=="train-nfsp-task":
+            p.add_argument("--run-dir",required=True);p.add_argument("--task",choices=("delayed","delayed-forced","branching","gray-pure","gray-mixed"),default="delayed")
+            p.add_argument("--learner",choices=("neural","tabular"),default="neural")
+            p.add_argument("--records",type=int,default=15000000);p.add_argument("--eval-every",type=int,default=500000)
+            p.add_argument("--device",default="cpu");p.add_argument("--q-reuse",type=int,choices=(1,4),default=1)
+            p.add_argument("--time-cap-hours",type=float,required=True);p.add_argument("--purpose",choices=("a2","profile"),default="a2")
+            p.add_argument("--budget-profile");p.add_argument("--resume",action="store_true")
+            p.add_argument("--reservoir-open",type=int,default=5000000);p.add_argument("--handoff-end",type=int,default=7000000)
+            p.add_argument("--uniform-comparison",action="store_true");p.add_argument("--capacity",type=int,default=500000)
+            p.add_argument("--horizons",nargs="+",type=int,default=[50,100,200]);p.add_argument("--equivalent-actions",type=int,default=40)
+            p.add_argument("--hidden",type=int,default=64);p.add_argument("--width",type=int,default=64)
+            p.add_argument("--blocks",type=int,default=8);p.add_argument("--norm-groups",type=int,default=8);p.add_argument("--eval-batch",type=int,default=128)
         elif name=="train-nfsp":
             p.add_argument("--run-dir",required=True);p.add_argument("--task",choices=("asymmetric","rps","matching-pennies","pure82"),default="asymmetric")
             p.add_argument("--learner",choices=("neural","tabular"),default="neural")
@@ -235,7 +273,7 @@ def main(argv=None):
     if any(getattr(args,name,1)<1 for name in ("games","rounds","batch","batches")):
         parser.error("games and rounds must be positive")
     try:
-        matrix_command=args.command in ("train-matrix","preflight","train-nfsp")
+        matrix_command=args.command in ("train-matrix","preflight","train-nfsp","train-nfsp-task")
         rules=None if matrix_command else _rules(args)
         metadata=make_manifest(seed=args.seed,command=vars(args),rules=None if rules is None else
                                {"size":rules.size,"max_rounds":rules.max_rounds,"collision":rules.collision})
@@ -245,6 +283,9 @@ def main(argv=None):
             if args.command=="train-nfsp":metadata["encoding_version"]="graygo/nfsp-matrix-role/1"
         result=globals()[args.command.replace("-","_")](args)
         if args.command=="solve":metadata["rules"]=result["state"]["rules"]
+        if args.command=="train-nfsp-task":
+            actual=json.loads((Path(args.run_dir)/"run.json").read_text())
+            metadata.update({key:actual[key] for key in ("rules","rule_version","encoding_version","baseline_version")})
         report={"manifest":metadata,"result":result}
         if args.output:write_report(args.output,report)
         print(json.dumps(report,indent=2,sort_keys=True))
