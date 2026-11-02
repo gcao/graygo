@@ -12,7 +12,7 @@ Keep the one-step target, reuse one, eta .1, batch 512, warm-up 4,096, target re
 
 The configured driver is the frozen `tools/run_nfsp_delayed_screen.py`, whose SHA is recorded before launch. Actual launched plan and source/OS handle must be checked against this allocation. Inspect the original process and durable state before any resume; an observation timeout is not a stopped run. Do not start a replacement or substitute a short checkpoint for the full comparison.
 
-No corrected R4, Retrace, extension, other seed/family, later opening, 9x9 pilot, confirmation or scientific campaign is selected. All broader A2 requirements, full-model pricing and scope decisions remain required. This first screen is not a convergence guarantee or completed A2 result.
+At the original R1 allocation, no corrected R4, Retrace, extension, other seed/family, later opening, 9x9 pilot, confirmation or scientific campaign was selected. All broader A2 requirements, full-model pricing and scope decisions remain required. This first screen is not a convergence guarantee or completed A2 result.
 
 
 ## Verified launch
@@ -32,3 +32,7 @@ The [corrected table](../verification/nfsp-eligibility-R1-tabular/README.md) is 
 Both cases are complete and independently audited. The [neural receipt](../verification/nfsp-eligibility-R1-neural/README.md) has final-five average gap **0.000011204**, greedy gap **0**, and supported error **0.410784**; the final error is **0.120614**. Average performance passes its numerical band, while fixed-window credit misses. This is not a neural averaging failure. The earlier errors exceed 0.12 and the last value does not pass 0.10, so the marginal extension is ineligible. Original driver PID 2444001 is terminal and never restarted.
 
 The [paired settlement](nfsp-eligibility-R1-paired-settlement.json) preserves all original results, caps, record clocks and audits. A separate [R4 pricing-only allocation](nfsp-eligibility-R4-profile-allocation.json) now selects four 65,536-record pre/post cases. It does not select full R4 training. The raw profiler retains its twofold default proposal. For a later explicit funding review, a 15,300-second trial cap and minimum margin 1.5 are declared before profiling, using the completed same-source R1 forecasts’ errors (table -0.31%, neural +1.45%). This financial margin is separate from unchanged original-game acceptance thresholds and record caps. Complete fresh pricing/audits and another scope decision remain mandatory before a full R4 comparison.
+
+## Subsequent R4 scope
+
+The separately declared R4 pricing is now complete and independently audited. Its [new full-pair allocation and live launch](nfsp-eligibility-R4-primary.md) select only one fresh seed-0 R4 table/neural pair, original PID 2538230. This later decision does not amend or restart the immutable R1 allocation/results. Other cohorts/targets remain unselected.
