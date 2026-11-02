@@ -1,0 +1,47 @@
+{
+  "auditor_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "cases": [
+    {
+      "audit_sha256": "c03567a093f5af4b5e04620fefa101e8d348e394d8f5392be79b46e668f192aa",
+      "checkpoint_manifest_sha256": "0db1eea7746e43dc1c5f73c983c0d976f138663334004bc4a21fbaf22be1e334",
+      "name": "tabular-R4-pre",
+      "original_inputs_unchanged": true,
+      "training_manifest_sha256": "b411a26a0c92d271eb5058981262b8d636f9fa73ef80c82e2d8ed1c19688e8f4",
+      "verified": true
+    },
+    {
+      "audit_sha256": "1af66224b60de6aca8f8765bb03c2fab174016b33ca8272f1c5965f7b70ffea2",
+      "checkpoint_manifest_sha256": "e6e1031fdf216be0b2a33680f1e2c5309d1c6182dcbb3d1cb9d4fceff5eaad94",
+      "name": "tabular-R4-post",
+      "original_inputs_unchanged": true,
+      "training_manifest_sha256": "b41dbe87415f06b32f50d885d2b1e900510c8a9c44c292192c225ff18d2127f9",
+      "verified": true
+    },
+    {
+      "audit_sha256": "62c0f2616ca2a2ecf741f084b8ae938f3d9c4297265490a49ced7f75c0be4177",
+      "checkpoint_manifest_sha256": "fc6df4c6d78d7c02dc8a31dfaa0f944bdae1577671f25ea162fa374dfe507243",
+      "name": "neural-R4-pre",
+      "original_inputs_unchanged": true,
+      "training_manifest_sha256": "01b7135367e3a3a59d7401bce76b1e001f46633f458f5a24d7a042cee04bdac1",
+      "verified": true
+    },
+    {
+      "audit_sha256": "49e05c16fcb31ac0864709b26450c1a1ddc56bedc092122e7072d01cb4e71681",
+      "checkpoint_manifest_sha256": "eed1c6221bdc736cf70e6382cb437f893dbd2c5ca48cc4fe87ced9ccdc1c03cc",
+      "name": "neural-R4-post",
+      "original_inputs_unchanged": true,
+      "training_manifest_sha256": "583eed9093ae52ac76093db45b1a9803c7a844c4e2c7b4bd20ec886c978ccc97",
+      "verified": true
+    }
+  ],
+  "child_pid": 2535696,
+  "completed_cases": 4,
+  "current_case": null,
+  "driver_sha256": "47beb85902c6354ed594c25e1dbc4f7a3f0fd4b2e0d35a933ded2b317d50a9e5",
+  "measured_driver_seconds": 9.002058835991193,
+  "new_learning_records": 0,
+  "original_driver_pid": 2535532,
+  "per_case_watchdog_seconds": 60,
+  "status": "verified",
+  "version": 1
+}

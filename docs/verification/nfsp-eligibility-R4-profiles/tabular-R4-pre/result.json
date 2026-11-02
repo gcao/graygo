@@ -1,0 +1,4687 @@
+{
+  "a2_complete": false,
+  "acting_policy_counts": {
+    "average": 0,
+    "q": 65536,
+    "uniform": 0
+  },
+  "active_episode_steps": 18,
+  "average_readiness": "not_ready",
+  "best_response_visits": [
+    3550,
+    2800
+  ],
+  "completed_episodes": 375,
+  "counters": {
+    "fresh_ordinary": 52436,
+    "fresh_q": 65461,
+    "fresh_records": 65536,
+    "q_loss_targets": 245760,
+    "q_updates": 480,
+    "supervised_targets": 0,
+    "supervised_updates": 0,
+    "target_refreshes": 5
+  },
+  "coverage": {
+    "excluded_q_records": 75,
+    "overlap_counts": [
+      [
+        [
+          85270,
+          91205,
+          0
+        ],
+        [
+          20996,
+          22214,
+          0
+        ]
+      ],
+      [
+        [
+          9359,
+          10224,
+          0
+        ],
+        [
+          3151,
+          3341,
+          0
+        ]
+      ]
+    ],
+    "overlap_sums": [
+      [
+        [
+          [
+            84166.38876650571,
+            3440.658646869473,
+            3764.126739955973,
+            487583229.0
+          ],
+          [
+            88473.03355697641,
+            3617.8172072505113,
+            3763.4568488867953,
+            2578657050.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            20650.365484435315,
+            742.500887240516,
+            890.8791461391374,
+            120064444.0
+          ],
+          [
+            21429.06675206899,
+            781.4552366179414,
+            902.575553951785,
+            624208858.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            9214.44948200257,
+            362.96576912887394,
+            400.42262582154945,
+            54202830.0
+          ],
+          [
+            9876.780978855366,
+            406.6203280480113,
+            428.1613992252387,
+            281045940.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            3129.92679443855,
+            94.75336629478261,
+            102.11573565960862,
+            17310869.0
+          ],
+          [
+            3275.550390036571,
+            97.99475037422962,
+            99.95372859947383,
+            98989794.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ]
+    ],
+    "q_eligible_records": 65461,
+    "root_episodes": [
+      [
+        93,
+        23
+      ],
+      [
+        80,
+        20
+      ],
+      [
+        40,
+        10
+      ],
+      [
+        40,
+        10
+      ],
+      [
+        24,
+        6
+      ],
+      [
+        24,
+        6
+      ]
+    ],
+    "sampled_start_targets": 245760,
+    "visit_records": 65536
+  },
+  "elapsed_seconds": 42.99406927503878,
+  "evaluations": [
+    {
+      "average_ready": false,
+      "counters": {
+        "fresh_ordinary": 26168,
+        "fresh_q": 32725,
+        "fresh_records": 32768,
+        "q_loss_targets": 114688,
+        "q_updates": 224,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 2
+      },
+      "coverage": {
+        "excluded_q_records": 43,
+        "overlap_counts": [
+          [
+            [
+              59779,
+              22776,
+              0
+            ],
+            [
+              14700,
+              5321,
+              0
+            ]
+          ],
+          [
+            [
+              6340,
+              2019,
+              0
+            ],
+            [
+              2506,
+              1247,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                59187.818103995945,
+                2232.798304616241,
+                2291.388410495827,
+                326157743.0
+              ],
+              [
+                22351.91903465813,
+                816.2308254083619,
+                783.8606844134629,
+                430184971.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                14501.195728389754,
+                478.4355050800368,
+                535.0565053967293,
+                79186585.0
+              ],
+              [
+                5211.341241015756,
+                176.52825119602494,
+                174.57094937562943,
+                100544475.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                6256.145021157384,
+                239.21077219373547,
+                252.29159060213715,
+                34248419.0
+              ],
+              [
+                1988.3354021990517,
+                73.12103884411044,
+                66.00245888903737,
+                37650416.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                2492.601031044341,
+                69.17228376143612,
+                72.81376913003623,
+                13430714.0
+              ],
+              [
+                1229.3947797451947,
+                34.733575764345005,
+                33.027701722458005,
+                24466397.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 32725,
+        "root_episodes": [
+          [
+            56,
+            14
+          ],
+          [
+            56,
+            14
+          ],
+          [
+            24,
+            6
+          ],
+          [
+            19,
+            5
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "sampled_start_targets": 114688,
+        "visit_records": 32768
+      },
+      "elapsed_seconds": 20.742226492031477,
+      "epsilon": 0.09960678399999999,
+      "handoff_probability": 0.0,
+      "records": 32768,
+      "roots": [
+        {
+          "average_gaps": [
+            1.0,
+            0.0
+          ],
+          "early_values": [
+            {
+              "error": 0.0,
+              "expected": 0.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 0
+            },
+            {
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 0
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 1
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 1
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 3
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 3
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 9
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 9
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 2
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 2
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 4
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 4
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 10
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 10
+            }
+          ],
+          "greedy_q_gaps": [
+            1.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 0.9732761322681172,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.026723867731882883,
+              "state_index": 97
+            },
+            {
+              "error": 0.9995061970133763,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": -0.0004938029866237648,
+              "state_index": 97
+            },
+            {
+              "error": 0.9995737146369648,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": -0.000426285363035192,
+              "state_index": 98
+            },
+            {
+              "error": 0.973297291120395,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.02670270887960507,
+              "state_index": 98
+            }
+          ],
+          "max_early_error": 1.0,
+          "max_late_error": 0.9995737146369648,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 1,
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 0,
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 2,
+              "predicted": 0.0
+            }
+          ],
+          "root_average_policies": [
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 0,
+          "root_tag": "h50/controller1",
+          "value": 1.0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            1.0
+          ],
+          "early_values": [
+            {
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 99
+            },
+            {
+              "error": 0.0,
+              "expected": 0.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 99
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 100
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 100
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 102
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 102
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 108
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 108
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 101
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 101
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 103
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 103
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 109
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 109
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            1.0
+          ],
+          "late_values": [
+            {
+              "error": 0.9996491589070591,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": -0.00035084109294089615,
+              "state_index": 196
+            },
+            {
+              "error": 0.9699047308876967,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.030095269112303296,
+              "state_index": 196
+            },
+            {
+              "error": 0.9591852361207789,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0408147638792211,
+              "state_index": 197
+            },
+            {
+              "error": 0.999550498290664,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": -0.0004495017093359539,
+              "state_index": 197
+            }
+          ],
+          "max_early_error": 1.0,
+          "max_late_error": 0.9996491589070591,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 0,
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0
+            },
+            {
+              "action": 1,
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0
+            }
+          ],
+          "root_average_policies": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 1,
+          "root_tag": "h50/controller2",
+          "value": -1.0
+        },
+        {
+          "average_gaps": [
+            1.0,
+            0.0
+          ],
+          "early_values": [
+            {
+              "error": 0.0,
+              "expected": 0.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 198
+            },
+            {
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 198
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 199
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 199
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 201
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 201
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 207
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 207
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 200
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 200
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 202
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 202
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 208
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 208
+            }
+          ],
+          "greedy_q_gaps": [
+            1.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 0.9832003852410166,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.016799614758983356,
+              "state_index": 395
+            },
+            {
+              "error": 0.9998577876821565,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": -0.00014221231784353167,
+              "state_index": 395
+            },
+            {
+              "error": 0.9997719270939041,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": -0.00022807290609598962,
+              "state_index": 396
+            },
+            {
+              "error": 0.9774865989363508,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.022513401063649182,
+              "state_index": 396
+            }
+          ],
+          "max_early_error": 1.0,
+          "max_late_error": 0.9998577876821565,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 1,
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 0,
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 2,
+              "predicted": 0.0
+            }
+          ],
+          "root_average_policies": [
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 2,
+          "root_tag": "h100/controller1",
+          "value": 1.0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            1.0
+          ],
+          "early_values": [
+            {
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 397
+            },
+            {
+              "error": 0.0,
+              "expected": 0.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 397
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 398
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 398
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 400
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 400
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 406
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 406
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 399
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 399
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 401
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 401
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 407
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 407
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            1.0
+          ],
+          "late_values": [
+            {
+              "error": 0.9999063539586648,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": -9.364604133522232e-05,
+              "state_index": 594
+            },
+            {
+              "error": 0.9890877320482936,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.010912267951706417,
+              "state_index": 594
+            },
+            {
+              "error": 0.9893154725013382,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.010684527498661806,
+              "state_index": 595
+            },
+            {
+              "error": 0.9998950500799658,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": -0.00010494992003422676,
+              "state_index": 595
+            }
+          ],
+          "max_early_error": 1.0,
+          "max_late_error": 0.9999063539586648,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 0,
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0
+            },
+            {
+              "action": 1,
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0
+            }
+          ],
+          "root_average_policies": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 3,
+          "root_tag": "h100/controller2",
+          "value": -1.0
+        },
+        {
+          "average_gaps": [
+            1.0,
+            0.0
+          ],
+          "early_values": [
+            {
+              "error": 0.0,
+              "expected": 0.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 596
+            },
+            {
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 596
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 597
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 597
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 599
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 599
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 605
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 605
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 598
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 598
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 600
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 600
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 606
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 606
+            }
+          ],
+          "greedy_q_gaps": [
+            1.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 0.9835553763127999,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.01644462368720017,
+              "state_index": 993
+            },
+            {
+              "error": 0.9998400325682554,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": -0.00015996743174466217,
+              "state_index": 993
+            },
+            {
+              "error": 0.9999074955871791,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": -9.25044128209791e-05,
+              "state_index": 994
+            },
+            {
+              "error": 0.9925751314621581,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.007424868537841862,
+              "state_index": 994
+            }
+          ],
+          "max_early_error": 1.0,
+          "max_late_error": 0.9999074955871791,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 1,
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 0,
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 2,
+              "predicted": 0.0
+            }
+          ],
+          "root_average_policies": [
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 4,
+          "root_tag": "h200/controller1",
+          "value": 1.0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            1.0
+          ],
+          "early_values": [
+            {
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 995
+            },
+            {
+              "error": 0.0,
+              "expected": 0.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 995
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 996
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 996
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 998
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 998
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 1004
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 1004
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 997
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 997
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 999
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 999
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 1005
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 1005
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            1.0
+          ],
+          "late_values": [
+            {
+              "error": 0.9998815411629971,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": -0.00011845883700284888,
+              "state_index": 1392
+            },
+            {
+              "error": 0.9865690941282929,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.013430905871707172,
+              "state_index": 1392
+            },
+            {
+              "error": 0.9831984919813475,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.016801508018652534,
+              "state_index": 1393
+            },
+            {
+              "error": 0.9998839559581574,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": -0.00011604404184266897,
+              "state_index": 1393
+            }
+          ],
+          "max_early_error": 1.0,
+          "max_late_error": 0.9998839559581574,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 0,
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0
+            },
+            {
+              "action": 1,
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0
+            }
+          ],
+          "root_average_policies": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 5,
+          "root_tag": "h200/controller2",
+          "value": -1.0
+        }
+      ]
+    },
+    {
+      "average_ready": false,
+      "counters": {
+        "fresh_ordinary": 52436,
+        "fresh_q": 65461,
+        "fresh_records": 65536,
+        "q_loss_targets": 245760,
+        "q_updates": 480,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 5
+      },
+      "coverage": {
+        "excluded_q_records": 75,
+        "overlap_counts": [
+          [
+            [
+              85270,
+              91205,
+              0
+            ],
+            [
+              20996,
+              22214,
+              0
+            ]
+          ],
+          [
+            [
+              9359,
+              10224,
+              0
+            ],
+            [
+              3151,
+              3341,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                84166.38876650571,
+                3440.658646869473,
+                3764.126739955973,
+                487583229.0
+              ],
+              [
+                88473.03355697641,
+                3617.8172072505113,
+                3763.4568488867953,
+                2578657050.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                20650.365484435315,
+                742.500887240516,
+                890.8791461391374,
+                120064444.0
+              ],
+              [
+                21429.06675206899,
+                781.4552366179414,
+                902.575553951785,
+                624208858.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                9214.44948200257,
+                362.96576912887394,
+                400.42262582154945,
+                54202830.0
+              ],
+              [
+                9876.780978855366,
+                406.6203280480113,
+                428.1613992252387,
+                281045940.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                3129.92679443855,
+                94.75336629478261,
+                102.11573565960862,
+                17310869.0
+              ],
+              [
+                3275.550390036571,
+                97.99475037422962,
+                99.95372859947383,
+                98989794.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 65461,
+        "root_episodes": [
+          [
+            93,
+            23
+          ],
+          [
+            80,
+            20
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            24,
+            6
+          ],
+          [
+            24,
+            6
+          ]
+        ],
+        "sampled_start_targets": 245760,
+        "visit_records": 65536
+      },
+      "elapsed_seconds": 42.42961196205579,
+      "epsilon": 0.099213568,
+      "handoff_probability": 0.0,
+      "records": 65536,
+      "roots": [
+        {
+          "average_gaps": [
+            1.0,
+            0.0
+          ],
+          "early_values": [
+            {
+              "error": 0.0,
+              "expected": 0.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 0
+            },
+            {
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 0
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 1
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 1
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 3
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 3
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 9
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 9
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 2
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 2
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 4
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 4
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 10
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 10
+            }
+          ],
+          "greedy_q_gaps": [
+            1.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 0.9327383961905924,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.06726160380940759,
+              "state_index": 97
+            },
+            {
+              "error": 0.9986021486479829,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": -0.0013978513520171054,
+              "state_index": 97
+            },
+            {
+              "error": 0.9988701652501494,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": -0.0011298347498506257,
+              "state_index": 98
+            },
+            {
+              "error": 0.9436564102167588,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.05634358978324112,
+              "state_index": 98
+            }
+          ],
+          "max_early_error": 1.0,
+          "max_late_error": 0.9988701652501494,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 1,
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 0,
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 2,
+              "predicted": 0.0
+            }
+          ],
+          "root_average_policies": [
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 0,
+          "root_tag": "h50/controller1",
+          "value": 1.0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            1.0
+          ],
+          "early_values": [
+            {
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 99
+            },
+            {
+              "error": 0.0,
+              "expected": 0.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 99
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 100
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 100
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 102
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 102
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 108
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 108
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 101
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 101
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 103
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 103
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 109
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 109
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            1.0
+          ],
+          "late_values": [
+            {
+              "error": 0.9988754118646943,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": -0.0011245881353057097,
+              "state_index": 196
+            },
+            {
+              "error": 0.9350819904286717,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.06491800957132829,
+              "state_index": 196
+            },
+            {
+              "error": 0.9224811153026606,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.07751888469733942,
+              "state_index": 197
+            },
+            {
+              "error": 0.9987501250333196,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": -0.001249874966680359,
+              "state_index": 197
+            }
+          ],
+          "max_early_error": 1.0,
+          "max_late_error": 0.9988754118646943,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 0,
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0
+            },
+            {
+              "action": 1,
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0
+            }
+          ],
+          "root_average_policies": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 1,
+          "root_tag": "h50/controller2",
+          "value": -1.0
+        },
+        {
+          "average_gaps": [
+            1.0,
+            0.0
+          ],
+          "early_values": [
+            {
+              "error": 0.0,
+              "expected": 0.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 198
+            },
+            {
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 198
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 199
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 199
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 201
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 201
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 207
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 207
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 200
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 200
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 202
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 202
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 208
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 208
+            }
+          ],
+          "greedy_q_gaps": [
+            1.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 0.9445637083678659,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0554362916321342,
+              "state_index": 395
+            },
+            {
+              "error": 0.9993721315092728,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": -0.0006278684907271018,
+              "state_index": 395
+            },
+            {
+              "error": 0.9994237039038052,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": -0.0005762960961948498,
+              "state_index": 396
+            },
+            {
+              "error": 0.9445843211599042,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.05541567884009581,
+              "state_index": 396
+            }
+          ],
+          "max_early_error": 1.0,
+          "max_late_error": 0.9994237039038052,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 1,
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 0,
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 2,
+              "predicted": 0.0
+            }
+          ],
+          "root_average_policies": [
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 2,
+          "root_tag": "h100/controller1",
+          "value": 1.0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            1.0
+          ],
+          "early_values": [
+            {
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 397
+            },
+            {
+              "error": 0.0,
+              "expected": 0.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 397
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 398
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 398
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 400
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 400
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 406
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 406
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 399
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 399
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 401
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 401
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 407
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 407
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            1.0
+          ],
+          "late_values": [
+            {
+              "error": 0.9994164914560787,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": -0.0005835085439213328,
+              "state_index": 594
+            },
+            {
+              "error": 0.9593234557043776,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.04067654429562244,
+              "state_index": 594
+            },
+            {
+              "error": 0.9594246218353726,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.04057537816462741,
+              "state_index": 595
+            },
+            {
+              "error": 0.9994129142270083,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": -0.0005870857729917394,
+              "state_index": 595
+            }
+          ],
+          "max_early_error": 1.0,
+          "max_late_error": 0.9994164914560787,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 0,
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0
+            },
+            {
+              "action": 1,
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0
+            }
+          ],
+          "root_average_policies": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 3,
+          "root_tag": "h100/controller2",
+          "value": -1.0
+        },
+        {
+          "average_gaps": [
+            1.0,
+            0.0
+          ],
+          "early_values": [
+            {
+              "error": 0.0,
+              "expected": 0.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 596
+            },
+            {
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 596
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 597
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 597
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 599
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 599
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 605
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 605
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 598
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 598
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 600
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 600
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 606
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 606
+            }
+          ],
+          "greedy_q_gaps": [
+            1.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 0.9609469279993151,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.03905307200068491,
+              "state_index": 993
+            },
+            {
+              "error": 0.9996214065225308,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": -0.0003785934774692024,
+              "state_index": 993
+            },
+            {
+              "error": 0.999803700676219,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": -0.00019629932378099942,
+              "state_index": 994
+            },
+            {
+              "error": 0.9796625126860279,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.020337487313972093,
+              "state_index": 994
+            }
+          ],
+          "max_early_error": 1.0,
+          "max_late_error": 0.999803700676219,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 1,
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 0,
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 2,
+              "predicted": 0.0
+            }
+          ],
+          "root_average_policies": [
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 4,
+          "root_tag": "h200/controller1",
+          "value": 1.0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            1.0
+          ],
+          "early_values": [
+            {
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 995
+            },
+            {
+              "error": 0.0,
+              "expected": 0.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 995
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 996
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 996
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 998
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 998
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 1004
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 1004
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 997
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 997
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 999
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 999
+            },
+            {
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.0,
+              "state_index": 1005
+            },
+            {
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0,
+              "state_index": 1005
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            1.0
+          ],
+          "late_values": [
+            {
+              "error": 0.999756940013427,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": -0.00024305998657302982,
+              "state_index": 1392
+            },
+            {
+              "error": 0.9673824224214584,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.032617577578541605,
+              "state_index": 1392
+            },
+            {
+              "error": 0.9682538461888015,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.031746153811198496,
+              "state_index": 1393
+            },
+            {
+              "error": 0.9997424510897027,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": -0.00025754891029723496,
+              "state_index": 1393
+            }
+          ],
+          "max_early_error": 1.0,
+          "max_late_error": 0.999756940013427,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 0.0,
+              "expected": -0.0,
+              "player": 1,
+              "predicted": 0.0
+            },
+            {
+              "action": 0,
+              "error": 1.0,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.0
+            },
+            {
+              "action": 1,
+              "error": 1.0,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.0
+            }
+          ],
+          "root_average_policies": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 5,
+          "root_tag": "h200/controller2",
+          "value": -1.0
+        }
+      ]
+    }
+  ],
+  "excluded_q_records": 75,
+  "final_five_max_average_gap": 1.0,
+  "final_five_max_early_error": 1.0,
+  "final_five_max_greedy_gap": 1.0,
+  "formal_case_passed": false,
+  "formal_protocol": false,
+  "learner": "tabular",
+  "loss": {
+    "projected_targets": 0,
+    "q_loss_sum": 5.453811254418667,
+    "q_updates": 480,
+    "raw_max": 1.0,
+    "raw_min": -1.0,
+    "supervised_loss_sum": 0.0,
+    "supervised_updates": 0
+  },
+  "outcomes": [
+    198,
+    177,
+    0
+  ],
+  "per_role_q_records": [
+    32732,
+    32729
+  ],
+  "per_role_records": [
+    32768,
+    32768
+  ],
+  "q_credit_passed": false,
+  "records": 65536,
+  "reservoir_seen": 0,
+  "reservoir_size": 0,
+  "seed": 0,
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "status": "complete",
+  "task": "delayed",
+  "termination_counts": {
+    "horizon": 375,
+    "mutual_pass": 0,
+    "round_limit": 0
+  },
+  "timings": {
+    "checkpoint": 0.9713162999833003,
+    "collection": 29.762783323822077,
+    "evaluation": 0.11679761402774602,
+    "learning": 11.861852848436683,
+    "setup": 0.6786548210075125
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "accepted_reservoir_changes": 4900,
+  "active_episode_steps": 18,
+  "auditor_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "average_readiness": "not_ready",
+  "checkpoint_manifest_sha256": "e6e1031fdf216be0b2a33680f1e2c5309d1c6182dcbb3d1cb9d4fceff5eaad94",
+  "eligibility_version": 2,
+  "eligible_labels": 4900,
+  "episode_audit_sha256": "c9c3e6e900a7652836bda84164a137c7fc1b890c338c2bf4af0f361f5f021884",
+  "excluded_passive_root_records": 75,
+  "formal_case_passed": false,
+  "formal_protocol": false,
+  "format_version": 1,
+  "last_accepted_label_record": 65199,
+  "last_supervised_fresh_record": 65224,
+  "learner": "tabular",
+  "ordinary_records": 52436,
+  "physical_complete_games": 375,
+  "published_tabular_ambiguous_mean_states": 0,
+  "published_tabular_exact_mean_states": 2788,
+  "published_tabular_exact_root_mean_states": 12,
+  "published_tabular_mean_checked": true,
+  "q_credit_passed": false,
+  "q_eligible_records": 65461,
+  "q_updates": 480,
+  "records": 65536,
+  "retained_executed_records_checked": 65536,
+  "retained_label_records_checked": 4900,
+  "scheduled_evaluations": [
+    {
+      "average_ready": true,
+      "max_average_gap": 1.0,
+      "max_early_error": 1.0,
+      "max_greedy_gap": 1.0,
+      "records": 32768
+    },
+    {
+      "average_ready": true,
+      "max_average_gap": 1.0,
+      "max_early_error": 1.0,
+      "max_greedy_gap": 1.0,
+      "records": 65536
+    }
+  ],
+  "scope": "independent closed-form archived policy/value grades, exact episode/mode/coverage/Algorithm-R/RNG clocks and retained transitions; completed full action trajectories and every historical greedy target are not reconstructed from header-only logs",
+  "seed": 0,
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "supervised_updates": 86,
+  "target_refreshes": 5,
+  "task": "delayed",
+  "training_manifest_sha256": "b41dbe87415f06b32f50d885d2b1e900510c8a9c44c292192c225ff18d2127f9",
+  "verified": true
+}
