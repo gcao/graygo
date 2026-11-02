@@ -68,7 +68,7 @@ The first complete delayed-pipeline profiler finished all eight cases. Its sourc
 ## Remaining work toward the full objective
 
 1. Independently audit completed matrix trials, finish the declared first-screen set (RPS and delayed family), then the required seed/task cohorts. Both seed-0 asymmetric primary runs completed 15M each and passed the independent archive/RNG/reservoir/replay audit. See `verification/nfsp-asymmetric.md`. This does not complete the other families/seeds.
-2. Replace the completed historical delayed timing profiles with corrected-reference source profiles, enter C1/C4 ceilings, profile bounded neural/control paths, and run the selected one-step comparisons with actual tabular controls. Per-branch gates and full multiround resume are implemented; learning evidence and any conditional Retrace selection remain pending.
+2. The corrected-reference delayed profiles are complete and C1/C4 costs are entered; run the selected R=1 first screen, profile bounded neural/control paths, and run the selected one-step comparisons with actual tabular controls. Per-branch gates and full multiround resume are implemented; learning evidence and any conditional Retrace selection remain pending.
 3. Run the selected NFSP A2 protocol across short mixed tasks, bounded Gray Go and the delayed family with three seeds, final-five gates and fixed aggregate counters.
 4. Integrate the ninth-review development/confirmation cohorts, baseline confidence gates, opening checks and pilot safeguards. Keep packed-feature storage's current overhead explicit; the design's compact rule-state/regenerated-feature backend is still pending.
 5. Profile the complete selected learner, fill its cost ledger and run only the eligible declared pilot/screening/confirmation stages.
@@ -79,3 +79,7 @@ The Python engine is the independently readable reference. Its throughput must b
 ## Reference-value correction before delayed learning
 
 Q credit is now evaluated for its own target policy against the actual native opponent episode mixture, including posterior conditioning after public prefixes. This keeps averaging lag separate from credit learning. The previous joint-epsilon-Q assumption was an implementation error, corrected before full delayed comparisons. See `verification/nfsp-native-reference.md`. Historical timing measurements are retained and their actual CPU cost remains in the record; they cannot fund the changed source.
+
+## Current allocations after audited asymmetric results
+
+The source-corrected delayed cost report and partial actual-resource ledger are in `verification/nfsp-delayed-costs-9fefeee.md` and `experiments/resource-ledger.md`. RPS cost profiles passed their explicit gate and its seed-0 primary screen is live. The delayed driver permits only the budget-bound R=1 control/neural first screen; R=4 is not automatically selected by profiling it. All one-seed results remain partial A2 evidence.
