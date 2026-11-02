@@ -1,0 +1,19 @@
+{
+  "all_tests_passed": true,
+  "current_actual_control_leaves": 21,
+  "current_control_measurements_plus_reservation": 22,
+  "current_example_reproduced_read_only": true,
+  "device_campaign_status": "uncosted",
+  "execution_authorized": false,
+  "full_test_log_sha256": "00de4a5129e438b0c49d827873e1cd142594f3e898e6cba8b4934835c6a1821e",
+  "full_test_seconds": 270.438,
+  "full_tests": 366,
+  "learner_package_unchanged_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
+  "project_consumption_complete": false,
+  "scope": "exact numerical/reference and unit-accounting checks; no independent runtime-price qualification or training scope",
+  "targeted_test_log_sha256": "5a6f98c55da4516c143031a98ca791502f9a4f22a0fcd02cf4042214e9b5e73a",
+  "targeted_tests": 16,
+  "test_sha256": "490f985f91d9dcd056f4159e679837df019e168269f148251a17239d4b7c0dff",
+  "tool_sha256": "a22d5e2559a02b9f46e4f0ca3668f94443bdced43f41f477a77249ae47daf1d0",
+  "version": 1
+}

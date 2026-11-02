@@ -272,3 +272,7 @@ Supplemental coverage retains the forcing role's conditional root-action target 
 ## A2 cohort evidence
 
 `tools/a2_cohort.py` creates a source-bound numerical plan, freshly audits an original completed case, and assesses all available cases against the fixed three-seed/final-five gates. Missing evidence remains incomplete. Matched controls and extension proposals are separate, and numerical passes do not authorize training. Archived reports can be reanalyzed without private model files. See [the protocol and commands](docs/verification/a2-cohort.md).
+
+## Resource ledger
+
+`tools/nfsp_resources.py` computes the design’s NFSP device-hour expression and reports separately recorded CPU/GPU scopes. Unknown prices stay missing, optional work requires an explicit selection, pilot cost is included in screening, and overlapping driver/phase measurements cannot be added twice. See [the resource contract and current recorded example](docs/verification/nfsp-resource-ledger.md). The calculator never qualifies a runtime forecast independently or authorizes training.

@@ -1,0 +1,187 @@
+{
+  "B_U_zero_device_hours_basis": "no matched uniform comparison selected; primary configuration retains Q fallback",
+  "P_and_U_zero_device_hours_basis": "documented CPU-only PPO preflight; no other-route development/pilot was selected",
+  "actual_control_leaves": [
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "1338.7451892039971",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-asymmetric-primary-6a92132/tabular",
+      "training_manifest_sha256": "b599d5918394a3e4ae5c15328d2a0b08ebe7cbac0d743abafd248dd605db3ec6"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "7218.410642870003",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-delayed-R1-primary-9fefeee/tabular",
+      "training_manifest_sha256": "dd655c2cc133fafeddbb73fdb969638b36c79f6f11678f6731a000a7a6f5ffd3"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "9.386666339996736",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-matrix-profile-6a92132/post/tabular",
+      "training_manifest_sha256": "93d585dc588cd89f31092a1ff7e4860b1383581b0bcfabc149fca2019aee6309"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "8.6998783639865",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-matrix-profile-6a92132/pre/tabular",
+      "training_manifest_sha256": "b8d45ba8a75dc093e1d75dc36b07d51a733fab889f80545e0ded805f7938461a"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "9.305035030993167",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-rps-primary-6a92132/profiles/post-tabular",
+      "training_manifest_sha256": "a1eddfbd4742e6007e54d14a29be9b286d9ff7faa54c0d37c4fbbbdc6f109b4d"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "8.622963652946055",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-rps-primary-6a92132/profiles/pre-tabular",
+      "training_manifest_sha256": "9293e223a2d9587f064374af5a823e0be71de06782b889af8080dbd1aafa017b"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "1341.0014055719948",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-rps-primary-6a92132/trials/tabular",
+      "training_manifest_sha256": "e67c1a86a488f107ccb127d2a35c657a341e41aad252e36fb895a9bb205d79cb"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "24.189032648981083",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-94a3860/tabular-R1-post",
+      "training_manifest_sha256": "d6fb86ab5ba45459211fd609caf334141238a2a91da920ea8cc832bb82ab50e9"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "26.27139743900625",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-94a3860/tabular-R1-pre",
+      "training_manifest_sha256": "5926bd88a6c4bae117ea551adf1edd9dea84588197be4393887a8141b8e49c79"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "29.938982944993768",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-94a3860/tabular-R4-post",
+      "training_manifest_sha256": "0f76a5b1688854a2826cb1579e6d1e3a86ce2217bbb9ad52f7521378120faad3"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "32.463548425992485",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-94a3860/tabular-R4-pre",
+      "training_manifest_sha256": "bc482ee3278390ab27573d5b08cb3f811c171c6d85de848276ea79e80b91d1fd"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "23.98126772197429",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-9fefeee/tabular-R1-post",
+      "training_manifest_sha256": "0ee6ceb861c2231280c1b675efdd3cdd31b4f74b4579e61fe3e9020b60451b76"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "26.06753469799878",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-9fefeee/tabular-R1-pre",
+      "training_manifest_sha256": "8d5c70cabe042394caf88f653f225f34331895551335c4a67ab9fba91cb95d0e"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "29.655093784967903",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-9fefeee/tabular-R4-post",
+      "training_manifest_sha256": "d2870a8adf09f42a5f6907b3b331674d4ec48dbf97aab954217d8f19b13a6eae"
+    },
+    {
+      "basis": "original frozen control inventory recorded process interval",
+      "evidence_path": "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-R4-primary-plan.json",
+      "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+      "quantity_seconds": "31.996727588004433",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-task-profiles-9fefeee/tabular-R4-pre",
+      "training_manifest_sha256": "d56728545ee391ee84fa5fee44d22b5cf6b11ac08c57d537305df64e2b589fe5"
+    },
+    {
+      "basis": "completed original R4 table learner interval",
+      "evidence_path": "/home/gcao/proj/graygo/runs/nfsp-delayed-R4-primary-9fefeee/tabular/result.json",
+      "evidence_sha256": "3da6bacbfce0b6648801a2fed3b518a9f798a0498bba9071f64373f37ed58872",
+      "quantity_seconds": "9250.354252206045",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-delayed-R4-primary-9fefeee/tabular",
+      "training_manifest_sha256": "aead09d72d3ffb82f45e0069b7c3bc1aa008682f38e0789f0966ecb324b3ff8c"
+    },
+    {
+      "basis": "source-bound profile case interval including setup",
+      "evidence_path": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R1-profiles-ca45a53/profile.json",
+      "evidence_sha256": "4e6dfd61e012885c6eac6177c7568d746b3ad314df3e395a0b05626b61d02d77",
+      "quantity_seconds": "34.238584031991195",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-pre",
+      "training_manifest_sha256": "616d282a9ae6ce2f0378cf80121b90b77cd7f6d0c9671763507d0598c2445e71"
+    },
+    {
+      "basis": "source-bound profile case interval including setup",
+      "evidence_path": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R1-profiles-ca45a53/profile.json",
+      "evidence_sha256": "4e6dfd61e012885c6eac6177c7568d746b3ad314df3e395a0b05626b61d02d77",
+      "quantity_seconds": "31.734897031041328",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-post",
+      "training_manifest_sha256": "5e280ac401e949587979d0982b11566ea81972861a2bd9949a65a6ed044acaa1"
+    },
+    {
+      "basis": "source-bound profile case interval including setup",
+      "evidence_path": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-profiles-ca45a53/profile.json",
+      "evidence_sha256": "cbb7a73d7a03b289f4d31b8b2695dc16e9d8a7711d60b94dffb592ee525f3a8f",
+      "quantity_seconds": "43.672724096046295",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-pre",
+      "training_manifest_sha256": "b411a26a0c92d271eb5058981262b8d636f9fa73ef80c82e2d8ed1c19688e8f4"
+    },
+    {
+      "basis": "source-bound profile case interval including setup",
+      "evidence_path": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-profiles-ca45a53/profile.json",
+      "evidence_sha256": "cbb7a73d7a03b289f4d31b8b2695dc16e9d8a7711d60b94dffb592ee525f3a8f",
+      "quantity_seconds": "41.02294478402473",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-post",
+      "training_manifest_sha256": "b41dbe87415f06b32f50d885d2b1e900510c8a9c44c292192c225ff18d2127f9"
+    },
+    {
+      "basis": "completed corrected R1 table learner interval",
+      "evidence_path": "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/tabular/result.json",
+      "evidence_sha256": "e3d33e4d4f7a1f271bff6481356208fd5bf382039b9348bcce64fe908b96317e",
+      "quantity_seconds": "7431.799158633978",
+      "run": "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/tabular",
+      "training_manifest_sha256": "1a58167031140cd4819ca7b0cfdb00b063c4e3e6773a3fe750edf404aa74069d"
+    }
+  ],
+  "decimal_sum_of_recorded_leaf_seconds": "26991.557927068962898",
+  "future_device_prices_unknown": [
+    "C1",
+    "C4",
+    "H_P",
+    "H_D",
+    "H_N"
+  ],
+  "legacy_float_accumulation_delta_seconds": "-1.127E-12",
+  "legacy_settled_control_seconds": "26991.557927068964025",
+  "reserved_control_allocation_sha256": "19b80d7dcbcf3184424b724d045a77be648e4e8782a08afba784020db1a15f20",
+  "scope": "control/profile subset plus one reservation, not total project consumption; numeric references do not independently qualify complete-runtime prices",
+  "version": 1
+}
