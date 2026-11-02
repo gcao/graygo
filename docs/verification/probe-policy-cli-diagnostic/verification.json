@@ -1,0 +1,189 @@
+{
+  "allocation_sha256": "3c87d9b3650a26605caf525df84805b0d4d4acbcbdc9e4240a55f7629d5353f8",
+  "clock": {
+    "committed_families": 32,
+    "inflight_since": null,
+    "observed_seconds": 23.148002420028206,
+    "plan_sha256": "cd561c83f115fac927f31a1885d84949ea06b40f0ecf804a33f3ce5f8618885b",
+    "recovery_charge_seconds": 0.0,
+    "reproduced_families": 32,
+    "version": 1
+  },
+  "commands": [
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "-m",
+        "graygo",
+        "probe-evaluate",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/evidence",
+        "--benchmark",
+        "/home/gcao/proj/graygo/.worktrees/probe-policy-f0751b0/docs/verification/probe-multicell-v2-construction/benchmark.json",
+        "--freeze-receipt",
+        "/home/gcao/proj/graygo/.worktrees/probe-policy-f0751b0/docs/experiments/collision-benchmark-v2-freeze.json",
+        "--name",
+        "full-shape-zero-record-diagnostic",
+        "--purpose",
+        "diagnostic",
+        "--time-cap-hours",
+        "0.16666666666666666",
+        "--device",
+        "cpu",
+        "--no-audit",
+        "--policy",
+        "200=/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/200/weights/000000000000",
+        "--policy",
+        "201=/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/201/weights/000000000000",
+        "--policy",
+        "202=/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/202/weights/000000000000",
+        "--families",
+        "8",
+        "--output",
+        "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/receipts/collect-eight.json"
+      ],
+      "name": "collect-eight",
+      "receipt_sha256": "caec21721db7db3e995bd865c491526025b333ca8d23b0354c39212d432e918f",
+      "returncode": 0,
+      "seconds": 7.92978166800458
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "-m",
+        "graygo",
+        "probe-evaluate",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/evidence",
+        "--benchmark",
+        "/home/gcao/proj/graygo/.worktrees/probe-policy-f0751b0/docs/verification/probe-multicell-v2-construction/benchmark.json",
+        "--freeze-receipt",
+        "/home/gcao/proj/graygo/.worktrees/probe-policy-f0751b0/docs/experiments/collision-benchmark-v2-freeze.json",
+        "--name",
+        "full-shape-zero-record-diagnostic",
+        "--purpose",
+        "diagnostic",
+        "--time-cap-hours",
+        "0.16666666666666666",
+        "--device",
+        "cpu",
+        "--no-audit",
+        "--policy",
+        "200=/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/200/weights/000000000000",
+        "--policy",
+        "201=/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/201/weights/000000000000",
+        "--policy",
+        "202=/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/202/weights/000000000000",
+        "--families",
+        "32",
+        "--resume",
+        "--output",
+        "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/receipts/resume-complete.json"
+      ],
+      "name": "resume-complete",
+      "receipt_sha256": "529e673372371943b64a2330e66428087cb80eb7d74b2c7314e2921d19a8a527",
+      "returncode": 0,
+      "seconds": 10.033421667991206
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "-m",
+        "graygo",
+        "probe-audit",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/evidence",
+        "--output",
+        "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/receipts/reload-forward-audit.json"
+      ],
+      "name": "reload-forward-audit",
+      "receipt_sha256": "42a31d986413af84a9a37e2e8b99d8f5b028bb6e3515677a527ea5506da14ccc",
+      "returncode": 0,
+      "seconds": 10.886533777986187
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "-m",
+        "graygo",
+        "probe-report",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/evidence",
+        "--output",
+        "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/receipts/read-only-report.json"
+      ],
+      "name": "read-only-report",
+      "receipt_sha256": "c918eea7168efe7f458a1594e63fa32682d8a844330a6efdc2597a6a1cd9f13c",
+      "returncode": 0,
+      "seconds": 4.476367505034432
+    }
+  ],
+  "confirmation_criterion_met": false,
+  "disk_reserve_bytes": 21474836480,
+  "driver_seconds": 34.72355030599283,
+  "driver_sha256": "41c7577598f745e40610780933a18892fe5bc264db79ef7a62c8c75ed499ae3f",
+  "evidence_sha256": "ffbe02a19f1fc1c8fbfdc8d59996ea03d86f7260785034df95c1a9f90c023737",
+  "families": 32,
+  "gray_specialization_demonstrated": false,
+  "inference_contract_sha256": "cd561c83f115fac927f31a1885d84949ea06b40f0ecf804a33f3ce5f8618885b",
+  "inference_time_ceiling_seconds": 600,
+  "initial_archives": [
+    {
+      "archive": "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/200/weights/000000000000",
+      "archive_manifest_sha256": "e16da129dde2964b96e9999d4db045c7542050c57e364879cca21499c22b1771",
+      "records": 0,
+      "seed": 200,
+      "shape": [
+        64,
+        8,
+        8
+      ],
+      "training_manifest_sha256": "1c46479f6aa29a7a88f82f51753cfd9682bfc7b66277ad6990a7d48319a21f9b"
+    },
+    {
+      "archive": "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/201/weights/000000000000",
+      "archive_manifest_sha256": "b3f1f39453bcd353ce7afa8b018e575eb0f561b6d0380d5ffac9cd0eb29e756f",
+      "records": 0,
+      "seed": 201,
+      "shape": [
+        64,
+        8,
+        8
+      ],
+      "training_manifest_sha256": "961981292bd6422fb914971a337f0e2e86e5cd07cc3ec688db1f325d50cbed4c"
+    },
+    {
+      "archive": "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/202/weights/000000000000",
+      "archive_manifest_sha256": "f7db6891d7a23c0d64ac781b3939e51104f20995f1ed98d3861774ac0e62dc01",
+      "records": 0,
+      "seed": 202,
+      "shape": [
+        64,
+        8,
+        8
+      ],
+      "training_manifest_sha256": "8993d1b1cea9ddb4c8485df6b8f15d0f208695d1ed9a29a9c57a92eb252b7a28"
+    }
+  ],
+  "initialization_seconds": 1.318060475983657,
+  "learning_records": 0,
+  "original_inputs_unchanged": true,
+  "original_pid": 2459160,
+  "passed_families_per_seed": {
+    "200": 0,
+    "201": 0,
+    "202": 0
+  },
+  "reproduced_role_marginals": 384,
+  "role_marginals": 384,
+  "roots": 64,
+  "run_dir": "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix",
+  "scope": "full-shape CPU CLI inference/recovery/forward-reproduction verification; no learning records or trained behavioral evidence",
+  "seeds": 3,
+  "source_commit": "f0751b040c002db47e97ece8d5a89f1b69c46301",
+  "source_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
+  "standalone_report_read_only": true,
+  "started_at_unix": 1793630596.8749833,
+  "status": "verified",
+  "zero_record_diagnostic_only": true
+}

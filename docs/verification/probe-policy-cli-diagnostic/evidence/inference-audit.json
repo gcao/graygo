@@ -1,0 +1,14 @@
+{
+  "body": {
+    "archive_policy_binding_verified": false,
+    "checked_families": 32,
+    "completed_families": 32,
+    "contract_sha256": "cd561c83f115fac927f31a1885d84949ea06b40f0ecf804a33f3ce5f8618885b",
+    "evidence_sha256": "ffbe02a19f1fc1c8fbfdc8d59996ea03d86f7260785034df95c1a9f90c023737",
+    "scope": "exact marginal replay under pinned model/source/numerical runtime; training trajectory/scope and scientific performance remain separate",
+    "source_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
+    "status": "complete",
+    "verified": true
+  },
+  "sha256": "3abdf6e7a2744b5d74885b1a59a8da4ae093d285b140a91b4372609fa243f1a3"
+}

@@ -1,0 +1,52 @@
+{
+  "body": {
+    "audit_ceiling_seconds": 60,
+    "clock": {
+      "committed_families": 32,
+      "inflight_since": null,
+      "observed_seconds": 23.148002420028206,
+      "plan_sha256": "cd561c83f115fac927f31a1885d84949ea06b40f0ecf804a33f3ce5f8618885b",
+      "recovery_charge_seconds": 0.0,
+      "reproduced_families": 32,
+      "version": 1
+    },
+    "confirmation_criterion_met": false,
+    "exact_initial_parameters_reconstructed": [
+      {
+        "archive_step": 0,
+        "average_weights_sha256": "66db9a495cebece51344aae379c03dd01145026e039ce2836890fef05e71ca78",
+        "q_and_average_exact_initial_parameters": true,
+        "seed": 200
+      },
+      {
+        "archive_step": 0,
+        "average_weights_sha256": "c83dbd1cb8afd5f91b34e7708a2b9c66479dc4426ff26c1d71b27f04504d32ef",
+        "q_and_average_exact_initial_parameters": true,
+        "seed": 201
+      },
+      {
+        "archive_step": 0,
+        "average_weights_sha256": "d5f7fbce2957ed4bb1083224d0dddf7246716e4991d4f8f310e4d1c4a27424c8",
+        "q_and_average_exact_initial_parameters": true,
+        "seed": 202
+      }
+    ],
+    "fixed_three_seed_both_role_both_root_inventory_verified": true,
+    "forward_reproduction_receipt_verified": true,
+    "frozen_source_commit": "f0751b040c002db47e97ece8d5a89f1b69c46301",
+    "gray_specialization_demonstrated": false,
+    "independent_cpu_seconds": 0.24312388099497184,
+    "learning_records": 0,
+    "original_driver_terminal": true,
+    "original_inputs_unchanged": true,
+    "original_pid": 2459160,
+    "raw_sqlite_family_checksum_and_prefix_verified": true,
+    "reproduced_role_marginals": 384,
+    "role_marginals": 384,
+    "scope": "read-only raw scored/checkpoint/clock audit and independent reconstruction of all initial Q/average parameters; forward replay is the separately executed pinned CLI receipt",
+    "source_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
+    "verified": true,
+    "version": 1
+  },
+  "sha256": "f9db2b7532c23533a380a28d315e8966623f477c648fa73d41c701c4386bf805"
+}

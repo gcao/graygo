@@ -1,0 +1,36 @@
+{
+  "allocation": "docs/experiments/probe-policy-diagnostic-allocation.json",
+  "allocation_sha256": "3c87d9b3650a26605caf525df84805b0d4d4acbcbdc9e4240a55f7629d5353f8",
+  "confirmation_criterion_met": false,
+  "cpu_audit_cap_seconds": 60,
+  "driver_seconds": 34.72355030599283,
+  "driver_wall_cap_seconds": 900,
+  "gray_specialization_demonstrated": false,
+  "independent_cpu_audit_seconds": 0.24312388099497184,
+  "inference_cap_seconds": 600,
+  "inference_clock": {
+    "committed_families": 32,
+    "inflight_since": null,
+    "observed_seconds": 23.148002420028206,
+    "plan_sha256": "cd561c83f115fac927f31a1885d84949ea06b40f0ecf804a33f3ce5f8618885b",
+    "recovery_charge_seconds": 0.0,
+    "reproduced_families": 32,
+    "version": 1
+  },
+  "initialization_seconds": 1.318060475983657,
+  "learning_records": 0,
+  "new_control_or_accelerator_allocation": false,
+  "original_pid": 2459160,
+  "passed_families_per_seed": {
+    "200": 0,
+    "201": 0,
+    "202": 0
+  },
+  "preflight_failure": "docs/experiments/probe-policy-diagnostic-preflight.json",
+  "resource_scope": "observed bounded CPU diagnostic/inference and separately measured read-only audit; failed preflight, imports, regression/development and archiving overhead are additional; no full-study price or complete resource consumption claim",
+  "source_commit": "f0751b040c002db47e97ece8d5a89f1b69c46301",
+  "source_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
+  "status": "verified_terminal",
+  "tracked_evidence": "docs/verification/probe-policy-cli-diagnostic",
+  "version": 1
+}

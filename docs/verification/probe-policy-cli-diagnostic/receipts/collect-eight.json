@@ -1,0 +1,149 @@
+{
+  "manifest": {
+    "baseline_version": "graygo/baselines/1",
+    "command": {
+      "benchmark": "/home/gcao/proj/graygo/.worktrees/probe-policy-f0751b0/docs/verification/probe-multicell-v2-construction/benchmark.json",
+      "catalog": null,
+      "collision": "gray",
+      "command": "probe-evaluate",
+      "curriculum": "exposure",
+      "device": "cpu",
+      "families": 8,
+      "freeze_receipt": "/home/gcao/proj/graygo/.worktrees/probe-policy-f0751b0/docs/experiments/collision-benchmark-v2-freeze.json",
+      "limit": null,
+      "name": "full-shape-zero-record-diagnostic",
+      "no_audit": true,
+      "output": "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/receipts/collect-eight.json",
+      "policy": [
+        "200=/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/200/weights/000000000000",
+        "201=/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/201/weights/000000000000",
+        "202=/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/202/weights/000000000000"
+      ],
+      "purpose": "diagnostic",
+      "representation": "average",
+      "resume": false,
+      "run_dir": "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/evidence",
+      "science_protocol": null,
+      "seed": 0,
+      "size": 9,
+      "time_cap_hours": 0.16666666666666666
+    },
+    "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "cpu_threads": 24,
+    "created_at": "2026-11-02T14:43:18.274800+00:00",
+    "dependencies": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "torch": "2.11.0"
+    },
+    "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+    "disk_free_bytes": 126585057280,
+    "encoding_version": "graygo/encoding/1",
+    "filesystem": "ext2/ext3",
+    "format_version": 1,
+    "git_commit": "f0751b040c002db47e97ece8d5a89f1b69c46301",
+    "git_dirty": false,
+    "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+    "host_memory": {
+      "available_bytes": 29591060480,
+      "swap_bytes": 12884897792,
+      "total_bytes": 33558446080
+    },
+    "hostname": "home-ai",
+    "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "rule_version": "graygo/1",
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "run_id": "fcbc4734df0941c89b3b85d147857194",
+    "seed": null,
+    "seeds": [
+      200,
+      201,
+      202
+    ],
+    "source_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f"
+  },
+  "result": {
+    "collection": {
+      "clock": {
+        "committed_families": 8,
+        "inflight_since": null,
+        "observed_seconds": 6.262094845005777,
+        "plan_sha256": "cd561c83f115fac927f31a1885d84949ea06b40f0ecf804a33f3ce5f8618885b",
+        "recovery_charge_seconds": 0.0,
+        "reproduced_families": 0,
+        "version": 1
+      },
+      "committed_families": 8,
+      "contract_sha256": "cd561c83f115fac927f31a1885d84949ea06b40f0ecf804a33f3ce5f8618885b",
+      "gray_specialization_demonstrated": false,
+      "purpose": "diagnostic",
+      "requested_families": 8,
+      "status": "segment_complete"
+    },
+    "summary": {
+      "a2_complete": false,
+      "archive_policy_binding_verified": false,
+      "clock": {
+        "committed_families": 8,
+        "inflight_since": null,
+        "observed_seconds": 6.262094845005777,
+        "plan_sha256": "cd561c83f115fac927f31a1885d84949ea06b40f0ecf804a33f3ce5f8618885b",
+        "recovery_charge_seconds": 0.0,
+        "reproduced_families": 0,
+        "version": 1
+      },
+      "completed_families": 8,
+      "confirmation_behavioral_criterion_met": false,
+      "contract_sha256": "cd561c83f115fac927f31a1885d84949ea06b40f0ecf804a33f3ce5f8618885b",
+      "evidence_sha256": "f95e77798a77e844b0451709b48ea482b228213232f2a8bc5e390708b878a96d",
+      "family_coverage_complete": true,
+      "frozen_inference_reproduced": false,
+      "grade": null,
+      "gray_specialization_demonstrated": false,
+      "inference_complete": false,
+      "matched_exposure_independently_verified": false,
+      "numerical_behavior_pass": false,
+      "protocol_sha256": "ea3126aa10171da226302328903cc5e24fea51d9f1342fce436f26c0da0832c8",
+      "purpose": "diagnostic",
+      "required_families": 32,
+      "required_passes_per_seed": 24,
+      "scope": "exact gaps/collision marginals on a complete fixed benchmark; no binomial population confidence claim; full A2/training/exposure/performance prerequisites remain separate",
+      "time_ceiling_seconds": 600.0,
+      "training_scope_independently_verified": false,
+      "training_trajectory_independently_verified": false,
+      "version": "graygo/frozen-probe-policy/1",
+      "within_inference_budget": true
+    }
+  }
+}

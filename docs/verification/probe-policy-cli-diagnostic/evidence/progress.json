@@ -1,0 +1,17 @@
+{
+  "clock": {
+    "committed_families": 32,
+    "inflight_since": null,
+    "observed_seconds": 14.29253807803616,
+    "plan_sha256": "cd561c83f115fac927f31a1885d84949ea06b40f0ecf804a33f3ce5f8618885b",
+    "recovery_charge_seconds": 0.0,
+    "reproduced_families": 0,
+    "version": 1
+  },
+  "committed_families": 32,
+  "contract_sha256": "cd561c83f115fac927f31a1885d84949ea06b40f0ecf804a33f3ce5f8618885b",
+  "gray_specialization_demonstrated": false,
+  "purpose": "diagnostic",
+  "requested_families": 32,
+  "status": "complete"
+}

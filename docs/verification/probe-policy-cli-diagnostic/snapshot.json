@@ -1,0 +1,22 @@
+{
+  "copied_files_sha256": {
+    "binding.json": "e1a87e68b0f3e5b2c107e35da4ddc78418ac4c2ad489c334b576f9f15c7c6983",
+    "evidence/evidence.sqlite": "480692921dc359eb7abdbe95b6299a26ad774ec383e5ac8c2f5f09007d47b499",
+    "evidence/inference-audit.json": "d731e398c8948e77ea3f7aeb1f8ecee9acd5eb0632c5326b38c7b08e8e78d43f",
+    "evidence/plan.json": "da4fa6f7fad5f838af32f2635c29021ea7c7136c4ab182a077fb011cbea48d8b",
+    "evidence/progress.json": "2267e19af4826dc560e0971bfacf02db39f10be0e8ee7037d01b1d74521b787a",
+    "independent-audit.json": "f04a81a52c6b80777115b1c6d8ff2840c0444457782098436f39b4f5cf323d4b",
+    "receipts/collect-eight.json": "caec21721db7db3e995bd865c491526025b333ca8d23b0354c39212d432e918f",
+    "receipts/read-only-report.json": "c918eea7168efe7f458a1594e63fa32682d8a844330a6efdc2597a6a1cd9f13c",
+    "receipts/reload-forward-audit.json": "42a31d986413af84a9a37e2e8b99d8f5b028bb6e3515677a527ea5506da14ccc",
+    "receipts/resume-complete.json": "529e673372371943b64a2330e66428087cb80eb7d74b2c7314e2921d19a8a527",
+    "verification.json": "aff772cd588206886a679fb386da6be1cc5d138796aacfede9519d7ad2c504bb"
+  },
+  "copy_exact": true,
+  "gray_specialization_demonstrated": false,
+  "learning_records": 0,
+  "original_root": "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix",
+  "snapshot_report_read_only": true,
+  "snapshot_report_reproduced": true,
+  "version": 1
+}
