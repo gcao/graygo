@@ -113,3 +113,17 @@ Rule-state packets retain the full public game state and player perspective. Mas
 ```
 
 `train-nfsp-task` also accepts `--native-library` with `--storage rule-state`. Snapshot metadata and budget checks bind the binary SHA-256 and ABI; keep that build available when resuming. Unsupported rules/ABIs or changed binaries fail explicitly. The independent Python decoder remains the reference. Native code is for batched feature generation and validation, with no game-rule or learning-target changes. See [verification](docs/verification/native-rule-decoder.md).
+
+## Frozen paired evaluation
+
+Create a `ConfidenceFamily` with the complete endpoint/look set before collection, save its `to_dict()` as JSON, then run:
+
+```sh
+.venv/bin/graygo evaluate --name baseline-read --subject-label baseline --endpoint utility --subject random --opponent tactical --confidence-plan confidence.json --run-dir runs/baseline-read --games 500 --time-cap-hours .5
+# The same contract can continue to a predeclared later look.
+.venv/bin/graygo evaluate --name baseline-read --subject-label baseline --endpoint utility --subject random --opponent tactical --confidence-plan confidence.json --run-dir runs/baseline-read --games 2000 --time-cap-hours 1 --resume
+```
+
+Neural subjects use `--subject neural --subject-archive PATH --representation average` (or `greedy_q` for the separate Q diagnostic). `--incumbent` adds matched improvement evidence; its endpoint type is fixed before the first game. Whole color pairs commit atomically. Repeated game hashes are reported rather than removed. The plan binds confidence method/family, models, source, openings and sample looks. Bounds do not constitute a promotion certificate: joint protected-pool calibration and the other design gates remain required.
+
+`PilotProtocol`/`ScreeningProtocol` require registered development-run hashes and frozen baseline identities; serialized constants are checked on reload. The pilot requires both fixed Q windows and post-opening average diagnostics for all three development seeds. Confirmation seeds use the fixed opening and are never performance-filtered.

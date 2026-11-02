@@ -35,7 +35,7 @@ Objective: implement Gray Go following `docs/design.md`, including its verificat
 - Opaque 50/100/200-round controls, a forced-action indexing variant, a 40-equivalent-action stress variant and a meaningful two-round branching game are implemented. Codebooks are randomly permuted independently of semantic order, with exact manifest/digest support.
 - Exact finite Markov solving, policy/action-value evaluation and best responses are implemented for those adapters. Latent episode mixtures continue to use the complete-history evaluator.
 - Supported-coverage scheduling gives each horizon/controller equal rounds, with randomized ten-episode blocks containing eight ordinary and one episode per forced branch. Mid-block and mid-episode resume checks pass.
-- The full suite passes **142 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
+- The full suite passes **160 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
 
 ## Resumable matrix NFSP trainer
 
@@ -61,7 +61,7 @@ Exact delayed evaluation checks root action values and early target-policy value
 
 Full runs require an explicit time ceiling and matching declared complete-pipeline budget-profile hash. `purpose=profile` cannot satisfy formal gates. `tools/profile_nfsp_tasks.py` produces paired pre/post, R=1/R=4 costs; terminal-matrix costs are not substituted for these. Runtime settings, optimizer defaults, actual host memory/affinity/filesystem and complete adapter/codebook metadata are recorded.
 
-The suite passes **142 tests**, including exact mid-episode resume for neural/tabular delayed and mixed-Go runs. See `verification/nfsp-multiround.md`. No delayed-credit convergence or 9×9 strength claim follows from these implementation checks.
+The suite passes **160 tests**, including exact mid-episode resume for neural/tabular delayed and mixed-Go runs. See `verification/nfsp-multiround.md`. No delayed-credit convergence or 9×9 strength claim follows from these implementation checks.
 
 The first complete delayed-pipeline profiler finished all eight cases. Its source is now historical for funding purposes after the native-opponent Q reference correction. The immutable eight-case plan and resource ceilings are in `experiments/nfsp-delayed-profile-plan.json`. Its results are not yet convergence evidence or a completed full-study budget.
 
@@ -103,3 +103,11 @@ The optional checksummed C++ decoder now validates and regenerates compact packe
 Performance measurements remain the next decision: neither correctness nor logical host-memory savings alone authorizes large-board budgets. The original RPS and R1 delayed runs remain on their pinned pre-native implementations and are not restarted by this work.
 
 The seed-0 RPS tabular and neural first-screen passes are now independently audited (`verification/nfsp-rps.md`); the delayed R1 screen continues on its original source/process. Native decoding matches all sampled fields while reducing the measured replay workload from 3.99 to 0.045 seconds and strict partial restore from 6.45 to 0.124 seconds. Full-capacity native IO has launched under its own non-learning plan; complete GPU learner and later cohort/scientific gates remain active work.
+
+## Frozen paired evaluation and milestone controls
+
+The paired evaluator, SQL evidence/resume, fixed confidence-family/endpoint contracts and explicit frozen policy/episode-mixture wrappers are implemented. Unit count is color pairs; repeats stay in the sample. Native checkpoint provenance is bound to actual archived weights, training run, seed, rules and record clock. The CLI emits conditional tested-matchup bounds and cannot promote a policy.
+
+The fixed NFSP pilot/screening cohorts and snapshot windows are executable, including simultaneous endpoint/look coverage, post-opening average diagnostics, same-checkpoint random/tactical passes and a recorded development 5M opening event. Confirmation performance does not filter seeds. The suite passes 160 tests. See `verification/paired-evaluation.md`. Protected-pool joint power/false-promotion calibration, production 9×9 training/orchestration and the remaining scientific endpoints still require implementation/evidence.
+
+The complete native 500k-buffer capacity/IO benchmark passed (`verification/native-buffer-full.md`); this closes that storage evidence gap without claiming complete GPU-learner cost.

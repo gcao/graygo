@@ -101,3 +101,19 @@ class CommandTests(unittest.TestCase):
             checked=json.loads(result.stdout)['result']
             self.assertTrue(checked['roundtrip_verified'])
             self.assertEqual(checked['schema']['native_decoder']['sha256'],report['result']['library_sha256'])
+
+    def test_frozen_paired_evaluation_cli_resumes_exact_planned_evidence(self):
+        from graygo.confidence import ConfidenceFamily
+        with tempfile.TemporaryDirectory() as root:
+            family=ConfidenceFamily('cli-eval',('utility',),(4,8));plan=Path(root)/'confidence.json';plan.write_text(json.dumps(family.to_dict()))
+            output=Path(root)/'report.json'
+            args=('evaluate','--size','3','--limit','3','--subject','random','--opponent','random','--incumbent','random',
+                '--name','test','--subject-label','subject','--endpoint','utility','--confidence-plan',str(plan),
+                '--run-dir',str(Path(root)/'run'),'--time-cap-hours','.05','--output',str(output))
+            a=self.run_cli(*args,'--games','4');self.assertEqual(a.returncode,0,a.stderr)
+            first=json.loads(output.read_text())['result'];self.assertFalse(first['promotion_permitted'])
+            b=self.run_cli(*args,'--games','8','--resume');self.assertEqual(b.returncode,0,b.stderr)
+            final=json.loads(output.read_text())['result']
+            self.assertEqual(final['collection']['committed_pairs'],4)
+            self.assertEqual(final['confidence']['mean'],0.)
+            self.assertEqual(final['confidence']['independent_units'],4)

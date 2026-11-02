@@ -219,17 +219,49 @@ def build_native(args):
     return build(args.output_dir,compiler=args.compiler)
 
 
+def evaluate(args):
+    from .confidence import ConfidenceFamily
+    from .evaluation import BaselinePolicy,FrozenNeuralPolicy,EvaluationPlan,EvaluationRun
+    data=json.loads(Path(args.confidence_plan).read_text());family=ConfidenceFamily(**data)
+    def policy(name,archive,representation,label):
+        if name in ('random','tactical'):
+            if archive is not None:raise ValueError("baseline does not use a checkpoint")
+            return BaselinePolicy(name)
+        if archive is None:raise ValueError("neural evaluation requires an archived public checkpoint")
+        return FrozenNeuralPolicy.from_archive(archive,representation=representation,device=args.device,label=label)
+    subject=policy(args.subject,args.subject_archive,args.representation,args.subject_label)
+    opponent=policy(args.opponent,args.opponent_archive,args.opponent_representation,'opponent')
+    incumbent=None if args.incumbent is None else policy(args.incumbent,args.incumbent_archive,args.incumbent_representation,'incumbent')
+    plan=EvaluationPlan(args.name,args.subject_label,args.endpoint,_rules(args),args.seed,family.looks,confidence_sha256=family.sha256,comparison='improvement' if incumbent is not None else 'utility')
+    run=EvaluationRun(plan,args.run_dir,subject,opponent,incumbent=incumbent,resume=args.resume)
+    stopped=_signal_flag();collection=run.run(args.games,time_cap_seconds=args.time_cap_hours*3600,stop_requested=stopped)
+    estimate=None
+    if collection['committed_pairs']>=args.games//2:estimate=run.estimate(family,args.games,comparison='improvement' if incumbent is not None else 'utility')
+    return {'collection':collection,'confidence':estimate,'promotion_permitted':False,'scope':'fixed paired evaluation; promotion requires calibrated protected-pool protocol and A2/smoke evidence'}
+
+
 def main(argv=None):
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
         p.add_argument("--collision",choices=("gray","remove"),default="gray")
         p.add_argument("--seed",type=int,default=0)
         p.add_argument("--output")
-        if name=="simulate":
+        if name=="evaluate":
+            p.add_argument("--run-dir",required=True);p.add_argument("--confidence-plan",required=True)
+            p.add_argument("--name",required=True);p.add_argument("--subject-label",required=True);p.add_argument("--endpoint",required=True)
+            p.add_argument("--games",type=int,default=500);p.add_argument("--time-cap-hours",type=float,required=True)
+            p.add_argument("--subject",choices=("random","tactical","neural"),default="random")
+            p.add_argument("--subject-archive");p.add_argument("--representation",choices=("average","greedy_q"),default="average")
+            p.add_argument("--opponent",choices=("random","tactical","neural"),default="tactical")
+            p.add_argument("--opponent-archive");p.add_argument("--opponent-representation",choices=("average","greedy_q"),default="average")
+            p.add_argument("--incumbent",choices=("random","tactical","neural"));p.add_argument("--incumbent-archive")
+            p.add_argument("--incumbent-representation",choices=("average","greedy_q"),default="average")
+            p.add_argument("--device",default="cpu");p.add_argument("--resume",action="store_true")
+        elif name=="simulate":
             p.add_argument("--games",type=int,default=10)
             p.add_argument("--black",choices=AGENTS,default="random")
             p.add_argument("--white",choices=AGENTS,default="random")
