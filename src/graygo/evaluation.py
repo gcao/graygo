@@ -1,6 +1,6 @@
 """Frozen, paired-color evaluation with private actions and resumable evidence.
 
-One unit includes both color assignments from a root and its color exchange.
+One unit exchanges the agents' colors on the same complete public root.
 Candidate/incumbent use common seeds/openings against the same frozen opponent.
 Repeated trajectories remain observations; only duplicate UNIT IDs are forbidden.
 """
@@ -23,7 +23,7 @@ from .engine import BLACK,WHITE,RULE_VERSION,Rules,State,resolve,score,transform
 from .manifest import source_digest,write_report
 from .storage import DEFAULT_RESERVE,DiskBudgetError
 
-EVALUATION_VERSION='graygo/paired-evaluation/1'
+EVALUATION_VERSION='graygo/paired-evaluation/2'
 
 
 def seed_for(seed,*parts):
@@ -173,7 +173,9 @@ def play_frozen(subject,opponent,root,player,*,subject_seed,opponent_seed):
 def evaluate_pair(subject,opponent,root,*,unit_seed,incumbent=None):
     output={'root_sha256':hashlib.sha256(root.canonical_json().encode()).hexdigest(),'subject':[],'incumbent':[]}
     for color,player in enumerate((BLACK,WHITE)):
-        opening=root if player==BLACK else transform(root,swap=True)
+        # Exchange the agents' colors on the same complete opening. Swapping
+        # both board and agents would preserve an asymmetric starting advantage.
+        opening=root
         subject_seed=seed_for(unit_seed,'subject',color);opponent_seed=seed_for(unit_seed,'opponent',opponent.sha256,color)
         output['subject'].append(play_frozen(subject,opponent,opening,player,subject_seed=subject_seed,opponent_seed=opponent_seed))
         if incumbent is not None:output['incumbent'].append(play_frozen(incumbent,opponent,opening,player,subject_seed=subject_seed,opponent_seed=opponent_seed))
@@ -233,7 +235,7 @@ class EvaluationRun:
             'subject':subject.identity,'subject_sha256':subject.sha256,'opponent':opponent.identity,'opponent_sha256':opponent.sha256,
             'incumbent':None if incumbent is None else incumbent.identity,'incumbent_sha256':None if incumbent is None else incumbent.sha256,
             'opening_distribution':self.openings.identity,'opening_sha256':self.openings.sha256,'rule_version':RULE_VERSION,'source_sha256':source_digest(),
-            'unit':'paired colors/opening; within-pair dependence retained; no trajectory deduplication','opening_semantics':'declared new episode roots; continuation-prefix mixtures require strategies.py'}
+            'unit':'agents exchange colors on the same complete opening; within-pair dependence retained; no trajectory deduplication','opening_semantics':'declared new episode roots; continuation-prefix mixtures require strategies.py'}
         self.sha256=canonical_sha(self.contract);path=self.root/'plan.json';self.database=self.root/'evidence.sqlite'
         with self._lock():
             if resume:

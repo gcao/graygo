@@ -180,3 +180,20 @@ The first constructor provides 32 geometric regression pairs with 64 distinct cu
 `assess_marginals` grades both roles and both roots for all three fixed seeds. Instance counts and independent-family counts are separate; all instances in a repeated family must pass, and official acceptance requires complete family coverage plus at least 24 passing families per seed. `frozen_marginals` uses public neural probabilities and private episode-mixture initial marginals. Each probe episode begins at its declared root; the setup trace establishes reachability. Continuing mixtures after an acting-policy prefix require posterior conditioning, and the default mixture API rejects an implicit reset.
 
 The generator starts no training and yields `incomplete_family_coverage` for the current one-motif catalog. Qualified bounds, reachability and passing solver fixtures do not establish trained-policy strength or gray specialization. See [proof method and evidence](docs/verification/collision-probes.md).
+
+
+## Matched scientific rule comparison
+
+`science-evaluate` accepts a frozen JSON registry mapping every `curriculum/rule/seed` key (curricula `empty`/`exposure`, training rules `gray`/`remove`, seeds 200/201/202) to a permanent public weight archive:
+
+```sh
+.venv/bin/graygo science-evaluate --name gray-study --catalog artifacts/gray-exposure-v1.json --registry policy-registry.json --run-dir runs/gray-study --games 24000 --time-cap-hours 12 --device cuda
+.venv/bin/graygo science-evaluate --name gray-study --catalog artifacts/gray-exposure-v1.json --registry policy-registry.json --run-dir runs/gray-study --games 96000 --time-cap-hours 12 --device cuda --resume
+.venv/bin/graygo science-report --run-dir runs/gray-study --games 96000
+```
+
+The numeric ceiling above is an example, not an allocation. The campaign scope decision must fund scientific evaluation and probe inference together within their recorded ceiling. Confirmation inputs require twelve distinct verified average-policy archives at the 80M milestone, their original confirmation seeds/rules, and the exact declared training starts. Development/gate agents and relabeled baselines fail before data collection. The production controller must separately verify A2, training scope, matched actual exposure and probe coverage before a scientific claim.
+
+One atomic block includes both curricula, official-empty and shared held-out-gray roots, all three seeds, both evaluation rules and both agent colors: **48 games**. Planned looks of 500/2,000 blocks are exactly 24,000/96,000 total games. The interaction uses matched within-block differences; simultaneous bounds cover all registered aggregate/seed diagnostics and looks. The primary exposure-controlled official-empty endpoint needs both lower bounds above +0.05 and positive point estimates in every seed. Empty-trained effects remain secondary, and held-out-gray effects remain diagnostic.
+
+Plans, policy/runtime/catalog identities, scored blocks and a checksummed cumulative clock persist across resume. A failed partial block commits no subset. An unclean in-flight gap is conservatively charged, including offline time, so crashes cannot silently refresh the time budget. The read-only reporter never mutates evidence and refuses a hidden later completed look. Small baseline exercises require `--purpose diagnostic`, explicit small `--block-looks`, and `baseline:random`/`baseline:tactical` registry values. They cannot establish a confirmation result. See [verification and inference scope](docs/verification/scientific-contrast.md).

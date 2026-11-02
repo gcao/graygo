@@ -160,6 +160,50 @@ def verify_probes(args):
     return verify(args.benchmark,regenerate=args.regenerate,time_cap_seconds=args.time_cap_hours*3600)
 
 
+def science_evaluate(args):
+    from .board_runtime import configure_runtime
+    from .curriculum import ExposureCatalog
+    from .evaluation import BaselinePolicy,FrozenNeuralPolicy
+    from .science_protocol import ScienceProtocol,policy_keys
+    from .science_evaluation import ScientificRun
+    if _rules(args)!=Rules():raise ValueError('scientific contrast fixes both 9x9/200-round evaluation rules')
+    started=time.monotonic();configure_runtime(args.device,True)
+    import torch
+    torch.set_num_threads(1)
+    catalog=ExposureCatalog.from_dict(json.loads(Path(args.catalog).read_text()));policies={};paths={}
+    if args.registry:
+        registry=json.loads(Path(args.registry).read_text())
+        if not isinstance(registry,dict) or any(not isinstance(k,str) or not isinstance(v,str) for k,v in registry.items()):raise ValueError('scientific registry must map curriculum/rule/seed labels to archive paths')
+        bindings=[key+'='+value for key,value in registry.items()]
+    else:bindings=args.policy
+    for binding in bindings:
+        if '=' not in binding:raise ValueError('policy bindings use curriculum/rule/seed=archive or baseline:name')
+        label,value=binding.split('=',1);parts=label.split('/')
+        if len(parts)!=3:raise ValueError('policy labels use curriculum/rule/seed')
+        key=(parts[0],parts[1],int(parts[2]))
+        if key in policies:raise ValueError('duplicate scientific policy binding')
+        if value.startswith('baseline:'):
+            if args.purpose!='diagnostic':raise ValueError('baselines cannot be relabeled as confirmation models')
+            policies[key]=BaselinePolicy(value.split(':',1)[1])
+        else:
+            policies[key]=FrozenNeuralPolicy.from_archive(value,representation=args.representation,device=args.device,label=label);paths[key]=value
+    if set(policies)!=set(policy_keys()):raise ValueError('all twelve curriculum/rule/seed policy bindings required')
+    protocol=ScienceProtocol(args.name,catalog.sha256,{key:policy.sha256 for key,policy in policies.items()},args.time_cap_hours*3600,
+        seed=args.seed,block_looks=tuple(args.block_looks),purpose=args.purpose,training_records=args.training_records,representation=args.representation)
+    run=ScientificRun(protocol,args.run_dir,policies,catalog,archive_paths=paths,resume=args.resume,prior_setup_seconds=time.monotonic()-started)
+    collection=run.run(args.games,stop_requested=_signal_flag());available=collection['committed_blocks']
+    completed=[n for n in protocol.block_looks if n<=available]
+    summary=None if not completed else run.estimate(max(completed)*48)
+    if summary is not None:write_report(Path(args.run_dir)/'summary.json',summary)
+    return {'collection':collection,'summary':summary,'gray_specialization_demonstrated':False}
+
+
+def science_report(args):
+    from .science_evaluation import ScientificEvidence
+    if _rules(args)!=Rules():raise ValueError('scientific contrast fixes both 9x9/200-round evaluation rules')
+    return ScientificEvidence(args.run_dir).estimate(args.games)
+
+
 def train_matrix(args):
     from .matrix_training import MatrixPPOConfig,MatrixPPOTrainer
     config=MatrixPPOConfig(task=args.task,seed=args.seed,records=args.records,rollout=args.rollout,
@@ -318,7 +362,7 @@ def calibrate_promotion(args):
 def main(argv=None):
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board","generate-exposure","build-probes","verify-probes"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board","generate-exposure","build-probes","verify-probes","science-evaluate","science-report"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
@@ -360,6 +404,17 @@ def main(argv=None):
             p.add_argument("--buffer-dir",required=True);p.add_argument("--capacity",type=int,default=500000)
             p.add_argument("--records",type=int,default=10000);p.add_argument("--iterations",type=int,default=50)
             p.add_argument("--batch",type=int,default=512)
+        elif name=="science-evaluate":
+            p.add_argument("--run-dir",required=True);p.add_argument("--catalog",required=True);p.add_argument("--name",required=True)
+            registry=p.add_mutually_exclusive_group(required=True)
+            registry.add_argument("--policy",action="append");registry.add_argument("--registry")
+            p.add_argument("--games",type=int,default=24000)
+            p.add_argument("--time-cap-hours",type=float,required=True);p.add_argument("--device",default="cpu")
+            p.add_argument("--purpose",choices=("confirmation","diagnostic"),default="confirmation")
+            p.add_argument("--block-looks",nargs="+",type=int,default=[500,2000]);p.add_argument("--training-records",type=int,default=80000000)
+            p.add_argument("--representation",choices=("average","actor"),default="average");p.add_argument("--resume",action="store_true")
+        elif name=="science-report":
+            p.add_argument("--run-dir",required=True);p.add_argument("--games",type=int,required=True)
         elif name=="build-probes":
             p.set_defaults(size=9,limit=200,collision="gray")
             p.add_argument("--run-dir",required=True);p.add_argument("--attempts",type=int,default=10000)
@@ -428,6 +483,8 @@ def main(argv=None):
         if args.command=="train-nfsp-task":
             actual=json.loads((Path(args.run_dir)/"run.json").read_text())
             metadata.update({key:actual[key] for key in ("rules","rule_version","encoding_version","baseline_version")})
+        if args.command in ("science-evaluate","science-report"):
+            metadata["rules"]={"size":9,"max_rounds":200,"collision":"gray/remove"}
         report={"manifest":metadata,"result":result}
         if args.output:write_report(args.output,report)
         print(json.dumps(report,indent=2,sort_keys=True))

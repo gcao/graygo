@@ -4,7 +4,7 @@ The full suite passed **160 tests in 50.078 seconds**; raw output and source/mac
 
 ## Sampling and durable evidence
 
-Each independent unit contains a root and its color exchange. Actor/action RNG streams are private; both moves are committed from the same immutable state. Candidate/incumbent comparisons share openings and action seeds against the same frozen opponent. Episode mixtures choose privately once per game. Complete-root openings are declared new episodes; actual prefix-continuation mixtures remain the responsibility of the history-conditioned solver.
+Version 2 exchanges the agents' colors on the same complete root in each independent unit. Actor/action RNG streams are private; both moves are committed from the same immutable state. Candidate/incumbent comparisons share openings and action seeds against the same frozen opponent. Episode mixtures choose privately once per game. Complete-root openings are declared new episodes; actual prefix-continuation mixtures remain the responsibility of the history-conditioned solver.
 
 Policy weights/representations, actual rules, opening catalog, confidence-family hash, sample looks and utility/improvement endpoint are frozen before collection. Archived neural weights verify checksum/configuration and retain training-run/seed/record provenance. A diagnostic model cannot become a 9×9 milestone checkpoint merely by naming it so. SQL transactions commit whole paired units, with deterministic unit identities, payload checksums, scored outcomes and trajectory fingerprints. Resume reuses committed units exactly; missing/corrupt evidence and changed plans/policies/sources fail. Repeated trajectories are retained and reported, never deduplicated.
 
@@ -21,3 +21,8 @@ The pilot protocol registers all development runs 100/101/102, both 4.5M/4.75M/5
 Development opening is permitted at 5M only after its pre-window clears. Later insertion requires the persisted fixed-boundary opening event. Confirmation seeds 200/201/202 follow the fixed schedule regardless of performance reads. Screening grades the deployed average at 20M: lower bound >0 versus random and >=+0.10 versus tactical, for all three seeds. These decisions remain local milestones, not A2 or promotion certificates.
 
 Tests include exact small Bernoulli coverage enumeration, independent bound arithmetic/scaling, paired-color/episode sampling, identical-incumbent zero deltas, checksum/plan corruption, repeated-trajectory retention, actual archive provenance, SQL resume and the installed CLI. Pilot/screening fixtures enforce full cohorts, same-snapshot opponent clears, opening records and immutable serialized protocols. No large-board learner or scientific endpoint has passed solely because these implementation tests pass.
+
+
+## Version-2 asymmetric-opening correction
+
+The earlier combined board/agent color swap preserved a nonempty opening's advantage for the same agent. A regression with identical pass policies on an asymmetric root exposed paired utility +1 instead of zero. The corrected pair retains the exact public board and exchanges agent roles; utilities +1/-1 cancel. Official empty openings are unchanged. Old version-1 nonempty data requires its original interpretation and cannot be resumed/loaded as version 2. See `scientific-contrast.md` for the new matched multi-rule collector.

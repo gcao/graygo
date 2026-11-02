@@ -63,6 +63,21 @@ class PairEvaluationTests(unittest.TestCase):
         b=evaluate_pair(random,tactical,State(Rules(3,5)),unit_seed=123)
         self.assertEqual(a,b)
 
+    def test_identical_policies_cancel_asymmetric_opening_advantage(self):
+        class Pass:
+            sha256='a'*64
+            def begin_episode(self,seed):return self
+            def action(self,state,player):return state.rules.pass_action
+        board=[0]*81
+        for point in (0,1,2):board[point]=BLACK
+        board[40]=WHITE
+        root=State(Rules(),board)
+        result=evaluate_pair(Pass(),Pass(),root,unit_seed=11)
+        self.assertEqual([g['subject_utility'] for g in result['subject']],[1.,-1.])
+        self.assertEqual(result['utility'],0.)
+        # Both role assignments retain the exact original public opening.
+        self.assertEqual([g['black_score_units'] for g in result['subject']],[166,166])
+
     def test_resumable_matched_incumbent_evidence_is_identical(self):
         rules=Rules(3,4);policy=BaselinePolicy('random');opponent=BaselinePolicy('tactical')
         family=ConfidenceFamily('test',('delta',),(4,8))
@@ -111,7 +126,7 @@ class PairEvaluationTests(unittest.TestCase):
             run=EvaluationRun(plan,d,p,p,reserve_bytes=0);run.database.unlink()
             with self.assertRaises(ValueError):EvaluationRun(plan,d,p,p,resume=True,reserve_bytes=0)
 
-    def test_color_exchanged_complete_opening_and_private_episode_mixture(self):
+    def test_agent_color_exchange_complete_opening_and_private_episode_mixture(self):
         root=resolve(State(Rules(3,4)),0,1).state
         catalog=FixedStarts((root,),label='fixed')
         a,b=BaselinePolicy('random'),BaselinePolicy('tactical')
