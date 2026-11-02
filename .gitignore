@@ -14,3 +14,6 @@ __pycache__/
 
 # Pinned experiment source worktrees
 /.worktrees/
+
+# Generated wheel staging
+/build/
