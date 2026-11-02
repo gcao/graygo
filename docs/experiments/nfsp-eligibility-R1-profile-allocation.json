@@ -1,0 +1,38 @@
+{
+  "aggregate_inclusive_reservation_seconds": 1320,
+  "aggregate_profile_record_cap": 262144,
+  "aggregate_records_per_case": 65536,
+  "board_campaign_selected": false,
+  "case_loop_time_ceiling_seconds": 300,
+  "control_ceiling_seconds": 43200,
+  "control_profile_inclusive_reservation_seconds": 660,
+  "control_projected_maximum_seconds": 20069.089618491882,
+  "eligibility_version": 2,
+  "forecast_margin_required": 2.0,
+  "frozen_worktree": "/home/gcao/proj/graygo/.worktrees/nfsp-eligibility-ca45a53",
+  "large_corrective_training_selected": false,
+  "learners": [
+    "tabular",
+    "neural"
+  ],
+  "logical_batch": 512,
+  "per_case_inclusive_reservation_seconds": 330,
+  "phases": [
+    "pre",
+    "post"
+  ],
+  "prior_control_recorded_seconds": 19409.089618491882,
+  "purpose": "matched corrected complete-learner pre/post CPU pricing only",
+  "q_refresh_eligible_records": 12800,
+  "q_reuses": [
+    1
+  ],
+  "retrace_selected": false,
+  "run_dir": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R1-profiles-ca45a53",
+  "scope": "four bounded real pre/post pipeline cases, one clean source; no convergence substitute; setup/atomic IO measured separately; no reset from observation timeout",
+  "selection_reason": "documented passive-root intervention correction; original R1/R4 credit misses confounded; price corrected one-step R1 before any clean selection",
+  "source_commit": "ca45a53",
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "task": "delayed",
+  "version": 1
+}
