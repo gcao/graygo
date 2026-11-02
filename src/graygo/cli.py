@@ -132,6 +132,22 @@ def profile_board(args):
                      stop_requested=_signal_flag())
 
 
+def generate_exposure(args):
+    import fcntl
+    from .curriculum import create_catalog,ExposureCatalog
+    rules=_rules(args)
+    if rules.size!=9 or rules.max_rounds!=200:raise ValueError('gray-exposure catalog requires 9x9/200-round rules')
+    catalog=create_catalog(args.seed,train_families=args.train_families,heldout_families=args.heldout_families,max_attempts=args.max_attempts)
+    path=Path(args.catalog).expanduser().resolve();path.parent.mkdir(parents=True,exist_ok=True)
+    with path.with_name('.'+path.name+'.lock').open('a+b') as lock:
+        fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        if path.exists():
+            if ExposureCatalog.from_dict(json.loads(path.read_text()))!=catalog:raise FileExistsError('frozen exposure catalog differs; use a new declared catalog')
+        else:write_report(path,catalog.to_dict())
+    return {'catalog_path':str(path),'catalog_sha256':catalog.sha256,'train_families':len(catalog.train),'heldout_families':len(catalog.heldout),
+            'candidate_independent_generator':True,'collision_probe_families_certified':0,'training_started':False}
+
+
 def train_matrix(args):
     from .matrix_training import MatrixPPOConfig,MatrixPPOTrainer
     config=MatrixPPOConfig(task=args.task,seed=args.seed,records=args.records,rollout=args.rollout,
@@ -290,7 +306,7 @@ def calibrate_promotion(args):
 def main(argv=None):
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board","generate-exposure"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
@@ -332,6 +348,9 @@ def main(argv=None):
             p.add_argument("--buffer-dir",required=True);p.add_argument("--capacity",type=int,default=500000)
             p.add_argument("--records",type=int,default=10000);p.add_argument("--iterations",type=int,default=50)
             p.add_argument("--batch",type=int,default=512)
+        elif name=="generate-exposure":
+            p.add_argument("--catalog",required=True);p.add_argument("--train-families",type=int,default=64)
+            p.add_argument("--heldout-families",type=int,default=32);p.add_argument("--max-attempts",type=int,default=100000)
         elif name=="profile-board":
             p.add_argument("--run-dir",required=True);p.add_argument("--records",type=int,default=16384)
             p.add_argument("--time-cap-hours",type=float,required=True);p.add_argument("--device",default="cpu")
