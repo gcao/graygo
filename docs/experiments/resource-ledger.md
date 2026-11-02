@@ -38,3 +38,10 @@ The frozen plan in `nfsp-delayed-R4-primary-plan.json` inventories fifteen compl
 ## Scientific-evaluator integration diagnostic
 
 The matched collector completed 384 random-baseline games across one resumed and one uninterrupted small diagnostic. Observed setup/collection clocks were 6.211 and 5.281 seconds; both had zero recovery-gap charge. Startup, read-only analysis, tests and development overhead are not comprehensively summed here. This CPU integration check is separate from the unselected 24k/96k confirmation evaluation and its 16-device-hour scientific/probe-inference envelope. Its source, full scored evidence and exact-resume audit are in `verification/scientific-contrast.md`.
+
+
+## Bounded board milestone recovery diagnostic
+
+The clean `546d2e2` full-model CUDA lifecycle exercise completed two 16,384-record trajectories (32,768 aggregate fresh records) in **87.245 process-wall seconds**, or **0.02423 elapsed hours of a GPU-equipped process**. It includes full model updates, archive/checkpoint IO, public loading and interrupted continuation. This is allocated process time, not measured kernel-active GPU time. Its independent artifact audit and test/development overhead are additional and are not comprehensively summed here.
+
+The [frozen evidence](../verification/board-milestone-diagnostic/README.md) uses reference Python decoding, Q reuse four and reduced diagnostic opening/hand-off clocks. It is not a reuse-only comparison with the earlier R1/native profile, a full-population measurement, or H_P/H_D/H_N/campaign pricing. No campaign allocation follows from this diagnostic.

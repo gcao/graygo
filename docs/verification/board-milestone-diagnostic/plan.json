@@ -1,0 +1,46 @@
+{
+  "aggregate_record_cap": 32768,
+  "journal": {
+    "evaluation_seed": 91,
+    "milestones": [
+      0,
+      4096,
+      8192,
+      12288,
+      16384
+    ],
+    "records": 16384,
+    "scope": "diagnostic",
+    "version": "graygo/board-milestone-journal/1"
+  },
+  "purpose": "diagnostic",
+  "runtime": {
+    "augmentation": true,
+    "batch": 512,
+    "blocks": 8,
+    "capacity": 500000,
+    "deterministic": true,
+    "device": "cuda",
+    "envs": 16,
+    "handoff_end": 12288,
+    "learning_rate": 0.0003,
+    "learning_start": 4096,
+    "max_grad_norm": 0.5,
+    "native_library": null,
+    "norm_groups": 8,
+    "q_reuse": 4,
+    "reservoir_open": 8192,
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "seed": 17,
+    "target_every": 12800,
+    "uniform_comparison": false,
+    "width": 64
+  },
+  "scope": "two bounded full-model lifecycle trajectories; no A2/pilot/funding certificate",
+  "source_sha256": "18bc62c487c4d90dcad1814b15705a89c3ca743ef8c717f5ffa29119cbad15f6",
+  "total_time_ceiling_seconds": 300.0
+}

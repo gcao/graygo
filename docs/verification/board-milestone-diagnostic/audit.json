@@ -1,0 +1,43 @@
+{
+  "artifact_sha256": {
+    "plan.json": "ad73e388cf594b81cd89ad4237cdbae2915955c50312f84269e277a5a9916e6e",
+    "report.json": "c7879cabc5e822df4028d6321ab9854c1db62da57face7ca5030f28484cb8cf8"
+  },
+  "auditor_sha256": "334315e60686151e130d75179eb37744cba2847ae739cb2c72d75d347f0bac09",
+  "checks": {
+    "full": {
+      "buffer_array_bytes": 203000000,
+      "final_checkpoint_manifest_sha256": "150a670f075cb3d6bef15e0c775a4de2835de2d55c55e0526cf7684c6816a312",
+      "labels": 903,
+      "opening_sha256": "3d3b1b2ddf35feed2e733e2f86ec47308484891e9e3fe6221daf592320893889",
+      "public_archive_points": [
+        0,
+        4096,
+        8192,
+        12288,
+        16384
+      ]
+    },
+    "resumed": {
+      "buffer_array_bytes": 203000000,
+      "final_checkpoint_manifest_sha256": "6d3efc653177f043fa260ab270bbcf8a32787824a512062ae3175a0699efabde",
+      "labels": 903,
+      "opening_sha256": "7722c4a76ed3ab0e1a804bd666dfd5e4f9762f4c750062851e2554cac1c2004c",
+      "public_archive_points": [
+        0,
+        4096,
+        8192,
+        12288,
+        16384
+      ]
+    }
+  },
+  "early_labels_absent": true,
+  "exact_complete_buffer_match": true,
+  "exact_runtime_tensor_scalar_dtype_and_rng_match": true,
+  "format_version": 1,
+  "purpose": "diagnostic",
+  "scope": "sealed artifact, clock, full-state, label and retention audit of a bounded diagnostic; no A2, funding, pilot or campaign claim",
+  "source_sha256": "18bc62c487c4d90dcad1814b15705a89c3ca743ef8c717f5ffa29119cbad15f6",
+  "verified": true
+}

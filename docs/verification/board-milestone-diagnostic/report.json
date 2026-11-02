@@ -1,0 +1,148 @@
+{
+  "a2_complete": false,
+  "aggregate_records": 32768,
+  "closed_reservoir_seen": 0,
+  "counters": {
+    "fresh_ordinary": 16384,
+    "fresh_q": 16384,
+    "q_loss_targets": 51200,
+    "q_updates": 100,
+    "supervised_targets": 5120,
+    "supervised_updates": 10,
+    "target_refreshes": 1
+  },
+  "device": "cuda",
+  "elapsed_seconds": 87.24530603003222,
+  "exact_full_buffer_match": true,
+  "exact_runtime_state_match": true,
+  "final_reservoir_seen": 903,
+  "final_resume_generations_each": 1,
+  "formal_scope_approved": false,
+  "full_run_manifest_sha256": "c755e5787f217b2cad326a538fbe2653cb95a5552767bee8202584b555afbee5",
+  "logical_batch": 512,
+  "manifest": {
+    "baseline_version": "graygo/baselines/1",
+    "command": {
+      "check_board_journal": {
+        "aggregate_record_cap": 32768,
+        "journal": {
+          "evaluation_seed": 91,
+          "milestones": [
+            0,
+            4096,
+            8192,
+            12288,
+            16384
+          ],
+          "records": 16384,
+          "scope": "diagnostic",
+          "version": "graygo/board-milestone-journal/1"
+        },
+        "purpose": "diagnostic",
+        "runtime": {
+          "augmentation": true,
+          "batch": 512,
+          "blocks": 8,
+          "capacity": 500000,
+          "deterministic": true,
+          "device": "cuda",
+          "envs": 16,
+          "handoff_end": 12288,
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "native_library": null,
+          "norm_groups": 8,
+          "q_reuse": 4,
+          "reservoir_open": 8192,
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 200,
+            "size": 9
+          },
+          "seed": 17,
+          "target_every": 12800,
+          "uniform_comparison": false,
+          "width": 64
+        },
+        "scope": "two bounded full-model lifecycle trajectories; no A2/pilot/funding certificate",
+        "source_sha256": "18bc62c487c4d90dcad1814b15705a89c3ca743ef8c717f5ffa29119cbad15f6",
+        "total_time_ceiling_seconds": 300.0
+      }
+    },
+    "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "cpu_threads": 24,
+    "created_at": "2026-11-02T10:03:18.220030+00:00",
+    "dependencies": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "torch": "2.11.0"
+    },
+    "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+    "disk_free_bytes": 127036112896,
+    "encoding_version": "graygo/encoding/1",
+    "filesystem": "ext2/ext3",
+    "format_version": 1,
+    "git_commit": "546d2e27095708ff086b90af6ba3af8ba46a9d04",
+    "git_dirty": false,
+    "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+    "host_memory": {
+      "available_bytes": 28019576832,
+      "swap_bytes": 12884897792,
+      "total_bytes": 33558446080
+    },
+    "hostname": "home-ai",
+    "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "rule_version": "graygo/1",
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "run_id": "fd73503d37084f049e41bca4f63517bd",
+    "seed": 17,
+    "source_sha256": "18bc62c487c4d90dcad1814b15705a89c3ca743ef8c717f5ffa29119cbad15f6"
+  },
+  "pending_checkpoint_overlay_recovered": true,
+  "permanent_archive_points": [
+    0,
+    4096,
+    8192,
+    12288,
+    16384
+  ],
+  "public_weight_load_rng_neutral": true,
+  "purpose": "diagnostic",
+  "q_reuse": 4,
+  "records_per_trajectory": 16384,
+  "resumed_run_manifest_sha256": "a5a663d6d7d97d6bfa166e8619f6f6be208fac4d5849f0f4b5a26c10705c6429",
+  "source_sha256": "18bc62c487c4d90dcad1814b15705a89c3ca743ef8c717f5ffa29119cbad15f6",
+  "verified": true
+}
