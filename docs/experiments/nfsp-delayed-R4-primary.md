@@ -1,0 +1,15 @@
+# Funded one-step R4 delayed first screen
+
+The complete independently audited R1 seed-0 trials both missed supported delayed-credit accuracy after all 15M records. Their greedy-Q gaps passed, and the neural average's numerical chain gap passed. This is the preregistered reason to test **Q reuse 4** with the same 15M-record cap, preserving the separate credit and averaging decisions.
+
+The [immutable plan](nfsp-delayed-R4-primary-plan.json) binds the exact R1 results/audits/checkpoints, frozen driver/auditor, matched pre/post R4 profiles and trial configurations. Learner source is pinned at `9fefeeea1a343fe5d36f3cb42991b78dd335b001`, SHA `ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e`.
+
+The sole learner change from the R1 protocol is `q_reuse=4`. The record cap, seed 0/codebook, 50/100/200 horizons and role balance, 8/1/1 coverage, one-step target, 5M opening, 5M-7M hand-off, fixed 7.5M A2 epsilon clock, batch 512, optimizers and target refresh every 12,800 fresh records stay fixed. There are 100 Q updates per refresh in steady state; the target clock is not accelerated with optimizer work. Each learner receives 15M aggregate own-side records, not 15M per role.
+
+Each case has a **5.25 CPU-process-hour** ceiling, set from its matching full pre/post pipeline profile with at least twice the measured forecast. The tabular control runs first, followed by the neural learner even if the completed control misses its numerical gate. Operationally incomplete/time-capped work stops safely and cannot select/reject a learner as a complete comparison. There is no 5M surrogate, later opening, history reset, entropy sweep or automatic Retrace/extension.
+
+The recorded tabular trial/profile inventory totals **10,158.735 seconds (2.82187 hours)**, including retained historical profiles. Reserving 18,900 seconds for this one R4 control gives a projected maximum **29,058.735 seconds (8.07187 hours)** under the twelve-hour control allocation. The remaining 3.92813 hours are unallocated. Tests/audits/bootstrap overhead are separately excluded from that experimental-control inventory; it is not complete development consumption. No other new tabular allocation is selected until this reservation is settled. Remaining seeds/tasks need a new measured ledger/scope decision, so three R4 seeds are not automatically funded by this first-screen plan.
+
+Both learners use CPU, as their profiles state. These process-wall ceilings are not GPU-hours or H_N. The full selected learner/campaign ledger remains required before any 9x9 learning allocation.
+
+The driver was prepared/reproduced against real complete evidence before training. Negative checks reject a changed learner source, changed target or exhausted control budget without creating a trial. Frozen copies are retained in `runs/nfsp-delayed-R4-primary-9fefeee` on `ai`. The original run handle will be recorded here after launch; inspect that exact OS handle/state before any explicit resume. The terminal R1 process must not be restarted.

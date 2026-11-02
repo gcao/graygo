@@ -10,9 +10,10 @@ These are completed sequential **CPU process wall times**, not accelerator-hours
 | Historical delayed timing | 232.936 | 0.06470 |
 | Corrected delayed timing | 229.264 | 0.06368 |
 | RPS NFSP first screen (both completed cases) | 2782.993 | 0.77305 |
-| Delayed R1 first screen (completed tabular case only) | 7218.411 | 2.00511 |
+| Delayed R1 first screen (completed tabular case) | 7218.411 | 2.00511 |
+| Delayed R1 first screen (completed neural case) | 7354.825 | 2.04301 |
 
-The historical delayed cost is retained even though its source cannot fund the corrected evaluator. The corrected cost report enters C1 and the separate tabular-control ceiling; C4 remains conditional. RPS is complete and independently audited. The delayed tabular case completed the full 15M records and reports a gate miss; its independent task audit now confirms the grade. Its matching neural case is still live and is not counted as a completed allocation. R1 delayed first-screen trial settings are bound to the measured budget hashes before launch. H_P, H_D, H_N, CE and the full-study envelope remain unfilled until their applicable selection/profiling steps. CPU terminal/opaque-task costs never substitute for 9×9 accelerator measurements.
+The historical delayed cost is retained even though its source cannot fund the corrected evaluator. The corrected cost report enters C1 and the separate tabular-control ceiling; C4 remains conditional. RPS is complete and independently audited. The delayed tabular case completed the full 15M records and reports a gate miss; its independent task audit now confirms the grade. Its matching neural case is also complete and independently audited; its average numerical gap passes, while supported credit misses. R1 delayed first-screen trial settings are bound to the measured budget hashes before launch. H_P, H_D, H_N, CE and the full-study envelope remain unfilled until their applicable selection/profiling steps. CPU terminal/opaque-task costs never substitute for 9×9 accelerator measurements.
 
 
 ## Bounded accelerator pipeline measurement
@@ -27,3 +28,8 @@ The early-open phase is an explicit diagnostic. Untrained game lengths, partial 
 The preserved feasibility diagnostics consumed 47.908 seconds (3x3 recoloring), 28.071 seconds (5x5 dense), 0.242 seconds (5x5 liberty change) and 0.400 seconds (9x9 liberty change), as process wall times. The source-bound reachable catalog construction then consumed 4.915 seconds. Subsequent proof/lineage verification and tests are additional overhead, and exploratory setup checks are not comprehensively summed here. These are CPU construction measurements under the separate eight-hour probe allocation, not accelerator campaign prices.
 
 The generated catalog has 32 geometric pairs but one complete-game strategic class. Family coverage is incomplete; the 24-of-32 gate cannot pass on these repeated instances. The failed/limited diagnostics remain visible instead of being discarded. No trained policy, performance endpoint or gray-specialization outcome was measured by these construction jobs.
+
+
+## First R4 delayed allocation
+
+The frozen plan in `nfsp-delayed-R4-primary-plan.json` inventories fifteen completed tabular control/profile leaf runs by manifest/result/final-checkpoint hashes. Their 10,158.735 process-wall seconds include unused historical profiles. The single first-screen R4 tabular case reserves 18,900 seconds, for 29,058.735 seconds total (8.07187 hours) within the twelve-hour experimental-control ceiling. No remaining cohort is silently funded. Both R4 cases use CPU; the neural case has its own 18,900-second matched-profile ceiling. GPU/campaign prices are not inferred from these numbers.

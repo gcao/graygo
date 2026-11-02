@@ -1,0 +1,9 @@
+{
+  "checks": {
+    "no_training_trial_created": true,
+    "over_control_budget_rejected": true,
+    "wrong_source_rejected": true,
+    "wrong_target_rejected": true
+  },
+  "scope": "prepared real-evidence plan plus negative source/target/resource guards; no learning performed"
+}
