@@ -1,0 +1,17 @@
+{
+  "a2_complete": false,
+  "actual_reduced_matrix_delayed_bounded_snapshots_verified": true,
+  "all_tests_passed": true,
+  "full_test_seconds": 271.248,
+  "full_tests": 350,
+  "learner_package_unchanged_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
+  "new_test_methods": 17,
+  "pilot_authorized": false,
+  "real_full_case_integration_executed": false,
+  "scope": "case collection and numerical protocol regression evidence; original registration/trajectory, comparator/smoke/resource/entry verification remain separate",
+  "synthetic_numeric_cohorts_are_not_trained_evidence": true,
+  "test_log_sha256": "4b8560a64a9a8acabdd916652e0e11760c4402062fda4d1a3f686489f2e72895",
+  "test_sha256": "1be9535d250a067de1d2fa127fee4eee6c7941c800d62afd82d249ea73334c73",
+  "tool_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "version": 1
+}

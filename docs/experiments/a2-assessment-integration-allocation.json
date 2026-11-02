@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "a2-assessment-corrected-control-integration",
+  "purpose": "exercise fresh case collection and current/archived cohort assessment on one already completed, independently verified control",
+  "original_run": "runs/nfsp-eligibility-correction-R1-ca45a53/tabular",
+  "original_training_manifest_sha256": "1a58167031140cd4819ca7b0cfdb00b063c4e3e6773a3fe750edf404aa74069d",
+  "learner_package_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "learner_package_path": ".worktrees/nfsp-eligibility-ca45a53/src",
+  "tool_binding": "clean final A2 assessment commit and collector/auditor hashes captured before execution",
+  "plan_multiround_reuse": 1,
+  "completed_cases_to_collect": 1,
+  "expected_missing_cohort_cases": 35,
+  "case_audit_watchdog_seconds": 600,
+  "outer_driver_watchdog_seconds": 660,
+  "require_original_inputs_unchanged": true,
+  "require_current_and_archived_numerical_reports_match": true,
+  "new_learning_records": 0,
+  "cohort_run_allocations": 0,
+  "extension_selected": false,
+  "pilot_selected": false,
+  "scope": "read-only CPU integration/verification overhead; the 36-slot report is an evidence inventory, not a training allocation or A2-exit authority"
+}

@@ -268,3 +268,7 @@ Supplemental coverage retains the forcing role's conditional root-action target 
 ## Independent bounded-task evidence
 
 `tools/audit_nfsp_bounded.py` verifies completed meaningful-branch and pure/mixed bounded-Go runs using the trial’s frozen package. It solves and certifies complete games independently, reloads every scheduled model, reconstructs eligible-Q/mode/reservoir/RNG clocks, and checks retained legal transitions and active frozen actors. See [the audit contract](docs/verification/nfsp-bounded-audit.md) for commands and explicit bounded-history limits. `tools/audit_nfsp_delayed.py` remains the separate chain verifier. A single case never completes A2.
+
+## A2 cohort evidence
+
+`tools/a2_cohort.py` creates a source-bound numerical plan, freshly audits an original completed case, and assesses all available cases against the fixed three-seed/final-five gates. Missing evidence remains incomplete. Matched controls and extension proposals are separate, and numerical passes do not authorize training. Archived reports can be reanalyzed without private model files. See [the protocol and commands](docs/verification/a2-cohort.md).
