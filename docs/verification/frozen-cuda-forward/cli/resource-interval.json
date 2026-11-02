@@ -1,0 +1,83 @@
+{
+  "interval_review": {
+    "cpu_categories": {
+      "control": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": "43200",
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": "43200",
+        "within_ceiling": true
+      },
+      "development": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": null,
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": null,
+        "within_ceiling": null
+      },
+      "neural": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": null,
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": null,
+        "within_ceiling": null
+      },
+      "probe": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": "28800",
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": "28800",
+        "within_ceiling": true
+      },
+      "resolver_evaluator": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": "14400",
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": "14400",
+        "within_ceiling": true
+      },
+      "verification": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": null,
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": null,
+        "within_ceiling": null
+      }
+    },
+    "gpu_equipped_actual_process_seconds": "77.8917558",
+    "gpu_equipped_reserved_process_seconds": "0",
+    "gpu_measurements_without_physical_intervals": [],
+    "known_physical_gpu_allocation_seconds_by_device": {
+      "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2": "77.8917558"
+    },
+    "measurements": 1,
+    "physical_gpu_allocation_device_hours": "0.02163659883333333333333333333",
+    "project_consumption_complete": false,
+    "scope": "declared non-overlapping measurement scopes only; GPU-equipped process elapsed sums are not kernel-active time or physical hours without intervals; CPU process-wall seconds sum across workers",
+    "version": "graygo/nfsp-resource-ledger/1"
+  },
+  "measurement": {
+    "category": "accelerator",
+    "covered_scopes": [
+      "7d59e77cf0d5afe8048eb29af629edce0b673d907279ad0f93a0ca133adbd7d9"
+    ],
+    "device_ids": [
+      "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2"
+    ],
+    "evidence_sha256": "3dec9025a45e8ceef1e2d8ec2b98c1eea975a3db274ce90a6c5121614546c954",
+    "identity": "83861342eebb930e7bdcf6254d29909bcf9f0e3955bcb19db60bd8f188fcb650",
+    "interval_end": "1793662893.0300698",
+    "interval_start": "1793662815.138314",
+    "seconds": "77.8917558",
+    "state": "actual",
+    "unit": "gpu_equipped_process_seconds"
+  },
+  "scope": "one bounded runtime/evaluation diagnostic interval, never a complete campaign price; other tests/prototypes remain outside this leaf",
+  "version": 1
+}

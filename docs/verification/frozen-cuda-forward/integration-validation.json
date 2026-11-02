@@ -1,0 +1,16 @@
+{
+  "a2_complete": false,
+  "changed_mode_rejections_verified": true,
+  "clean_cli_commit": "c3b8b5fb87eba63142a17bd04f578c135fbae2d4",
+  "eager_resumed_graph_state_equality_verified": true,
+  "execution_authorized": false,
+  "full_suite_seconds": 302.171,
+  "full_suite_tests": 430,
+  "graph_execution_source_and_receipt_bound": true,
+  "new_campaign_price_qualified": false,
+  "portable_record_zero_scored_evidence_games": 8,
+  "runtime_total_fresh_diagnostic_records": 32768,
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "source_unchanged_since_suite": true,
+  "version": 1
+}

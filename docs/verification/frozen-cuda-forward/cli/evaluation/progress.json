@@ -1,0 +1,9 @@
+{
+  "committed_pairs": 4,
+  "elapsed_seconds": 0.9025058599654585,
+  "physical_games": 8,
+  "plan_sha256": "4d651531deca19a8a6934cbe4d7da88842fe6500849529c51662cd4a557655da",
+  "requested_look_games_per_pairing": 8,
+  "scope": "frozen tested matchup; not full-game exploitability or training-seed certainty",
+  "status": "complete"
+}
