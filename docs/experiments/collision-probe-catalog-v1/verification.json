@@ -1,0 +1,110 @@
+{
+  "manifest": {
+    "baseline_version": "graygo/baselines/1",
+    "command": {
+      "benchmark": "runs/collision-probe-catalog-v1/benchmark.json",
+      "collision": "gray",
+      "command": "verify-probes",
+      "limit": 200,
+      "output": "runs/collision-probe-catalog-v1/verification-current.json",
+      "regenerate": true,
+      "seed": 0,
+      "size": 9,
+      "time_cap_hours": 0.05
+    },
+    "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "cpu_threads": 24,
+    "created_at": "2026-11-02T07:32:14.702615+00:00",
+    "dependencies": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "torch": "2.11.0"
+    },
+    "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+    "disk_free_bytes": 127237849088,
+    "encoding_version": "graygo/encoding/1",
+    "filesystem": "ext2/ext3",
+    "format_version": 1,
+    "git_commit": "3f56fd9b381bae9cff92e1f516dfd91716623fc8",
+    "git_dirty": false,
+    "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+    "host_memory": {
+      "available_bytes": 29876768768,
+      "swap_bytes": 12884897792,
+      "total_bytes": 33558446080
+    },
+    "hostname": "home-ai",
+    "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "rule_version": "graygo/1",
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "run_id": "c383452bec7e4d11927501652b92b0fc",
+    "seed": 0,
+    "source_sha256": "068e550570d9d1bf7ca9a524103ec82ade6a60745cebe9cc6a81c5984e35b015"
+  },
+  "result": {
+    "benchmark_file_sha256": "644fb75d809ff4aa90ead6f0ffe6ba2af8a2f89b2af6d8b085db93430ca3a787",
+    "benchmark_sha256": "8be1da3f84db16686b921383456eb09e32729c7ac297f27b830b6cf27ce77d3a",
+    "collision_rule_sensitive_pairs": 32,
+    "collision_rule_sensitive_payoff_cells": 32,
+    "collision_rule_sensitive_roots": 32,
+    "collision_rule_sensitive_strategic_families": 1,
+    "directions": {
+      "decrease": 16,
+      "increase": 16
+    },
+    "distinct_current_boards": 64,
+    "distinct_geometric_roots": 64,
+    "distinct_strategic_families": 1,
+    "elapsed_seconds": 5.05287892697379,
+    "exact_equilibrium_fixture_instance_pass_counts": {
+      "200": 32,
+      "201": 32,
+      "202": 32
+    },
+    "family_coverage_complete": false,
+    "format_version": 1,
+    "generation_reproduced": true,
+    "geometric_pairs": 32,
+    "gray_specialization_demonstrated": false,
+    "maximum_value": "1",
+    "minimum_range_separation": "341/400",
+    "minimum_value": "-1",
+    "scope": "exact complete one-round proof, source-seed reproducibility and solver fixtures; trained policy, exposure-controlled performance and interaction evidence remain separate",
+    "setup_rounds_replayed": 12736,
+    "source_sha256": "068e550570d9d1bf7ca9a524103ec82ade6a60745cebe9cc6a81c5984e35b015",
+    "status": "incomplete_family_coverage",
+    "trained_policy_evaluated": false,
+    "verified": true
+  }
+}
