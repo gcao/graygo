@@ -13,6 +13,7 @@ These are completed sequential **CPU process wall times**, not accelerator-hours
 | Delayed R1 first screen (completed tabular case) | 7218.411 | 2.00511 |
 | Delayed R1 first screen (completed neural case) | 7354.825 | 2.04301 |
 | Delayed R4 first screen (completed tabular case) | 9250.354 | 2.56954 |
+| Delayed R4 first screen (completed neural case) | 9611.440 | 2.66984 |
 
 The historical delayed cost is retained even though its source cannot fund the corrected evaluator. The corrected cost report enters C1 and the separate tabular-control ceiling; C4 remains conditional. RPS is complete and independently audited. The delayed tabular case completed the full 15M records and reports a gate miss; its independent task audit now confirms the grade. Its matching neural case is also complete and independently audited; its average numerical gap passes, while supported credit misses. R1 delayed first-screen trial settings are bound to the measured budget hashes before launch. H_P, H_D, H_N, CE and the full-study envelope remain unfilled until their applicable selection/profiling steps. CPU terminal/opaque-task costs never substitute for 9×9 accelerator measurements.
 
@@ -96,3 +97,10 @@ The source-pinned forensic fixture uses 44 own-side root/suffix records and two 
 The separately selected two-point constructor completed 32 distinct families after 33,066 proposals in **417.546 measured CPU process-wall seconds**. Its full exact/source-seed audit took **421.945 seconds**, including 3.646 seconds of proof reading and 418.257 seconds of original-prefix regeneration. The combined measured intervals total **839.491 seconds (0.23319 hours)**; the [settlement](collision-probe-multicell-v2-settlement.json) releases unused construction/verification reservations and allocates no new training. Startup/final reporting, earlier construction work, tests and development remain separately scoped; this is not complete project consumption.
 
 The [frozen complete benchmark](collision-benchmark-v2-freeze.json) resolves structural 32-family coverage. Teacher fixtures and exact proof construction do not establish learned behavior, controlled performance or gray specialization. The confirmed supplemental-opponent implementation defect must be corrected and repriced before further learner selection.
+
+
+## Original R4 paired screen terminal
+
+The matching original R4 neural case completed all 15M records in **9,611.440 CPU process-wall seconds**, with its frozen-source independent audit verified. The paired tabular/neural measured trial intervals total **18,861.794 seconds (5.23939 process-wall hours)**, separately sequential on CPU. Driver/bootstrap and independent audits are additional overhead. The tabular-control settlement remains unchanged; the neural case does not enter the twelve-hour tabular ceiling.
+
+The [full neural receipt](../verification/nfsp-delayed-R4-neural.md) separates its passing numerical-average band from failed supported credit and the confirmed supplemental-opponent defect. No target/cohort/extension or corrected full training allocation follows automatically from these results. Old-source profiles cannot fund changed eligibility/cadence code.
