@@ -1,0 +1,570 @@
+{
+  "manifest": {
+    "baseline_version": "graygo/baselines/1",
+    "command": {
+      "collision": "gray",
+      "command": "cohort-report",
+      "limit": null,
+      "output": null,
+      "run_dir": "/home/gcao/proj/graygo/runs/cohort-evidence-cli-7ab41a4/registry",
+      "seed": 0,
+      "size": 9,
+      "stage": "pilot"
+    },
+    "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "cpu_threads": 24,
+    "created_at": "2026-11-02T12:09:44.847456+00:00",
+    "dependencies": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "torch": "2.11.0"
+    },
+    "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+    "disk_free_bytes": 126776422400,
+    "encoding_version": "graygo/encoding/1",
+    "filesystem": "ext2/ext3",
+    "format_version": 1,
+    "git_commit": "7ab41a46c3913924ca00526addac0be6d022ade2",
+    "git_dirty": false,
+    "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+    "host_memory": {
+      "available_bytes": 29474844672,
+      "swap_bytes": 12884897792,
+      "total_bytes": 33558446080
+    },
+    "hostname": "home-ai",
+    "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "rule_version": "graygo/1",
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "run_id": "811e2ee91cfe46509632c8681804d0c0",
+    "seed": null,
+    "seeds": [
+      100,
+      101,
+      102
+    ],
+    "source_sha256": "47833b165d728e88a1cfdf39929f67e576d68540700342ff1e8300e78baed2fe"
+  },
+  "result": {
+    "body": {
+      "a2_complete": false,
+      "bindings": [],
+      "evaluation_trajectories_independently_replayed": false,
+      "formal_scope_approved": false,
+      "input_locks": "all present evaluation inputs shared-locked across the complete snapshot; no input artifacts written",
+      "missing": [
+        {
+          "endpoint": "seed100/greedy_q/4500000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/greedy_q/4500000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/greedy_q/4750000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/greedy_q/4750000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/greedy_q/5000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/greedy_q/5000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/greedy_q/6000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/greedy_q/6000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/average/6000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/average/6000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/greedy_q/7000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/greedy_q/7000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/average/7000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/average/7000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/greedy_q/8000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/greedy_q/8000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/average/8000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed100/average/8000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/greedy_q/4500000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/greedy_q/4500000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/greedy_q/4750000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/greedy_q/4750000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/greedy_q/5000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/greedy_q/5000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/greedy_q/6000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/greedy_q/6000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/average/6000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/average/6000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/greedy_q/7000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/greedy_q/7000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/average/7000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/average/7000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/greedy_q/8000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/greedy_q/8000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/average/8000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed101/average/8000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/greedy_q/4500000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/greedy_q/4500000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/greedy_q/4750000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/greedy_q/4750000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/greedy_q/5000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/greedy_q/5000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/greedy_q/6000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/greedy_q/6000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/average/6000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/average/6000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/greedy_q/7000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/greedy_q/7000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/average/7000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/average/7000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/greedy_q/8000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/greedy_q/8000000/tactical",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/average/8000000/random",
+          "reason": "missing scored evaluation"
+        },
+        {
+          "endpoint": "seed102/average/8000000/tactical",
+          "reason": "missing scored evaluation"
+        }
+      ],
+      "numerical_runtime_independently_verified": false,
+      "pilot": {
+        "a2_complete": false,
+        "average_diagnostic_endpoints_in_family": true,
+        "deployed_strength_established": false,
+        "missing_average_diagnostics": [
+          "seed100/average/6000000/random",
+          "seed100/average/6000000/tactical",
+          "seed100/average/7000000/random",
+          "seed100/average/7000000/tactical",
+          "seed100/average/8000000/random",
+          "seed100/average/8000000/tactical",
+          "seed101/average/6000000/random",
+          "seed101/average/6000000/tactical",
+          "seed101/average/7000000/random",
+          "seed101/average/7000000/tactical",
+          "seed101/average/8000000/random",
+          "seed101/average/8000000/tactical",
+          "seed102/average/6000000/random",
+          "seed102/average/6000000/tactical",
+          "seed102/average/7000000/random",
+          "seed102/average/7000000/tactical",
+          "seed102/average/8000000/random",
+          "seed102/average/8000000/tactical"
+        ],
+        "protocol_sha256": "b358cac01bc2ed3ef71afe535bca84c457e8571533fe474d7e24ce4e19501333",
+        "seeds": [
+          100,
+          101,
+          102
+        ],
+        "status": "incomplete",
+        "windows": [
+          {
+            "complete_snapshot_passes": 0,
+            "protocol_sha256": "b358cac01bc2ed3ef71afe535bca84c457e8571533fe474d7e24ce4e19501333",
+            "seed": 100,
+            "snapshots": [
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 4500000,
+                "status": "incomplete"
+              },
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 4750000,
+                "status": "incomplete"
+              },
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 5000000,
+                "status": "incomplete"
+              }
+            ],
+            "status": "incomplete",
+            "window": "pre"
+          },
+          {
+            "complete_snapshot_passes": 0,
+            "protocol_sha256": "b358cac01bc2ed3ef71afe535bca84c457e8571533fe474d7e24ce4e19501333",
+            "seed": 100,
+            "snapshots": [
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 6000000,
+                "status": "incomplete"
+              },
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 7000000,
+                "status": "incomplete"
+              },
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 8000000,
+                "status": "incomplete"
+              }
+            ],
+            "status": "incomplete",
+            "window": "post"
+          },
+          {
+            "complete_snapshot_passes": 0,
+            "protocol_sha256": "b358cac01bc2ed3ef71afe535bca84c457e8571533fe474d7e24ce4e19501333",
+            "seed": 101,
+            "snapshots": [
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 4500000,
+                "status": "incomplete"
+              },
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 4750000,
+                "status": "incomplete"
+              },
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 5000000,
+                "status": "incomplete"
+              }
+            ],
+            "status": "incomplete",
+            "window": "pre"
+          },
+          {
+            "complete_snapshot_passes": 0,
+            "protocol_sha256": "b358cac01bc2ed3ef71afe535bca84c457e8571533fe474d7e24ce4e19501333",
+            "seed": 101,
+            "snapshots": [
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 6000000,
+                "status": "incomplete"
+              },
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 7000000,
+                "status": "incomplete"
+              },
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 8000000,
+                "status": "incomplete"
+              }
+            ],
+            "status": "incomplete",
+            "window": "post"
+          },
+          {
+            "complete_snapshot_passes": 0,
+            "protocol_sha256": "b358cac01bc2ed3ef71afe535bca84c457e8571533fe474d7e24ce4e19501333",
+            "seed": 102,
+            "snapshots": [
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 4500000,
+                "status": "incomplete"
+              },
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 4750000,
+                "status": "incomplete"
+              },
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 5000000,
+                "status": "incomplete"
+              }
+            ],
+            "status": "incomplete",
+            "window": "pre"
+          },
+          {
+            "complete_snapshot_passes": 0,
+            "protocol_sha256": "b358cac01bc2ed3ef71afe535bca84c457e8571533fe474d7e24ce4e19501333",
+            "seed": 102,
+            "snapshots": [
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 6000000,
+                "status": "incomplete"
+              },
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 7000000,
+                "status": "incomplete"
+              },
+              {
+                "missing": [
+                  "random",
+                  "tactical"
+                ],
+                "reads": {},
+                "record": 8000000,
+                "status": "incomplete"
+              }
+            ],
+            "status": "incomplete",
+            "window": "post"
+          }
+        ]
+      },
+      "reads": {
+        "pilot": [],
+        "screening": []
+      },
+      "registry_sha256": "a19c904bbdd8c183e914a78f16291f124059227c364a8df679600ad49207e4b5",
+      "scope": "real archived policy/score bindings and numerical three-seed gates; independent training, A2/resource authority remain separate",
+      "screening": null,
+      "source_sha256": "47833b165d728e88a1cfdf39929f67e576d68540700342ff1e8300e78baed2fe",
+      "stage": "pilot",
+      "status": "incomplete",
+      "training_trajectory_independently_verified": false,
+      "version": "graygo/development-cohort-evidence/1"
+    },
+    "sha256": "32ed7534f70b298dce769c38bdf61a3f72bab5041781f9e008ca737d995467dc"
+  }
+}

@@ -58,3 +58,8 @@ Positive cohort gate tests use explicitly synthetic future-clock archives and sc
 ```
 
 Scored folders are fixed under `cohort/evaluations/{seed}/{record:012d}/{representation}/{opponent}`. `plan_for` returns the exact evaluation plan, confidence family and original archive/evidence paths for the eventual approved collection controller. The registry is source/environment bound; use its frozen code and dependencies to re-read it.
+
+
+## Completed real CLI integration
+
+Clean `7ab41a4` / package SHA `47833b165d728e88a1cfdf39929f67e576d68540700342ff1e8300e78baed2fe` completed the [frozen zero-record integration](cohort-evidence-cli-diagnostic/README.md). Its [driver report](cohort-evidence-cli-diagnostic/report.json), [plan](cohort-evidence-cli-diagnostic/plan.json), original run/checkpoint manifests, registry and both actual CLI reports are retained. The measured interval is **8.319 seconds**; all three backend/collector clocks remain zero. The pilot and screening reports correctly remain incomplete with 54/60 missing endpoints and no grants. Input file and directory inventories are unchanged. This completes CLI/provenance integration verification without claiming a real pilot outcome or trained strength.

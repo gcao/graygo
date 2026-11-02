@@ -1,0 +1,228 @@
+{
+  "body": {
+    "authority": "registration and numerical evidence only; no A2/resource/training-scope grant",
+    "name": "zero-record-cli-diagnostic",
+    "pilot": {
+      "average_is_diagnostic": true,
+      "baselines": {
+        "random": "c9ad215837b1f88b4ce6ac4c44a4f1988c49856b309977fb0431548c3efdb514",
+        "tactical": "961a51cf911d0ad6592fa1016dd8e390680b5b97a318ee47b0769207a77259eb"
+      },
+      "confidence": {
+        "alpha": 0.05,
+        "endpoints": [
+          "seed100/greedy_q/4500000/random",
+          "seed100/greedy_q/4500000/tactical",
+          "seed100/greedy_q/4750000/random",
+          "seed100/greedy_q/4750000/tactical",
+          "seed100/greedy_q/5000000/random",
+          "seed100/greedy_q/5000000/tactical",
+          "seed100/greedy_q/6000000/random",
+          "seed100/greedy_q/6000000/tactical",
+          "seed100/greedy_q/7000000/random",
+          "seed100/greedy_q/7000000/tactical",
+          "seed100/greedy_q/8000000/random",
+          "seed100/greedy_q/8000000/tactical",
+          "seed101/greedy_q/4500000/random",
+          "seed101/greedy_q/4500000/tactical",
+          "seed101/greedy_q/4750000/random",
+          "seed101/greedy_q/4750000/tactical",
+          "seed101/greedy_q/5000000/random",
+          "seed101/greedy_q/5000000/tactical",
+          "seed101/greedy_q/6000000/random",
+          "seed101/greedy_q/6000000/tactical",
+          "seed101/greedy_q/7000000/random",
+          "seed101/greedy_q/7000000/tactical",
+          "seed101/greedy_q/8000000/random",
+          "seed101/greedy_q/8000000/tactical",
+          "seed102/greedy_q/4500000/random",
+          "seed102/greedy_q/4500000/tactical",
+          "seed102/greedy_q/4750000/random",
+          "seed102/greedy_q/4750000/tactical",
+          "seed102/greedy_q/5000000/random",
+          "seed102/greedy_q/5000000/tactical",
+          "seed102/greedy_q/6000000/random",
+          "seed102/greedy_q/6000000/tactical",
+          "seed102/greedy_q/7000000/random",
+          "seed102/greedy_q/7000000/tactical",
+          "seed102/greedy_q/8000000/random",
+          "seed102/greedy_q/8000000/tactical",
+          "seed100/average/6000000/random",
+          "seed100/average/6000000/tactical",
+          "seed100/average/7000000/random",
+          "seed100/average/7000000/tactical",
+          "seed100/average/8000000/random",
+          "seed100/average/8000000/tactical",
+          "seed101/average/6000000/random",
+          "seed101/average/6000000/tactical",
+          "seed101/average/7000000/random",
+          "seed101/average/7000000/tactical",
+          "seed101/average/8000000/random",
+          "seed101/average/8000000/tactical",
+          "seed102/average/6000000/random",
+          "seed102/average/6000000/tactical",
+          "seed102/average/7000000/random",
+          "seed102/average/7000000/tactical",
+          "seed102/average/8000000/random",
+          "seed102/average/8000000/tactical"
+        ],
+        "looks": [
+          500,
+          2000
+        ],
+        "method": "graygo/empirical-bernstein/1",
+        "name": "zero-record-cli-diagnostic/pilot"
+      },
+      "confirmation_performance_filters": false,
+      "confirmation_seeds": [
+        200,
+        201,
+        202
+      ],
+      "evaluation_rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "name": "zero-record-cli-diagnostic/pilot",
+      "opening_kind": "official-empty",
+      "post_records": [
+        6000000,
+        7000000,
+        8000000
+      ],
+      "pre_records": [
+        4500000,
+        4750000,
+        5000000
+      ],
+      "required_complete_snapshots": 2,
+      "seeds": [
+        100,
+        101,
+        102
+      ],
+      "thresholds": {
+        "random_lower_strictly_above": 0.0,
+        "tactical_lower_at_least": 0.0
+      },
+      "training_runs": {
+        "100": "b164235c26ef15fa9e8d37214df14eecb5fd28f5c840f2c2e0ae66ebdc608549",
+        "101": "45bc499b0d1a5d9b937e241d8e9b13c9822cec22b7fae856fee9b1e0fd9bb591",
+        "102": "54db95864df6f038b1033061ae0790d924964a3ddf82fc0dd515fc8fe088c4fd"
+      },
+      "version": "graygo/nfsp-pilot-gates/1"
+    },
+    "screening": {
+      "baselines": {
+        "random": "c9ad215837b1f88b4ce6ac4c44a4f1988c49856b309977fb0431548c3efdb514",
+        "tactical": "961a51cf911d0ad6592fa1016dd8e390680b5b97a318ee47b0769207a77259eb"
+      },
+      "confidence": {
+        "alpha": 0.05,
+        "endpoints": [
+          "seed100/average/20000000/random",
+          "seed100/average/20000000/tactical",
+          "seed101/average/20000000/random",
+          "seed101/average/20000000/tactical",
+          "seed102/average/20000000/random",
+          "seed102/average/20000000/tactical"
+        ],
+        "looks": [
+          500,
+          2000
+        ],
+        "method": "graygo/empirical-bernstein/1",
+        "name": "zero-record-cli-diagnostic/screening"
+      },
+      "confirmation_seed_filtering": false,
+      "name": "zero-record-cli-diagnostic/screening",
+      "records": 20000000,
+      "representation": "average",
+      "seeds": [
+        100,
+        101,
+        102
+      ],
+      "thresholds": {
+        "random_lower_strictly_above": 0.0,
+        "tactical_lower_at_least": 0.1
+      },
+      "training_runs": {
+        "100": "b164235c26ef15fa9e8d37214df14eecb5fd28f5c840f2c2e0ae66ebdc608549",
+        "101": "45bc499b0d1a5d9b937e241d8e9b13c9822cec22b7fae856fee9b1e0fd9bb591",
+        "102": "54db95864df6f038b1033061ae0790d924964a3ddf82fc0dd515fc8fe088c4fd"
+      },
+      "version": "graygo/nfsp-screening-gates/1"
+    },
+    "shared_config_without_seed": {
+      "augmentation": true,
+      "batch": 512,
+      "blocks": 8,
+      "capacity": 500000,
+      "deterministic": true,
+      "device": "cpu",
+      "envs": 16,
+      "handoff_end": 7000000,
+      "journal_plan": {
+        "evaluation_seed": 41,
+        "milestones": [
+          0,
+          4500000,
+          4750000,
+          5000000,
+          6000000,
+          7000000,
+          8000000,
+          20000000
+        ],
+        "records": 20000000,
+        "scope": "development",
+        "version": "graygo/board-milestone-journal/1"
+      },
+      "learning_rate": 0.0003,
+      "learning_start": 4096,
+      "max_grad_norm": 0.5,
+      "native_library": null,
+      "norm_groups": 8,
+      "q_reuse": 1,
+      "records": 20000000,
+      "reservoir_open": 5000000,
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "scope": "development",
+      "target_every": 12800,
+      "uniform_comparison": false,
+      "width": 64
+    },
+    "source_sha256": "47833b165d728e88a1cfdf39929f67e576d68540700342ff1e8300e78baed2fe",
+    "training_runs": {
+      "100": {
+        "initial_archive_manifest_sha256": "cde695dfc2c5afbe6f64e123eafe7fb6dbb174abc4271f677879d93c3c8db0b5",
+        "initial_average_weights_sha256": "2615044d0bf508b5acb0007f073bf7bbb45bcb3672c9c0e4464cf4fdee866df0",
+        "initial_q_weights_sha256": "cd85cd88ec9ac46d93aa59aa7ebc234c391995db4f54b47b0ecea5c60eb860a6",
+        "root": "/home/gcao/proj/graygo/runs/cohort-evidence-cli-7ab41a4/100",
+        "training_run_sha256": "b164235c26ef15fa9e8d37214df14eecb5fd28f5c840f2c2e0ae66ebdc608549"
+      },
+      "101": {
+        "initial_archive_manifest_sha256": "1c9202edba69ca8645cc93d9321dde6f41ab1d57257e34e0fbac54bb582aeaa1",
+        "initial_average_weights_sha256": "e79dd1e26b8c68869dcd15b6d02bba432a0217eaaec8d19dd45fed6c5fa15401",
+        "initial_q_weights_sha256": "076df42f787d7c4d56d400f4aa119192f5a9e23c92dc7015365b2346c830a2f0",
+        "root": "/home/gcao/proj/graygo/runs/cohort-evidence-cli-7ab41a4/101",
+        "training_run_sha256": "45bc499b0d1a5d9b937e241d8e9b13c9822cec22b7fae856fee9b1e0fd9bb591"
+      },
+      "102": {
+        "initial_archive_manifest_sha256": "df71b9f4215057a052e430a2bdb4b35cffbdd8bc7c231bd802077831a78371ae",
+        "initial_average_weights_sha256": "dde5ed1d4138f5b4d6753bfb5bb6fca5f9641b5a8161e84941402cae03da352f",
+        "initial_q_weights_sha256": "eaac42df7c91a74d66fb6f70303e82788a9ff87ce83b087111e81da3e7cddb27",
+        "root": "/home/gcao/proj/graygo/runs/cohort-evidence-cli-7ab41a4/102",
+        "training_run_sha256": "54db95864df6f038b1033061ae0790d924964a3ddf82fc0dd515fc8fe088c4fd"
+      }
+    },
+    "version": "graygo/development-cohort-evidence/1"
+  },
+  "sha256": "a19c904bbdd8c183e914a78f16291f124059227c364a8df679600ad49207e4b5"
+}

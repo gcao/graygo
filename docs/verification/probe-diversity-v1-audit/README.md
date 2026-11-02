@@ -1,0 +1,11 @@
+# Independently verified partial multigroup catalog
+
+The original independent audit PID **2393525** is terminal/absent. Its frozen package source is `7da67d9` / SHA `8376aead9575a4ff63ec35c1f78ff0ab1ca847c1f1f6b4218ad8e036463b505b`. The auditor SHA `f438040e68beacd7bce3a3dea24e2a430cf627288df86b86b2bdc7d767ac3f82` matches the preserved frozen driver and tracked `tools/audit_probe_construction.py` (`25f5cf4`). Original audit artifacts remain on `ai` at `/home/gcao/proj/graygo/runs/collision-probe-diverse-7da67d9-audit`.
+
+The audit reads all exact certificates without a floating LP during proof verification, checks complete default-game public roots and all 9,552 legal setup rounds, unique complete base/remove game-pair classes, geometric/current-board identities, Gray-rule utility sensitivity, alternating orientation and exact equilibrium teacher fixtures. It then independently regenerates the **entire original 150,507-proposal prefix**, matching every accepted exact certificate/trace and all acceptance/rejection counters. The original evidence file inventory/checksums are unchanged.
+
+It verifies **24 families / 48 distinct roots and current boards**: twenty removal/four recoloring pairs, twelve increasing/twelve decreasing, fifteen with gray roots and fourteen with mixed-equilibrium witnesses. All 24 exact equilibrium teacher fixtures pass. They are solver fixtures, not trained policy replicas or evidence of intent.
+
+The terminal result is `incomplete_family_coverage`: the required full count remains **32**. No full benchmark was published, no learned policy was evaluated and no gray-specialization conclusion is selected. Eight families remain missing, and no new construction allocation or threshold relaxation follows from this receipt.
+
+Measured proof reading took 2.587 seconds, original-prefix regeneration 1,792.223 seconds and the total audit interval 1,794.814 CPU process-wall seconds, below its 3,600-second verification ceiling. Initial import/manifest setup, final report IO and other development/test overhead are additional. Copied JSON files match the original bytes; the complete partial proofs remain in the separately archived construction report.

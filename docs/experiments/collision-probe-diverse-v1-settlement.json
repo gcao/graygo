@@ -1,0 +1,21 @@
+{
+  "allocation_sha256": "04dc676b64f0a52de652528505887ff5307090018d85bf92dd3dcf325d4a933c",
+  "audit_report_sha256": "fe9baa3879646bd4b6b692dfbe361bc17760e705e35590b8708c7d92e1530d32",
+  "combined_measured_seconds": 3594.820690200024,
+  "construction_allocated_seconds": 1800,
+  "construction_atomic_overrun_seconds": 0.006987250002566725,
+  "construction_elapsed_seconds": 1800.0069872500026,
+  "construction_report_sha256": "c09749d2328fc72d861ffaf422a5794e21c17fa05c8dca45656f2a9c6d9bc100",
+  "distinct_strategic_families": 24,
+  "family_coverage_complete": false,
+  "generation_reproduced": true,
+  "new_work_selected": false,
+  "purpose": "settle original bounded construction and independent audit",
+  "required_families": 32,
+  "scope": "measured construction/audit intervals only; setup/report/test/development and earlier construction work remain separately scoped; not a complete project-cost sum",
+  "source_sha256": "8376aead9575a4ff63ec35c1f78ff0ab1ca847c1f1f6b4218ad8e036463b505b",
+  "unused_verification_reservation_seconds": 1805.1862970499787,
+  "verification_allocated_seconds": 3600,
+  "verification_elapsed_seconds": 1794.8137029500213,
+  "version": 1
+}

@@ -1,0 +1,39 @@
+{
+  "files": {
+    "controller.json": {
+      "bytes": 369,
+      "sha256": "57e0cdcdb48c9ce5e51a9f895513ef06e33f03ee22b95867f8dc69312b70f9c8"
+    },
+    "replay.npz": {
+      "bytes": 4464,
+      "sha256": "cdfb5780254db1468592ee023dfd8fa589c70635c43139a45a6de1a55e7b2d3d"
+    },
+    "reservoir.npz": {
+      "bytes": 1604,
+      "sha256": "8b378232a0bd6fae9fb0ee8af7275cf02fc1ced9f1025e6d1af7928bcd87aa30"
+    },
+    "runtime.pt": {
+      "bytes": 7601845,
+      "sha256": "f11ced3b8e380010593fcbfeb8f87de09c434c65cf96b8aaf48b260147c0e679"
+    }
+  },
+  "format_version": 1,
+  "kind": "resume",
+  "metadata": {
+    "controller_sha256": "3bfb0d31c6262753f8449680e12162472b0b3bfd8c7f549014997af1a9930779",
+    "native_schema": {
+      "codec": "graygo/rule-state/1",
+      "encoding_version": "graygo/encoding/1",
+      "rule_version": "graygo/1",
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "storage": "rule-state"
+    },
+    "source_sha256": "47833b165d728e88a1cfdf39929f67e576d68540700342ff1e8300e78baed2fe",
+    "version": "graygo/board-nfsp-runtime/1"
+  },
+  "step": 0
+}

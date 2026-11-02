@@ -1,0 +1,13 @@
+{
+  "aggregate_fresh_record_cap": 0,
+  "formal_scope_approved": false,
+  "purpose": "diagnostic",
+  "scope": "initial public/resume archives plus real metadata/report CLI; no learning, A2 or strength result",
+  "scored_game_cap": 0,
+  "seeds": [
+    100,
+    101,
+    102
+  ],
+  "source_sha256": "47833b165d728e88a1cfdf39929f67e576d68540700342ff1e8300e78baed2fe"
+}

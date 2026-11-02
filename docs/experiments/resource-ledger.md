@@ -67,8 +67,20 @@ The candidate-independent multigroup probe feasibility run completed 9,382 propo
 The [single multigroup allocation](collision-probe-diverse-v1-allocation.json) reserves at most 1,800 seconds of new construction and 3,600 seconds of independent proof/source-seed verification under the design's eight-hour CPU probe stage. These are separately declared ceilings, **not completed costs**. Its source is isolated in a clean frozen worktree; the actual run/limits were checked against the allocation and original OS PID 2384063 was observed live. Prior construction measurements and additional audit/test/development overhead remain separately recorded. A partial catalog cannot pass coverage, and this reservation funds no training or confirmation inference campaign.
 
 
-## Terminal multigroup construction, independent audit in progress
+## Terminal multigroup construction
 
 The original frozen construction has stopped at its unchanged cap: **1,800.007 CPU process-wall seconds**, 150,507 proposals and 24 distinct complete-game families. The roughly 0.007-second overrun is a bounded final attempt. This settles the construction portion as measured consumption; it does not select an extension or replacement. The [full terminal partial proofs](../verification/probe-diversity-v1-construction/README.md) remain below the required 32-family coverage.
 
-The separately reserved 3,600-second exact-proof/source-seed audit is still live as original PID 2393525. Its regeneration repeats the original proposal prefix solely for verification; it is separate measured audit work, not another construction search. Actual audit cost and original-prefix reproduction remain pending its terminal result. Earlier construction/feasibility measurements and additional test/development overhead retain their existing scope; this ledger remains a partial cost record.
+The separately reserved 3,600-second exact-proof/source-seed audit (original PID 2393525) is now terminal and settled below. Its regeneration repeated the original proposal prefix solely for verification. Earlier construction/feasibility measurements and additional test/development overhead retain their existing scope; this ledger remains a partial cost record.
+
+
+## Zero-record cohort CLI integration
+
+Clean `7ab41a4` created three full-shape record-zero initialization/resume archives, registered them through the real CLI and verified read-only pilot/screening reports in **8.319 CPU process-wall seconds**. It collected **zero training records and zero scored games**. The [retained source-bound evidence](../verification/cohort-evidence-cli-diagnostic/README.md) reports missing-data/incomplete outcomes and no formal grants. Driver initial import/manifest setup, tests and development remain additional overhead. This metadata/report integration cost does not enter H_P/H_D/H_N or select learning work.
+
+
+## Independent multigroup verification settled
+
+The original audit is now complete and independently reproduces all 150,507 proposals and 24 exact families. Its measured interval is **1,794.814 CPU process-wall seconds**, including 2.587 seconds of proof reading and 1,792.223 seconds of regeneration. Together with the original 1,800.007-second construction interval, these two measurements total **3,594.821 seconds (0.99856 hours)**. The [settlement](collision-probe-diverse-v1-settlement.json) releases the unused 1,805.186 seconds of the verification reservation and selects no replacement construction or extension.
+
+Initial setup/final reporting, prior construction/feasibility work, tests and development remain separately scoped; this is not complete project consumption. The [verified partial catalog](../verification/probe-diversity-v1-audit/README.md) remains below the required 32 families and yields no trained-policy/scientific outcome.

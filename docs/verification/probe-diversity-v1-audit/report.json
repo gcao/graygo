@@ -1,0 +1,376 @@
+{
+  "accepted_case_counts": {
+    "accepted_recolor": 4,
+    "accepted_remove": 20,
+    "accepted_with_gray": 15,
+    "accepted_with_mixed_equilibrium": 14,
+    "decrease": 12,
+    "increase": 12
+  },
+  "allocation_sha256": "04dc676b64f0a52de652528505887ff5307090018d85bf92dd3dcf325d4a933c",
+  "auditor_sha256": "f438040e68beacd7bce3a3dea24e2a430cf627288df86b86b2bdc7d767ac3f82",
+  "construction_atomic_boundary_overrun_seconds": 0.006987250002566725,
+  "construction_elapsed_seconds": 1800.0069872500026,
+  "distinct_current_boards": 48,
+  "distinct_roots": 48,
+  "distinct_strategic_families": 24,
+  "elapsed_seconds": 1794.8137029500213,
+  "exact_equilibrium_fixture_passed_pairs": 24,
+  "family_coverage_complete": false,
+  "format_version": 1,
+  "generation_reproduced": true,
+  "gray_specialization_demonstrated": false,
+  "input_plan_sha256": "2c9acd16dca0f52e79fd8c0334635e0912bb245100e1d43c456677742363e86e",
+  "input_report_sha256": "c09749d2328fc72d861ffaf422a5794e21c17fa05c8dca45656f2a9c6d9bc100",
+  "original_evidence_unchanged": true,
+  "proof_reading_seconds": 2.5874525060062297,
+  "proofs": [
+    {
+      "attempt": 84,
+      "board_ids": [
+        "fa07960de3abfb7bb62595963a490e4d6c0be4b9aa660c7b0de4b41ce1adc277",
+        "54ac759aa444c7c4bdf5a25afa79b85aa4b77a39d5f31e70e98bc4478227dda8"
+      ],
+      "direction": 1,
+      "pair_id": "6fb4423af7c87256be6d69180fd28738789228cb18e34b372bbb0a3091b1016c",
+      "root_ids": [
+        "1ab56f7c2faad6d5b77da57019977f5a40e9e764842080f550e91e14c8fcd0c6",
+        "634a8e2d903f221397d35669a7b105260d8345f16cd42d9c2a77349be1f7b2b1"
+      ],
+      "strategy_family_id": "09a1a9d1b2d3bc14274903049e0e0c35e179450206b4487c55e3a0833bb92ce8"
+    },
+    {
+      "attempt": 129,
+      "board_ids": [
+        "408e8fa35ffcda42470d1f2d0dc6021648fd785ee762894c22e5c9ff0bef23fe",
+        "d91b5f8f68533fe21a3fd8ec4ebb334689076c90292531c27ad642557423db9f"
+      ],
+      "direction": -1,
+      "pair_id": "7e308d656cd39aec34ad6f7f22268a14fd93a19e7aec24f9079f4e0e6d5eb683",
+      "root_ids": [
+        "543a515b1ae41ca49b39d82e4956bdb9538d601776785446713918b71ac4eb3f",
+        "1f3aa5e9f9dcf8d5e097202d864c6f95ce6c36bc69809c81ffa1a858bd31a785"
+      ],
+      "strategy_family_id": "1b5043ef77e3bb99feb2948bc78aa2508b35f84fb22844130993228980f0ddae"
+    },
+    {
+      "attempt": 1661,
+      "board_ids": [
+        "b2f509f487609db173d3c643b2a4601ebd3ae12e15c35837734919018ef6a8a7",
+        "9a07c948a3e12c4660947eaa637ee2079a27d156476d3b310a1293360125f181"
+      ],
+      "direction": 1,
+      "pair_id": "cf682b46275108c312db99bd7380374ee9d82263dc39af8605750ab0d68af593",
+      "root_ids": [
+        "013a23a195f2a74674e15d2a88bf9f25a869ee94d24152c78e720ba458132cb6",
+        "52dde661d70ed26fcc708fe45823c2f002fa6b9e14a37c2991bd4e99ca2c1af3"
+      ],
+      "strategy_family_id": "380f0afed8bf180bd5f38ec898314008c85ab0a796ae631de72ff0cf27615b15"
+    },
+    {
+      "attempt": 1913,
+      "board_ids": [
+        "20680380cdcc6d640dcc35131e8ceca9ae828c13e5760b39e8168c4a7e87e7bb",
+        "b6d6d0687b9e7c8163fc613cc30f570b4fa502b0aa590cbc17da7343cd2f3791"
+      ],
+      "direction": -1,
+      "pair_id": "183978e6b8ababc3b2266d35c2955e42caf2ca4242d8a0ec102de12aa06b6d9e",
+      "root_ids": [
+        "aa9847457fdda0b75b85dd0dd2f967f56d1066c9312cee1aa7194e5ebeee4451",
+        "f3d0cc7fd51e9cc23f5e0af758ad5bf29df8384200a26ad39f2451e13b9dae62"
+      ],
+      "strategy_family_id": "09056e836bbfebd59024e8cfe83e881bf52470a9a6b8519e8bd546c1a3e6f8cb"
+    },
+    {
+      "attempt": 5307,
+      "board_ids": [
+        "3b8247ed6e79e9436e2ef4e6eeeca230d15424568236f8b3230a44b2a433caf0",
+        "e3981a2548844860b5db6f3595cdd63b7c76d8f175e6ae9656aea5f8a2974448"
+      ],
+      "direction": 1,
+      "pair_id": "70dfd3a75afc427fd0fdc8c8640aed4dc48bb419fe34bfbd619ccfc5c6056773",
+      "root_ids": [
+        "f8e2fe1a7bcab0ad7f4e03ce452fd7f4a971481a7c9958e0e9e7795c154d574c",
+        "7e983ca4ae6872112bc75a83855571915151a784f731c28bcb67e7f3cc7e1e89"
+      ],
+      "strategy_family_id": "de96618b1f75cc15591accae4a6fcb85840300e30db6abc188c163014b820e7f"
+    },
+    {
+      "attempt": 8056,
+      "board_ids": [
+        "3cea2f1e0e3d9ebf092378d67d496b78addf41555416b85515be72534f7a0393",
+        "c501a1487ee978dded8b52ba6cd70be1f9bfdb01c26d1b2a2a470554267019f5"
+      ],
+      "direction": -1,
+      "pair_id": "2aae22ec19c5c3d9f5db005994385e4650bb8ab66788e2c2d93495ca8ee32a58",
+      "root_ids": [
+        "171dc9c66523eefe6bb717c164d8d57939e39fffd07e31b513355aa5f2f3a911",
+        "2d803abbff7fecbdb2e3da3527df614d46b8f2a9b7ebb652b2707b6b74751149"
+      ],
+      "strategy_family_id": "0633d30627843fa2fb077067ab648497cb93f86d708a7636f749b8d42713ec57"
+    },
+    {
+      "attempt": 9774,
+      "board_ids": [
+        "34287c8839be8f3c871f948a54f0c8a12b15eda4f26dd0ecbe9f0900e482ab88",
+        "604e90e98dda4770cb1c34279042a862d9548e0bea3e411d61fcd9fa89918587"
+      ],
+      "direction": 1,
+      "pair_id": "b10f203c972017ee7b9418db5cf9e239e0ec5cd77e0ad6c2e84b56872b08af28",
+      "root_ids": [
+        "7e43e77e230dcead29c3cfcb272134309e39a11e40cb0fa5b498d49c1b907eae",
+        "04c091f6b501595874d2513e8ee3200272dc5b46e21bb6fee1d74221cea0bb79"
+      ],
+      "strategy_family_id": "75a58158601c86e5ab16bca0d31f9f2bcec8202d1857cb8d2ae6f25321381922"
+    },
+    {
+      "attempt": 10005,
+      "board_ids": [
+        "9c598128aa4b395b12ef67a82c0912d3a5d4cef1d61bb2426c2948a7018469f3",
+        "4bd05ffa2408fefa42e43b1a43bdc72365acff60fdc4524c5e4f8f360bbf67bb"
+      ],
+      "direction": -1,
+      "pair_id": "8a577417c16fc53f89bb01c253ce5c017558ee28f97235dde27f3e1d245a1049",
+      "root_ids": [
+        "c05c360bbbe8a92034b9f2263f69db2be1323af63d7199f3431b5d4f2583a3b5",
+        "4ceff9da6fa98beb9c60903ca738c157506b1beed12abf7229bad74d817888ee"
+      ],
+      "strategy_family_id": "ebb440e5ae33330b1bf93be2016cf45a0c5a8296e84f670dffaa56e294a355cd"
+    },
+    {
+      "attempt": 10592,
+      "board_ids": [
+        "98fb487d1c62a7fbc3dce528846beb536433e05427bbb192b48a87313053ef05",
+        "b10d999b4eb4ee4c452f83b6adbdfeaf98cbcea8f51c06e9407229eb66fd2e55"
+      ],
+      "direction": 1,
+      "pair_id": "46183a49e9edc08457b79b4467f8510144985e5854358382e9f33a27238a1f94",
+      "root_ids": [
+        "4e759dba716e78319ef452e684c8b3a9fd74abba8ad191aa593b25ce834dcb84",
+        "5ffd77eba7dc9db09579693177e73787afb8262c98fc13fc32404788242184bd"
+      ],
+      "strategy_family_id": "31c7d560e7822971137b31e150ac7547513307aeb2222b7130c1407f60df28f1"
+    },
+    {
+      "attempt": 11678,
+      "board_ids": [
+        "eeab9c6fb8c375ebd506150b1b6d044f090faddf1cd10153d7b7e0cbd36e4d73",
+        "4a839d95c2dd64204918ac2f52ced7a6b454f6bfa4ba61534e2b696f5d964c56"
+      ],
+      "direction": -1,
+      "pair_id": "37102cb54ed85ab41235609d35eaae78d58931c5c5fbc3f032432240bbd44173",
+      "root_ids": [
+        "dd5e7b31ec26a486d8cc2fa52421ce605b16171d51267af3f5094facb99c26e0",
+        "a11b549456bd47b10dcd2af4ddb465189808f8cb37d9931a57e5e5e058df3a54"
+      ],
+      "strategy_family_id": "37b6822440775b737205267b1f1a5a1bdfd58522a7fdb0137195e481ab3fcd3f"
+    },
+    {
+      "attempt": 14304,
+      "board_ids": [
+        "55b2fa1214183c9358c2bb07a6deb64690d2fabaeb2bd860ed9e59e1c0ba3d0b",
+        "638af839b1b2b04fac35366a5bdcd75d6d1dd7f564ea5d9d44e1ce1832ef774d"
+      ],
+      "direction": 1,
+      "pair_id": "431a5f9b415276f49516c0e960b2ef23ea5f54b376ebfb9f68d639aaed0bdf94",
+      "root_ids": [
+        "2746fc4807f3ef49f79d129244a3d7079a7c022a08dd42bb8d45eba656c1c32d",
+        "240ef68b177e061d6f1de16b99200711e5a5289c34ff6c6c61a69bca829af869"
+      ],
+      "strategy_family_id": "912afef0e8fd3f3351f7046af861ebe43ad8ccafbaf3f13a125fbf57151303b3"
+    },
+    {
+      "attempt": 34395,
+      "board_ids": [
+        "7bb1a30968ecfd0236fe0beb8370475015553f6647e0e5cf1731f843205901fe",
+        "40c07cec7b770f24df6d0dde60e81a52230ebe28507f97d523e4a9e21dc80471"
+      ],
+      "direction": -1,
+      "pair_id": "1b1974ef327a0bf325967357619419d4d7813b2e624299b386f65ba0e6acafab",
+      "root_ids": [
+        "ee800159d9f4e8009c803b8aefcc43769e2db39dab9b71c7fd74487608baa727",
+        "4d5c96ba8812a32c62f70e5906c91bdddb4c079ed7d832ed2550e2bf791511cb"
+      ],
+      "strategy_family_id": "2d2fb2b48e91e67b921f9d6398ec4991fa1769d73047f178b217145887ee0fa2"
+    },
+    {
+      "attempt": 37431,
+      "board_ids": [
+        "94c01776d2cded9f2ffaaa0785953dbb88f4983bec4dcf43a2061a21e14c6745",
+        "b81a6766f6fae3e9af707909562edc5deb48d5b916f399e15ec5a05d3379a519"
+      ],
+      "direction": 1,
+      "pair_id": "2d333b982b50d492638c11b6b037798b27791bf0f7373fd104d16d111f2e97fe",
+      "root_ids": [
+        "14827109421a0cfad5bf5565a561a08f0a326916b69379c9c6fd5108c64d5196",
+        "4da3b19af1915706b1551a187ced173434d596216c044c81dd38dbc7b4e75a70"
+      ],
+      "strategy_family_id": "090527a87c9e418be85e3b7558a776f4940846a4c91eb36eda6aa2d17c791941"
+    },
+    {
+      "attempt": 38089,
+      "board_ids": [
+        "1341208b2e9812a2f3b9c759a43f05c25ded559a80fd370c1b7e32f2ba5a8b91",
+        "dcdaaddc4b6d95b6783a17b8a65f5ead5e6dea086227f7b676d2598947f5caba"
+      ],
+      "direction": -1,
+      "pair_id": "7f9665f32eb13be4df9d0d4cf561f486379f5ea32087805660fc7a3b68fbdf2b",
+      "root_ids": [
+        "ae6ce9f16e4a7c088eecfac9c620afd40aad1cc9371d1f3d2ee25ae241d57e84",
+        "da84bd2605fff2fb97ec7f9741db11a8f3e5d1a9b781ed8e0a0f27534f325697"
+      ],
+      "strategy_family_id": "ee0eaecf80a4b831c18806ffbe6731e657c1d9f4deb7249b13cb190f1bf745af"
+    },
+    {
+      "attempt": 66979,
+      "board_ids": [
+        "1b6bc3ec88122a2b4572894f7bac63e543614027a0e3c8c07096cc73f5c49f8c",
+        "6b6cfdeeec4467bc80fbae8364eda1c83e76092e110efb50243a4dc3e2fbd2b2"
+      ],
+      "direction": 1,
+      "pair_id": "303b51165c723b4e1cabcfd69fe92e92ca1d46728340bb72b422090ea73b2d38",
+      "root_ids": [
+        "2ba6c68bc8e00bfb79e02a98a013e302f11bc45855f146c35c461f92a9bd9b83",
+        "4b79809b44712f06c0215dfb19dd6270c0ada994c4d299f52e477df29c254381"
+      ],
+      "strategy_family_id": "a435a9fdc97c0bbc3768146bfd7e6f089933a1aadb60eaaeb4b795ecb4f05d4c"
+    },
+    {
+      "attempt": 70031,
+      "board_ids": [
+        "065f037397146886a41932a44f10929c8fba159deeb6649271373bd9b12f1d13",
+        "e2aa9629a5c7ee349663a5db18ee5b1552885f75ea0cbc4d81810626914abda5"
+      ],
+      "direction": -1,
+      "pair_id": "6aea214e0053d41b60d21db334fc6a9634a5ab791f153afd7d18f892cd126a9c",
+      "root_ids": [
+        "49cef80d2a2a33eeb76c30d6f8b7de5b8337e9f2fee48a27a5abded98d80b56b",
+        "d6d55d8f57b67b65cf4123f332e47b7f5af72fb189e31c7593cea4e25113369d"
+      ],
+      "strategy_family_id": "e41bc1a70b050a14da7179c2ab55c80bbf62df6063854cb11cbaf1e1f21981be"
+    },
+    {
+      "attempt": 71009,
+      "board_ids": [
+        "044746d3f558fe672700f85cdbdf3f7490ee9e0c5d68fffa3bb51a12b8e6bd13",
+        "1e78ecd0241216d0578a0314ae261643d52e6a3893e061a32a82278ea2a6c6fa"
+      ],
+      "direction": 1,
+      "pair_id": "e4dada5573de18d4e027ba972bcb91f100c1e6e91a2268eb321f3a4f406597f4",
+      "root_ids": [
+        "92e95cbbef53506e74d9e561ffc45a2bc1f446af9fe18a517d9e9e360f015b3b",
+        "43f2024a4100b224e7dcc2402df29585c4088434591602384f3fb53938d06f62"
+      ],
+      "strategy_family_id": "39568c00eb713d0dd2d1e6076d7abb5d327f62c4f26d2466441a1a4c99189a26"
+    },
+    {
+      "attempt": 74312,
+      "board_ids": [
+        "9568520a9e7495d0d947786d8364fc9301d6a200004954e65b0bd80179f6c33e",
+        "ec2ac193528fb4dec9ca985343dcbbab61b12e9286972374e39a937eb192933e"
+      ],
+      "direction": -1,
+      "pair_id": "cb4209ad1c955cba96e558e57328cf59a66b748be828de55b1474cdc5c19a0f5",
+      "root_ids": [
+        "6d34671a23de37a72072f22b5d7016b5f7f5951e0c99244ac9a3a7e0de8c58be",
+        "4058c2bb529fb17fce8a6865d30bdb25d8c0887ad07ccbc152f3dcf688602209"
+      ],
+      "strategy_family_id": "ea25983d12561557ea73e3d725da428238266551c6a652a06ac8a70e650077f6"
+    },
+    {
+      "attempt": 81719,
+      "board_ids": [
+        "a5717e75bcba6141146bc32844a8672034c93c8bae2a06efcd25b73b48159830",
+        "6e1d99c169b495309aab2195565a8d022b3e78eb58122367b106808f3f39ae34"
+      ],
+      "direction": 1,
+      "pair_id": "c57f617bbb9c545f77701fcd3785ca57fd2cf1ce4722f05fb849df8a8baec888",
+      "root_ids": [
+        "41d9326f4e400050941bbb8e79b68ff5981bc16e4167dfbb3b7c3a3b25a91a32",
+        "79863c4d935a927f3b5fe44cbccd615b2e3e090f8a0c99ca22f2b398bc5cb4f0"
+      ],
+      "strategy_family_id": "00aac5c8747be22564950ff52257361a5a689afe275c02b24b0eee5c8fab461f"
+    },
+    {
+      "attempt": 116205,
+      "board_ids": [
+        "510de2fa13f1322b0ef64e00f350fb43514e34db5ffd16f689c01bf57555c6d4",
+        "964eb48306eda90a570dc0b63ba43bf74dd52458334d18e78f911155dba204ce"
+      ],
+      "direction": -1,
+      "pair_id": "d16088d36589eb298e7332a510d7d75c4c0e317074ee0adbf6041ed41c083cbe",
+      "root_ids": [
+        "7834a601141a8e5ade1c4a050a03f7c210d2e19792a50f50c71553ecdeaf5ff0",
+        "c655d9b6991a59a51e85a2a8c63c6035222b07daf2aaedfd353007eb5bd69333"
+      ],
+      "strategy_family_id": "aac1f19feb763c533c1302442e5bbe5112284d0a3557dd5bb2f91db182e97336"
+    },
+    {
+      "attempt": 130684,
+      "board_ids": [
+        "c37ab61c83c6bdac96ff0bcd851b7a5800be3874c2673fee6bdd059ff1684050",
+        "a4400a29e111edd6431ea655eea31c8333f180303c65a5fe62b32824fdffdacb"
+      ],
+      "direction": 1,
+      "pair_id": "ea62b462a7f9b2133ac415382b548d62edb2acee1745ca95189b0bc64d04d626",
+      "root_ids": [
+        "7c1368bf8a18d795b2a8452e0a4f80ff7bfa565bf75307d3df12e944561cfcce",
+        "24565a244782dfd46dd3d3eaf6a95b250526ddd5218d83dde56c49c1c51586b3"
+      ],
+      "strategy_family_id": "6d8d4e5523a80961e6274f284e88ba16ff1facffd5a3096334ecc44cd0738019"
+    },
+    {
+      "attempt": 140003,
+      "board_ids": [
+        "a19200e9767f6b361fe23d3268b2eec5c95f90b1f496c3d837ab46b9674e5f8f",
+        "37bcaa3936589ef5960300f0f238a19a0a3c2261e9ca3afeb76c146aab6011cd"
+      ],
+      "direction": -1,
+      "pair_id": "8406e0cf450783202e5597964bbe7e2ff96f0925c0914c062fbce7e47205ca17",
+      "root_ids": [
+        "109343c2004ad63405cebae820470faade9de269971de0bce7e812a4c867d1a4",
+        "e8ed5c5166c12ca29da74df77807e36eb0a86e82effd8f5940af0c3488a4bfa8"
+      ],
+      "strategy_family_id": "69e4f638fb82a733b0abc88121958521101481999e6e5be3efc02e435517831b"
+    },
+    {
+      "attempt": 140088,
+      "board_ids": [
+        "14c59b7daf5f19ac115fe9018331c4e5b2a756484a3a582a7abadd3793d32391",
+        "aceda800fb296301b2ba5d97b95c1347d6c74d063fb7510209b1504c8dc04e67"
+      ],
+      "direction": 1,
+      "pair_id": "4bdd325cde9e2e7a316ee4d5e2b74df4de897a5833a8448dc629e482f1e0af97",
+      "root_ids": [
+        "e66fcb93641851141310bab101278fca12d502412fb0da410830a949a5bfc6e8",
+        "27ab73b0f106fb455df41fee76a328a3a1c12fcf103be54244d3c6e27191b0b4"
+      ],
+      "strategy_family_id": "c7b6dd969cbdf1c7d43d6b7f0abff9255e8f41e144301c29768ed5a72f59455b"
+    },
+    {
+      "attempt": 144418,
+      "board_ids": [
+        "8bd757e6d2cb991c7cb38413b5b76e28db390434f299ba77996d94e7d95c430d",
+        "b382919574b9e2ce4176ffcbfaf8f68addb9d2ff0bb32c81a8af8f7d3d0de262"
+      ],
+      "direction": -1,
+      "pair_id": "0cb2f58bff72a643190c9c30c9b4376eb57f80d9678d3b063646bac052569b34",
+      "root_ids": [
+        "8b20c977c85690df330c4bb0aebd12a539cd358f94931e90c97ac8c8f86d6655",
+        "0aed1fcec1c815bbab6dc3a69098680ac380c5d85b6cd24f6ce9497252f715d7"
+      ],
+      "strategy_family_id": "2f6e2914331159bdc8819a9a50c457be236c5e7c6778326b3314218836d4222f"
+    }
+  ],
+  "proposal_prefix_reproduced": 150507,
+  "purpose": "independent candidate-free construction audit",
+  "qualified_pairs": 24,
+  "regeneration_seconds": 1792.2233682529768,
+  "required_families": 32,
+  "scope": "exact complete-root/setup/class/near-equilibrium proofs and source-seed prefix; partial coverage stays incomplete; teacher fixtures are not trained-policy evidence",
+  "setup_rounds_replayed": 9552,
+  "source_sha256": "8376aead9575a4ff63ec35c1f78ff0ab1ca847c1f1f6b4218ad8e036463b505b",
+  "status": "incomplete_family_coverage",
+  "trained_policy_evaluated": false,
+  "verified": true
+}

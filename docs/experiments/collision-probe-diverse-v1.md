@@ -21,8 +21,13 @@ PYTHONPATH=/home/gcao/proj/graygo/.worktrees/probes-multigroup-7da67d9/src /home
 Record actual terminal construction/verification time and source-bound artifacts. The ceilings are allocations, not measured consumption. No additional construction run, target relaxation, duplicate-class counting, learned-policy probe evaluation or specialization claim follows automatically from this allocation. The existing full design, independent confirmation cohort and controlled scientific endpoints remain required.
 
 
-## Terminal construction and live independent audit
+## Terminal construction and independent audit
 
 The original run completed its unchanged 1,800-second allocation after 150,507 proposals with **24 distinct families**, so coverage remains incomplete. The [terminal source-bound output and all partial proofs](../verification/probe-diversity-v1-construction/README.md) are preserved. No full 32-family benchmark was created and no replacement construction or extension is selected.
 
-The separately allocated exact-proof/source-seed audit is live as original OS **PID 2393525**, using the same frozen package source and a frozen copy of the committed independent auditor. It has a 3,600-second ceiling, checks the exact complete-root/setup/class/near-equilibrium proofs without a floating LP during proof reading, then regenerates the original 150,507-proposal prefix. Its output is retained at `/home/gcao/proj/graygo/runs/collision-probe-diverse-7da67d9-audit`. This is verification of the original prefix, not a new construction allocation or a relaxation to 24 required families.
+The separately allocated exact-proof/source-seed audit (original PID **2393525**) is also terminal and verified. It used the same frozen package and committed auditor, validated the exact complete-root/setup/class/near-equilibrium proofs without a floating LP during proof reading, and regenerated the original 150,507-proposal prefix. Its output remains at `/home/gcao/proj/graygo/runs/collision-probe-diverse-7da67d9-audit`. This verifies the original prefix and leaves the 32-family requirement unchanged.
+
+
+## Independent audit complete
+
+Original audit PID 2393525 is terminal/absent. The [independent receipt](../verification/probe-diversity-v1-audit/README.md) verifies all 24 exact pairs, 48 unique roots/current boards, 9,552 legal setup rounds and the entire original 150,507-proposal prefix, with unchanged input artifacts. It took 1,794.814 measured CPU process-wall seconds; proof reading was 2.587 seconds and regeneration 1,792.223 seconds. The [settlement](collision-probe-diverse-v1-settlement.json) records both measured intervals and unused verification reservation without selecting more work. **Family coverage remains incomplete at 24/32.** No trained policy or gray-specialization result was produced.

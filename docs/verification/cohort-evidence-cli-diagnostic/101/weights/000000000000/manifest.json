@@ -1,0 +1,36 @@
+{
+  "files": {
+    "models.pt": {
+      "bytes": 5056399,
+      "sha256": "83f6df4614a596851c042932b7ca247deb5cf2da1d9cd8a4da20b626e991a1d8"
+    }
+  },
+  "format_version": 1,
+  "kind": "weights",
+  "metadata": {
+    "counters": {
+      "fresh_ordinary": 0,
+      "fresh_q": 0,
+      "q_loss_targets": 0,
+      "q_updates": 0,
+      "supervised_targets": 0,
+      "supervised_updates": 0,
+      "target_refreshes": 0
+    },
+    "journal_plan_sha256": "0a4a944f5c861ba6c3c3cdfb9c1e6ae94925f657d80be07cf9241d2cc9520d69",
+    "native_schema": {
+      "codec": "graygo/rule-state/1",
+      "encoding_version": "graygo/encoding/1",
+      "rule_version": "graygo/1",
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "storage": "rule-state"
+    },
+    "source_sha256": "47833b165d728e88a1cfdf39929f67e576d68540700342ff1e8300e78baed2fe",
+    "training_run_sha256": "45bc499b0d1a5d9b937e241d8e9b13c9822cec22b7fae856fee9b1e0fd9bb591"
+  },
+  "step": 0
+}

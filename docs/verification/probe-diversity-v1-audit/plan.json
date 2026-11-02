@@ -1,0 +1,18 @@
+{
+  "allocation_sha256": "04dc676b64f0a52de652528505887ff5307090018d85bf92dd3dcf325d4a933c",
+  "auditor_sha256": "f438040e68beacd7bce3a3dea24e2a430cf627288df86b86b2bdc7d767ac3f82",
+  "input": "/home/gcao/proj/graygo/runs/collision-probe-diverse-7da67d9",
+  "input_files": {
+    ".construction.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "allocation-validation.json": "bd0a8678619e3677f37b93bfec8da971a1a88adfc2ea5181227c37b8dd5c6e82",
+    "plan.json": "2c9acd16dca0f52e79fd8c0334635e0912bb245100e1d43c456677742363e86e",
+    "process.json": "1e1d21399fd13d8bce8ae577c28abb18bf6e1f4d230dd0e88e39134a8d6d22bb",
+    "progress.json": "c09749d2328fc72d861ffaf422a5794e21c17fa05c8dca45656f2a9c6d9bc100",
+    "report.json": "c09749d2328fc72d861ffaf422a5794e21c17fa05c8dca45656f2a9c6d9bc100",
+    "run.json": "b54cb9478c3b0bdae60d1e49cda1492ced1f5eb60a2e7d4cb005b2237556d838"
+  },
+  "purpose": "independent full-proof and original-prefix audit",
+  "regenerate": true,
+  "source_sha256": "8376aead9575a4ff63ec35c1f78ff0ab1ca847c1f1f6b4218ad8e036463b505b",
+  "time_ceiling_seconds": 3600.0
+}
