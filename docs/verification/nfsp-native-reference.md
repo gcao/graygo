@@ -1,0 +1,11 @@
+# Native-opponent Q reference correction
+
+The corrected suite passed **125 tests in 39.410 seconds**. Raw output and source/machine metadata are preserved in `nfsp-native-reference/`.
+
+The previous Q reference paired both players' epsilon-greedy Q policies. NFSP actually learns its own target policy against the native opponent population. Let `eta=0.1`, `r` be the episode hand-off probability, and `a=(1-eta)*r` when the average actor is ready, zero otherwise. The primary opponent weights are `(1-a, a, 0)` for Q/average/uniform. The matched uniform fallback weights are `(eta, a, 1-eta-a)`. These are evaluation continuations, never extra actor inputs or training labels.
+
+For a delayed root controlled by the opponent, let its favorable-action probability under that mixture be `p`. The noncontroller's only root-action value is `-(2p-1)`. Using epsilon-greedy Q's favorable probability instead can manufacture a credit failure when the average policy is weak, contrary to the design's separate credit/averaging grades. The controller's two root-action values remain `(+1,-1)` and its own target-policy value remains unchanged. Supported branch values also remain unchanged.
+
+Meaningful two-round controls require the same mixture semantics. One opponent component is sampled once per episode. On a public prefix, its posterior is proportional to its prior times the likelihood of the observed opposing actions; resetting the prior at the next state is a different strategy. The evaluator now carries that posterior through the exact tree while keeping the learner's own target policy fixed. Incompatible public-state aliases fail explicitly. Original-game average/greedy policy-gap evaluation is unchanged.
+
+Independent fixtures verify that perfect Q credit can coexist with average-policy gap 1, and that an observed branch can change a conditional action value by more than 0.1 relative to an incorrectly reset mixture. Neural/tabular delayed and bounded-Go mid-episode continuation still reproduces the same training trajectories and weights. No game, learning update, reward, opening, target refresh, exploration schedule or acceptance threshold was changed. The correction was made before any full delayed comparison; older diagnostic costs are retained and new funding requires the corrected source profile.

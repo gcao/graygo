@@ -1,0 +1,5 @@
+# Historical complete delayed-pipeline costs
+
+All eight CPU profiles completed from source `94a38602d251960755ce515aa63dff17fc2e74ac` (source SHA `1b0fd1521a04f8f0ca63ad5b331b89802cacdd337382b25b86689a458d8e934d`). They cover neural/tabular, one-step R=1/R=4, and pre/post opening with 50,000 records per case. The original profiler is terminal. Its measured sequential process wall time was 232.936 seconds (0.0647 CPU hours), concurrent with the asymmetric screen; do not describe it as isolated.
+
+These are preserved timing diagnostics. They are **retired for funding new runs**, because the Q reference evaluator has since been corrected to use the native opponent episode mixture and public-prefix conditioning. The loss, data collection, schedules, game, targets and thresholds were not changed. No full delayed-family learning run was launched from these profiles. Their raw plans/results remain intact. A fresh profile of the corrected source must bind any C1/C4 allocation; do not relabel this older source hash.

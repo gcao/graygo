@@ -1,0 +1,63 @@
+{
+  "baseline_version": "graygo/baselines/1",
+  "command": {
+    "operation": "unittest discover -s tests -v",
+    "result": "125 passed",
+    "seconds": 39.41
+  },
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cpu_threads": 24,
+  "created_at": "2026-11-02T03:33:11.420391+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 129467437056,
+  "encoding_version": "graygo/encoding/1",
+  "filesystem": "ext2/ext3",
+  "format_version": 1,
+  "git_commit": "9460d80d7df58910b16e7afb75c557f62f7d6630",
+  "git_dirty": true,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "host_memory": {
+    "available_bytes": 30953263104,
+    "swap_bytes": 12884897792,
+    "total_bytes": 33558446080
+  },
+  "hostname": "home-ai",
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "rule_version": "graygo/1",
+  "rules": null,
+  "run_id": "29359c1178d9497ba76720eb753ed66c",
+  "seed": 3,
+  "source_sha256": "ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e"
+}

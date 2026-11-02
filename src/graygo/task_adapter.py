@@ -93,7 +93,7 @@ class TaskAdapter:
                 'states':[self.encode_state(s) for s in self.states],'oracle':self.oracle,
                 'early_value_states':'root legal action values plus target-policy values at depths 1, 2, 5 on both delayed branches; all nonterminal states in two-round controls',
                 'late_value_states':'last nonterminal depth on both delayed branches',
-                'q_value_continuation':'fixed current epsilon-greedy online-Q policy for both roles; values are own-role utilities',
+                'q_value_continuation':'own current epsilon-greedy online-Q policy against the frozen current native opponent episode mixture; public-prefix-conditioned component weights; own-role utilities',
                 'augmentation':'fixed A2 roots; no trajectory augmentation'}
         if hasattr(self.game,'encoding'):
             result['codebook']=self.game.encoding.manifest;result['codebook_sha256']=self.game.encoding.digest

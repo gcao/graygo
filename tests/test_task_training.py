@@ -62,6 +62,46 @@ class TaskTrainerTests(unittest.TestCase):
         bad=evaluate_task(adapter,backend,epsilon)[0]
         self.assertAlmostEqual(bad['max_early_error'],1.4,places=6)
 
+    def test_delayed_credit_is_separate_from_weak_average_opponent(self):
+        config=replace(self.config(),horizons=(3,),equivalent_actions=3)
+        adapter=TaskAdapter(config);q,average=adapter.models();backend=NFSPBackend(q,average,config.backend_config())
+        backend.counters.fresh_q=8;backend.counters.supervised_updates=1
+        epsilon=.05;native_good=.1*(1-epsilon/2)+.9*.5
+        with torch.no_grad():
+            for state in adapter.states:
+                for player in (BLACK,WHITE):
+                    token=int(adapter.game.observation(state,player).spatial.argmax())
+                    if state.depth==0:
+                        if player==state.controller:q.values[token,0]=1;q.values[token,1]=-1
+                        else:q.values[token,0]=-(2*native_good-1)
+                    else:q.values[token,:]=(1 if state.branch==0 else -1)*(1 if player==state.controller else -1)
+        rows=evaluate_task(adapter,backend,epsilon)
+        for row in rows:
+            self.assertLess(row['max_early_error'],1e-6)
+            self.assertEqual(max(row['greedy_q_gaps']),0.)
+            self.assertAlmostEqual(max(row['average_gaps']),1.)
+            np.testing.assert_allclose(row['native_opponent_weights'],[.1,.9,0],atol=1e-15,rtol=0)
+
+    def test_native_opponent_belief_conditions_on_revealed_branch(self):
+        from graygo.task_evaluation import _native_q_values
+        config=self.config(task='branching');adapter=TaskAdapter(config);game=adapter.game
+        shape=(len(adapter.states),2,2);target=np.zeros(shape);average=np.zeros(shape)
+        for i,state in enumerate(adapter.states):
+            for role in (BLACK,WHITE):
+                acts=list(game.actions(state,role));target[i,role-1,acts]=1/len(acts);average[i,role-1,acts]=1/len(acts)
+        root=game.root(WHITE);later=game.transition(root,0,1)
+        target[adapter.index[root],WHITE-1]=[.95,.05]
+        average[adapter.index[root],WHITE-1]=[.05,.95]
+        target[adapter.index[later],WHITE-1]=[.95,.05]
+        average[adapter.index[later],WHITE-1]=[0.,1.]
+        result=_native_q_values(adapter,root,BLACK,target,(target,average),[.1,.9])
+        posterior=.1*.05/(.1*.05+.9*.95)
+        self.assertAlmostEqual(result[later]['belief'][0],posterior)
+        # Black action 0 receives -.5 vs white 0 and +1 vs white 1.
+        expected=1-1.5*(posterior*.95)
+        self.assertAlmostEqual(result[later]['q'][0],expected)
+        self.assertGreater(abs(expected-(1-1.5*(.1*.95))),.1)
+
     def test_branch_values_and_bounded_gray_roots_are_actual_games(self):
         c=self.config(task='branching');adapter=TaskAdapter(c);q,avg=adapter.models();backend=NFSPBackend(q,avg,c.backend_config())
         rows=evaluate_task(adapter,backend,.1)

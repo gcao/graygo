@@ -35,7 +35,7 @@ Objective: implement Gray Go following `docs/design.md`, including its verificat
 - Opaque 50/100/200-round controls, a forced-action indexing variant, a 40-equivalent-action stress variant and a meaningful two-round branching game are implemented. Codebooks are randomly permuted independently of semantic order, with exact manifest/digest support.
 - Exact finite Markov solving, policy/action-value evaluation and best responses are implemented for those adapters. Latent episode mixtures continue to use the complete-history evaluator.
 - Supported-coverage scheduling gives each horizon/controller equal rounds, with randomized ten-episode blocks containing eight ordinary and one episode per forced branch. Mid-block and mid-episode resume checks pass.
-- The full suite passes **122 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
+- The full suite passes **125 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
 
 ## Resumable matrix NFSP trainer
 
@@ -57,21 +57,25 @@ Four full-path terminal-matrix timing diagnostics are recorded in `verification/
 
 The checkpoints preserve active episode state, old frozen policy weights, mode/ramp choices, private action RNGs and trajectory history. Budget/chunk boundaries remain nonterminal. Coverage and replay counts are separate by public state, role, action and supplemental origin. Target/behavior overlap is measured using the same pre-update Q prediction as the loss, with mode/origin/fresh-age bins; no second diagnostic network forward changes the profiled work.
 
-Exact delayed evaluation checks root action values and early target-policy values at depths 1/2/5 on both supported branches, with last-depth errors reported separately. Deployed average-policy gaps are graded separately from greedy-Q credit and readiness bands. Fixed-pair two-round value checks use exhaustive finite-game evaluation. The branch control retains its meaningful mixed continuation matrices; no test threshold or game was simplified to manufacture a pass.
+Exact delayed evaluation checks root action values and early target-policy values at depths 1/2/5 on both supported branches, with last-depth errors reported separately. Deployed average-policy gaps are graded separately from greedy-Q credit and readiness bands. Two-round Q value checks now condition the frozen native-opponent mixture on the observed public prefix; average/greedy game gaps remain against the original unregularized game. The branch control retains its meaningful mixed continuation matrices; no test threshold or game was simplified to manufacture a pass.
 
 Full runs require an explicit time ceiling and matching declared complete-pipeline budget-profile hash. `purpose=profile` cannot satisfy formal gates. `tools/profile_nfsp_tasks.py` produces paired pre/post, R=1/R=4 costs; terminal-matrix costs are not substituted for these. Runtime settings, optimizer defaults, actual host memory/affinity/filesystem and complete adapter/codebook metadata are recorded.
 
-The suite passes **122 tests**, including exact mid-episode resume for neural/tabular delayed and mixed-Go runs. See `verification/nfsp-multiround.md`. No delayed-credit convergence or 9×9 strength claim follows from these implementation checks.
+The suite passes **125 tests**, including exact mid-episode resume for neural/tabular delayed and mixed-Go runs. See `verification/nfsp-multiround.md`. No delayed-credit convergence or 9×9 strength claim follows from these implementation checks.
 
-The complete delayed-pipeline profiler has launched from pinned source for neural/tabular, R=1/R=4 and pre/post-opening paths. The immutable eight-case plan and resource ceilings are in `experiments/nfsp-delayed-profile-plan.json`. Its results are not yet convergence evidence or a completed full-study budget.
+The first complete delayed-pipeline profiler finished all eight cases. Its source is now historical for funding purposes after the native-opponent Q reference correction. The immutable eight-case plan and resource ceilings are in `experiments/nfsp-delayed-profile-plan.json`. Its results are not yet convergence evidence or a completed full-study budget.
 
 ## Remaining work toward the full objective
 
-1. Independently audit completed matrix trials, finish the declared first-screen set (RPS and delayed family), then the required seed/task cohorts. The seed-0 tabular asymmetric run reports a complete 15M final-five pass; that is provisional until its archive-based audit. The neural trial is still being observed by its original process handle.
-2. Inspect the launched complete delayed-pipeline profiles, enter C1/C4 ceilings, profile bounded neural/control paths, and run the selected one-step comparisons with actual tabular controls. Per-branch gates and full multiround resume are implemented; learning evidence and any conditional Retrace selection remain pending.
+1. Independently audit completed matrix trials, finish the declared first-screen set (RPS and delayed family), then the required seed/task cohorts. Both seed-0 asymmetric primary runs completed 15M each and passed the independent archive/RNG/reservoir/replay audit. See `verification/nfsp-asymmetric.md`. This does not complete the other families/seeds.
+2. Replace the completed historical delayed timing profiles with corrected-reference source profiles, enter C1/C4 ceilings, profile bounded neural/control paths, and run the selected one-step comparisons with actual tabular controls. Per-branch gates and full multiround resume are implemented; learning evidence and any conditional Retrace selection remain pending.
 3. Run the selected NFSP A2 protocol across short mixed tasks, bounded Gray Go and the delayed family with three seeds, final-five gates and fixed aggregate counters.
 4. Integrate the ninth-review development/confirmation cohorts, baseline confidence gates, opening checks and pilot safeguards. Keep packed-feature storage's current overhead explicit; the design's compact rule-state/regenerated-feature backend is still pending.
 5. Profile the complete selected learner, fill its cost ledger and run only the eligible declared pilot/screening/confirmation stages.
 6. Implement protected evaluation/promotion, gray-rule/exposure comparisons, certified collision probes and required reports. Optional modeling/search remains conditional.
 
 The Python engine is the independently readable reference. Its throughput must be measured before choosing a batched/native production backend. The reviewer prototype is used for differential evidence only. Both matrix and finite multiround trainers now have verified complete resume protocols. Large-board collection optimization, compact rule-state storage, pilot/confirmation orchestration and their production-scale verification remain pending.
+
+## Reference-value correction before delayed learning
+
+Q credit is now evaluated for its own target policy against the actual native opponent episode mixture, including posterior conditioning after public prefixes. This keeps averaging lag separate from credit learning. The previous joint-epsilon-Q assumption was an implementation error, corrected before full delayed comparisons. See `verification/nfsp-native-reference.md`. Historical timing measurements are retained and their actual CPU cost remains in the record; they cannot fund the changed source.
