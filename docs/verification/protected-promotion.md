@@ -1,6 +1,6 @@
 # Protected-pool promotion statistics and calibration
 
-The full suite passed **170 tests in 59.485 seconds**. Raw output and machine/source metadata are in `protected-promotion/`. This verifies the procedure; no current 9×9 candidate is promoted or statistically qualified by these tests.
+The full suite passed **170 tests in 59.624 seconds**. Raw output and machine/source metadata are in `protected-promotion/`. This verifies the procedure; no current 9×9 candidate is promoted or statistically qualified by these tests.
 
 ## Frozen comparison
 
@@ -25,3 +25,5 @@ Stateless trial seeds, committed progress and a cumulative time clock reproduce 
 Fixtures independently isolate aggregate failure, a protected regression and an absolute-floor failure. Paired covariance, ten-opponent bounds, immutable looks/tolerances, real SQL alignment, display-label identity, incomplete evidence, infeasible +0.03 scenarios, synthetic-pilot exclusion, report corruption, deterministic resume and CLI refusal/resume all pass.
 
 The older 16-pair baseline pilot is a pipeline/variance demonstration, not enough to qualify a promotion round. Real pre-candidate calibration, protected-pool freeze, applicable sample/evaluation budget, A2 approval and production 9×9 readiness remain necessary. No game count removes training-seed uncertainty or establishes full-game exploitability.
+
+The content-sealed progress/cumulative-budget CLI is included in the final combined verification. A completed diagnostic is recorded in [promotion-diagnostic.md](promotion-diagnostic.md); it is explicitly nonqualifying.

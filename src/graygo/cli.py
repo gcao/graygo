@@ -243,6 +243,7 @@ def evaluate(args):
 def calibrate_promotion(args):
     import hashlib
     from .promotion import PromotionProtocol,PairedEvidence
+    from .confidence import canonical_sha
     from .promotion_calibration import PilotPopulation,calibrate
     from .manifest import source_digest
     protocol=PromotionProtocol.from_dict(json.loads(Path(args.protocol).read_text()))
@@ -263,14 +264,17 @@ def calibrate_promotion(args):
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         if args.resume:
             if json.loads(path.read_text())!=plan:raise ValueError("calibration plan/source/pilot changed")
-            progress=json.loads((root/"progress.json").read_text())
+            saved=json.loads((root/"progress.json").read_text())
+            if saved.get("format_version")!=1 or saved.get("sha256")!=canonical_sha(saved.get("state")):raise ValueError("calibration progress checksum differs")
+            progress=saved["state"]
         else:
             if path.exists():raise FileExistsError("calibration exists; inspect/resume its original process")
             write_report(path,plan);progress=None
+        def persist(value):write_report(root/"progress.json",{"format_version":1,"state":value,"sha256":canonical_sha(value)})
         stopped=_signal_flag()
         report,state=calibrate(protocol,pilot,simulations=args.simulations,seed=args.seed,time_cap_seconds=args.time_cap_hours*3600,
-            progress=progress,save_progress=lambda value:write_report(root/"progress.json",value),stop_requested=stopped)
-        write_report(root/"progress.json",state);write_report(root/"calibration.json",report)
+            progress=progress,save_progress=persist,stop_requested=stopped)
+        persist(state);write_report(root/"calibration.json",report)
         return report
 
 

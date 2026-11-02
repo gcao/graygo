@@ -1,0 +1,105 @@
+{
+  "elapsed_seconds": 0.658389764954336,
+  "plan_sha256": "693862d5d917411f4c30aabe6d36e2e06cedd4147fc64ffa84a9d2af43cb522d",
+  "scenarios": {
+    "floor-violation/random": {
+      "completed": 64,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "passes": 0
+    },
+    "floor-violation/tactical": {
+      "completed": 64,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "passes": 0
+    },
+    "missing-a2": {
+      "completed": 64,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "passes": 0
+    },
+    "missing-board-smoke": {
+      "completed": 64,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "passes": 0
+    },
+    "nontransitive": {
+      "completed": 64,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "passes": 0
+    },
+    "regression-at/random": {
+      "completed": 64,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "passes": 0
+    },
+    "regression-at/tactical": {
+      "completed": 0,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "passes": 0
+    },
+    "regression-beyond/random": {
+      "completed": 64,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "passes": 0
+    },
+    "regression-beyond/tactical": {
+      "completed": 0,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "passes": 0
+    },
+    "uniform-plus-0.03": {
+      "completed": 64,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "passes": 0
+    },
+    "zero-improvement": {
+      "completed": 64,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "passes": 0
+    }
+  }
+}

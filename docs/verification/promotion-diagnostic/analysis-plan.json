@@ -1,0 +1,64 @@
+{
+  "pilot_evidence": {
+    "random": "f3580d1ebbb0fbfddd66339c285abba501851f801020abea9b584eed864ff275",
+    "tactical": "7e65cf05cc52742f6491d6d6beea10fb0f6e637b54b1acbb4c0b35aae269c160"
+  },
+  "pilot_sha256": "b4fe0b14b43894a1392e4f72165284ed67f04168a0e4f3e2b58fc4f366d8b4cf",
+  "protocol": {
+    "absolute_floor": -0.1,
+    "confidence": {
+      "alpha": 0.05,
+      "endpoints": [
+        "aggregate-improvement",
+        "delta/random",
+        "utility/random",
+        "delta/tactical",
+        "utility/tactical"
+      ],
+      "looks": [
+        500,
+        2000,
+        8000
+      ],
+      "method": "graygo/empirical-bernstein/1",
+      "name": "promotion/c9870a741250615d599820f93d6857af95675bbc14567ba1c4ddca24f689cbcc"
+    },
+    "maximum_false_promotion": 0.05,
+    "minimum_pilot_pairs": 250,
+    "minimum_simulations": 1000,
+    "pool": {
+      "name": "baseline-pilot-only",
+      "opening_sha256": "982a363d689223c4cddab3156812568128fe56eca7dc7fc6d302a8a323e4f45f",
+      "opponents": [
+        [
+          "random",
+          "0eaf0b7c55c6afded2564beca78ea354f99d99ffe81c9d2decab3689b52192b4"
+        ],
+        [
+          "tactical",
+          "757e5ad77424d647acfa172e64d5a6ef89d76dbdf7c68831e27168970fb264ce"
+        ]
+      ],
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "version": 1,
+      "weights": [
+        0.5,
+        0.5
+      ]
+    },
+    "regression_tolerance": -0.15,
+    "stopping_rule": "first complete planned look clearing all criteria; later collected looks cannot be hidden",
+    "target_power": 0.8,
+    "useful_improvement": 0.03,
+    "version": "graygo/protected-promotion/1"
+  },
+  "protocol_sha256": "ac550e8733b876b730005aa2a7f1dd6f817eab0a6c3d827fa010e97ae4e8fd91",
+  "seed": 31,
+  "simulations": 64,
+  "source_sha256": "b49437def9694c0e2f05a6c939afd7ceec1762e4771a22489a81576001f59067",
+  "time_ceiling_seconds": 360.0
+}

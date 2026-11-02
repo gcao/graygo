@@ -170,6 +170,6 @@ test_opaque_codebook_and_no_branch_feature_or_outcome_range (test_tasks.TaskTest
 test_model_optimizer_rng_and_environment_restore (test_training_resume.ResumeIntegration.test_model_optimizer_rng_and_environment_restore) ... ok
 
 ----------------------------------------------------------------------
-Ran 170 tests in 59.485s
+Ran 170 tests in 59.624s
 
 OK

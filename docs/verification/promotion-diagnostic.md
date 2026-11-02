@@ -1,0 +1,9 @@
+# Nonqualifying promotion-calibration diagnostic
+
+The frozen source `27b35af458111ec75267732871e35f8bdeda2079` exercised the complete protected procedure on the existing actual 16-pair-per-opponent baseline pilot, with 64 Monte Carlo replications per feasible scenario. This is deliberately below the declared 250 pilot-pair and 1,000-replication defaults. The prospective protocol fixed the protected identities/weights/rules and 500/2,000/8,000 looks before any candidate games. No candidate games or promotion were performed.
+
+The analysis returns **not_calibrated**. The baseline pilot's random incumbent is too weak against tactical: uniform +0.03 still violates the absolute utility floor, so this is not a valid useful-improvement promotion case for that incumbent model. Isolated regression cases against that opponent also require infeasible utility means elsewhere. The procedure preserves those failures instead of substituting a different distribution or tolerance. With only 64 Monte Carlo trials, uncertainty also cannot certify a <=5% false-promotion rate even when no promotion is observed.
+
+The report hash and actual pilot evidence hashes are checked. All raw definitions, assumptions, counts, uncertainty bounds and reasons remain beside this report. These diagnostics validate the analysis/evidence path, not power for future 9×9 neural candidates. Adequate separately designated pilot agents, feasible preregistered scenarios, the final protected pool/evaluation budget, successful calibration, A2 and 9×9-smoke approval remain necessary before promotion.
+
+Calibration progress now has an atomic content checksum in addition to the whole-run lock and cumulative time clock. A CLI regression verifies that altering an elapsed budget clock causes resume rejection. The diagnostic above retains its original pinned pre-seal source; do not relabel its provenance.

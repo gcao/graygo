@@ -1,0 +1,495 @@
+{
+  "complete": false,
+  "cumulative_elapsed_seconds": 0.658389764954336,
+  "elapsed_this_segment_seconds": 0.6643441889900714,
+  "false_promotion_criterion_passed": false,
+  "paired_pilot_covariance": [
+    [
+      0.46249999999999997,
+      0.18541666666666667
+    ],
+    [
+      0.18541666666666667,
+      0.3989583333333333
+    ]
+  ],
+  "paired_pilot_variance": [
+    0.4625,
+    0.39895833333333336
+  ],
+  "passed": false,
+  "pilot_agent_signatures": [
+    "b48768c297fe3f9d9748167e3a4b20d5ac967c3ff5ab203cb0949129be53910e",
+    "7ed53a9efb2bbbac06d64b98e5a184140df6c0b088bbc19922cd3c88e5c45053"
+  ],
+  "pilot_evidence": {
+    "random": "f3580d1ebbb0fbfddd66339c285abba501851f801020abea9b584eed864ff275",
+    "tactical": "7e65cf05cc52742f6491d6d6beea10fb0f6e637b54b1acbb4c0b35aae269c160"
+  },
+  "pilot_pairs": 16,
+  "pilot_sha256": "b4fe0b14b43894a1392e4f72165284ed67f04168a0e4f3e2b58fc4f366d8b4cf",
+  "pilot_subjects": [
+    "757e5ad77424d647acfa172e64d5a6ef89d76dbdf7c68831e27168970fb264ce",
+    "0eaf0b7c55c6afded2564beca78ea354f99d99ffe81c9d2decab3689b52192b4"
+  ],
+  "plan": {
+    "definitions": [
+      {
+        "delta": [
+          0.0,
+          0.0
+        ],
+        "name": "zero-improvement",
+        "readiness": true
+      },
+      {
+        "delta": [
+          0.03,
+          0.03
+        ],
+        "name": "uniform-plus-0.03",
+        "readiness": true
+      },
+      {
+        "delta": [
+          0.03,
+          0.03
+        ],
+        "name": "missing-a2",
+        "readiness": false
+      },
+      {
+        "delta": [
+          0.03,
+          0.03
+        ],
+        "name": "missing-board-smoke",
+        "readiness": false
+      },
+      {
+        "delta": [
+          -0.05,
+          0.11
+        ],
+        "name": "nontransitive",
+        "readiness": true
+      },
+      {
+        "delta": [
+          -0.15,
+          0.21
+        ],
+        "name": "regression-at/random",
+        "readiness": true
+      },
+      {
+        "delta": [
+          -0.2,
+          0.26
+        ],
+        "name": "regression-beyond/random",
+        "readiness": true
+      },
+      {
+        "delta": [
+          -0.2125,
+          0.27249999999999996
+        ],
+        "name": "floor-violation/random",
+        "readiness": true
+      },
+      {
+        "delta": [
+          0.21,
+          -0.15
+        ],
+        "name": "regression-at/tactical",
+        "readiness": true
+      },
+      {
+        "delta": [
+          0.26,
+          -0.2
+        ],
+        "name": "regression-beyond/tactical",
+        "readiness": true
+      },
+      {
+        "delta": [
+          -0.79,
+          0.85
+        ],
+        "name": "floor-violation/tactical",
+        "readiness": true
+      }
+    ],
+    "mc_family_alpha": 0.05,
+    "mc_tail_budget": 0.002272727272727273,
+    "pilot_sha256": "b4fe0b14b43894a1392e4f72165284ed67f04168a0e4f3e2b58fc4f366d8b4cf",
+    "protocol_sha256": "ac550e8733b876b730005aa2a7f1dd6f817eab0a6c3d827fa010e97ae4e8fd91",
+    "seed": 31,
+    "simulation": "whole paired rows + common cross-opponent uniform mixture; all planned looks; all criteria",
+    "simulations": 64,
+    "version": "graygo/promotion-calibration/1"
+  },
+  "power_criterion_passed": false,
+  "protocol_sha256": "ac550e8733b876b730005aa2a7f1dd6f817eab0a6c3d827fa010e97ae4e8fd91",
+  "reasons": [
+    "insufficient separately designated pilot units",
+    "insufficient Monte Carlo replications",
+    "incomplete or infeasible required calibration scenario",
+    "uniform +0.03 power lower bound is below 0.80",
+    "false-promotion upper bound exceeds 0.05 or is incomplete"
+  ],
+  "report_sha256": "72ff23b57353b8ff9bdb34b45cb002fb550054d6102851357703fe937791f81d",
+  "scenarios": [
+    {
+      "criterion_truth": {
+        "a2_and_smoke": true,
+        "absolute_floor": false,
+        "aggregate_improvement": false,
+        "regression": true
+      },
+      "criterion_violated": true,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "incumbent_means": [
+        0.0625,
+        -1.0
+      ],
+      "mixture_probability": [
+        0.46875,
+        1.0
+      ],
+      "name": "zero-improvement",
+      "pass_rate": 0.0,
+      "pass_rate_lower": 0,
+      "pass_rate_upper": 0.2511082187952687,
+      "passes": 0,
+      "replacement": [
+        -1.0,
+        -1.0
+      ],
+      "status": "complete",
+      "target_candidate_means": [
+        0.0625,
+        -1.0
+      ],
+      "trials": 64
+    },
+    {
+      "criterion_truth": {
+        "a2_and_smoke": true,
+        "absolute_floor": false,
+        "aggregate_improvement": true,
+        "regression": true
+      },
+      "criterion_violated": true,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "incumbent_means": [
+        0.0625,
+        -1.0
+      ],
+      "mixture_probability": [
+        0.45375,
+        0.9765853658536585
+      ],
+      "name": "uniform-plus-0.03",
+      "pass_rate": 0.0,
+      "pass_rate_lower": 0,
+      "pass_rate_upper": 0.2511082187952687,
+      "passes": 0,
+      "replacement": [
+        -1.0,
+        -1.0
+      ],
+      "status": "complete",
+      "target_candidate_means": [
+        0.0925,
+        -0.97
+      ],
+      "trials": 64
+    },
+    {
+      "criterion_truth": {
+        "a2_and_smoke": false,
+        "absolute_floor": false,
+        "aggregate_improvement": true,
+        "regression": true
+      },
+      "criterion_violated": true,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "incumbent_means": [
+        0.0625,
+        -1.0
+      ],
+      "mixture_probability": [
+        0.45375,
+        0.9765853658536585
+      ],
+      "name": "missing-a2",
+      "pass_rate": 0.0,
+      "pass_rate_lower": 0,
+      "pass_rate_upper": 0.2511082187952687,
+      "passes": 0,
+      "replacement": [
+        -1.0,
+        -1.0
+      ],
+      "status": "complete",
+      "target_candidate_means": [
+        0.0925,
+        -0.97
+      ],
+      "trials": 64
+    },
+    {
+      "criterion_truth": {
+        "a2_and_smoke": false,
+        "absolute_floor": false,
+        "aggregate_improvement": true,
+        "regression": true
+      },
+      "criterion_violated": true,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "incumbent_means": [
+        0.0625,
+        -1.0
+      ],
+      "mixture_probability": [
+        0.45375,
+        0.9765853658536585
+      ],
+      "name": "missing-board-smoke",
+      "pass_rate": 0.0,
+      "pass_rate_lower": 0,
+      "pass_rate_upper": 0.2511082187952687,
+      "passes": 0,
+      "replacement": [
+        -1.0,
+        -1.0
+      ],
+      "status": "complete",
+      "target_candidate_means": [
+        0.0925,
+        -0.97
+      ],
+      "trials": 64
+    },
+    {
+      "criterion_truth": {
+        "a2_and_smoke": true,
+        "absolute_floor": false,
+        "aggregate_improvement": true,
+        "regression": true
+      },
+      "criterion_violated": true,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "incumbent_means": [
+        0.0625,
+        -1.0
+      ],
+      "mixture_probability": [
+        0.49375,
+        0.9141463414634148
+      ],
+      "name": "nontransitive",
+      "pass_rate": 0.0,
+      "pass_rate_lower": 0,
+      "pass_rate_upper": 0.2511082187952687,
+      "passes": 0,
+      "replacement": [
+        -1.0,
+        -1.0
+      ],
+      "status": "complete",
+      "target_candidate_means": [
+        0.012499999999999997,
+        -0.89
+      ],
+      "trials": 64
+    },
+    {
+      "criterion_truth": {
+        "a2_and_smoke": true,
+        "absolute_floor": false,
+        "aggregate_improvement": true,
+        "regression": true
+      },
+      "criterion_violated": true,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "incumbent_means": [
+        0.0625,
+        -1.0
+      ],
+      "mixture_probability": [
+        0.54375,
+        0.8360975609756098
+      ],
+      "name": "regression-at/random",
+      "pass_rate": 0.0,
+      "pass_rate_lower": 0,
+      "pass_rate_upper": 0.2511082187952687,
+      "passes": 0,
+      "replacement": [
+        -1.0,
+        -1.0
+      ],
+      "status": "complete",
+      "target_candidate_means": [
+        -0.0875,
+        -0.79
+      ],
+      "trials": 64
+    },
+    {
+      "criterion_truth": {
+        "a2_and_smoke": true,
+        "absolute_floor": false,
+        "aggregate_improvement": true,
+        "regression": false
+      },
+      "criterion_violated": true,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "incumbent_means": [
+        0.0625,
+        -1.0
+      ],
+      "mixture_probability": [
+        0.56875,
+        0.7970731707317074
+      ],
+      "name": "regression-beyond/random",
+      "pass_rate": 0.0,
+      "pass_rate_lower": 0,
+      "pass_rate_upper": 0.2511082187952687,
+      "passes": 0,
+      "replacement": [
+        -1.0,
+        -1.0
+      ],
+      "status": "complete",
+      "target_candidate_means": [
+        -0.1375,
+        -0.74
+      ],
+      "trials": 64
+    },
+    {
+      "criterion_truth": {
+        "a2_and_smoke": true,
+        "absolute_floor": false,
+        "aggregate_improvement": true,
+        "regression": false
+      },
+      "criterion_violated": true,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "incumbent_means": [
+        0.0625,
+        -1.0
+      ],
+      "mixture_probability": [
+        0.575,
+        0.7873170731707317
+      ],
+      "name": "floor-violation/random",
+      "pass_rate": 0.0,
+      "pass_rate_lower": 0,
+      "pass_rate_upper": 0.2511082187952687,
+      "passes": 0,
+      "replacement": [
+        -1.0,
+        -1.0
+      ],
+      "status": "complete",
+      "target_candidate_means": [
+        -0.15,
+        -0.7275
+      ],
+      "trials": 64
+    },
+    {
+      "error": "counterfactual utility mean is infeasible on [-1,1]",
+      "name": "regression-at/tactical",
+      "status": "infeasible"
+    },
+    {
+      "error": "counterfactual utility mean is infeasible on [-1,1]",
+      "name": "regression-beyond/tactical",
+      "status": "infeasible"
+    },
+    {
+      "criterion_truth": {
+        "a2_and_smoke": true,
+        "absolute_floor": false,
+        "aggregate_improvement": true,
+        "regression": false
+      },
+      "criterion_violated": true,
+      "first_look_counts": {
+        "2000": 0,
+        "500": 0,
+        "8000": 0
+      },
+      "incumbent_means": [
+        0.0625,
+        -1.0
+      ],
+      "mixture_probability": [
+        0.86375,
+        0.33658536585365856
+      ],
+      "name": "floor-violation/tactical",
+      "pass_rate": 0.0,
+      "pass_rate_lower": 0,
+      "pass_rate_upper": 0.2511082187952687,
+      "passes": 0,
+      "replacement": [
+        -1.0,
+        -1.0
+      ],
+      "status": "complete",
+      "target_candidate_means": [
+        -0.7275,
+        -0.15000000000000002
+      ],
+      "trials": 64
+    }
+  ],
+  "scope": "conditional on preregistered pilot-derived outcome models; no transferable power guarantee for arbitrary candidates",
+  "simulations": 64,
+  "status": "not_calibrated",
+  "usable_for_promotion": true,
+  "version": "graygo/promotion-calibration/1"
+}

@@ -138,3 +138,5 @@ class CommandTests(unittest.TestCase):
             self.assertIn('insufficient separately designated pilot units',report['reasons'])
             b=self.run_cli(*args,'--resume');self.assertEqual(b.returncode,0,b.stderr)
             self.assertEqual(json.loads(b.stdout)['result']['scenarios'],report['scenarios'])
+            progress=Path(root)/'calibration/progress.json';bad=json.loads(progress.read_text());bad['state']['elapsed_seconds']=0.;progress.write_text(json.dumps(bad))
+            c=self.run_cli(*args,'--resume');self.assertEqual(c.returncode,1);self.assertIn('checksum',c.stderr)
