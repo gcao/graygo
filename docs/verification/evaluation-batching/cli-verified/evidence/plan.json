@@ -1,0 +1,73 @@
+{
+  "evaluation_version": "graygo/paired-evaluation/2",
+  "execution": {
+    "budget_boundary": "between complete groups; final group and IO may overrun",
+    "maximum_physical_games_per_group": 4,
+    "pair_batch_size": 2,
+    "version": "graygo/frozen-pair-execution/1"
+  },
+  "incumbent": null,
+  "incumbent_sha256": null,
+  "opening_distribution": {
+    "kind": "official-empty",
+    "version": 1
+  },
+  "opening_semantics": "declared new episode roots; continuation-prefix mixtures require strategies.py",
+  "opening_sha256": "982a363d689223c4cddab3156812568128fe56eca7dc7fc6d302a8a323e4f45f",
+  "opponent": {
+    "kind": "tactical",
+    "source_sha256": "f4c8b427d823d204df6bd46371b38b35bcb776d783ca04addd6831f84e666cbd",
+    "version": "graygo/baselines/1"
+  },
+  "opponent_sha256": "ca55fa63e51d898178f943e4c1294cedcfb6c098595f48ff6e89c345d8813733",
+  "plan": {
+    "calibration_sha256": null,
+    "comparison": "utility",
+    "confidence_sha256": "928649ce1185803b53508b808d07fd45f44ee8c38891e8ef1b1869a5fa3acc77",
+    "decision_protocol_sha256": null,
+    "endpoint": "utility",
+    "label": "batch-cli-diagnostic",
+    "looks": [
+      4,
+      8
+    ],
+    "pair_batch_size": 2,
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "seed": 0,
+    "subject_label": "record-zero-smoke"
+  },
+  "rule_version": "graygo/1",
+  "source_sha256": "f4c8b427d823d204df6bd46371b38b35bcb776d783ca04addd6831f84e666cbd",
+  "subject": {
+    "encoding_version": "graygo/encoding/1",
+    "inference": {
+      "batch_size": 32,
+      "device": "cuda:0",
+      "padding": "zero spatial/globals and pass-only mask; never sampled",
+      "placement": "SHA-256 encoded public observation to fixed row; collisions use separate forwards",
+      "version": "graygo/fixed-evaluation-inference/1"
+    },
+    "kind": "average",
+    "model_class": "PolicyNet",
+    "origin": {
+      "archive_sha256": "e16da129dde2964b96e9999d4db045c7542050c57e364879cca21499c22b1771",
+      "records": 0,
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "seed": 200,
+      "source_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
+      "training_run_sha256": "1c46479f6aa29a7a88f82f51753cfd9682bfc7b66277ad6990a7d48319a21f9b"
+    },
+    "source_sha256": "f4c8b427d823d204df6bd46371b38b35bcb776d783ca04addd6831f84e666cbd",
+    "weights_sha256": "66db9a495cebece51344aae379c03dd01145026e039ce2836890fef05e71ca78"
+  },
+  "subject_sha256": "ae9bd3737ac55c76c141ed8553ddafbba8e1415db50ca3a852966069041e3e33",
+  "unit": "agents exchange colors on the same complete opening; within-pair dependence retained; no trajectory deduplication"
+}

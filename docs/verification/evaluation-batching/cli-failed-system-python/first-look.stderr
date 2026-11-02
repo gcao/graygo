@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/gcao/proj/graygo/.worktrees/evaluation-batching-a05655e/src/graygo/__main__.py", line 2, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/evaluation-batching-a05655e/src/graygo/cli.py", line 672, in main
+    else:result=globals()[args.command.replace("-","_")](args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/evaluation-batching-a05655e/src/graygo/cli.py", line 460, in evaluate
+    from .board_runtime import configure_runtime
+  File "/home/gcao/proj/graygo/.worktrees/evaluation-batching-a05655e/src/graygo/board_runtime.py", line 15, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'

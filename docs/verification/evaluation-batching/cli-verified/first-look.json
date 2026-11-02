@@ -1,0 +1,164 @@
+{
+  "manifest": {
+    "baseline_version": "graygo/baselines/1",
+    "command": {
+      "collision": "gray",
+      "command": "evaluate",
+      "confidence_plan": "/home/gcao/proj/graygo/runs/evaluation-batching-cli-a05655e-venv/confidence.json",
+      "device": "cuda",
+      "endpoint": "utility",
+      "games": 4,
+      "incumbent": null,
+      "incumbent_archive": null,
+      "incumbent_representation": "average",
+      "inference_batch_size": 32,
+      "limit": null,
+      "name": "batch-cli-diagnostic",
+      "opponent": "tactical",
+      "opponent_archive": null,
+      "opponent_representation": "average",
+      "output": "/home/gcao/proj/graygo/runs/evaluation-batching-cli-a05655e-venv/first-look.json",
+      "pair_batch_size": 2,
+      "representation": "average",
+      "resume": false,
+      "run_dir": "/home/gcao/proj/graygo/runs/evaluation-batching-cli-a05655e-venv/evidence",
+      "seed": 0,
+      "size": 9,
+      "subject": "neural",
+      "subject_archive": "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-pathfix/policies/200/weights/000000000000",
+      "subject_label": "record-zero-smoke",
+      "time_cap_hours": 0.02
+    },
+    "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "cpu_threads": 24,
+    "created_at": "2026-11-02T20:36:54.660478+00:00",
+    "dependencies": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "torch": "2.11.0"
+    },
+    "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+    "disk_free_bytes": 125962055680,
+    "encoding_version": "graygo/encoding/1",
+    "filesystem": "ext2/ext3",
+    "format_version": 1,
+    "git_commit": "a05655e342499005016e1d2844cec91e864a0770",
+    "git_dirty": false,
+    "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+    "host_memory": {
+      "available_bytes": 29788090368,
+      "swap_bytes": 12884897792,
+      "total_bytes": 33558446080
+    },
+    "hostname": "home-ai",
+    "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "rule_version": "graygo/1",
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "run_id": "1ba467cc1066491eab4cdfe3b9cbc6ca",
+    "seed": 0,
+    "source_sha256": "f4c8b427d823d204df6bd46371b38b35bcb776d783ca04addd6831f84e666cbd"
+  },
+  "result": {
+    "collection": {
+      "committed_pairs": 2,
+      "elapsed_seconds": 2.3276511980220675,
+      "physical_games": 4,
+      "plan_sha256": "18b1364dd73d0dfc0eeb36ccdca224fab5c916f73f258ead8037a65d6dc0ec5b",
+      "requested_look_games_per_pairing": 4,
+      "scope": "frozen tested matchup; not full-game exploitability or training-seed certainty",
+      "status": "complete"
+    },
+    "confidence": {
+      "available_games_per_pairing": 4,
+      "comparison": "utility",
+      "comparisons": 2,
+      "delta": 0.025,
+      "endpoint": "utility",
+      "evaluation_execution": {
+        "budget_boundary": "between complete groups; final group and IO may overrun",
+        "maximum_physical_games_per_group": 4,
+        "pair_batch_size": 2,
+        "version": "graygo/frozen-pair-execution/1"
+      },
+      "evidence_sha256": "63ca73d5836fd7ca63044af91b4ceb934ea02eb2748d00c193af67548e8e5a6f",
+      "family_sha256": "928649ce1185803b53508b808d07fd45f44ee8c38891e8ef1b1869a5fa3acc77",
+      "games": 4,
+      "independent_units": 2,
+      "lower": -1.0,
+      "mean": -1.0,
+      "method": "graygo/empirical-bernstein/1",
+      "opening_kind": "official-empty",
+      "opponent_sha256": "ca55fa63e51d898178f943e4c1294cedcfb6c098595f48ff6e89c345d8813733",
+      "plan_sha256": "18b1364dd73d0dfc0eeb36ccdca224fab5c916f73f258ead8037a65d6dc0ec5b",
+      "radius": 20.44945762847811,
+      "repeated_trajectory_fraction": 0.0,
+      "representation": "average",
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "sample_variance": 0.0,
+      "scope": "fixed policies and opening distribution; color pairs are independent units",
+      "simultaneous_alpha": 0.05,
+      "subject_inference": {
+        "batch_size": 32,
+        "device": "cuda:0",
+        "padding": "zero spatial/globals and pass-only mask; never sampled",
+        "placement": "SHA-256 encoded public observation to fixed row; collisions use separate forwards",
+        "version": "graygo/fixed-evaluation-inference/1"
+      },
+      "subject_label": "record-zero-smoke",
+      "subject_origin": {
+        "archive_sha256": "e16da129dde2964b96e9999d4db045c7542050c57e364879cca21499c22b1771",
+        "records": 0,
+        "rules": {
+          "collision": "gray",
+          "max_rounds": 200,
+          "size": 9
+        },
+        "seed": 200,
+        "source_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
+        "training_run_sha256": "1c46479f6aa29a7a88f82f51753cfd9682bfc7b66277ad6990a7d48319a21f9b"
+      },
+      "subject_sha256": "ae9bd3737ac55c76c141ed8553ddafbba8e1415db50ca3a852966069041e3e33",
+      "support": [
+        -1.0,
+        1.0
+      ]
+    },
+    "promotion_permitted": false,
+    "scope": "fixed paired evaluation; promotion requires calibrated protected-pool protocol and A2/smoke evidence"
+  }
+}

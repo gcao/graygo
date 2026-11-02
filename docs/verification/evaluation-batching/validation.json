@@ -1,0 +1,17 @@
+{
+  "cli_changed_inference_mode_rejected": true,
+  "cli_inputs_unchanged": true,
+  "cli_job_sha256": "b42ff518b9d6583e23eb9dc8f5341f50ea2d8ad66b30f8300004492c630e056b",
+  "cli_physical_games": 8,
+  "cli_record_zero_only": true,
+  "cli_resume_prefix_identical": true,
+  "execution_authorized": false,
+  "failed_setup_preserved": true,
+  "frozen_cli_commit": "a05655e342499005016e1d2844cec91e864a0770",
+  "full_suite_seconds": 276.217,
+  "full_suite_tests": 403,
+  "new_runtime_prices_qualified": false,
+  "production_scope_selected": false,
+  "source_sha256": "f4c8b427d823d204df6bd46371b38b35bcb776d783ca04addd6831f84e666cbd",
+  "version": 1
+}
