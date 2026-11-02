@@ -1,0 +1,20 @@
+{
+  "copied_files_sha256": {
+    "audit-job.json": "e99bf31dbcd01ddb159e5bb5f06fe9616e2fcf60cd87a8a8410695b8c9e75c7a",
+    "audit.json": "6fc8b9f4a79bef2799177449616e7b4305978fd8f4e06b00d5f49590b5867413",
+    "audit_driver.py": "35590fad41b3cf31e2c47ee2d2a254434865ed3483bd6c07164dfdcfe6b019cf",
+    "audit_nfsp_delayed.py": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+    "budget.json": "b0f98a36d2ad8e6af6cf8c3a03cbc372750d8c11bc066e88db9fd08bedc5c499",
+    "case.json": "87e7a5f2c05a14ef0a7a0677f7bc6fba91413c05423d2a5a31346fc292e42a54",
+    "cohort-plan.json": "a5ed30ce4a252fea1ccea29131920fcadf1f1e8ea08440db9ca1931e23b304de",
+    "final-checkpoint-manifest.json": "559510149933d9dcaa35f0f62bffbbdb79ae95d018b6f23e3336389547cf31a0",
+    "paired-assessment.json": "699b03dbc3320eb1f5a741583f19472c4af868a198cac00c0e61796770117dbc",
+    "result.json": "cdbc5d5c51f563adacb84e69c6831e70ef9ce618c2023f45e96d266c25a77bbc",
+    "run.json": "f268271d7627ef6ec94395a59a1779d73c86e61be6c32b3fa42ef35de29cc389",
+    "tabular-case.json": "55b2fe304b1efefade31733e3c063ced75b51d3ef5b0e85e5846d259572c92d0"
+  },
+  "new_learning_records": 0,
+  "original_inputs_unchanged": true,
+  "original_root": "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/neural",
+  "version": 1
+}

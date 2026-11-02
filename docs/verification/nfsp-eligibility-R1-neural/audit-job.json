@@ -1,0 +1,61 @@
+{
+  "a2_complete": false,
+  "assessment_pid": 2532520,
+  "audit_pid": 2532353,
+  "audit_sha256": "6fc8b9f4a79bef2799177449616e7b4305978fd8f4e06b00d5f49590b5867413",
+  "auditor_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "case_file_sha256": "87e7a5f2c05a14ef0a7a0677f7bc6fba91413c05423d2a5a31346fc292e42a54",
+  "child_pid": 2532520,
+  "collector_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "commands": [
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "audit-case",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91/plan.json",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/neural",
+        "--time-cap-seconds",
+        "600",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/neural-a2-case.json"
+      ],
+      "name": "neural-case-audit",
+      "returncode": 0,
+      "seconds": 31.929116146988235
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/a2-cohort-corrected-control-30f8d91/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/neural-a2-case.json",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/paired-a2-assessment.json"
+      ],
+      "name": "paired-a2-assessment",
+      "returncode": 0,
+      "seconds": 0.3146316580241546
+    }
+  ],
+  "driver_sha256": "35590fad41b3cf31e2c47ee2d2a254434865ed3483bd6c07164dfdcfe6b019cf",
+  "fresh_primary_case_verified": true,
+  "measured_driver_seconds": 32.25277045404073,
+  "new_learning_records": 0,
+  "original_driver_pid": 2532352,
+  "original_inputs_unchanged": true,
+  "paired_assessment_sha256": "699b03dbc3320eb1f5a741583f19472c4af868a198cac00c0e61796770117dbc",
+  "records": 15000000,
+  "returncode": 0,
+  "status": "verified",
+  "tool_commit": "30f8d912ac61efb5f69a80b2744b2438e89f51b0",
+  "version": 1,
+  "watchdog_seconds": 660
+}

@@ -1,0 +1,69 @@
+{
+  "aggregate_inclusive_reservation_seconds": 1320,
+  "aggregate_profile_record_cap": 262144,
+  "case_loop_ceiling_seconds": 300,
+  "control_ceiling_seconds": "43200",
+  "control_profile_inclusive_reservation_seconds": 660,
+  "control_recorded_seconds": "26906.862258188893",
+  "device": "cpu",
+  "frozen_worktree": "/home/gcao/proj/graygo/.worktrees/nfsp-eligibility-ca45a53",
+  "full_r4_trial_selected": false,
+  "future_funding_review_predeclared": {
+    "basis": "completed same-source full R1 forecast/actual ratios 0.996947 (table), 1.014457 (neural); only selected reuse changes; fixed horizon/coverage mixture",
+    "full_trial_requires_fresh_complete_profiles_and_independent_audits": true,
+    "funding_still_requires_separate_recorded_scope_decision": true,
+    "loop_time_ceiling_seconds_per_15M_case": 15300,
+    "maximum_control_commitment_if_later_selected_seconds": "42896.862258188893",
+    "minimum_runtime_margin": 1.5,
+    "per_control_setup_reservation_seconds": 30,
+    "raw_profile_default_margin_preserved": 2.0
+  },
+  "independent_auditor_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "learners": [
+    "tabular",
+    "neural"
+  ],
+  "not_selected": [
+    "full R4 trials",
+    "other seeds/families",
+    "Retrace",
+    "extension",
+    "later opening",
+    "9x9 training",
+    "confirmation",
+    "study"
+  ],
+  "original_r1_handle_restarted": false,
+  "per_case_inclusive_reservation_seconds": 330,
+  "phases": [
+    "pre",
+    "post"
+  ],
+  "prerequisite_neural_audit_sha256": "6fc8b9f4a79bef2799177449616e7b4305978fd8f4e06b00d5f49590b5867413",
+  "prerequisite_paired_settlement_sha256": "5b270c0a4991165cdc51ea4cc293c4f0f2d97b125394f8645bd55e2be2d51897",
+  "prerequisite_table_audit_sha256": "c39b1c9a847f690ddbc93d2c15080b52b0befad7c4cdc614b26f923326dddfc2",
+  "profile_driver_sha256": "472c2937072bc2d157b40f0998bf7a90e202f0151323b056fb1cb194c6d0d725",
+  "profile_run_dir": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-profiles-ca45a53",
+  "projected_control_after_profile_reservation_seconds": "27566.862258188893",
+  "purpose": "matched corrected one-step R4 complete-learner pricing only after completed audited R1 first screen",
+  "q_reuses": [
+    4
+  ],
+  "records_per_case": 65536,
+  "required_pipeline_components": [
+    "native episode collector",
+    "private frozen commitments",
+    "Q and target inference",
+    "reuse-four updates",
+    "supervised averaging",
+    "average acting",
+    "replay",
+    "evaluation",
+    "checkpoint"
+  ],
+  "scope": "four bounded source-matched timing cases only; full records/windows/thresholds unchanged; no GPU/full-study price; no automatic experiment allocation from a profile",
+  "source_commit": "ca45a53824ab5e2909cdfa6a75ab3f1752eafc5a",
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "task": "delayed",
+  "version": 1
+}

@@ -1,0 +1,46 @@
+{
+  "a2_complete": false,
+  "actual_trial_record_total": 30000000,
+  "corrective_reserve_record_ceiling": 45000000,
+  "corrective_total_records_including_profiles": 30262144,
+  "neural_audit_driver_seconds": 32.25277045404073,
+  "neural_audit_sha256": "6fc8b9f4a79bef2799177449616e7b4305978fd8f4e06b00d5f49590b5867413",
+  "neural_average_numerical_band_passed": true,
+  "neural_credit_passed": false,
+  "neural_final_five": {
+    "average_gap": 1.1203536826709382e-05,
+    "greedy_gap": 0.0,
+    "supported_error": 0.4107837944544841
+  },
+  "neural_result_sha256": "cdbc5d5c51f563adacb84e69c6831e70ef9ce618c2023f45e96d266c25a77bbc",
+  "neural_trial_seconds": 7717.382732352999,
+  "new_r4_full_trial_selected": false,
+  "next_permitted_work": "separately declared matched R4 pricing before any full R4 comparison",
+  "original_driver_pid": 2444001,
+  "original_driver_terminal": true,
+  "paired_driver_seconds": 15150.257402154966,
+  "profiles_record_total": 262144,
+  "r1_full_cohort_selected": false,
+  "run_dir": "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53",
+  "scope": "completed first screen, not all-seed convergence or campaign selection; original caps, windows and thresholds unchanged",
+  "source_commit": "ca45a53824ab5e2909cdfa6a75ab3f1752eafc5a",
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "stability_extension_eligible": false,
+  "status": "paired_seed0_complete_independently_audited",
+  "table_audit_sha256": "c39b1c9a847f690ddbc93d2c15080b52b0befad7c4cdc614b26f923326dddfc2",
+  "table_final_five": {
+    "average_gap": 1.8303571428571428,
+    "greedy_gap": 0.0,
+    "supported_error": 1.1486072198540087
+  },
+  "table_trial_seconds": 7431.799158633978,
+  "timing_calibration": {
+    "neural_actual_ratio": 1.0144571772004467,
+    "neural_forecast_seconds": 7607.401185381057,
+    "table_actual_ratio": 0.996947035987647,
+    "table_forecast_seconds": 7454.557654882344
+  },
+  "trial_interval_sum_seconds": "15149.181890986977",
+  "trial_records_each": 15000000,
+  "version": 1
+}
