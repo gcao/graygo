@@ -240,17 +240,55 @@ def evaluate(args):
     return {'collection':collection,'confidence':estimate,'promotion_permitted':False,'scope':'fixed paired evaluation; promotion requires calibrated protected-pool protocol and A2/smoke evidence'}
 
 
+def calibrate_promotion(args):
+    import hashlib
+    from .promotion import PromotionProtocol,PairedEvidence
+    from .promotion_calibration import PilotPopulation,calibrate
+    from .manifest import source_digest
+    protocol=PromotionProtocol.from_dict(json.loads(Path(args.protocol).read_text()))
+    paths={}
+    for binding in args.pilot:
+        if "=" not in binding:raise ValueError("pilot bindings use label=directory")
+        label,path=binding.split("=",1)
+        if label in paths:raise ValueError("duplicate pilot opponent binding")
+        paths[label]=path
+    evidence={label:PairedEvidence.load(path) for label,path in paths.items()}
+    pilot=PilotPopulation.from_evidence(protocol,evidence)
+    root=Path(args.run_dir);root.mkdir(parents=True,exist_ok=True)
+    plan={"protocol":protocol.to_dict(),"protocol_sha256":protocol.sha256,"pilot_sha256":pilot.sha256,
+          "pilot_evidence":pilot.evidence,"simulations":args.simulations,"seed":args.seed,"source_sha256":source_digest()}
+    import fcntl
+    path=root/"plan.json";plan['time_ceiling_seconds']=args.time_cap_hours*3600
+    with (root/".calibration.lock").open('a+b') as lock:
+        fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        if args.resume:
+            if json.loads(path.read_text())!=plan:raise ValueError("calibration plan/source/pilot changed")
+            progress=json.loads((root/"progress.json").read_text())
+        else:
+            if path.exists():raise FileExistsError("calibration exists; inspect/resume its original process")
+            write_report(path,plan);progress=None
+        stopped=_signal_flag()
+        report,state=calibrate(protocol,pilot,simulations=args.simulations,seed=args.seed,time_cap_seconds=args.time_cap_hours*3600,
+            progress=progress,save_progress=lambda value:write_report(root/"progress.json",value),stop_requested=stopped)
+        write_report(root/"progress.json",state);write_report(root/"calibration.json",report)
+        return report
+
+
 def main(argv=None):
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
         p.add_argument("--collision",choices=("gray","remove"),default="gray")
         p.add_argument("--seed",type=int,default=0)
         p.add_argument("--output")
-        if name=="evaluate":
+        if name=="calibrate-promotion":
+            p.add_argument("--protocol",required=True);p.add_argument("--pilot",action="append",required=True)
+            p.add_argument("--run-dir",required=True);p.add_argument("--simulations",type=int,default=2000)
+            p.add_argument("--time-cap-hours",type=float,required=True);p.add_argument("--resume",action="store_true")
+        elif name=="evaluate":
             p.add_argument("--run-dir",required=True);p.add_argument("--confidence-plan",required=True)
             p.add_argument("--name",required=True);p.add_argument("--subject-label",required=True);p.add_argument("--endpoint",required=True)
             p.add_argument("--games",type=int,default=500);p.add_argument("--time-cap-hours",type=float,required=True)
@@ -320,10 +358,10 @@ def main(argv=None):
         parser.error("games and rounds must be positive")
     try:
         matrix_command=args.command in ("train-matrix","preflight","train-nfsp","train-nfsp-task")
-        rules=None if matrix_command or args.command=="build-native" else _rules(args)
+        rules=None if matrix_command or args.command in ("build-native","calibrate-promotion") else _rules(args)
         metadata=make_manifest(seed=args.seed,command=vars(args),rules=None if rules is None else
                                {"size":rules.size,"max_rounds":rules.max_rounds,"collision":rules.collision})
-        if args.command=="build-native":metadata.update({"rule_version":None,"baseline_version":None,"encoding_version":None})
+        if args.command in ("build-native","calibrate-promotion"):metadata.update({"rule_version":None,"baseline_version":None,"encoding_version":None})
         if matrix_command:
             metadata.update({"rule_version":None,"baseline_version":None,"encoding_version":"graygo/matrix-role/1"})
             if args.command=="preflight":metadata.update({"seed":None,"seeds":[0,1,2]})

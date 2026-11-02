@@ -51,11 +51,11 @@ class FrozenNeuralPolicy:
     def __init__(self,model,*,representation='average',label='frozen-policy',origin=None):
         import torch
         if representation not in ('average','actor','greedy_q'):raise ValueError('explicit deployed representation required')
-        self._model=deepcopy(model).eval().requires_grad_(False);self.representation=representation
+        self._model=deepcopy(model).eval().requires_grad_(False);self.representation=representation;self.label=label
         devices={x.device for x in list(self._model.parameters())+list(self._model.buffers())}
         if len(devices)!=1:raise ValueError('one model device required')
         self.device=next(iter(devices));self._weights=self._weight_sha()
-        self.identity={'kind':representation,'label':label,'model_class':type(model).__name__,'weights_sha256':self._weights,'encoding_version':ENCODING_VERSION,'source_sha256':source_digest(),'origin':None if origin is None else json.loads(json.dumps(origin))}
+        self.identity={'kind':representation,'model_class':type(model).__name__,'weights_sha256':self._weights,'encoding_version':ENCODING_VERSION,'source_sha256':source_digest(),'origin':None if origin is None else json.loads(json.dumps(origin))}
         self.sha256=canonical_sha(self.identity)
     @classmethod
     def from_archive(cls,archive,*,representation='average',device='cpu',label='checkpoint'):
@@ -81,7 +81,7 @@ class FrozenNeuralPolicy:
             a=value.detach().cpu().contiguous().numpy();h.update(name.encode()+b'\0'+str(a.dtype).encode()+str(a.shape).encode()+a.tobytes())
         return h.hexdigest()
     def assert_frozen(self):
-        if canonical_sha(self.identity)!=self.sha256 or self.identity['kind']!=self.representation or self._weight_sha()!=self._weights:raise ValueError('evaluation model changed after freezing')
+        if canonical_sha(self.identity)!=self.sha256 or self.identity['kind']!=self.representation or self.identity['source_sha256']!=source_digest() or self._weight_sha()!=self._weights:raise ValueError('evaluation model changed after freezing')
     def begin_episode(self,seed):return _NeuralActor(self,seed)
 
 
@@ -196,11 +196,16 @@ class EvaluationPlan:
     looks: tuple=(500,2000)
     confidence_sha256: str|None=None
     comparison: str='utility'
+    decision_protocol_sha256: str|None=None
+    calibration_sha256: str|None=None
 
     def __post_init__(self):
         object.__setattr__(self,'looks',tuple(self.looks))
         if not all(isinstance(v,str) and v for v in (self.label,self.subject_label,self.endpoint)) or type(self.seed) is not int or self.seed<0:raise ValueError('named fixed evaluation labels and seed required')
         if not isinstance(self.confidence_sha256,str) or len(self.confidence_sha256)!=64 or any(c not in '0123456789abcdef' for c in self.confidence_sha256) or self.comparison not in ('utility','improvement'):raise ValueError('predeclared confidence-family fingerprint and endpoint type required')
+        if (self.decision_protocol_sha256 is None)!=(self.calibration_sha256 is None):raise ValueError('protected protocol and pre-candidate calibration must be bound together')
+        for value in (self.decision_protocol_sha256,self.calibration_sha256):
+            if value is not None and (not isinstance(value,str) or len(value)!=64 or any(c not in '0123456789abcdef' for c in value)):raise ValueError('invalid protected protocol/calibration fingerprint')
         if not self.looks or tuple(sorted(set(self.looks)))!=self.looks or any(type(n) is not int or n<4 or n%2 for n in self.looks):raise ValueError('fixed increasing color-balanced looks required')
 
 

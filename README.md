@@ -127,3 +127,15 @@ Create a `ConfidenceFamily` with the complete endpoint/look set before collectio
 Neural subjects use `--subject neural --subject-archive PATH --representation average` (or `greedy_q` for the separate Q diagnostic). `--incumbent` adds matched improvement evidence; its endpoint type is fixed before the first game. Whole color pairs commit atomically. Repeated game hashes are reported rather than removed. The plan binds confidence method/family, models, source, openings and sample looks. Bounds do not constitute a promotion certificate: joint protected-pool calibration and the other design gates remain required.
 
 `PilotProtocol`/`ScreeningProtocol` require registered development-run hashes and frozen baseline identities; serialized constants are checked on reload. The pilot requires both fixed Q windows and post-opening average diagnostics for all three development seeds. Confirmation seeds use the fixed opening and are never performance-filtered.
+
+## Protected promotion calibration
+
+`ProtectedPool` and `PromotionProtocol` freeze opponents, weights, rules, openings, all planned sample looks and numerical tolerances. Candidate pair plans must bind `decision_protocol_sha256` and the successful pre-candidate `calibration_sha256`; statistical bounds alone are insufficient to promote.
+
+```sh
+.venv/bin/graygo calibrate-promotion --protocol promotion-protocol.json --pilot random=runs/pilot-random --pilot tactical=runs/pilot-tactical --run-dir runs/gate-calibration --simulations 2000 --seed 7 --time-cap-hours .5
+# Same immutable plan and cumulative budget after interruption:
+.venv/bin/graygo calibrate-promotion --protocol promotion-protocol.json --pilot random=runs/pilot-random --pilot tactical=runs/pilot-tactical --run-dir runs/gate-calibration --simulations 2000 --seed 7 --time-cap-hours .5 --resume
+```
+
+The full joint simulator includes zero/+0.03/nontransitive/regression/floor and missing-readiness cases, with separately bounded simulation uncertainty. It preserves infeasible or underpowered outcomes as `not_calibrated`. The provided small baseline variance pilot is not a qualified promotion calibration. Actual promotion decisions still require the verified project-level A2 and 9×9-smoke bridge. See [procedure and limits](docs/verification/protected-promotion.md).

@@ -117,3 +117,24 @@ class CommandTests(unittest.TestCase):
             self.assertEqual(final['collection']['committed_pairs'],4)
             self.assertEqual(final['confidence']['mean'],0.)
             self.assertEqual(final['confidence']['independent_units'],4)
+
+    def test_calibration_cli_preserves_underpowered_pilot_and_resumes(self):
+        from graygo.confidence import ConfidenceFamily
+        from graygo.engine import Rules
+        from graygo.evaluation import BaselinePolicy,EvaluationPlan,EvaluationRun
+        from graygo.promotion import ProtectedPool,PromotionProtocol
+        with tempfile.TemporaryDirectory() as root:
+            subject=BaselinePolicy('tactical');incumbent=BaselinePolicy('random');opponents=[BaselinePolicy('random'),BaselinePolicy('tactical')]
+            rules=Rules(3,2);family=ConfidenceFamily('cli-pilot',('delta/0','delta/1'),(4,8))
+            pool=ProtectedPool('cli',1,tuple((str(j),p.sha256) for j,p in enumerate(opponents)),(.5,.5),rules)
+            protocol=PromotionProtocol(pool);path=Path(root)/'protocol.json';path.write_text(json.dumps(protocol.to_dict()))
+            args=['calibrate-promotion','--protocol',str(path),'--run-dir',str(Path(root)/'calibration'),'--simulations','2','--seed','7','--time-cap-hours','.01']
+            for j,opponent in enumerate(opponents):
+                directory=Path(root)/str(j);plan=EvaluationPlan('pilot','pilot','delta/'+str(j),rules,3,family.looks,confidence_sha256=family.sha256,comparison='improvement')
+                run=EvaluationRun(plan,directory,subject,opponent,incumbent=incumbent,reserve_bytes=0);run.run(8,time_cap_seconds=30)
+                args.extend(['--pilot',str(j)+'='+str(directory)])
+            a=self.run_cli(*args);self.assertEqual(a.returncode,0,a.stderr)
+            report=json.loads(a.stdout)['result'];self.assertFalse(report['passed']);self.assertEqual(report['status'],'not_calibrated')
+            self.assertIn('insufficient separately designated pilot units',report['reasons'])
+            b=self.run_cli(*args,'--resume');self.assertEqual(b.returncode,0,b.stderr)
+            self.assertEqual(json.loads(b.stdout)['result']['scenarios'],report['scenarios'])
