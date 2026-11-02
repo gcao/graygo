@@ -1,0 +1,49 @@
+{
+  "allocation_sha256": "28d7de167204fb1af56ce5d59ba0692571c11781cd7448563da884f340f18ef7",
+  "auditor_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "driver_sha256": "f60e8ef28a050c071de9c96639ed9fb62641f666b317a371450ec1b976ddd19f",
+  "initial_trials": [
+    {
+      "all_counters_zero": true,
+      "checkpoint_manifest_sha256": "16f18df51907393c739f93d2f1aeb59ab9fe596b0940303459e79a10b2258ba2",
+      "learner": "tabular",
+      "optimizers_empty": true,
+      "per_role_q_records": [
+        0,
+        0
+      ],
+      "per_role_records": [
+        0,
+        0
+      ],
+      "records": 0,
+      "replay_reservoir_empty": true,
+      "run_manifest_sha256": "1a58167031140cd4819ca7b0cfdb00b063c4e3e6773a3fe750edf404aa74069d",
+      "target_equals_q": true
+    },
+    {
+      "all_counters_zero": true,
+      "checkpoint_manifest_sha256": "9c3ac8ba3fd2d97090da8b72477d276a6d9d497ad36a37c72c7ffa3abd73e235",
+      "learner": "neural",
+      "optimizers_empty": true,
+      "per_role_q_records": [
+        0,
+        0
+      ],
+      "per_role_records": [
+        0,
+        0
+      ],
+      "records": 0,
+      "replay_reservoir_empty": true,
+      "run_manifest_sha256": "f268271d7627ef6ec94395a59a1779d73c86e61be6c32b3fa42ef35de29cc389",
+      "target_equals_q": true
+    }
+  ],
+  "observed_at": "2026-11-02T14:05:55.548591+00:00",
+  "purpose": "selected corrective allocation and fresh-state preflight",
+  "scope": "fresh source-bound seed-0 R1 pair only, before any learning; no A2/board/study grant and no original run resumed",
+  "source_commit": "ca45a53824ab5e2909cdfa6a75ab3f1752eafc5a",
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "verified": true
+}
