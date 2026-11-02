@@ -1,0 +1,110 @@
+{
+  "all_complete_transition_and_private_rng_states_match_literal_reference": true,
+  "elapsed_cpu_process_seconds": 3.115832002949901,
+  "execution_authorized": false,
+  "games": [
+    {
+      "collision": "gray",
+      "player": 1,
+      "rounds": 87,
+      "score_units": [
+        324,
+        0
+      ],
+      "seed": 701,
+      "termination": "mutual_pass",
+      "trajectory_sha256": "0196bb060c9a8e2843a7f3500cc1a2b0ea265af02fa352f039ec48678fb5f5e4"
+    },
+    {
+      "collision": "gray",
+      "player": 1,
+      "rounds": 93,
+      "score_units": [
+        324,
+        0
+      ],
+      "seed": 702,
+      "termination": "mutual_pass",
+      "trajectory_sha256": "896180205d31f80c79884437979b6156bcab6312b37dd5e49467c13c369ff19e"
+    },
+    {
+      "collision": "gray",
+      "player": 2,
+      "rounds": 87,
+      "score_units": [
+        0,
+        324
+      ],
+      "seed": 701,
+      "termination": "mutual_pass",
+      "trajectory_sha256": "4e6743332d26fef82fd3908dcc6a821d3ee49fa291e5616d0adbcb75bdb83478"
+    },
+    {
+      "collision": "gray",
+      "player": 2,
+      "rounds": 93,
+      "score_units": [
+        0,
+        324
+      ],
+      "seed": 702,
+      "termination": "mutual_pass",
+      "trajectory_sha256": "57bbaa1b3fe33193e8fc1773c8157e68f2f0c5c10a865bce6d8596e8506c5995"
+    },
+    {
+      "collision": "remove",
+      "player": 1,
+      "rounds": 84,
+      "score_units": [
+        324,
+        0
+      ],
+      "seed": 701,
+      "termination": "mutual_pass",
+      "trajectory_sha256": "9c870bc895248b403ca590dcca18fa6c004f3d5c51c2163f22512bb3aee92eba"
+    },
+    {
+      "collision": "remove",
+      "player": 1,
+      "rounds": 90,
+      "score_units": [
+        324,
+        0
+      ],
+      "seed": 702,
+      "termination": "mutual_pass",
+      "trajectory_sha256": "761c153d266475ba51437ad1cf21ccba37a3d3fa72b4f0ea24be6197340327ea"
+    },
+    {
+      "collision": "remove",
+      "player": 2,
+      "rounds": 84,
+      "score_units": [
+        0,
+        324
+      ],
+      "seed": 701,
+      "termination": "mutual_pass",
+      "trajectory_sha256": "dc444e963324f6b55a7163830a55205bce4958fe39d080480fedcd06004efaf2"
+    },
+    {
+      "collision": "remove",
+      "player": 2,
+      "rounds": 90,
+      "score_units": [
+        0,
+        324
+      ],
+      "seed": 702,
+      "termination": "mutual_pass",
+      "trajectory_sha256": "89a2b8967d61167987c0c238840e3b29b9e71293d374f6f705c63169c2fc1471"
+    }
+  ],
+  "new_learning_records": 0,
+  "physical_differential_games": 8,
+  "rounds_compared": 708,
+  "scope": "eight complete official-size baseline games, both role/rule contexts, literal old engine and tactical path; no strength or full-campaign price claim",
+  "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed",
+  "status": "verified",
+  "version": 1
+}

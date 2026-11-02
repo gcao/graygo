@@ -1,0 +1,50 @@
+{
+  "core_producer_sha256": "e8c9f6721242b0ebc880a6b7207f0faa4b7582c05149632e08658789c920b73a",
+  "core_records_per_phase": 32768,
+  "dense_records": 256,
+  "endpoint_looks": [
+    500,
+    2000
+  ],
+  "inference_batch_size": 32,
+  "input_files_sha256": {
+    "/home/gcao/proj/graygo/artifacts/gray-exposure-v1.json": "be04e39d1e6e4fde366b59f11a33fc899ef132860c51052827faee0cc385f5d0",
+    "/home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so": "f40906ebe6df9974ebf890ef6d665ee2459ac56863b62aa2e2bcaf200e040289",
+    "/home/gcao/proj/graygo/docs/verification/probe-multicell-v2-construction/benchmark.json": "1b6c31e05025f3eb81d58ddd06911db4c92a0358a3f1988435624851d3041c39",
+    "/home/gcao/proj/graygo/runs/native-buffer-full-6bdd8b6/buffers/resume/000000600000/manifest.json": "57f0e5467dd5945f555a8801159c1d3aeb1894f1fa672a5e9875e20ba3705954"
+  },
+  "margin": 2.0,
+  "pair_batch_size": 16,
+  "runtime": {
+    "augmentation": true,
+    "batch": 512,
+    "blocks": 8,
+    "capacity": 500000,
+    "deterministic": true,
+    "device": "cuda",
+    "envs": 16,
+    "handoff_end": 7000000,
+    "learning_rate": 0.0003,
+    "learning_start": 4096,
+    "max_grad_norm": 0.5,
+    "native_library": "/home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so",
+    "norm_groups": 8,
+    "q_reuse": 4,
+    "reservoir_open": 5000000,
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "seed": 17,
+    "target_every": 12800,
+    "uniform_comparison": false,
+    "width": 64
+  },
+  "scientific_timing_blocks": 2,
+  "scope": "complete selected-source hardware costs only; no A2, pilot, confirmation or study allocation",
+  "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed",
+  "time_ceiling_seconds": 1800,
+  "tool_sha256": "b80c47f14c49be7b38315a7606ca8d9e76e0cf8e4cdf269fec96937da74d3c2e",
+  "version": "graygo/batched-nfsp-cost-measurement/1"
+}

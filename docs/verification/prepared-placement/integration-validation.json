@@ -1,0 +1,14 @@
+{
+  "a2_complete": false,
+  "archived_full_price_reanalysis_matches_independent_audit": true,
+  "complete_finite_domain_verified": true,
+  "complete_suite_tests": 420,
+  "initial_component_limits_satisfied": false,
+  "new_scope_authorized": false,
+  "original_price_audit_inputs_still_unchanged": true,
+  "package_bytes_unchanged_since_complete_suite": true,
+  "portable_actual_endpoint_and_scientific_evidence_readable": true,
+  "resource_cli_reproduces_exact_plan_and_usage": true,
+  "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed",
+  "version": 1
+}

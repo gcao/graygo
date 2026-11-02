@@ -1,0 +1,237 @@
+{
+  "baseline_version": "graygo/baselines/1",
+  "command": {
+    "scientific_protocol": {
+      "alpha": 0.05,
+      "block_looks": [
+        2,
+        4
+      ],
+      "catalog_sha256": "ac942803e2abd65510d7970e30d2818baa2ea17342ea33313d0b46bf0f40716b",
+      "curricula": [
+        "empty",
+        "exposure"
+      ],
+      "delta": 0.0005208333333333333,
+      "endpoints": [
+        "official-empty/empty/u_G/mean3",
+        "official-empty/empty/u_G/seed200",
+        "official-empty/empty/u_G/seed201",
+        "official-empty/empty/u_G/seed202",
+        "official-empty/empty/u_E/mean3",
+        "official-empty/empty/u_E/seed200",
+        "official-empty/empty/u_E/seed201",
+        "official-empty/empty/u_E/seed202",
+        "official-empty/empty/interaction/mean3",
+        "official-empty/empty/interaction/seed200",
+        "official-empty/empty/interaction/seed201",
+        "official-empty/empty/interaction/seed202",
+        "official-empty/exposure/u_G/mean3",
+        "official-empty/exposure/u_G/seed200",
+        "official-empty/exposure/u_G/seed201",
+        "official-empty/exposure/u_G/seed202",
+        "official-empty/exposure/u_E/mean3",
+        "official-empty/exposure/u_E/seed200",
+        "official-empty/exposure/u_E/seed201",
+        "official-empty/exposure/u_E/seed202",
+        "official-empty/exposure/interaction/mean3",
+        "official-empty/exposure/interaction/seed200",
+        "official-empty/exposure/interaction/seed201",
+        "official-empty/exposure/interaction/seed202",
+        "heldout-gray/empty/u_G/mean3",
+        "heldout-gray/empty/u_G/seed200",
+        "heldout-gray/empty/u_G/seed201",
+        "heldout-gray/empty/u_G/seed202",
+        "heldout-gray/empty/u_E/mean3",
+        "heldout-gray/empty/u_E/seed200",
+        "heldout-gray/empty/u_E/seed201",
+        "heldout-gray/empty/u_E/seed202",
+        "heldout-gray/empty/interaction/mean3",
+        "heldout-gray/empty/interaction/seed200",
+        "heldout-gray/empty/interaction/seed201",
+        "heldout-gray/empty/interaction/seed202",
+        "heldout-gray/exposure/u_G/mean3",
+        "heldout-gray/exposure/u_G/seed200",
+        "heldout-gray/exposure/u_G/seed201",
+        "heldout-gray/exposure/u_G/seed202",
+        "heldout-gray/exposure/u_E/mean3",
+        "heldout-gray/exposure/u_E/seed200",
+        "heldout-gray/exposure/u_E/seed201",
+        "heldout-gray/exposure/u_E/seed202",
+        "heldout-gray/exposure/interaction/mean3",
+        "heldout-gray/exposure/interaction/seed200",
+        "heldout-gray/exposure/interaction/seed201",
+        "heldout-gray/exposure/interaction/seed202"
+      ],
+      "evaluation_rules": [
+        "gray",
+        "remove"
+      ],
+      "games_per_block": 48,
+      "heldout": "diagnostic only",
+      "inference": "conditional on the fixed registered three-seed cohort; no training-seed population confidence claim",
+      "method": "graygo/empirical-bernstein/1",
+      "name": "cost-only-science",
+      "opening_contexts": [
+        "official-empty",
+        "heldout-gray"
+      ],
+      "physical_game_looks": [
+        96,
+        192
+      ],
+      "policy_ids": [
+        [
+          "empty",
+          "gray",
+          200,
+          "391542971241452c4dd598dca3a3270a88d0cddb4367e2fb1113b05750cf342c"
+        ],
+        [
+          "empty",
+          "gray",
+          201,
+          "391542971241452c4dd598dca3a3270a88d0cddb4367e2fb1113b05750cf342c"
+        ],
+        [
+          "empty",
+          "gray",
+          202,
+          "391542971241452c4dd598dca3a3270a88d0cddb4367e2fb1113b05750cf342c"
+        ],
+        [
+          "empty",
+          "remove",
+          200,
+          "391542971241452c4dd598dca3a3270a88d0cddb4367e2fb1113b05750cf342c"
+        ],
+        [
+          "empty",
+          "remove",
+          201,
+          "391542971241452c4dd598dca3a3270a88d0cddb4367e2fb1113b05750cf342c"
+        ],
+        [
+          "empty",
+          "remove",
+          202,
+          "391542971241452c4dd598dca3a3270a88d0cddb4367e2fb1113b05750cf342c"
+        ],
+        [
+          "exposure",
+          "gray",
+          200,
+          "391542971241452c4dd598dca3a3270a88d0cddb4367e2fb1113b05750cf342c"
+        ],
+        [
+          "exposure",
+          "gray",
+          201,
+          "391542971241452c4dd598dca3a3270a88d0cddb4367e2fb1113b05750cf342c"
+        ],
+        [
+          "exposure",
+          "gray",
+          202,
+          "391542971241452c4dd598dca3a3270a88d0cddb4367e2fb1113b05750cf342c"
+        ],
+        [
+          "exposure",
+          "remove",
+          200,
+          "391542971241452c4dd598dca3a3270a88d0cddb4367e2fb1113b05750cf342c"
+        ],
+        [
+          "exposure",
+          "remove",
+          201,
+          "391542971241452c4dd598dca3a3270a88d0cddb4367e2fb1113b05750cf342c"
+        ],
+        [
+          "exposure",
+          "remove",
+          202,
+          "391542971241452c4dd598dca3a3270a88d0cddb4367e2fb1113b05750cf342c"
+        ]
+      ],
+      "primary": "official-empty/exposure",
+      "purpose": "diagnostic",
+      "representation": "average",
+      "secondary": "official-empty/empty",
+      "seed": 17,
+      "seeds": [
+        200,
+        201,
+        202
+      ],
+      "thresholds": {
+        "each_seed_point_estimates_strictly_above": 0.0,
+        "interaction_lower_strictly_above": 0.05,
+        "u_G_lower_strictly_above": 0.05
+      },
+      "time_ceiling_seconds": 3600,
+      "training_records": 80000000,
+      "unit": "one matched block: curricula x contexts x seeds x rules x paired colors",
+      "version": "graygo/scientific-contrast/1"
+    }
+  },
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cpu_threads": 24,
+  "created_at": "2026-11-02T23:08:48.306565+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 125346484224,
+  "encoding_version": "graygo/encoding/1",
+  "filesystem": "ext2/ext3",
+  "format_version": 1,
+  "git_commit": "9291e0458eb2a3a996c8b5190b90252fd4ccca72",
+  "git_dirty": false,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "host_memory": {
+    "available_bytes": 27909214208,
+    "swap_bytes": 12884897792,
+    "total_bytes": 33558446080
+  },
+  "hostname": "home-ai",
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "rule_version": "graygo/1",
+  "rules": {
+    "collision": "gray/remove",
+    "max_rounds": 200,
+    "size": 9
+  },
+  "run_id": "d8ceca771c1d4ea78b0c83499144ea15",
+  "seed": 17,
+  "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed"
+}

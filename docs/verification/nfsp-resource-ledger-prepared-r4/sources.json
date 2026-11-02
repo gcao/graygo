@@ -1,0 +1,11 @@
+{
+  "control_settlement_unchanged": true,
+  "price_audit_path": "docs/verification/prepared-placement/full-cost/audit.json",
+  "price_audit_sha256": "716681bf1c43bda3a257b5c8487d6a36b1c64cf4871e84bb3396de6128f74c69",
+  "prior_inventory_path": "docs/verification/nfsp-resource-ledger-batched-r4/usage.json",
+  "prior_inventory_sha256": "30ebbda02c27acf8a9eaf4d7d674cf694f967bcd1dbd1d9b1c41437fe7e6d12f",
+  "scope": "one whole physical profile interval, not its nested core again; disjoint pure-CPU verification intervals; prior historical use retained; incomplete project consumption",
+  "version": 1,
+  "whole_profile_job_path": "docs/verification/prepared-placement/full-cost/job.json",
+  "whole_profile_job_sha256": "26b45be3e92ab3a2caec94f159ac1047dee1ff5f87ccb93413e223583f727e80"
+}

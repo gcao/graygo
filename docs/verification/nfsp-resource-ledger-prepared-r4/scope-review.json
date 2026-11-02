@@ -1,0 +1,34 @@
+{
+  "H_D": "62.61148366861556",
+  "H_N": "228.19417249174458",
+  "H_P": "28.860612358642264",
+  "a2_complete": false,
+  "component_limit_violations": [
+    "H_P exceeds initial 24-device-hour per-seed pilot ceiling",
+    "scientific/probe forecast exceeds 16-device-hour component"
+  ],
+  "empirical_accounting_verified": true,
+  "execution_authorized": false,
+  "full_campaign_total_device_hours": null,
+  "inference_batch_size": 32,
+  "known_design_formula_subtotal_device_hours": "3038.600873242031640000000000",
+  "known_subtotal_using_measured_science_device_hours": "3047.540888067355497000000000",
+  "missing_device_terms": [
+    "C1",
+    "C4"
+  ],
+  "pair_batch_size": 16,
+  "pilot_component_limit_device_hours": "24",
+  "pilot_shortfall_device_hours": "4.860612358642264",
+  "price_audit_sha256": "716681bf1c43bda3a257b5c8487d6a36b1c64cf4871e84bb3396de6128f74c69",
+  "project_ceiling_declared": false,
+  "science_and_probe_device_hours": "24.940014825323857",
+  "science_component_limit_device_hours": "16",
+  "science_shortfall_device_hours": "8.940014825323857",
+  "scope": "new exact-optimization source measured at unchanged work/layout/margin; no old data relabeling, component-limit change or production grant",
+  "scope_limits_satisfied": false,
+  "selected_reuse": 4,
+  "selected_target": "one-step",
+  "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed",
+  "version": 1
+}

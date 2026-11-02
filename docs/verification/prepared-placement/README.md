@@ -27,3 +27,11 @@ The matched CPU corpus contains 124 tactical calls per repetition, generated fro
 ## Remaining cost qualification
 
 Existing H_P/H_N/scientific prices belong to their original frozen source. The CPU timing result cannot replace a full learner/evaluation price. Selected-source complete hardware measurement and independent resource accounting are still required before a feasible production scope. The original corrected R4 neural learner remains on its original process, frozen source, full record cap and time ceiling. No A2 gate or larger training allocation is granted here.
+
+## Additional complete-game and selected-source evidence
+
+[Eight complete 9x9 differential games](complete-game-differential.json), both roles/rules, compare the optimized engine/tactical path with both literal reference paths. All 708 rounds, complete transitions, scores and private RNG states match. This is correctness evidence, not strength.
+
+The [complete selected-source profile and independent audit](full-cost/README.md) now measure H_P **28.860612** and science/probes **24.940015** hours. Both initial components still fail. The old pricing history remains retained; no finite CPU timing is substituted for full cost or an eligibility gate.
+
+A separate [read-only encoding microbenchmark](native-encoding-probe.json) checks 124 observations including packet packing against the existing native decoder: all 30+14/legal bytes and dtypes agree. Twenty repetitions measure median reference **0.009790s** versus pack-plus-native **0.004059s** on that corpus (about 2.412x), with native decode alone 0.000167s. Frozen evaluation still uses its current reference encoder; this probe establishes no integration or campaign price.

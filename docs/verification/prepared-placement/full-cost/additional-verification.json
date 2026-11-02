@@ -1,0 +1,19 @@
+{
+  "absolute_peak_proven": false,
+  "actual_look_counts_verified": true,
+  "additional_evaluation_games": 2480,
+  "additional_evaluation_rounds": 210306,
+  "core_diagnostic_learner_records": 65792,
+  "execution_authorized": false,
+  "job_sha256": "26b45be3e92ab3a2caec94f159ac1047dee1ff5f87ccb93413e223583f727e80",
+  "maximum_observed_gpu_used_mib": 1629,
+  "memory_log_sha256": "78403cb7e80fe03095f4de28383d714b2d696f4209d1aafb9aae3358b0766187",
+  "physical_allocation_device_hours": "0.1082959909444444444444444444",
+  "physical_allocation_seconds": "389.8655674",
+  "physical_gpu_samples_verified": true,
+  "report_sha256": "5c664e1478139bb5c186feb829ca7b573b16cd9f7946450e6df1e42e2cea8050",
+  "samples": 382,
+  "scope": "read-only physical interval/memory and look-prefix accounting; no new games or inference",
+  "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed",
+  "version": 1
+}
