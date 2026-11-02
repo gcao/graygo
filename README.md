@@ -264,3 +264,7 @@ Supplemental coverage retains the forcing role's conditional root-action target 
 ## Frozen collision benchmark policies
 
 `probe-evaluate` collects both roots and roles for each of the 32 frozen families across all three confirmation seeds. Confirmation binds actual permanent average-policy archives to the frozen scientific registry; explicit diagnostics cannot pass confirmation. `probe-report` is read-only. `probe-audit` repeats the original frozen model forwards under the same cumulative inference ceiling. See [the evaluator contract and commands](docs/verification/probe-policy-evaluation.md). Actual learned confirmation behavior and exposure-controlled performance remain pending.
+
+## Independent bounded-task evidence
+
+`tools/audit_nfsp_bounded.py` verifies completed meaningful-branch and pure/mixed bounded-Go runs using the trial’s frozen package. It solves and certifies complete games independently, reloads every scheduled model, reconstructs eligible-Q/mode/reservoir/RNG clocks, and checks retained legal transitions and active frozen actors. See [the audit contract](docs/verification/nfsp-bounded-audit.md) for commands and explicit bounded-history limits. `tools/audit_nfsp_delayed.py` remains the separate chain verifier. A single case never completes A2.

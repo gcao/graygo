@@ -1,0 +1,41 @@
+{
+  "a2_complete": false,
+  "active_actor_original_probabilities_and_rng_reconstructed": true,
+  "all_tests_passed": true,
+  "ambient_cuda_and_caller_rng_preservation_verified": true,
+  "auditor_sha256": "36ba58de321d53958dd304492e87c605b81c11cfbd7b0c859a0dedf8f7048a11",
+  "complete_exact_matrix_certificates_verified": true,
+  "diagnostic_fixtures_only": true,
+  "exact_root_values": {
+    "branching": [
+      "-1/7",
+      "1/7"
+    ],
+    "gray-mixed": [
+      "-1/4"
+    ],
+    "gray-pure": [
+      "0"
+    ]
+  },
+  "formal_cohort_selected": false,
+  "full_test_log_sha256": "100f0249254bf0578e693c1330f7f59dcd54c8b9f9db42a66a379471574c993f",
+  "learners": [
+    "tabular",
+    "neural"
+  ],
+  "new_audit_test_methods": 19,
+  "production_training_selected": false,
+  "scope": "implementation/proof/recovery regression evidence; explicit bounded-history and tabular-publication limits remain in the audit contract",
+  "shared_delayed_helper_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "source_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
+  "task_families": [
+    "branching",
+    "gray-pure",
+    "gray-mixed"
+  ],
+  "test_seconds": 248.58,
+  "test_sha256": "ae7afdde8c8fb71aed89642f9a3406807b33b46336969bedc5201b689049fc72",
+  "tests": 320,
+  "version": 1
+}
