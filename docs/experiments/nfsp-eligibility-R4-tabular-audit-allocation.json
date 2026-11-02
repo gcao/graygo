@@ -1,0 +1,23 @@
+{
+  "a2_complete": false,
+  "collector_commit": "30f8d91",
+  "collector_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "extension_selected": false,
+  "kind": "read-only verification; no new learning or control case",
+  "learner_package_path": ".worktrees/nfsp-eligibility-ca45a53/src",
+  "learner_package_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "maximum_audit_seconds": 600,
+  "name": "completed-corrected-R4-tabular-independent-case-audit",
+  "new_control_records": 0,
+  "new_learning_records": 0,
+  "original_parent_pid": 2538230,
+  "original_records": 15000000,
+  "original_run": "runs/nfsp-eligibility-R4-primary-ca45a53/tabular",
+  "original_training_manifest_sha256": "481446fa95e06dffd03906d11a9f1917e74b7c840ca466634e931717540325fc",
+  "pilot_selected": false,
+  "scope": "verify the original terminal tabular case while the same parent continues its separately fresh neural case; never resume/restart a learner",
+  "selected_reuse": 4,
+  "target": "one-step",
+  "version": 1,
+  "watchdog_seconds": 660
+}
