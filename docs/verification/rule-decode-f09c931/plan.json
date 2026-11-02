@@ -1,0 +1,70 @@
+{
+  "baseline_version": "graygo/baselines/1",
+  "command": {
+    "batch": 512,
+    "iterations": 20,
+    "operation": "same-snapshot-storage-remeasurement",
+    "records": 20000
+  },
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cpu_threads": 24,
+  "created_at": "2026-11-02T04:10:51.020602+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 127872405504,
+  "encoding_version": "graygo/encoding/1",
+  "filesystem": "ext2/ext3",
+  "format_version": 1,
+  "git_commit": "f09c9316a74c81f23bca1a0dca820f8a4064e81f",
+  "git_dirty": false,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "host_memory": {
+    "available_bytes": 29667971072,
+    "swap_bytes": 12884897792,
+    "total_bytes": 33558446080
+  },
+  "hostname": "home-ai",
+  "pid": 2228730,
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "rule_version": "graygo/1",
+  "rules": {
+    "collision": "gray",
+    "max_rounds": 200,
+    "size": 9
+  },
+  "run_id": "5fe43df98fda4c9791ea4e9879fa7cb3",
+  "seed": 73,
+  "snapshot_parent": "/home/gcao/proj/graygo/runs/rule-storage-profile-321c05d",
+  "source_sha256": "4794f1ecd442354b34c4929d3e9d087c014087cfbcb79a301424373da3c5d4fb"
+}

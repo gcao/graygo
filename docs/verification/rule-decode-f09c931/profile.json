@@ -1,0 +1,151 @@
+{
+  "plan": {
+    "baseline_version": "graygo/baselines/1",
+    "command": {
+      "batch": 512,
+      "iterations": 20,
+      "operation": "same-snapshot-storage-remeasurement",
+      "records": 20000
+    },
+    "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "cpu_threads": 24,
+    "created_at": "2026-11-02T04:10:51.020602+00:00",
+    "dependencies": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "torch": "2.11.0"
+    },
+    "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+    "disk_free_bytes": 127872405504,
+    "encoding_version": "graygo/encoding/1",
+    "filesystem": "ext2/ext3",
+    "format_version": 1,
+    "git_commit": "f09c9316a74c81f23bca1a0dca820f8a4064e81f",
+    "git_dirty": false,
+    "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+    "host_memory": {
+      "available_bytes": 29667971072,
+      "swap_bytes": 12884897792,
+      "total_bytes": 33558446080
+    },
+    "hostname": "home-ai",
+    "pid": 2228730,
+    "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "rule_version": "graygo/1",
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "run_id": "5fe43df98fda4c9791ea4e9879fa7cb3",
+    "seed": 73,
+    "snapshot_parent": "/home/gcao/proj/graygo/runs/rule-storage-profile-321c05d",
+    "source_sha256": "4794f1ecd442354b34c4929d3e9d087c014087cfbcb79a301424373da3c5d4fb"
+  },
+  "results": [
+    {
+      "replay_decode_seconds": 0.01602489803917706,
+      "reservoir_decode_seconds": 0.004685367981437594,
+      "restore_seconds": 0.08731694496236742,
+      "snapshot_manifest": {
+        "files": {
+          "replay.npz": {
+            "bytes": 1951793,
+            "sha256": "252717d0afcb433af7b00135ef169e1127b7ab0a7bd3b1198cb009620f8198c3"
+          },
+          "reservoir.npz": {
+            "bytes": 980103,
+            "sha256": "83ad1a6285aa99a29d54745884986ca9b7f90ef03ca121eb9381d167232a560f"
+          },
+          "sampler.json": {
+            "bytes": 172,
+            "sha256": "bf7cf66f8caa44ac8fbb9b93425fe23a28f3fb514d2518a1e18ddf5a3d11010b"
+          }
+        },
+        "format_version": 1,
+        "kind": "resume",
+        "metadata": {
+          "schema": {
+            "actions": 82,
+            "globals": 14,
+            "spatial_shape": [
+              30,
+              9,
+              9
+            ],
+            "version": "graygo/encoding/1"
+          },
+          "synthetic_labels": true
+        },
+        "step": 20000
+      },
+      "storage": "features"
+    },
+    {
+      "replay_decode_seconds": 4.058928871003445,
+      "reservoir_decode_seconds": 2.0191123289987445,
+      "restore_seconds": 6.516447838046588,
+      "snapshot_manifest": {
+        "files": {
+          "replay.npz": {
+            "bytes": 545384,
+            "sha256": "6df7e9e9129136d46eca90fcf982930b1b7d029a77864494cd54e3fddbbec309"
+          },
+          "reservoir.npz": {
+            "bytes": 277860,
+            "sha256": "7fb36cf0484be3d0ed7b9e960620558a81fbd483193a5f55b9a3b633a865c12c"
+          },
+          "sampler.json": {
+            "bytes": 172,
+            "sha256": "bf7cf66f8caa44ac8fbb9b93425fe23a28f3fb514d2518a1e18ddf5a3d11010b"
+          }
+        },
+        "format_version": 1,
+        "kind": "resume",
+        "metadata": {
+          "schema": {
+            "codec": "graygo/rule-state/1",
+            "encoding_version": "graygo/encoding/1",
+            "rule_version": "graygo/1",
+            "rules": {
+              "collision": "gray",
+              "max_rounds": 200,
+              "size": 9
+            },
+            "storage": "rule-state"
+          },
+          "synthetic_labels": true
+        },
+        "step": 20000
+      },
+      "storage": "rule-state"
+    }
+  ]
+}
