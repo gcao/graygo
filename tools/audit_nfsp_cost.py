@@ -219,7 +219,7 @@ def _seal(path, inventory):
     return manifest
 
 
-def verify_artifacts(root, repo, a, report, inventory):
+def verify_artifacts(root, repo, a, report, inventory, *, selected_io_path=None):
     import numpy as np
     import torch
     from graygo.buffers import ReplayBuffer, ReservoirBuffer
@@ -237,7 +237,7 @@ def verify_artifacts(root, repo, a, report, inventory):
     for phase in pipeline['phases'].values():
         checkpoint = Path(phase['checkpoint']).resolve(); require(checkpoint.is_relative_to(root/'pipeline'), 'pipeline checkpoint escaped run')
         _seal(checkpoint, inventory)
-    io_path = (root/'full-io/weights'/f"{c['capacity']+plan['dense_collection_records']:012}").resolve()
+    io_path = (root/'full-io/weights'/f"{c['capacity']+plan['dense_collection_records']:012}").resolve() if selected_io_path is None else Path(selected_io_path).resolve()
     require(Path(report['io']['checkpoint']).resolve() == io_path and not (io_path/'runtime.pt').exists() and not (io_path/'models.pt').exists(), 'cost IO became training artifacts')
     seal = _seal(io_path, inventory)
     require(sha(io_path/'manifest.json') == report['io']['checkpoint_manifest_sha256'] and set(seal['files']) == {'cost-payload.pt', 'replay.npz', 'reservoir.npz'}
@@ -288,7 +288,7 @@ def verify_artifacts(root, repo, a, report, inventory):
                 require(torch.equal(tensor, payload[name][key]) and tensor.untyped_storage().data_ptr() not in pointers, 'snapshot payload aliases or differs')
                 pointers.add(tensor.untyped_storage().data_ptr())
     require(len({id(event['actions']) for events in logs for event in events}) == c['envs'] * (c['rules']['max_rounds'] - 1), 'log lists alias and undercount IO')
-    public_path = root/'full-io/cost-public-payload.pt'; inventory[str(public_path)] = sha(public_path)
+    public_path = io_path.parents[1]/'cost-public-payload.pt'; inventory[str(public_path)] = sha(public_path)
     public = torch.load(public_path, map_location='cpu', weights_only=True)
     require(public['profile_only'] is True and all(set(public[name]) == set(payload[name])
             and all(torch.equal(value, payload[name][key]) for key, value in public[name].items()) for name in ('q', 'average')), 'public-load timing payload differs')

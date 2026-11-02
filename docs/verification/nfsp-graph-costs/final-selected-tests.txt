@@ -1,0 +1,15 @@
+test_changed_pool_counts_unmeasured_fallback_and_lost_events_rejected (test_nfsp_graph_costs.GraphCostArithmeticTests.test_changed_pool_counts_unmeasured_fallback_and_lost_events_rejected) ... ok
+test_cold_event_cannot_be_subtracted_twice (test_nfsp_graph_costs.GraphCostArithmeticTests.test_cold_event_cannot_be_subtracted_twice) ... ok
+test_cold_wave_partition_and_actual_work_are_checked (test_nfsp_graph_costs.GraphCostArithmeticTests.test_cold_wave_partition_and_actual_work_are_checked) ... ok
+test_cold_work_is_explicit_and_bounded_not_per_steady_action (test_nfsp_graph_costs.GraphCostArithmeticTests.test_cold_work_is_explicit_and_bounded_not_per_steady_action) ... ok
+test_graph_startup_and_restore_counts_cannot_be_trimmed (test_nfsp_graph_costs.GraphCostArithmeticTests.test_graph_startup_and_restore_counts_cannot_be_trimmed) ... ok
+test_zero_or_omitted_cold_cost_cannot_make_a_price_pass (test_nfsp_graph_costs.GraphCostArithmeticTests.test_zero_or_omitted_cold_cost_cannot_make_a_price_pass) ... ok
+test_actual_private_graph_measurement_keeps_raw_setup_and_steady_intervals (test_nfsp_graph_costs.RealGraphCostTests.test_actual_private_graph_measurement_keeps_raw_setup_and_steady_intervals) ... ok
+test_failed_measurement_restores_original_forward_entry (test_nfsp_graph_costs.RealGraphCostTests.test_failed_measurement_restores_original_forward_entry) ... ok
+test_real_graph_evidence_waves_partition_cold_work_without_fabricating_large_looks (test_nfsp_graph_costs.RealGraphCostTests.test_real_graph_evidence_waves_partition_cold_work_without_fabricating_large_looks) ... ok
+test_selected_full_io_uses_graph_metadata_and_restores_original_factories (test_nfsp_graph_costs.RealGraphCostTests.test_selected_full_io_uses_graph_metadata_and_restores_original_factories) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 28.514s
+
+OK

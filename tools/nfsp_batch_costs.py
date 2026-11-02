@@ -50,20 +50,30 @@ class TimingStarts:
 
 class Observer:
     """Time source groups, complete waves and real immutable-model checks."""
-    def __init__(self,device,check_budget=lambda:None):
-        self.device=device;self.check_budget=check_budget;self.groups=[];self.integrity=[];self.assertions=0
+    def __init__(self,device,check_budget=lambda:None,setup_tracker=None):
+        self.device=device;self.check_budget=check_budget;self.groups=[];self.integrity=[];self.assertions=0;self.setup_tracker=setup_tracker
     @contextmanager
     def installed(self):
         import graygo.evaluation_batch as module
         original_group=module.evaluate_pairs_batched;original_commit=module.commit_evaluation_actions
         original_frozen=FrozenNeuralPolicy.assert_frozen
         current=[None]
+        def finish_wave(wave,ended):
+            raw=ended-wave['started'];overhead=0.
+            if self.setup_tracker is not None:
+                overhead=self.setup_tracker.seconds_between(*wave['graph_event_span'])
+                wave['raw_seconds']=raw;wave['graph_setup_seconds']=overhead
+            require(raw>=overhead-.000001,'graph setup exceeds its complete wave')
+            wave['seconds']=max(0.,raw-overhead)
         def commit(requests):
             self.check_budget();_synchronize(self.device);now=time.perf_counter();group=current[0]
             require(group is not None,'wave escaped source group')
-            if group['waves']:group['waves'][-1]['seconds']=now-group['waves'][-1]['started']
+            if group['waves']:finish_wave(group['waves'][-1],now)
             group['waves'].append({'started':now,'active_games':len(requests)//2})
-            return original_commit(requests)
+            before=None if self.setup_tracker is None else self.setup_tracker.mark()
+            result=original_commit(requests)
+            if before is not None:group['waves'][-1]['graph_event_span']=[before,self.setup_tracker.mark()]
+            return result
         def group(requests):
             self.check_budget();_synchronize(self.device);started=time.perf_counter()
             entry={'pairs':len(requests),'physical_games':sum(4 if r.incumbent is not None else 2 for r in requests),'waves':[]}
@@ -71,7 +81,7 @@ class Observer:
             try:result=original_group(requests)
             finally:current[0]=None
             _synchronize(self.device);ended=time.perf_counter();require(bool(entry['waves']),'source group produced no waves')
-            entry['waves'][-1]['seconds']=ended-entry['waves'][-1]['started']
+            finish_wave(entry['waves'][-1],ended)
             entry['setup_seconds']=entry['waves'][0]['started']-started;entry['seconds']=ended-started
             for wave in entry['waves']:wave.pop('started')
             entry['physical_rounds']=sum(wave['active_games'] for wave in entry['waves'])
@@ -111,13 +121,14 @@ print(json.dumps({'source_sha256':source_digest(),'device':sys.argv[1],'cuda_ini
 
 
 def evaluation_components(config,q_model,average_model,states,catalog,root,*,inference_batch_size,pair_batch_size,
-                          full_look_games=2000,check_budget=lambda:None,reserve_bytes=DEFAULT_RESERVE):
+                          full_look_games=2000,check_budget=lambda:None,reserve_bytes=DEFAULT_RESERVE,cuda_graphs=False,setup_tracker=None):
     require(pair_batch_size>=2,'cost observer needs at least two pairs per source group')
     require(full_look_games>=16 and full_look_games%4==0,'complete two-look timing endpoint required')
     device=torch.device(config.device);root=Path(root);root.mkdir(parents=True,exist_ok=False)
-    q=FrozenNeuralPolicy(q_model,representation='greedy_q',inference_batch_size=inference_batch_size)
-    average=FrozenNeuralPolicy(average_model,inference_batch_size=inference_batch_size)
-    observer=Observer(device,check_budget);cases=[]
+    require(not cuda_graphs or setup_tracker is not None,'graph timing needs explicit disjoint setup accounting')
+    q=FrozenNeuralPolicy(q_model,representation='greedy_q',inference_batch_size=inference_batch_size,cuda_graphs=cuda_graphs)
+    average=FrozenNeuralPolicy(average_model,inference_batch_size=inference_batch_size,cuda_graphs=cuda_graphs)
+    observer=Observer(device,check_budget,setup_tracker=setup_tracker);cases=[]
     with observer.installed():
         import graygo.evaluation_batch as module
         for label,subject,opponent in [('q/random',q,BaselinePolicy('random')),('q/tactical',q,BaselinePolicy('tactical')),
@@ -139,7 +150,7 @@ def evaluation_components(config,q_model,average_model,states,catalog,root,*,inf
             return results
         collected,endpoint_timing=run_timed(observer,endpoint)
         require(all(x['status']=='complete' for x in collected),'incomplete real timing endpoint')
-        policies={key:FrozenNeuralPolicy(average_model,inference_batch_size=inference_batch_size) for key in policy_keys()}
+        policies={key:FrozenNeuralPolicy(average_model,inference_batch_size=inference_batch_size,cuda_graphs=cuda_graphs) for key in policy_keys()}
         storage={next(p._model.parameters()).untyped_storage().data_ptr() for p in policies.values()}
         require(len(storage)==12,'scientific timing registry must retain twelve distinct model objects')
         protocol=ScienceProtocol('cost-only-science',catalog.sha256,{key:p.sha256 for key,p in policies.items()},3600,
@@ -155,7 +166,7 @@ def evaluation_components(config,q_model,average_model,states,catalog,root,*,inf
                 check_budget();_synchronize(device);started=time.perf_counter();probabilities=average.initial_distribution(state,role);_synchronize(device)
                 probes.append(time.perf_counter()-started);probability_hash.update(probabilities.tobytes())
     all_base=[g for case in cases for g in case['timing']['groups']]+endpoint_timing['groups']
-    return {'version':'graygo/batched-evaluation-cost-components/1','inference_batch_size':inference_batch_size,'pair_batch_size':pair_batch_size,
+    return {'version':'graygo/batched-evaluation-cost-components/'+('2' if cuda_graphs else '1'),'inference_batch_size':inference_batch_size,'pair_batch_size':pair_batch_size,
         'cases':cases,'endpoint':{'games':full_look_games,'looks':list(looks),'collection':collected,'timing':endpoint_timing},
         'science':{'collection':scientific,'timing':science_timing,'distinct_policy_objects':len(storage)},
         'probe_forward_seconds':probes,'probe_probability_sha256':probability_hash.hexdigest(),'integrity_seconds':observer.integrity,
