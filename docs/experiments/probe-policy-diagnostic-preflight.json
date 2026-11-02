@@ -1,0 +1,18 @@
+{
+  "attempt_source_commit": "2a995802985644511f5eeef4c4222be6a5a9933f",
+  "correction": "digest(Path(__file__)) in diagnostic driver only",
+  "driver_process_wall_ceiling_seconds": 900,
+  "error": "digest(__file__) passed str to a Path-only helper: AttributeError: str object has no attribute open",
+  "inference_ceiling_seconds": 600,
+  "learning_records": 0,
+  "next_handle": "runs/probe-policy-cli-zero-pathfix",
+  "original_handle_preserved": true,
+  "original_handle_restarted": false,
+  "policy_inference_calls": 0,
+  "run_dir": "/home/gcao/proj/graygo/runs/probe-policy-cli-zero-2a99580",
+  "scope_unchanged": true,
+  "setup_watchdog_seconds": 120,
+  "source_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
+  "status": "failed_before_model_initialization",
+  "version": 1
+}

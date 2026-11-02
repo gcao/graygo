@@ -31,7 +31,7 @@ def main():
     root.mkdir(parents=True);(root/'receipts').mkdir();(root/'policies').mkdir()
     def alarm(signum,frame):raise TimeoutError('original diagnostic watchdog reached')
     signal.signal(signal.SIGALRM,alarm);signal.alarm(plan['setup_watchdog_seconds'])
-    binding={'source_commit':commit,'source_sha256':source_digest(),'driver_sha256':digest(__file__),'allocation_sha256':digest(allocation),
+    binding={'source_commit':commit,'source_sha256':source_digest(),'driver_sha256':digest(Path(__file__)),'allocation_sha256':digest(allocation),
              'original_pid':os.getpid(),'run_dir':str(root),'started_at_unix':time.time(),'learning_records':0,'status':'preparing'}
     write_report(root/'binding.json',binding);paths={};initial=[]
     for seed in plan['policies']['seeds']:
