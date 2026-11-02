@@ -1,0 +1,20 @@
+{
+  "format_version": 1,
+  "verified_units_per_opponent": 16,
+  "physical_games": 128,
+  "paired_difference_covariance": [
+    [
+      0.46249999999999997,
+      0.18541666666666667
+    ],
+    [
+      0.18541666666666667,
+      0.3989583333333333
+    ]
+  ],
+  "lower_bound_recomputed": true,
+  "promotion_calibrated": false,
+  "promotion_permitted": false,
+  "elapsed_seconds": 41.68337613000767,
+  "scope": "small frozen-baseline variance/evidence pilot, not a candidate or whole-gate power experiment"
+}

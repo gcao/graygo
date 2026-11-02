@@ -1,0 +1,140 @@
+{
+  "baseline_version": "graygo/baselines/1",
+  "command": {
+    "look_games_per_pairing": 32,
+    "operation": "baseline-only-paired-variance-pilot",
+    "time_cap_per_opponent_seconds": 600
+  },
+  "confidence": {
+    "alpha": 0.05,
+    "endpoints": [
+      "calibration-delta/versus-random",
+      "calibration-delta/versus-tactical"
+    ],
+    "looks": [
+      32,
+      100
+    ],
+    "method": "graygo/empirical-bernstein/1",
+    "name": "baseline-variance-pilot-v1"
+  },
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cpu_threads": 24,
+  "created_at": "2026-11-02T05:02:37.013429+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 127445139456,
+  "encoding_version": "graygo/encoding/1",
+  "evaluation_plans": [
+    {
+      "comparison": "improvement",
+      "confidence_sha256": "e3d46a49a0ee4f0b229f85e20897671ed90460f18339271e9defc1c779930a47",
+      "endpoint": "calibration-delta/versus-random",
+      "label": "baseline-variance-random",
+      "looks": [
+        32,
+        100
+      ],
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "seed": 20261102,
+      "subject_label": "pilot-tactical-minus-random"
+    },
+    {
+      "comparison": "improvement",
+      "confidence_sha256": "e3d46a49a0ee4f0b229f85e20897671ed90460f18339271e9defc1c779930a47",
+      "endpoint": "calibration-delta/versus-tactical",
+      "label": "baseline-variance-tactical",
+      "looks": [
+        32,
+        100
+      ],
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "seed": 20261102,
+      "subject_label": "pilot-tactical-minus-random"
+    }
+  ],
+  "filesystem": "ext2/ext3",
+  "format_version": 1,
+  "git_commit": "ec72b75888db2bd59a4dc6370127d5bb16bca6e3",
+  "git_dirty": false,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "host_memory": {
+    "available_bytes": 29919227904,
+    "swap_bytes": 12884897792,
+    "total_bytes": 33558446080
+  },
+  "hostname": "home-ai",
+  "incumbent": {
+    "kind": "random",
+    "source_sha256": "29c12cd28f5caa94c4ad6334407096ea06ca14852621649d0a7158ec18465787",
+    "version": "graygo/baselines/1"
+  },
+  "opponents": [
+    {
+      "kind": "random",
+      "source_sha256": "29c12cd28f5caa94c4ad6334407096ea06ca14852621649d0a7158ec18465787",
+      "version": "graygo/baselines/1"
+    },
+    {
+      "kind": "tactical",
+      "source_sha256": "29c12cd28f5caa94c4ad6334407096ea06ca14852621649d0a7158ec18465787",
+      "version": "graygo/baselines/1"
+    }
+  ],
+  "pid": 2248572,
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "rule_version": "graygo/1",
+  "rules": {
+    "collision": "gray",
+    "max_rounds": 200,
+    "size": 9
+  },
+  "run_id": "e5bbb5c8677f491291ae996acfd933e7",
+  "scope": "baseline-only evidence pipeline/variance pilot; no A2, promotion calibration, candidate selection or learning",
+  "seed": 20261102,
+  "source_sha256": "29c12cd28f5caa94c4ad6334407096ea06ca14852621649d0a7158ec18465787",
+  "subject": {
+    "kind": "tactical",
+    "source_sha256": "29c12cd28f5caa94c4ad6334407096ea06ca14852621649d0a7158ec18465787",
+    "version": "graygo/baselines/1"
+  }
+}

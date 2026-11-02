@@ -1,0 +1,101 @@
+{
+  "promotion_calibrated": false,
+  "promotion_permitted": false,
+  "results": [
+    {
+      "collection": {
+        "committed_pairs": 16,
+        "elapsed_seconds": 11.837968640960753,
+        "physical_games": 64,
+        "plan_sha256": "15cf43432f2068d867af48bdfef177eb4632a532ab893196f4880e615a8adcda",
+        "requested_look_games_per_pairing": 32,
+        "scope": "frozen tested matchup; not full-game exploitability or training-seed certainty",
+        "status": "complete"
+      },
+      "estimate": {
+        "available_games_per_pairing": 32,
+        "comparison": "improvement",
+        "comparisons": 4,
+        "delta": 0.0125,
+        "endpoint": "calibration-delta/versus-random",
+        "evidence_sha256": "e7fdf96ad02f4526e1ad9c73805b36050bb194dfb63dc783136531a209c8ab7a",
+        "family_sha256": "e3d46a49a0ee4f0b229f85e20897671ed90460f18339271e9defc1c779930a47",
+        "games": 32,
+        "independent_units": 16,
+        "lower": -2.0,
+        "mean": 0.9375,
+        "method": "graygo/empirical-bernstein/1",
+        "opening_kind": "official-empty",
+        "opponent_sha256": "0eaf0b7c55c6afded2564beca78ea354f99d99ffe81c9d2decab3689b52192b4",
+        "plan_sha256": "15cf43432f2068d867af48bdfef177eb4632a532ab893196f4880e615a8adcda",
+        "radius": 3.699557865426412,
+        "repeated_trajectory_fraction": 0.0,
+        "representation": "tactical",
+        "rules": {
+          "collision": "gray",
+          "max_rounds": 200,
+          "size": 9
+        },
+        "sample_variance": 0.4625,
+        "scope": "fixed policies and opening distribution; color pairs are independent units",
+        "simultaneous_alpha": 0.05,
+        "subject_label": "pilot-tactical-minus-random",
+        "subject_origin": null,
+        "subject_sha256": "757e5ad77424d647acfa172e64d5a6ef89d76dbdf7c68831e27168970fb264ce",
+        "support": [
+          -2.0,
+          2.0
+        ]
+      },
+      "opponent": "random"
+    },
+    {
+      "collection": {
+        "committed_pairs": 16,
+        "elapsed_seconds": 29.739012802019715,
+        "physical_games": 64,
+        "plan_sha256": "89a70e78d8baa8b72428359bd8807b10e6f4aeca2954720b773fe3feb78a9876",
+        "requested_look_games_per_pairing": 32,
+        "scope": "frozen tested matchup; not full-game exploitability or training-seed certainty",
+        "status": "complete"
+      },
+      "estimate": {
+        "available_games_per_pairing": 32,
+        "comparison": "improvement",
+        "comparisons": 4,
+        "delta": 0.0125,
+        "endpoint": "calibration-delta/versus-tactical",
+        "evidence_sha256": "65e286d5d650ece6fcfc160b14c6e1c2c2feda99c269e0370b36dae40fc280b8",
+        "family_sha256": "e3d46a49a0ee4f0b229f85e20897671ed90460f18339271e9defc1c779930a47",
+        "games": 32,
+        "independent_units": 16,
+        "lower": -2.0,
+        "mean": 1.28125,
+        "method": "graygo/empirical-bernstein/1",
+        "opening_kind": "official-empty",
+        "opponent_sha256": "757e5ad77424d647acfa172e64d5a6ef89d76dbdf7c68831e27168970fb264ce",
+        "plan_sha256": "89a70e78d8baa8b72428359bd8807b10e6f4aeca2954720b773fe3feb78a9876",
+        "radius": 3.660974252577099,
+        "repeated_trajectory_fraction": 0.0,
+        "representation": "tactical",
+        "rules": {
+          "collision": "gray",
+          "max_rounds": 200,
+          "size": 9
+        },
+        "sample_variance": 0.39895833333333336,
+        "scope": "fixed policies and opening distribution; color pairs are independent units",
+        "simultaneous_alpha": 0.05,
+        "subject_label": "pilot-tactical-minus-random",
+        "subject_origin": null,
+        "subject_sha256": "757e5ad77424d647acfa172e64d5a6ef89d76dbdf7c68831e27168970fb264ce",
+        "support": [
+          -2.0,
+          2.0
+        ]
+      },
+      "opponent": "tactical"
+    }
+  ],
+  "scope": "baseline-only evidence pipeline/variance pilot; no A2, promotion calibration, candidate selection or learning"
+}

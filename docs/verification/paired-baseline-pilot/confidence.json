@@ -1,0 +1,13 @@
+{
+  "alpha": 0.05,
+  "endpoints": [
+    "calibration-delta/versus-random",
+    "calibration-delta/versus-tactical"
+  ],
+  "looks": [
+    32,
+    100
+  ],
+  "method": "graygo/empirical-bernstein/1",
+  "name": "baseline-variance-pilot-v1"
+}
