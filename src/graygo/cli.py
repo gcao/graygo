@@ -120,7 +120,7 @@ def profile_network(args):
 def profile_buffers(args):
     from .buffer_profile import profile_buffers as benchmark
     return benchmark(_rules(args),args.buffer_dir,capacity=args.capacity,records=args.records,
-                     iterations=args.iterations,batch=args.batch,seed=args.seed,storage=args.storage)
+                     iterations=args.iterations,batch=args.batch,seed=args.seed,storage=args.storage,native_library=args.native_library)
 
 
 def train_matrix(args):
@@ -197,13 +197,16 @@ def train_nfsp_task(args):
             raise ValueError("budget profile does not match this source/task/learner/reuse")
         if not budget.get("complete_pipeline") or set(budget.get("phases",[]))!={"pre","post"}:
             raise ValueError("budget profile must cover pre/post-opening complete learner work")
+        from .native_decode import file_sha256
+        actual_native=None if args.native_library is None else file_sha256(args.native_library)
+        if budget.get("native_library_sha256")!=actual_native:raise ValueError("budget profile uses a different decoder binary")
         budget_hash=hashlib.sha256(profile).hexdigest()
     config=NFSPTaskConfig(time_cap_seconds=args.time_cap_hours*3600,task=args.task,learner=args.learner,seed=args.seed,
         records=args.records,eval_every=args.eval_every,device=args.device,q_reuse=args.q_reuse,
         reservoir_open=args.reservoir_open,handoff_end=args.handoff_end,uniform_comparison=args.uniform_comparison,
         horizons=tuple(args.horizons),equivalent_actions=args.equivalent_actions,hidden=args.hidden,
         width=args.width,blocks=args.blocks,norm_groups=args.norm_groups,eval_batch=args.eval_batch,
-        capacity=args.capacity,purpose=args.purpose,budget_profile_sha256=budget_hash,storage=args.storage)
+        capacity=args.capacity,purpose=args.purpose,budget_profile_sha256=budget_hash,storage=args.storage,native_library=args.native_library)
     stopped=[];previous={}
     for name in (signal.SIGINT,signal.SIGTERM):previous[name]=signal.signal(name,lambda signum,frame:stopped.append(signum))
     try:return NFSPTaskTrainer(config,args.run_dir,resume=args.resume).run(stop_requested=lambda:bool(stopped))
@@ -211,10 +214,15 @@ def train_nfsp_task(args):
         for name,handler in previous.items():signal.signal(name,handler)
 
 
+def build_native(args):
+    from .native_decode import build_native as build
+    return build(args.output_dir,compiler=args.compiler)
+
+
 def main(argv=None):
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
@@ -230,15 +238,19 @@ def main(argv=None):
             p.add_argument("--state");p.add_argument("--max-nodes",type=int,default=100000)
         elif name=="audit-native":
             p.add_argument("--library",required=True);p.add_argument("--rounds",type=int,default=3000)
+        elif name=="build-native":
+            p.add_argument("--output-dir",required=True);p.add_argument("--compiler",default="c++")
         elif name=="profile-network":
             p.add_argument("--device",default="cpu");p.add_argument("--batch",type=int,default=16)
             p.add_argument("--batches",type=int,default=10)
         elif name=="profile-buffers":
+            p.add_argument("--native-library")
             p.add_argument("--storage",choices=("features","rule-state"),default="features")
             p.add_argument("--buffer-dir",required=True);p.add_argument("--capacity",type=int,default=500000)
             p.add_argument("--records",type=int,default=10000);p.add_argument("--iterations",type=int,default=50)
             p.add_argument("--batch",type=int,default=512)
         elif name=="train-nfsp-task":
+            p.add_argument("--native-library")
             p.add_argument("--storage",choices=("features","rule-state"),default="features")
             p.add_argument("--run-dir",required=True);p.add_argument("--task",choices=("delayed","delayed-forced","branching","gray-pure","gray-mixed"),default="delayed")
             p.add_argument("--learner",choices=("neural","tabular"),default="neural")
@@ -276,9 +288,10 @@ def main(argv=None):
         parser.error("games and rounds must be positive")
     try:
         matrix_command=args.command in ("train-matrix","preflight","train-nfsp","train-nfsp-task")
-        rules=None if matrix_command else _rules(args)
+        rules=None if matrix_command or args.command=="build-native" else _rules(args)
         metadata=make_manifest(seed=args.seed,command=vars(args),rules=None if rules is None else
                                {"size":rules.size,"max_rounds":rules.max_rounds,"collision":rules.collision})
+        if args.command=="build-native":metadata.update({"rule_version":None,"baseline_version":None,"encoding_version":None})
         if matrix_command:
             metadata.update({"rule_version":None,"baseline_version":None,"encoding_version":"graygo/matrix-role/1"})
             if args.command=="preflight":metadata.update({"seed":None,"seeds":[0,1,2]})

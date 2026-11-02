@@ -86,3 +86,18 @@ class CommandTests(unittest.TestCase):
         self.assertEqual(report['schema']['storage'],'rule-state')
         self.assertTrue(report['roundtrip_verified'])
         self.assertGreaterEqual(report['restore_validation_seconds'],0.)
+
+    @unittest.skipIf(__import__('shutil').which('c++') is None,'C++17 compiler unavailable')
+    def test_native_build_and_compact_profile_cli(self):
+        with tempfile.TemporaryDirectory() as root:
+            build=self.run_cli('build-native','--output-dir',str(Path(root)/'native'))
+            self.assertEqual(build.returncode,0,build.stderr)
+            report=json.loads(build.stdout);library=report['result']['library']
+            self.assertIsNone(report['manifest']['rules'])
+            result=self.run_cli('profile-buffers','--storage','rule-state','--native-library',library,
+                '--size','3','--limit','4','--capacity','16','--records','32','--iterations','1','--batch','8',
+                '--buffer-dir',str(Path(root)/'profile'))
+            self.assertEqual(result.returncode,0,result.stderr)
+            checked=json.loads(result.stdout)['result']
+            self.assertTrue(checked['roundtrip_verified'])
+            self.assertEqual(checked['schema']['native_decoder']['sha256'],report['result']['library_sha256'])

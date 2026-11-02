@@ -105,9 +105,20 @@ class RuleObservation:
 @dataclass(frozen=True)
 class RuleStateSpec:
     rules: Rules=Rules()
+    native_library: str|None=None
+    native_sha256: str|None=None
 
     def __post_init__(self):
         if not isinstance(self.rules,Rules) or self.rules.points+1>65536:raise ValueError('rules exceed compact-buffer action range')
+        if self.native_library is None:
+            if self.native_sha256 is not None:raise ValueError('native checksum requires a library')
+        else:
+            from pathlib import Path
+            from .native_decode import file_sha256
+            path=str(Path(self.native_library).expanduser().resolve());checksum=file_sha256(path)
+            if self.native_sha256 is not None and checksum!=self.native_sha256:raise ValueError('native decoder checksum differs')
+            if not 3<=self.rules.size<=19 or self.rules.max_rounds>2**32-1:raise ValueError('native decoder does not support these rule dimensions')
+            object.__setattr__(self,'native_library',path);object.__setattr__(self,'native_sha256',checksum)
 
     @cached_property
     def codec(self):return RuleStateCodec(self.rules)
@@ -128,12 +139,25 @@ class RuleStateSpec:
     @property
     def stored_legal_bytes(self):return 0
 
-    def to_dict(self):return {'storage':'rule-state','codec':CODEC_VERSION,'rule_version':RULE_VERSION,'encoding_version':ENCODING_VERSION,'rules':asdict(self.rules)}
+    @cached_property
+    def native_decoder(self):
+        if self.native_library is None:return None
+        from .native_decode import NativeRuleDecoder
+        return NativeRuleDecoder(self.native_library,self.native_sha256)
+
+    def to_dict(self):
+        value={'storage':'rule-state','codec':CODEC_VERSION,'rule_version':RULE_VERSION,'encoding_version':ENCODING_VERSION,'rules':asdict(self.rules)}
+        if self.native_library is not None:value['native_decoder']={'path':self.native_library,'sha256':self.native_sha256,'abi':1}
+        return value
     @classmethod
     def from_dict(cls,value):
-        if set(value)!={'storage','codec','rule_version','encoding_version','rules'} or value['storage']!='rule-state' or value['codec']!=CODEC_VERSION or value['rule_version']!=RULE_VERSION or value['encoding_version']!=ENCODING_VERSION:
+        fields={'storage','codec','rule_version','encoding_version','rules'}
+        if set(value) not in (fields,fields|{'native_decoder'}) or value['storage']!='rule-state' or value['codec']!=CODEC_VERSION or value['rule_version']!=RULE_VERSION or value['encoding_version']!=ENCODING_VERSION:
             raise ValueError('unsupported rule-state storage schema')
-        return cls(Rules(**value['rules']))
+        if 'native_decoder' not in value:return cls(Rules(**value['rules']))
+        native=value['native_decoder']
+        if not isinstance(native,dict) or set(native)!={'path','sha256','abi'} or type(native['abi']) is not int or native['abi']!=1 or not isinstance(native['path'],str) or not native['path'] or not isinstance(native['sha256'],str) or len(native['sha256'])!=64 or any(c not in '0123456789abcdef' for c in native['sha256']):raise ValueError('unsupported native decoder descriptor')
+        return cls(Rules(**value['rules']),native['path'],native['sha256'])
 
     def pack(self,observation):
         if not isinstance(observation,RuleObservation):raise ValueError('rule-state storage requires a state-bound RuleObservation')
@@ -149,6 +173,9 @@ class RuleStateSpec:
 
     def unpack(self,spatial,globals,legal,*,valid=None):
         leading,rows,valid=self._rows(spatial,globals,legal,valid)
+        if self.native_decoder is not None:
+            x,g,masks=self.native_decoder.decode(self.codec,rows,valid)
+            return x.reshape(*leading,*self.spatial_shape),g.reshape(*leading,self.globals),masks.reshape(*leading,self.actions)
         x=np.zeros((*leading,*self.spatial_shape),dtype=np.uint8);g=np.zeros((*leading,self.globals),dtype=np.float32);masks=np.zeros((*leading,self.actions),dtype=bool)
         flat_x=x.reshape(-1,*self.spatial_shape);flat_g=g.reshape(-1,self.globals);flat_masks=masks.reshape(-1,self.actions)
         for index,row in enumerate(rows):
@@ -160,6 +187,11 @@ class RuleStateSpec:
     def legal_masks(self,spatial,globals,legal):
         leading,rows,valid=self._rows(spatial,globals,legal)
         masks=np.zeros((*leading,self.actions),dtype=bool);flat=masks.reshape(-1,self.actions)
-        for index,row in enumerate(rows):
-            state,player=self.codec.unpack(row);flat[index,list(state.legal_actions(player))]=True
+        if self.native_decoder is not None:
+            for start in range(0,len(rows),1024):
+                _,_,mask=self.native_decoder.decode(self.codec,rows[start:start+1024])
+                flat[start:start+len(mask)]=mask
+        else:
+            for index,row in enumerate(rows):
+                state,player=self.codec.unpack(row);flat[index,list(state.legal_actions(player))]=True
         return masks

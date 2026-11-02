@@ -102,3 +102,14 @@ See [NFSP backend verification](docs/verification/nfsp-backend.md) for the check
 ```
 
 Rule-state packets retain the full public game state and player perspective. Masks/global planes are regenerated rather than duplicated in host arrays. Feature-storage snapshots remain supported. Timing budgets must match the storage choice; the reference Python decoder's cost is not yet a production throughput claim. See [storage verification](docs/verification/rule-state-storage.md).
+
+## Native compact decoding
+
+```sh
+# C++17 compiler required; the JSON result identifies an immutable library path.
+.venv/bin/graygo build-native --output-dir artifacts/native
+# Select that exact path explicitly for compact-buffer profiling or board training.
+.venv/bin/graygo profile-buffers --storage rule-state --native-library PATH_FROM_BUILD --buffer-dir artifacts/native-buffers --records 20000
+```
+
+`train-nfsp-task` also accepts `--native-library` with `--storage rule-state`. Snapshot metadata and budget checks bind the binary SHA-256 and ABI; keep that build available when resuming. Unsupported rules/ABIs or changed binaries fail explicitly. The independent Python decoder remains the reference. Native code is for batched feature generation and validation, with no game-rule or learning-target changes. See [verification](docs/verification/native-rule-decoder.md).

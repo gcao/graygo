@@ -58,7 +58,7 @@ class TaskAdapter:
             if config.learner=='tabular':self.spec=self.game.spec
             elif config.storage=='rule-state':
                 from .rule_state import RuleStateSpec
-                self.spec=RuleStateSpec(self.roots[0].rules)
+                self.spec=RuleStateSpec(self.roots[0].rules,config.native_library)
             else:self.spec=ObservationSpec.board(3)
         else:self.spec=self.game.spec
         self.index={state:i for i,state in enumerate(self.states)}

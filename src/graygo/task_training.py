@@ -68,6 +68,7 @@ class NFSPTaskConfig:
     purpose: str='a2'
     budget_profile_sha256: str|None=None
     storage: str='features'
+    native_library: str|None=None
 
     def __post_init__(self):
         object.__setattr__(self,'horizons',tuple(self.horizons))
@@ -78,6 +79,9 @@ class NFSPTaskConfig:
             raise ValueError('positive even record/evaluation/update counts required')
         if self.storage not in ('features','rule-state') or (self.storage=='rule-state' and (self.task not in ('gray-pure','gray-mixed') or self.learner!='neural')):
             raise ValueError('rule-state storage is for neural board tasks')
+        if self.native_library is not None:
+            if self.storage!='rule-state':raise ValueError('native decoding requires rule-state storage')
+            object.__setattr__(self,'native_library',str(Path(self.native_library).expanduser().resolve()))
         self.backend_config();self.schedule();ModelConfig(self.width,self.blocks,self.norm_groups)
         if type(self.capacity) is not int or self.capacity<self.learning_start:raise ValueError('replay must cover warm-up')
         if any(type(n) is not int or n<1 for n in (self.hidden,self.eval_batch,self.max_nodes,self.equivalent_actions)):

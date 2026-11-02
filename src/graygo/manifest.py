@@ -27,8 +27,8 @@ def _command(args):
 def source_digest():
     root = Path(__file__).parent
     h = hashlib.sha256()
-    for path in sorted(root.glob("*.py")):
-        h.update(path.name.encode()+b"\0"+path.read_bytes()+b"\0")
+    for path in sorted([*root.glob("*.py"),*(root/"native").glob("*.cpp")]):
+        h.update(path.relative_to(root).as_posix().encode()+b"\0"+path.read_bytes()+b"\0")
     return h.hexdigest()
 
 
