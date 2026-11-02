@@ -1,0 +1,48 @@
+{
+  "manifest": {
+    "baseline_version": "graygo/baselines/1",
+    "command": {
+      "collision": "gray",
+      "command": "profile",
+      "limit": null,
+      "output": "artifacts/phase-a/77f34e6/engine-profile.json",
+      "rounds": 100000,
+      "seed": 42,
+      "size": 9
+    },
+    "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+    "cpu_threads": 24,
+    "created_at": "2026-11-02T00:49:03.393740+00:00",
+    "dependencies": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "torch": "2.11.0"
+    },
+    "design_sha256": "3c50704346ccea9a0302e9e366ab971dda738245a4b4fdaea1cf4ce15fd1733f",
+    "disk_free_bytes": 131407691776,
+    "encoding_version": "graygo/encoding/1",
+    "format_version": 1,
+    "git_commit": "77f34e6665e8e4d890367e95d8c514a8a0e8432c",
+    "git_dirty": false,
+    "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+    "hostname": "home-ai",
+    "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "rule_version": "graygo/1",
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "run_id": "4a73f86e8b374293920f43df1b303fee",
+    "seed": 42,
+    "source_sha256": "118b0270ca14e2059cf7ae45b3a68abada07de6fd5556094ac71cd59f216bd57"
+  },
+  "result": {
+    "completed_games": 559,
+    "engine": "immutable_python_reference",
+    "joint_rounds": 100000,
+    "rounds_per_second": 4024.6496662058,
+    "seconds": 24.846883155987598
+  }
+}

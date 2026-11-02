@@ -1,0 +1,52 @@
+test_simulate_reproducible_results_and_recorded_rules (test_cli.CommandTests.test_simulate_reproducible_results_and_recorded_rules) ... ok
+test_solve_fixture_uses_its_actual_rules_and_reports_gap (test_cli.CommandTests.test_solve_fixture_uses_its_actual_rules_and_reports_gap) ... ok
+test_baselines_are_legal_reproducible_and_use_same_state (test_encoding_models.EncodingTests.test_baselines_are_legal_reproducible_and_use_same_state) ... ok
+test_countdown_and_terminal_mask (test_encoding_models.EncodingTests.test_countdown_and_terminal_mask) ... ok
+test_missing_history_and_perspective (test_encoding_models.EncodingTests.test_missing_history_and_perspective) ... ok
+test_critic_metadata_never_enters_actor (test_encoding_models.ModelTests.test_critic_metadata_never_enters_actor) ... ok
+test_numpy_input_board_is_copied (test_encoding_models.ModelTests.test_numpy_input_board_is_copied) ... ok
+test_shape_mask_and_backward (test_encoding_models.ModelTests.test_shape_mask_and_backward) ... ok
+test_translation_and_empty_board_symmetry (test_encoding_models.ModelTests.test_translation_and_empty_board_symmetry) ... ok
+test_capture_black_white_and_gray_priorities (test_encoding_models.TacticalFixtureTests.test_capture_black_white_and_gray_priorities) ... ok
+test_both_moves_and_collision (test_engine.EngineTests.test_both_moves_and_collision) ... ok
+test_capture_precedes_suicide_owner_fixture (test_engine.EngineTests.test_capture_precedes_suicide_owner_fixture) ... ok
+test_collision_ablation (test_engine.EngineTests.test_collision_ablation) ... ok
+test_complete_history_and_pass_metadata_are_required (test_engine.EngineTests.test_complete_history_and_pass_metadata_are_required) ... ok
+test_complete_state_symmetry_commutes_with_resolution (test_engine.EngineTests.test_complete_state_symmetry_commutes_with_resolution) ... ok
+test_disappearing_collision_forbids_both (test_engine.EngineTests.test_disappearing_collision_forbids_both) ... ok
+test_gray_captures_and_is_captured (test_engine.EngineTests.test_gray_captures_and_is_captured) ... ok
+test_history_does_not_alias_mutable_inputs (test_engine.EngineTests.test_history_does_not_alias_mutable_inputs) ... ok
+test_legal_validation_and_roundtrip (test_engine.EngineTests.test_legal_validation_and_roundtrip) ... ok
+test_mutual_old_groups_capture_together (test_engine.EngineTests.test_mutual_old_groups_capture_together) ... ok
+test_oldest_ko_record_expires (test_engine.EngineTests.test_oldest_ko_record_expires) ... ok
+test_outgoing_move_ko_and_retaining_old_ban (test_engine.EngineTests.test_outgoing_move_ko_and_retaining_old_ban) ... ok
+test_pass_and_final_round (test_engine.EngineTests.test_pass_and_final_round) ... ok
+test_scoring_all_boundary_sets_and_exact_units (test_engine.EngineTests.test_scoring_all_boundary_sets_and_exact_units) ... ok
+test_simultaneous_suicide_is_not_sequential_rescue (test_engine.EngineTests.test_simultaneous_suicide_is_not_sequential_rescue) ... ok
+test_suicide_accumulates_and_new_board_clears (test_engine.EngineTests.test_suicide_accumulates_and_new_board_clears) ... ok
+test_topology (test_engine.EngineTests.test_topology) ... ok
+test_fully_excluded_records_do_not_step_optimizer (test_ppo.PPOTests.test_fully_excluded_records_do_not_step_optimizer) ... ok
+test_illegal_or_nonfinite_batch_rejected (test_ppo.PPOTests.test_illegal_or_nonfinite_batch_rejected) ... ok
+test_kl_stops_before_oversized_update (test_ppo.PPOTests.test_kl_stops_before_oversized_update) ... ok
+test_no_future_episode_leak (test_ppo.PPOTests.test_no_future_episode_leak) ... ok
+test_policy_direction_mask_and_finite_gradient (test_ppo.PPOTests.test_policy_direction_mask_and_finite_gradient) ... ok
+test_terminal_and_chunk_bootstrap (test_ppo.PPOTests.test_terminal_and_chunk_bootstrap) ... ok
+test_value_only_has_no_actor_head_loss (test_ppo.PPOTests.test_value_only_has_no_actor_head_loss) ... ok
+test_actual_gray_go_one_round_game (test_solving.SolveTests.test_actual_gray_go_one_round_game) ... ok
+test_known_matrix_games (test_solving.SolveTests.test_known_matrix_games) ... ok
+test_reachable_mixed_two_round_fixture (test_solving.SolveTests.test_reachable_mixed_two_round_fixture) ... ok
+test_reject_invalid_values_and_policies (test_solving.SolveTests.test_reject_invalid_values_and_policies) ... ok
+test_checksum_corruption_falls_back_and_pointer_is_not_required (test_storage.StorageTests.test_checksum_corruption_falls_back_and_pointer_is_not_required) ... ok
+test_crash_after_generation_commit_recovers_without_pointer (test_storage.StorageTests.test_crash_after_generation_commit_recovers_without_pointer) ... ok
+test_interrupted_writer_does_not_rotate_valid_state (test_storage.StorageTests.test_interrupted_writer_does_not_rotate_valid_state) ... ok
+test_live_writer_lock_blocks_cleanup (test_storage.StorageTests.test_live_writer_lock_blocks_cleanup) ... ok
+test_process_death_and_recovery (test_storage.StorageTests.test_process_death_and_recovery) ... ok
+test_projected_disk_guard_precedes_writer (test_storage.StorageTests.test_projected_disk_guard_precedes_writer) ... ok
+test_rotation_permanent_archive_and_finalization (test_storage.StorageTests.test_rotation_permanent_archive_and_finalization) ... ok
+test_symlink_payload_is_rejected_without_touching_target (test_storage.StorageTests.test_symlink_payload_is_rejected_without_touching_target) ... ok
+test_model_optimizer_rng_and_environment_restore (test_training_resume.ResumeIntegration.test_model_optimizer_rng_and_environment_restore) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 3.150s
+
+OK

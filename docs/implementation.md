@@ -15,11 +15,12 @@ Objective: implement Gray Go following `docs/design.md`, including its verificat
 | Checkpoint retention and disk reserve | Checksummed atomic bundles; two active resume generations, final-generation retention, permanent weight archive, 20 GiB projected guard. Interrupted-process, corruption/fallback, and real model/optimizer/RNG/environment restore tests. |
 | Exact bounded-game tools | Matrix LP certificates and exhaustive public-state solver with explicit node budgets. Matching pennies, asymmetric matrix, RPS and actual one/two-round Gray Go fixtures. |
 | Genuinely mixed Gray Go fixture | Reachable 3×3 position, two rounds remaining; root continuation matrix `diag(-1,-1,-1/2)`, value `-1/4`, both policies `(1/4,1/4,1/2)`. Prefix replay and independent best-response checks. |
+| Shared PPO/GAE update backend | Implemented with terminal bootstrapping, eligibility, masking, clipping, entropy and KL stopping tests. Rollout collection/adapters remain pending. |
 | Run manifests and engine/network profiling | Implemented CLI and JSON reports. See `verification/phase-a.md` for recorded evidence and limits. |
 
 ## Remaining work toward the full objective
 
-1. Implement compact replay/reservoir buffers and the production PPO update/rollout machinery; matrix adapters must use that machinery.
+1. Implement compact replay/reservoir buffers and rollout collection around the shared PPO updater; matrix adapters must use that machinery.
 2. Implement exact complete-history/episode-mixture evaluation, tabular controls, delayed/branching tasks and their supported-coverage masks.
 3. Run the prescribed PPO real-trainer preflight with three seeds and both entropy protocols. Record actual outcomes and select the route from evidence.
 4. If required, implement/verify the NFSP-style learner, target/reuse comparisons, greedy labels, opening protocol, and deployed-policy gates.
