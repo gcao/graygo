@@ -1,0 +1,9 @@
+# Funded R1 delayed first screen
+
+Seed 0 runs the tabular control followed by the neural learner. Each uses 15M aggregate own-side records, split across both roles and balanced opaque 50/100/200-round controller allocations. The unchanged primary protocol has Q-driven pre-opening, a 5M reservoir opening, 5M–7M hand-off, fixed 7.5M A2 epsilon decay, one 512-target Q update per 512 fresh Q records, independent ordinary-record supervised cadence and 12,800-fresh-record hard refresh. Supplemental episodes remain Q-eligible and entirely excluded from averaging labels.
+
+The source is pinned at `9fefeeea1a343fe5d36f3cb42991b78dd335b001`, SHA `ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e`. The immutable plan beside this document embeds the matching complete-pipeline budget evidence and binds each trial to its budget file hash. Profile forecasts set the control ceiling to 4.25 CPU process-hours and neural ceiling to 4.5, a combined 8.75-hour operational ceiling. They exceed twice the measured forecasts; actual cost will be recorded separately.
+
+Run artifacts are `runs/nfsp-delayed-R1-primary-9fefeee` on `ai`, original PID 2217027. The original process has been observed live in the tabular trial. Do not infer future liveness from this document or a state file; inspect that exact OS handle before considering resume. The RPS first screen runs concurrently under its separate registered plan.
+
+The driver does not select R4 or reset history/opening after a miss. It records the complete final-five Q/greedy/average evidence at the specified intervals; a cap without complete evidence is budget-limited. Only after the applicable R1 decision can the declared paired R4 comparison be selected. These two seed-0 trials do not complete all task families/seeds or authorize a 9×9 pilot. Bounded-game/branching checks, further cohort evidence and the full-study ledger remain active work. No learning outcome is asserted here.

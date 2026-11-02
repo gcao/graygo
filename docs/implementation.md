@@ -83,3 +83,5 @@ Q credit is now evaluated for its own target policy against the actual native op
 ## Current allocations after audited asymmetric results
 
 The source-corrected delayed cost report and partial actual-resource ledger are in `verification/nfsp-delayed-costs-9fefeee.md` and `experiments/resource-ledger.md`. RPS cost profiles passed their explicit gate and its seed-0 primary screen is live. The delayed driver permits only the budget-bound R=1 control/neural first screen; R=4 is not automatically selected by profiling it. All one-seed results remain partial A2 evidence.
+
+The budget-bound seed-0 delayed R=1 control/neural first screen has now launched from the corrected pinned source. Its immutable plan, complete profile hashes and per-case ceilings are in `experiments/nfsp-delayed-R1-primary-plan.json`. RPS and delayed runs have distinct process handles; retain them across continuations and check OS liveness before any resume. Neither allocation automatically advances the project beyond A2.
