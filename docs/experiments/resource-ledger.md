@@ -33,3 +33,8 @@ The generated catalog has 32 geometric pairs but one complete-game strategic cla
 ## First R4 delayed allocation
 
 The frozen plan in `nfsp-delayed-R4-primary-plan.json` inventories fifteen completed tabular control/profile leaf runs by manifest/result/final-checkpoint hashes. Their 10,158.735 process-wall seconds include unused historical profiles. The single first-screen R4 tabular case reserves 18,900 seconds, for 29,058.735 seconds total (8.07187 hours) within the twelve-hour experimental-control ceiling. No remaining cohort is silently funded. Both R4 cases use CPU; the neural case has its own 18,900-second matched-profile ceiling. GPU/campaign prices are not inferred from these numbers.
+
+
+## Scientific-evaluator integration diagnostic
+
+The matched collector completed 384 random-baseline games across one resumed and one uninterrupted small diagnostic. Observed setup/collection clocks were 6.211 and 5.281 seconds; both had zero recovery-gap charge. Startup, read-only analysis, tests and development overhead are not comprehensively summed here. This CPU integration check is separate from the unselected 24k/96k confirmation evaluation and its 16-device-hour scientific/probe-inference envelope. Its source, full scored evidence and exact-resume audit are in `verification/scientific-contrast.md`.

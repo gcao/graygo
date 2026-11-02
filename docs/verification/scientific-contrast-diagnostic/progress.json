@@ -1,0 +1,18 @@
+{
+  "clock": {
+    "committed_blocks": 4,
+    "inflight_since": null,
+    "observed_seconds": 6.211376350896899,
+    "plan_sha256": "fdb3506215a3e9fe5e8b44eea3feed4ec5a7246048bc6fdbf71f717dad472ca4",
+    "recovery_charge_seconds": 0.0,
+    "version": 1
+  },
+  "committed_blocks": 4,
+  "gray_specialization_demonstrated": false,
+  "physical_games": 192,
+  "plan_sha256": "fdb3506215a3e9fe5e8b44eea3feed4ec5a7246048bc6fdbf71f717dad472ca4",
+  "purpose": "diagnostic",
+  "requested_total_games": 192,
+  "scope": "fixed scored scientific contrast; training scope/exposure and independent probe requirements are separate",
+  "status": "complete"
+}

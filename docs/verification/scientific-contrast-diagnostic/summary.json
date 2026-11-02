@@ -1,0 +1,1099 @@
+{
+  "available_blocks": 4,
+  "blocks": 4,
+  "checkpoint_metadata_checked": false,
+  "estimates": {
+    "heldout-gray/empty/interaction/mean3": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/empty/interaction/mean3",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": 6.938893903907228e-18,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 26.506026607720088,
+      "sample_variance": 0.16666666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/empty/interaction/seed200": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/empty/interaction/seed200",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": 0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 26.18455994520263,
+      "sample_variance": 0.0625,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/empty/interaction/seed201": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/empty/interaction/seed201",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": -0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 27.41135206900832,
+      "sample_variance": 0.7291666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/empty/interaction/seed202": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/empty/interaction/seed202",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": 0.0,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 27.870878413992756,
+      "sample_variance": 1.1666666666666667,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/empty/u_E/mean3": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/empty/u_E/mean3",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.08333333333333334,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.486662112931361,
+      "sample_variance": 0.10185185185185185,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/empty/u_E/seed200": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/empty/u_E/seed200",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.0,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.667672492370667,
+      "sample_variance": 0.16666666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/empty/u_E/seed201": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/empty/u_E/seed201",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.0,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 12.838354115349423,
+      "sample_variance": 0.0,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/empty/u_E/seed202": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/empty/u_E/seed202",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.25,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 14.14962160376011,
+      "sample_variance": 0.4166666666666667,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/empty/u_G/mean3": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/empty/u_G/mean3",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.08333333333333334,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.275443278152984,
+      "sample_variance": 0.04629629629629629,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/empty/u_G/seed200": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/empty/u_G/seed200",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.346205829853204,
+      "sample_variance": 0.0625,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/empty/u_G/seed201": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/empty/u_G/seed201",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": -0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 14.572997953658897,
+      "sample_variance": 0.7291666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/empty/u_G/seed202": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/empty/u_G/seed202",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.25,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.854057544356987,
+      "sample_variance": 0.25,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/exposure/interaction/mean3": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/exposure/interaction/mean3",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": 6.938893903907228e-18,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 26.506026607720088,
+      "sample_variance": 0.16666666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/exposure/interaction/seed200": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/exposure/interaction/seed200",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": 0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 26.18455994520263,
+      "sample_variance": 0.0625,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/exposure/interaction/seed201": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/exposure/interaction/seed201",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": -0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 27.41135206900832,
+      "sample_variance": 0.7291666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/exposure/interaction/seed202": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/exposure/interaction/seed202",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": 0.0,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 27.870878413992756,
+      "sample_variance": 1.1666666666666667,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/exposure/u_E/mean3": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/exposure/u_E/mean3",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.08333333333333334,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.486662112931361,
+      "sample_variance": 0.10185185185185185,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/exposure/u_E/seed200": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/exposure/u_E/seed200",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.0,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.667672492370667,
+      "sample_variance": 0.16666666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/exposure/u_E/seed201": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/exposure/u_E/seed201",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.0,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 12.838354115349423,
+      "sample_variance": 0.0,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/exposure/u_E/seed202": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/exposure/u_E/seed202",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.25,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 14.14962160376011,
+      "sample_variance": 0.4166666666666667,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/exposure/u_G/mean3": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/exposure/u_G/mean3",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.08333333333333334,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.275443278152984,
+      "sample_variance": 0.04629629629629629,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/exposure/u_G/seed200": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/exposure/u_G/seed200",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.346205829853204,
+      "sample_variance": 0.0625,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/exposure/u_G/seed201": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/exposure/u_G/seed201",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": -0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 14.572997953658897,
+      "sample_variance": 0.7291666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "heldout-gray/exposure/u_G/seed202": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "heldout-gray/exposure/u_G/seed202",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.25,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.854057544356987,
+      "sample_variance": 0.25,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/empty/interaction/mean3": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/empty/interaction/mean3",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": 0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 26.427433521273862,
+      "sample_variance": 0.13657407407407407,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/empty/interaction/seed200": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/empty/interaction/seed200",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": -0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 26.18455994520263,
+      "sample_variance": 0.0625,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/empty/interaction/seed201": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/empty/interaction/seed201",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": -0.25,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 27.62163222344466,
+      "sample_variance": 0.9166666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/empty/interaction/seed202": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/empty/interaction/seed202",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": 0.75,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 26.69241165970641,
+      "sample_variance": 0.25,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/empty/u_E/mean3": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/empty/u_E/mean3",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.16666666666666666,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.712532440956547,
+      "sample_variance": 0.1851851851851852,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/empty/u_E/seed200": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/empty/u_E/seed200",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.0,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 14.496990869391908,
+      "sample_variance": 0.6666666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/empty/u_E/seed201": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/empty/u_E/seed201",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.75,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.854057544356987,
+      "sample_variance": 0.25,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/empty/u_E/seed202": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/empty/u_E/seed202",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": -0.25,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.854057544356987,
+      "sample_variance": 0.25,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/empty/u_G/mean3": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/empty/u_G/mean3",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.2916666666666667,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.956995001592228,
+      "sample_variance": 0.3032407407407407,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/empty/u_G/seed200": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/empty/u_G/seed200",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": -0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 14.572997953658897,
+      "sample_variance": 0.7291666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/empty/u_G/seed201": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/empty/u_G/seed201",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.5,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 14.011187411658108,
+      "sample_variance": 0.3333333333333333,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/empty/u_G/seed202": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/empty/u_G/seed202",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.5,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 14.011187411658108,
+      "sample_variance": 0.3333333333333333,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/exposure/interaction/mean3": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/exposure/interaction/mean3",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": 0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 26.427433521273862,
+      "sample_variance": 0.13657407407407407,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/exposure/interaction/seed200": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/exposure/interaction/seed200",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": -0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 26.18455994520263,
+      "sample_variance": 0.0625,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/exposure/interaction/seed201": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/exposure/interaction/seed201",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": -0.25,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 27.62163222344466,
+      "sample_variance": 0.9166666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/exposure/interaction/seed202": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/exposure/interaction/seed202",
+      "independent_units": 4,
+      "lower": -2.0,
+      "mean": 0.75,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 26.69241165970641,
+      "sample_variance": 0.25,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -2.0,
+        2.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/exposure/u_E/mean3": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/exposure/u_E/mean3",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.16666666666666666,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.712532440956547,
+      "sample_variance": 0.1851851851851852,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/exposure/u_E/seed200": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/exposure/u_E/seed200",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.0,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 14.496990869391908,
+      "sample_variance": 0.6666666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/exposure/u_E/seed201": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/exposure/u_E/seed201",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.75,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.854057544356987,
+      "sample_variance": 0.25,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/exposure/u_E/seed202": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/exposure/u_E/seed202",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": -0.25,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.854057544356987,
+      "sample_variance": 0.25,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/exposure/u_G/mean3": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/exposure/u_G/mean3",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.2916666666666667,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 13.956995001592228,
+      "sample_variance": 0.3032407407407407,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/exposure/u_G/seed200": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/exposure/u_G/seed200",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": -0.125,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 14.572997953658897,
+      "sample_variance": 0.7291666666666666,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/exposure/u_G/seed201": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/exposure/u_G/seed201",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.5,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 14.011187411658108,
+      "sample_variance": 0.3333333333333333,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    },
+    "official-empty/exposure/u_G/seed202": {
+      "blocks": 4,
+      "comparisons": 96,
+      "delta": 0.0005208333333333333,
+      "endpoint": "official-empty/exposure/u_G/seed202",
+      "independent_units": 4,
+      "lower": -1.0,
+      "mean": 0.5,
+      "method": "graygo/empirical-bernstein/1",
+      "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+      "radius": 14.011187411658108,
+      "sample_variance": 0.3333333333333333,
+      "simultaneous_alpha": 0.05,
+      "support": [
+        -1.0,
+        1.0
+      ],
+      "total_physical_games": 192,
+      "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+    }
+  },
+  "evidence_sha256": "4cbb516258cb8f65701a481abeda62c1de861c1c102da003687ba72fc4be7178",
+  "gray_specialization_demonstrated": false,
+  "independent_probe_coverage_verified": false,
+  "matched_training_exposure_verified": false,
+  "numerical_performance_pass": false,
+  "physical_games": 192,
+  "plan_sha256": "fdb3506215a3e9fe5e8b44eea3feed4ec5a7246048bc6fdbf71f717dad472ca4",
+  "primary": {
+    "aggregate_bounds": {
+      "interaction": {
+        "blocks": 4,
+        "comparisons": 96,
+        "delta": 0.0005208333333333333,
+        "endpoint": "official-empty/exposure/interaction/mean3",
+        "independent_units": 4,
+        "lower": -2.0,
+        "mean": 0.125,
+        "method": "graygo/empirical-bernstein/1",
+        "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+        "radius": 26.427433521273862,
+        "sample_variance": 0.13657407407407407,
+        "simultaneous_alpha": 0.05,
+        "support": [
+          -2.0,
+          2.0
+        ],
+        "total_physical_games": 192,
+        "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+      },
+      "u_G": {
+        "blocks": 4,
+        "comparisons": 96,
+        "delta": 0.0005208333333333333,
+        "endpoint": "official-empty/exposure/u_G/mean3",
+        "independent_units": 4,
+        "lower": -1.0,
+        "mean": 0.2916666666666667,
+        "method": "graygo/empirical-bernstein/1",
+        "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+        "radius": 13.956995001592228,
+        "sample_variance": 0.3032407407407407,
+        "simultaneous_alpha": 0.05,
+        "support": [
+          -1.0,
+          1.0
+        ],
+        "total_physical_games": 192,
+        "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+      }
+    },
+    "all_seed_points_positive": false,
+    "numerical_pass": false,
+    "seed_point_estimates": {
+      "200": {
+        "interaction": -0.125,
+        "u_G": -0.125
+      },
+      "201": {
+        "interaction": -0.25,
+        "u_G": 0.5
+      },
+      "202": {
+        "interaction": 0.75,
+        "u_G": 0.5
+      }
+    }
+  },
+  "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+  "purpose": "diagnostic",
+  "scope": "conditional fixed-cohort numerical contrast; A2, training provenance/scope, matched exposure and independent probe coverage remain separate prerequisites",
+  "secondary": {
+    "aggregate_bounds": {
+      "interaction": {
+        "blocks": 4,
+        "comparisons": 96,
+        "delta": 0.0005208333333333333,
+        "endpoint": "official-empty/empty/interaction/mean3",
+        "independent_units": 4,
+        "lower": -2.0,
+        "mean": 0.125,
+        "method": "graygo/empirical-bernstein/1",
+        "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+        "radius": 26.427433521273862,
+        "sample_variance": 0.13657407407407407,
+        "simultaneous_alpha": 0.05,
+        "support": [
+          -2.0,
+          2.0
+        ],
+        "total_physical_games": 192,
+        "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+      },
+      "u_G": {
+        "blocks": 4,
+        "comparisons": 96,
+        "delta": 0.0005208333333333333,
+        "endpoint": "official-empty/empty/u_G/mean3",
+        "independent_units": 4,
+        "lower": -1.0,
+        "mean": 0.2916666666666667,
+        "method": "graygo/empirical-bernstein/1",
+        "protocol_sha256": "974ffdf2ea93ea152c5f0052218b2385e26293cbba6865498d2f2223524d2b31",
+        "radius": 13.956995001592228,
+        "sample_variance": 0.3032407407407407,
+        "simultaneous_alpha": 0.05,
+        "support": [
+          -1.0,
+          1.0
+        ],
+        "total_physical_games": 192,
+        "unit": "matched 48-game block; seed-specific endpoints retain the same block grouping"
+      }
+    },
+    "all_seed_points_positive": false,
+    "numerical_pass": false,
+    "seed_point_estimates": {
+      "200": {
+        "interaction": -0.125,
+        "u_G": -0.125
+      },
+      "201": {
+        "interaction": -0.25,
+        "u_G": 0.5
+      },
+      "202": {
+        "interaction": 0.75,
+        "u_G": 0.5
+      }
+    }
+  },
+  "training_scope_approval_verified": false,
+  "version": "graygo/scientific-contrast-summary/1"
+}

@@ -1,0 +1,14 @@
+{
+  "empty/gray/200": "baseline:random",
+  "empty/gray/201": "baseline:random",
+  "empty/gray/202": "baseline:random",
+  "empty/remove/200": "baseline:random",
+  "empty/remove/201": "baseline:random",
+  "empty/remove/202": "baseline:random",
+  "exposure/gray/200": "baseline:random",
+  "exposure/gray/201": "baseline:random",
+  "exposure/gray/202": "baseline:random",
+  "exposure/remove/200": "baseline:random",
+  "exposure/remove/201": "baseline:random",
+  "exposure/remove/202": "baseline:random"
+}

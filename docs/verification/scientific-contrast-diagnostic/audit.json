@@ -1,0 +1,23 @@
+{
+  "artifact_sha256": {
+    "plan.json": "39062c4b1afea8385cc4e8f50d483d7dbbe0a33fe6eb2e35d294a26726404bc8",
+    "progress.json": "e08e87019ae14bdfcc710bdc909e0963b489c5fbd891c14e0e5d1d4df147506d",
+    "run.json": "b7bfa5686de067d6656cf46ff3fb33a7c78a280a972f4be8444f539c61bf01ba",
+    "summary.json": "421d191e68bc4b7fdb170f08f1857f39cea469dfb1be1fae53411b57ae020971"
+  },
+  "combined_actual_games": 384,
+  "committed_blocks_each_run": 4,
+  "evidence_sha256": "4cbb516258cb8f65701a481abeda62c1de861c1c102da003687ba72fc4be7178",
+  "gray_specialization_demonstrated": false,
+  "observed_resumed_collection_setup_seconds": 6.211376350896899,
+  "physical_games_each_run": 192,
+  "plan_sha256": "fdb3506215a3e9fe5e8b44eea3feed4ec5a7246048bc6fdbf71f717dad472ca4",
+  "primary_numerical_pass": false,
+  "purpose": "diagnostic",
+  "read_only_cli_matches": true,
+  "recovery_charge_seconds": 0.0,
+  "resumed_matches_uninterrupted": true,
+  "scope": "random-baseline evaluator integration and exact resume only; arm/seed labels are not trained replicas; no A2/scope/power/performance claim",
+  "source_sha256": "8293daffd44af5219208647e14896e64fe6a154453fd0e51c2c2b3649727835c",
+  "verified": true
+}
