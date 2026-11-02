@@ -1,0 +1,28 @@
+{
+  "attempt_cap": 200000,
+  "candidate_policy_used": false,
+  "certificate_budget": {
+    "max_actions": 6,
+    "max_vertex_bases": 50000,
+    "max_vertex_pairs": 250000,
+    "max_vertices": 1024
+  },
+  "directions": {
+    "decrease": 16,
+    "increase": 16
+  },
+  "generator": "graygo/reachable-multigroup-collision-probes/1",
+  "generator_scope": "multigroup three-faction single-cell changes; one accepted pair per complete base/remove game class",
+  "required_strategic_families": 32,
+  "rules": {
+    "collision": "gray",
+    "max_rounds": 200,
+    "size": 9
+  },
+  "scope": "reachable default-game round-199 benchmark construction; no learner or gray-specialization result",
+  "seed": 974214,
+  "source_sha256": "8376aead9575a4ff63ec35c1f78ff0ab1ca847c1f1f6b4218ad8e036463b505b",
+  "target_geometric_pairs": 32,
+  "time_ceiling_seconds": 1800.0,
+  "version": "graygo/collision-probe-construction/1"
+}
