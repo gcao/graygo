@@ -139,3 +139,15 @@ Neural subjects use `--subject neural --subject-archive PATH --representation av
 ```
 
 The full joint simulator includes zero/+0.03/nontransitive/regression/floor and missing-readiness cases, with separately bounded simulation uncertainty. It preserves infeasible or underpowered outcomes as `not_calibrated`. The provided small baseline variance pilot is not a qualified promotion calibration. Actual promotion decisions still require the verified project-level A2 and 9×9-smoke bridge. See [procedure and limits](docs/verification/protected-promotion.md).
+
+## Real-board collection and bounded learner profiling
+
+`BoardNFSPRuntime` combines private batched commitments, complete public rule-state replay, independent Q/average networks, the fixed 40M epsilon clock, exact optimizer/refresh counters, and episode-frozen actors. A checkpoint preserves active environments, their old policy versions, both buffers, augmentation/private RNGs and optimizer state. CPU and CUDA continuation are tested, including the full 64-channel/eight-block CUDA model.
+
+```sh
+.venv/bin/graygo profile-board --run-dir runs/board-hardware-R1 --device cuda --envs 16 --records 16384 --q-reuse 1 --native-library PATH_FROM_BUILD --seed 17 --time-cap-hours .2
+```
+
+This command measures two fresh, bounded hardware phases: closed-reservoir collection and a diagnostic early opening to exercise supervised updates and average-policy acting. It retains the logical batch of 512, target refresh at 12,800 fresh records, paired geometric augmentation and strict native decoder. Each phase records game/gray/restriction statistics, Q/SL work, checkpoint write/restore, memory and small paired evaluation timings. Check the coverage flags: a short or interrupted profile may not exercise every component. The total record cap is 65,536 and the total time ceiling cannot exceed one hour. Inspect its original process and output before starting another measurement; the CLI does not silently resume or overwrite a profile.
+
+The diagnostic early opening is explicitly different from the production 5M–7M hand-off. These untrained game lengths and acting proportions do not establish a full campaign price or training strength. The component is not the production development/confirmation controller: A2 readiness, fixed milestone evaluation, label-opening authorization, cohort decisions and resource allocation still need that integration. See [runtime verification](docs/verification/board-runtime.md).

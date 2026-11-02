@@ -123,6 +123,15 @@ def profile_buffers(args):
                      iterations=args.iterations,batch=args.batch,seed=args.seed,storage=args.storage,native_library=args.native_library)
 
 
+def profile_board(args):
+    from .board_profile import profile_board as benchmark
+    from .board_runtime import BoardRuntimeConfig
+    config=BoardRuntimeConfig(rules=_rules(args),envs=args.envs,seed=args.seed,device=args.device,
+                              q_reuse=args.q_reuse,native_library=args.native_library)
+    return benchmark(config,args.run_dir,records=args.records,time_cap_seconds=args.time_cap_hours*3600,
+                     stop_requested=_signal_flag())
+
+
 def train_matrix(args):
     from .matrix_training import MatrixPPOConfig,MatrixPPOTrainer
     config=MatrixPPOConfig(task=args.task,seed=args.seed,records=args.records,rollout=args.rollout,
@@ -281,7 +290,7 @@ def calibrate_promotion(args):
 def main(argv=None):
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
@@ -323,6 +332,11 @@ def main(argv=None):
             p.add_argument("--buffer-dir",required=True);p.add_argument("--capacity",type=int,default=500000)
             p.add_argument("--records",type=int,default=10000);p.add_argument("--iterations",type=int,default=50)
             p.add_argument("--batch",type=int,default=512)
+        elif name=="profile-board":
+            p.add_argument("--run-dir",required=True);p.add_argument("--records",type=int,default=16384)
+            p.add_argument("--time-cap-hours",type=float,required=True);p.add_argument("--device",default="cpu")
+            p.add_argument("--envs",type=int,default=16);p.add_argument("--q-reuse",type=int,choices=(1,4),default=1)
+            p.add_argument("--native-library")
         elif name=="train-nfsp-task":
             p.add_argument("--native-library")
             p.add_argument("--storage",choices=("features","rule-state"),default="features")

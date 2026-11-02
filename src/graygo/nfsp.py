@@ -191,7 +191,7 @@ class NFSPBackend:
     @property
     def average_ready(self):return self.counters.supervised_updates>0
 
-    def learn_after_fresh(self,count,ordinary,replay,reservoir,rng,*,epsilon,supervised_rng=None,sample_observer=None,q_observer=None):
+    def learn_after_fresh(self,count,ordinary,replay,reservoir,rng,*,epsilon,supervised_rng=None,sample_observer=None,q_observer=None,q_transform=None,supervised_transform=None):
         if replay.spec!=reservoir.spec:raise ValueError('replay and reservoir schemas differ')
         # Validate available samples before advancing a recoverable clock.
         if replay.insertions!=self.counters.fresh_q+count:
@@ -203,6 +203,7 @@ class NFSPBackend:
         if q_due:
             for _ in range(self.config.q_reuse):
                 data=replay.sample(self.config.batch,rng)
+                if q_transform is not None:data=q_transform(data)
                 if sample_observer is not None:sample_observer(data)
                 batch=OneStepBatch.from_replay(data,self.device)
                 callback=None if q_observer is None else lambda prediction,b: q_observer(data,prediction,b,epsilon)
@@ -214,6 +215,7 @@ class NFSPBackend:
                 report['supervised']={'loss':None,'targets':reservoir.size,'method':'exact reservoir conditional label mean'}
             else:
                 data=reservoir.sample(self.config.batch,rng if supervised_rng is None else supervised_rng)
+                if supervised_transform is not None:data=supervised_transform(data)
                 report['supervised']=update_average(self.average,self.average_optimizer,data,device=self.device,max_grad_norm=self.config.max_grad_norm)
             self.counters.supervised_updates+=1;self.counters.supervised_targets+=report['supervised']['targets']
         if refresh:

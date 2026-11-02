@@ -122,7 +122,7 @@ class JointEpisode:
         if black.rng is white.rng:raise ValueError('players require independent private action RNG streams')
         self.log=[]
 
-    def step(self,replay,reservoir,reservoir_rng,schedule,*,record,opening_enabled=True,on_reservoir_change=None,label_rule='greedy'):
+    def step(self,replay,reservoir,reservoir_rng,schedule,*,record,opening_enabled=True,on_reservoir_change=None,label_rule='greedy',precommitted=None):
         if self.game.terminal(self.state):raise ValueError('episode is complete')
         if label_rule not in ('greedy','executed'):raise ValueError('invalid averaging-label control')
         if type(record) is not int or record<0:raise ValueError('nonnegative aggregate record clock required')
@@ -131,12 +131,16 @@ class JointEpisode:
         if reservoir.opening_record!=schedule.reservoir_open:
             raise ValueError('reservoir storage and acting schedule disagree on opening')
         observations={role:self.game.observation(self.state,role) for role in (BLACK,WHITE)}
-        commitments={}
+        commitments={} if precommitted is None else dict(precommitted)
+        if precommitted is not None and set(commitments)!={BLACK,WHITE}:raise ValueError('both simultaneous commitments required')
         for role in (BLACK,WHITE):
             actor=self.actors[role]
             eligible=schedule.label_eligible(actor.choice,record,supplemental=self.supplemental,opening_enabled=opening_enabled)
             forced=self.forced_root[1] if self.steps==0 and self.forced_root is not None and self.forced_root[0]==role else None
-            commitments[role]=actor.commit(observations[role],label_eligible=eligible,forced_action=forced,supplemental=self.supplemental)
+            if precommitted is None:commitments[role]=actor.commit(observations[role],label_eligible=eligible,forced_action=forced,supplemental=self.supplemental)
+            else:
+                own=commitments[role]
+                if own.policy_version!=actor.version or own.logical_best_response!=actor.choice.best_response_mode or own.acting_policy!=actor.choice.acting_policy or (own.greedy is not None)!=eligible or own.forced!=(forced is not None):raise ValueError('precommitted actor/mode/label context differs')
         # Both commitments are complete before transition sees either action.
         next_state=self.game.transition(self.state,commitments[BLACK].action,commitments[WHITE].action)
         done=self.game.terminal(next_state)
@@ -183,3 +187,42 @@ class JointEpisode:
             raise ValueError('invalid episode step/log checkpoint')
         result.steps=state['steps'];result.log=deepcopy(state['log'])
         return result
+
+
+@torch.no_grad()
+def commit_many(requests):
+    """Batch public inference by immutable version/policy; sample private RNGs."""
+    if not requests:return []
+    groups={};output=[None]*len(requests)
+    for index,(actor,observation,eligible) in enumerate(requests):
+        if eligible and not actor.choice.best_response_mode:raise ValueError('average fallback cannot create labels')
+        key=(actor.snapshot.version,actor.choice.acting_policy)
+        group=groups.setdefault(key,[])
+        if group and requests[group[0]][0].snapshot is not actor.snapshot:raise ValueError('one version cannot identify different snapshots')
+        group.append(index)
+    for key in sorted(groups):
+        indices=groups[key];actors=[requests[i][0] for i in indices];observations=[requests[i][1] for i in indices]
+        snapshot=actors[0].snapshot;device=snapshot.device;kind=key[1]
+        legal=torch.tensor(np.stack([o.legal for o in observations]),device=device,dtype=torch.bool)
+        inputs={'spatial':torch.tensor(np.stack([o.spatial for o in observations]),device=device,dtype=torch.float32),
+                'globals':torch.tensor(np.stack([o.global_features for o in observations]),device=device,dtype=torch.float32)}
+        greedy=None
+        if kind=='q':
+            q=snapshot.q(**inputs)
+            if q.shape!=legal.shape or not bool(torch.isfinite(q[legal]).all()) or bool((q[legal].abs()>1+1e-6).any()):raise ValueError('invalid batched legal Q values')
+            eps=torch.tensor([a.choice.epsilon for a in actors],device=device,dtype=q.dtype)
+            probabilities=epsilon_greedy_distribution(q,legal,eps)
+            greedy=(greedy_distribution(q,legal)>0).cpu().numpy()
+        elif kind=='average':
+            logits=snapshot.average(**inputs)
+            if logits.shape!=legal.shape or bool(torch.isnan(logits[legal]).any()) or bool(torch.isposinf(logits[legal]).any()):raise ValueError('invalid batched actor logits')
+            probabilities=masked_log_probs(logits,legal).exp()
+        elif kind=='uniform':probabilities=legal.float()/legal.sum(-1,keepdim=True)
+        else:raise ValueError('unknown batched acting policy')
+        probabilities=probabilities.double().cpu().numpy()
+        for local,index in enumerate(indices):
+            actor,_,eligible=requests[index];drawn,mu=draw_actions(probabilities[local:local+1],actor.rng)
+            label=None if not eligible else greedy[local].copy()
+            if label is not None:label.flags.writeable=False
+            output[index]=Commitment(int(drawn[0]),float(mu[0]),label,actor.choice.best_response_mode,kind,actor.version,actor.choice.epsilon,False)
+    return output
