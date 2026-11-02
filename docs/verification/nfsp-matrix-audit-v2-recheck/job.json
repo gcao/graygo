@@ -1,0 +1,32 @@
+{
+  "allocation_sha256": "e45aa17e44cde10910966d6d02cc194714911ecd60da03f479a884ef67559010",
+  "audit_pid": 2503921,
+  "audit_sha256": "67edf425c4725559382c2cfa0dd9c1a7dfcbd1a07e58fba22f2629e9ff21649b",
+  "audit_watchdog_seconds": 600,
+  "auditor_commit": "b2608fa57f638c4820da28619f7eb0b6723a3080",
+  "auditor_sha256": "7a9898ba046fdb4aa638c0ddbc92ccb721b362a6b0767eb38d8723802f30f728",
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "/home/gcao/proj/graygo/.worktrees/matrix-audit-v2-b2608fa/tools/audit_nfsp_matrix.py",
+    "/home/gcao/proj/graygo/runs/nfsp-asymmetric-primary-6a92132/tabular",
+    "--time-cap-seconds",
+    "600",
+    "--output",
+    "/home/gcao/proj/graygo/runs/matrix-audit-v2-asymmetric-tabular-b2608fa/audit.json"
+  ],
+  "driver_sha256": "b5187e4b00da08237f62f263f516dfc9468b4f46053c132fc12b8502f371b215",
+  "measured_driver_seconds": 8.587573402037378,
+  "new_learning_records": 0,
+  "new_source_reuse_approved": false,
+  "original_driver_pid": 2503918,
+  "original_final_five_grade_reproduced": true,
+  "original_inputs_unchanged": true,
+  "original_trial": "/home/gcao/proj/graygo/runs/nfsp-asymmetric-primary-6a92132/tabular",
+  "outer_watchdog_seconds": 660,
+  "previous_audit_sha256": "83d73db1362ae0b2d92291c8dfee9f0071f3296286a49405b8b02e37c180b5a7",
+  "records": 15000000,
+  "returncode": 0,
+  "status": "verified",
+  "training_source_sha256": "4c13ba875326ed1f843cb3ca31433063e72793cb8a677d4968a0652766eb3e0c",
+  "version": 1
+}

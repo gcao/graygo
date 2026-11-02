@@ -125,3 +125,8 @@ The [retained evidence](../verification/probe-policy-cli-diagnostic/README.md) c
 The fresh corrected seed-0 table completed all 15M records in **7,431.799159 CPU process-wall seconds**, with its independent read-only audit verified and original inputs unchanged. The [settlement](nfsp-eligibility-R1-tabular-settlement.json) replaces the 15,300-second reservation, releasing 7,868.200841 seconds. Nineteen recorded experimental control/profile leaves now total **26,906.862258 seconds (7.474128 hours)**, leaving **16,293.137742 seconds (4.525872 hours) unallocated** within the twelve-hour ceiling.
 
 The independent audit driver adds **32.506782 measured seconds** under its separate 600-second watchdog; setup/import/test/development overhead remains additional. The table misses supported credit and deployment readiness while greedy gaps are zero. The already allocated fresh neural case continues under original driver PID 2444001; no new cohort, reuse, target, extension or board work follows from this settlement.
+
+
+## Matrix audit v2 historical verification settled
+
+One predeclared read-only recheck of the original full 15M-record asymmetric tabular case completed in **8.587573 measured CPU driver seconds** under its 600/660-second watchdogs. Its [receipt and settlement](matrix-audit-v2-historical-recheck-settlement.json) reproduce the old numerical grade, retain original input checksums and keep one unresolved historical greedy label explicit. This is verification overhead, not another control trial, new learner source-reuse approval, A2 cohort or accelerator/campaign price. No original training handle was restarted.

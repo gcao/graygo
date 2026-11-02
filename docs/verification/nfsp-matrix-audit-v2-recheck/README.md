@@ -1,0 +1,11 @@
+# Full historical matrix receipt recheck
+
+The predeclared single read-only recheck is terminal and verified. Original audit driver PID **2503918**, child PID **2503921**, return code zero. Clean auditor commit `b2608fa57f638c4820da28619f7eb0b6723a3080` / script `7a9898ba046fdb4aa638c0ddbc92ccb721b362a6b0767eb38d8723802f30f728` ran against the original frozen training package `4c13ba875326ed1f843cb3ca31433063e72793cb8a677d4968a0652766eb3e0c`. It did not resume or retrain the old trial.
+
+The full original asymmetric seed-0 tabular case retains **15M records**, 7.5M physical one-round games, all thirty scheduled model archives, the complete episode log and its bounded buffers. New audit v2 reproduces every original final-five security gap and the historical numerical pass, checks the full mode/RNG/Algorithm-R/replay accounting and binds every input. It checks **2,336 private own-side actions** through the next update batch after archived boundaries and every retained 200k replay/label record. Every original file checksum remains unchanged.
+
+Measured driver time is **8.587573 CPU seconds**, below its 600-second audit / 660-second outer watchdog. Imports, tests and development outside that interval remain additional; this is verification overhead, not a new control trial or campaign price.
+
+One overwritten historical greedy target remains unresolved in the publication tail. The new receipt preserves its exact role/count and necessary simplex bounds; whole-table historical-mean verification is false. This does not change the exact deployed-policy security gaps recomputed from actual archived weights. The old report and original result remain intact, and no label is invented to close that history gap.
+
+The [new receipt](audit.json), [durable job/command](job.json), [exact auditor](audit_nfsp_matrix.py), [driver](driver.py), [original input hashes](original-inputs.json), [original manifest](original-run.json), [original result](original-result.json), [previous audit](previous-audit.json) and [snapshot checksums](snapshot.json) are retained. This is one historical task/seed, not a complete A2 cohort and not approval to reuse it for a changed learner implementation. See the [allocation](../../experiments/matrix-audit-v2-historical-recheck-allocation.json).

@@ -1,0 +1,16 @@
+{
+  "copied_files_sha256": {
+    "audit.json": "67edf425c4725559382c2cfa0dd9c1a7dfcbd1a07e58fba22f2629e9ff21649b",
+    "audit_nfsp_matrix.py": "7a9898ba046fdb4aa638c0ddbc92ccb721b362a6b0767eb38d8723802f30f728",
+    "driver.py": "b5187e4b00da08237f62f263f516dfc9468b4f46053c132fc12b8502f371b215",
+    "job.json": "751c9d089313651035f0874da789d2f08a85f21241054254e647ebfbf4822e04",
+    "original-inputs.json": "3a05f9c40d5f5de445187c10139cd4ce133c8ee22c0d1fdee3830543240cef66",
+    "original-result.json": "4dfd6fb0c299e21c2949fe45e700e33f997af0b00cc23cda0cbd34c94fe30516",
+    "original-run.json": "b599d5918394a3e4ae5c15328d2a0b08ebe7cbac0d743abafd248dd605db3ec6",
+    "previous-audit.json": "83d73db1362ae0b2d92291c8dfee9f0071f3296286a49405b8b02e37c180b5a7"
+  },
+  "new_learning_records": 0,
+  "original_root": "/home/gcao/proj/graygo/runs/matrix-audit-v2-asymmetric-tabular-b2608fa",
+  "original_trial_inputs_unchanged": true,
+  "version": 1
+}

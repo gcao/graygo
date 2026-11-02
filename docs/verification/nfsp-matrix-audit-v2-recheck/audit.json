@@ -1,0 +1,465 @@
+{
+  "a2_complete": false,
+  "accepted_reservoir_changes": 521518,
+  "archive_boundary_actions_reconstructed": 2336,
+  "archive_boundary_greedy_targets_verified": 25,
+  "archive_manifests_sha256": {
+    "1000000": "72a2739ed026482ba654168c9d0335e22d6b0e66a3068258e0178a4b4f8d7a2d",
+    "10000000": "689b55f6a859c1a845b4f646197aeee615e448c118c35a83ddabf151c48c0e15",
+    "10500000": "10f6db4f92846bb312e819c0d86c225269819ba249b0b1bc60588e975f12c56e",
+    "11000000": "2a171e178729efe7d54ee260018416cf3138bd0b4b82fa4fc2833fe29dab5096",
+    "11500000": "230877fdaa6b4659c5972ba821a56964e4c4b4bc017fa6ef97b898d4e1a7d124",
+    "12000000": "72f31b03de977075c77aa8b8487a3e7a5df48cf0e7cadfefbdc371b6c102e070",
+    "12500000": "dd9f4f1c9edeea232163cfe038fed0f8f00fd060d32b8e860d89289f3754d3f2",
+    "13000000": "d9f978fb7a1406d543f4f9e47390bf28ab08d5f58d5848c43a9b36324fba6116",
+    "13500000": "57e3f356f97c03b72fff7f1be3f3ab59896fd5fde3bbf8e275139367240cd8e0",
+    "14000000": "1c4c7d62655830460a9482e5d1d1aa0cf2263169fc50dfe32dbc98b341f40d4d",
+    "14500000": "fa3ba074c15d195e41a68fa5d1edf42e71e5c625e8a276b3e5c35452d861e72e",
+    "1500000": "7a546e8c9b5882b563b9995f73b6258319b9d1be72939ee68df83ea7b8c964ce",
+    "15000000": "897bcfec22e72e64127e492b3a75d3dd4f421ba0a53d8a055ed800b7c766a585",
+    "2000000": "cd4f684c38923b34bcf2cf9b9e5e10fdadb7fbc3a281f5584a11c6fdf7169311",
+    "2500000": "1667cb0d89bb28e3aba287485d0fd77249fc502fee7b5a7c4d5679b52453d508",
+    "3000000": "efec8d7f494c2413123619918da4ccee36e8569748784fc77bdbf88a4e9e05cb",
+    "3500000": "d70a39f12a8988461c291f2dd3813cee56ce8af521a14a02fa40a1b8d1c8951c",
+    "4000000": "cd3c2cf8d235cc60e44e93fddafdce2a0efc0a3f208a3cf00263821fd72f58a6",
+    "4500000": "948fc2b821418b04300ff720e5735549a2d66daa9bae39533b4980e16fa2a88f",
+    "500000": "f0102b9c0f35d69903e1e025d53a212a7289dd867dea468f6e71f2d42d556b4e",
+    "5000000": "7f5f9219b6b337bfa202bbf3338be61d8dcf451a9d9dac069ab3f2fa3a2f20c2",
+    "5500000": "fd63856673686ef4e320053d56bc1769dd8865572b3e10838d6325fb1605e06b",
+    "6000000": "2c3fb620f0b987dff5d5f60c02d6ae2c44ef6534b8396d36ef4f9298164e9e45",
+    "6500000": "4874120cd4e5261f9a937d674ef77fe92ff74893cd2c68ce055fedee25e43fa2",
+    "7000000": "1d67631dfe4186560ab93192b5a0f4e64b6e1ec233392f0d6ac382140ab4777f",
+    "7500000": "c8d0d98047f3146231a41ac955ddcd70becc876a60a1d68e2d8f81bfa8b083cc",
+    "8000000": "509846db2bdeaeb6625b88c984e106db3030176b755fba387c5c9259d6e05060",
+    "8500000": "1b8c8f01935fd056156fafa0ee13bff841d509114f35b6e4052e6f48a2384521",
+    "9000000": "48bded4e24c9549375c80e2c69fb3d60e9c961fec71df8efcc1793a1236f5578",
+    "9500000": "0b5267724274105bd268dc07c4b8a0c4d12e83b4f071932214db2eecc8bda041"
+  },
+  "audit_semantics": "graygo/independent-matrix-audit/2",
+  "audit_watchdog_seconds": 600,
+  "auditor_sha256": "7a9898ba046fdb4aa638c0ddbc92ccb721b362a6b0767eb38d8723802f30f728",
+  "average_final_five_passed": true,
+  "checkpoint_manifest_sha256": "e73aaf8788f0337b4ac3f1bbf95c2ee4088e7d3eddc5a06aa67dd1f8be2f3f88",
+  "eligibility_version": 1,
+  "eligible_labels": 997988,
+  "episode_audit_sha256": "cd140e0dd67563812b5a4c7ff496d5675370e2dfe1adc64db3b0c2bd26cedf44",
+  "exact_published_mean_roles": [
+    1
+  ],
+  "excluded_passive_root_records": 0,
+  "final_five_gaps": [
+    [
+      0.022524661490030295,
+      0.02226564673752518
+    ],
+    [
+      0.03767656191172869,
+      0.0064345376499217455
+    ],
+    [
+      0.019416704591315392,
+      0.009294883678480859
+    ],
+    [
+      0.010133351268046265,
+      0.00919036637386994
+    ],
+    [
+      0.020490488885325453,
+      0.01760520216547834
+    ]
+  ],
+  "first_supervised_record": 5001472,
+  "formal_protocol": true,
+  "format_version": 2,
+  "label_rule": "greedy",
+  "last_supervised_record": 14999936,
+  "learner": "tabular",
+  "manifest_sha256": "b599d5918394a3e4ae5c15328d2a0b08ebe7cbac0d743abafd248dd605db3ec6",
+  "measured_audit_entry_wall_seconds": 5.985165407997556,
+  "method": "checksummed model reconstruction; closed-form security gaps; all episode mode/ramp/RNG accounting; exact Algorithm R and retained replay audit",
+  "physical_games": 7500000,
+  "published_label_counts_per_role": [
+    99778,
+    100222
+  ],
+  "published_mean_scope": "executed labels recover exactly from permanent actions; missing replaced greedy targets retain necessary simplex bounds",
+  "published_tabular_mean_interval_checked": true,
+  "published_tabular_mean_verified": false,
+  "q_eligible_records": 15000000,
+  "q_updates": 117156,
+  "records": 15000000,
+  "result_sha256": "4dfd6fb0c299e21c2949fe45e700e33f997af0b00cc23cda0cbd34c94fe30516",
+  "retained_executed_label_targets_verified": 0,
+  "retained_label_records_checked": 200000,
+  "retained_replay_records_checked": 200000,
+  "scheduled_evaluations": [
+    {
+      "average_gaps": [
+        0.10714285714285715,
+        0.14285714285714285
+      ],
+      "average_ready": false,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 500000
+    },
+    {
+      "average_gaps": [
+        0.10714285714285715,
+        0.14285714285714285
+      ],
+      "average_ready": false,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "records": 1000000
+    },
+    {
+      "average_gaps": [
+        0.10714285714285715,
+        0.14285714285714285
+      ],
+      "average_ready": false,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 1500000
+    },
+    {
+      "average_gaps": [
+        0.10714285714285715,
+        0.14285714285714285
+      ],
+      "average_ready": false,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 2000000
+    },
+    {
+      "average_gaps": [
+        0.10714285714285715,
+        0.14285714285714285
+      ],
+      "average_ready": false,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "records": 2500000
+    },
+    {
+      "average_gaps": [
+        0.10714285714285715,
+        0.14285714285714285
+      ],
+      "average_ready": false,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 3000000
+    },
+    {
+      "average_gaps": [
+        0.10714285714285715,
+        0.14285714285714285
+      ],
+      "average_ready": false,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 3500000
+    },
+    {
+      "average_gaps": [
+        0.10714285714285715,
+        0.14285714285714285
+      ],
+      "average_ready": false,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "records": 4000000
+    },
+    {
+      "average_gaps": [
+        0.10714285714285715,
+        0.14285714285714285
+      ],
+      "average_ready": false,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 4500000
+    },
+    {
+      "average_gaps": [
+        0.10714285714285715,
+        0.14285714285714285
+      ],
+      "average_ready": false,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 5000000
+    },
+    {
+      "average_gaps": [
+        0.22885205930049335,
+        0.9748747224127707
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "records": 5500000
+    },
+    {
+      "average_gaps": [
+        0.3426483529756872,
+        0.482323787908614
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 6000000
+    },
+    {
+      "average_gaps": [
+        0.13553880220323994,
+        0.04182216351635332
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "records": 6500000
+    },
+    {
+      "average_gaps": [
+        0.21245816341888185,
+        0.07105963779778979
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 7000000
+    },
+    {
+      "average_gaps": [
+        0.08853481463301877,
+        0.08350710981815684
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 7500000
+    },
+    {
+      "average_gaps": [
+        0.046627895695052435,
+        0.04293824342184305
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "records": 8000000
+    },
+    {
+      "average_gaps": [
+        0.024598743893928854,
+        0.040103606895662336
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 8500000
+    },
+    {
+      "average_gaps": [
+        0.01567615587319332,
+        0.03369628688214882
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 9000000
+    },
+    {
+      "average_gaps": [
+        0.0019484607160343281,
+        0.016727500439633003
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "records": 9500000
+    },
+    {
+      "average_gaps": [
+        0.03466767792332448,
+        0.01411525673650238
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 10000000
+    },
+    {
+      "average_gaps": [
+        0.023557774065441628,
+        0.02152718174431012
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 10500000
+    },
+    {
+      "average_gaps": [
+        0.002648172040555341,
+        0.005225016015374728
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "records": 11000000
+    },
+    {
+      "average_gaps": [
+        0.02952871502153903,
+        0.012981624184943696
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 11500000
+    },
+    {
+      "average_gaps": [
+        0.03245916103444435,
+        0.007593279261713715
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 12000000
+    },
+    {
+      "average_gaps": [
+        0.008343337334933976,
+        0.003153024504483848
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "records": 12500000
+    },
+    {
+      "average_gaps": [
+        0.022524661490030295,
+        0.02226564673752518
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 13000000
+    },
+    {
+      "average_gaps": [
+        0.03767656191172869,
+        0.0064345376499217455
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 13500000
+    },
+    {
+      "average_gaps": [
+        0.019416704591315392,
+        0.009294883678480859
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "records": 14000000
+    },
+    {
+      "average_gaps": [
+        0.010133351268046265,
+        0.00919036637386994
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "records": 14500000
+    },
+    {
+      "average_gaps": [
+        0.020490488885325453,
+        0.01760520216547834
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "records": 15000000
+    }
+  ],
+  "scope": "complete matrix episode action logs support exact executed-label publication reconstruction. Replaced unpublished greedy targets retain explicit bounds; all historical model gradients/frozen greedy sets are not reconstructed",
+  "seed": 0,
+  "source_sha256": "4c13ba875326ed1f843cb3ca31433063e72793cb8a677d4968a0652766eb3e0c",
+  "supervised_updates": 78114,
+  "task": "asymmetric",
+  "unresolved_published_greedy_labels": 1,
+  "verified": true
+}
