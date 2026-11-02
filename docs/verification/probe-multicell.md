@@ -29,3 +29,12 @@ An additional direct check matches the version-one first 200 proposals' accepted
 ```
 
 A concrete clean-source allocation is recorded separately before launching a longer run. The search stops at 32 distinct certified classes or its explicit cap, retains partial proofs if incomplete and selects no training/scientific campaign. A full source-seed/exact-proof audit remains required before accepting completed coverage. The design's eight-hour CPU probe stage, original stopped costs and separately scoped overhead remain visible; these commands do not infer a full-campaign accelerator price.
+
+
+## Complete frozen benchmark and independent audit
+
+The separately allocated clean-source version-two run is now terminal and complete. It found **32 distinct complete-game families** in 33,066 proposals / **417.546 measured CPU seconds**, before its 1,800-second cap. The [tracked full catalog](probe-multicell-v2-construction/benchmark.json), [construction provenance](probe-multicell-v2-construction/README.md), [independent audit](probe-multicell-v2-audit/README.md) and [freeze receipt](../experiments/collision-benchmark-v2-freeze.json) are retained. The independent audit repeats all original proposals and validates every exact proof plus all 12,736 legal setup rounds in **421.945 seconds**, leaving the original inputs unchanged.
+
+Coverage is balanced sixteen increasing/sixteen decreasing pairs, with 64 distinct public roots/current boards. Every pair changes exactly two positions; all complete legal games remain within six actions. Minimum certified range separation is **43/400 = 0.1075**, above 0.10. Twenty pairs contain gray roots and thirteen have mixed-equilibrium witnesses. Candidate-policy outputs were never used. The complete catalog is frozen at `artifacts/collision-benchmark-v2.json` before confirmatory policy inspection.
+
+This completes structural benchmark coverage only. No learned policy is graded here. The all-three-seed 24/32 behavioral criterion, actual exposure-controlled performance/interaction and scientific conclusions remain pending. Oracle fixture passes cannot substitute for trained policies.

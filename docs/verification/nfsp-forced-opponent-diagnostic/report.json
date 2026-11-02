@@ -1,0 +1,66 @@
+{
+  "a2_complete": false,
+  "defect_reproduced": true,
+  "driver_sha256": "eb6009f2dd585eb7d3efbd495435ecfd636092b67864c5bed1233031430e42c0",
+  "elapsed_seconds": 0.6796091760043055,
+  "exact_primary_floor_example": {
+    "average_good_action_probability": "1",
+    "coverage_mixture_value": "-999/1250",
+    "epsilon": "1/100",
+    "eta": "1/10",
+    "native_good_probability": "1999/2000",
+    "native_passive_root_value": "-999/1000",
+    "systematic_bias": "999/5000"
+  },
+  "fixtures": [
+    {
+      "controller": 1,
+      "controller_conditional_targets": {
+        "0": 1.0,
+        "1": -1.0
+      },
+      "fresh_fixture_records": 22,
+      "loss_targets": 10,
+      "mixed_root_target_mean": -0.800000011920929,
+      "native_root_value": -1.0,
+      "ordinary_only_root_target_mean": -1.0,
+      "passive_role": 2,
+      "passive_supplemental_root_value_masks": [
+        true,
+        true
+      ],
+      "q_loss": 0.4000000059604645,
+      "root_value_after_update": -0.9599999785423279,
+      "root_value_before_update": -1.0,
+      "suffix_both_roles_value_eligible": true
+    },
+    {
+      "controller": 2,
+      "controller_conditional_targets": {
+        "0": 1.0,
+        "1": -1.0
+      },
+      "fresh_fixture_records": 22,
+      "loss_targets": 10,
+      "mixed_root_target_mean": -0.800000011920929,
+      "native_root_value": -1.0,
+      "ordinary_only_root_target_mean": -1.0,
+      "passive_role": 1,
+      "passive_supplemental_root_value_masks": [
+        true,
+        true
+      ],
+      "q_loss": 0.4000000059604645,
+      "root_value_after_update": -0.9599999785423279,
+      "root_value_before_update": -1.0,
+      "suffix_both_roles_value_eligible": true
+    }
+  ],
+  "live_comparisons_modified": false,
+  "new_large_training_selected": false,
+  "purpose": "stationary forensic loss/collector diagnostic",
+  "scope": "opponent-intervened passive root transitions bias the original native-opponent Bellman objective; own forced-action conditional targets and normal suffixes remain valid; this neither explains every long-horizon error nor implements a correction",
+  "source_sha256": "ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e",
+  "total_fixture_records": 44,
+  "verified": true
+}

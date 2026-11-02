@@ -1,0 +1,92 @@
+{
+  "baseline_version": "graygo/baselines/1",
+  "command": {
+    "build_probes": {
+      "attempt_cap": 200000,
+      "candidate_policy_used": false,
+      "certificate_budget": {
+        "max_actions": 6,
+        "max_vertex_bases": 50000,
+        "max_vertex_pairs": 250000,
+        "max_vertices": 1024
+      },
+      "directions": {
+        "decrease": 16,
+        "increase": 16
+      },
+      "generator": "graygo/reachable-multigroup-collision-probes/2",
+      "generator_scope": "multigroup three-faction two-cell changes; one accepted pair per complete base/remove game class",
+      "required_strategic_families": 32,
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "scope": "reachable default-game round-199 benchmark construction; no learner or gray-specialization result",
+      "seed": 974215,
+      "source_sha256": "d23aa0aaab9df622094b134e7a9a2ce3ad6abf81b28bad610736b7cc0e36226d",
+      "target_geometric_pairs": 32,
+      "time_ceiling_seconds": 1800.0,
+      "version": "graygo/collision-probe-construction/1"
+    }
+  },
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cpu_threads": 24,
+  "created_at": "2026-11-02T12:43:21.824154+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 126749229056,
+  "encoding_version": "graygo/encoding/1",
+  "filesystem": "ext2/ext3",
+  "format_version": 1,
+  "git_commit": "05ff21dcd8f30e88e15a823155377889b51a5186",
+  "git_dirty": false,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "host_memory": {
+    "available_bytes": 29811179520,
+    "swap_bytes": 12884897792,
+    "total_bytes": 33558446080
+  },
+  "hostname": "home-ai",
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "rule_version": "graygo/1",
+  "rules": {
+    "collision": "gray",
+    "max_rounds": 200,
+    "size": 9
+  },
+  "run_id": "3aec634771bd4b008797241ef8b1908e",
+  "seed": 974215,
+  "source_sha256": "d23aa0aaab9df622094b134e7a9a2ce3ad6abf81b28bad610736b7cc0e36226d"
+}

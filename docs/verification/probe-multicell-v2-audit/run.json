@@ -1,0 +1,83 @@
+{
+  "baseline_version": "graygo/baselines/1",
+  "command": {
+    "audit_probe_construction": {
+      "allocation_sha256": "6efcac73cfb19571bc95ecba3d94bd376dcf5db06d505efcb40a2eed11296d91",
+      "auditor_sha256": "efaf32b79c58010633f79db434545ccee6bd9c74b48e3b1de5eb69dd5006c40f",
+      "input": "/home/gcao/proj/graygo/runs/collision-probe-multicell-05ff21d",
+      "input_files": {
+        ".construction.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "allocation-validation.json": "f3eb23e234da02f0229b96350be44cf2e89adb8c7aab4de709078091898edb21",
+        "benchmark.json": "1b6c31e05025f3eb81d58ddd06911db4c92a0358a3f1988435624851d3041c39",
+        "plan.json": "0dc1d75bbf951555252bdb33f9bb6d655c46f04873cc423a6692b656e1b54391",
+        "process.json": "eaa84da57ab139008e29be9617d693f92c29c131724cdd6c65f9bfb28b5e2e69",
+        "progress.json": "637e286a499f1c2de462ae9ee0071ab8f49baf80525cde205ac605365decb00f",
+        "report.json": "637e286a499f1c2de462ae9ee0071ab8f49baf80525cde205ac605365decb00f",
+        "run.json": "aab8f99e49cf94dad268e237dd2212f41c6d67b3e663b7995141c0f9f8ea7c59"
+      },
+      "purpose": "independent full-proof and original-prefix audit",
+      "regenerate": true,
+      "source_sha256": "d23aa0aaab9df622094b134e7a9a2ce3ad6abf81b28bad610736b7cc0e36226d",
+      "time_ceiling_seconds": 3600.0
+    }
+  },
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cpu_threads": 24,
+  "created_at": "2026-11-02T12:56:43.037506+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 126739750912,
+  "encoding_version": "graygo/encoding/1",
+  "filesystem": "ext2/ext3",
+  "format_version": 1,
+  "git_commit": "05ff21dcd8f30e88e15a823155377889b51a5186",
+  "git_dirty": false,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "host_memory": {
+    "available_bytes": 29837996032,
+    "swap_bytes": 12884897792,
+    "total_bytes": 33558446080
+  },
+  "hostname": "home-ai",
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "rule_version": "graygo/1",
+  "rules": {
+    "collision": "gray",
+    "max_rounds": 200,
+    "size": 9
+  },
+  "run_id": "610d6b66569e4e2e9d6e03faffc8bcfd",
+  "seed": 974215,
+  "source_sha256": "d23aa0aaab9df622094b134e7a9a2ce3ad6abf81b28bad610736b7cc0e36226d"
+}

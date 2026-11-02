@@ -1,0 +1,11 @@
+# Selected two-point probe construction and complete verification
+
+The [allocation](collision-probe-multicell-v2-allocation.json) was committed before launch. It selected one independent version-two search at seed 974215, at most 200,000 proposals / 1,800 construction seconds, plus a separate at-most-3,600-second exact/source-seed audit. The stopped original one-point run and its measured costs remain preserved; no thresholds were relaxed.
+
+Frozen source: `05ff21dcd8f30e88e15a823155377889b51a5186`, package SHA `d23aa0aaab9df622094b134e7a9a2ce3ad6abf81b28bad610736b7cc0e36226d`, retained at `/home/gcao/proj/graygo/.worktrees/probes-multicell-05ff21d` on `ai`. The [source/OS validation receipt](collision-probe-multicell-v2-driver.json) binds the original plan/run hashes. Original construction PID **2415811** and audit PID **2419500** are terminal/absent.
+
+Construction completed the full 32-class endpoint after 33,066 proposals in 417.546 measured process-wall seconds. The independent audit read every exact proof without a floating LP during proof reading, replayed 12,736 setup rounds, checked all distinct classes/roots/controlled changes and regenerated the entire original proposal prefix. It completed in 421.945 seconds with unchanged original artifacts. The [settlement](collision-probe-multicell-v2-settlement.json) records both actual intervals and unused reservations without allocating new learning work.
+
+The [frozen complete catalog](collision-benchmark-v2-freeze.json) contains 32 unique complete base/remove game-pair classes, 64 unique roots/current boards, sixteen increasing/sixteen decreasing cases, twenty gray-containing pairs and thirteen mixed-equilibrium witnesses. Every root is a complete legal default-game round-199 state; all legal actions and pass remain in its exact game. Minimum near-equilibrium range separation is 43/400. See the [construction](../verification/probe-multicell-v2-construction/README.md) and [independent audit](../verification/probe-multicell-v2-audit/README.md).
+
+This freezes structural coverage before trained-policy inspection. No trained policy has been evaluated; the actual three-seed 24/32 criterion and exposure-controlled scientific endpoints remain required. This allocation selects no pilot, confirmation, target change or specialization claim.

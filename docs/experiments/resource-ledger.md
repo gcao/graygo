@@ -84,3 +84,15 @@ Clean `7ab41a4` created three full-shape record-zero initialization/resume archi
 The original audit is now complete and independently reproduces all 150,507 proposals and 24 exact families. Its measured interval is **1,794.814 CPU process-wall seconds**, including 2.587 seconds of proof reading and 1,792.223 seconds of regeneration. Together with the original 1,800.007-second construction interval, these two measurements total **3,594.821 seconds (0.99856 hours)**. The [settlement](collision-probe-diverse-v1-settlement.json) releases the unused 1,805.186 seconds of the verification reservation and selects no replacement construction or extension.
 
 Initial setup/final reporting, prior construction/feasibility work, tests and development remain separately scoped; this is not complete project consumption. The [verified partial catalog](../verification/probe-diversity-v1-audit/README.md) remains below the required 32 families and yields no trained-policy/scientific outcome.
+
+
+## Stationary supplemental-opponent diagnostic
+
+The source-pinned forensic fixture uses 44 own-side root/suffix records and two demonstration gradient steps with exact oracle initialization. Its measured collector/target/loss interval is **0.680 CPU process-wall seconds**; initial import/manifest/setup and development overhead are additional. It is a bounded implementation diagnostic, not another full tabular/neural selection trial, an A2 pass or a large corrective allocation. The [confirmed passive-root bias](../verification/nfsp-forced-opponent-bias.md) requires an implementation correction and fresh matched pricing before further target selection.
+
+
+## Complete version-two probe allocation settled
+
+The separately selected two-point constructor completed 32 distinct families after 33,066 proposals in **417.546 measured CPU process-wall seconds**. Its full exact/source-seed audit took **421.945 seconds**, including 3.646 seconds of proof reading and 418.257 seconds of original-prefix regeneration. The combined measured intervals total **839.491 seconds (0.23319 hours)**; the [settlement](collision-probe-multicell-v2-settlement.json) releases unused construction/verification reservations and allocates no new training. Startup/final reporting, earlier construction work, tests and development remain separately scoped; this is not complete project consumption.
+
+The [frozen complete benchmark](collision-benchmark-v2-freeze.json) resolves structural 32-family coverage. Teacher fixtures and exact proof construction do not establish learned behavior, controlled performance or gray specialization. The confirmed supplemental-opponent implementation defect must be corrected and repriced before further learner selection.

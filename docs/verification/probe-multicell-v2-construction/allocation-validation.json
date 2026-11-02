@@ -1,0 +1,13 @@
+{
+  "allocation_sha256": "6efcac73cfb19571bc95ecba3d94bd376dcf5db06d505efcb40a2eed11296d91",
+  "observed_at": "2026-11-02T12:45:54.237154+00:00",
+  "pid": 2415811,
+  "plan_sha256": "0dc1d75bbf951555252bdb33f9bb6d655c46f04873cc423a6692b656e1b54391",
+  "run_manifest_sha256": "aab8f99e49cf94dad268e237dd2212f41c6d67b3e663b7995141c0f9f8ea7c59",
+  "scientific_claim": false,
+  "scope": "current OS liveness observed separately; no plan/PID file alone proves ongoing liveness; full proof/source-seed audit remains required",
+  "source_commit": "05ff21dcd8f30e88e15a823155377889b51a5186",
+  "source_sha256": "d23aa0aaab9df622094b134e7a9a2ce3ad6abf81b28bad610736b7cc0e36226d",
+  "training_selected": false,
+  "verified": true
+}

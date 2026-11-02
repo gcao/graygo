@@ -1,0 +1,169 @@
+{
+  "attempts": 33066,
+  "benchmark_complete": true,
+  "benchmark_sha256": "d66cc2185f96e0bbf9d5dc46c700d0c16a5a52ed4a926dbd954bc947bca2ab27",
+  "candidate_policy_used": false,
+  "case_catalog_complete": true,
+  "controlled_changes": {
+    "02f487728fd2c944bd9efdbdb809eae607bd2c390cd7510b35f56d4ff79769e0": [
+      5,
+      71
+    ],
+    "0626cc0414665ba8e9e6bd74adf21c9cf551f27294171b4ebf6b45c61a1e9ee3": [
+      5,
+      37
+    ],
+    "078e756fb1869fc4cff26f98eba512ca8fb5a488998fcb94649b475f0ef37082": [
+      16,
+      56
+    ],
+    "1561f87cb0192b56cdebf9b7100e2f9ac31786785ce0b1fb9117c038fbe86f02": [
+      20,
+      40
+    ],
+    "1a5c14564307de1a023fccac50b48dff5eb8f7aac9db6c534852b40fbb7d02b0": [
+      12,
+      29
+    ],
+    "30aba69f4438574b801d6b7a9fe3c9823e647a43b6a846712997596d8a647630": [
+      8,
+      58
+    ],
+    "35a35b199b5a73fb1481739abac31c6ff18fe8749f7eb1e7b97900ed3c97d561": [
+      5,
+      7
+    ],
+    "3fff03949ffbb59e4f484aa25000f0900877ebe884bcaddeddb863f8269d60c0": [
+      0,
+      78
+    ],
+    "41fa5f0adee5f481ee98e9a3e3174bacc0b0422ab0e281deec8a9a310116b1d1": [
+      65,
+      67
+    ],
+    "48e01798b6080f88559376fd9632c25b3ad60085b6dc0a6a7092d20ba3927877": [
+      34,
+      49
+    ],
+    "4fb96b4111dd5cd1755e7f6320507dcff81f0721ee192ef21b8243fe9c5a80bf": [
+      54,
+      78
+    ],
+    "56ffd352b1ace45b6a127c844cc8f2214264e345ec2b1604fece2e2af7d55052": [
+      22,
+      25
+    ],
+    "72008eda278f3ce34fb02ebd1740213a22f1598650da1aef9c2ccc06cb5b1bc8": [
+      41,
+      53
+    ],
+    "7a3c221c758824c499347c90cc660b1437967993beb60f2ffe3c40b88d7fce5a": [
+      64,
+      68
+    ],
+    "7c5f44853f3db149bdb84d137035131d296dee946913477954e1de47ed868c4f": [
+      0,
+      53
+    ],
+    "8842d316dc681b3ae0cdeca3a85bdae82e9803f1d0c919988595bc5d2ec8ecfd": [
+      39,
+      48
+    ],
+    "9225739fa543b0a6a3955f524fd1ad112f0bac1b2040f9cfaaba49bb34147e4a": [
+      24,
+      46
+    ],
+    "a08f20a8b322dc40b283ef16071069a86c22cdaf2b8ebf7765f95ef1242d0fee": [
+      29,
+      30
+    ],
+    "a37195da1f23495fdf358926395206f6af55c3a92d93aa49d55573ae0ab31098": [
+      65,
+      72
+    ],
+    "a43f4395a26e1cbeb19c62f893965a6c6c577ca47388e940ff17933be5253c14": [
+      42,
+      57
+    ],
+    "a7bb4e58e4af2c0b755004f647e05fe14c867c707f13d808747449f776738aca": [
+      26,
+      30
+    ],
+    "b0ec094a3b369c80179f2bb2a6db3d10547c8f99308030e12a7f12c7d5cd6764": [
+      6,
+      37
+    ],
+    "bfea676723a3c11ae5ce19baf636f6e58cdeb321db0563913e954a57ce70fffd": [
+      29,
+      62
+    ],
+    "c09a6f26b56377baad800b35addad2510c9e7b16a169c415917a7275adf417f1": [
+      22,
+      34
+    ],
+    "d919c059ed6e6ddf50a7e6f107b111ea388b334fc3d2c03b4e8d16814f59da9d": [
+      23,
+      39
+    ],
+    "dd54322bcac521245afe7bf5fe383f7d635af96bd604286c0cb4aa262eee7147": [
+      8,
+      66
+    ],
+    "e52d734f7a1890c143f7e6e2e822811c791ff91b9850da6bc253f1de705a70f7": [
+      20,
+      50
+    ],
+    "e56643e15e1bf94d9a6c3ad1365a47522e3f06d19b9a07275d4c20a42c0aef9c": [
+      15,
+      62
+    ],
+    "ec2ae3039c7554ade94109524264dc6522a3bca2c0f490822459aee71bb72fd1": [
+      47,
+      55
+    ],
+    "f06b648fbdb3c1ee9c54db0e70a823876ab99e1b402b44c7492ca571ea5f28a1": [
+      12,
+      13
+    ],
+    "fbd18ba5783d9370bf1c263d8674967e04ba10257b39813b2e3c5b146ad1d208": [
+      48,
+      51
+    ],
+    "fc75140f4d1a1757cc277f35feed0f4316a4599b728f6e6608f34f6332c62e23": [
+      37,
+      46
+    ]
+  },
+  "counts": {
+    "accepted_double_remove": 16,
+    "accepted_remove_recolor": 16,
+    "accepted_with_gray": 20,
+    "accepted_with_mixed_equilibrium": 13,
+    "constant_payoff": 9415,
+    "decrease": 16,
+    "holes_1": 3606,
+    "holes_2": 6043,
+    "holes_3": 4188,
+    "holes_4": 1671,
+    "increase": 16,
+    "not_gray_sensitive": 89,
+    "overlap": 5778,
+    "proposed_base_recolor": 10366,
+    "proposed_double_recolor": 3081,
+    "proposed_double_remove": 7341,
+    "proposed_remove_recolor": 12278,
+    "repeated_strategy": 194,
+    "unstable_first_change": 10366,
+    "unstable_second_change": 7192
+  },
+  "distinct_strategic_families": 32,
+  "elapsed_seconds": 417.5463278910029,
+  "generator": "graygo/reachable-multigroup-collision-probes/2",
+  "gray_specialization_demonstrated": false,
+  "partial_families": [],
+  "plan_sha256": "0dc1d75bbf951555252bdb33f9bb6d655c46f04873cc423a6692b656e1b54391",
+  "qualified_geometric_pairs": 32,
+  "source_sha256": "d23aa0aaab9df622094b134e7a9a2ce3ad6abf81b28bad610736b7cc0e36226d",
+  "status": "complete",
+  "training_started": false
+}

@@ -1,0 +1,20 @@
+{
+  "coverage_block": [
+    8,
+    1,
+    1
+  ],
+  "driver_sha256": "eb6009f2dd585eb7d3efbd495435ecfd636092b67864c5bed1233031430e42c0",
+  "equivalent_actions": 40,
+  "horizon": 50,
+  "learner_selection_trial": false,
+  "maximum_collected_records": 44,
+  "oracle_initialization": true,
+  "purpose": "stationary forensic loss/collector diagnostic",
+  "roles": [
+    1,
+    2
+  ],
+  "scope": "two exact-Q stationary fixtures through original collector/replay/target/loss; not learned convergence or a repaired implementation",
+  "source_sha256": "ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e"
+}

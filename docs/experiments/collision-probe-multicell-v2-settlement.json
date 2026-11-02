@@ -1,0 +1,19 @@
+{
+  "allocation_sha256": "6efcac73cfb19571bc95ecba3d94bd376dcf5db06d505efcb40a2eed11296d91",
+  "audit_report_sha256": "d49c4cd2da688ed6687e59a4cd624ad1dbad5fbb3c310930d4dcc438c26c5429",
+  "combined_measured_seconds": 839.4914456069819,
+  "construction_allocated_seconds": 1800,
+  "construction_elapsed_seconds": 417.5463278910029,
+  "construction_report_sha256": "637e286a499f1c2de462ae9ee0071ab8f49baf80525cde205ac605365decb00f",
+  "family_coverage_complete": true,
+  "new_training_selected": false,
+  "purpose": "settle selected two-point construction and independent verification",
+  "scientific_conclusion_selected": false,
+  "scope": "measured construction/verification intervals; earlier work, startup/reporting/test/development overhead remain separately scoped; not complete project consumption",
+  "source_sha256": "d23aa0aaab9df622094b134e7a9a2ce3ad6abf81b28bad610736b7cc0e36226d",
+  "unused_construction_seconds": 1382.4536721089971,
+  "unused_verification_seconds": 3178.054882284021,
+  "verification_allocated_seconds": 3600,
+  "verification_elapsed_seconds": 421.945117715979,
+  "version": 1
+}

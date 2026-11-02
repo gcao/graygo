@@ -1,0 +1,992 @@
+{
+  "records": 11500000,
+  "roots": [
+    {
+      "early_values": [
+        {
+          "error": 0.0001934951578140831,
+          "expected": 0.9900000002700835,
+          "player": 1,
+          "predicted": 0.9898065051122694,
+          "state_index": 0
+        },
+        {
+          "error": 0.23884464681176087,
+          "expected": -0.9989983576538934,
+          "player": 2,
+          "predicted": -0.7601537108421326,
+          "state_index": 0
+        },
+        {
+          "error": 3.505054139785191e-05,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9999649494586021,
+          "state_index": 1
+        },
+        {
+          "error": 0.012948196827061387,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9870518031729386,
+          "state_index": 1
+        },
+        {
+          "error": 5.728274667049504e-06,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.999994271725333,
+          "state_index": 3
+        },
+        {
+          "error": 0.012820617600136086,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9871793823998639,
+          "state_index": 3
+        },
+        {
+          "error": 1.8546715528477975e-05,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9999814532844715,
+          "state_index": 9
+        },
+        {
+          "error": 0.013136034904773886,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9868639650952261,
+          "state_index": 9
+        },
+        {
+          "error": 0.027275466991125374,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9727245330088746,
+          "state_index": 2
+        },
+        {
+          "error": 0.000245372221472584,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9997546277785274,
+          "state_index": 2
+        },
+        {
+          "error": 0.025866260884096604,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9741337391159034,
+          "state_index": 4
+        },
+        {
+          "error": 9.679158067033011e-05,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999032084193297,
+          "state_index": 4
+        },
+        {
+          "error": 0.025931955022531428,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9740680449774686,
+          "state_index": 10
+        },
+        {
+          "error": 3.1273558976807614e-05,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999687264410232,
+          "state_index": 10
+        }
+      ],
+      "late_values": [
+        {
+          "error": 2.2500752372422994e-09,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9999999977499248,
+          "state_index": 97
+        },
+        {
+          "error": 0.00044624836736506523,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9995537516326349,
+          "state_index": 97
+        },
+        {
+          "error": 0.001398410796931815,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9986015892030682,
+          "state_index": 98
+        },
+        {
+          "error": 8.791682937214773e-10,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999999991208317,
+          "state_index": 98
+        }
+      ],
+      "max_early_error": 0.23884464681176087,
+      "max_late_error": 0.001398410796931815,
+      "native_opponent_weights": [
+        0.1,
+        0.9,
+        0.0
+      ],
+      "root_action_values": [
+        {
+          "action": 0,
+          "error": 0.00032061338424682617,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9996793866157532
+        },
+        {
+          "action": 1,
+          "error": 0.02510303258895874,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9748969674110413
+        },
+        {
+          "action": 0,
+          "error": 0.23884464681176087,
+          "expected": -0.9989983576538934,
+          "player": 2,
+          "predicted": -0.7601537108421326
+        }
+      ],
+      "root_index": 0,
+      "root_tag": "h50/controller1"
+    },
+    {
+      "early_values": [
+        {
+          "error": 0.2598798657913468,
+          "expected": -0.9989980842132828,
+          "player": 1,
+          "predicted": -0.739118218421936,
+          "state_index": 99
+        },
+        {
+          "error": 1.7917451237803306e-05,
+          "expected": 0.9900000002700835,
+          "player": 2,
+          "predicted": 0.9900179177213213,
+          "state_index": 99
+        },
+        {
+          "error": 0.012774917467190505,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9872250825328095,
+          "state_index": 100
+        },
+        {
+          "error": 3.4020036630444395e-05,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999659799633696,
+          "state_index": 100
+        },
+        {
+          "error": 0.013263861297293733,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9867361387027063,
+          "state_index": 102
+        },
+        {
+          "error": 1.1122226846516092e-05,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999888777731535,
+          "state_index": 102
+        },
+        {
+          "error": 0.01267172755181778,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9873282724481822,
+          "state_index": 108
+        },
+        {
+          "error": 8.22792956933771e-06,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999917720704307,
+          "state_index": 108
+        },
+        {
+          "error": 0.0002478860475887412,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9997521139524113,
+          "state_index": 101
+        },
+        {
+          "error": 0.024028676373798463,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9759713236262015,
+          "state_index": 101
+        },
+        {
+          "error": 0.0001111780118100425,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.99988882198819,
+          "state_index": 103
+        },
+        {
+          "error": 0.024087260154626255,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9759127398453737,
+          "state_index": 103
+        },
+        {
+          "error": 0.0001494785552355049,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9998505214447645,
+          "state_index": 109
+        },
+        {
+          "error": 0.02387321275284693,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9761267872471531,
+          "state_index": 109
+        }
+      ],
+      "late_values": [
+        {
+          "error": 0.00045805716507607563,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9995419428349239,
+          "state_index": 196
+        },
+        {
+          "error": 1.519918302328449e-09,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999999984800817,
+          "state_index": 196
+        },
+        {
+          "error": 5.1409004830915705e-09,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9999999948590995,
+          "state_index": 197
+        },
+        {
+          "error": 0.001280213758208193,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9987197862417918,
+          "state_index": 197
+        }
+      ],
+      "max_early_error": 0.2598798657913468,
+      "max_late_error": 0.001280213758208193,
+      "native_opponent_weights": [
+        0.1,
+        0.9,
+        0.0
+      ],
+      "root_action_values": [
+        {
+          "action": 0,
+          "error": 0.2598798657913468,
+          "expected": -0.9989980842132828,
+          "player": 1,
+          "predicted": -0.739118218421936
+        },
+        {
+          "action": 0,
+          "error": 9.334087371826172e-05,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999066591262817
+        },
+        {
+          "action": 1,
+          "error": 0.022158324718475342,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9778416752815247
+        }
+      ],
+      "root_index": 1,
+      "root_tag": "h50/controller2"
+    },
+    {
+      "early_values": [
+        {
+          "error": 0.0003942871195956599,
+          "expected": 0.9900000002700835,
+          "player": 1,
+          "predicted": 0.9896057131504878,
+          "state_index": 198
+        },
+        {
+          "error": 0.24130688523619614,
+          "expected": -0.9989966592726036,
+          "player": 2,
+          "predicted": -0.7576897740364075,
+          "state_index": 198
+        },
+        {
+          "error": 3.98915114316889e-05,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9999601084885683,
+          "state_index": 199
+        },
+        {
+          "error": 0.03003707141919787,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9699629285808021,
+          "state_index": 199
+        },
+        {
+          "error": 0.00012017756743032404,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9998798224325697,
+          "state_index": 201
+        },
+        {
+          "error": 0.028734909681224163,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9712650903187758,
+          "state_index": 201
+        },
+        {
+          "error": 2.1841615652107293e-05,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9999781583843479,
+          "state_index": 207
+        },
+        {
+          "error": 0.02812227745124607,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9718777225487539,
+          "state_index": 207
+        },
+        {
+          "error": 0.07758374791857836,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9224162520814216,
+          "state_index": 200
+        },
+        {
+          "error": 0.00022202409878102625,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.999777975901219,
+          "state_index": 200
+        },
+        {
+          "error": 0.07834010271228387,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9216598972877161,
+          "state_index": 202
+        },
+        {
+          "error": 0.0002810549890147618,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9997189450109852,
+          "state_index": 202
+        },
+        {
+          "error": 0.0761289328433169,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9238710671566831,
+          "state_index": 208
+        },
+        {
+          "error": 0.00023551869441562623,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9997644813055844,
+          "state_index": 208
+        }
+      ],
+      "late_values": [
+        {
+          "error": 3.4570692974966732e-09,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9999999965429307,
+          "state_index": 395
+        },
+        {
+          "error": 0.0006323395668529352,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9993676604331471,
+          "state_index": 395
+        },
+        {
+          "error": 0.0016321108041380539,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.998367889195862,
+          "state_index": 396
+        },
+        {
+          "error": 5.18560439033422e-09,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999999948143956,
+          "state_index": 396
+        }
+      ],
+      "max_early_error": 0.24130688523619614,
+      "max_late_error": 0.0016321108041380539,
+      "native_opponent_weights": [
+        0.1,
+        0.9,
+        0.0
+      ],
+      "root_action_values": [
+        {
+          "action": 0,
+          "error": 0.0007727146148681641,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9992272853851318
+        },
+        {
+          "action": 1,
+          "error": 0.07491278648376465,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9250872135162354
+        },
+        {
+          "action": 0,
+          "error": 0.24130688523619614,
+          "expected": -0.9989966592726036,
+          "player": 2,
+          "predicted": -0.7576897740364075
+        }
+      ],
+      "root_index": 2,
+      "root_tag": "h100/controller1"
+    },
+    {
+      "early_values": [
+        {
+          "error": 0.24105110084575543,
+          "expected": -0.9989966980175389,
+          "player": 1,
+          "predicted": -0.7579455971717834,
+          "state_index": 397
+        },
+        {
+          "error": 0.0006789133077671483,
+          "expected": 0.9900000002700835,
+          "player": 2,
+          "predicted": 0.9893210869623164,
+          "state_index": 397
+        },
+        {
+          "error": 0.03158189598957828,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9684181040104217,
+          "state_index": 398
+        },
+        {
+          "error": 0.00014708010884678657,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9998529198911532,
+          "state_index": 398
+        },
+        {
+          "error": 0.029346242559215363,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9706537574407846,
+          "state_index": 400
+        },
+        {
+          "error": 2.0526483785587857e-05,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999794735162144,
+          "state_index": 400
+        },
+        {
+          "error": 0.026810559687786006,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.973189440312214,
+          "state_index": 406
+        },
+        {
+          "error": 7.693645383199943e-05,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.999923063546168,
+          "state_index": 406
+        },
+        {
+          "error": 0.0004397554857340502,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.999560244514266,
+          "state_index": 399
+        },
+        {
+          "error": 0.094771877863984,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.905228122136016,
+          "state_index": 399
+        },
+        {
+          "error": 0.00018234510768599943,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.999817654892314,
+          "state_index": 401
+        },
+        {
+          "error": 0.09209124582463812,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9079087541753619,
+          "state_index": 401
+        },
+        {
+          "error": 0.0003930354872190289,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.999606964512781,
+          "state_index": 407
+        },
+        {
+          "error": 0.08018771092122456,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9198122890787754,
+          "state_index": 407
+        }
+      ],
+      "late_values": [
+        {
+          "error": 0.0006189474313595955,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9993810525686404,
+          "state_index": 594
+        },
+        {
+          "error": 3.5017727606501126e-09,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999999964982272,
+          "state_index": 594
+        },
+        {
+          "error": 8.612871749136275e-09,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9999999913871283,
+          "state_index": 595
+        },
+        {
+          "error": 0.0019216129330767995,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9980783870669232,
+          "state_index": 595
+        }
+      ],
+      "max_early_error": 0.24105110084575543,
+      "max_late_error": 0.0019216129330767995,
+      "native_opponent_weights": [
+        0.1,
+        0.9,
+        0.0
+      ],
+      "root_action_values": [
+        {
+          "action": 0,
+          "error": 0.24105110084575543,
+          "expected": -0.9989966980175389,
+          "player": 1,
+          "predicted": -0.7579455971717834
+        },
+        {
+          "action": 0,
+          "error": 0.001141667366027832,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9988583326339722
+        },
+        {
+          "action": 1,
+          "error": 0.09140914678573608,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9085908532142639
+        }
+      ],
+      "root_index": 3,
+      "root_tag": "h100/controller2"
+    },
+    {
+      "early_values": [
+        {
+          "error": 0.009262183056130135,
+          "expected": 0.9900000002700835,
+          "player": 1,
+          "predicted": 0.9992621833262136,
+          "state_index": 596
+        },
+        {
+          "error": 0.33043296500110086,
+          "expected": -0.9989941255655235,
+          "player": 2,
+          "predicted": -0.6685611605644226,
+          "state_index": 596
+        },
+        {
+          "error": 0.00029781489129077077,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9997021851087092,
+          "state_index": 597
+        },
+        {
+          "error": 0.10511097555781601,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.894889024442184,
+          "state_index": 597
+        },
+        {
+          "error": 0.0003153134887954323,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9996846865112046,
+          "state_index": 599
+        },
+        {
+          "error": 0.11893539147930199,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.881064608520698,
+          "state_index": 599
+        },
+        {
+          "error": 0.00029705946196423305,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9997029405380358,
+          "state_index": 605
+        },
+        {
+          "error": 0.09808773797178016,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9019122620282198,
+          "state_index": 605
+        },
+        {
+          "error": 1.9069603699089588,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": 0.9069603699089589,
+          "state_index": 598
+        },
+        {
+          "error": 0.00027618756946179435,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9997238124305382,
+          "state_index": 598
+        },
+        {
+          "error": 1.7901260538809405,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": 0.7901260538809406,
+          "state_index": 600
+        },
+        {
+          "error": 0.0001599938129662748,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9998400061870337,
+          "state_index": 600
+        },
+        {
+          "error": 0.719757142519714,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.280242857480286,
+          "state_index": 606
+        },
+        {
+          "error": 0.00014632393471414318,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9998536760652859,
+          "state_index": 606
+        }
+      ],
+      "late_values": [
+        {
+          "error": 1.0028482377855141e-08,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9999999899715176,
+          "state_index": 993
+        },
+        {
+          "error": 0.0008658578841741482,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9991341421158259,
+          "state_index": 993
+        },
+        {
+          "error": 0.002701732426575343,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9972982675734247,
+          "state_index": 994
+        },
+        {
+          "error": 1.4722348340434621e-08,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999999852776517,
+          "state_index": 994
+        }
+      ],
+      "max_early_error": 1.9069603699089588,
+      "max_late_error": 0.002701732426575343,
+      "native_opponent_weights": [
+        0.1,
+        0.9,
+        0.0
+      ],
+      "root_action_values": [
+        {
+          "action": 0,
+          "error": 8.571147918701172e-05,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.999914288520813
+        },
+        {
+          "action": 1,
+          "error": 1.8694932460784912,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": 0.8694932460784912
+        },
+        {
+          "action": 0,
+          "error": 0.33043296500110086,
+          "expected": -0.9989941255655235,
+          "player": 2,
+          "predicted": -0.6685611605644226
+        }
+      ],
+      "root_index": 4,
+      "root_tag": "h200/controller1"
+    },
+    {
+      "early_values": [
+        {
+          "error": 0.25380033104553146,
+          "expected": -0.9989948853744499,
+          "player": 1,
+          "predicted": -0.7451945543289185,
+          "state_index": 995
+        },
+        {
+          "error": 0.0025904727284539186,
+          "expected": 0.9900000002700835,
+          "player": 2,
+          "predicted": 0.9874095275416296,
+          "state_index": 995
+        },
+        {
+          "error": 0.05996659472134036,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9400334052786596,
+          "state_index": 996
+        },
+        {
+          "error": 0.00037156274998528804,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9996284372500147,
+          "state_index": 996
+        },
+        {
+          "error": 0.05812169213164775,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9418783078683522,
+          "state_index": 998
+        },
+        {
+          "error": 0.00035191293145675484,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9996480870685432,
+          "state_index": 998
+        },
+        {
+          "error": 0.058844867433864745,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9411551325661353,
+          "state_index": 1004
+        },
+        {
+          "error": 0.00020362809335994214,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9997963719066401,
+          "state_index": 1004
+        },
+        {
+          "error": 0.0005712035158589313,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9994287964841411,
+          "state_index": 997
+        },
+        {
+          "error": 0.23335116223076913,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.7666488377692309,
+          "state_index": 997
+        },
+        {
+          "error": 0.0005405685018353701,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9994594314981646,
+          "state_index": 999
+        },
+        {
+          "error": 0.23177540816840103,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.768224591831599,
+          "state_index": 999
+        },
+        {
+          "error": 0.0004468699553131783,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9995531300446868,
+          "state_index": 1005
+        },
+        {
+          "error": 0.20661069189669157,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.7933893081033084,
+          "state_index": 1005
+        }
+      ],
+      "late_values": [
+        {
+          "error": 0.0008694486765923326,
+          "expected": -1.0,
+          "player": 1,
+          "predicted": -0.9991305513234077,
+          "state_index": 1392
+        },
+        {
+          "error": 1.2978911612115951e-08,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9999999870210884,
+          "state_index": 1392
+        },
+        {
+          "error": 8.687377150984332e-09,
+          "expected": 1.0,
+          "player": 1,
+          "predicted": 0.9999999913126228,
+          "state_index": 1393
+        },
+        {
+          "error": 0.0024223462936917572,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.9975776537063082,
+          "state_index": 1393
+        }
+      ],
+      "max_early_error": 0.25380033104553146,
+      "max_late_error": 0.0024223462936917572,
+      "native_opponent_weights": [
+        0.1,
+        0.9,
+        0.0
+      ],
+      "root_action_values": [
+        {
+          "action": 0,
+          "error": 0.25380033104553146,
+          "expected": -0.9989948853744499,
+          "player": 1,
+          "predicted": -0.7451945543289185
+        },
+        {
+          "action": 0,
+          "error": 0.0037102103233337402,
+          "expected": 1.0,
+          "player": 2,
+          "predicted": 0.9962897896766663
+        },
+        {
+          "action": 1,
+          "error": 0.22023731470108032,
+          "expected": -1.0,
+          "player": 2,
+          "predicted": -0.7797626852989197
+        }
+      ],
+      "root_index": 5,
+      "root_tag": "h200/controller2"
+    }
+  ],
+  "run_manifest_sha256": "c2cf99bfb22c79ef23e8b1b1d357f9542c332ceeea7353b93211c4ac4b03a25f",
+  "scope": "read-only observed mid-run values; not a final-window result or learner-selection decision",
+  "source_sha256": "ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e"
+}

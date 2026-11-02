@@ -1,0 +1,37 @@
+{
+  "allocation_sha256": "6efcac73cfb19571bc95ecba3d94bd376dcf5db06d505efcb40a2eed11296d91",
+  "audit_report_sha256": "d49c4cd2da688ed6687e59a4cd624ad1dbad5fbb3c310930d4dcc438c26c5429",
+  "benchmark_file_sha256": "1b6c31e05025f3eb81d58ddd06911db4c92a0358a3f1988435624851d3041c39",
+  "benchmark_sha256": "d66cc2185f96e0bbf9d5dc46c700d0c16a5a52ed4a926dbd954bc947bca2ab27",
+  "candidate_policy_used": false,
+  "construction_report_sha256": "637e286a499f1c2de462ae9ee0071ab8f49baf80525cde205ac605365decb00f",
+  "controlled_changed_cells": 2,
+  "directions": {
+    "decrease": 16,
+    "increase": 16
+  },
+  "distinct_roots": 64,
+  "families": 32,
+  "family_coverage_complete": true,
+  "generation_reproduced": true,
+  "generator": "graygo/reachable-multigroup-collision-probes/2",
+  "gray_specialization_demonstrated": false,
+  "individual_value_gap": "1/20",
+  "local_benchmark": "artifacts/collision-benchmark-v2.json",
+  "minimum_certified_range_separation": "43/400",
+  "purpose": "freeze candidate-independent complete collision benchmark before trained-policy inspection",
+  "required_collision_shift": "1/20",
+  "required_passes_per_trained_seed": 24,
+  "seed": 974215,
+  "setup_rounds_replayed": 12736,
+  "source_commit": "05ff21dcd8f30e88e15a823155377889b51a5186",
+  "source_sha256": "d23aa0aaab9df622094b134e7a9a2ce3ad6abf81b28bad610736b7cc0e36226d",
+  "tracked_benchmark": "docs/verification/probe-multicell-v2-construction/benchmark.json",
+  "trained_policy_evaluated": false,
+  "trained_seeds": [
+    200,
+    201,
+    202
+  ],
+  "version": 1
+}

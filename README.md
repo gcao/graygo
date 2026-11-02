@@ -252,3 +252,6 @@ These commands collect no training records or evaluation games and issue no A2/r
 ## Controlled changes at two points
 
 The version-two probe constructor (`build-probes --generator multicell`) explores two occupied-cell removals/recolorings while preserving the exact certificates, legal 199-round setup, uniqueness and 32-family requirements. It retains all original holes and limits either root to five empty points, so pass and every legal placement still fit the six-action proof budget. Catalogs record both changed positions explicitly. The separately versioned one-cell generator and its audited partial catalog remain unchanged. See [method, compatibility and verified test scope](docs/verification/probe-multicell.md).
+
+
+The complete [32-family version-two benchmark](docs/verification/probe-multicell-v2-construction/benchmark.json) is now frozen and independently source-seed reproduced. It contains 64 distinct reachable roots with exact full-action certificates and balanced collision directions. Local canonical copy: `artifacts/collision-benchmark-v2.json`. Structural coverage is complete; [audit scope](docs/verification/probe-multicell-v2-audit/README.md) remains separate from learned-policy and controlled-performance claims.
