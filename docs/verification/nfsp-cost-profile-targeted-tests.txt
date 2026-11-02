@@ -1,0 +1,15 @@
+test_complete_diagnostic_orchestration_cannot_become_a_cuda_campaign_price (test_nfsp_cost_profile.CostProfileTests.test_complete_diagnostic_orchestration_cannot_become_a_cuda_campaign_price) ... ok
+test_cpu_times_do_not_become_cuda_device_hour_prices (test_nfsp_cost_profile.CostProfileTests.test_cpu_times_do_not_become_cuda_device_hour_prices) ... ok
+test_forecast_uses_exact_reuse_refresh_and_pilot_prefix_counts (test_nfsp_cost_profile.CostProfileTests.test_forecast_uses_exact_reuse_refresh_and_pilot_prefix_counts) ... ok
+test_full_io_roundtrip_is_not_a_public_or_runtime_training_checkpoint (test_nfsp_cost_profile.CostProfileTests.test_full_io_roundtrip_is_not_a_public_or_runtime_training_checkpoint) ... ok
+test_materialization_retains_real_transitions_without_inventing_old_clocks (test_nfsp_cost_profile.CostProfileTests.test_materialization_retains_real_transitions_without_inventing_old_clocks) ... ok
+test_missing_components_invalid_margins_and_screening_reset_are_rejected (test_nfsp_cost_profile.CostProfileTests.test_missing_components_invalid_margins_and_screening_reset_are_rejected) ... ok
+test_paired_actor_stress_has_distinct_immutable_versions_and_real_private_actions (test_nfsp_cost_profile.CostProfileTests.test_paired_actor_stress_has_distinct_immutable_versions_and_real_private_actions) ... ok
+test_real_full_buffer_append_uses_explicit_offsets_and_local_collector_counts (test_nfsp_cost_profile.CostProfileTests.test_real_full_buffer_append_uses_explicit_offsets_and_local_collector_counts) ... ok
+test_real_kernels_use_all_nonterminal_full_buffer_targets_and_count_updates (test_nfsp_cost_profile.CostProfileTests.test_real_kernels_use_all_nonterminal_full_buffer_targets_and_count_updates) ... ok
+test_source_pipeline_instrumentation_preserves_real_clocks_and_restores_functions (test_nfsp_cost_profile.CostProfileTests.test_source_pipeline_instrumentation_preserves_real_clocks_and_restores_functions) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.158s
+
+OK

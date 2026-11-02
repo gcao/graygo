@@ -1,0 +1,22 @@
+{
+  "affected_tests_repeated_after_final_io_fidelity_changes": 10,
+  "all_tests_passed": true,
+  "diagnostic_orchestration_verified": true,
+  "execution_authorized": false,
+  "full_test_log_sha256": "cb8068225a48668f9c0c5e384eeee984d6834b12793270d1d19782c3855c4299",
+  "full_test_seconds": 272.402,
+  "full_tests": 376,
+  "hardware_profile_executed": false,
+  "kernel_counter_namespace_verified": true,
+  "learner_package_unchanged_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
+  "local_collector_offsets_verified": true,
+  "materialization_reindexed_links_verified": true,
+  "public_and_resume_artifact_confusion_rejected": true,
+  "reduced_cpu_profiles_cannot_price_cuda": true,
+  "scope": "measurement/forecast correctness and real reduced orchestration tests; no trained behavior or actual runtime forecast qualification",
+  "source_pipeline_instrumentation_verified": true,
+  "targeted_test_log_sha256": "5de77291ab1ae6803f3657bf3d1bb546101c0b58f5d39ade0686fda41fbf50df",
+  "test_sha256": "cbcf08adcdba134387e1a88adc0ad13edbc0e1961b6073b88fb3090d8b4122e7",
+  "tool_sha256": "e8c9f6721242b0ebc880a6b7207f0faa4b7582c05149632e08658789c920b73a",
+  "version": 1
+}

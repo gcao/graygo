@@ -276,3 +276,7 @@ Supplemental coverage retains the forcing role's conditional root-action target 
 ## Resource ledger
 
 `tools/nfsp_resources.py` computes the design’s NFSP device-hour expression and reports separately recorded CPU/GPU scopes. Unknown prices stay missing, optional work requires an explicit selection, pilot cost is included in screening, and overlapping driver/phase measurements cannot be added twice. See [the resource contract and current recorded example](docs/verification/nfsp-resource-ledger.md). The calculator never qualifies a runtime forecast independently or authorizes training.
+
+## Complete-component cost measurements
+
+`tools/nfsp_cost_profile.py` reuses a sealed full-buffer corpus and measures real source kernels, actor-version stress, legal full-buffer append, complete IO and evaluation costs. It keeps materialized rows, benchmark updates and newly collected records distinct. Forecasts retain explicit event/game counts and margins, and profiling payloads are not public agents or runtime resumes. See [the measurement protocol](docs/verification/nfsp-cost-profile.md). Actual pricing/entry qualification remains separate.
