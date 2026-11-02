@@ -1,0 +1,216 @@
+{
+  "format_version": 1,
+  "method": "checksummed final resume states and every archived evaluation model; closed-form game values; reconstructed episode mixtures",
+  "passing_configurations": [],
+  "route": "nfsp",
+  "source_commit": "1cd4e0d12913b2bf63c8883d30e8a3d71f3c431e",
+  "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+  "total_learner_records": 24000000,
+  "trials": [
+    {
+      "entropy_protocol": "fixed-0.1",
+      "last_latest_gaps": [
+        0.1388669952999782,
+        0.024090261703149207
+      ],
+      "last_mixture_gaps": [
+        0.053303777967579624,
+        0.004511506104051655
+      ],
+      "latest_passed": false,
+      "mixture_passed": false,
+      "optimizer_steps": 62493,
+      "records": 2000000,
+      "seed": 0,
+      "task": "asymmetric"
+    },
+    {
+      "entropy_protocol": "fixed-0.1",
+      "last_latest_gaps": [
+        0.04949547415772376,
+        0.07632777748062969
+      ],
+      "last_mixture_gaps": [
+        0.011128952788331925,
+        0.027315348634399494
+      ],
+      "latest_passed": false,
+      "mixture_passed": true,
+      "optimizer_steps": 62494,
+      "records": 2000000,
+      "seed": 1,
+      "task": "asymmetric"
+    },
+    {
+      "entropy_protocol": "fixed-0.1",
+      "last_latest_gaps": [
+        0.0885356808570889,
+        0.0017421204557781511
+      ],
+      "last_mixture_gaps": [
+        0.00610623645047037,
+        0.0044268027977067415
+      ],
+      "latest_passed": false,
+      "mixture_passed": true,
+      "optimizer_steps": 62497,
+      "records": 2000000,
+      "seed": 2,
+      "task": "asymmetric"
+    },
+    {
+      "entropy_protocol": "taper",
+      "last_latest_gaps": [
+        0.8485511184733245,
+        0.5389712599958794
+      ],
+      "last_mixture_gaps": [
+        0.0172782906781635,
+        0.13043828809882618
+      ],
+      "latest_passed": false,
+      "mixture_passed": false,
+      "optimizer_steps": 56165,
+      "records": 2000000,
+      "seed": 0,
+      "task": "asymmetric"
+    },
+    {
+      "entropy_protocol": "taper",
+      "last_latest_gaps": [
+        0.8542510740140623,
+        0.8075620865245687
+      ],
+      "last_mixture_gaps": [
+        0.0035619700176782176,
+        0.02349268567738544
+      ],
+      "latest_passed": false,
+      "mixture_passed": false,
+      "optimizer_steps": 54004,
+      "records": 2000000,
+      "seed": 1,
+      "task": "asymmetric"
+    },
+    {
+      "entropy_protocol": "taper",
+      "last_latest_gaps": [
+        0.8070193465360846,
+        0.4087963140269028
+      ],
+      "last_mixture_gaps": [
+        0.49600076890088046,
+        0.674058204493766
+      ],
+      "latest_passed": false,
+      "mixture_passed": false,
+      "optimizer_steps": 61469,
+      "records": 2000000,
+      "seed": 2,
+      "task": "asymmetric"
+    },
+    {
+      "entropy_protocol": "fixed-0.1",
+      "last_latest_gaps": [
+        0.037040112195008246,
+        0.06297316959580274
+      ],
+      "last_mixture_gaps": [
+        0.032678783297609426,
+        0.012725998186808973
+      ],
+      "latest_passed": false,
+      "mixture_passed": true,
+      "optimizer_steps": 62355,
+      "records": 2000000,
+      "seed": 0,
+      "task": "rps"
+    },
+    {
+      "entropy_protocol": "fixed-0.1",
+      "last_latest_gaps": [
+        0.02862239054574911,
+        0.12481316924095154
+      ],
+      "last_mixture_gaps": [
+        0.020543280468731995,
+        0.022234293809705374
+      ],
+      "latest_passed": false,
+      "mixture_passed": false,
+      "optimizer_steps": 61492,
+      "records": 2000000,
+      "seed": 1,
+      "task": "rps"
+    },
+    {
+      "entropy_protocol": "fixed-0.1",
+      "last_latest_gaps": [
+        0.055192379498708866,
+        0.048506200313568115
+      ],
+      "last_mixture_gaps": [
+        0.03742357479378705,
+        0.027683326027924227
+      ],
+      "latest_passed": false,
+      "mixture_passed": true,
+      "optimizer_steps": 62327,
+      "records": 2000000,
+      "seed": 2,
+      "task": "rps"
+    },
+    {
+      "entropy_protocol": "taper",
+      "last_latest_gaps": [
+        0.999915706806112,
+        0.9999547934690323
+      ],
+      "last_mixture_gaps": [
+        0.5541510896297678,
+        0.5535343494310808
+      ],
+      "latest_passed": false,
+      "mixture_passed": false,
+      "optimizer_steps": 61947,
+      "records": 2000000,
+      "seed": 0,
+      "task": "rps"
+    },
+    {
+      "entropy_protocol": "taper",
+      "last_latest_gaps": [
+        0.9999064266828135,
+        0.9999494362103724
+      ],
+      "last_mixture_gaps": [
+        0.4545702411749003,
+        0.4545790266648439
+      ],
+      "latest_passed": false,
+      "mixture_passed": false,
+      "optimizer_steps": 61935,
+      "records": 2000000,
+      "seed": 1,
+      "task": "rps"
+    },
+    {
+      "entropy_protocol": "taper",
+      "last_latest_gaps": [
+        0.9999622384002083,
+        0.9999375081992998
+      ],
+      "last_mixture_gaps": [
+        0.6362977476798215,
+        0.6363142280401137
+      ],
+      "latest_passed": false,
+      "mixture_passed": false,
+      "optimizer_steps": 62056,
+      "records": 2000000,
+      "seed": 2,
+      "task": "rps"
+    }
+  ],
+  "verified": true
+}

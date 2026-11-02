@@ -1,0 +1,20 @@
+{
+  "device": "cpu",
+  "entropy_protocols": [
+    "taper",
+    "fixed-0.1"
+  ],
+  "format_version": 1,
+  "records_per_trial": 2000000,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+  "tasks": [
+    "asymmetric",
+    "rps"
+  ],
+  "time_cap_seconds": 86400
+}

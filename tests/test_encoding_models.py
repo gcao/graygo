@@ -129,3 +129,18 @@ class TacticalFixtureTests(unittest.TestCase):
         for color in (W,G):
             self.assertEqual(tactical(self.position(color,B),B,random.Random(1)),31)
         self.assertEqual(tactical(self.position(B,W),B,random.Random(1)),31)
+
+
+@unittest.skipIf(torch is None,'training extra not installed')
+class EpsilonPolicyTests(unittest.TestCase):
+    def test_marginal_probability_includes_exploration_hits(self):
+        from graygo.models import epsilon_greedy_distribution
+        q=torch.tensor([[2.,2.,1.],[3.,1.,100.]])
+        legal=torch.tensor([[True,True,True],[True,True,False]])
+        result=epsilon_greedy_distribution(q,legal,torch.tensor([.2,.2]))
+        torch.testing.assert_close(result,torch.tensor([[.46666667,.46666667,.06666667],[.9,.1,0.]]))
+        torch.testing.assert_close(result.sum(-1),torch.ones(2))
+        self.assertAlmostEqual(result[1,0].item(),.8+.2/2,places=6)
+        torch.testing.assert_close(epsilon_greedy_distribution(q,legal,1),legal.float()/legal.sum(-1,keepdim=True))
+        with self.assertRaises(ValueError):epsilon_greedy_distribution(q,legal,float('nan'))
+        with self.assertRaises(ValueError):epsilon_greedy_distribution(q,legal,-.1)

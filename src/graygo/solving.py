@@ -31,8 +31,12 @@ def solve_matrix(payoffs):
     if not row.success or not column.success:
         raise RuntimeError(f"matrix optimization failed: {row.message}; {column.message}")
     p, q = np.maximum(row.x[:-1], 0), np.maximum(column.x[:-1], 0)
+    if not np.isfinite(p).all() or not np.isfinite(q).all() or p.sum()<=0 or q.sum()<=0:
+        raise RuntimeError("matrix optimizer returned invalid strategy vectors")
     p, q = p/p.sum(), q/q.sum()
     lower, upper = float((p@a).min()), float((a@q).max())
+    if not np.isfinite(lower) or not np.isfinite(upper):
+        raise RuntimeError("nonfinite matrix security bounds")
     if upper-lower > 1e-7:
         raise RuntimeError(f"matrix certificate gap too large: {upper-lower}")
     p.flags.writeable = q.flags.writeable = False
@@ -47,7 +51,8 @@ def value_gaps(payoffs, row, column, value=None):
     for policy in (p,q):
         if not np.isfinite(policy).all() or (policy < 0).any() or abs(policy.sum()-1) > 1e-7:
             raise ValueError("policy must be a normalized nonnegative distribution")
-    value = solve_matrix(a).value if value is None else value
+    value = solve_matrix(a).value if value is None else float(value)
+    if not np.isfinite(value):raise ValueError("finite solved value required")
     return max(0., float(value-(p@a).min())), max(0., float((a@q).max()-value))
 
 

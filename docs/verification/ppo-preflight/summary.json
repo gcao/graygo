@@ -1,0 +1,6248 @@
+{
+  "complete": true,
+  "passing_configurations": [],
+  "results": [
+    {
+      "current_opponent_records": 1001093,
+      "elapsed_seconds": 82.94316525198519,
+      "entropy_protocol": "taper",
+      "evaluations": [
+        {
+          "elapsed_seconds": 4.4985500239999965,
+          "latest_gaps": [
+            0.8559054640192603,
+            0.6426720505742021
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 3088,
+          "policies": [
+            [
+              0.0006186965617984429,
+              0.9993813034382015
+            ],
+            [
+              0.00012339485529389176,
+              0.9998766051447061
+            ]
+          ],
+          "records": 102400,
+          "rollout_cycles": 100
+        },
+        {
+          "elapsed_seconds": 9.13955237600021,
+          "latest_gaps": [
+            0.8570708822777526,
+            0.6428068597066419
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 6288,
+          "policies": [
+            [
+              3.598743255224115e-05,
+              0.9999640125674477
+            ],
+            [
+              3.352210033398637e-05,
+              0.999966477899666
+            ]
+          ],
+          "records": 204800,
+          "rollout_cycles": 200
+        },
+        {
+          "elapsed_seconds": 13.813845628988929,
+          "latest_gaps": [
+            0.8570177273313371,
+            0.642726058896704
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 9488,
+          "policies": [
+            [
+              6.256490576008703e-05,
+              0.9999374350942399
+            ],
+            [
+              8.738930695925139e-05,
+              0.9999126106930407
+            ]
+          ],
+          "records": 307200,
+          "rollout_cycles": 300
+        },
+        {
+          "elapsed_seconds": 18.43251340801362,
+          "latest_gaps": [
+            0.8273862542562462,
+            1.1402131684010892
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 12654,
+          "policies": [
+            [
+              0.9801622647422594,
+              0.01983773525774057
+            ],
+            [
+              0.9986780127719732,
+              0.001321987228026816
+            ]
+          ],
+          "records": 409600,
+          "rollout_cycles": 400
+        },
+        {
+          "elapsed_seconds": 23.096612813009415,
+          "latest_gaps": [
+            0.8561957710593386,
+            1.1414203892547818
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 15854,
+          "policies": [
+            [
+              0.9993686092776543,
+              0.0006313907223457119
+            ],
+            [
+              0.9992816231988195,
+              0.0007183768011804234
+            ]
+          ],
+          "records": 512000,
+          "rollout_cycles": 500
+        },
+        {
+          "elapsed_seconds": 27.760671260009985,
+          "latest_gaps": [
+            0.856764620869712,
+            1.1407533048785476
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 19054,
+          "policies": [
+            [
+              0.9997478424845698,
+              0.000252157515430153
+            ],
+            [
+              0.9989480810107024,
+              0.0010519189892975636
+            ]
+          ],
+          "records": 614400,
+          "rollout_cycles": 600
+        },
+        {
+          "elapsed_seconds": 32.35006874601822,
+          "latest_gaps": [
+            0.8471344617962984,
+            0.6041339292400019
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 22196,
+          "policies": [
+            [
+              0.005004197673279397,
+              0.9949958023267206
+            ],
+            [
+              0.025815475744760695,
+              0.9741845242552393
+            ]
+          ],
+          "records": 716800,
+          "rollout_cycles": 700
+        },
+        {
+          "elapsed_seconds": 36.694291896012146,
+          "latest_gaps": [
+            0.8441987728069296,
+            0.7420393909726823
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 25160,
+          "policies": [
+            [
+              0.9913706104427149,
+              0.008629389557285063
+            ],
+            [
+              0.7995911240577698,
+              0.20040887594223022
+            ]
+          ],
+          "records": 819200,
+          "rollout_cycles": 800
+        },
+        {
+          "elapsed_seconds": 41.01466167898616,
+          "latest_gaps": [
+            0.7858909807560504,
+            0.002951579258603232
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 28097,
+          "policies": [
+            [
+              0.035625938193403414,
+              0.9643740618065966
+            ],
+            [
+              0.42660370906569306,
+              0.5733962909343069
+            ]
+          ],
+          "records": 921600,
+          "rollout_cycles": 900
+        },
+        {
+          "elapsed_seconds": 45.24789389001671,
+          "latest_gaps": [
+            0.8309040890229902,
+            0.5548547959688972
+          ],
+          "mixture_components": 1,
+          "mixture_gaps": [
+            0.8309040890229902,
+            0.5548547959688972
+          ],
+          "optimizer_steps": 30969,
+          "policies": [
+            [
+              0.01311938405993354,
+              0.9868806159400665
+            ],
+            [
+              0.0586682312588305,
+              0.9413317687411695
+            ]
+          ],
+          "records": 1024000,
+          "rollout_cycles": 1000
+        },
+        {
+          "elapsed_seconds": 49.358430911030155,
+          "latest_gaps": [
+            0.6517135538203813,
+            0.5314689947442828
+          ],
+          "mixture_components": 2,
+          "mixture_gaps": [
+            0.014267743526569343,
+            0.54316189535659
+          ],
+          "optimizer_steps": 33743,
+          "policies": [
+            [
+              0.8630471311183494,
+              0.13695286888165065
+            ],
+            [
+              0.07425876540857333,
+              0.9257412345914267
+            ]
+          ],
+          "records": 1126400,
+          "rollout_cycles": 1100
+        },
+        {
+          "elapsed_seconds": 53.10567327903118,
+          "latest_gaps": [
+            0.8517224205899272,
+            0.6445459361083952
+          ],
+          "mixture_components": 3,
+          "mixture_gaps": [
+            0.2934193025476886,
+            0.20097144621062785
+          ],
+          "optimizer_steps": 36255,
+          "policies": [
+            [
+              0.99638637563138,
+              0.0036136243686200387
+            ],
+            [
+              0.7508443966256262,
+              0.2491556033743738
+            ]
+          ],
+          "records": 1228800,
+          "rollout_cycles": 1200
+        },
+        {
+          "elapsed_seconds": 56.91119532298762,
+          "latest_gaps": [
+            0.7527356090448749,
+            0.534518944915634
+          ],
+          "mixture_components": 4,
+          "mixture_gaps": [
+            0.40824837917198525,
+            0.2843583208868794
+          ],
+          "optimizer_steps": 38809,
+          "policies": [
+            [
+              0.9303951679346786,
+              0.06960483206532145
+            ],
+            [
+              0.07222546529433928,
+              0.9277745347056607
+            ]
+          ],
+          "records": 1331200,
+          "rollout_cycles": 1300
+        },
+        {
+          "elapsed_seconds": 60.634586388012394,
+          "latest_gaps": [
+            0.8423122110101222,
+            0.019317747313842004
+          ],
+          "mixture_components": 5,
+          "mixture_gaps": [
+            0.4950611455396126,
+            0.2245889946124272
+          ],
+          "optimizer_steps": 41302,
+          "policies": [
+            [
+              0.9901129025781767,
+              0.009887097421823251
+            ],
+            [
+              0.4382303022283496,
+              0.5617696977716504
+            ]
+          ],
+          "records": 1433600,
+          "rollout_cycles": 1400
+        },
+        {
+          "elapsed_seconds": 64.70553290902171,
+          "latest_gaps": [
+            0.7250055446422112,
+            0.8293082518895749
+          ],
+          "mixture_components": 6,
+          "mixture_gaps": [
+            0.32192526153606743,
+            0.08349396402415915
+          ],
+          "optimizer_steps": 44046,
+          "policies": [
+            [
+              0.06606865625032293,
+              0.933931343749677
+            ],
+            [
+              0.8432255545162161,
+              0.15677444548378397
+            ]
+          ],
+          "records": 1536000,
+          "rollout_cycles": 1500
+        },
+        {
+          "elapsed_seconds": 68.65309875702951,
+          "latest_gaps": [
+            0.8328609388639818,
+            0.07124162785201671
+          ],
+          "mixture_components": 7,
+          "mixture_gaps": [
+            0.18670083786691688,
+            0.08174363028528164
+          ],
+          "optimizer_steps": 46695,
+          "policies": [
+            [
+              0.0121409591394377,
+              0.9878590408605623
+            ],
+            [
+              0.3810770100034174,
+              0.6189229899965826
+            ]
+          ],
+          "records": 1638400,
+          "rollout_cycles": 1600
+        },
+        {
+          "elapsed_seconds": 72.54351610998856,
+          "latest_gaps": [
+            0.8440156076096126,
+            0.382621627602741
+          ],
+          "mixture_components": 8,
+          "mixture_gaps": [
+            0.08423676992015111,
+            0.11935337994996403
+          ],
+          "optimizer_steps": 49298,
+          "policies": [
+            [
+              0.00656362476662234,
+              0.9934363752333777
+            ],
+            [
+              0.17349034350293455,
+              0.8265096564970654
+            ]
+          ],
+          "records": 1740800,
+          "rollout_cycles": 1700
+        },
+        {
+          "elapsed_seconds": 76.57789404602954,
+          "latest_gaps": [
+            0.7272936498082228,
+            0.5249999228864943
+          ],
+          "mixture_components": 9,
+          "mixture_gaps": [
+            0.1556875343521591,
+            0.16442521805402294
+          ],
+          "optimizer_steps": 52008,
+          "policies": [
+            [
+              0.9134338617769104,
+              0.08656613822308952
+            ],
+            [
+              0.07857147998043239,
+              0.9214285200195677
+            ]
+          ],
+          "records": 1843200,
+          "rollout_cycles": 1800
+        },
+        {
+          "elapsed_seconds": 80.70737615501275,
+          "latest_gaps": [
+            0.7662843638061874,
+            0.77863607119333
+          ],
+          "mixture_components": 10,
+          "mixture_gaps": [
+            0.08264745363147918,
+            0.08958499090912092
+          ],
+          "optimizer_steps": 54778,
+          "policies": [
+            [
+              0.0454292466683349,
+              0.9545707533316651
+            ],
+            [
+              0.8178894641680936,
+              0.18211053583190642
+            ]
+          ],
+          "records": 1945600,
+          "rollout_cycles": 1900
+        },
+        {
+          "elapsed_seconds": 82.83721955999499,
+          "latest_gaps": [
+            0.8485511184733245,
+            0.5389712599958794
+          ],
+          "mixture_components": 11,
+          "mixture_gaps": [
+            0.0172782906781635,
+            0.13043828809882618
+          ],
+          "optimizer_steps": 56165,
+          "policies": [
+            [
+              0.004295869334766374,
+              0.9957041306652337
+            ],
+            [
+              0.06925725524084239,
+              0.9307427447591576
+            ]
+          ],
+          "records": 2000000,
+          "rollout_cycles": 1954
+        }
+      ],
+      "formal_protocol": true,
+      "has_five_final_evaluations": true,
+      "historical_opponent_records": 998907,
+      "latest_passed": false,
+      "matrix_residual_gap": 0.0,
+      "mixture_passed": false,
+      "opponent_decisions": 2000000,
+      "optimizer_steps": 56165,
+      "per_role_records": [
+        1000000,
+        1000000
+      ],
+      "physical_episodes": 2000000,
+      "records": 2000000,
+      "rollout_cycles": 1954,
+      "seed": 0,
+      "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+      "status": "complete",
+      "task": "asymmetric",
+      "value": -0.14285714285714285
+    },
+    {
+      "current_opponent_records": 1001483,
+      "elapsed_seconds": 79.90955294203013,
+      "entropy_protocol": "taper",
+      "evaluations": [
+        {
+          "elapsed_seconds": 4.392407656996511,
+          "latest_gaps": [
+            0.8540111847511429,
+            0.6361711628952795
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 3083,
+          "policies": [
+            [
+              0.0015658361958571774,
+              0.9984341638041428
+            ],
+            [
+              0.0044573199745755274,
+              0.9955426800254245
+            ]
+          ],
+          "records": 102400,
+          "rollout_cycles": 100
+        },
+        {
+          "elapsed_seconds": 8.858736864000093,
+          "latest_gaps": [
+            0.8558107321434025,
+            1.1323580212456699
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 6163,
+          "policies": [
+            [
+              0.9991119166670303,
+              0.0008880833329697877
+            ],
+            [
+              0.9947504391942635,
+              0.005249560805736519
+            ]
+          ],
+          "records": 204800,
+          "rollout_cycles": 200
+        },
+        {
+          "elapsed_seconds": 13.30510169500485,
+          "latest_gaps": [
+            0.8298620154761995,
+            0.11461187092136571
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 9219,
+          "policies": [
+            [
+              0.9818127722222282,
+              0.018187227777771764
+            ],
+            [
+              0.4858773640321114,
+              0.5141226359678885
+            ]
+          ],
+          "records": 307200,
+          "rollout_cycles": 300
+        },
+        {
+          "elapsed_seconds": 17.588795864023268,
+          "latest_gaps": [
+            0.8325170866753577,
+            0.3727430488382067
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 12150,
+          "policies": [
+            [
+              0.012312885233749711,
+              0.9876871147662503
+            ],
+            [
+              0.18007606267929077,
+              0.8199239373207092
+            ]
+          ],
+          "records": 409600,
+          "rollout_cycles": 400
+        },
+        {
+          "elapsed_seconds": 21.836686017981265,
+          "latest_gaps": [
+            0.8174251394852252,
+            0.9280438444286878
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 15050,
+          "policies": [
+            [
+              0.9735215215615787,
+              0.026478478438421355
+            ],
+            [
+              0.8925933507857725,
+              0.10740664921422748
+            ]
+          ],
+          "records": 512000,
+          "rollout_cycles": 500
+        },
+        {
+          "elapsed_seconds": 25.966965376981534,
+          "latest_gaps": [
+            0.8363995202665804,
+            0.5208111861290394
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 17863,
+          "policies": [
+            [
+              0.01037166843813847,
+              0.9896283315618616
+            ],
+            [
+              0.0813639711520689,
+              0.918636028847931
+            ]
+          ],
+          "records": 614400,
+          "rollout_cycles": 600
+        },
+        {
+          "elapsed_seconds": 30.20966202201089,
+          "latest_gaps": [
+            0.45625536191644384,
+            1.0199437542906695
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 20758,
+          "policies": [
+            [
+              0.7327416698490578,
+              0.2672583301509422
+            ],
+            [
+              0.9385433057167634,
+              0.06145669428323665
+            ]
+          ],
+          "records": 716800,
+          "rollout_cycles": 700
+        },
+        {
+          "elapsed_seconds": 34.18650433898438,
+          "latest_gaps": [
+            0.8530074311245286,
+            0.552851974687329
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 23455,
+          "policies": [
+            [
+              0.0020677130091643053,
+              0.9979322869908357
+            ],
+            [
+              0.06000344544654258,
+              0.9399965545534574
+            ]
+          ],
+          "records": 819200,
+          "rollout_cycles": 800
+        },
+        {
+          "elapsed_seconds": 38.32134903903352,
+          "latest_gaps": [
+            0.826846220680076,
+            0.0018294324806245044
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 26259,
+          "policies": [
+            [
+              0.9798022423581458,
+              0.020197757641854164
+            ],
+            [
+              0.4273518069176789,
+              0.5726481930823211
+            ]
+          ],
+          "records": 921600,
+          "rollout_cycles": 900
+        },
+        {
+          "elapsed_seconds": 42.461575698980596,
+          "latest_gaps": [
+            0.6964356218065535,
+            0.6060469395674613
+          ],
+          "mixture_components": 1,
+          "mixture_gaps": [
+            0.6964356218065535,
+            0.6060469395674613
+          ],
+          "optimizer_steps": 29064,
+          "policies": [
+            [
+              0.08035361766815186,
+              0.9196463823318481
+            ],
+            [
+              0.7315948983551592,
+              0.26840510164484077
+            ]
+          ],
+          "records": 1024000,
+          "rollout_cycles": 1000
+        },
+        {
+          "elapsed_seconds": 46.4809134019888,
+          "latest_gaps": [
+            0.8301401812297224,
+            0.5349776337666633
+          ],
+          "mixture_components": 2,
+          "mixture_gaps": [
+            0.763287901518138,
+            0.04022121454553362
+          ],
+          "optimizer_steps": 31766,
+          "policies": [
+            [
+              0.013501337956567364,
+              0.9864986620434326
+            ],
+            [
+              0.07191967272698635,
+              0.9280803272730136
+            ]
+          ],
+          "records": 1126400,
+          "rollout_cycles": 1100
+        },
+        {
+          "elapsed_seconds": 50.79216302902205,
+          "latest_gaps": [
+            0.1926595483507429,
+            0.958720581398713
+          ],
+          "mixture_components": 3,
+          "mixture_gaps": [
+            0.5730784504623396,
+            0.28382133642576335
+          ],
+          "optimizer_steps": 34684,
+          "policies": [
+            [
+              0.33224165439605713,
+              0.6677583456039429
+            ],
+            [
+              0.9079317192707851,
+              0.09206828072921487
+            ]
+          ],
+          "records": 1228800,
+          "rollout_cycles": 1200
+        },
+        {
+          "elapsed_seconds": 54.66592019301606,
+          "latest_gaps": [
+            0.8461464394889735,
+            0.21584440346662837
+          ],
+          "mixture_components": 4,
+          "mixture_gaps": [
+            0.6413454477189982,
+            0.14091786783044635
+          ],
+          "optimizer_steps": 37285,
+          "policies": [
+            [
+              0.005498208826941846,
+              0.9945017911730581
+            ],
+            [
+              0.28467515959367634,
+              0.7153248404063237
+            ]
+          ],
+          "records": 1331200,
+          "rollout_cycles": 1300
+        },
+        {
+          "elapsed_seconds": 58.70038365799701,
+          "latest_gaps": [
+            0.7742577758856142,
+            0.46523911685809033
+          ],
+          "mixture_components": 5,
+          "mixture_gaps": [
+            0.3066076179390347,
+            0.008497102673350243
+          ],
+          "optimizer_steps": 39994,
+          "policies": [
+            [
+              0.944743279161838,
+              0.05525672083816201
+            ],
+            [
+              0.11841201733270171,
+              0.8815879826672983
+            ]
+          ],
+          "records": 1433600,
+          "rollout_cycles": 1400
+        },
+        {
+          "elapsed_seconds": 62.65037173300516,
+          "latest_gaps": [
+            0.8365853988915979,
+            0.8172916106600339
+          ],
+          "mixture_components": 6,
+          "mixture_gaps": [
+            0.39493724809779535,
+            0.12677404325072766
+          ],
+          "optimizer_steps": 42643,
+          "policies": [
+            [
+              0.010278729125629663,
+              0.9897212708743703
+            ],
+            [
+              0.8372172339014455,
+              0.16278276609855447
+            ]
+          ],
+          "records": 1536000,
+          "rollout_cycles": 1500
+        },
+        {
+          "elapsed_seconds": 66.28298557299422,
+          "latest_gaps": [
+            0.8513575310771826,
+            0.4439328100000109
+          ],
+          "mixture_components": 7,
+          "mixture_gaps": [
+            0.4601401456662792,
+            0.02410483516728834
+          ],
+          "optimizer_steps": 45065,
+          "policies": [
+            [
+              0.002892663032837331,
+              0.9971073369671627
+            ],
+            [
+              0.13261622190475464,
+              0.8673837780952454
+            ]
+          ],
+          "records": 1638400,
+          "rollout_cycles": 1600
+        },
+        {
+          "elapsed_seconds": 70.15966924303211,
+          "latest_gaps": [
+            0.15933852536337717,
+            0.5586561698522914
+          ],
+          "mixture_components": 8,
+          "mixture_gaps": [
+            0.4225399431284164,
+            0.0540132231530035
+          ],
+          "optimizer_steps": 47651,
+          "policies": [
+            [
+              0.34890216588974,
+              0.65109783411026
+            ],
+            [
+              0.05613398200323426,
+              0.9438660179967657
+            ]
+          ],
+          "records": 1740800,
+          "rollout_cycles": 1700
+        },
+        {
+          "elapsed_seconds": 74.01163537503453,
+          "latest_gaps": [
+            0.8022229072971847,
+            0.5253844964356815
+          ],
+          "mixture_components": 9,
+          "mixture_gaps": [
+            0.25674322244049097,
+            0.10638780907330103
+          ],
+          "optimizer_steps": 50215,
+          "policies": [
+            [
+              0.9633867001028851,
+              0.03661329989711493
+            ],
+            [
+              0.07831509761430759,
+              0.9216849023856925
+            ]
+          ],
+          "records": 1843200,
+          "rollout_cycles": 1800
+        },
+        {
+          "elapsed_seconds": 77.73447257303633,
+          "latest_gaps": [
+            0.8493794248134063,
+            0.727511164806284
+          ],
+          "mixture_components": 10,
+          "mixture_gaps": [
+            0.117818310221321,
+            0.04118569080549961
+          ],
+          "optimizer_steps": 52685,
+          "policies": [
+            [
+              0.9948243784470329,
+              0.005175621552967167
+            ],
+            [
+              0.7923270109745706,
+              0.20767298902542938
+            ]
+          ],
+          "records": 1945600,
+          "rollout_cycles": 1900
+        },
+        {
+          "elapsed_seconds": 79.77545358298812,
+          "latest_gaps": [
+            0.8542510740140623,
+            0.8075620865245687
+          ],
+          "mixture_components": 11,
+          "mixture_gaps": [
+            0.0035619700176782176,
+            0.02349268567738544
+          ],
+          "optimizer_steps": 54004,
+          "policies": [
+            [
+              0.9980721445808034,
+              0.0019278554191965924
+            ],
+            [
+              0.832352471833713,
+              0.16764752816628706
+            ]
+          ],
+          "records": 2000000,
+          "rollout_cycles": 1954
+        }
+      ],
+      "formal_protocol": true,
+      "has_five_final_evaluations": true,
+      "historical_opponent_records": 998517,
+      "latest_passed": false,
+      "matrix_residual_gap": 0.0,
+      "mixture_passed": false,
+      "opponent_decisions": 2000000,
+      "optimizer_steps": 54004,
+      "per_role_records": [
+        1000000,
+        1000000
+      ],
+      "physical_episodes": 2000000,
+      "records": 2000000,
+      "rollout_cycles": 1954,
+      "seed": 1,
+      "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+      "status": "complete",
+      "task": "asymmetric",
+      "value": -0.14285714285714285
+    },
+    {
+      "current_opponent_records": 999874,
+      "elapsed_seconds": 90.4149064339581,
+      "entropy_protocol": "taper",
+      "evaluations": [
+        {
+          "elapsed_seconds": 4.443667188985273,
+          "latest_gaps": [
+            0.8511185934334351,
+            0.6312009839734312
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 3098,
+          "policies": [
+            [
+              0.9959838241937187,
+              0.004016175806281331
+            ],
+            [
+              0.007770772589141172,
+              0.9922292274108588
+            ]
+          ],
+          "records": 102400,
+          "rollout_cycles": 100
+        },
+        {
+          "elapsed_seconds": 9.054078140994534,
+          "latest_gaps": [
+            0.8566798809949703,
+            0.6428520781994398
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 6267,
+          "policies": [
+            [
+              0.00023148807394343668,
+              0.9997685119260565
+            ],
+            [
+              3.3764384686764254e-06,
+              0.9999966235615313
+            ]
+          ],
+          "records": 204800,
+          "rollout_cycles": 200
+        },
+        {
+          "elapsed_seconds": 13.7208741279901,
+          "latest_gaps": [
+            0.8570962545168717,
+            0.6428550335557286
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 9467,
+          "policies": [
+            [
+              2.330131299278407e-05,
+              0.9999766986870072
+            ],
+            [
+              1.4062009427902009e-06,
+              0.9999985937990572
+            ]
+          ],
+          "records": 307200,
+          "rollout_cycles": 300
+        },
+        {
+          "elapsed_seconds": 18.3958126239595,
+          "latest_gaps": [
+            0.8571164946445029,
+            0.6428544664278997
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 12667,
+          "policies": [
+            [
+              1.318124917714895e-05,
+              0.9999868187508228
+            ],
+            [
+              1.78428616214601e-06,
+              0.9999982157138378
+            ]
+          ],
+          "records": 409600,
+          "rollout_cycles": 400
+        },
+        {
+          "elapsed_seconds": 23.075010988977738,
+          "latest_gaps": [
+            0.8571102264405714,
+            0.6428498648131165
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 15867,
+          "policies": [
+            [
+              1.6315351142834782e-05,
+              0.9999836846488571
+            ],
+            [
+              4.852029350934937e-06,
+              0.999995147970649
+            ]
+          ],
+          "records": 512000,
+          "rollout_cycles": 500
+        },
+        {
+          "elapsed_seconds": 27.751881058968138,
+          "latest_gaps": [
+            0.857100467310902,
+            0.6428403859382815
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 19067,
+          "policies": [
+            [
+              2.119491597766314e-05,
+              0.9999788050840224
+            ],
+            [
+              1.1171279240865503e-05,
+              0.9999888287207591
+            ]
+          ],
+          "records": 614400,
+          "rollout_cycles": 600
+        },
+        {
+          "elapsed_seconds": 32.43736939597875,
+          "latest_gaps": [
+            0.857064750920137,
+            0.6428318564900564
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 22267,
+          "policies": [
+            [
+              3.905311136007006e-05,
+              0.9999609468886399
+            ],
+            [
+              1.685757805762473e-05,
+              0.9999831424219424
+            ]
+          ],
+          "records": 716800,
+          "rollout_cycles": 700
+        },
+        {
+          "elapsed_seconds": 37.12153283599764,
+          "latest_gaps": [
+            0.8570863245682312,
+            0.6428026995123531
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 25467,
+          "policies": [
+            [
+              2.8266287312952872e-05,
+              0.999971733712687
+            ],
+            [
+              3.6295563193136784e-05,
+              0.9999637044368068
+            ]
+          ],
+          "records": 819200,
+          "rollout_cycles": 800
+        },
+        {
+          "elapsed_seconds": 41.80745742999716,
+          "latest_gaps": [
+            0.8570137211714106,
+            0.6426627487359081
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 28667,
+          "policies": [
+            [
+              6.456798572326086e-05,
+              0.9999354320142767
+            ],
+            [
+              0.00012959608082314077,
+              0.9998704039191768
+            ]
+          ],
+          "records": 921600,
+          "rollout_cycles": 900
+        },
+        {
+          "elapsed_seconds": 46.50451201398391,
+          "latest_gaps": [
+            0.8004411945286978,
+            1.142327774263942
+          ],
+          "mixture_components": 1,
+          "mixture_gaps": [
+            0.8004411945286978,
+            1.142327774263942
+          ],
+          "optimizer_steps": 31867,
+          "policies": [
+            [
+              0.9621988915905604,
+              0.037801108409439586
+            ],
+            [
+              0.9997353157033996,
+              0.0002646842966004258
+            ]
+          ],
+          "records": 1024000,
+          "rollout_cycles": 1000
+        },
+        {
+          "elapsed_seconds": 51.20498554495862,
+          "latest_gaps": [
+            0.856178903739363,
+            1.1427816365460612
+          ],
+          "mixture_components": 2,
+          "mixture_gaps": [
+            0.8283100491340303,
+            1.1425547054050016
+          ],
+          "optimizer_steps": 35067,
+          "policies": [
+            [
+              0.9993573643976705,
+              0.0006426356023294844
+            ],
+            [
+              0.9999622468444592,
+              3.775315554073456e-05
+            ]
+          ],
+          "records": 1126400,
+          "rollout_cycles": 1100
+        },
+        {
+          "elapsed_seconds": 55.89345772197703,
+          "latest_gaps": [
+            0.8569498990766411,
+            1.1428131434474131
+          ],
+          "mixture_components": 3,
+          "mixture_gaps": [
+            0.8378566657815674,
+            1.1426408514191388
+          ],
+          "optimizer_steps": 38267,
+          "policies": [
+            [
+              0.9998713612891893,
+              0.00012863871081065988
+            ],
+            [
+              0.9999780002951352,
+              2.1999704864867883e-05
+            ]
+          ],
+          "records": 1228800,
+          "rollout_cycles": 1200
+        },
+        {
+          "elapsed_seconds": 60.600683478987776,
+          "latest_gaps": [
+            0.857083145277274,
+            1.142831431119481
+          ],
+          "mixture_components": 4,
+          "mixture_gaps": [
+            0.8426632856554939,
+            1.1426884963442243
+          ],
+          "optimizer_steps": 41467,
+          "policies": [
+            [
+              0.9999601920896113,
+              3.980791038869203e-05
+            ],
+            [
+              0.9999871441311691,
+              1.2855868830973161e-05
+            ]
+          ],
+          "records": 1331200,
+          "rollout_cycles": 1300
+        },
+        {
+          "elapsed_seconds": 65.31189558299957,
+          "latest_gaps": [
+            0.8570319363555243,
+            1.1427617268025974
+          ],
+          "mixture_components": 5,
+          "mixture_gaps": [
+            0.8455370157955,
+            1.142703142435899
+          ],
+          "optimizer_steps": 44667,
+          "policies": [
+            [
+              0.9999260528084448,
+              7.394719155521088e-05
+            ],
+            [
+              0.9999522919727273,
+              4.770802727277352e-05
+            ]
+          ],
+          "records": 1433600,
+          "rollout_cycles": 1400
+        },
+        {
+          "elapsed_seconds": 70.02791413996601,
+          "latest_gaps": [
+            0.8570499112530972,
+            1.1425106359926802
+          ],
+          "mixture_components": 6,
+          "mixture_gaps": [
+            0.8474558317050995,
+            1.1426710580286958
+          ],
+          "optimizer_steps": 47867,
+          "policies": [
+            [
+              0.9999380360734933,
+              6.196392650674185e-05
+            ],
+            [
+              0.9998267465677687,
+              0.00017325343223131238
+            ]
+          ],
+          "records": 1536000,
+          "rollout_cycles": 1500
+        },
+        {
+          "elapsed_seconds": 74.74642927997047,
+          "latest_gaps": [
+            0.24543286832766942,
+            0.5131927626147839
+          ],
+          "mixture_components": 7,
+          "mixture_gaps": [
+            0.7614525512226096,
+            0.8816813330503519
+          ],
+          "optimizer_steps": 51067,
+          "policies": [
+            [
+              0.5921933407898748,
+              0.40780665921012516
+            ],
+            [
+              0.0864429201615727,
+              0.9135570798384273
+            ]
+          ],
+          "records": 1638400,
+          "rollout_cycles": 1600
+        },
+        {
+          "elapsed_seconds": 79.20059137098724,
+          "latest_gaps": [
+            0.8359330087416168,
+            0.8087249483380998
+          ],
+          "mixture_components": 8,
+          "mixture_gaps": [
+            0.7707626084124855,
+            0.8725617849613205
+          ],
+          "optimizer_steps": 54060,
+          "policies": [
+            [
+              0.9858601010658398,
+              0.014139898934160275
+            ],
+            [
+              0.8329339027404785,
+              0.16706609725952148
+            ]
+          ],
+          "records": 1740800,
+          "rollout_cycles": 1700
+        },
+        {
+          "elapsed_seconds": 83.51829046197236,
+          "latest_gaps": [
+            0.5149311432201351,
+            1.0171001144801974
+          ],
+          "mixture_components": 9,
+          "mixture_gaps": [
+            0.7423368900577798,
+            0.8886215993523068
+          ],
+          "optimizer_steps": 56955,
+          "policies": [
+            [
+              0.771858857384852,
+              0.22814114261514798
+            ],
+            [
+              0.9371214858115273,
+              0.0628785141884727
+            ]
+          ],
+          "records": 1843200,
+          "rollout_cycles": 1800
+        },
+        {
+          "elapsed_seconds": 87.93479167396436,
+          "latest_gaps": [
+            0.826345390277694,
+            0.028419294527598782
+          ],
+          "mixture_components": 10,
+          "mixture_gaps": [
+            0.6061272967811748,
+            0.7959702001467297
+          ],
+          "optimizer_steps": 59911,
+          "policies": [
+            [
+              0.015398733432581524,
+              0.9846012665674184
+            ],
+            [
+              0.40962523221969604,
+              0.590374767780304
+            ]
+          ],
+          "records": 1945600,
+          "rollout_cycles": 1900
+        },
+        {
+          "elapsed_seconds": 90.3095662620035,
+          "latest_gaps": [
+            0.8070193465360846,
+            0.4087963140269028
+          ],
+          "mixture_components": 11,
+          "mixture_gaps": [
+            0.49600076890088046,
+            0.674058204493766
+          ],
+          "optimizer_steps": 61469,
+          "policies": [
+            [
+              0.0250617553033863,
+              0.9749382446966137
+            ],
+            [
+              0.15604055255349333,
+              0.8439594474465066
+            ]
+          ],
+          "records": 2000000,
+          "rollout_cycles": 1954
+        }
+      ],
+      "formal_protocol": true,
+      "has_five_final_evaluations": true,
+      "historical_opponent_records": 1000126,
+      "latest_passed": false,
+      "matrix_residual_gap": 0.0,
+      "mixture_passed": false,
+      "opponent_decisions": 2000000,
+      "optimizer_steps": 61469,
+      "per_role_records": [
+        1000000,
+        1000000
+      ],
+      "physical_episodes": 2000000,
+      "records": 2000000,
+      "rollout_cycles": 1954,
+      "seed": 2,
+      "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+      "status": "complete",
+      "task": "asymmetric",
+      "value": -0.14285714285714285
+    },
+    {
+      "current_opponent_records": 1001093,
+      "elapsed_seconds": 91.86442077899119,
+      "entropy_protocol": "taper",
+      "evaluations": [
+        {
+          "elapsed_seconds": 4.459066039999016,
+          "latest_gaps": [
+            0.9996373788268058,
+            0.9998723600578403
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 3084,
+          "policies": [
+            [
+              5.7112705748056924e-05,
+              0.0001527542337230204,
+              0.9997901330605289
+            ],
+            [
+              1.2218096007206903e-05,
+              5.771092307622632e-05,
+              0.9999300709809166
+            ]
+          ],
+          "records": 102400,
+          "rollout_cycles": 100
+        },
+        {
+          "elapsed_seconds": 9.179598063987214,
+          "latest_gaps": [
+            0.9991868500445882,
+            0.9998607964124038
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 6284,
+          "policies": [
+            [
+              0.00036584981353020307,
+              0.0002236500709408334,
+              0.999410500115529
+            ],
+            [
+              5.254779369749361e-05,
+              4.332789694938993e-05,
+              0.9999041243093532
+            ]
+          ],
+          "records": 204800,
+          "rollout_cycles": 200
+        },
+        {
+          "elapsed_seconds": 13.603686677000951,
+          "latest_gaps": [
+            0.9997506941317864,
+            0.9999569014218826
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 9265,
+          "policies": [
+            [
+              0.9998626379737956,
+              2.5418184195322487e-05,
+              0.00011194384200913305
+            ],
+            [
+              0.9999755680185817,
+              5.765384719367892e-06,
+              1.866659669900965e-05
+            ]
+          ],
+          "records": 307200,
+          "rollout_cycles": 300
+        },
+        {
+          "elapsed_seconds": 18.330045095994137,
+          "latest_gaps": [
+            0.9999344533127562,
+            0.9999829155403922
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 12465,
+          "policies": [
+            [
+              0.9999606996010053,
+              1.3054110745550653e-05,
+              2.6246288249137425e-05
+            ],
+            [
+              0.9999890856068901,
+              4.744326611900873e-06,
+              6.170066497925009e-06
+            ]
+          ],
+          "records": 409600,
+          "rollout_cycles": 400
+        },
+        {
+          "elapsed_seconds": 23.055017140985,
+          "latest_gaps": [
+            0.9998908570942522,
+            0.9999481745545014
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 15665,
+          "policies": [
+            [
+              0.9999256105061121,
+              3.963608202802456e-05,
+              3.475341185987633e-05
+            ],
+            [
+              0.9999615433698749,
+              2.5087814751574464e-05,
+              1.336881537354868e-05
+            ]
+          ],
+          "records": 512000,
+          "rollout_cycles": 500
+        },
+        {
+          "elapsed_seconds": 27.749523246020544,
+          "latest_gaps": [
+            0.9998494173456507,
+            0.9998250672541403
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 18865,
+          "policies": [
+            [
+              0.9998716804314306,
+              0.00010605648278947367,
+              2.226308577994727e-05
+            ],
+            [
+              0.9998436189928623,
+              0.0001378292684157388,
+              1.8551738721971437e-05
+            ]
+          ],
+          "records": 614400,
+          "rollout_cycles": 600
+        },
+        {
+          "elapsed_seconds": 32.30815083801281,
+          "latest_gaps": [
+            0.994409372834881,
+            0.9963345673427317
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 21963,
+          "policies": [
+            [
+              0.0027947333196517913,
+              0.9972041061545327,
+              1.1605258155370476e-06
+            ],
+            [
+              0.001832527445644799,
+              0.9981670947883765,
+              3.7776597868820325e-07
+            ]
+          ],
+          "records": 716800,
+          "rollout_cycles": 700
+        },
+        {
+          "elapsed_seconds": 37.02488862199243,
+          "latest_gaps": [
+            0.9997536919701984,
+            0.999841252815201
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 25163,
+          "policies": [
+            [
+              0.00012313130306203623,
+              0.9998768232732604,
+              4.542367751709605e-08
+            ],
+            [
+              7.936523706875083e-05,
+              0.9999206180522697,
+              1.6710661490327717e-08
+            ]
+          ],
+          "records": 819200,
+          "rollout_cycles": 800
+        },
+        {
+          "elapsed_seconds": 41.75220354797784,
+          "latest_gaps": [
+            0.9999665537188545,
+            0.9999843426713989
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 28363,
+          "policies": [
+            [
+              1.6717730685306178e-05,
+              0.9999832714495398,
+              1.0819774873249774e-08
+            ],
+            [
+              7.827250851513638e-06,
+              0.9999921699222504,
+              2.826898155654699e-09
+            ]
+          ],
+          "records": 921600,
+          "rollout_cycles": 900
+        },
+        {
+          "elapsed_seconds": 46.515482537972275,
+          "latest_gaps": [
+            0.9999584298026206,
+            0.9999858212094404
+          ],
+          "mixture_components": 1,
+          "mixture_gaps": [
+            0.9999584298026206,
+            0.9999858212094404
+          ],
+          "optimizer_steps": 31563,
+          "policies": [
+            [
+              2.0773532706610312e-05,
+              0.9999792033353272,
+              2.313196619773185e-08
+            ],
+            [
+              7.0874535123075655e-06,
+              0.9999929086629527,
+              3.883535045939275e-09
+            ]
+          ],
+          "records": 1024000,
+          "rollout_cycles": 1000
+        },
+        {
+          "elapsed_seconds": 51.248728218022734,
+          "latest_gaps": [
+            0.9999598369484458,
+            0.999977829934965
+          ],
+          "mixture_components": 2,
+          "mixture_gaps": [
+            0.9999591333755333,
+            0.9999818255722027
+          ],
+          "optimizer_steps": 34763,
+          "policies": [
+            [
+              2.0065199751466888e-05,
+              0.9999799021481973,
+              3.26520511971865e-08
+            ],
+            [
+              1.1079016934815858e-05,
+              0.9999889089518998,
+              1.2031165342121347e-08
+            ]
+          ],
+          "records": 1126400,
+          "rollout_cycles": 1100
+        },
+        {
+          "elapsed_seconds": 55.98027867998462,
+          "latest_gaps": [
+            0.9998834694957603,
+            0.9999393876235646
+          ],
+          "mixture_components": 3,
+          "mixture_gaps": [
+            0.9999339120822756,
+            0.9999676795893233
+          ],
+          "optimizer_steps": 37963,
+          "policies": [
+            [
+              5.81901813293253e-05,
+              0.9999416596770897,
+              1.501415809970448e-07
+            ],
+            [
+              3.0280966039111344e-05,
+              0.9999696685896037,
+              5.0444357164554013e-08
+            ]
+          ],
+          "records": 1228800,
+          "rollout_cycles": 1200
+        },
+        {
+          "elapsed_seconds": 60.73609198798658,
+          "latest_gaps": [
+            0.9999646865556955,
+            0.9999862713312384
+          ],
+          "mixture_components": 4,
+          "mixture_gaps": [
+            0.9999416057006306,
+            0.999972327524802
+          ],
+          "optimizer_steps": 41163,
+          "policies": [
+            [
+              1.7603892973749843e-05,
+              0.9999822904486693,
+              1.056583569626114e-07
+            ],
+            [
+              6.8509197045784196e-06,
+              0.999993122250943,
+              2.6829352515845935e-08
+            ]
+          ],
+          "records": 1331200,
+          "rollout_cycles": 1300
+        },
+        {
+          "elapsed_seconds": 65.47924735298147,
+          "latest_gaps": [
+            0.9999613255537099,
+            0.999982566990231
+          ],
+          "mixture_components": 5,
+          "mixture_gaps": [
+            0.9999455496712465,
+            0.9999743754178879
+          ],
+          "optimizer_steps": 44363,
+          "policies": [
+            [
+              1.891994971848632e-05,
+              0.9999802455034283,
+              8.345468531152431e-07
+            ],
+            [
+              8.561339791208098e-06,
+              0.9999911283300222,
+              3.103301865421019e-07
+            ]
+          ],
+          "records": 1433600,
+          "rollout_cycles": 1400
+        },
+        {
+          "elapsed_seconds": 70.2285575880087,
+          "latest_gaps": [
+            0.9996737948234687,
+            0.999746176322628
+          ],
+          "mixture_components": 6,
+          "mixture_gaps": [
+            0.9999002571966167,
+            0.9999363422353446
+          ],
+          "optimizer_steps": 47563,
+          "policies": [
+            [
+              5.206289172277721e-05,
+              0.9997258577151915,
+              0.00022207939308575438
+            ],
+            [
+              3.80738986689675e-05,
+              0.9997842502212969,
+              0.0001776758800340876
+            ]
+          ],
+          "records": 1536000,
+          "rollout_cycles": 1500
+        },
+        {
+          "elapsed_seconds": 74.82258388499031,
+          "latest_gaps": [
+            0.8045888778313735,
+            0.8194979856521838
+          ],
+          "mixture_components": 7,
+          "mixture_gaps": [
+            0.8707976959231021,
+            0.8698338543271312
+          ],
+          "optimizer_steps": 50647,
+          "policies": [
+            [
+              0.001015488534866011,
+              0.09719781681688026,
+              0.9017866946482537
+            ],
+            [
+              0.0006880535307045036,
+              0.08990698040855583,
+              0.9094049660607396
+            ]
+          ],
+          "records": 1638400,
+          "rollout_cycles": 1600
+        },
+        {
+          "elapsed_seconds": 79.58306235598866,
+          "latest_gaps": [
+            0.9998459785458068,
+            0.9999140776111713
+          ],
+          "mixture_components": 8,
+          "mixture_gaps": [
+            0.7619527913108135,
+            0.7611076797545452
+          ],
+          "optimizer_steps": 53847,
+          "policies": [
+            [
+              2.570113486959098e-05,
+              6.416015966178044e-05,
+              0.9999101387054686
+            ],
+            [
+              1.2335631981372263e-05,
+              3.679337842361168e-05,
+              0.999950870989595
+            ]
+          ],
+          "records": 1740800,
+          "rollout_cycles": 1700
+        },
+        {
+          "elapsed_seconds": 84.36660408298485,
+          "latest_gaps": [
+            0.9999525188121148,
+            0.9999746091161071
+          ],
+          "mixture_components": 9,
+          "mixture_gaps": [
+            0.6772924858929358,
+            0.6765406950628834
+          ],
+          "optimizer_steps": 57047,
+          "policies": [
+            [
+              9.132029351997244e-06,
+              1.9174579266615147e-05,
+              0.9999716933913814
+            ],
+            [
+              5.25194157195317e-06,
+              1.006947116047497e-05,
+              0.9999846785872676
+            ]
+          ],
+          "records": 1843200,
+          "rollout_cycles": 1800
+        },
+        {
+          "elapsed_seconds": 89.15472890296951,
+          "latest_gaps": [
+            0.9999055022103875,
+            0.9999577106027445
+          ],
+          "mixture_components": 10,
+          "mixture_gaps": [
+            0.6095654727828762,
+            0.6088875440304852
+          ],
+          "optimizer_steps": 60247,
+          "policies": [
+            [
+              1.6596068311576266e-05,
+              3.8950860650414554e-05,
+              0.999944453071038
+            ],
+            [
+              7.97330648419294e-06,
+              1.7158045385652048e-05,
+              0.9999748686481301
+            ]
+          ],
+          "records": 1945600,
+          "rollout_cycles": 1900
+        },
+        {
+          "elapsed_seconds": 91.75905963598052,
+          "latest_gaps": [
+            0.999915706806112,
+            0.9999547934690323
+          ],
+          "mixture_components": 11,
+          "mixture_gaps": [
+            0.5541510896297678,
+            0.5535343494310808
+          ],
+          "optimizer_steps": 61947,
+          "policies": [
+            [
+              2.3258998840015256e-05,
+              3.051709752400267e-05,
+              0.999946223903636
+            ],
+            [
+              1.3466552296710801e-05,
+              1.5869989335504704e-05,
+              0.9999706634583678
+            ]
+          ],
+          "records": 2000000,
+          "rollout_cycles": 1954
+        }
+      ],
+      "formal_protocol": true,
+      "has_five_final_evaluations": true,
+      "historical_opponent_records": 998907,
+      "latest_passed": false,
+      "matrix_residual_gap": 2.220446049250313e-16,
+      "mixture_passed": false,
+      "opponent_decisions": 2000000,
+      "optimizer_steps": 61947,
+      "per_role_records": [
+        1000000,
+        1000000
+      ],
+      "physical_episodes": 2000000,
+      "records": 2000000,
+      "rollout_cycles": 1954,
+      "seed": 0,
+      "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+      "status": "complete",
+      "task": "rps",
+      "value": 0.0
+    },
+    {
+      "current_opponent_records": 1001483,
+      "elapsed_seconds": 91.89003525604494,
+      "entropy_protocol": "taper",
+      "evaluations": [
+        {
+          "elapsed_seconds": 4.361387817014474,
+          "latest_gaps": [
+            0.9998053607355367,
+            0.9998059260225528
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 3004,
+          "policies": [
+            [
+              9.56697857236783e-05,
+              0.9999010305212604,
+              3.299693015871351e-06
+            ],
+            [
+              9.477194537584092e-05,
+              0.9999006979679287,
+              4.530086695507219e-06
+            ]
+          ],
+          "records": 102400,
+          "rollout_cycles": 100
+        },
+        {
+          "elapsed_seconds": 9.075962810020428,
+          "latest_gaps": [
+            0.9999713198695549,
+            0.999965737699198
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 6204,
+          "policies": [
+            [
+              1.3895339140270835e-05,
+              0.9999852152086952,
+              8.8945216450441e-07
+            ],
+            [
+              1.6427390473470737e-05,
+              0.9999821650896715,
+              1.4075198550361274e-06
+            ]
+          ],
+          "records": 204800,
+          "rollout_cycles": 200
+        },
+        {
+          "elapsed_seconds": 13.79942337301327,
+          "latest_gaps": [
+            0.9999659745235919,
+            0.9999659904286495
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 9404,
+          "policies": [
+            [
+              1.6122734106410435e-05,
+              0.9999820972576984,
+              1.780008195252351e-06
+            ],
+            [
+              1.593403319536874e-05,
+              0.9999819244618449,
+              2.141504959808601e-06
+            ]
+          ],
+          "records": 307200,
+          "rollout_cycles": 300
+        },
+        {
+          "elapsed_seconds": 18.523153017042205,
+          "latest_gaps": [
+            0.9999382370159434,
+            0.9999663975089308
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 12604,
+          "policies": [
+            [
+              2.6642426158016316e-05,
+              0.9999648794421014,
+              8.478131740520922e-06
+            ],
+            [
+              1.4321788959349848e-05,
+              0.9999807192978901,
+              4.958913150524378e-06
+            ]
+          ],
+          "records": 409600,
+          "rollout_cycles": 400
+        },
+        {
+          "elapsed_seconds": 22.8977360810386,
+          "latest_gaps": [
+            0.9998284019497781,
+            0.9997790617592965
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 15549,
+          "policies": [
+            [
+              1.427351255348611e-06,
+              8.508534948330059e-05,
+              0.9999134872992613
+            ],
+            [
+              9.72458820319987e-07,
+              0.00010998289094156584,
+              0.9998890446502381
+            ]
+          ],
+          "records": 512000,
+          "rollout_cycles": 500
+        },
+        {
+          "elapsed_seconds": 27.624303294054698,
+          "latest_gaps": [
+            0.9999269482386747,
+            0.9998912069006957
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 18749,
+          "policies": [
+            [
+              1.4436020944016347e-06,
+              3.5804079615454635e-05,
+              0.9999627523182901
+            ],
+            [
+              1.2420632201592519e-06,
+              5.377551804208263e-05,
+              0.9999449824187377
+            ]
+          ],
+          "records": 614400,
+          "rollout_cycles": 600
+        },
+        {
+          "elapsed_seconds": 32.35238301602658,
+          "latest_gaps": [
+            0.9999647537004865,
+            0.9999606607937798
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 21949,
+          "policies": [
+            [
+              1.3914056446485228e-06,
+              1.6927446934381823e-05,
+              0.9999816811474209
+            ],
+            [
+              8.938126523809985e-07,
+              1.9222696783919303e-05,
+              0.9999798834905637
+            ]
+          ],
+          "records": 716800,
+          "rollout_cycles": 700
+        },
+        {
+          "elapsed_seconds": 37.08315295103239,
+          "latest_gaps": [
+            0.9999342663542655,
+            0.9999435364591657
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 25149,
+          "policies": [
+            [
+              4.21095937450647e-06,
+              3.076134317999477e-05,
+              0.9999650276974456
+            ],
+            [
+              2.157062031995056e-06,
+              2.7153239401132052e-05,
+              0.9999706896985668
+            ]
+          ],
+          "records": 819200,
+          "rollout_cycles": 800
+        },
+        {
+          "elapsed_seconds": 41.8186033120146,
+          "latest_gaps": [
+            0.9999621221285677,
+            0.9999664883692633
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 28349,
+          "policies": [
+            [
+              7.25166066988564e-06,
+              1.5313105381201135e-05,
+              0.9999774352339489
+            ],
+            [
+              4.279643486312519e-06,
+              1.4615993625182558e-05,
+              0.9999811043628885
+            ]
+          ],
+          "records": 921600,
+          "rollout_cycles": 900
+        },
+        {
+          "elapsed_seconds": 46.555829684017226,
+          "latest_gaps": [
+            0.9999924954670556,
+            0.9999907577851043
+          ],
+          "mixture_components": 1,
+          "mixture_gaps": [
+            0.9999924954670556,
+            0.9999907577851043
+          ],
+          "optimizer_steps": 31549,
+          "policies": [
+            [
+              1.767512595084077e-06,
+              2.8685101746684496e-06,
+              0.9999953639772302
+            ],
+            [
+              1.5861370804694496e-06,
+              3.8280389076762264e-06,
+              0.9999945858240119
+            ]
+          ],
+          "records": 1024000,
+          "rollout_cycles": 1000
+        },
+        {
+          "elapsed_seconds": 51.30305284401402,
+          "latest_gaps": [
+            0.9999800650049229,
+            0.9999744250066195
+          ],
+          "mixture_components": 2,
+          "mixture_gaps": [
+            0.9999862802359892,
+            0.9999825913958619
+          ],
+          "optimizer_steps": 34749,
+          "policies": [
+            [
+              4.9164758354924005e-06,
+              7.509259620808497e-06,
+              0.9999875742645437
+            ],
+            [
+              4.864195679715472e-06,
+              1.0355398850398243e-05,
+              0.9999847804054699
+            ]
+          ],
+          "records": 1126400,
+          "rollout_cycles": 1100
+        },
+        {
+          "elapsed_seconds": 56.0482318510185,
+          "latest_gaps": [
+            0.9999516956505197,
+            0.9999197353173881
+          ],
+          "mixture_components": 3,
+          "mixture_gaps": [
+            0.9999747520408326,
+            0.999961639369704
+          ],
+          "optimizer_steps": 37949,
+          "policies": [
+            [
+              1.9572428555251082e-05,
+              1.4365960462548275e-05,
+              0.9999660616109822
+            ],
+            [
+              2.6698432770423448e-05,
+              2.6783124920729506e-05,
+              0.9999465184423089
+            ]
+          ],
+          "records": 1228800,
+          "rollout_cycles": 1200
+        },
+        {
+          "elapsed_seconds": 60.7959218750475,
+          "latest_gaps": [
+            0.999981526601728,
+            0.9999904618154647
+          ],
+          "mixture_components": 4,
+          "mixture_gaps": [
+            0.9999764456810566,
+            0.9999688449811441
+          ],
+          "optimizer_steps": 41149,
+          "policies": [
+            [
+              8.924587836069426e-06,
+              4.77440521798677e-06,
+              0.999986301006946
+            ],
+            [
+              3.993607267591801e-06,
+              2.772288633877697e-06,
+              0.9999932341040986
+            ]
+          ],
+          "records": 1331200,
+          "rollout_cycles": 1300
+        },
+        {
+          "elapsed_seconds": 65.54628614900867,
+          "latest_gaps": [
+            0.999925058617763,
+            0.9999283322128786
+          ],
+          "mixture_components": 5,
+          "mixture_gaps": [
+            0.9999661682683979,
+            0.9999607424274909
+          ],
+          "optimizer_steps": 44349,
+          "policies": [
+            [
+              6.07631759677732e-05,
+              7.089103134604622e-06,
+              0.9999321477208977
+            ],
+            [
+              5.437247317439081e-05,
+              8.647656973529698e-06,
+              0.9999369798698521
+            ]
+          ],
+          "records": 1433600,
+          "rollout_cycles": 1400
+        },
+        {
+          "elapsed_seconds": 70.13964509702055,
+          "latest_gaps": [
+            0.9995206317796897,
+            0.9995340008609542
+          ],
+          "mixture_components": 6,
+          "mixture_gaps": [
+            0.8333449617371054,
+            0.833339373732687
+          ],
+          "optimizer_steps": 47435,
+          "policies": [
+            [
+              0.999760064213341,
+              5.033530078461343e-07,
+              0.0002394324336512276
+            ],
+            [
+              0.9997668439935252,
+              3.1287390378020384e-07,
+              0.00023284313257099378
+            ]
+          ],
+          "records": 1536000,
+          "rollout_cycles": 1500
+        },
+        {
+          "elapsed_seconds": 74.89931051601889,
+          "latest_gaps": [
+            0.9999493703427735,
+            0.9998937717051422
+          ],
+          "mixture_components": 7,
+          "mixture_gaps": [
+            0.7142992790939738,
+            0.714298451736734
+          ],
+          "optimizer_steps": 50635,
+          "policies": [
+            [
+              0.9999746413069106,
+              8.772895232340596e-08,
+              2.5270964137028197e-05
+            ],
+            [
+              0.9999468210570998,
+              1.2959094269453993e-07,
+              5.304935195760552e-05
+            ]
+          ],
+          "records": 1638400,
+          "rollout_cycles": 1600
+        },
+        {
+          "elapsed_seconds": 79.66489677905338,
+          "latest_gaps": [
+            0.9999323303964996,
+            0.9998266507399197
+          ],
+          "mixture_components": 8,
+          "mixture_gaps": [
+            0.6250160607882354,
+            0.6250218934370846
+          ],
+          "optimizer_steps": 53835,
+          "policies": [
+            [
+              0.999966064480355,
+              2.0143578971453747e-07,
+              3.3734083855362784e-05
+            ],
+            [
+              0.9999130956064594,
+              4.595270009621507e-07,
+              8.644486653967395e-05
+            ]
+          ],
+          "records": 1740800,
+          "rollout_cycles": 1700
+        },
+        {
+          "elapsed_seconds": 84.43035094003426,
+          "latest_gaps": [
+            0.9998006728059369,
+            0.9996710957023576
+          ],
+          "mixture_components": 9,
+          "mixture_gaps": [
+            0.5555806986799011,
+            0.5555930330920092
+          ],
+          "optimizer_steps": 57035,
+          "policies": [
+            [
+              0.9998997158083673,
+              1.241189202278477e-06,
+              9.904300243043165e-05
+            ],
+            [
+              0.9998347805787074,
+              1.5345449427093637e-06,
+              0.00016368487634985213
+            ]
+          ],
+          "records": 1843200,
+          "rollout_cycles": 1800
+        },
+        {
+          "elapsed_seconds": 89.20239208301064,
+          "latest_gaps": [
+            0.9999772443406021,
+            0.9999772207656721
+          ],
+          "mixture_components": 10,
+          "mixture_gaps": [
+            0.5000236584722243,
+            0.5000347936172299
+          ],
+          "optimizer_steps": 60235,
+          "policies": [
+            [
+              0.9999882617614451,
+              7.208177119830498e-07,
+              1.1017420842938961e-05
+            ],
+            [
+              0.9999883599585198,
+              5.008486325454445e-07,
+              1.113919284771135e-05
+            ]
+          ],
+          "records": 1945600,
+          "rollout_cycles": 1900
+        },
+        {
+          "elapsed_seconds": 91.78382626001257,
+          "latest_gaps": [
+            0.9999064266828135,
+            0.9999494362103724
+          ],
+          "mixture_components": 11,
+          "mixture_gaps": [
+            0.4545702411749003,
+            0.4545790266648439
+          ],
+          "optimizer_steps": 61935,
+          "policies": [
+            [
+              0.9999496405224294,
+              7.1456379546152365e-06,
+              4.321383961592469e-05
+            ],
+            [
+              0.9999734098539096,
+              2.6165025532219427e-06,
+              2.397364353722117e-05
+            ]
+          ],
+          "records": 2000000,
+          "rollout_cycles": 1954
+        }
+      ],
+      "formal_protocol": true,
+      "has_five_final_evaluations": true,
+      "historical_opponent_records": 998517,
+      "latest_passed": false,
+      "matrix_residual_gap": 2.220446049250313e-16,
+      "mixture_passed": false,
+      "opponent_decisions": 2000000,
+      "optimizer_steps": 61935,
+      "per_role_records": [
+        1000000,
+        1000000
+      ],
+      "physical_episodes": 2000000,
+      "records": 2000000,
+      "rollout_cycles": 1954,
+      "seed": 1,
+      "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+      "status": "complete",
+      "task": "rps",
+      "value": 0.0
+    },
+    {
+      "current_opponent_records": 999874,
+      "elapsed_seconds": 91.93428586202208,
+      "entropy_protocol": "taper",
+      "evaluations": [
+        {
+          "elapsed_seconds": 4.368788318010047,
+          "latest_gaps": [
+            0.9997216089868239,
+            0.9996775185980943
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 3025,
+          "policies": [
+            [
+              0.0001337445949509249,
+              0.9998553535817749,
+              1.0901823274187037e-05
+            ],
+            [
+              0.00015471765966924248,
+              0.9998322362577635,
+              1.304608256725065e-05
+            ]
+          ],
+          "records": 102400,
+          "rollout_cycles": 100
+        },
+        {
+          "elapsed_seconds": 9.076173528039362,
+          "latest_gaps": [
+            0.9999420429709494,
+            0.9998913195495188
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 6225,
+          "policies": [
+            [
+              2.7175180755462396e-05,
+              0.9999692181517048,
+              3.6066675397528118e-06
+            ],
+            [
+              5.082223803519097e-05,
+              0.999942141787554,
+              7.035974410728353e-06
+            ]
+          ],
+          "records": 204800,
+          "rollout_cycles": 200
+        },
+        {
+          "elapsed_seconds": 13.79958821600303,
+          "latest_gaps": [
+            0.9999767058119471,
+            0.9999672080305901
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 9425,
+          "policies": [
+            [
+              1.022503828902746e-05,
+              0.9999869308502362,
+              2.8441114747653696e-06
+            ],
+            [
+              1.4507618451259414e-05,
+              0.9999817156490414,
+              3.776732507317603e-06
+            ]
+          ],
+          "records": 307200,
+          "rollout_cycles": 300
+        },
+        {
+          "elapsed_seconds": 18.526723147020675,
+          "latest_gaps": [
+            0.9999013359407078,
+            0.9998630510658261
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 12625,
+          "policies": [
+            [
+              1.792651287570615e-05,
+              0.9999192624535835,
+              6.281103354070852e-05
+            ],
+            [
+              2.8624449584692685e-05,
+              0.9998916755154108,
+              7.970003500452987e-05
+            ]
+          ],
+          "records": 409600,
+          "rollout_cycles": 400
+        },
+        {
+          "elapsed_seconds": 23.010602996044327,
+          "latest_gaps": [
+            0.9997193410442868,
+            0.9995985502966855
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 15649,
+          "policies": [
+            [
+              3.878794516369841e-05,
+              0.0001209355052747255,
+              0.9998402765495615
+            ],
+            [
+              0.00012164770260208598,
+              0.00013990100035616134,
+              0.9997384512970418
+            ]
+          ],
+          "records": 512000,
+          "rollout_cycles": 500
+        },
+        {
+          "elapsed_seconds": 27.738392364990432,
+          "latest_gaps": [
+            0.9999887825254516,
+            0.9999618643171648
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 18849,
+          "policies": [
+            [
+              3.450932322644642e-06,
+              3.8832711128666155e-06,
+              0.9999926657965645
+            ],
+            [
+              1.8907863123467464e-05,
+              9.61390985586627e-06,
+              0.9999714782270207
+            ]
+          ],
+          "records": 614400,
+          "rollout_cycles": 600
+        },
+        {
+          "elapsed_seconds": 32.45443154301029,
+          "latest_gaps": [
+            0.9999852890801368,
+            0.9999649066031172
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 22049,
+          "policies": [
+            [
+              4.369382153188712e-06,
+              5.170768855009673e-06,
+              0.9999904598489918
+            ],
+            [
+              1.5931767819498984e-05,
+              9.580814531634181e-06,
+              0.9999744874176488
+            ]
+          ],
+          "records": 716800,
+          "rollout_cycles": 700
+        },
+        {
+          "elapsed_seconds": 37.15774792403681,
+          "latest_gaps": [
+            0.9999724612286711,
+            0.9999025093436196
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 25249,
+          "policies": [
+            [
+              1.386080898522983e-05,
+              6.838981171800886e-06,
+              0.9999793002098429
+            ],
+            [
+              6.094035409808192e-05,
+              1.8275151141133074e-05,
+              0.9999207844947607
+            ]
+          ],
+          "records": 819200,
+          "rollout_cycles": 800
+        },
+        {
+          "elapsed_seconds": 41.8877361920313,
+          "latest_gaps": [
+            0.9999945819967005,
+            0.9999684791209263
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 28449,
+          "policies": [
+            [
+              4.201973577186668e-06,
+              6.080148611346795e-07,
+              0.9999951900115617
+            ],
+            [
+              2.5905725542214724e-05,
+              2.807576765748429e-06,
+              0.9999712866976921
+            ]
+          ],
+          "records": 921600,
+          "rollout_cycles": 900
+        },
+        {
+          "elapsed_seconds": 46.67431747203227,
+          "latest_gaps": [
+            0.9999894371790634,
+            0.9999202917307407
+          ],
+          "mixture_components": 1,
+          "mixture_gaps": [
+            0.9999894371790634,
+            0.9999202917307407
+          ],
+          "optimizer_steps": 31649,
+          "policies": [
+            [
+              8.759076037571691e-06,
+              9.018724495452163e-07,
+              0.9999903390515129
+            ],
+            [
+              6.711466411016109e-05,
+              6.296802574577045e-06,
+              0.9999265885333153
+            ]
+          ],
+          "records": 1024000,
+          "rollout_cycles": 1000
+        },
+        {
+          "elapsed_seconds": 51.39411478303373,
+          "latest_gaps": [
+            0.9997628647461213,
+            0.9996171703145967
+          ],
+          "mixture_components": 2,
+          "mixture_gaps": [
+            0.9998761509625924,
+            0.9997687310226688
+          ],
+          "optimizer_steps": 34849,
+          "policies": [
+            [
+              0.0002072881772033471,
+              1.4923538337687195e-05,
+              0.999777788284459
+            ],
+            [
+              0.0003418556481339564,
+              2.0487018634610702e-05,
+              0.9996376573332314
+            ]
+          ],
+          "records": 1126400,
+          "rollout_cycles": 1100
+        },
+        {
+          "elapsed_seconds": 56.00676813500468,
+          "latest_gaps": [
+            0.9991773787126405,
+            0.9991246157206887
+          ],
+          "mixture_components": 3,
+          "mixture_gaps": [
+            0.6667190144340664,
+            0.666655866319843
+          ],
+          "optimizer_steps": 37956,
+          "policies": [
+            [
+              0.9995864996007653,
+              4.379511109896764e-06,
+              0.00040912088812480304
+            ],
+            [
+              0.9995597894518562,
+              5.03681697629878e-06,
+              0.0004351737311675013
+            ]
+          ],
+          "records": 1228800,
+          "rollout_cycles": 1200
+        },
+        {
+          "elapsed_seconds": 60.73970730602741,
+          "latest_gaps": [
+            0.9998897238866766,
+            0.9998140288485665
+          ],
+          "mixture_components": 4,
+          "mixture_gaps": [
+            0.5000526357156422,
+            0.5000142044982554
+          ],
+          "optimizer_steps": 41156,
+          "policies": [
+            [
+              0.9999443157779074,
+              1.0923308616880209e-06,
+              5.4591891230841906e-05
+            ],
+            [
+              0.9999057589102087,
+              2.5110281490988412e-06,
+              9.17300616422054e-05
+            ]
+          ],
+          "records": 1331200,
+          "rollout_cycles": 1300
+        },
+        {
+          "elapsed_seconds": 65.47999132901896,
+          "latest_gaps": [
+            0.999959065229742,
+            0.9999461033505035
+          ],
+          "mixture_components": 5,
+          "mixture_gaps": [
+            0.40004587237077327,
+            0.4000162650973592
+          ],
+          "optimizer_steps": 44356,
+          "policies": [
+            [
+              0.9999789831502606,
+              1.098929220900529e-06,
+              1.9917920518546732e-05
+            ],
+            [
+              0.9999722380649272,
+              1.6272206491917288e-06,
+              2.6134714423646497e-05
+            ]
+          ],
+          "records": 1433600,
+          "rollout_cycles": 1400
+        },
+        {
+          "elapsed_seconds": 70.21326925704489,
+          "latest_gaps": [
+            0.9999660813567715,
+            0.9999608024207105
+          ],
+          "mixture_components": 6,
+          "mixture_gaps": [
+            0.333374031670433,
+            0.33334973592400996
+          ],
+          "optimizer_steps": 47556,
+          "policies": [
+            [
+              0.9999823302940916,
+              1.4207685883241561e-06,
+              1.6248937320067243e-05
+            ],
+            [
+              0.9999795649662282,
+              1.6724882540084642e-06,
+              1.8762545517745252e-05
+            ]
+          ],
+          "records": 1536000,
+          "rollout_cycles": 1500
+        },
+        {
+          "elapsed_seconds": 74.94465103000402,
+          "latest_gaps": [
+            0.9999748103389757,
+            0.9999716518118615
+          ],
+          "mixture_components": 7,
+          "mixture_gaps": [
+            0.4284878542060108,
+            0.428523132371147
+          ],
+          "optimizer_steps": 50756,
+          "policies": [
+            [
+              0.9999864822650123,
+              1.8458089511475027e-06,
+              1.1671926036548832e-05
+            ],
+            [
+              0.9999847177558795,
+              2.2163001025019623e-06,
+              1.3065944017981913e-05
+            ]
+          ],
+          "records": 1638400,
+          "rollout_cycles": 1600
+        },
+        {
+          "elapsed_seconds": 79.7003203080385,
+          "latest_gaps": [
+            0.9999840632379524,
+            0.9999818554350851
+          ],
+          "mixture_components": 8,
+          "mixture_gaps": [
+            0.49992488033500354,
+            0.4999554727541392
+          ],
+          "optimizer_steps": 53956,
+          "policies": [
+            [
+              0.9999909789227012,
+              2.1053925501160156e-06,
+              6.915684748720495e-06
+            ],
+            [
+              0.999989608985494,
+              2.637464097063117e-06,
+              7.753550408912866e-06
+            ]
+          ],
+          "records": 1740800,
+          "rollout_cycles": 1700
+        },
+        {
+          "elapsed_seconds": 84.46500272501726,
+          "latest_gaps": [
+            0.9999557126371053,
+            0.999941240155885
+          ],
+          "mixture_components": 9,
+          "mixture_gaps": [
+            0.5554838617019037,
+            0.5555094469098887
+          ],
+          "optimizer_steps": 57156,
+          "policies": [
+            [
+              0.9999751051018,
+              5.502433505221093e-06,
+              1.9392464694751188e-05
+            ],
+            [
+              0.9999676145833637,
+              6.0109891576203035e-06,
+              2.6374427478667527e-05
+            ]
+          ],
+          "records": 1843200,
+          "rollout_cycles": 1800
+        },
+        {
+          "elapsed_seconds": 89.23695601103827,
+          "latest_gaps": [
+            0.9999582307606949,
+            0.9999339780529535
+          ],
+          "mixture_components": 10,
+          "mixture_gaps": [
+            0.5999312986077829,
+            0.5999519000241952
+          ],
+          "optimizer_steps": 60356,
+          "policies": [
+            [
+              0.9999747776952168,
+              8.675370261300289e-06,
+              1.654693452189863e-05
+            ],
+            [
+              0.9999611441905706,
+              1.1689671812296822e-05,
+              2.716613761707649e-05
+            ]
+          ],
+          "records": 1945600,
+          "rollout_cycles": 1900
+        },
+        {
+          "elapsed_seconds": 91.8294654940255,
+          "latest_gaps": [
+            0.9999622384002083,
+            0.9999375081992998
+          ],
+          "mixture_components": 11,
+          "mixture_gaps": [
+            0.6362977476798215,
+            0.6363142280401137
+          ],
+          "optimizer_steps": 62056,
+          "policies": [
+            [
+              0.999976707328824,
+              8.82374256013053e-06,
+              1.446892861577264e-05
+            ],
+            [
+              0.9999618777928471,
+              1.3752613605762316e-05,
+              2.4369593547194372e-05
+            ]
+          ],
+          "records": 2000000,
+          "rollout_cycles": 1954
+        }
+      ],
+      "formal_protocol": true,
+      "has_five_final_evaluations": true,
+      "historical_opponent_records": 1000126,
+      "latest_passed": false,
+      "matrix_residual_gap": 2.220446049250313e-16,
+      "mixture_passed": false,
+      "opponent_decisions": 2000000,
+      "optimizer_steps": 62056,
+      "per_role_records": [
+        1000000,
+        1000000
+      ],
+      "physical_episodes": 2000000,
+      "records": 2000000,
+      "rollout_cycles": 1954,
+      "seed": 2,
+      "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+      "status": "complete",
+      "task": "rps",
+      "value": 0.0
+    },
+    {
+      "current_opponent_records": 1001093,
+      "elapsed_seconds": 91.72811148804612,
+      "entropy_protocol": "fixed-0.1",
+      "evaluations": [
+        {
+          "elapsed_seconds": 4.540820063033607,
+          "latest_gaps": [
+            0.02584379059927805,
+            0.05215058852496268
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 3193,
+          "policies": [
+            [
+              0.41564953327178955,
+              0.5843504667282104
+            ],
+            [
+              0.4546467228339099,
+              0.5453532771660901
+            ]
+          ],
+          "records": 102400,
+          "rollout_cycles": 100
+        },
+        {
+          "elapsed_seconds": 9.160862792050466,
+          "latest_gaps": [
+            0.014613798686436252,
+            0.04078269552111147
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 6393,
+          "policies": [
+            [
+              0.42126452922821045,
+              0.5787354707717896
+            ],
+            [
+              0.4013829648906876,
+              0.5986170351093124
+            ]
+          ],
+          "records": 204800,
+          "rollout_cycles": 200
+        },
+        {
+          "elapsed_seconds": 13.79355086403666,
+          "latest_gaps": [
+            0.045667097740217266,
+            0.051746165591576965
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 9593,
+          "policies": [
+            [
+              0.45901616039824006,
+              0.5409838396017599
+            ],
+            [
+              0.45444451136721703,
+              0.5455554886327829
+            ]
+          ],
+          "records": 307200,
+          "rollout_cycles": 300
+        },
+        {
+          "elapsed_seconds": 18.428468046011403,
+          "latest_gaps": [
+            0.09612311349229391,
+            0.021134530424823605
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 12793,
+          "policies": [
+            [
+              0.49265350423295784,
+              0.5073464957670422
+            ],
+            [
+              0.43913869378384035,
+              0.5608613062161596
+            ]
+          ],
+          "records": 409600,
+          "rollout_cycles": 400
+        },
+        {
+          "elapsed_seconds": 23.06994127004873,
+          "latest_gaps": [
+            0.06072383267538889,
+            0.08406857157162256
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 15993,
+          "policies": [
+            [
+              0.4690539836883545,
+              0.5309460163116455
+            ],
+            [
+              0.37252571419034686,
+              0.6274742858096531
+            ]
+          ],
+          "records": 512000,
+          "rollout_cycles": 500
+        },
+        {
+          "elapsed_seconds": 27.718148511019535,
+          "latest_gaps": [
+            0.0009694908346448705,
+            0.04882551651530076
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 19193,
+          "policies": [
+            [
+              0.42921775579452515,
+              0.5707822442054749
+            ],
+            [
+              0.452984186829079,
+              0.5470158131709211
+            ]
+          ],
+          "records": 614400,
+          "rollout_cycles": 600
+        },
+        {
+          "elapsed_seconds": 32.47491751704365,
+          "latest_gaps": [
+            0.04669042570250376,
+            0.01319662201564803
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 22393,
+          "policies": [
+            [
+              0.4596983790397644,
+              0.5403016209602356
+            ],
+            [
+              0.41977368056099656,
+              0.5802263194390035
+            ]
+          ],
+          "records": 716800,
+          "rollout_cycles": 700
+        },
+        {
+          "elapsed_seconds": 37.13206780800829,
+          "latest_gaps": [
+            0.07799837458124009,
+            0.0010367972819190774
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 25593,
+          "policies": [
+            [
+              0.480570344958922,
+              0.5194296550410781
+            ],
+            [
+              0.42908982721238814,
+              0.5709101727876119
+            ]
+          ],
+          "records": 819200,
+          "rollout_cycles": 800
+        },
+        {
+          "elapsed_seconds": 41.788827574055176,
+          "latest_gaps": [
+            0.04627995831625803,
+            0.04028301219453445
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 28793,
+          "policies": [
+            [
+              0.4594247341156006,
+              0.5405752658843994
+            ],
+            [
+              0.44871293466869583,
+              0.5512870653313042
+            ]
+          ],
+          "records": 921600,
+          "rollout_cycles": 900
+        },
+        {
+          "elapsed_seconds": 46.46546025300631,
+          "latest_gaps": [
+            0.13590114457266672,
+            0.039916073762572335
+          ],
+          "mixture_components": 1,
+          "mixture_gaps": [
+            0.13590114457266672,
+            0.039916073762572335
+          ],
+          "optimizer_steps": 31993,
+          "policies": [
+            [
+              0.519172191619873,
+              0.48082780838012695
+            ],
+            [
+              0.4019607127297137,
+              0.5980392872702863
+            ]
+          ],
+          "records": 1024000,
+          "rollout_cycles": 1000
+        },
+        {
+          "elapsed_seconds": 51.13841349002905,
+          "latest_gaps": [
+            0.0349927108417708,
+            0.0656407560620989
+          ],
+          "mixture_components": 2,
+          "mixture_gaps": [
+            0.05482830572066938,
+            0.05277841491233559
+          ],
+          "optimizer_steps": 35193,
+          "policies": [
+            [
+              0.4110750731505432,
+              0.5889249268494569
+            ],
+            [
+              0.3848109245300293,
+              0.6151890754699707
+            ]
+          ],
+          "records": 1126400,
+          "rollout_cycles": 1100
+        },
+        {
+          "elapsed_seconds": 55.841136696049944,
+          "latest_gaps": [
+            0.010289243289402561,
+            0.010479760709156627
+          ],
+          "mixture_components": 3,
+          "mixture_gaps": [
+            0.03397989299142895,
+            0.038678863511275974
+          ],
+          "optimizer_steps": 38393,
+          "policies": [
+            [
+              0.4234268069267273,
+              0.5765731930732727
+            ],
+            [
+              0.42158492143199083,
+              0.5784150785680092
+            ]
+          ],
+          "records": 1228800,
+          "rollout_cycles": 1200
+        },
+        {
+          "elapsed_seconds": 60.559809166006744,
+          "latest_gaps": [
+            0.09035497052328928,
+            0.003580212806475913
+          ],
+          "mixture_components": 4,
+          "mixture_gaps": [
+            0.008543362770454976,
+            0.02990420083507589
+          ],
+          "optimizer_steps": 41593,
+          "policies": [
+            [
+              0.38339394330978394,
+              0.6166060566902161
+            ],
+            [
+              0.42618462003377794,
+              0.573815379966222
+            ]
+          ],
+          "records": 1331200,
+          "rollout_cycles": 1300
+        },
+        {
+          "elapsed_seconds": 65.2868603040115,
+          "latest_gaps": [
+            0.017569269976381308,
+            0.027558547288563273
+          ],
+          "mixture_components": 5,
+          "mixture_gaps": [
+            0.004199299719906846,
+            0.029435070125773344
+          ],
+          "optimizer_steps": 44793,
+          "policies": [
+            [
+              0.41978679358323795,
+              0.5802132064167621
+            ],
+            [
+              0.4101990637123864,
+              0.5898009362876137
+            ]
+          ],
+          "records": 1433600,
+          "rollout_cycles": 1400
+        },
+        {
+          "elapsed_seconds": 70.02427827002248,
+          "latest_gaps": [
+            0.08880184539040109,
+            0.07342714922768728
+          ],
+          "mixture_components": 6,
+          "mixture_gaps": [
+            0.018299723998322526,
+            0.015350831451350244
+          ],
+          "optimizer_steps": 47993,
+          "policies": [
+            [
+              0.48777265883169596,
+              0.512227341168304
+            ],
+            [
+              0.4652850031852722,
+              0.5347149968147278
+            ]
+          ],
+          "records": 1536000,
+          "rollout_cycles": 1500
+        },
+        {
+          "elapsed_seconds": 74.76490656204987,
+          "latest_gaps": [
+            0.04587807399885996,
+            0.03310216978860586
+          ],
+          "mixture_components": 7,
+          "mixture_gaps": [
+            0.022239488284113595,
+            0.009611194480949548
+          ],
+          "optimizer_steps": 51193,
+          "policies": [
+            [
+              0.4591568112373352,
+              0.5408431887626648
+            ],
+            [
+              0.4451225134657315,
+              0.5548774865342685
+            ]
+          ],
+          "records": 1638400,
+          "rollout_cycles": 1600
+        },
+        {
+          "elapsed_seconds": 79.51546067203162,
+          "latest_gaps": [
+            0.1082979727724373,
+            0.0013448681150163844
+          ],
+          "mixture_components": 8,
+          "mixture_gaps": [
+            0.03299679884515405,
+            0.008283713785048052
+          ],
+          "optimizer_steps": 54393,
+          "policies": [
+            [
+              0.5007700770863868,
+              0.49922992291361323
+            ],
+            [
+              0.42924386262893677,
+              0.5707561373710632
+            ]
+          ],
+          "records": 1740800,
+          "rollout_cycles": 1700
+        },
+        {
+          "elapsed_seconds": 84.27638277004007,
+          "latest_gaps": [
+            0.15752820119429833,
+            0.030555707157126744
+          ],
+          "mixture_components": 9,
+          "mixture_gaps": [
+            0.04683362132839225,
+            0.004816992212504367
+          ],
+          "optimizer_steps": 57593,
+          "policies": [
+            [
+              0.5335902293676275,
+              0.46640977063237254
+            ],
+            [
+              0.4438492821499919,
+              0.556150717850008
+            ]
+          ],
+          "records": 1843200,
+          "rollout_cycles": 1800
+        },
+        {
+          "elapsed_seconds": 89.03959213203052,
+          "latest_gaps": [
+            0.025971970387867527,
+            0.023755499294825955
+          ],
+          "mixture_components": 10,
+          "mixture_gaps": [
+            0.044747456234339844,
+            0.002553630544141927
+          ],
+          "optimizer_steps": 60793,
+          "policies": [
+            [
+              0.4458860754966736,
+              0.5541139245033264
+            ],
+            [
+              0.44044917821884155,
+              0.5595508217811584
+            ]
+          ],
+          "records": 1945600,
+          "rollout_cycles": 1900
+        },
+        {
+          "elapsed_seconds": 91.62489340401953,
+          "latest_gaps": [
+            0.1388669952999782,
+            0.024090261703149207
+          ],
+          "mixture_components": 11,
+          "mixture_gaps": [
+            0.053303777967579624,
+            0.004511506104051655
+          ],
+          "optimizer_steps": 62493,
+          "policies": [
+            [
+              0.5211494254380807,
+              0.4788505745619193
+            ],
+            [
+              0.41251125410266243,
+              0.5874887458973376
+            ]
+          ],
+          "records": 2000000,
+          "rollout_cycles": 1954
+        }
+      ],
+      "formal_protocol": true,
+      "has_five_final_evaluations": true,
+      "historical_opponent_records": 998907,
+      "latest_passed": false,
+      "matrix_residual_gap": 0.0,
+      "mixture_passed": false,
+      "opponent_decisions": 2000000,
+      "optimizer_steps": 62493,
+      "per_role_records": [
+        1000000,
+        1000000
+      ],
+      "physical_episodes": 2000000,
+      "records": 2000000,
+      "rollout_cycles": 1954,
+      "seed": 0,
+      "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+      "status": "complete",
+      "task": "asymmetric",
+      "value": -0.14285714285714285
+    },
+    {
+      "current_opponent_records": 1001483,
+      "elapsed_seconds": 92.00104262697278,
+      "entropy_protocol": "fixed-0.1",
+      "evaluations": [
+        {
+          "elapsed_seconds": 4.576381544989999,
+          "latest_gaps": [
+            0.15632706029074533,
+            0.04768384070816589
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 3194,
+          "policies": [
+            [
+              0.3504078984260559,
+              0.6495921015739441
+            ],
+            [
+              0.3967822014326513,
+              0.6032177985673487
+            ]
+          ],
+          "records": 102400,
+          "rollout_cycles": 100
+        },
+        {
+          "elapsed_seconds": 9.237692650000099,
+          "latest_gaps": [
+            0.16787752785731475,
+            0.15659005301339285
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 6394,
+          "policies": [
+            [
+              0.3446326646427712,
+              0.6553673353572288
+            ],
+            [
+              0.506866455078125,
+              0.493133544921875
+            ]
+          ],
+          "records": 204800,
+          "rollout_cycles": 200
+        },
+        {
+          "elapsed_seconds": 13.913263976981398,
+          "latest_gaps": [
+            0.0904990349497114,
+            0.022760191134044094
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 9594,
+          "policies": [
+            [
+              0.48890411853790283,
+              0.5110958814620972
+            ],
+            [
+              0.41339796781539917,
+              0.5866020321846008
+            ]
+          ],
+          "records": 307200,
+          "rollout_cycles": 300
+        },
+        {
+          "elapsed_seconds": 18.5893171489588,
+          "latest_gaps": [
+            0.11349405222936032,
+            0.030895334412935238
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 12794,
+          "policies": [
+            [
+              0.3718244024567484,
+              0.6281755975432516
+            ],
+            [
+              0.44401909577789617,
+              0.5559809042221038
+            ]
+          ],
+          "records": 409600,
+          "rollout_cycles": 400
+        },
+        {
+          "elapsed_seconds": 23.28024968295358,
+          "latest_gaps": [
+            0.255592355604059,
+            0.01482424991471426
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 15994,
+          "policies": [
+            [
+              0.3007752507693991,
+              0.699224749230601
+            ],
+            [
+              0.4186885952949524,
+              0.5813114047050476
+            ]
+          ],
+          "records": 512000,
+          "rollout_cycles": 500
+        },
+        {
+          "elapsed_seconds": 27.9626959739835,
+          "latest_gaps": [
+            0.02879064423697336,
+            0.020955217111593816
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 19194,
+          "policies": [
+            [
+              0.4141761064529419,
+              0.5858238935470581
+            ],
+            [
+              0.41460128383036604,
+              0.585398716169634
+            ]
+          ],
+          "records": 614400,
+          "rollout_cycles": 600
+        },
+        {
+          "elapsed_seconds": 32.64748369395966,
+          "latest_gaps": [
+            0.08856485043292428,
+            0.036090680531093045
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 22394,
+          "policies": [
+            [
+              0.48761466219337807,
+              0.5123853378066219
+            ],
+            [
+              0.4045109748840332,
+              0.5954890251159668
+            ]
+          ],
+          "records": 716800,
+          "rollout_cycles": 700
+        },
+        {
+          "elapsed_seconds": 37.3435344749596,
+          "latest_gaps": [
+            0.021254913514067497,
+            0.012549587658473416
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 25594,
+          "policies": [
+            [
+              0.41794397181439485,
+              0.5820560281856052
+            ],
+            [
+              0.4348462224006653,
+              0.5651537775993347
+            ]
+          ],
+          "records": 819200,
+          "rollout_cycles": 800
+        },
+        {
+          "elapsed_seconds": 42.04996334697353,
+          "latest_gaps": [
+            0.1877955012199582,
+            0.03462798254830496
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 28794,
+          "policies": [
+            [
+              0.553768429384734,
+              0.446231570615266
+            ],
+            [
+              0.44588541984558105,
+              0.554114580154419
+            ]
+          ],
+          "records": 921600,
+          "rollout_cycles": 900
+        },
+        {
+          "elapsed_seconds": 46.75036755896872,
+          "latest_gaps": [
+            0.04615764958517893,
+            0.028792237390559305
+          ],
+          "mixture_components": 1,
+          "mixture_gaps": [
+            0.04615764958517893,
+            0.028792237390559305
+          ],
+          "optimizer_steps": 31994,
+          "policies": [
+            [
+              0.4054926037788391,
+              0.5945073962211609
+            ],
+            [
+              0.40937660364438905,
+              0.590623396355611
+            ]
+          ],
+          "records": 1024000,
+          "rollout_cycles": 1000
+        },
+        {
+          "elapsed_seconds": 51.4607055959641,
+          "latest_gaps": [
+            0.0686762012785393,
+            0.04757986040225637
+          ],
+          "mixture_components": 2,
+          "mixture_gaps": [
+            0.057416925431859056,
+            0.038186048896407865
+          ],
+          "optimizer_steps": 35194,
+          "policies": [
+            [
+              0.39423332793215893,
+              0.6057666720678411
+            ],
+            [
+              0.396851521636591,
+              0.603148478363409
+            ]
+          ],
+          "records": 1126400,
+          "rollout_cycles": 1100
+        },
+        {
+          "elapsed_seconds": 56.170448856952135,
+          "latest_gaps": [
+            0.014925088646052687,
+            0.01326579707009451
+          ],
+          "mixture_components": 3,
+          "mixture_gaps": [
+            0.043252979836590266,
+            0.022140916663414945
+          ],
+          "optimizer_steps": 38394,
+          "policies": [
+            [
+              0.42110888424840226,
+              0.5788911157515978
+            ],
+            [
+              0.43520432710647583,
+              0.5647956728935242
+            ]
+          ],
+          "records": 1228800,
+          "rollout_cycles": 1200
+        },
+        {
+          "elapsed_seconds": 60.88840883295052,
+          "latest_gaps": [
+            0.1259992771319411,
+            0.024439816692380878
+          ],
+          "mixture_components": 4,
+          "mixture_gaps": [
+            0.007170018124903255,
+            0.022715641670656428
+          ],
+          "optimizer_steps": 41594,
+          "policies": [
+            [
+              0.5125709466593893,
+              0.48742905334061065
+            ],
+            [
+              0.41227821744317467,
+              0.5877217825568254
+            ]
+          ],
+          "records": 1331200,
+          "rollout_cycles": 1300
+        },
+        {
+          "elapsed_seconds": 65.61259651597356,
+          "latest_gaps": [
+            0.19454325368658654,
+            0.051465728453227444
+          ],
+          "mixture_components": 5,
+          "mixture_gaps": [
+            0.03126063140408719,
+            0.028465659027170687
+          ],
+          "optimizer_steps": 44794,
+          "policies": [
+            [
+              0.3312998017281353,
+              0.6687001982718647
+            ],
+            [
+              0.3942609429359436,
+              0.6057390570640564
+            ]
+          ],
+          "records": 1433600,
+          "rollout_cycles": 1400
+        },
+        {
+          "elapsed_seconds": 70.34394759795396,
+          "latest_gaps": [
+            0.006728972908014996,
+            0.015105204022472007
+          ],
+          "mixture_components": 6,
+          "mixture_gaps": [
+            0.02717202165474175,
+            0.0262389165263876
+          ],
+          "optimizer_steps": 47994,
+          "policies": [
+            [
+              0.4252069421174211,
+              0.574793057882579
+            ],
+            [
+              0.41850129255644725,
+              0.5814987074435528
+            ]
+          ],
+          "records": 1536000,
+          "rollout_cycles": 1500
+        },
+        {
+          "elapsed_seconds": 75.07069732598029,
+          "latest_gaps": [
+            0.04172737984958863,
+            0.010400035551616116
+          ],
+          "mixture_components": 7,
+          "mixture_gaps": [
+            0.015342231923190286,
+            0.023976219244277397
+          ],
+          "optimizer_steps": 51194,
+          "policies": [
+            [
+              0.45638968180448763,
+              0.5436103181955123
+            ],
+            [
+              0.4216380715370178,
+              0.5783619284629822
+            ]
+          ],
+          "records": 1638400,
+          "rollout_cycles": 1600
+        },
+        {
+          "elapsed_seconds": 79.79781616199762,
+          "latest_gaps": [
+            0.05717797619851217,
+            0.010937039667194559
+          ],
+          "mixture_components": 8,
+          "mixture_gaps": [
+            0.0038947902330394024,
+            0.02234632179714202
+          ],
+          "optimizer_steps": 54394,
+          "policies": [
+            [
+              0.46669007937043666,
+              0.5333099206295633
+            ],
+            [
+              0.4212800687932989,
+              0.5787199312067012
+            ]
+          ],
+          "records": 1740800,
+          "rollout_cycles": 1700
+        },
+        {
+          "elapsed_seconds": 84.54471930599539,
+          "latest_gaps": [
+            0.02712719781058176,
+            0.01213819640023367
+          ],
+          "mixture_components": 9,
+          "mixture_gaps": [
+            0.006476168852766306,
+            0.02121208564193
+          ],
+          "optimizer_steps": 57594,
+          "policies": [
+            [
+              0.4150078296661377,
+              0.5849921703338623
+            ],
+            [
+              0.42047929763793945,
+              0.5795207023620605
+            ]
+          ],
+          "records": 1843200,
+          "rollout_cycles": 1800
+        },
+        {
+          "elapsed_seconds": 89.30916452297242,
+          "latest_gaps": [
+            0.014637486839028768,
+            0.03323228672039502
+          ],
+          "mixture_components": 10,
+          "mixture_gaps": [
+            0.007292300651392636,
+            0.022414105749776425
+          ],
+          "optimizer_steps": 60794,
+          "policies": [
+            [
+              0.4212526851519142,
+              0.5787473148480858
+            ],
+            [
+              0.4064165707578319,
+              0.5935834292421681
+            ]
+          ],
+          "records": 1945600,
+          "rollout_cycles": 1900
+        },
+        {
+          "elapsed_seconds": 91.89748857798986,
+          "latest_gaps": [
+            0.04949547415772376,
+            0.07632777748062969
+          ],
+          "mixture_components": 11,
+          "mixture_gaps": [
+            0.011128952788331925,
+            0.027315348634399494
+          ],
+          "optimizer_steps": 62494,
+          "policies": [
+            [
+              0.4038236914925667,
+              0.5961763085074333
+            ],
+            [
+              0.3776862435843421,
+              0.6223137564156579
+            ]
+          ],
+          "records": 2000000,
+          "rollout_cycles": 1954
+        }
+      ],
+      "formal_protocol": true,
+      "has_five_final_evaluations": true,
+      "historical_opponent_records": 998517,
+      "latest_passed": false,
+      "matrix_residual_gap": 0.0,
+      "mixture_passed": true,
+      "opponent_decisions": 2000000,
+      "optimizer_steps": 62494,
+      "per_role_records": [
+        1000000,
+        1000000
+      ],
+      "physical_episodes": 2000000,
+      "records": 2000000,
+      "rollout_cycles": 1954,
+      "seed": 1,
+      "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+      "status": "complete",
+      "task": "asymmetric",
+      "value": -0.14285714285714285
+    },
+    {
+      "current_opponent_records": 999874,
+      "elapsed_seconds": 88.54480022401549,
+      "entropy_protocol": "fixed-0.1",
+      "evaluations": [
+        {
+          "elapsed_seconds": 4.611355381028261,
+          "latest_gaps": [
+            0.04916293413178807,
+            0.07698712800694407
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 3197,
+          "policies": [
+            [
+              0.4613467179926206,
+              0.5386532820073794
+            ],
+            [
+              0.4670649925749006,
+              0.5329350074250994
+            ]
+          ],
+          "records": 102400,
+          "rollout_cycles": 100
+        },
+        {
+          "elapsed_seconds": 9.281957757018972,
+          "latest_gaps": [
+            0.07716429693486077,
+            0.0262631561074938
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 6397,
+          "policies": [
+            [
+              0.4800142931946691,
+              0.519985706805331
+            ],
+            [
+              0.41106265783309937,
+              0.5889373421669006
+            ]
+          ],
+          "records": 204800,
+          "rollout_cycles": 200
+        },
+        {
+          "elapsed_seconds": 13.960973232984543,
+          "latest_gaps": [
+            0.19442390544073923,
+            0.03875875704042653
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 9597,
+          "policies": [
+            [
+              0.5581873655319214,
+              0.4418126344680786
+            ],
+            [
+              0.44795080709164187,
+              0.5520491929083582
+            ]
+          ],
+          "records": 307200,
+          "rollout_cycles": 300
+        },
+        {
+          "elapsed_seconds": 18.525042500987183,
+          "latest_gaps": [
+            0.2615446391667108,
+            0.01242433238467855
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 12797,
+          "policies": [
+            [
+              0.6029345213492358,
+              0.39706547865076425
+            ],
+            [
+              0.4347835947637679,
+              0.5652164052362322
+            ]
+          ],
+          "records": 409600,
+          "rollout_cycles": 400
+        },
+        {
+          "elapsed_seconds": 22.988292339025065,
+          "latest_gaps": [
+            0.1606858287538801,
+            0.046768971851893826
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 15997,
+          "policies": [
+            [
+              0.3482285141944885,
+              0.6517714858055115
+            ],
+            [
+              0.4519559144973755,
+              0.5480440855026245
+            ]
+          ],
+          "records": 512000,
+          "rollout_cycles": 500
+        },
+        {
+          "elapsed_seconds": 27.46140828798525,
+          "latest_gaps": [
+            0.07654278618948801,
+            0.0401633826226534
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 19197,
+          "policies": [
+            [
+              0.39030003547668457,
+              0.6096999645233154
+            ],
+            [
+              0.4017958401563263,
+              0.5982041598436737
+            ]
+          ],
+          "records": 614400,
+          "rollout_cycles": 600
+        },
+        {
+          "elapsed_seconds": 31.94376515201293,
+          "latest_gaps": [
+            0.09843493198459047,
+            0.05790052922579347
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 22397,
+          "policies": [
+            [
+              0.49419471656115554,
+              0.5058052834388445
+            ],
+            [
+              0.4575216931843253,
+              0.5424783068156747
+            ]
+          ],
+          "records": 716800,
+          "rollout_cycles": 700
+        },
+        {
+          "elapsed_seconds": 36.42706289800117,
+          "latest_gaps": [
+            0.09997738003595952,
+            0.0040814663682665064
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 25597,
+          "policies": [
+            [
+              0.49522301526206824,
+              0.5047769847379318
+            ],
+            [
+              0.42585045099258423,
+              0.5741495490074158
+            ]
+          ],
+          "records": 819200,
+          "rollout_cycles": 800
+        },
+        {
+          "elapsed_seconds": 40.911353458999656,
+          "latest_gaps": [
+            0.07041896882681858,
+            0.018290226493697437
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 28797,
+          "policies": [
+            [
+              0.3933619441580193,
+              0.6066380558419807
+            ],
+            [
+              0.41637794424229696,
+              0.5836220557577031
+            ]
+          ],
+          "records": 921600,
+          "rollout_cycles": 900
+        },
+        {
+          "elapsed_seconds": 45.40086009801598,
+          "latest_gaps": [
+            0.23878694571976744,
+            0.050141432455607815
+          ],
+          "mixture_components": 1,
+          "mixture_gaps": [
+            0.23878694571976744,
+            0.050141432455607815
+          ],
+          "optimizer_steps": 31997,
+          "policies": [
+            [
+              0.3091779557115449,
+              0.6908220442884552
+            ],
+            [
+              0.3951438069343567,
+              0.6048561930656433
+            ]
+          ],
+          "records": 1024000,
+          "rollout_cycles": 1000
+        },
+        {
+          "elapsed_seconds": 49.89422099903459,
+          "latest_gaps": [
+            0.016273613971962697,
+            0.01671344517381751
+          ],
+          "mixture_components": 2,
+          "mixture_gaps": [
+            0.10854439687857526,
+            0.03342743881471261
+          ],
+          "optimizer_steps": 35197,
+          "policies": [
+            [
+              0.439420504552737,
+              0.5605794954472629
+            ],
+            [
+              0.4174291317888836,
+              0.5825708682111165
+            ]
+          ],
+          "records": 1126400,
+          "rollout_cycles": 1100
+        },
+        {
+          "elapsed_seconds": 54.39660964603536,
+          "latest_gaps": [
+            0.009262280528732847,
+            0.12983227705252226
+          ],
+          "mixture_components": 3,
+          "mixture_gaps": [
+            0.06824636212850221,
+            0.01356414673776285
+          ],
+          "optimizer_steps": 38397,
+          "policies": [
+            [
+              0.4347462822572505,
+              0.5652537177427496
+            ],
+            [
+              0.4934875670976897,
+              0.5065124329023103
+            ]
+          ],
+          "records": 1228800,
+          "rollout_cycles": 1200
+        },
+        {
+          "elapsed_seconds": 58.89354152098531,
+          "latest_gaps": [
+            0.020166418382099704,
+            0.02762536065919058
+          ],
+          "mixture_components": 4,
+          "mixture_gaps": [
+            0.044462632135676805,
+            0.0009646565002586205
+          ],
+          "optimizer_steps": 41597,
+          "policies": [
+            [
+              0.44201570749282837,
+              0.5579842925071716
+            ],
+            [
+              0.4101545214653015,
+              0.5898454785346985
+            ]
+          ],
+          "records": 1331200,
+          "rollout_cycles": 1300
+        },
+        {
+          "elapsed_seconds": 63.390880914987065,
+          "latest_gaps": [
+            0.14566952858385618,
+            0.017229539493974655
+          ],
+          "mixture_components": 5,
+          "mixture_gaps": [
+            0.0024563264353651415,
+            0.004217633099001861
+          ],
+          "optimizer_steps": 44797,
+          "policies": [
+            [
+              0.5256844476273327,
+              0.4743155523726673
+            ],
+            [
+              0.43718619831841593,
+              0.5628138016815841
+            ]
+          ],
+          "records": 1433600,
+          "rollout_cycles": 1400
+        },
+        {
+          "elapsed_seconds": 67.89388912403956,
+          "latest_gaps": [
+            0.046924094400502436,
+            0.03266230748651772
+          ],
+          "mixture_components": 6,
+          "mixture_gaps": [
+            0.005091430805233554,
+            0.0028076972275434264
+          ],
+          "optimizer_steps": 47997,
+          "policies": [
+            [
+              0.40510938137117736,
+              0.5948906186288226
+            ],
+            [
+              0.4067965569137501,
+              0.59320344308625
+            ]
+          ],
+          "records": 1536000,
+          "rollout_cycles": 1500
+        },
+        {
+          "elapsed_seconds": 72.40969083900563,
+          "latest_gaps": [
+            0.1358738456453596,
+            0.06052513027329143
+          ],
+          "mixture_components": 7,
+          "mixture_gaps": [
+            0.023774632925251504,
+            0.011053044805507395
+          ],
+          "optimizer_steps": 51197,
+          "policies": [
+            [
+              0.3606345057487488,
+              0.6393654942512512
+            ],
+            [
+              0.3882213417225676,
+              0.6117786582774324
+            ]
+          ],
+          "records": 1638400,
+          "rollout_cycles": 1600
+        },
+        {
+          "elapsed_seconds": 76.9325108199846,
+          "latest_gaps": [
+            0.12520807129996164,
+            0.011074752275630984
+          ],
+          "mixture_components": 8,
+          "mixture_gaps": [
+            4.8906055298891804e-05,
+            0.01105575823927285
+          ],
+          "optimizer_steps": 54397,
+          "policies": [
+            [
+              0.5120434761047363,
+              0.48795652389526367
+            ],
+            [
+              0.4211882603876746,
+              0.5788117396123255
+            ]
+          ],
+          "records": 1740800,
+          "rollout_cycles": 1700
+        },
+        {
+          "elapsed_seconds": 81.45697003800888,
+          "latest_gaps": [
+            0.03277532871524225,
+            0.001267739704677029
+          ],
+          "mixture_components": 9,
+          "mixture_gaps": [
+            0.0036851752397370485,
+            0.009721695681741693
+          ],
+          "optimizer_steps": 57597,
+          "policies": [
+            [
+              0.4504216477149234,
+              0.5495783522850766
+            ],
+            [
+              0.4292052984237671,
+              0.5707947015762329
+            ]
+          ],
+          "records": 1843200,
+          "rollout_cycles": 1800
+        },
+        {
+          "elapsed_seconds": 85.9793247510097,
+          "latest_gaps": [
+            0.10040378444035775,
+            0.05405673442223852
+          ],
+          "mixture_components": 10,
+          "mixture_gaps": [
+            0.013357036159799163,
+            0.004695271031899595
+          ],
+          "optimizer_steps": 60797,
+          "policies": [
+            [
+              0.4955072848650004,
+              0.5044927151349996
+            ],
+            [
+              0.45559979578254783,
+              0.5444002042174522
+            ]
+          ],
+          "records": 1945600,
+          "rollout_cycles": 1900
+        },
+        {
+          "elapsed_seconds": 88.43945231003454,
+          "latest_gaps": [
+            0.0885356808570889,
+            0.0017421204557781511
+          ],
+          "mixture_components": 11,
+          "mixture_gaps": [
+            0.00610623645047037,
+            0.0044268027977067415
+          ],
+          "optimizer_steps": 62497,
+          "policies": [
+            [
+              0.3843035881428841,
+              0.6156964118571159
+            ],
+            [
+              0.42741001493424313,
+              0.5725899850657569
+            ]
+          ],
+          "records": 2000000,
+          "rollout_cycles": 1954
+        }
+      ],
+      "formal_protocol": true,
+      "has_five_final_evaluations": true,
+      "historical_opponent_records": 1000126,
+      "latest_passed": false,
+      "matrix_residual_gap": 0.0,
+      "mixture_passed": true,
+      "opponent_decisions": 2000000,
+      "optimizer_steps": 62497,
+      "per_role_records": [
+        1000000,
+        1000000
+      ],
+      "physical_episodes": 2000000,
+      "records": 2000000,
+      "rollout_cycles": 1954,
+      "seed": 2,
+      "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+      "status": "complete",
+      "task": "asymmetric",
+      "value": -0.14285714285714285
+    },
+    {
+      "current_opponent_records": 1001093,
+      "elapsed_seconds": 90.42524759599473,
+      "entropy_protocol": "fixed-0.1",
+      "evaluations": [
+        {
+          "elapsed_seconds": 4.189727958990261,
+          "latest_gaps": [
+            0.6717840833535245,
+            0.29403946241795215
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 3066,
+          "policies": [
+            [
+              0.13272292212980522,
+              0.8045070054833297,
+              0.06277007238686516
+            ],
+            [
+              0.24252817396116516,
+              0.5365676363791173,
+              0.22090418965971753
+            ]
+          ],
+          "records": 102400,
+          "rollout_cycles": 100
+        },
+        {
+          "elapsed_seconds": 8.756708386004902,
+          "latest_gaps": [
+            0.34381243539694983,
+            0.2825710941893514
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 6260,
+          "policies": [
+            [
+              0.571305785865823,
+              0.2012008636653037,
+              0.2274933504688732
+            ],
+            [
+              0.5406763279841141,
+              0.20121843822112312,
+              0.25810523379476275
+            ]
+          ],
+          "records": 204800,
+          "rollout_cycles": 200
+        },
+        {
+          "elapsed_seconds": 13.23567741503939,
+          "latest_gaps": [
+            0.20641840686770668,
+            0.33464557923904686
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 9460,
+          "policies": [
+            [
+              0.4518635801693264,
+              0.30269124652905394,
+              0.2454451733016197
+            ],
+            [
+              0.5361345330456714,
+              0.2623765131477041,
+              0.20148895380662452
+            ]
+          ],
+          "records": 307200,
+          "rollout_cycles": 300
+        },
+        {
+          "elapsed_seconds": 17.711038005014416,
+          "latest_gaps": [
+            0.32528017982005536,
+            0.24510244659926822
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 12656,
+          "policies": [
+            [
+              0.31823625212203704,
+              0.1782417840289538,
+              0.5035219638490092
+            ],
+            [
+              0.2795144873929845,
+              0.23769153300387363,
+              0.48279397960314185
+            ]
+          ],
+          "records": 409600,
+          "rollout_cycles": 400
+        },
+        {
+          "elapsed_seconds": 22.18964144703932,
+          "latest_gaps": [
+            0.19091458550949286,
+            0.2238715339956492
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 15855,
+          "policies": [
+            [
+              0.2934348801847458,
+              0.48434946569423865,
+              0.22221565412101552
+            ],
+            [
+              0.4062477168628104,
+              0.4113761002700284,
+              0.1823761828671612
+            ]
+          ],
+          "records": 512000,
+          "rollout_cycles": 500
+        },
+        {
+          "elapsed_seconds": 26.658888517005835,
+          "latest_gaps": [
+            0.2143903619523508,
+            0.3258068211617118
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 19055,
+          "policies": [
+            [
+              0.23374959381295415,
+              0.44813995576530496,
+              0.31811045042174085
+            ],
+            [
+              0.21243893243190445,
+              0.5382457535936163,
+              0.24931531397447926
+            ]
+          ],
+          "records": 614400,
+          "rollout_cycles": 600
+        },
+        {
+          "elapsed_seconds": 31.137681130028795,
+          "latest_gaps": [
+            0.13782916294510145,
+            0.17925065067040846
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 22255,
+          "policies": [
+            [
+              0.39323591549610587,
+              0.35135733195288965,
+              0.2554067525510044
+            ],
+            [
+              0.42609624979330224,
+              0.327058151083804,
+              0.24684559912289378
+            ]
+          ],
+          "records": 716800,
+          "rollout_cycles": 700
+        },
+        {
+          "elapsed_seconds": 35.610172321030404,
+          "latest_gaps": [
+            0.1283935529951124,
+            0.0928949471053449
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 25455,
+          "policies": [
+            [
+              0.3838659892162091,
+              0.36066157456269415,
+              0.2554724362210967
+            ],
+            [
+              0.32074626211799756,
+              0.41364120922334247,
+              0.26561252865866
+            ]
+          ],
+          "records": 819200,
+          "rollout_cycles": 800
+        },
+        {
+          "elapsed_seconds": 40.23517400503624,
+          "latest_gaps": [
+            0.09606470798867572,
+            0.09708526730537415
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 28655,
+          "policies": [
+            [
+              0.2647981108905574,
+              0.3608628188792331,
+              0.3743390702302095
+            ],
+            [
+              0.26610472798347473,
+              0.31840500235557556,
+              0.4154902696609497
+            ]
+          ],
+          "records": 921600,
+          "rollout_cycles": 900
+        },
+        {
+          "elapsed_seconds": 44.968472213018686,
+          "latest_gaps": [
+            0.035226493024036465,
+            0.023806750774383545
+          ],
+          "mixture_components": 1,
+          "mixture_gaps": [
+            0.035226493024036465,
+            0.023806750774383545
+          ],
+          "optimizer_steps": 31855,
+          "policies": [
+            [
+              0.30787338889022503,
+              0.3430998819142615,
+              0.3490267291955135
+            ],
+            [
+              0.32999277114868164,
+              0.3231002390384674,
+              0.34690698981285095
+            ]
+          ],
+          "records": 1024000,
+          "rollout_cycles": 1000
+        },
+        {
+          "elapsed_seconds": 49.70870045002084,
+          "latest_gaps": [
+            0.149530827999115,
+            0.06257683038711548
+          ],
+          "mixture_components": 2,
+          "mixture_gaps": [
+            0.054188743846913245,
+            0.022831305861473083
+          ],
+          "optimizer_steps": 35055,
+          "policies": [
+            [
+              0.3944162428379059,
+              0.3606983423233032,
+              0.2448854148387909
+            ],
+            [
+              0.35240525007247925,
+              0.357766330242157,
+              0.28982841968536377
+            ]
+          ],
+          "records": 1126400,
+          "rollout_cycles": 1100
+        },
+        {
+          "elapsed_seconds": 54.442837272014,
+          "latest_gaps": [
+            0.16312334427605107,
+            0.050039385262672764
+          ],
+          "mixture_components": 3,
+          "mixture_gaps": [
+            0.09050027732329258,
+            0.031900665661872996
+          ],
+          "optimizer_steps": 38255,
+          "policies": [
+            [
+              0.4244854278709122,
+              0.31415248853422667,
+              0.2613620835948611
+            ],
+            [
+              0.36349734933650635,
+              0.32304468658966007,
+              0.3134579640738336
+            ]
+          ],
+          "records": 1228800,
+          "rollout_cycles": 1200
+        },
+        {
+          "elapsed_seconds": 59.1807758960058,
+          "latest_gaps": [
+            0.04488137364387512,
+            0.1359979510307312
+          ],
+          "mixture_components": 4,
+          "mixture_gaps": [
+            0.048545801671420696,
+            0.020570017183123734
+          ],
+          "optimizer_steps": 41455,
+          "policies": [
+            [
+              0.2926003336906433,
+              0.33748170733451843,
+              0.36991795897483826
+            ],
+            [
+              0.2664874792098999,
+              0.29875728487968445,
+              0.43475523591041565
+            ]
+          ],
+          "records": 1331200,
+          "rollout_cycles": 1300
+        },
+        {
+          "elapsed_seconds": 63.92490960104624,
+          "latest_gaps": [
+            0.09629476070404053,
+            0.1022488383428301
+          ],
+          "mixture_components": 5,
+          "mixture_gaps": [
+            0.05809559347794463,
+            0.008168012473343866
+          ],
+          "optimizer_steps": 44655,
+          "policies": [
+            [
+              0.3972185254096985,
+              0.30185770988464355,
+              0.30092376470565796
+            ],
+            [
+              0.38768589010662824,
+              0.3268770581295736,
+              0.28543705176379813
+            ]
+          ],
+          "records": 1433600,
+          "rollout_cycles": 1400
+        },
+        {
+          "elapsed_seconds": 68.6780087419902,
+          "latest_gaps": [
+            0.05081656726648115,
+            0.055445046885163995
+          ],
+          "mixture_components": 6,
+          "mixture_gaps": [
+            0.04718670843501371,
+            0.014188020918849575
+          ],
+          "optimizer_steps": 47855,
+          "policies": [
+            [
+              0.31394190531795935,
+              0.3647584725844405,
+              0.32129962209760016
+            ],
+            [
+              0.336591521996007,
+              0.38226200289314993,
+              0.281146475110843
+            ]
+          ],
+          "records": 1536000,
+          "rollout_cycles": 1500
+        },
+        {
+          "elapsed_seconds": 73.43383320403518,
+          "latest_gaps": [
+            0.019199310016693782,
+            0.06728887959056379
+          ],
+          "mixture_components": 7,
+          "mixture_gaps": [
+            0.03815426249606357,
+            0.006062317070436363
+          ],
+          "optimizer_steps": 51055,
+          "policies": [
+            [
+              0.32158675894855626,
+              0.34078606896525004,
+              0.3376271720861937
+            ],
+            [
+              0.2876399926924701,
+              0.3549288722830339,
+              0.357431135024496
+            ]
+          ],
+          "records": 1638400,
+          "rollout_cycles": 1600
+        },
+        {
+          "elapsed_seconds": 78.19935414503561,
+          "latest_gaps": [
+            0.04148170351982117,
+            0.02422800732338448
+          ],
+          "mixture_components": 8,
+          "mixture_gaps": [
+            0.03543657528251487,
+            0.004829968447004118
+          ],
+          "optimizer_steps": 54255,
+          "policies": [
+            [
+              0.358102411031723,
+              0.3002079427242279,
+              0.3416896462440491
+            ],
+            [
+              0.35694451203776933,
+              0.3094137403194231,
+              0.3336417476428076
+            ]
+          ],
+          "records": 1740800,
+          "rollout_cycles": 1700
+        },
+        {
+          "elapsed_seconds": 82.96918174304301,
+          "latest_gaps": [
+            0.10044866500947874,
+            0.08598220092111225
+          ],
+          "mixture_components": 9,
+          "mixture_gaps": [
+            0.03193124546326398,
+            0.008987516521757832
+          ],
+          "optimizer_steps": 57455,
+          "policies": [
+            [
+              0.3011466472999261,
+              0.4015953123094048,
+              0.2972580403906691
+            ],
+            [
+              0.3062843291078708,
+              0.39226653002898304,
+              0.30144914086314617
+            ]
+          ],
+          "records": 1843200,
+          "rollout_cycles": 1800
+        },
+        {
+          "elapsed_seconds": 87.72787925199373,
+          "latest_gaps": [
+            0.0350452949093194,
+            0.06037077127782192
+          ],
+          "mixture_components": 10,
+          "mixture_gaps": [
+            0.032242650407869555,
+            0.014125841997364219
+          ],
+          "optimizer_steps": 60655,
+          "policies": [
+            [
+              0.34256609253388365,
+              0.3499131098415521,
+              0.30752079762456425
+            ],
+            [
+              0.301272889933798,
+              0.36164366121161995,
+              0.337083448854582
+            ]
+          ],
+          "records": 1945600,
+          "rollout_cycles": 1900
+        },
+        {
+          "elapsed_seconds": 90.31984688603552,
+          "latest_gaps": [
+            0.037040112195008246,
+            0.06297316959580274
+          ],
+          "mixture_components": 11,
+          "mixture_gaps": [
+            0.032678783297609426,
+            0.012725998186808973
+          ],
+          "optimizer_steps": 62355,
+          "policies": [
+            [
+              0.3593187714029091,
+              0.3184025693891901,
+              0.32227865920790083
+            ],
+            [
+              0.3547485365048487,
+              0.35347609658610535,
+              0.291775366909046
+            ]
+          ],
+          "records": 2000000,
+          "rollout_cycles": 1954
+        }
+      ],
+      "formal_protocol": true,
+      "has_five_final_evaluations": true,
+      "historical_opponent_records": 998907,
+      "latest_passed": false,
+      "matrix_residual_gap": 2.220446049250313e-16,
+      "mixture_passed": true,
+      "opponent_decisions": 2000000,
+      "optimizer_steps": 62355,
+      "per_role_records": [
+        1000000,
+        1000000
+      ],
+      "physical_episodes": 2000000,
+      "records": 2000000,
+      "rollout_cycles": 1954,
+      "seed": 0,
+      "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+      "status": "complete",
+      "task": "rps",
+      "value": 0.0
+    },
+    {
+      "current_opponent_records": 1001483,
+      "elapsed_seconds": 90.38843847095268,
+      "entropy_protocol": "fixed-0.1",
+      "evaluations": [
+        {
+          "elapsed_seconds": 4.3463520289515145,
+          "latest_gaps": [
+            0.9790209227899328,
+            0.9775773325179502
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 3026,
+          "policies": [
+            [
+              0.9890792379453405,
+              0.000862446899251904,
+              0.01005831515540762
+            ],
+            [
+              0.9882597566628218,
+              0.00105781919230661,
+              0.010682424144871593
+            ]
+          ],
+          "records": 102400,
+          "rollout_cycles": 100
+        },
+        {
+          "elapsed_seconds": 8.854419627983589,
+          "latest_gaps": [
+            0.8475573621775236,
+            0.9020249399969079
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 6105,
+          "policies": [
+            [
+              0.002930113597815613,
+              0.8504874757753392,
+              0.14658241062684513
+            ],
+            [
+              0.0033227402277382543,
+              0.9053476802246462,
+              0.09132957954761553
+            ]
+          ],
+          "records": 204800,
+          "rollout_cycles": 200
+        },
+        {
+          "elapsed_seconds": 12.766915193002205,
+          "latest_gaps": [
+            0.5014826059341431,
+            0.37963376014878986
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 8732,
+          "policies": [
+            [
+              0.17876696586608887,
+              0.6802495718002319,
+              0.1409834623336792
+            ],
+            [
+              0.22516325451676927,
+              0.6047970146655591,
+              0.17003973081767157
+            ]
+          ],
+          "records": 307200,
+          "rollout_cycles": 300
+        },
+        {
+          "elapsed_seconds": 17.31616294098785,
+          "latest_gaps": [
+            0.20771536231040955,
+            0.17239113100846432
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 11828,
+          "policies": [
+            [
+              0.5153236389160156,
+              0.1770680844783783,
+              0.3076082766056061
+            ],
+            [
+              0.48318721504325735,
+              0.20601670092194965,
+              0.31079608403479303
+            ]
+          ],
+          "records": 409600,
+          "rollout_cycles": 400
+        },
+        {
+          "elapsed_seconds": 21.952804558968637,
+          "latest_gaps": [
+            0.11593148457799807,
+            0.20032444598707902
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 14992,
+          "policies": [
+            [
+              0.26812747919939395,
+              0.384058963777392,
+              0.34781355702321404
+            ],
+            [
+              0.23522097134746398,
+              0.435545417334543,
+              0.32923361131799306
+            ]
+          ],
+          "records": 512000,
+          "rollout_cycles": 500
+        },
+        {
+          "elapsed_seconds": 26.627740905969404,
+          "latest_gaps": [
+            0.12634289264678955,
+            0.16950538249297792
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 18192,
+          "policies": [
+            [
+              0.4204396605491638,
+              0.2854635715484619,
+              0.29409676790237427
+            ],
+            [
+              0.4227092140105601,
+              0.3240869544718577,
+              0.2532038315175822
+            ]
+          ],
+          "records": 614400,
+          "rollout_cycles": 600
+        },
+        {
+          "elapsed_seconds": 31.291392539977096,
+          "latest_gaps": [
+            0.2394215095215586,
+            0.3371358115334566
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 21392,
+          "policies": [
+            [
+              0.26901610884022387,
+              0.5084376183617825,
+              0.22254627279799363
+            ],
+            [
+              0.2223022811918771,
+              0.5594380927253337,
+              0.21825962608278912
+            ]
+          ],
+          "records": 716800,
+          "rollout_cycles": 700
+        },
+        {
+          "elapsed_seconds": 35.97309452795889,
+          "latest_gaps": [
+            0.11993660807987405,
+            0.11089664036651609
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 24592,
+          "policies": [
+            [
+              0.38898361390926756,
+              0.34196938026133894,
+              0.2690470058293935
+            ],
+            [
+              0.39061719831125746,
+              0.32966224374400116,
+              0.2797205579447414
+            ]
+          ],
+          "records": 819200,
+          "rollout_cycles": 800
+        },
+        {
+          "elapsed_seconds": 40.655451329948846,
+          "latest_gaps": [
+            0.3635822615828126,
+            0.25507829733542936
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 27792,
+          "policies": [
+            [
+              0.6221549053971821,
+              0.11927245078844839,
+              0.2585726438143695
+            ],
+            [
+              0.5527299293605952,
+              0.14961843861423904,
+              0.2976516320251658
+            ]
+          ],
+          "records": 921600,
+          "rollout_cycles": 900
+        },
+        {
+          "elapsed_seconds": 45.332147907000035,
+          "latest_gaps": [
+            0.06495991155624653,
+            0.07469120621681213
+          ],
+          "mixture_components": 1,
+          "mixture_gaps": [
+            0.06495991155624653,
+            0.07469120621681213
+          ],
+          "optimizer_steps": 30992,
+          "policies": [
+            [
+              0.28938414784121075,
+              0.3543440593974573,
+              0.35627179276133203
+            ],
+            [
+              0.27696529030799866,
+              0.3516564965248108,
+              0.37137821316719055
+            ]
+          ],
+          "records": 1024000,
+          "rollout_cycles": 1000
+        },
+        {
+          "elapsed_seconds": 50.01409292395692,
+          "latest_gaps": [
+            0.10732680879017142,
+            0.14232638478279114
+          ],
+          "mixture_components": 2,
+          "mixture_gaps": [
+            0.086143360173209,
+            0.10850879549980164
+          ],
+          "optimizer_steps": 34192,
+          "policies": [
+            [
+              0.2709990522563175,
+              0.3783258610464889,
+              0.3506750866971936
+            ],
+            [
+              0.279436320066452,
+              0.42176270484924316,
+              0.2988009750843048
+            ]
+          ],
+          "records": 1126400,
+          "rollout_cycles": 1100
+        },
+        {
+          "elapsed_seconds": 54.70359993795864,
+          "latest_gaps": [
+            0.0611129105091095,
+            0.04754883334331711
+          ],
+          "mixture_components": 3,
+          "mixture_gaps": [
+            0.036412696464527605,
+            0.05516470369649962
+          ],
+          "optimizer_steps": 37392,
+          "policies": [
+            [
+              0.3747205138206482,
+              0.3116718828678131,
+              0.3136076033115387
+            ],
+            [
+              0.36635743775114044,
+              0.3148339578410362,
+              0.3188086044078233
+            ]
+          ],
+          "records": 1228800,
+          "rollout_cycles": 1200
+        },
+        {
+          "elapsed_seconds": 59.39469079696573,
+          "latest_gaps": [
+            0.04350686202963777,
+            0.04875567555427551
+          ],
+          "mixture_components": 4,
+          "mixture_gaps": [
+            0.024949789292573632,
+            0.03564786834234773
+          ],
+          "optimizer_steps": 40592,
+          "policies": [
+            [
+              0.350981931417642,
+              0.34154299919435377,
+              0.30747506938800423
+            ],
+            [
+              0.33234986662864685,
+              0.3094472289085388,
+              0.35820290446281433
+            ]
+          ],
+          "records": 1331200,
+          "rollout_cycles": 1300
+        },
+        {
+          "elapsed_seconds": 64.09259490895784,
+          "latest_gaps": [
+            0.022938312467236044,
+            0.009581088734236687
+          ],
+          "mixture_components": 5,
+          "mixture_gaps": [
+            0.024547493927506103,
+            0.024883877725154935
+          ],
+          "optimizer_steps": 43792,
+          "policies": [
+            [
+              0.31281982736705705,
+              0.3357581398342931,
+              0.3514220327986498
+            ],
+            [
+              0.3422543602509987,
+              0.3240822755073823,
+              0.33366336424161896
+            ]
+          ],
+          "records": 1433600,
+          "rollout_cycles": 1400
+        },
+        {
+          "elapsed_seconds": 68.79491659096675,
+          "latest_gaps": [
+            0.1263835169787263,
+            0.1534372866153717
+          ],
+          "mixture_components": 6,
+          "mixture_gaps": [
+            0.041520164436042784,
+            0.04630944587352437
+          ],
+          "optimizer_steps": 46992,
+          "policies": [
+            [
+              0.26461017920405205,
+              0.39099369618277835,
+              0.3443961246131696
+            ],
+            [
+              0.2660650312900543,
+              0.419502317905426,
+              0.31443265080451965
+            ]
+          ],
+          "records": 1536000,
+          "rollout_cycles": 1500
+        },
+        {
+          "elapsed_seconds": 73.50955631298712,
+          "latest_gaps": [
+            0.056041123153004746,
+            0.10210863060082886
+          ],
+          "mixture_components": 7,
+          "mixture_gaps": [
+            0.035782274205953035,
+            0.05428075797742504
+          ],
+          "optimizer_steps": 50192,
+          "policies": [
+            [
+              0.35156206344253016,
+              0.3529169962679445,
+              0.2955209402895254
+            ],
+            [
+              0.3283463814361805,
+              0.43045501203700937,
+              0.24119860652681013
+            ]
+          ],
+          "records": 1638400,
+          "rollout_cycles": 1600
+        },
+        {
+          "elapsed_seconds": 78.2361784959794,
+          "latest_gaps": [
+            0.08274000883102417,
+            0.05110365152359009
+          ],
+          "mixture_components": 8,
+          "mixture_gaps": [
+            0.0416519910340869,
+            0.05040679133397996
+          ],
+          "optimizer_steps": 53392,
+          "policies": [
+            [
+              0.3195217549800873,
+              0.40226176381111145,
+              0.27821648120880127
+            ],
+            [
+              0.3426048755645752,
+              0.3658939003944397,
+              0.2915012240409851
+            ]
+          ],
+          "records": 1740800,
+          "rollout_cycles": 1700
+        },
+        {
+          "elapsed_seconds": 82.9620523880003,
+          "latest_gaps": [
+            0.06842446123288687,
+            0.103321373462677
+          ],
+          "mixture_components": 9,
+          "mixture_gaps": [
+            0.03220583746799632,
+            0.036685930415106316
+          ],
+          "optimizer_steps": 56592,
+          "policies": [
+            [
+              0.3394341069628564,
+              0.29607071590212836,
+              0.3644951771350152
+            ],
+            [
+              0.34761351346969604,
+              0.2745325565338135,
+              0.3778539299964905
+            ]
+          ],
+          "records": 1843200,
+          "rollout_cycles": 1800
+        },
+        {
+          "elapsed_seconds": 87.70449924096465,
+          "latest_gaps": [
+            0.028447298500102858,
+            0.07952982424288463
+          ],
+          "mixture_components": 10,
+          "mixture_gaps": [
+            0.027464217782995515,
+            0.040970319797884125
+          ],
+          "optimizer_steps": 59792,
+          "policies": [
+            [
+              0.3478858859607049,
+              0.332675526578693,
+              0.31943858746060205
+            ],
+            [
+              0.29266259946413636,
+              0.372192423707021,
+              0.33514497682884264
+            ]
+          ],
+          "records": 1945600,
+          "rollout_cycles": 1900
+        },
+        {
+          "elapsed_seconds": 90.28273819299648,
+          "latest_gaps": [
+            0.02862239054574911,
+            0.12481316924095154
+          ],
+          "mixture_components": 11,
+          "mixture_gaps": [
+            0.020543280468731995,
+            0.022234293809705374
+          ],
+          "optimizer_steps": 61492,
+          "policies": [
+            [
+              0.35909616107321746,
+              0.3104300683993142,
+              0.33047377052746835
+            ],
+            [
+              0.42997971177101135,
+              0.26485374569892883,
+              0.3051665425300598
+            ]
+          ],
+          "records": 2000000,
+          "rollout_cycles": 1954
+        }
+      ],
+      "formal_protocol": true,
+      "has_five_final_evaluations": true,
+      "historical_opponent_records": 998517,
+      "latest_passed": false,
+      "matrix_residual_gap": 2.220446049250313e-16,
+      "mixture_passed": false,
+      "opponent_decisions": 2000000,
+      "optimizer_steps": 61492,
+      "per_role_records": [
+        1000000,
+        1000000
+      ],
+      "physical_episodes": 2000000,
+      "records": 2000000,
+      "rollout_cycles": 1954,
+      "seed": 1,
+      "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+      "status": "complete",
+      "task": "rps",
+      "value": 0.0
+    },
+    {
+      "current_opponent_records": 999874,
+      "elapsed_seconds": 92.43101950804703,
+      "entropy_protocol": "fixed-0.1",
+      "evaluations": [
+        {
+          "elapsed_seconds": 4.424515682039782,
+          "latest_gaps": [
+            0.39051385188526855,
+            0.39704008093595744
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 3052,
+          "policies": [
+            [
+              0.2511854265326793,
+              0.6416992784179478,
+              0.10711529504937288
+            ],
+            [
+              0.2591853219027913,
+              0.6562254028387488,
+              0.0845892752584599
+            ]
+          ],
+          "records": 102400,
+          "rollout_cycles": 100
+        },
+        {
+          "elapsed_seconds": 9.116714041039813,
+          "latest_gaps": [
+            0.2541333848595642,
+            0.24112224578857422
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 6233,
+          "policies": [
+            [
+              0.3030074672255278,
+              0.557140852085092,
+              0.1398516806893802
+            ],
+            [
+              0.4180887043476105,
+              0.40494483709335327,
+              0.17696645855903625
+            ]
+          ],
+          "records": 204800,
+          "rollout_cycles": 200
+        },
+        {
+          "elapsed_seconds": 13.84158154699253,
+          "latest_gaps": [
+            0.2965632677078247,
+            0.19168722058274684
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 9429,
+          "policies": [
+            [
+              0.2642008066177368,
+              0.5607640743255615,
+              0.17503511905670166
+            ],
+            [
+              0.2460971103281644,
+              0.43778433091091123,
+              0.3161185587609244
+            ]
+          ],
+          "records": 307200,
+          "rollout_cycles": 300
+        },
+        {
+          "elapsed_seconds": 18.568641646998003,
+          "latest_gaps": [
+            0.21318644285202026,
+            0.2523837387561798
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 12627,
+          "policies": [
+            [
+              0.38192033767700195,
+              0.2024466097354889,
+              0.41563305258750916
+            ],
+            [
+              0.34131816029548645,
+              0.20314905047416687,
+              0.4555327892303467
+            ]
+          ],
+          "records": 409600,
+          "rollout_cycles": 400
+        },
+        {
+          "elapsed_seconds": 23.303257229039446,
+          "latest_gaps": [
+            0.3217391164406476,
+            0.22122439240922298
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 15827,
+          "policies": [
+            [
+              0.5132482434249106,
+              0.2952426295908265,
+              0.19150912698426298
+            ],
+            [
+              0.4693233580584835,
+              0.28257767629225594,
+              0.24809896564926054
+            ]
+          ],
+          "records": 512000,
+          "rollout_cycles": 500
+        },
+        {
+          "elapsed_seconds": 28.027371462027077,
+          "latest_gaps": [
+            0.1530457563244439,
+            0.11151429678457092
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 19027,
+          "policies": [
+            [
+              0.24522892765359688,
+              0.3982746839780408,
+              0.35649638836836234
+            ],
+            [
+              0.2517118676986734,
+              0.3632261644832443,
+              0.38506196781808233
+            ]
+          ],
+          "records": 614400,
+          "rollout_cycles": 600
+        },
+        {
+          "elapsed_seconds": 32.75453822099371,
+          "latest_gaps": [
+            0.15564851230906676,
+            0.14347493220940435
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 22227,
+          "policies": [
+            [
+              0.1858642818649965,
+              0.34151279417406327,
+              0.4726229239609402
+            ],
+            [
+              0.210001402795273,
+              0.35347633500467734,
+              0.4365222622000497
+            ]
+          ],
+          "records": 716800,
+          "rollout_cycles": 700
+        },
+        {
+          "elapsed_seconds": 37.492601350997575,
+          "latest_gaps": [
+            0.1564011368990622,
+            0.3289067047182742
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 25427,
+          "policies": [
+            [
+              0.42548515948564763,
+              0.30543081792776694,
+              0.2690840225865854
+            ],
+            [
+              0.4934572573576723,
+              0.3419921900029296,
+              0.16455055263939813
+            ]
+          ],
+          "records": 819200,
+          "rollout_cycles": 800
+        },
+        {
+          "elapsed_seconds": 42.22441524802707,
+          "latest_gaps": [
+            0.2680477012984797,
+            0.2549027093485402
+          ],
+          "mixture_components": 0,
+          "mixture_gaps": null,
+          "optimizer_steps": 28627,
+          "policies": [
+            [
+              0.4649493028976127,
+              0.3381490955032543,
+              0.196901601599133
+            ],
+            [
+              0.42063248784292473,
+              0.41363773366269074,
+              0.16572977849438456
+            ]
+          ],
+          "records": 921600,
+          "rollout_cycles": 900
+        },
+        {
+          "elapsed_seconds": 46.96280578000005,
+          "latest_gaps": [
+            0.07316416065906522,
+            0.0350207377964038
+          ],
+          "mixture_components": 1,
+          "mixture_gaps": [
+            0.07316416065906522,
+            0.0350207377964038
+          ],
+          "optimizer_steps": 31827,
+          "policies": [
+            [
+              0.3708064633127175,
+              0.33155123403363024,
+              0.29764230265365227
+            ],
+            [
+              0.3430143492515579,
+              0.34899203929328804,
+              0.3079936114551541
+            ]
+          ],
+          "records": 1024000,
+          "rollout_cycles": 1000
+        },
+        {
+          "elapsed_seconds": 51.69941033003852,
+          "latest_gaps": [
+            0.17158169065659318,
+            0.11633724667651935
+          ],
+          "mixture_components": 2,
+          "mixture_gaps": [
+            0.1223729256578292,
+            0.07567899223646157
+          ],
+          "optimizer_steps": 35027,
+          "policies": [
+            [
+              0.444629652638127,
+              0.2823223853803392,
+              0.2730479619815338
+            ],
+            [
+              0.4182092498665601,
+              0.27991874694339913,
+              0.30187200319004076
+            ]
+          ],
+          "records": 1126400,
+          "rollout_cycles": 1100
+        },
+        {
+          "elapsed_seconds": 56.44178385200212,
+          "latest_gaps": [
+            0.08910533785820007,
+            0.018214968655709207
+          ],
+          "mixture_components": 3,
+          "mixture_gaps": [
+            0.07659619078291824,
+            0.04908932461354931
+          ],
+          "optimizer_steps": 38227,
+          "policies": [
+            [
+              0.2986457943916321,
+              0.38775113224983215,
+              0.31360307335853577
+            ],
+            [
+              0.3258983402373385,
+              0.3441133088930477,
+              0.32998835086961376
+            ]
+          ],
+          "records": 1228800,
+          "rollout_cycles": 1200
+        },
+        {
+          "elapsed_seconds": 61.181274725007825,
+          "latest_gaps": [
+            0.07435044646263123,
+            0.044623729907051934
+          ],
+          "mixture_components": 4,
+          "mixture_gaps": [
+            0.048565954158107716,
+            0.02560729014643598
+          ],
+          "optimizer_steps": 41427,
+          "policies": [
+            [
+              0.3344336450099945,
+              0.29560795426368713,
+              0.36995840072631836
+            ],
+            [
+              0.3183153677990813,
+              0.31853045114693335,
+              0.3631541810539853
+            ]
+          ],
+          "records": 1331200,
+          "rollout_cycles": 1300
+        },
+        {
+          "elapsed_seconds": 65.90839132101974,
+          "latest_gaps": [
+            0.10182373957159074,
+            0.13794743603624593
+          ],
+          "mixture_components": 5,
+          "mixture_gaps": [
+            0.05921751124080438,
+            0.048075319324398014
+          ],
+          "optimizer_steps": 44627,
+          "policies": [
+            [
+              0.42788138777901324,
+              0.24606096401356428,
+              0.3260576482074225
+            ],
+            [
+              0.43912919047089843,
+              0.25968905509444906,
+              0.3011817544346525
+            ]
+          ],
+          "records": 1433600,
+          "rollout_cycles": 1400
+        },
+        {
+          "elapsed_seconds": 70.64842964604031,
+          "latest_gaps": [
+            0.16213079803792246,
+            0.12570279836654663
+          ],
+          "mixture_components": 6,
+          "mixture_gaps": [
+            0.04561752971548044,
+            0.03630894504857057
+          ],
+          "optimizer_steps": 47827,
+          "policies": [
+            [
+              0.27182894135031277,
+              0.43395973938823523,
+              0.294211319261452
+            ],
+            [
+              0.28392475843429565,
+              0.4096275568008423,
+              0.30644768476486206
+            ]
+          ],
+          "records": 1536000,
+          "rollout_cycles": 1500
+        },
+        {
+          "elapsed_seconds": 75.40709887200501,
+          "latest_gaps": [
+            0.17381117265853802,
+            0.1417033076286316
+          ],
+          "mixture_components": 7,
+          "mixture_gaps": [
+            0.03989684070284494,
+            0.03150045090804776
+          ],
+          "optimizer_steps": 51027,
+          "policies": [
+            [
+              0.27725384465616476,
+              0.4510650173147028,
+              0.2716811380291324
+            ],
+            [
+              0.28698205947875977,
+              0.42868536710739136,
+              0.2843325734138489
+            ]
+          ],
+          "records": 1638400,
+          "rollout_cycles": 1600
+        },
+        {
+          "elapsed_seconds": 80.17303958599223,
+          "latest_gaps": [
+            0.037956297397613525,
+            0.042882561683654785
+          ],
+          "mixture_components": 8,
+          "mixture_gaps": [
+            0.039654272789691025,
+            0.03089138182157275
+          ],
+          "optimizer_steps": 54227,
+          "policies": [
+            [
+              0.36275750398635864,
+              0.31244128942489624,
+              0.3248012065887451
+            ],
+            [
+              0.3653794527053833,
+              0.29586899280548096,
+              0.33875155448913574
+            ]
+          ],
+          "records": 1740800,
+          "rollout_cycles": 1700
+        },
+        {
+          "elapsed_seconds": 84.94770673802122,
+          "latest_gaps": [
+            0.1458471715450287,
+            0.13181715025152413
+          ],
+          "mixture_components": 9,
+          "mixture_gaps": [
+            0.038684244946139035,
+            0.030334118631534956
+          ],
+          "optimizer_steps": 57427,
+          "policies": [
+            [
+              0.29502561688423157,
+              0.44087278842926025,
+              0.2641015946865082
+            ],
+            [
+              0.29801962095323614,
+              0.42983677120476027,
+              0.2721436078420036
+            ]
+          ],
+          "records": 1843200,
+          "rollout_cycles": 1800
+        },
+        {
+          "elapsed_seconds": 89.72583637404023,
+          "latest_gaps": [
+            0.08048472048296695,
+            0.10903248190879822
+          ],
+          "mixture_components": 10,
+          "mixture_gaps": [
+            0.03564669432329487,
+            0.025601038599359804
+          ],
+          "optimizer_steps": 60627,
+          "policies": [
+            [
+              0.3657007326394538,
+              0.2769072734387896,
+              0.3573919939217566
+            ],
+            [
+              0.3583463728427887,
+              0.26631057262420654,
+              0.37534305453300476
+            ]
+          ],
+          "records": 1945600,
+          "rollout_cycles": 1900
+        },
+        {
+          "elapsed_seconds": 92.32609372102888,
+          "latest_gaps": [
+            0.055192379498708866,
+            0.048506200313568115
+          ],
+          "mixture_components": 11,
+          "mixture_gaps": [
+            0.03742357479378705,
+            0.027683326027924227
+          ],
+          "optimizer_steps": 62327,
+          "policies": [
+            [
+              0.36022414683627646,
+              0.33474408582615595,
+              0.3050317673375676
+            ],
+            [
+              0.3581732213497162,
+              0.33215975761413574,
+              0.30966702103614807
+            ]
+          ],
+          "records": 2000000,
+          "rollout_cycles": 1954
+        }
+      ],
+      "formal_protocol": true,
+      "has_five_final_evaluations": true,
+      "historical_opponent_records": 1000126,
+      "latest_passed": false,
+      "matrix_residual_gap": 2.220446049250313e-16,
+      "mixture_passed": true,
+      "opponent_decisions": 2000000,
+      "optimizer_steps": 62327,
+      "per_role_records": [
+        1000000,
+        1000000
+      ],
+      "physical_episodes": 2000000,
+      "records": 2000000,
+      "rollout_cycles": 1954,
+      "seed": 2,
+      "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+      "status": "complete",
+      "task": "rps",
+      "value": 0.0
+    }
+  ],
+  "route": "nfsp",
+  "trials": 12
+}

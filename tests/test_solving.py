@@ -34,6 +34,7 @@ class SolveTests(unittest.TestCase):
 
     def test_reject_invalid_values_and_policies(self):
         with self.assertRaises(ValueError):solve_matrix([[float('nan')]])
+        with self.assertRaises(ValueError):value_gaps([[1.,-1.],[0.,1.]],[.5,.5],[.5,.5],float('nan'))
         with self.assertRaises(ValueError):value_gaps([[1,-1]],[-1],[.5,.5])
 
 

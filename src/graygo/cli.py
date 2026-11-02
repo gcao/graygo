@@ -117,6 +117,12 @@ def profile_network(args):
             "peak_cuda_bytes":torch.cuda.max_memory_allocated(device) if device.type=="cuda" else None}
 
 
+def profile_buffers(args):
+    from .buffer_profile import profile_buffers as benchmark
+    return benchmark(_rules(args),args.buffer_dir,capacity=args.capacity,records=args.records,
+                     iterations=args.iterations,batch=args.batch,seed=args.seed)
+
+
 def train_matrix(args):
     from .matrix_training import MatrixPPOConfig,MatrixPPOTrainer
     config=MatrixPPOConfig(task=args.task,seed=args.seed,records=args.records,rollout=args.rollout,
@@ -165,7 +171,7 @@ def play(args):
 def main(argv=None):
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
@@ -184,6 +190,10 @@ def main(argv=None):
         elif name=="profile-network":
             p.add_argument("--device",default="cpu");p.add_argument("--batch",type=int,default=16)
             p.add_argument("--batches",type=int,default=10)
+        elif name=="profile-buffers":
+            p.add_argument("--buffer-dir",required=True);p.add_argument("--capacity",type=int,default=500000)
+            p.add_argument("--records",type=int,default=10000);p.add_argument("--iterations",type=int,default=50)
+            p.add_argument("--batch",type=int,default=512)
         elif name in ("train-matrix","preflight"):
             p.add_argument("--run-dir",required=True)
             p.add_argument("--records",type=int,default=2000000)

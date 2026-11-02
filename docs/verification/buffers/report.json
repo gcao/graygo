@@ -1,0 +1,64 @@
+{
+  "manifest": {
+    "baseline_version": "graygo/baselines/1",
+    "command": {
+      "batch": 512,
+      "buffer_dir": "artifacts/buffer-profile-v1",
+      "capacity": 500000,
+      "collision": "gray",
+      "command": "profile-buffers",
+      "iterations": 50,
+      "limit": null,
+      "output": "artifacts/buffer-profile-v1/report.json",
+      "records": 10000,
+      "seed": 42,
+      "size": 9
+    },
+    "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+    "cpu_threads": 24,
+    "created_at": "2026-11-02T02:00:36.989855+00:00",
+    "dependencies": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "torch": "2.11.0"
+    },
+    "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+    "disk_free_bytes": 131385081856,
+    "encoding_version": "graygo/encoding/1",
+    "format_version": 1,
+    "git_commit": "1cd4e0d12913b2bf63c8883d30e8a3d71f3c431e",
+    "git_dirty": true,
+    "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+    "hostname": "home-ai",
+    "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "rule_version": "graygo/1",
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "run_id": "4ab8b2516caf4b7a84476ce106cbf500",
+    "seed": 42,
+    "source_sha256": "2884f29264a7654f806502628b4378ddb4cd63199e07b33ea1e2b6724c6b4ce8"
+  },
+  "result": {
+    "capacity_per_buffer": 500000,
+    "checkpoint_payload_bytes": 1471779,
+    "checkpoint_seconds": 0.2743608930031769,
+    "collection_seconds": 4.4100490609998815,
+    "completed_games": 28,
+    "filled_rows": 10000,
+    "fresh_records": 10000,
+    "label_generation": "synthetic all-legal ties, all records eligible for storage benchmark",
+    "partial_capacity_fill": true,
+    "replay_decode_seconds": 0.09129577403655276,
+    "replay_logical_allocation_bytes": 404500000,
+    "reservoir_logical_allocation_bytes": 199000000,
+    "reservoir_sample_seconds": 0.010241406969726086,
+    "roundtrip_verified": true,
+    "sample_batch": 512,
+    "sample_iterations": 50,
+    "scope": "buffer IO only; neither a complete learner profile nor an isolated campaign runtime estimate"
+  }
+}

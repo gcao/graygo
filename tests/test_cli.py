@@ -34,3 +34,14 @@ class CommandTests(unittest.TestCase):
         budget=self.run_cli("solve","--size","3","--limit","2","--max-nodes","1")
         self.assertEqual(budget.returncode,1)
         self.assertIn("exhausted",budget.stderr)
+
+
+    def test_buffer_profile_routes_arguments_and_verifies_roundtrip(self):
+        with tempfile.TemporaryDirectory() as root:
+            result=self.run_cli('profile-buffers','--size','3','--limit','4','--capacity','16',
+                                '--records','32','--iterations','1','--batch','8','--buffer-dir',root)
+        self.assertEqual(result.returncode,0,result.stderr)
+        report=json.loads(result.stdout)
+        self.assertEqual(report['result']['filled_rows'],16)
+        self.assertEqual(report['result']['fresh_records'],32)
+        self.assertTrue(report['result']['roundtrip_verified'])

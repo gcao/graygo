@@ -1,0 +1,10 @@
+{
+  "completed_trials": 12,
+  "current_trial": null,
+  "elapsed_this_process_seconds": 1082.3597351079807,
+  "format_version": 1,
+  "pid": 2166095,
+  "route": "nfsp",
+  "source_sha256": "32f82bd769cf56af417977d3638bed7484094ca123faa79f7586c6b6788ae10d",
+  "status": "complete"
+}

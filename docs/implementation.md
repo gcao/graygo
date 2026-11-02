@@ -15,18 +15,24 @@ Objective: implement Gray Go following `docs/design.md`, including its verificat
 | Checkpoint retention and disk reserve | Checksummed atomic bundles; two active resume generations, final-generation retention, permanent weight archive, 20 GiB projected guard. Interrupted-process, corruption/fallback, and real model/optimizer/RNG/environment restore tests. |
 | Exact bounded-game tools | Matrix LP certificates and exhaustive public-state solver with explicit node budgets. Matching pennies, asymmetric matrix, RPS and actual one/two-round Gray Go fixtures. |
 | Genuinely mixed Gray Go fixture | Reachable 3×3 position, two rounds remaining; root continuation matrix `diag(-1,-1,-1/2)`, value `-1/4`, both policies `(1/4,1/4,1/2)`. Prefix replay and independent best-response checks. |
-| Shared PPO/GAE update backend | Implemented with terminal bootstrapping, eligibility, masking, clipping, entropy and KL stopping tests. Rollout collection/adapters remain pending. |
-| Matrix real-trainer adapter | Implemented shared-update rollouts, current/history critic buckets, strict trial-plan resume, complete trainer-state recovery, and full preflight orchestration. Formal gate results remain to be collected. |
+| Shared PPO/GAE update backend | Implemented with terminal bootstrapping, eligibility, masking, clipping, entropy and KL stopping tests. Board rollout collection remains pending; matrix collection is verified. |
+| Matrix real-trainer adapter | Implemented shared-update rollouts, current/history critic buckets, strict trial-plan resume, complete trainer-state recovery, and full preflight orchestration. Formal 12-trial gate completed and independently audited; neither protocol passed. Route: NFSP. See `verification/ppo-preflight.md`. |
 | Run manifests and engine/network profiling | Implemented CLI and JSON reports. See `verification/phase-a.md` for recorded evidence and limits. |
+
+## Selected-route infrastructure
+
+- Packed replay/reservoir buffers, generation-safe sequences and resumable snapshots are implemented. The storage profile is deliberately partial; see `verification/buffers.md`.
+- Complete-public-history independent episode-mixture evaluation, Bayesian prefix conditioning and optimal response are implemented and tested on a repeated-action counterexample and the reachable mixed Gray Go fixture.
+- Fixed A2/9×9 exploration, logical-mode label eligibility and 5M–7M episode hand-off schedules are implemented. Marginal epsilon-greedy action probabilities include exploration hitting a greedy action.
+- The formal PPO matrix preflight completed 24M aggregate records from a pinned source, with all 12 trials and reference controls. A separate weight-based audit confirms route **NFSP**. Unselected PPO bounded/delayed runs are skipped under the declared staged selection plan.
 
 ## Remaining work toward the full objective
 
-1. Matrix rollout collection now uses the shared PPO updater, frozen current/history opponents, and exact resume. Compact replay/reservoir buffers and multi-round board rollout collection remain pending.
-2. Implement exact complete-history/episode-mixture evaluation, tabular controls, delayed/branching tasks and their supported-coverage masks.
-3. Run the implemented PPO real-trainer preflight with three seeds and both entropy protocols from a pinned source worktree. Short diagnostics cannot select a route; actual formal outcomes are recorded separately.
-4. If required, implement/verify the NFSP-style learner, target/reuse comparisons, greedy labels, opening protocol, and deployed-policy gates.
-5. The ninth-review protocol clarifications are now explicit in the design: the ramp, independent seed cohorts, baseline thresholds and epsilon clock must be implemented and tested before the NFSP pilot.
-6. Profile the complete selected learner, fill its budget ledger, and run the declared pilot/screening/confirmation stages with reproducible checkpoints.
-7. Implement protected evaluation/promotion, gray-rule/exposure comparisons, certified collision probes and the required reports. Optional modeling/search work remains conditional on results.
+1. Implement and verify the selected NFSP update/collector, true tabular NFSP controls and production-path resume. Reference exact-BR fictitious play is not a substitute for the Q-learning control.
+2. Implement opaque delayed/branching tasks, balanced supplemental coverage, target/reuse comparisons and exact per-branch value/policy gates.
+3. Run the selected NFSP A2 protocol across short mixed tasks, bounded Gray Go and the delayed family with three seeds, final-five gates and fixed aggregate counters.
+4. Integrate the ninth-review development/confirmation cohorts, baseline confidence gates, opening checks and pilot safeguards.
+5. Profile the complete selected learner, fill its cost ledger and run only the eligible declared pilot/screening/confirmation stages.
+6. Implement protected evaluation/promotion, gray-rule/exposure comparisons, certified collision probes and required reports. Optional modeling/search remains conditional.
 
 The Python engine is the independently readable reference. Its throughput must be measured before choosing a batched/native production backend. The reviewer prototype is used for differential evidence only. Generic checkpoint payload support and a restore integration test do not yet constitute a completed production training-loop resume protocol.

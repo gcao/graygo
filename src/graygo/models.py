@@ -111,3 +111,24 @@ def greedy_distribution(q, legal):
     best = q.masked_fill(~legal, -torch.inf).max(dim=-1, keepdim=True).values
     tied = legal & (q == best)
     return tied.float() / tied.sum(dim=-1, keepdim=True)
+
+
+def epsilon_greedy_distribution(q, legal, epsilon):
+    """Marginal action probabilities, including exploration that hits a maximizer.
+
+Replay must log this probability, not the probability of whichever internal
+exploration coin branch happened to be used when drawing the action.
+"""
+    if q.shape!=legal.shape or legal.dtype!=torch.bool or not torch.is_floating_point(q):
+        raise ValueError("floating Q values and matching boolean masks required")
+    if not torch.isfinite(q[legal]).all():
+        raise ValueError("finite legal Q values required")
+    eps=torch.as_tensor(epsilon,dtype=q.dtype,device=q.device)
+    if eps.shape==q.shape[:-1]:eps=eps.unsqueeze(-1)
+    if eps.ndim and eps.shape!=q.shape[:-1]+(1,):
+        raise ValueError("epsilon must be scalar or one per action row")
+    if not bool(torch.isfinite(eps).all()) or bool(((eps<0)|(eps>1)).any()):
+        raise ValueError("epsilon must lie in [0,1]")
+    greedy=greedy_distribution(q,legal)
+    uniform=legal.to(q.dtype)/legal.sum(-1,keepdim=True)
+    return (1-eps)*greedy+eps*uniform
