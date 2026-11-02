@@ -48,7 +48,7 @@ def verify_probes(path,*,regenerate=False,time_cap_seconds=180):
         return value
     remaining()
     roots=[root for family in benchmark.families for root in (family.before,family.after)]
-    sensitive_roots=0;sensitive_families=0;differences=0
+    sensitive_roots=0;sensitive_pairs=0;differences=0;sensitive_strategy_ids=set()
     for family in benchmark.families:
         remaining();family_sensitive=False
         for root in (family.before,family.after):
@@ -62,7 +62,8 @@ def verify_probes(path,*,regenerate=False,time_cap_seconds=180):
                         if black!=white or black==state.rules.pass_action:raise ValueError('collision ablation changed a noncollision payoff')
                         count+=1
             sensitive_roots+=bool(count);family_sensitive|=bool(count);differences+=count
-        sensitive_families+=family_sensitive
+        sensitive_pairs+=family_sensitive
+        if family_sensitive:sensitive_strategy_ids.add(family.strategy_id)
     marginals={seed:{family.identity:{'before':family.before.certificate.equilibrium,'after':family.after.certificate.equilibrium} for family in benchmark.families} for seed in (200,201,202)}
     oracle=assess_marginals(benchmark,marginals)
     if not oracle['all_seed_instance_thresholds_passed']:raise ValueError('exact equilibrium fixtures fail their certified directional benchmark')
@@ -79,7 +80,7 @@ def verify_probes(path,*,regenerate=False,time_cap_seconds=180):
         'directions':{'increase':sum(f.direction==1 for f in benchmark.families),'decrease':sum(f.direction==-1 for f in benchmark.families)},
         'minimum_range_separation':str(min(max(f.after.certificate.lower-f.before.certificate.upper,f.before.certificate.lower-f.after.certificate.upper) for f in benchmark.families)),
         'minimum_value':str(min(r.certificate.value for r in roots)),'maximum_value':str(max(r.certificate.value for r in roots)),
-        'collision_rule_sensitive_roots':sensitive_roots,'collision_rule_sensitive_families':sensitive_families,'collision_rule_sensitive_payoff_cells':differences,
+        'collision_rule_sensitive_roots':sensitive_roots,'collision_rule_sensitive_pairs':sensitive_pairs,'collision_rule_sensitive_strategic_families':len(sensitive_strategy_ids),'collision_rule_sensitive_payoff_cells':differences,
         'exact_equilibrium_fixture_instance_pass_counts':{str(r['seed']):r['passed_instances'] for r in oracle['seeds']},
         'generation_reproduced':regenerated,'elapsed_seconds':time.monotonic()-started,'trained_policy_evaluated':False,'gray_specialization_demonstrated':False,
         'scope':'exact complete one-round proof, source-seed reproducibility and solver fixtures; trained policy, exposure-controlled performance and interaction evidence remain separate'}

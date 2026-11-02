@@ -20,3 +20,10 @@ The historical delayed cost is retained even though its source cannot fund the c
 The full-model 9x9 R1 hardware exercise (`dc97531`, `verification/board-runtime.md`) completed two 16,384-record phases in **50.966 seconds**, or **0.01416 elapsed hours of a GPU-equipped process**. This is an allocated-process wall time, not measured kernel-active GPU time. It includes collection/learner setup, full-network Q/target/averaging work, strict checkpoint write/restore, and 16 small timing-only evaluation games. The CUDA allocation peak was 830,899,200 bytes; reservation peaked at 1,042,284,544 bytes. The original profile process is terminal, with audited final evidence.
 
 The early-open phase is an explicit diagnostic. Untrained game lengths, partial buffer populations and tiny evaluation samples do not establish H_P/H_D/H_N. The independent full-capacity storage profile and previous CPU experiments remain separate measured costs; tests/audits/builds/development overhead are still not comprehensively summed. No large campaign allocation follows from this measurement.
+
+
+## Candidate-independent probe construction
+
+The preserved feasibility diagnostics consumed 47.908 seconds (3x3 recoloring), 28.071 seconds (5x5 dense), 0.242 seconds (5x5 liberty change) and 0.400 seconds (9x9 liberty change), as process wall times. The source-bound reachable catalog construction then consumed 4.915 seconds. Subsequent proof/lineage verification and tests are additional overhead, and exploratory setup checks are not comprehensively summed here. These are CPU construction measurements under the separate eight-hour probe allocation, not accelerator campaign prices.
+
+The generated catalog has 32 geometric pairs but one complete-game strategic class. Family coverage is incomplete; the 24-of-32 gate cannot pass on these repeated instances. The failed/limited diagnostics remain visible instead of being discarded. No trained policy, performance endpoint or gray-specialization outcome was measured by these construction jobs.

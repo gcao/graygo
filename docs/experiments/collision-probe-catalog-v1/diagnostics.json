@@ -1,0 +1,112 @@
+{
+  "candidate_policy_used": false,
+  "diagnostics": [
+    {
+      "attempts": 5000,
+      "elapsed_seconds": 47.90819404902868,
+      "geometric_pairs": 5,
+      "original_plan": {
+        "attempt_cap": 5000,
+        "scope": "candidate-independent one-round root-pair feasibility; no qualified benchmark declaration",
+        "seed": 473927,
+        "source_sha256": "1f3aba6a37196e65f3128bd4dec3fda39987900ea3b8d705f33d9b95a87f1a79",
+        "time_cap_seconds": 60
+      },
+      "original_result_sha256": "79da0b38c48a0c19216bfe6839af74a8215708444f1f955098ad69959ca8ddf8",
+      "roots_requiring_both_roles_to_mix": 4,
+      "rule_sensitive_pairs": 1,
+      "run": "probe-construction-diagnostic-v1",
+      "status_counts": {
+        "dead_group": 2138,
+        "decrease": 1,
+        "increase": 4,
+        "overlap": 2554,
+        "root_reuse": 10,
+        "single_player": 293
+      },
+      "strategy_classes": 2
+    },
+    {
+      "attempts": 4813,
+      "elapsed_seconds": 28.07053560001077,
+      "geometric_pairs": 32,
+      "original_plan": {
+        "attempt_cap": 10000,
+        "scope": "candidate-independent connected dense one-round root-pair feasibility",
+        "seed": 473927,
+        "size": 5,
+        "source_sha256": "1f3aba6a37196e65f3128bd4dec3fda39987900ea3b8d705f33d9b95a87f1a79",
+        "time_cap_seconds": 120
+      },
+      "original_result_sha256": "79b278ce8539fbb8118f70a23ce2947c002f099a8f527523c7d544690a8a2866",
+      "roots_requiring_both_roles_to_mix": 32,
+      "rule_sensitive_pairs": 0,
+      "run": "probe-dense-diagnostic-v1",
+      "status_counts": {
+        "dead_group": 180,
+        "decrease": 16,
+        "direction_full": 3,
+        "increase": 16,
+        "overlap": 1267,
+        "unbalanced": 3331
+      },
+      "strategy_classes": 1
+    },
+    {
+      "attempts": 50,
+      "elapsed_seconds": 0.2418435089639388,
+      "geometric_pairs": 32,
+      "original_plan": {
+        "attempt_cap": 10000,
+        "scope": "candidate-independent single-stone liberty perturbations with actual collision-rule sensitivity",
+        "seed": 473927,
+        "size": 5,
+        "source_sha256": "c22c4b457ed30536e5ffae110ba794dc890ca28c2189bec257fb09d4168b556e",
+        "time_cap_seconds": 60
+      },
+      "original_result_sha256": "8418d4cab6ca20306d753db6f89b4ed45c13a85b5422c3feee4d393b1ebc80e2",
+      "roots_requiring_both_roles_to_mix": 0,
+      "rule_sensitive_pairs": 32,
+      "run": "probe-liberty-diagnostic-v1",
+      "status_counts": {
+        "balanced": 4,
+        "decrease": 16,
+        "direction_full": 2,
+        "increase": 16,
+        "liberty_adjacency": 4,
+        "root_reuse": 2,
+        "split_group": 6
+      },
+      "strategy_classes": 1
+    },
+    {
+      "attempts": 51,
+      "elapsed_seconds": 0.39984241098864004,
+      "geometric_pairs": 32,
+      "original_plan": {
+        "attempt_cap": 10000,
+        "scope": "candidate-independent single-stone liberty perturbations with actual collision-rule sensitivity",
+        "seed": 473927,
+        "size": 9,
+        "source_sha256": "c22c4b457ed30536e5ffae110ba794dc890ca28c2189bec257fb09d4168b556e",
+        "time_cap_seconds": 60
+      },
+      "original_result_sha256": "c14c8ed24734862fddd05caadfa520d0652cb0a573f806cb13fd81d638b84663",
+      "roots_requiring_both_roles_to_mix": 0,
+      "rule_sensitive_pairs": 32,
+      "run": "probe-liberty-9x9-diagnostic-v1",
+      "status_counts": {
+        "balanced": 1,
+        "decrease": 16,
+        "direction_full": 8,
+        "increase": 16,
+        "liberty_adjacency": 2,
+        "split_group": 8
+      },
+      "strategy_classes": 1
+    }
+  ],
+  "format_version": 1,
+  "scope": "preserved candidate-independent construction diagnostics; original raw artifacts remain on ai; none is a complete 32-independent-family benchmark",
+  "source_sha256": "068e550570d9d1bf7ca9a524103ec82ade6a60745cebe9cc6a81c5984e35b015"
+}

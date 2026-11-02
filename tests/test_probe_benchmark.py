@@ -89,6 +89,16 @@ class ProbeBenchmarkTests(unittest.TestCase):
         data=self.benchmark.to_dict();data['cases'][0]['collision_rule_sensitive']=False
         with self.assertRaisesRegex(ValueError,'proof, direction'):ProbeBenchmark.from_dict(data)
 
+    def test_audit_keeps_pair_counts_separate_from_strategic_family_counts(self):
+        from graygo.probe_runs import verify_probes
+        result=verify_probes(FIXTURE)
+        self.assertTrue(result['verified']);self.assertFalse(result['family_coverage_complete'])
+        self.assertEqual(result['status'],'incomplete_family_coverage')
+        self.assertEqual(result['geometric_pairs'],32);self.assertEqual(result['distinct_strategic_families'],1)
+        self.assertEqual(result['collision_rule_sensitive_pairs'],32)
+        self.assertEqual(result['collision_rule_sensitive_strategic_families'],1)
+        self.assertEqual(result['setup_rounds_replayed'],12736)
+
     def test_missing_seed_or_family_cannot_be_dropped(self):
         policies=self.policies();del policies[202]
         with self.assertRaisesRegex(ValueError,'three fixed'):assess_marginals(self.benchmark,policies)

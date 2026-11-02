@@ -28,7 +28,7 @@ Objective: implement Gray Go following the complete `docs/design.md`, including 
 | Confidence/milestone controls | Independent units are color pairs. Finite-sample lower bounds cover endpoints and planned looks. Pilot/screening constants and run/checkpoint origins are checked on reload. Fixed 5M opening events, both Q windows, all three development seeds and average diagnostics are enforced. Confirmation does not performance-filter seeds. |
 | Actual baseline evaluation evidence | A 128-game baseline-only 9×9 variance pilot completed; scores/checksums/units/openings and bound arithmetic audit pass. Wide small-sample bounds do not calibrate protected promotion. See `verification/paired-baseline-pilot.md`. |
 
-The current full suite passes **203 tests** (74.736 seconds). Numerical/statistical controls are implementation evidence, not proof of convergence or full-board strength. `verification/paired-evaluation.md` records the confidence method and its independence/scope assumptions.
+The current full suite passes **204 tests** (76.211 seconds). Numerical/statistical controls are implementation evidence, not proof of convergence or full-board strength. `verification/paired-evaluation.md` records the confidence method and its independence/scope assumptions.
 
 ## Live experiment
 
@@ -58,4 +58,4 @@ The fixed-pool numerical gate and whole-gate pre-candidate simulator are now imp
 
 This is procedure implementation, not a calibrated deployment claim. The real protected set, adequate designated pilot data, joint power/false-promotion qualification and global A2/9×9 approval integration remain required. Synthetic or small diagnostic results cannot authorize a promotion.
 
-The protected calibration diagnostic on actual baseline evidence completed as **not_calibrated**, as required for its insufficient pilot/replication counts and infeasible useful-case assumptions (`verification/promotion-diagnostic.md`). No candidate was promoted or tested. Corrupt calibration progress/budget clocks now fail checksum validation on resume. The latest combined suite passes 203 tests (74.736 seconds), including full-model CUDA continuation, independent delayed audits, frozen exposure recovery, exact probe certificates and conservative family-coverage checks.
+The protected calibration diagnostic on actual baseline evidence completed as **not_calibrated**, as required for its insufficient pilot/replication counts and infeasible useful-case assumptions (`verification/promotion-diagnostic.md`). No candidate was promoted or tested. Corrupt calibration progress/budget clocks now fail checksum validation on resume. The latest combined suite passes 204 tests (76.211 seconds), including full-model CUDA continuation, independent delayed audits, frozen exposure recovery, exact probe certificates and conservative family-coverage checks.

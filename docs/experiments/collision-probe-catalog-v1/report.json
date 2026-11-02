@@ -1,0 +1,24 @@
+{
+  "attempts": 51,
+  "benchmark_complete": false,
+  "benchmark_sha256": "8be1da3f84db16686b921383456eb09e32729c7ac297f27b830b6cf27ce77d3a",
+  "candidate_policy_used": false,
+  "case_catalog_complete": true,
+  "counts": {
+    "balanced": 1,
+    "decrease": 16,
+    "direction_full": 8,
+    "increase": 16,
+    "liberty_adjacency": 2,
+    "split_group": 8
+  },
+  "distinct_strategic_families": 1,
+  "elapsed_seconds": 4.91486601694487,
+  "gray_specialization_demonstrated": false,
+  "partial_families": [],
+  "plan_sha256": "cb23862d933d1077e9d51d92dceea119a1e6a41ff1c9908c85b794f80a21e76d",
+  "qualified_geometric_pairs": 32,
+  "source_sha256": "2095459225127c84f9c5d4f5b48cf5deefb316949851ba85e7d01b0b9253e471",
+  "status": "incomplete_family_coverage",
+  "training_started": false
+}
