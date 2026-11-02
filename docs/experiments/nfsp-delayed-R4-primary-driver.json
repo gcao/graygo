@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-R4-primary-9fefeee/driver.py",
+    "--run-dir",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-R4-primary-9fefeee",
+    "--profile-dir",
+    "/home/gcao/proj/graygo/runs/nfsp-task-profiles-9fefeee",
+    "--r1-run-dir",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-R1-primary-9fefeee",
+    "--audit-tool",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-R4-primary-9fefeee/audit_nfsp_delayed.py",
+    "--project-dir",
+    "/home/gcao/proj/graygo",
+    "--expected-source-sha",
+    "ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e",
+    "--resume"
+  ],
+  "cwd": "/home/gcao/proj/graygo/.worktrees/nfsp-tasks-9fefeee",
+  "driver_sha256": "7f2ddad436ad781db239a32bff55806a50aa40bdf68d6a96ce81c4958a010072",
+  "pid": 2320416,
+  "plan_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+  "scope": "only prepared paired R4 first screen",
+  "source_sha256": "ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e"
+}

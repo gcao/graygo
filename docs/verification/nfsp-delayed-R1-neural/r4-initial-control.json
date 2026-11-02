@@ -1,0 +1,13 @@
+{
+  "checkpoint_manifest_sha256": "ec84b862fae7e399b40f8fc857870a7f852454d35636a0762810f08590d17252",
+  "checks": {
+    "all_counters_zero": true,
+    "average_uniform": true,
+    "fresh_q_zero": true,
+    "q_and_target_zero": true,
+    "q_optimizer_empty": true
+  },
+  "scope": "fresh R4 control at record zero; no R1 model, optimizer or buffer continuation",
+  "source_sha256": "ba5646f14d4aad47dbd9e7db33b9fad2c1cc1115df0e989c55522218054a5f6e",
+  "verified": true
+}
