@@ -260,3 +260,7 @@ The complete [32-family version-two benchmark](docs/verification/probe-multicell
 ## Supplemental value eligibility
 
 Supplemental coverage retains the forcing role's conditional root-action target and both normal suffixes, while excluding the other role's opponent-intervened root target. Every collected own-side record still counts toward the aggregate allocation, epsilon and 5M/7M schedule. Only value-eligible records drive Q reuse and target refresh; replay and losses enforce that mask. Complete-round checkpoints preserve both clocks, per-role eligibility and exact private-RNG continuation. See [the causal correction and evidence scope](docs/verification/nfsp-q-eligibility.md).
+
+## Frozen collision benchmark policies
+
+`probe-evaluate` collects both roots and roles for each of the 32 frozen families across all three confirmation seeds. Confirmation binds actual permanent average-policy archives to the frozen scientific registry; explicit diagnostics cannot pass confirmation. `probe-report` is read-only. `probe-audit` repeats the original frozen model forwards under the same cumulative inference ceiling. See [the evaluator contract and commands](docs/verification/probe-policy-evaluation.md). Actual learned confirmation behavior and exposure-controlled performance remain pending.

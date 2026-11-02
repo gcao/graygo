@@ -13,7 +13,7 @@ from .confidence import canonical_sha
 from .curriculum import ExposureCatalog,ExposureStarts
 from .engine import BLACK,WHITE,RULE_VERSION,Rules,State
 from .evaluation import EVALUATION_VERSION,FrozenNeuralPolicy,evaluate_pair,validate_pair,seed_for,_EvaluationLock
-from .manifest import make_manifest,source_digest,write_report
+from .manifest import _command,make_manifest,source_digest,write_report
 from .pilot_gates import CONFIRMATION_SEEDS
 from .science_protocol import ScienceProtocol,CURRICULA,CONTEXTS,RULES,policy_keys,GAMES_PER_BLOCK
 from .storage import CheckpointStore,DEFAULT_RESERVE,DiskBudgetError,digest
@@ -60,18 +60,21 @@ def _runtime_identity(policies):
     cpu=None
     if Path('/proc/cpuinfo').exists():
         cpu=next((line.split(':',1)[1].strip() for line in Path('/proc/cpuinfo').read_text().splitlines() if line.startswith('model name')),None)
-    return {'python':platform.python_version(),'numpy':np.__version__,'torch':str(torch.__version__),'cuda_runtime':torch.version.cuda,
+    driver=_command(['nvidia-smi','--query-gpu=driver_version','--format=csv,noheader']) if gpu else None
+    return {'python':platform.python_version(),'numpy':np.__version__,'torch':str(torch.__version__),'cuda_runtime':torch.version.cuda,'gpu_driver':driver,
             'devices':device_names,'gpus':gpu,'cpu':cpu,'torch_threads':torch.get_num_threads(),
             'deterministic_algorithms':torch.are_deterministic_algorithms_enabled(),'cudnn_benchmark':torch.backends.cudnn.benchmark,
             'cudnn_deterministic':torch.backends.cudnn.deterministic,'cudnn_tf32':torch.backends.cudnn.allow_tf32,
             'matmul_tf32':torch.backends.cuda.matmul.allow_tf32,'cublas_workspace':os.environ.get('CUBLAS_WORKSPACE_CONFIG')}
 
 
-def _archive_provenance(protocol,policies,paths,catalog):
-    if set(paths)!=set(policy_keys()):raise ValueError('all twelve confirmation checkpoint paths required')
+def _archive_provenance(protocol,policies,paths,catalog,*,expected_keys=None):
+    keys=policy_keys() if expected_keys is None else tuple(expected_keys)
+    if not keys or not set(keys)<=set(policy_keys()) or set(paths)!=set(keys) or set(policies)!=set(keys):
+        raise ValueError('all declared confirmation checkpoint paths/policies required')
     if protocol.representation!='average':raise ValueError('confirmation archive loader currently supports the selected NFSP average representation')
     rows={};training_runs=set()
-    for key in policy_keys():
+    for key in keys:
         curriculum,training_rule,seed=key;policy=policies[key]
         if policy.identity['kind']!='average':raise ValueError('confirmation requires its declared deployed average policy')
         path=Path(paths[key]).resolve()
@@ -87,10 +90,24 @@ def _archive_provenance(protocol,policies,paths,catalog):
             raise ValueError('confirmation checkpoint rule/seed/milestone provenance differs')
         if config.get('scope')!='confirmation' or config.get('records')!=protocol.training_records or config.get('seed')!=seed:
             raise ValueError('development/gate agents cannot be relabeled as independent confirmation runs')
+        if (seal['step']!=protocol.training_records or (config.get('width'),config.get('blocks'),config.get('norm_groups'))!=(64,8,8)
+                or (config.get('batch'),config.get('learning_start'),config.get('capacity'),config.get('target_every'))!=(512,4096,500000,12800)
+                or (config.get('learning_rate'),config.get('max_grad_norm'))!=(3e-4,.5)
+                or (config.get('reservoir_open'),config.get('handoff_end'))!=(5000000,7000000)
+                or config.get('uniform_comparison') or not config.get('augmentation') or not config.get('deterministic')):
+            raise ValueError('confirmation archive does not use the fixed full-board primary protocol')
+        from .board_journal import BoardJournalPlan
+        plan=config.get('journal_plan')
+        try:journal=BoardJournalPlan(plan['scope'],plan['records'],plan['milestones'],plan['evaluation_seed'])
+        except (TypeError,KeyError) as exc:raise ValueError('complete confirmation journal plan required') from exc
+        if journal.to_dict()!=plan or journal.scope!='confirmation' or journal.records!=protocol.training_records:
+            raise ValueError('confirmation journal plan differs from its declared training scope')
         starts=manifest.get('training_starts')
         expected_starts={'kind':'official-empty','version':1} if curriculum=='empty' else ExposureStarts(catalog).identity
         if starts!=expected_starts:raise ValueError('confirmation training curriculum/catalog differs')
         run_sha=digest(manifest_path)
+        if (seal['metadata'].get('training_run_sha256')!=run_sha or seal['metadata'].get('journal_plan_sha256')!=canonical_sha(config.get('journal_plan'))):
+            raise ValueError('confirmation archive seal belongs to another run/journal plan')
         if run_sha in training_runs:raise ValueError('independent arm/seed training runs cannot be aliases')
         training_runs.add(run_sha)
         rows[key]={'archive':str(path),'archive_manifest_sha256':digest(path/'manifest.json'),'training_run_sha256':run_sha,

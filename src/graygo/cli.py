@@ -263,6 +263,97 @@ def science_report(args):
     return ScientificEvidence(args.run_dir).estimate(args.games)
 
 
+def _probe_output_guard(args,roots):
+    if args.output is not None:
+        output=Path(args.output).expanduser().resolve()
+        if any(output==Path(root).expanduser().resolve() or (Path(root).expanduser().resolve().is_dir()
+                and output.is_relative_to(Path(root).expanduser().resolve())) for root in roots):
+            raise ValueError('save probe output outside its frozen inputs and evidence directory')
+
+
+def _probe_policies(bindings,representation,device):
+    from .evaluation import FrozenNeuralPolicy
+    policies={};paths={}
+    for binding in bindings:
+        if '=' not in binding:raise ValueError('probe policies use seed=original_public_archive')
+        seed,path=binding.split('=',1);seed=int(seed)
+        if seed in policies:raise ValueError('duplicate frozen probe seed')
+        paths[seed]=Path(path).expanduser().resolve()
+        policies[seed]=FrozenNeuralPolicy.from_archive(paths[seed],representation=representation,device=device)
+    if set(policies)!={200,201,202}:raise ValueError('original probe seeds 200, 201 and 202 required')
+    return policies,paths
+
+
+def probe_evaluate(args,*,prior_setup_seconds=0.):
+    from .board_runtime import configure_runtime
+    from .confidence import canonical_sha
+    from .curriculum import ExposureCatalog
+    from .probe_benchmark import ProbeBenchmark
+    from .probe_policy_protocol import ProbePolicyProtocol
+    from .probe_policy_evaluation import ProbePolicyRun
+    from .science_protocol import ScienceProtocol
+    from .storage import digest
+    started=time.monotonic()
+    if _rules(args)!=Rules():raise ValueError('frozen probes require the official 9x9/200-round gray rules')
+    configure_runtime(args.device,True)
+    import torch
+    torch.set_num_threads(1)
+    freeze=json.loads(Path(args.freeze_receipt).expanduser().read_text())
+    if digest(Path(args.benchmark).expanduser())!=freeze.get('benchmark_file_sha256'):
+        raise ValueError('benchmark file differs from its independent freeze receipt')
+    benchmark=ProbeBenchmark.from_dict(json.loads(Path(args.benchmark).expanduser().read_text()))
+    catalog=None if args.catalog is None else ExposureCatalog.from_dict(json.loads(Path(args.catalog).expanduser().read_text()))
+    science=None
+    if args.science_protocol:
+        data=json.loads(Path(args.science_protocol).expanduser().read_text());science=ScienceProtocol.from_dict(data.get('protocol',data))
+    policies,paths=_probe_policies(args.policy,args.representation,args.device)
+    _probe_output_guard(args,[args.run_dir,args.benchmark,args.freeze_receipt,*[p.parents[1] if p.is_dir() else p.parent.parents[1] for p in paths.values()],
+                              *[p for p in (args.catalog,args.science_protocol) if p]])
+    protocol=ProbePolicyProtocol(args.name,benchmark.sha256,canonical_sha(freeze),{seed:p.sha256 for seed,p in policies.items()},
+        args.time_cap_hours*3600,purpose=args.purpose,curriculum=args.curriculum,representation=args.representation,
+        catalog_sha256=None if catalog is None else catalog.sha256,science=science)
+    run=ProbePolicyRun(protocol,args.run_dir,benchmark,freeze,policies,catalog=catalog,archive_paths=paths,resume=args.resume,
+                       prior_setup_seconds=prior_setup_seconds+time.monotonic()-started)
+    stop=_signal_flag();collection=run.run(args.families,stop_requested=stop);summary=run.estimate()
+    if summary['inference_complete'] and not summary['frozen_inference_reproduced'] and not args.no_audit:
+        run.reproduce(stop_requested=stop);summary=run.estimate()
+    return {'collection':collection,'summary':summary}
+
+
+def probe_report(args):
+    from .probe_policy_evaluation import ProbePolicyEvidence
+    if _rules(args)!=Rules():raise ValueError('frozen probes require the official 9x9/200-round gray rules')
+    evidence=ProbePolicyEvidence(args.run_dir)
+    _probe_output_guard(args,[evidence.root,*[Path(row['archive_reference']['archive']).parents[1] for row in evidence.bindings.values() if row['archive_reference']]])
+    return evidence.estimate()
+
+
+def probe_audit(args,*,prior_setup_seconds=0.):
+    from .board_runtime import configure_runtime
+    from .curriculum import ExposureCatalog
+    from .probe_policy_evaluation import ProbePolicyEvidence,ProbePolicyRun
+    started=time.monotonic()
+    if _rules(args)!=Rules():raise ValueError('frozen probes require the official 9x9/200-round gray rules')
+    evidence=ProbePolicyEvidence(args.run_dir);devices=evidence.contract['runtime']['devices']
+    if len(devices)!=1:raise ValueError('CLI probe audit requires its original single inference device')
+    configure_runtime(devices[0],True)
+    import torch
+    torch.set_num_threads(evidence.contract['runtime']['torch_threads'])
+    bindings=[]
+    for seed,row in evidence.bindings.items():
+        ref=row['archive_reference']
+        if ref is None:raise ValueError('probe audit requires original public archives; API fixtures require their original policy objects')
+        bindings.append(str(seed)+'='+ref['archive'])
+    policies,paths=_probe_policies(bindings,evidence.protocol.representation,devices[0])
+    _probe_output_guard(args,[evidence.root,*[p.parents[1] for p in paths.values()]])
+    catalog=None if evidence.contract['catalog'] is None else ExposureCatalog.from_dict(evidence.contract['catalog'])
+    run=ProbePolicyRun(evidence.protocol,evidence.root,evidence.benchmark,evidence.contract['freeze_receipt'],policies,
+        catalog=catalog,archive_paths=paths,resume=True,reserve_bytes=evidence.reserve,
+        prior_setup_seconds=prior_setup_seconds+time.monotonic()-started)
+    audit=run.reproduce(stop_requested=_signal_flag())
+    return {'audit':audit,'summary':run.estimate()}
+
+
 def train_matrix(args):
     from .matrix_training import MatrixPPOConfig,MatrixPPOTrainer
     config=MatrixPPOConfig(task=args.task,seed=args.seed,records=args.records,rollout=args.rollout,
@@ -422,7 +513,7 @@ def main(argv=None):
     command_started=time.monotonic()
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board","run-board-diagnostic","cohort-register","cohort-report","generate-exposure","build-probes","verify-probes","science-evaluate","science-report"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board","run-board-diagnostic","cohort-register","cohort-report","generate-exposure","build-probes","verify-probes","science-evaluate","science-report","probe-evaluate","probe-report","probe-audit"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
@@ -464,6 +555,16 @@ def main(argv=None):
             p.add_argument("--buffer-dir",required=True);p.add_argument("--capacity",type=int,default=500000)
             p.add_argument("--records",type=int,default=10000);p.add_argument("--iterations",type=int,default=50)
             p.add_argument("--batch",type=int,default=512)
+        elif name=="probe-evaluate":
+            p.add_argument("--run-dir",required=True);p.add_argument("--benchmark",required=True);p.add_argument("--freeze-receipt",required=True)
+            p.add_argument("--name",required=True);p.add_argument("--policy",action="append",required=True)
+            p.add_argument("--science-protocol");p.add_argument("--catalog");p.add_argument("--curriculum",choices=("empty","exposure"),default="exposure")
+            p.add_argument("--representation",choices=("average","greedy_q"),default="average")
+            p.add_argument("--purpose",choices=("confirmation","diagnostic"),default="confirmation")
+            p.add_argument("--families",type=int,default=32);p.add_argument("--time-cap-hours",type=float,required=True)
+            p.add_argument("--device",default="cpu");p.add_argument("--resume",action="store_true");p.add_argument("--no-audit",action="store_true")
+        elif name in ("probe-report","probe-audit"):
+            p.add_argument("--run-dir",required=True)
         elif name=="science-evaluate":
             p.add_argument("--run-dir",required=True);p.add_argument("--catalog",required=True);p.add_argument("--name",required=True)
             registry=p.add_mutually_exclusive_group(required=True)
@@ -553,8 +654,8 @@ def main(argv=None):
             metadata.update({"rule_version":None,"baseline_version":None,"encoding_version":"graygo/matrix-role/1"})
             if args.command=="preflight":metadata.update({"seed":None,"seeds":[0,1,2]})
             if args.command=="train-nfsp":metadata["encoding_version"]="graygo/nfsp-matrix-role/1"
-        if args.command=="run-board-diagnostic":
-            result=run_board_diagnostic(args,prior_setup_seconds=time.monotonic()-command_started)
+        if args.command in ("run-board-diagnostic","probe-evaluate","probe-audit"):
+            result=globals()[args.command.replace("-","_")](args,prior_setup_seconds=time.monotonic()-command_started)
         else:result=globals()[args.command.replace("-","_")](args)
         if args.command=="solve":metadata["rules"]=result["state"]["rules"]
         if args.command=="train-nfsp-task":
@@ -564,6 +665,8 @@ def main(argv=None):
             metadata["rules"]={"size":9,"max_rounds":200,"collision":"gray/remove"}
         if args.command in ("cohort-register","cohort-report"):
             metadata.update(seed=None,seeds=[100,101,102])
+        if args.command in ("probe-evaluate","probe-report","probe-audit"):
+            metadata.update(seed=None,seeds=[200,201,202])
         report={"manifest":metadata,"result":result}
         if args.output:write_report(args.output,report)
         print(json.dumps(report,indent=2,sort_keys=True))
