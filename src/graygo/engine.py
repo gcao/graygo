@@ -5,7 +5,7 @@ No random state or opponent commitments are hidden inside the resolver.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from fractions import Fraction
 from functools import lru_cache
 from numbers import Integral
@@ -291,7 +291,7 @@ class Transition:
     reward_black: int
 
 
-def resolve(state, black, white):
+def resolve_reference(state, black, white):
     """Validate both commitments against one pre-round state, then resolve once."""
     if state.done:
         raise ValueError("cannot play after termination")
@@ -341,6 +341,126 @@ def resolve(state, black, white):
                        state.rounds_played + 1)
     reward = score(board, rules.size).utility_black if next_state.done else 0
     return Transition(next_state, black, white, collision, captured, suicidal, changed, reward)
+
+
+@dataclass(frozen=True)
+class PlacementOutcome:
+    transition: Transition
+    placed_group: Group | None
+
+
+@dataclass(frozen=True)
+class PlacementResolver:
+    """Reuse public pre-round analysis for placements against an opponent pass.
+
+    Results are complete game transitions. The specialization is valid because
+    resolved boards have no dead groups: only adjacent groups lose a liberty,
+    every friendly adjacent group joins the new stone, and removal only adds
+    liberties to other groups. Two-placement/collision rounds use the general
+    reference resolver. No opponent commitment is stored or predicted here.
+    """
+    state: State
+    player: int
+    original_groups: tuple[Group, ...] = field(init=False)
+    _membership: tuple[int, ...] = field(init=False, repr=False)
+    _actions: frozenset[int] = field(init=False, repr=False)
+
+    def __post_init__(self):
+        if self.state.done:
+            raise ValueError("cannot play after termination")
+        actions = self.state.legal_actions(self.player)
+        object.__setattr__(self, "player", BLACK if self.player == BLACK else WHITE)
+        current = groups(self.state.board, self.state.rules.size)
+        membership = [-1] * self.state.rules.points
+        for index, group in enumerate(current):
+            for point in group.stones:
+                membership[point] = index
+        object.__setattr__(self, "original_groups", current)
+        object.__setattr__(self, "_membership", tuple(membership))
+        object.__setattr__(self, "_actions", frozenset(actions))
+
+    def resolve(self, action):
+        state, player = self.state, self.player
+        rules = state.rules
+        action = _action(action, rules)
+        if action not in self._actions:
+            raise ValueError("occupied or player-forbidden placement")
+        if action == rules.pass_action:
+            return PlacementOutcome(resolve_reference(state, action, action), None)
+        adjacent = neighbors(rules.size)
+        touching = {self._membership[p] for p in adjacent[action] if self._membership[p] >= 0}
+        own = {action}
+        captured = []
+        # Original group indices retain the reference's row-major group order.
+        for index in sorted(touching):
+            group = self.original_groups[index]
+            if group.color == player:
+                own.update(group.stones)
+            elif len(group.liberties) == 1:
+                captured.append(Group(group.color, group.stones, frozenset()))
+        board = list(state.board)
+        board[action] = player
+        for group in captured:
+            for point in group.stones:
+                board[point] = EMPTY
+        liberties = {other for point in own for other in adjacent[point] if board[other] == EMPTY}
+        placed_group = Group(player, frozenset(own), frozenset(liberties))
+        suicidal = ()
+        if not liberties:
+            suicidal = (placed_group,)
+            for point in own:
+                board[point] = EMPTY
+            placed_group = None
+        black, white = (action, rules.pass_action) if player == BLACK else (rules.pass_action, action)
+        transition = _finish_placement(state, tuple(board), black, white, tuple(captured), suicidal)
+        return PlacementOutcome(transition, placed_group)
+
+
+def _finish_placement(state, board, black, white, captured, suicidal):
+    """Assemble only engine-derived, validated invariants without rescanning.
+
+    Parent boards/history/actions are already canonical; group removal cannot
+    create a new dead group. Public State/RoundRecord construction continues
+    validating external data. The independent resolver still uses that path.
+    """
+    rules = state.rules
+    changed = board != state.board
+    matching = tuple(h for h in state.history if h.before == board)
+    fb, fw = set(state.forbidden_black), set(state.forbidden_white)
+    if changed and not matching:
+        fb.clear()
+        fw.clear()
+    if not changed:
+        if black != rules.pass_action:
+            fb.add(black)
+        if white != rules.pass_action:
+            fw.add(white)
+    for h in matching:
+        if h.black != rules.pass_action:
+            fb.add(h.black)
+        if h.white != rules.pass_action:
+            fw.add(h.white)
+    record = object.__new__(RoundRecord)
+    for name, value in (("before", state.board), ("black", black), ("white", white)):
+        object.__setattr__(record, name, value)
+    next_state = object.__new__(State)
+    for name, value in (("rules", rules), ("board", board), ("forbidden_black", frozenset(fb)),
+                        ("forbidden_white", frozenset(fw)), ("history", (state.history + (record,))[-2:]),
+                        ("pass_streak", 0), ("rounds_played", state.rounds_played + 1)):
+        object.__setattr__(next_state, name, value)
+    reward = score(board, rules.size).utility_black if next_state.done else 0
+    return Transition(next_state, black, white, None, captured, suicidal, changed, reward)
+
+
+def resolve(state, black, white):
+    """Resolve complete commitments, specializing single-placement rounds."""
+    passed = state.rules.pass_action
+    if type(black) is int and type(white) is int:
+        if black == passed and white != passed:
+            return PlacementResolver(state, WHITE).resolve(white).transition
+        if white == passed and black != passed:
+            return PlacementResolver(state, BLACK).resolve(black).transition
+    return resolve_reference(state, black, white)
 
 
 def transform_action(action, rules, *, shift=(0, 0), rotation=0, reflect=False):

@@ -1,0 +1,8 @@
+{
+  "domain_board_count": 524288,
+  "execution_authorized": false,
+  "kind": "exhaustive hypothetical-state verification and matched CPU timing",
+  "new_learning_records": 0,
+  "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed",
+  "time_cap_seconds": 600
+}

@@ -1,0 +1,21 @@
+{
+  "a2_complete": false,
+  "budget_category": "CPU verification, not A2 table-control allocation",
+  "domain": "every 3x3 board in both collision-rule contexts; reject unresolved dead-group roots; both roles and all legal single-sided/pass moves",
+  "domain_boards": 524288,
+  "matched_cpu_timing_games_for_corpus": 3,
+  "matched_cpu_timing_repetitions": 3,
+  "name": "prepared-single-placement-resolver-exhaustive-and-matched-timing",
+  "new_control_records": 0,
+  "new_learning_records": 0,
+  "original_learning_parent_unchanged": 2538230,
+  "outer_watchdog_seconds": 660,
+  "production_scope_selected": false,
+  "reference_resolver_body_sha256": "9163ad71918e6fb10f6ce9dc23777ad158aab6a57863f0b003daf4a73442f204",
+  "reference_tactical_body_sha256": "a4f9a96184c12423c8cf7e8edc739d4817948c345a044602e2d6444a7f5692a1",
+  "scope": "bounded correctness and CPU timing only; no new learner, financial margin change or scope grant",
+  "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed",
+  "tool_sha256": "13900648d149e92cf948ba7d21d27be69ac0ec052e236f82511fb192ada20e22",
+  "verification_time_ceiling_seconds": 600,
+  "version": 1
+}

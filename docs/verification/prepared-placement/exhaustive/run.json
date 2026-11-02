@@ -1,0 +1,70 @@
+{
+  "baseline_version": "graygo/baselines/1",
+  "command": {
+    "domain_board_count": 524288,
+    "execution_authorized": false,
+    "kind": "exhaustive hypothetical-state verification and matched CPU timing",
+    "new_learning_records": 0,
+    "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed",
+    "time_cap_seconds": 600
+  },
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cpu_threads": 24,
+  "created_at": "2026-11-02T22:30:03.830919+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 125631967232,
+  "encoding_version": "graygo/encoding/1",
+  "filesystem": "ext2/ext3",
+  "format_version": 1,
+  "git_commit": "77e0f02f29a416ebc76e1a8f755fb9070849fded",
+  "git_dirty": true,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "host_memory": {
+    "available_bytes": 28254437376,
+    "swap_bytes": 12884897792,
+    "total_bytes": 33558446080
+  },
+  "hostname": "home-ai",
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "rule_version": "graygo/1",
+  "rules": {
+    "collision": "gray/remove",
+    "max_rounds": 3,
+    "size": 3
+  },
+  "run_id": "13e0ead8e99f4be4887db75fe7a37b48",
+  "seed": 4301,
+  "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed"
+}

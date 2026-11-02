@@ -1,0 +1,31 @@
+{
+  "allocation_sha256": "ff3fbedbe10d2ebb2699ea41c2d5f61c09d490477d4e9c17dd38861f51f93e4d",
+  "cleanup_signal_at_seconds": 630,
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "-m",
+    "tools.audit_prepared_placement",
+    "--run-dir",
+    "/home/gcao/proj/graygo/runs/prepared-placement-exhaustive-61c271f",
+    "--expected-source-sha",
+    "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed",
+    "--time-cap-seconds",
+    "600"
+  ],
+  "complete_domain_checked": true,
+  "driver_sha256": "202aa1a222f2cafeb54d68e91544d1ea54249606ba16c7ff958df34445f1a26d",
+  "kind": "CPU correctness/timing verification; no accelerator or training allocation",
+  "measured_driver_seconds": 287.871262060944,
+  "new_control_records": 0,
+  "new_learning_records": 0,
+  "original_driver_pid": 2614923,
+  "original_tool_unchanged": true,
+  "report_sha256": "1082ff13f1f4fc8415d6c4dd92c2dde4bb97c79da925471b4d5565f0c19197b6",
+  "returncode": 0,
+  "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed",
+  "status": "verified",
+  "tool_sha256": "13900648d149e92cf948ba7d21d27be69ac0ec052e236f82511fb192ada20e22",
+  "verification_pid": 2614924,
+  "version": 1,
+  "watchdog_seconds": 660
+}

@@ -456,7 +456,7 @@ def build_native(args):
 def evaluate(args):
     from .confidence import ConfidenceFamily
     from .evaluation import BaselinePolicy,FrozenNeuralPolicy,EvaluationPlan,EvaluationRun
-    if args.inference_batch_size>1 or args.pair_batch_size>1:
+    if 'neural' in (args.subject,args.opponent,args.incumbent) and (args.inference_batch_size>1 or args.pair_batch_size>1):
         from .board_runtime import configure_runtime
         configure_runtime(args.device,True)
         import torch

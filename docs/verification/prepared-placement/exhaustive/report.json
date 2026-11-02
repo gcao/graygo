@@ -1,0 +1,48 @@
+{
+  "a2_complete": false,
+  "baseline_version": "graygo/baselines/1",
+  "choice_digest_sha256": "5dc14bd1499d1c053e13569db2c7dc7d6cd8b0b8ff68c6fa43d19dbb62ef5eda",
+  "complete_domain_checked": true,
+  "counts": {
+    "boards_enumerated": 524288,
+    "complete_transitions": 2609860,
+    "placed_groups": 2609860,
+    "rejected_dead_boards": 184194,
+    "resolved_public_states": 340094,
+    "tactical_choices_and_rng_states": 680188
+  },
+  "elapsed_seconds": 286.3112761049997,
+  "execution_authorized": false,
+  "matched_cpu_timing": {
+    "corpus": "every eighth nonterminal state of three fixed-seed reference/uniform official games",
+    "iterations": 3,
+    "median_reference_over_prepared": 11.525236518148025,
+    "private_choice_digest_sha256": "21e7fe8f5213cffaaa9bb4acf2484a68045158484f64fcddc9e73ac65f975f79",
+    "scope": "matched CPU implementation timing on this finite corpus; not full learner pricing, strength or a universal speedup",
+    "seconds": {
+      "prepared": [
+        0.034281680011190474,
+        0.03392147400882095,
+        0.033782251994125545
+      ],
+      "reference": [
+        0.39036488404963166,
+        0.3912607190432027,
+        0.3909530109958723
+      ]
+    },
+    "seed": 4301,
+    "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed",
+    "tactical_calls_per_iteration": 124
+  },
+  "new_learning_records": 0,
+  "next_board": 262143,
+  "next_rule": 1,
+  "reference_resolver_body_sha256": "9163ad71918e6fb10f6ce9dc23777ad158aab6a57863f0b003daf4a73442f204",
+  "reference_tactical_body_sha256": "a4f9a96184c12423c8cf7e8edc739d4817948c345a044602e2d6444a7f5692a1",
+  "scope": "all resolved 3x3 boards, both rules and roles, zero-history roots; full history/restriction/terminal/large-board cases are separate tests; no trained-game or runtime-budget claim",
+  "source_sha256": "61c271fb94bd421b47aeb941fb43e03dcac307fd11a488720c0d560710d10eed",
+  "status": "verified",
+  "time_cap_seconds": 600,
+  "version": "graygo/prepared-placement-exhaustive-audit/1"
+}
