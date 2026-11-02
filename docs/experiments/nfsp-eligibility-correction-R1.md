@@ -13,3 +13,12 @@ Keep the one-step target, reuse one, eta .1, batch 512, warm-up 4,096, target re
 The configured driver is the frozen `tools/run_nfsp_delayed_screen.py`, whose SHA is recorded before launch. Actual launched plan and source/OS handle must be checked against this allocation. Inspect the original process and durable state before any resume; an observation timeout is not a stopped run. Do not start a replacement or substitute a short checkpoint for the full comparison.
 
 No corrected R4, Retrace, extension, other seed/family, later opening, 9x9 pilot, confirmation or scientific campaign is selected. All broader A2 requirements, full-model pricing and scope decisions remain required. This first screen is not a convergence guarantee or completed A2 result.
+
+
+## Verified launch
+
+Both original fresh trial states were prepared and checked at record zero before any learning: all aggregate/eligible/ordinary/update counters zero, empty optimizers and replay/reservoir, target identical to online Q, balanced zero per-role counts and the source's initial tabular zero/uniform values. The [preflight](nfsp-eligibility-correction-R1-preflight.json) binds both original run and checkpoint manifests.
+
+The selected driver is now live as original OS **PID 2444001**, currently in its tabular case. The [launch validation](nfsp-eligibility-correction-R1-driver.json) checks the real OS handle, exact launched plan/configurations, profile/funding hashes, source/driver SHA and both 15,300-second ceilings. Root: `/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53`; original driver: that directory's `driver.py`. Package source remains frozen at `ca45a53`; the separately fresh neural case follows under the same already recorded allocation.
+
+Neither a plan/PID file nor old progress proves liveness. Re-poll this exact OS handle or its execution session; inspect durable/terminal state if the handle is missing. Do not clone a replacement or restart because an observation timed out. No early intermediate read substitutes for the full 15M comparison, and no further target/cohort/campaign is automatically selected.

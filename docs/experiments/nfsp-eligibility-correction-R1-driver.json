@@ -1,0 +1,14 @@
+{
+  "allocation_sha256": "28d7de167204fb1af56ce5d59ba0692571c11781cd7448563da884f340f18ef7",
+  "current_trial": "tabular",
+  "driver_sha256": "f60e8ef28a050c071de9c96639ed9fb62641f666b317a371450ec1b976ddd19f",
+  "observed_at": "2026-11-02T14:08:05.597304+00:00",
+  "pid": 2444001,
+  "plan_sha256": "334cc270becb14de0ed1af7a645af60133fbdccf52360a893bec6b7254969be6",
+  "preflight_sha256": "5cbc150c675c9c49d24eb39dd3859f7308d28e719c4e6240a6a2a141a2d2c167",
+  "purpose": "live corrective driver/source/ceiling validation",
+  "scope": "OS handle observed live now; files alone do not prove ongoing liveness; seed-0 R1 control then fresh neural only; no complete A2 or board grant",
+  "source_commit": "ca45a53824ab5e2909cdfa6a75ab3f1752eafc5a",
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "verified": true
+}
