@@ -1,11 +1,12 @@
 {
   "a2_complete": false,
   "all_tests_passed": true,
-  "auditor_sha256": "83f8df070b283fe170808542fe50fc46d9082852acd1c8529edbc1f23cd50de3",
-  "full_test_log_sha256": "f0ae5388446eb74534efb14b6ea52b977bc46331e8516c6452f17c9620429626",
+  "auditor_sha256": "7a9898ba046fdb4aa638c0ddbc92ccb721b362a6b0767eb38d8723802f30f728",
+  "full_capacity_82_way_tie_regression_verified": true,
+  "full_test_log_sha256": "8401def2b895e59a5ab0a68c07148fb5bb11fcce488004b73b1989908cd2bc4b",
   "historical_recheck_executed": false,
   "new_learning_selected": false,
-  "new_matrix_test_methods": 12,
+  "new_matrix_test_methods": 13,
   "previous_auditor_sha256": "b68209811329daa7f337ff195d54a4994996b630c259711d1b31230133393a9d",
   "reproduced_publication_fixture": {
     "label_rule": "executed",
@@ -23,8 +24,8 @@
   },
   "scope": "audit implementation regressions and unchanged learner source; actual cohort decisions remain separate",
   "source_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
-  "test_seconds": 264.905,
-  "test_sha256": "4b18d10201a8a49699f348c6711cbd11b99a0a7f59fdedb5fa1349a4219b74ac",
-  "tests": 332,
+  "test_seconds": 264.748,
+  "test_sha256": "933b55129ef96647e6fb9304cfd5fdeadeafb370d79b1a8d64770b61871281d3",
+  "tests": 333,
   "version": 1
 }

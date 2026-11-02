@@ -7,10 +7,10 @@ import unittest
 from unittest.mock import patch
 import numpy as np
 import torch
-from graygo.buffers import ReplayBuffer,ReservoirBuffer
+from graygo.buffers import ObservationSpec,ReplayBuffer,ReservoirBuffer
 from graygo.nfsp_training import NFSPMatrixConfig,NFSPMatrixTrainer
 from graygo.storage import CheckpointStore,digest
-from tools.audit_nfsp_matrix import audit
+from tools.audit_nfsp_matrix import audit,published_table
 
 AUDITOR=Path(__file__).resolve().parents[1]/'tools/audit_nfsp_matrix.py'
 
@@ -151,6 +151,20 @@ class MatrixAuditReceiptTests(unittest.TestCase):
                 data['evaluations'][-1]['counters']['fresh_q']+=2;torch.save(data,path/'trainer.pt')
             self.reseal(directory,mutate)
             with self.assertRaisesRegex(ValueError,'scheduled own-side clock'):audit(directory,require_formal=False)
+
+    def test_full_capacity_uniform_82_way_ties_do_not_create_false_tail_mass(self):
+        # Analytic publication fixture: 200k uniform labels, one overwritten
+        # after publication. The true unresolved probability mass is exactly 1.
+        capacity=200000;actions=82;c=NFSPMatrixConfig(task='pure82',learner='tabular')
+        r=ReservoirBuffer(capacity,ObservationSpec((2,),0,actions,'test'),opening_record=0);r.size=capacity
+        uniform=np.packbits(np.ones(actions,dtype=np.uint8),bitorder='little');r.arrays['greedy'][:]=uniform
+        r.arrays['greedy'][-1]=np.packbits(np.eye(actions,dtype=np.uint8)[0],bitorder='little')
+        records=2*np.arange(capacity,dtype=np.int64);records[-1]=400000
+        state={'backend':{'average':{'probabilities':torch.full((2,actions),1/actions,dtype=torch.float64)}}}
+        report=published_table(state,r,c,None,records,[(400000,capacity-1,399998)],400000)
+        self.assertEqual(report['unresolved_published_greedy_labels'],1)
+        self.assertTrue(report['published_tabular_mean_interval_checked']);self.assertFalse(report['published_tabular_mean_verified'])
+        self.assertEqual(report['published_label_counts_per_role'],[capacity,0])
 
 
 if __name__=='__main__':unittest.main()

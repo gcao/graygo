@@ -140,6 +140,7 @@ test_cli_outputs_receipt_outside_inputs_and_rejects_overwriting_results (test_ma
 test_duplicate_retained_ordinal_is_rejected_even_in_a_valid_container (test_matrix_audit_receipts.MatrixAuditReceiptTests.test_duplicate_retained_ordinal_is_rejected_even_in_a_valid_container) ... ok
 test_executed_labels_cannot_be_replaced_by_another_legal_one_hot_target (test_matrix_audit_receipts.MatrixAuditReceiptTests.test_executed_labels_cannot_be_replaced_by_another_legal_one_hot_target) ... ok
 test_final_archive_and_final_learner_must_describe_the_same_parameters (test_matrix_audit_receipts.MatrixAuditReceiptTests.test_final_archive_and_final_learner_must_describe_the_same_parameters) ... ok
+test_full_capacity_uniform_82_way_ties_do_not_create_false_tail_mass (test_matrix_audit_receipts.MatrixAuditReceiptTests.test_full_capacity_uniform_82_way_ties_do_not_create_false_tail_mass) ... ok
 test_no_supervised_publication_keeps_the_initial_uniform_table (test_matrix_audit_receipts.MatrixAuditReceiptTests.test_no_supervised_publication_keeps_the_initial_uniform_table) ... ok
 test_noncanonical_reservoir_padding_is_rejected (test_matrix_audit_receipts.MatrixAuditReceiptTests.test_noncanonical_reservoir_padding_is_rejected) ... ok
 test_receipt_binds_every_input_and_all_scheduled_archive_grades (test_matrix_audit_receipts.MatrixAuditReceiptTests.test_receipt_binds_every_input_and_all_scheduled_archive_grades) ... ok
@@ -332,6 +333,6 @@ test_opaque_codebook_and_no_branch_feature_or_outcome_range (test_tasks.TaskTest
 test_model_optimizer_rng_and_environment_restore (test_training_resume.ResumeIntegration.test_model_optimizer_rng_and_environment_restore) ... ok
 
 ----------------------------------------------------------------------
-Ran 332 tests in 264.905s
+Ran 333 tests in 264.748s
 
 OK

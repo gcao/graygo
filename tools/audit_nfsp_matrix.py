@@ -49,13 +49,17 @@ def published_table(state,reservoir,config,log,records,recent,last_publication):
         for record,slot,previous in reversed([change for change in recent if change[0]>=last_publication]):published[slot]=previous
     else:published[:]=-1
     counts=np.bincount(published[published>=0]%2,minlength=2);totals=np.zeros((2,reservoir.spec.actions),dtype=np.float64);unknown=np.zeros(2,dtype=np.int64)
+    histogram=np.zeros((reservoir.spec.actions+1,2,reservoir.spec.actions),dtype=np.int64)
     for slot in np.flatnonzero(published>=0):
         record=int(published[slot]);role=record%2
         if config.label_rule=='executed':totals[role,int(log[record//2]['actions'][role])]+=1
         elif published[slot]==records[slot]:
             mask=np.unpackbits(reservoir.arrays['greedy'][slot],count=reservoir.spec.actions,bitorder='little').astype(float)
-            require(mask.any(),'empty published greedy target');totals[role]+=mask/mask.sum()
+            require(mask.any(),'empty published greedy target');histogram[int(mask.sum()),role]+=mask.astype(np.int64)
         else:unknown[role]+=1
+    # Exact integer counts by tie size avoid drift from adding 200k copies of
+    # e.g. 1/82, while retaining the original probability/uncertainty tolerance.
+    for ties in range(1,len(histogram)):totals+=histogram[ties]/ties
     table=state['backend']['average']['probabilities'].numpy()
     require(table.shape==totals.shape and np.isfinite(table).all() and (table>=0).all() and (table<=1).all(),'published table is not a probability table')
     np.testing.assert_allclose(table.sum(-1),np.ones(2),rtol=0,atol=1e-10)
