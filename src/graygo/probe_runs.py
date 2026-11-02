@@ -7,12 +7,17 @@ from pathlib import Path
 import time
 from .engine import BLACK,WHITE,Rules,State,resolve,score
 from .manifest import make_manifest,source_digest,write_report
-from .probe_benchmark import ProbeBenchmark,construct_benchmark,assess_marginals,GENERATOR_VERSION
+from .probe_benchmark import ProbeBenchmark,construct_benchmark,assess_marginals,GENERATOR_VERSION,DIVERSE_GENERATOR_VERSION
 from .probe_certification import CertificateBudget
 from .storage import digest
 
 
-def build_probes(root,*,seed,attempt_cap,time_cap_seconds,stop_requested=lambda:False):
+def build_probes(root,*,seed,attempt_cap,time_cap_seconds,stop_requested=lambda:False,generator='liberty'):
+    if generator not in ('liberty','multigroup'):raise ValueError('unknown probe construction generator')
+    if generator=='multigroup':
+        from .probe_diversity import construct_diverse_benchmark
+        constructor=construct_diverse_benchmark;version=DIVERSE_GENERATOR_VERSION
+    else:constructor=construct_benchmark;version=GENERATOR_VERSION
     root=Path(root).resolve();root.mkdir(parents=True,exist_ok=True)
     with (root/'.construction.lock').open('a+b') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -22,15 +27,18 @@ def build_probes(root,*,seed,attempt_cap,time_cap_seconds,stop_requested=lambda:
         import math
         if type(seed) is not int or seed<0 or type(attempt_cap) is not int or not 1<=attempt_cap<=1000000 or not math.isfinite(time_cap_seconds) or not 0<time_cap_seconds<=8*3600:
             raise ValueError('bounded probe-construction plan required')
-        plan={'version':'graygo/collision-probe-construction/1','generator':GENERATOR_VERSION,'seed':seed,'attempt_cap':attempt_cap,
-              'time_ceiling_seconds':time_cap_seconds,'certificate_budget':asdict(budget),'target_geometric_pairs':32,'required_strategic_families':32,'generator_scope':'one liberty-change motif; conservative complete-game family equivalence','directions':{'increase':16,'decrease':16},
+        plan={'version':'graygo/collision-probe-construction/1','generator':version,'seed':seed,'attempt_cap':attempt_cap,
+              'time_ceiling_seconds':time_cap_seconds,'certificate_budget':asdict(budget),'target_geometric_pairs':32,'required_strategic_families':32,
+              'generator_scope':('one liberty-change motif; conservative complete-game family equivalence' if generator=='liberty' else
+                                 'multigroup three-faction single-cell changes; one accepted pair per complete base/remove game class'),
+              'directions':{'increase':16,'decrease':16},
               'source_sha256':source_digest(),'rules':{'size':9,'max_rounds':200,'collision':'gray'},'candidate_policy_used':False,
               'scope':'reachable default-game round-199 benchmark construction; no learner or gray-specialization result'}
         write_report(root/'plan.json',plan)
         write_report(root/'run.json',make_manifest(seed=seed,command={'build_probes':plan},rules=plan['rules']))
         write_report(root/'process.json',{'pid':os.getpid(),'source_sha256':source_digest()})
         def progress(value):write_report(root/'progress.json',value)
-        benchmark,report=construct_benchmark(seed,attempt_cap=attempt_cap,time_cap_seconds=time_cap_seconds,budget=budget,
+        benchmark,report=constructor(seed,attempt_cap=attempt_cap,time_cap_seconds=time_cap_seconds,budget=budget,
                                               stop_requested=stop_requested,on_progress=progress)
         if benchmark is not None:write_report(root/'benchmark.json',benchmark.to_dict())
         report.update({'source_sha256':source_digest(),'plan_sha256':digest(root/'plan.json'),'training_started':False,'gray_specialization_demonstrated':False})
@@ -69,7 +77,11 @@ def verify_probes(path,*,regenerate=False,time_cap_seconds=180):
     if not oracle['all_seed_instance_thresholds_passed']:raise ValueError('exact equilibrium fixtures fail their certified directional benchmark')
     regenerated=False
     if regenerate:
-        rebuilt,report=construct_benchmark(benchmark.seed,attempt_cap=benchmark.families[-1].attempt+1,time_cap_seconds=remaining())
+        if benchmark.generator==DIVERSE_GENERATOR_VERSION:
+            from .probe_diversity import construct_diverse_benchmark
+            constructor=construct_diverse_benchmark
+        else:constructor=construct_benchmark
+        rebuilt,report=constructor(benchmark.seed,attempt_cap=benchmark.families[-1].attempt+1,time_cap_seconds=remaining())
         if rebuilt is None or rebuilt.to_dict()!=benchmark.to_dict():raise ValueError('benchmark does not reproduce its independent construction seed')
         regenerated=True
     remaining()

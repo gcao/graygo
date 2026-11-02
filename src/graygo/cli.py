@@ -181,7 +181,7 @@ def generate_exposure(args):
 def build_probes(args):
     from .probe_runs import build_probes as construct
     if _rules(args)!=Rules():raise ValueError('probe generator v1 requires default 9x9/200-round rules')
-    return construct(args.run_dir,seed=args.seed,attempt_cap=args.attempts,time_cap_seconds=args.time_cap_hours*3600,stop_requested=_signal_flag())
+    return construct(args.run_dir,seed=args.seed,attempt_cap=args.attempts,time_cap_seconds=args.time_cap_hours*3600,stop_requested=_signal_flag(),generator=args.generator)
 
 
 def verify_probes(args):
@@ -449,6 +449,7 @@ def main(argv=None):
         elif name=="build-probes":
             p.set_defaults(size=9,limit=200,collision="gray")
             p.add_argument("--run-dir",required=True);p.add_argument("--attempts",type=int,default=10000)
+            p.add_argument("--generator",choices=("liberty","multigroup"),default="liberty")
             p.add_argument("--time-cap-hours",type=float,required=True)
         elif name=="verify-probes":
             p.set_defaults(size=9,limit=200,collision="gray")

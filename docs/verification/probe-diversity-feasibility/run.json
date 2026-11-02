@@ -1,0 +1,75 @@
+{
+  "baseline_version": "graygo/baselines/1",
+  "command": {
+    "probe_diversity_feasibility": {
+      "attempt_cap": 10000,
+      "candidate_policy_used": false,
+      "proposal": "1-4 permanent holes, multigroup 2/3-color growth with black/white count balancing; remove one occupied point",
+      "purpose": "candidate-independent probe-construction feasibility",
+      "scope": "prototype one-round utility/collision ranges only; no legal default-game setup, formal family coverage or learned policy evidence",
+      "script_sha256": "df62f38a2b18a3808cbc486b14232151bfaca46da29d4eaa14ca07800cdf4aaf",
+      "seed": 974213,
+      "source_sha256": "418c9dfc6031fb17cb88045c00aa18f28b1212a65948a51b8bb29863305a210f",
+      "time_ceiling_seconds": 180.0
+    }
+  },
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cpu_threads": 24,
+  "created_at": "2026-11-02T10:38:49.648106+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 126878441472,
+  "encoding_version": "graygo/encoding/1",
+  "filesystem": "ext2/ext3",
+  "format_version": 1,
+  "git_commit": "ecb37c7cc2ece919b5c70b71695ca0f550826197",
+  "git_dirty": false,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "host_memory": {
+    "available_bytes": 29821366272,
+    "swap_bytes": 12884897792,
+    "total_bytes": 33558446080
+  },
+  "hostname": "home-ai",
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "rule_version": "graygo/1",
+  "rules": {
+    "collision": "gray",
+    "max_rounds": 1,
+    "size": 9
+  },
+  "run_id": "46af96c6fa994797b998df7e3d47ff22",
+  "seed": 974213,
+  "source_sha256": "418c9dfc6031fb17cb88045c00aa18f28b1212a65948a51b8bb29863305a210f"
+}

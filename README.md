@@ -224,3 +224,14 @@ The check compares uninterrupted and resumed 16,384-record trajectories, includi
 ```
 
 This command is bounded to 65,536 records and one cumulative hour, with a deliberately reduced diagnostic opening/hand-off. Its manual opening control is diagnostic only. The full formal entry/A2/resource/cohort controller remains required before development or confirmation training. See [execution verification, failure handling and scope](docs/verification/board-execution.md).
+
+
+## Distinct multigroup collision probes
+
+`build-probes --generator multigroup` searches candidate-independent removal/recoloring pairs with varied black/white/gray groups and permanent liberties. It retains one pair per complete base/remove game class, rejects geometric repeats and builds every accepted root from empty through 199 actual rounds. Exact 0.05 individual-gap collision ranges must remain separated by at least 0.10; all actions and pass remain in the solved game. Gray setup stones are produced by actual collisions.
+
+```sh
+.venv/bin/graygo build-probes --generator multigroup --seed 974214 --run-dir runs/collision-probe-diverse-v1 --attempts 200000 --time-cap-hours .5
+```
+
+Only a complete catalog of 32 distinct classes, balanced sixteen increase/sixteen decrease, can pass family coverage. Partial proofs and actual counts remain visible. The historical liberty generator stays available for its one-class geometric regression catalog. See [construction, legal setup, exact qualification and evidence scope](docs/verification/probe-diversity.md).

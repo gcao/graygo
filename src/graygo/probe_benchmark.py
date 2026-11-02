@@ -20,6 +20,7 @@ from .curriculum import canonical_board
 FAMILY_VERSION='graygo/paired-collision-family/1'
 BENCHMARK_VERSION='graygo/collision-probe-catalog/1'
 GENERATOR_VERSION='graygo/reachable-liberty-change-probes/1'
+DIVERSE_GENERATOR_VERSION='graygo/reachable-multigroup-collision-probes/1'
 FAMILIES=32
 REQUIRED=24
 
@@ -121,7 +122,9 @@ class ProbeFamily:
 class ProbeBenchmark:
     seed:int
     families:tuple
+    generator:str=GENERATOR_VERSION
     def __post_init__(self):
+        if self.generator not in (GENERATOR_VERSION,DIVERSE_GENERATOR_VERSION):raise ValueError('unknown collision probe generator')
         object.__setattr__(self,'families',tuple(self.families))
         if type(self.seed) is not int or self.seed<0 or len(self.families)!=FAMILIES:raise ValueError('complete 32-case catalog and generation seed required')
         if any(not isinstance(f,ProbeFamily) for f in self.families):raise ValueError('certified paired families required')
@@ -136,20 +139,22 @@ class ProbeBenchmark:
     @property
     def family_coverage_complete(self):return self.strategic_family_count==FAMILIES
     def to_dict(self):
-        return {'version':BENCHMARK_VERSION,'generator':GENERATOR_VERSION,'generation_seed':self.seed,'cases':[f.to_dict() for f in self.families],
+        return {'version':BENCHMARK_VERSION,'generator':self.generator,'generation_seed':self.seed,'cases':[f.to_dict() for f in self.families],
             'required_families':FAMILIES,'distinct_strategic_families':self.strategic_family_count,'family_coverage_complete':self.family_coverage_complete,
             'family_equivalence':'complete base/remove game pair up to shared placement labels, global color exchange and pair reversal',
             'required_passes_per_seed':REQUIRED,'seeds':list(CONFIRMATION_SEEDS),'individual_value_gap':str(GAP),
             'near_equilibrium_range_separation':str(SEPARATION),'required_collision_shift':str(SHIFT),
             'root_semantics':'reachable default 9x9 round-199 states; every probe episode starts at its declared root; setup traces certify reachability',
-            'construction':'versioned independent public-root proposals; current generator uses one minority-stone liberty motif',
+            'construction':('versioned independent public-root proposals; current generator uses one minority-stone liberty motif'
+                            if self.generator==GENERATOR_VERSION else
+                            'versioned independent multigroup three-faction growth; single-cell removal/recoloring; unique complete-game classes; legal default-game setup traces'),
             'inference':'descriptive finite benchmark; no binomial population confidence bound'}
     @property
     def sha256(self):return canonical_sha(self.to_dict())
     @classmethod
     def from_dict(cls,value):
         if not isinstance(value,dict) or value.get('version')!=BENCHMARK_VERSION:raise ValueError('unknown collision benchmark')
-        try:result=cls(value['generation_seed'],tuple(ProbeFamily.from_dict(f) for f in value['cases']))
+        try:result=cls(value['generation_seed'],tuple(ProbeFamily.from_dict(f) for f in value['cases']),value['generator'])
         except (KeyError,TypeError) as exc:raise ValueError('malformed collision benchmark') from exc
         if result.to_dict()!=value:raise ValueError('benchmark requirements, proof inventory or inference scope differs')
         return result

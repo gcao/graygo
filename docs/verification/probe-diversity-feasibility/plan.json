@@ -1,0 +1,11 @@
+{
+  "attempt_cap": 10000,
+  "candidate_policy_used": false,
+  "proposal": "1-4 permanent holes, multigroup 2/3-color growth with black/white count balancing; remove one occupied point",
+  "purpose": "candidate-independent probe-construction feasibility",
+  "scope": "prototype one-round utility/collision ranges only; no legal default-game setup, formal family coverage or learned policy evidence",
+  "script_sha256": "df62f38a2b18a3808cbc486b14232151bfaca46da29d4eaa14ca07800cdf4aaf",
+  "seed": 974213,
+  "source_sha256": "418c9dfc6031fb17cb88045c00aa18f28b1212a65948a51b8bb29863305a210f",
+  "time_ceiling_seconds": 180.0
+}
