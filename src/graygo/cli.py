@@ -117,6 +117,29 @@ def profile_network(args):
             "peak_cuda_bytes":torch.cuda.max_memory_allocated(device) if device.type=="cuda" else None}
 
 
+def train_matrix(args):
+    from .matrix_training import MatrixPPOConfig,MatrixPPOTrainer
+    config=MatrixPPOConfig(task=args.task,seed=args.seed,records=args.records,rollout=args.rollout,
+                          eval_every=args.eval_every,entropy=args.entropy,device=args.device,
+                          time_cap_seconds=args.time_cap_hours*3600)
+    stop=_signal_flag()
+    return MatrixPPOTrainer(config,args.run_dir,resume=args.resume).run(stop_requested=stop)
+
+
+def preflight(args):
+    from .preflight import run_ppo_preflight
+    return run_ppo_preflight(args.run_dir,records=args.records,device=args.device,
+                             time_cap_seconds=args.time_cap_hours*3600,stop_requested=_signal_flag())
+
+
+def _signal_flag():
+    import signal
+    stopped=[False]
+    def stop(signum,frame):stopped[0]=True
+    signal.signal(signal.SIGINT,stop);signal.signal(signal.SIGTERM,stop)
+    return lambda:stopped[0]
+
+
 def play(args):
     state=State(_rules(args)); rng=random.Random(args.seed)
     while not state.done:
@@ -142,7 +165,7 @@ def play(args):
 def main(argv=None):
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
@@ -161,13 +184,29 @@ def main(argv=None):
         elif name=="profile-network":
             p.add_argument("--device",default="cpu");p.add_argument("--batch",type=int,default=16)
             p.add_argument("--batches",type=int,default=10)
+        elif name in ("train-matrix","preflight"):
+            p.add_argument("--run-dir",required=True)
+            p.add_argument("--records",type=int,default=2000000)
+            p.add_argument("--device",default="cpu")
+            p.add_argument("--time-cap-hours",type=float,default=24)
+            if name=="train-matrix":
+                p.add_argument("--task",choices=("asymmetric","rps","matching-pennies","pure82"),default="asymmetric")
+                p.add_argument("--entropy",choices=("taper","fixed-0.1"),default="taper")
+                p.add_argument("--rollout",type=int,default=1024)
+                p.add_argument("--eval-every",type=int,default=102400)
+                p.add_argument("--resume",action="store_true")
         else:p.add_argument("--opponent",choices=AGENTS,default="tactical")
     args=parser.parse_args(argv)
     if any(getattr(args,name,1)<1 for name in ("games","rounds","batch","batches")):
         parser.error("games and rounds must be positive")
     try:
-        rules=_rules(args)
-        metadata=make_manifest(seed=args.seed,command=vars(args),rules={"size":rules.size,"max_rounds":rules.max_rounds,"collision":rules.collision})
+        matrix_command=args.command in ("train-matrix","preflight")
+        rules=None if matrix_command else _rules(args)
+        metadata=make_manifest(seed=args.seed,command=vars(args),rules=None if rules is None else
+                               {"size":rules.size,"max_rounds":rules.max_rounds,"collision":rules.collision})
+        if matrix_command:
+            metadata.update({"rule_version":None,"baseline_version":None,"encoding_version":"graygo/matrix-role/1"})
+            if args.command=="preflight":metadata.update({"seed":None,"seeds":[0,1,2]})
         result=globals()[args.command.replace("-","_")](args)
         if args.command=="solve":metadata["rules"]=result["state"]["rules"]
         report={"manifest":metadata,"result":result}

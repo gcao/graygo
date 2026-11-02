@@ -11,3 +11,6 @@ __pycache__/
 /runs/
 /checkpoints/
 /artifacts/
+
+# Pinned experiment source worktrees
+/.worktrees/

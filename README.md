@@ -40,3 +40,19 @@ The optional `audit-native --library PATH` command compares reference-engine tra
 ## Current implementation
 
 The repository contains the immutable reference engine, full-state encoding, random/tactical baselines, policy/value/Q networks, finite-game solvers, checkpoint storage and recovery, and CLI commands. The trainer, learning gates, and scientific comparisons are tracked as remaining work; synthetic network updates are not trained-game results.
+
+## Learning preflight
+
+```sh
+# Individual matrix run, including optimizer/RNG/opponent/archive resume state.
+.venv/bin/graygo train-matrix --task asymmetric --entropy taper --run-dir runs/asymmetric-seed0
+# Repeat the same plan with --resume to continue an interrupted run.
+.venv/bin/graygo train-matrix --task asymmetric --entropy taper --run-dir runs/asymmetric-seed0 --resume
+
+# The formal 12-case route preflight: two tasks, two entropy protocols, three seeds.
+.venv/bin/graygo preflight --run-dir runs/ppo-preflight --device cpu
+```
+
+The preflight first checks tabular exact-best-response fictitious-play reference results. This is separate from the later NFSP Q/replay/reservoir control. Each neural trial uses the shared PPO update code, 50/50 current/history opponents selected before commitments, and critic-only opponent buckets. In a one-step game, the stored two-role probability table is an exact frozen historical policy.
+
+Preflight runs are resumable by repeating the command with the same plan. Finished trials are checksum-verified and reused. `summary.json` selects a route only after all 12 formal trials have complete evidence; shortened diagnostics report `pending`. A passing protocol must use one deployment representation consistently across both games and all seeds. SIGINT/SIGTERM requests stop at a rollout boundary and save state.
