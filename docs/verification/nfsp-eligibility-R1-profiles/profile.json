@@ -1,0 +1,894 @@
+{
+  "plan": {
+    "aggregate_profile_ceiling_seconds": 1200.0,
+    "cases": [
+      {
+        "config": {
+          "batch": 512,
+          "blocks": 8,
+          "budget_profile_sha256": null,
+          "capacity": 500000,
+          "device": "cpu",
+          "epsilon_decay": 7500000,
+          "equivalent_actions": 40,
+          "eval_batch": 128,
+          "eval_every": 32768,
+          "handoff_end": 7000000,
+          "hidden": 64,
+          "horizons": [
+            50,
+            100,
+            200
+          ],
+          "learner": "tabular",
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "max_nodes": 100000,
+          "native_library": null,
+          "norm_groups": 8,
+          "purpose": "profile",
+          "q_reuse": 1,
+          "records": 65536,
+          "reservoir_open": 5000000,
+          "seed": 0,
+          "storage": "features",
+          "target_every": 12800,
+          "task": "delayed",
+          "time_cap_seconds": 300.0,
+          "uniform_comparison": false,
+          "width": 64
+        },
+        "phase": "pre"
+      },
+      {
+        "config": {
+          "batch": 512,
+          "blocks": 8,
+          "budget_profile_sha256": null,
+          "capacity": 500000,
+          "device": "cpu",
+          "epsilon_decay": 7500000,
+          "equivalent_actions": 40,
+          "eval_batch": 128,
+          "eval_every": 32768,
+          "handoff_end": 1000,
+          "hidden": 64,
+          "horizons": [
+            50,
+            100,
+            200
+          ],
+          "learner": "tabular",
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "max_nodes": 100000,
+          "native_library": null,
+          "norm_groups": 8,
+          "purpose": "profile",
+          "q_reuse": 1,
+          "records": 65536,
+          "reservoir_open": 0,
+          "seed": 0,
+          "storage": "features",
+          "target_every": 12800,
+          "task": "delayed",
+          "time_cap_seconds": 300.0,
+          "uniform_comparison": false,
+          "width": 64
+        },
+        "phase": "post"
+      },
+      {
+        "config": {
+          "batch": 512,
+          "blocks": 8,
+          "budget_profile_sha256": null,
+          "capacity": 500000,
+          "device": "cpu",
+          "epsilon_decay": 7500000,
+          "equivalent_actions": 40,
+          "eval_batch": 128,
+          "eval_every": 32768,
+          "handoff_end": 7000000,
+          "hidden": 64,
+          "horizons": [
+            50,
+            100,
+            200
+          ],
+          "learner": "neural",
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "max_nodes": 100000,
+          "native_library": null,
+          "norm_groups": 8,
+          "purpose": "profile",
+          "q_reuse": 1,
+          "records": 65536,
+          "reservoir_open": 5000000,
+          "seed": 0,
+          "storage": "features",
+          "target_every": 12800,
+          "task": "delayed",
+          "time_cap_seconds": 300.0,
+          "uniform_comparison": false,
+          "width": 64
+        },
+        "phase": "pre"
+      },
+      {
+        "config": {
+          "batch": 512,
+          "blocks": 8,
+          "budget_profile_sha256": null,
+          "capacity": 500000,
+          "device": "cpu",
+          "epsilon_decay": 7500000,
+          "equivalent_actions": 40,
+          "eval_batch": 128,
+          "eval_every": 32768,
+          "handoff_end": 1000,
+          "hidden": 64,
+          "horizons": [
+            50,
+            100,
+            200
+          ],
+          "learner": "neural",
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "max_nodes": 100000,
+          "native_library": null,
+          "norm_groups": 8,
+          "purpose": "profile",
+          "q_reuse": 1,
+          "records": 65536,
+          "reservoir_open": 0,
+          "seed": 0,
+          "storage": "features",
+          "target_every": 12800,
+          "task": "delayed",
+          "time_cap_seconds": 300.0,
+          "uniform_comparison": false,
+          "width": 64
+        },
+        "phase": "post"
+      }
+    ],
+    "driver_sha256": "472c2937072bc2d157b40f0998bf7a90e202f0151323b056fb1cb194c6d0d725",
+    "format_version": 1,
+    "scope": "complete one-step solved-task pipeline; no 9x9/other-target pricing",
+    "source_commit": "ca45a53824ab5e2909cdfa6a75ab3f1752eafc5a",
+    "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873"
+  },
+  "results": [
+    {
+      "acting_policy_counts": {
+        "average": 0,
+        "q": 65536,
+        "uniform": 0
+      },
+      "case": "tabular-R1-pre",
+      "counters": {
+        "fresh_ordinary": 52436,
+        "fresh_q": 65461,
+        "fresh_records": 65536,
+        "q_loss_targets": 61440,
+        "q_updates": 120,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 5
+      },
+      "coverage": {
+        "excluded_q_records": 75,
+        "overlap_counts": [
+          [
+            [
+              21404,
+              22412,
+              0
+            ],
+            [
+              5356,
+              5646,
+              0
+            ]
+          ],
+          [
+            [
+              2351,
+              2675,
+              0
+            ],
+            [
+              821,
+              775,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                21210.86617234993,
+                825.3163206465542,
+                865.5644107868429,
+                122732750.0
+              ],
+              [
+                21818.97940605087,
+                900.9986942179967,
+                914.1096045260783,
+                633812438.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                5284.258283571131,
+                182.96416824008338,
+                218.8383164939005,
+                30300174.0
+              ],
+              [
+                5463.391180484344,
+                205.65380839584395,
+                216.87037473847158,
+                159207581.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                2334.013403335666,
+                90.8011337898206,
+                95.99516716063954,
+                13334448.0
+              ],
+              [
+                2588.103184890717,
+                104.8349783134181,
+                104.34957349020988,
+                72422423.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                818.6023748070986,
+                26.232783684507012,
+                27.64752596244216,
+                4475164.0
+              ],
+              [
+                766.0974669332174,
+                22.375970402034,
+                24.9343237914145,
+                23043801.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 65461,
+        "root_episodes": [
+          [
+            93,
+            23
+          ],
+          [
+            80,
+            20
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            24,
+            6
+          ],
+          [
+            24,
+            6
+          ]
+        ],
+        "sampled_start_targets": 61440,
+        "visit_records": 65536
+      },
+      "formal_protocol": false,
+      "fresh_records_per_second": 1914.0978475852191,
+      "learner": "tabular",
+      "logical_replay_bytes": 391500000,
+      "logical_reservoir_bytes": 189500000,
+      "phase": "pre",
+      "q_reuse": 1,
+      "records": 65536,
+      "replay_size": 65536,
+      "reservoir_size": 0,
+      "seconds_including_setup": 34.238584031991195,
+      "status": "complete",
+      "timings": {
+        "checkpoint": 0.9378417840925977,
+        "collection": 28.280120764742605,
+        "evaluation": 0.11029016796965152,
+        "learning": 3.8863361148978584,
+        "setup": 0.7586839399882592
+      }
+    },
+    {
+      "acting_policy_counts": {
+        "average": 49336,
+        "q": 16200,
+        "uniform": 0
+      },
+      "case": "tabular-R1-post",
+      "counters": {
+        "fresh_ordinary": 52436,
+        "fresh_q": 65461,
+        "fresh_records": 65536,
+        "q_loss_targets": 61440,
+        "q_updates": 120,
+        "supervised_targets": 270688,
+        "supervised_updates": 86,
+        "target_refreshes": 5
+      },
+      "coverage": {
+        "excluded_q_records": 75,
+        "overlap_counts": [
+          [
+            [
+              21404,
+              22412,
+              0
+            ],
+            [
+              5356,
+              5646,
+              0
+            ]
+          ],
+          [
+            [
+              2351,
+              2675,
+              0
+            ],
+            [
+              821,
+              775,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                21111.358276551342,
+                743.5971131131519,
+                743.3454688920174,
+                122732750.0
+              ],
+              [
+                21757.430647680452,
+                855.7014348206576,
+                824.3443976195995,
+                633812438.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                5260.498175888557,
+                160.03020103205927,
+                181.17844475992024,
+                30300174.0
+              ],
+              [
+                5452.8382334050775,
+                198.46777451434173,
+                198.23190311854705,
+                159207581.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                2334.094240491766,
+                91.67464481270872,
+                95.99596960679628,
+                13334448.0
+              ],
+              [
+                2588.9851081681395,
+                107.49581455625594,
+                105.25075756199658,
+                72422423.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                817.6051232496931,
+                25.332076340680942,
+                27.64752596244216,
+                4475164.0
+              ],
+              [
+                765.1002200443133,
+                21.47537988424301,
+                24.9343237914145,
+                23043801.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 65461,
+        "root_episodes": [
+          [
+            93,
+            23
+          ],
+          [
+            80,
+            20
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            24,
+            6
+          ],
+          [
+            24,
+            6
+          ]
+        ],
+        "sampled_start_targets": 61440,
+        "visit_records": 65536
+      },
+      "formal_protocol": false,
+      "fresh_records_per_second": 2065.1083233670583,
+      "learner": "tabular",
+      "logical_replay_bytes": 391500000,
+      "logical_reservoir_bytes": 189500000,
+      "phase": "post",
+      "q_reuse": 1,
+      "records": 65536,
+      "replay_size": 65536,
+      "reservoir_size": 4900,
+      "seconds_including_setup": 31.734897031041328,
+      "status": "complete",
+      "timings": {
+        "checkpoint": 0.9704863450024277,
+        "collection": 26.35892889095703,
+        "evaluation": 0.11207131104310974,
+        "learning": 3.9126935852109455,
+        "setup": 0.09421315504005179
+      }
+    },
+    {
+      "acting_policy_counts": {
+        "average": 0,
+        "q": 65536,
+        "uniform": 0
+      },
+      "case": "neural-R1-pre",
+      "counters": {
+        "fresh_ordinary": 52436,
+        "fresh_q": 65461,
+        "fresh_records": 65536,
+        "q_loss_targets": 61440,
+        "q_updates": 120,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 5
+      },
+      "coverage": {
+        "excluded_q_records": 75,
+        "overlap_counts": [
+          [
+            [
+              21404,
+              22412,
+              0
+            ],
+            [
+              5356,
+              5646,
+              0
+            ]
+          ],
+          [
+            [
+              2351,
+              2675,
+              0
+            ],
+            [
+              821,
+              775,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                10226.478287505028,
+                7391.888454284519,
+                17453.6800235447,
+                122732750.0
+              ],
+              [
+                3697.7307963945577,
+                1522.3107001224998,
+                18365.138858404243,
+                633812438.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                2635.674559275725,
+                1920.3088998110034,
+                4370.164494406432,
+                30300174.0
+              ],
+              [
+                894.8223018476596,
+                341.9155760095455,
+                4621.450634354027,
+                159207581.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                1156.126032437928,
+                816.1043847715482,
+                1891.8907224871218,
+                13334448.0
+              ],
+              [
+                493.1272264312265,
+                201.98088597808965,
+                2161.6798634324223,
+                72422423.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                439.04926174703184,
+                321.6631133968476,
+                666.4721738819499,
+                4475164.0
+              ],
+              [
+                116.7055084549661,
+                38.996178458677605,
+                633.2154480756726,
+                23043801.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 65461,
+        "root_episodes": [
+          [
+            93,
+            23
+          ],
+          [
+            80,
+            20
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            24,
+            6
+          ],
+          [
+            24,
+            6
+          ]
+        ],
+        "sampled_start_targets": 61440,
+        "visit_records": 65536
+      },
+      "formal_protocol": false,
+      "fresh_records_per_second": 1923.7322594635277,
+      "learner": "neural",
+      "logical_replay_bytes": 391500000,
+      "logical_reservoir_bytes": 189500000,
+      "phase": "pre",
+      "q_reuse": 1,
+      "records": 65536,
+      "replay_size": 65536,
+      "reservoir_size": 0,
+      "seconds_including_setup": 34.06711078301305,
+      "status": "complete",
+      "timings": {
+        "checkpoint": 0.8977129109553061,
+        "collection": 29.55633787822444,
+        "evaluation": 0.07470858498709276,
+        "learning": 3.166140219778754,
+        "setup": 0.0953629320138134
+      }
+    },
+    {
+      "acting_policy_counts": {
+        "average": 49336,
+        "q": 16200,
+        "uniform": 0
+      },
+      "case": "neural-R1-post",
+      "counters": {
+        "fresh_ordinary": 52436,
+        "fresh_q": 65461,
+        "fresh_records": 65536,
+        "q_loss_targets": 61440,
+        "q_updates": 120,
+        "supervised_targets": 44032,
+        "supervised_updates": 86,
+        "target_refreshes": 5
+      },
+      "coverage": {
+        "excluded_q_records": 75,
+        "overlap_counts": [
+          [
+            [
+              21404,
+              22412,
+              0
+            ],
+            [
+              5356,
+              5646,
+              0
+            ]
+          ],
+          [
+            [
+              2351,
+              2675,
+              0
+            ],
+            [
+              821,
+              775,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                6762.199091397953,
+                4283.629335403908,
+                7885.439931117697,
+                122732750.0
+              ],
+              [
+                2680.32601615318,
+                581.1132725055795,
+                8928.15007641865,
+                633812438.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1564.4023103029288,
+                975.809513536049,
+                1782.6924864663742,
+                30300174.0
+              ],
+              [
+                650.5062643889106,
+                129.35400146897882,
+                1915.647280590143,
+                159207581.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                1394.4808248369704,
+                1046.6038039478008,
+                1907.198088065721,
+                13334448.0
+              ],
+              [
+                361.48960204640116,
+                84.89188289595768,
+                2165.2817810066044,
+                72422423.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                458.9917385882291,
+                338.77374867652543,
+                665.5714670892339,
+                4475164.0
+              ],
+              [
+                74.83617783756027,
+                4.7716535401996225,
+                635.9167500659823,
+                23043801.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 65461,
+        "root_episodes": [
+          [
+            93,
+            23
+          ],
+          [
+            80,
+            20
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            24,
+            6
+          ],
+          [
+            24,
+            6
+          ]
+        ],
+        "sampled_start_targets": 61440,
+        "visit_records": 65536
+      },
+      "formal_protocol": false,
+      "fresh_records_per_second": 1996.6907253856739,
+      "learner": "neural",
+      "logical_replay_bytes": 391500000,
+      "logical_reservoir_bytes": 189500000,
+      "phase": "post",
+      "q_reuse": 1,
+      "records": 65536,
+      "replay_size": 65536,
+      "reservoir_size": 4900,
+      "seconds_including_setup": 32.82230901700677,
+      "status": "complete",
+      "timings": {
+        "checkpoint": 0.9838555399910547,
+        "collection": 27.529419907252304,
+        "evaluation": 0.0781825190060772,
+        "learning": 3.827058191469405,
+        "setup": 0.1054484270280227
+      }
+    }
+  ]
+}

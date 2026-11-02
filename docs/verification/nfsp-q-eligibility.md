@@ -42,3 +42,8 @@ The original R4 comparison is terminal and independently audited under unchanged
 ## Verified test result
 
 The final combined suite passes **288 tests in 183.616 seconds**. Eight focused eligibility regressions cover both stationary role orientations, unchanged valid own-action/suffix targets, loss rejection/filtering, nonrepeating invalid-boundary events, live/historical overwrite membership and sampler RNG, sequence truncation, all-eligible paired/per-record equivalence, CPU/CUDA complete-state continuation at an odd eligible clock, and refusal to guess or silently continue wrapped legacy eligibility history. The independent delayed audit also rejects validly resealed eligible-clock corruption, in addition to native-reference and private-RNG drift. Full original R4 data remain source-bound and unchanged. Corrected large-budget performance still requires its new matched profiles and recorded selection.
+
+
+## New-source pricing complete
+
+All four [matched R1 pre/post pipeline profiles](nfsp-eligibility-R1-profiles.md) and their independent corrected-source audits are complete. Forecasts are 7,454.558 tabular / 7,607.401 neural CPU seconds for 15M aggregate records; each source-bound ceiling is 15,300 seconds with at least twice the forecast. The separately recorded corrective allocation selects only the fresh seed-0 R1 pair. Full corrected convergence, remaining A2 cohorts and any board campaign remain pending.

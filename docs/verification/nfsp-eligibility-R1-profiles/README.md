@@ -1,0 +1,7 @@
+# Corrected complete-learner matched R1 profiles
+
+Clean source `ca45a53824ab5e2909cdfa6a75ab3f1752eafc5a`, package SHA `db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873`, completed four allocated CPU cases: tabular/neural x closed/pre and diagnostic-open/post, each 65,536 aggregate records. All four original case results, manifests, model/checkpoint inventories and independent audits are copied here byte-for-byte; heavy buffers/weights remain at `/home/gcao/proj/graygo/runs/nfsp-eligibility-R1-profiles-ca45a53` on `ai`.
+
+Each case has 65,461 eligible Q records, five target refreshes and 120 Q updates / 61,440 actual loss targets. Post cases exercise average-policy publications/updates and acting. Independent source-pinned audits reconstruct masks, aggregate/eligible/per-role clocks, coverage, sampler/Algorithm-R/private RNGs and archived native values. These are timing diagnostics, not convergence or A2 passes.
+
+Measured case intervals including setup are 34.239 / 31.735 seconds for tabular pre/post and 34.067 / 32.822 for neural pre/post; sum 132.863 seconds. Driver observed interval is 133.379 seconds. The fixed 5M-pre/10M-post forecast is 7,454.558 tabular / 7,607.401 neural seconds. Each proposes 15,300 seconds with at least 2x margin. Buffers are partially populated and reduced post opening is diagnostic; this prices only the corrected opaque-chain R1 pipeline, not 9x9 or another target/reuse. Audits/startup/reporting/test/development overhead remain separately scoped.

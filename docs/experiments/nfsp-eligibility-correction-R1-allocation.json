@@ -1,0 +1,160 @@
+{
+  "aggregate_cpu_trial_time_ceiling_seconds": 30600,
+  "aggregate_learning_record_ceiling": 30000000,
+  "aggregate_selected_corrective_records_including_profiles": 30262144,
+  "budgets": [
+    {
+      "actual_margin": 2.052435665311315,
+      "budget_profile_sha256": "a149482e1b5c5afdd8ed99631fd351b0813c955026cfd9ca4642d8296cc04130",
+      "learner": "tabular",
+      "phase_weighted_15M_seconds": 7454.557654882344,
+      "time_ceiling_seconds": 15300
+    },
+    {
+      "actual_margin": 2.011199308037232,
+      "budget_profile_sha256": "b0f98a36d2ad8e6af6cf8c3a03cbc372750d8c11bc066e88db9fd08bedc5c499",
+      "learner": "neural",
+      "phase_weighted_15M_seconds": 7607.401185381057,
+      "time_ceiling_seconds": 15300
+    }
+  ],
+  "control_ceiling_seconds": 43200,
+  "control_recorded_seconds": 19475.063099554915,
+  "correction_evidence": "docs/verification/nfsp-q-eligibility.md",
+  "correction_profile_records_already_spent": 262144,
+  "corrective_reserve_record_ceiling": 45000000,
+  "defect_report_sha256": "4a62e0f84f169238d817b9ed5bcb2f77c5c091cea1a77200805f3d63c0fc1ae9",
+  "design_corrective_device_hour_ceiling": 24,
+  "device": "cpu",
+  "device_hours_reserved": 0,
+  "driver_sha256": "f60e8ef28a050c071de9c96639ed9fb62641f666b317a371450ec1b976ddd19f",
+  "eligibility_version": 2,
+  "frozen_worktree": "/home/gcao/proj/graygo/.worktrees/nfsp-eligibility-ca45a53",
+  "not_selected": [
+    "corrected R4",
+    "Retrace",
+    "extension",
+    "other seeds/families",
+    "later opening",
+    "9x9 pilot",
+    "confirmation",
+    "scientific campaign"
+  ],
+  "profile_audits": {
+    "neural-R1-post": {
+      "audit_sha256": "6794580dcb6cdfcd88a01f9059ba6f6a1837afd2dff52e71185f602cf6312eff",
+      "checkpoint_manifest_sha256": "d0611c1b363aae9a622b26faa4b98d10ee32bfdcb555f405a10eb57a43b435b5",
+      "q_eligible_records": 65461,
+      "records": 65536,
+      "training_manifest_sha256": "1076ecd6c12b148cb43eb073aced138b2f33b852a9c1d52265cbe6b9d4ebf9d7"
+    },
+    "neural-R1-pre": {
+      "audit_sha256": "a01f9102bcb45e943f7eb66323754ba28b0e62668b52cbf6c2f6245f7028715e",
+      "checkpoint_manifest_sha256": "916ad053dca9c46f52626a5b5b93f3cf782a88a40f2b87d287c69ec873719bee",
+      "q_eligible_records": 65461,
+      "records": 65536,
+      "training_manifest_sha256": "cdb4b916b5349ac304c90f4cffa5246dae29f802a9ea5f62e166aca18f950e81"
+    },
+    "tabular-R1-post": {
+      "audit_sha256": "a7dd11c551b1b619b5c46e86b3e99f8b5c9f1a119e3fa3d0b2f7d1cda0c8ff19",
+      "checkpoint_manifest_sha256": "93bce26a1b49f65b09d64cbef5c35e738586dd23c73945a6399ac0d69497a4dc",
+      "q_eligible_records": 65461,
+      "records": 65536,
+      "training_manifest_sha256": "5e280ac401e949587979d0982b11566ea81972861a2bd9949a65a6ed044acaa1"
+    },
+    "tabular-R1-pre": {
+      "audit_sha256": "3372029a0b73da6375c754f43ec7458899119497307ab0aff20e127c1e726a9c",
+      "checkpoint_manifest_sha256": "3775ebfa3e20868aa60d4d7a79ea8b85e118fbe672d134eb95f3bf6e4af3cdc6",
+      "q_eligible_records": 65461,
+      "records": 65536,
+      "training_manifest_sha256": "616d282a9ae6ce2f0378cf80121b90b77cd7f6d0c9671763507d0598c2445e71"
+    }
+  },
+  "profile_dir": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R1-profiles-ca45a53",
+  "profile_plan_sha256": "0d21f7ba993067cea283697de3efb0c6073cb693777289392c2e738df8d675dc",
+  "profile_result_sha256": "4e6dfd61e012885c6eac6177c7568d746b3ad314df3e395a0b05626b61d02d77",
+  "projected_control_maximum_seconds": 34775.063099554915,
+  "purpose": "one documented failing-family eligibility correction; seed-0 matched R1 first screen only",
+  "reserved_control_trial_seconds": 15300,
+  "run_dir": "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53",
+  "scope": "new source-bound corrective allocation, not resumption of original R1/R4 or a convergence guarantee; setup/audits/tests/development remain additional recorded overhead",
+  "selection": "tabular first, then independently fresh neural; full 15M each or original time ceiling; no 5M substitute",
+  "source_commit": "ca45a53824ab5e2909cdfa6a75ab3f1752eafc5a",
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "trial_settings": [
+    {
+      "batch": 512,
+      "blocks": 8,
+      "budget_profile_sha256": "a149482e1b5c5afdd8ed99631fd351b0813c955026cfd9ca4642d8296cc04130",
+      "capacity": 500000,
+      "device": "cpu",
+      "epsilon_decay": 7500000,
+      "equivalent_actions": 40,
+      "eval_batch": 128,
+      "eval_every": 500000,
+      "handoff_end": 7000000,
+      "hidden": 64,
+      "horizons": [
+        50,
+        100,
+        200
+      ],
+      "learner": "tabular",
+      "learning_rate": 0.0003,
+      "learning_start": 4096,
+      "max_grad_norm": 0.5,
+      "max_nodes": 100000,
+      "native_library": null,
+      "norm_groups": 8,
+      "purpose": "a2",
+      "q_reuse": 1,
+      "records": 15000000,
+      "reservoir_open": 5000000,
+      "seed": 0,
+      "storage": "features",
+      "target_every": 12800,
+      "task": "delayed",
+      "time_cap_seconds": 15300,
+      "uniform_comparison": false,
+      "width": 64
+    },
+    {
+      "batch": 512,
+      "blocks": 8,
+      "budget_profile_sha256": "b0f98a36d2ad8e6af6cf8c3a03cbc372750d8c11bc066e88db9fd08bedc5c499",
+      "capacity": 500000,
+      "device": "cpu",
+      "epsilon_decay": 7500000,
+      "equivalent_actions": 40,
+      "eval_batch": 128,
+      "eval_every": 500000,
+      "handoff_end": 7000000,
+      "hidden": 64,
+      "horizons": [
+        50,
+        100,
+        200
+      ],
+      "learner": "neural",
+      "learning_rate": 0.0003,
+      "learning_start": 4096,
+      "max_grad_norm": 0.5,
+      "max_nodes": 100000,
+      "native_library": null,
+      "norm_groups": 8,
+      "purpose": "a2",
+      "q_reuse": 1,
+      "records": 15000000,
+      "reservoir_open": 5000000,
+      "seed": 0,
+      "storage": "features",
+      "target_every": 12800,
+      "task": "delayed",
+      "time_cap_seconds": 15300,
+      "uniform_comparison": false,
+      "width": 64
+    }
+  ],
+  "unchanged": "one-step target, reuse1, eta.1, batch512, warm4096, refresh12800 eligible Q, epsilon7.5M aggregate, opening5M/ramp7M aggregate, codebook/8-1-1/40 equivalent actions and fixed final-five gates",
+  "version": 1
+}

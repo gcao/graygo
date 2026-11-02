@@ -1,0 +1,19 @@
+{
+  "aggregate_profile_records": 262144,
+  "cases": 4,
+  "control_ceiling_seconds": 43200,
+  "control_profile_seconds_including_setup": 65.97348106303252,
+  "driver_elapsed_seconds": 133.3787720639957,
+  "measured_case_seconds_including_setup": 132.86290086305235,
+  "new_full_training_selected": false,
+  "now_completed_control_trials": 18,
+  "now_control_recorded_seconds": 19475.063099554915,
+  "prior_control_recorded_seconds": 19409.089618491882,
+  "profile_plan_sha256": "0d21f7ba993067cea283697de3efb0c6073cb693777289392c2e738df8d675dc",
+  "profile_result_sha256": "4e6dfd61e012885c6eac6177c7568d746b3ad314df3e395a0b05626b61d02d77",
+  "purpose": "settle corrected matched R1 profile allocation",
+  "remaining_unallocated_control_seconds": 23724.936900445085,
+  "scope": "case/driver measured intervals; independent audits/test/development overhead separate; no 9x9 or other-target price",
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "version": 1
+}
