@@ -82,16 +82,10 @@ class FrozenNeuralPolicy:
         return h.hexdigest()
     def assert_frozen(self):
         if canonical_sha(self.identity)!=self.sha256 or self.identity['kind']!=self.representation or self.identity['source_sha256']!=source_digest() or self._weight_sha()!=self._weights:raise ValueError('evaluation model changed after freezing')
-    def begin_episode(self,seed):return _NeuralActor(self,seed)
-
-
-class _NeuralActor:
-    def __init__(self,policy,seed):self.policy=policy;self.rng=np.random.default_rng(seed);self.component=None
-    def action(self,state,player):
+    def _action_weights(self,state,player):
         import torch
         from .models import greedy_distribution,masked_log_probs
-        from .sampling import draw_actions
-        p=self.policy;o=encode(state,player)
+        p=self;o=encode(state,player)
         with torch.no_grad():
             x=torch.tensor(o.spatial[None],device=p.device,dtype=torch.float32);g=torch.tensor(o.global_features[None],device=p.device,dtype=torch.float32)
             legal=torch.tensor(o.legal[None],device=p.device)
@@ -104,8 +98,21 @@ class _NeuralActor:
                 if isinstance(logits,tuple):logits=logits[0]
                 if logits.shape!=legal.shape or bool(torch.isnan(logits[legal]).any()) or bool(torch.isposinf(logits[legal]).any()):raise ValueError('invalid actor logits')
                 probs=masked_log_probs(logits,legal).exp()
-            action,_=draw_actions(probs.cpu().double().numpy(),self.rng)
-            return int(action[0])
+        return probs.cpu().double().numpy()[0]
+
+    def initial_distribution(self,state,player,*,fresh_episode=False):
+        # Same normalization as the private sampler, without drawing an action.
+        p=self._action_weights(state,player);p/=p.sum();return p
+
+    def begin_episode(self,seed):return _NeuralActor(self,seed)
+
+
+class _NeuralActor:
+    def __init__(self,policy,seed):self.policy=policy;self.rng=np.random.default_rng(seed);self.component=None
+    def action(self,state,player):
+        from .sampling import draw_actions
+        action,_=draw_actions(self.policy._action_weights(state,player)[None],self.rng)
+        return int(action[0])
 
 
 class EpisodeMixture:
@@ -118,6 +125,12 @@ class EpisodeMixture:
     def assert_frozen(self):
         if canonical_sha(self.identity)!=self.sha256 or self.identity['components']!=[c.sha256 for c in self.components] or self.identity['weights']!=self.weights.tolist():raise ValueError('episode mixture changed')
         for c in self.components:c.assert_frozen()
+    def initial_distribution(self,state,player,*,fresh_episode=False):
+        if (state.rounds_played or state.history) and not fresh_episode:raise ValueError('continuation mixture needs a public-prefix-conditioned marginal')
+        if not all(hasattr(c,'initial_distribution') for c in self.components):raise ValueError('component lacks exact public initial marginals')
+        values=[np.asarray(c.initial_distribution(state,player,fresh_episode=fresh_episode),dtype=np.float64) for c in self.components]
+        result=sum(weight*value for weight,value in zip(self.weights,values));result/=result.sum();return result
+
     def begin_episode(self,seed):
         chosen=int(np.random.default_rng(seed_for(seed,'component')).choice(len(self.components),p=self.weights))
         actor=self.components[chosen].begin_episode(seed_for(seed,'actions'));actor.component=self.components[chosen].sha256

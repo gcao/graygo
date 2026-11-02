@@ -39,6 +39,17 @@ class NativeDecodeTests(unittest.TestCase):
             terminal=resolve(resolve(State(rules),rules.pass_action,rules.pass_action).state,rules.pass_action,rules.pass_action).state
             states.append(terminal);self.compare(rules,states)
 
+    def test_reachable_collision_probes_and_all_terminal_leaves_match_reference(self):
+        from graygo.probe_benchmark import ProbeBenchmark
+        path=Path(__file__).parent/'fixtures/collision-benchmark-v1.json'
+        benchmark=ProbeBenchmark.from_dict(json.loads(path.read_text()));states=[]
+        for family in benchmark.families:
+            for root in (family.before,family.after):
+                states.append(root.state)
+                for black in root.certificate.black_actions:
+                    for white in root.certificate.white_actions:states.append(resolve(root.state,black,white).state)
+        self.assertEqual(len(states),480);self.compare(Rules(),states)
+
     def test_transforms_history_restrictions_and_counter_width(self):
         rules=Rules(3,1000);state=State(rules)
         for b,w in ((1,7),(6,4),(2,5),(9,3)):state=resolve(state,b,w).state

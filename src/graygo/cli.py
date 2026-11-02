@@ -148,6 +148,18 @@ def generate_exposure(args):
             'candidate_independent_generator':True,'collision_probe_families_certified':0,'training_started':False}
 
 
+def build_probes(args):
+    from .probe_runs import build_probes as construct
+    if _rules(args)!=Rules():raise ValueError('probe generator v1 requires default 9x9/200-round rules')
+    return construct(args.run_dir,seed=args.seed,attempt_cap=args.attempts,time_cap_seconds=args.time_cap_hours*3600,stop_requested=_signal_flag())
+
+
+def verify_probes(args):
+    from .probe_runs import verify_probes as verify
+    if _rules(args)!=Rules():raise ValueError('probe benchmark v1 requires default 9x9/200-round rules')
+    return verify(args.benchmark,regenerate=args.regenerate,time_cap_seconds=args.time_cap_hours*3600)
+
+
 def train_matrix(args):
     from .matrix_training import MatrixPPOConfig,MatrixPPOTrainer
     config=MatrixPPOConfig(task=args.task,seed=args.seed,records=args.records,rollout=args.rollout,
@@ -306,7 +318,7 @@ def calibrate_promotion(args):
 def main(argv=None):
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board","generate-exposure"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board","generate-exposure","build-probes","verify-probes"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
@@ -348,6 +360,14 @@ def main(argv=None):
             p.add_argument("--buffer-dir",required=True);p.add_argument("--capacity",type=int,default=500000)
             p.add_argument("--records",type=int,default=10000);p.add_argument("--iterations",type=int,default=50)
             p.add_argument("--batch",type=int,default=512)
+        elif name=="build-probes":
+            p.set_defaults(size=9,limit=200,collision="gray")
+            p.add_argument("--run-dir",required=True);p.add_argument("--attempts",type=int,default=10000)
+            p.add_argument("--time-cap-hours",type=float,required=True)
+        elif name=="verify-probes":
+            p.set_defaults(size=9,limit=200,collision="gray")
+            p.add_argument("--benchmark",required=True);p.add_argument("--regenerate",action="store_true")
+            p.add_argument("--time-cap-hours",type=float,default=.05)
         elif name=="generate-exposure":
             p.add_argument("--catalog",required=True);p.add_argument("--train-families",type=int,default=64)
             p.add_argument("--heldout-families",type=int,default=32);p.add_argument("--max-attempts",type=int,default=100000)

@@ -164,3 +164,19 @@ The versioned generator creates 64 training and 32 held-out 9x9 families without
 `ExposureStarts(catalog)` supplies the prescribed 50% empty / 50% gray-start distribution with random torus/D4/color transforms and fresh 200-round metadata. Use `ExposureStarts(catalog, 'heldout', 'gray-only')` for the separate gray-start diagnostic. A given sampling seed produces the same board and family under either collision rule. The real collector records start/gray/family counts and binds the catalog/split in its checkpoint; recovery rejects a changed split.
 
 This is the candidate-independent starting distribution component. The paired scientific controller must still match/record actual start consumption and fresh-record exposure across arms; different game lengths can consume different numbers of starts. These held-out families are not the separately certified collision-probe benchmark. See [curriculum verification](docs/verification/gray-exposure.md).
+
+
+## Exact collision-probe certificates
+
+```sh
+.venv/bin/graygo build-probes --seed 473927 --run-dir runs/collision-probe-catalog-v1 --attempts 10000 --time-cap-hours .05
+.venv/bin/graygo verify-probes --benchmark runs/collision-probe-catalog-v1/benchmark.json --regenerate --time-cap-hours .05
+```
+
+The certifier resolves every legal action pair at a public state with exactly one round remaining, proves the game value with exact rational primal/dual witnesses, and exhaustively bounds collision probability over all strategies whose individual gaps are at most 0.05. Partial enumeration or a restricted action set cannot qualify a case. Pass is excluded from collision probability. Certificates can be verified without calling the floating LP solver.
+
+The first constructor provides 32 geometric regression pairs with 64 distinct current boards and full public roots. Every root is reached from empty by a legal 199-round trace under the default 9x9/200-round rules; paired histories differ only at the controlled stone. All pairs have a Gray-rule utility effect and the required collision-range separation. **They share one strategic motif, so the 32-independent-family requirement remains incomplete.** The coverage checker clusters complete base/remove game pairs under action relabeling, color exchange and pair reversal; repeated strategic instances cannot pass the family gate.
+
+`assess_marginals` grades both roles and both roots for all three fixed seeds. Instance counts and independent-family counts are separate; all instances in a repeated family must pass, and official acceptance requires complete family coverage plus at least 24 passing families per seed. `frozen_marginals` uses public neural probabilities and private episode-mixture initial marginals. Each probe episode begins at its declared root; the setup trace establishes reachability. Continuing mixtures after an acting-policy prefix require posterior conditioning, and the default mixture API rejects an implicit reset.
+
+The generator starts no training and yields `incomplete_family_coverage` for the current one-motif catalog. Qualified bounds, reachability and passing solver fixtures do not establish trained-policy strength or gray specialization. See [proof method and evidence](docs/verification/collision-probes.md).
