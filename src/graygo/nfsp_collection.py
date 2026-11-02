@@ -12,6 +12,7 @@ from .engine import BLACK,WHITE
 from .encoding import encode
 from .models import greedy_distribution,epsilon_greedy_distribution,masked_log_probs
 from .schedules import EpisodeChoice
+from .sampling import draw_actions
 from .strategies import GrayGoGame
 
 
@@ -23,9 +24,9 @@ class FrozenPolicies:
     def __init__(self,q,average,*,version,average_ready):
         if type(version) is not int or not 0<=version<2**63:raise ValueError('bounded policy snapshot version required')
         self.q=deepcopy(q).eval().requires_grad_(False)
-        self.average=deepcopy(average).eval().requires_grad_(False)
+        self.average=(average.inference_copy() if hasattr(average,'inference_copy') else deepcopy(average)).eval().requires_grad_(False)
         self.version=version;self.average_ready=bool(average_ready)
-        q_devices={p.device for p in self.q.parameters()};avg_devices={p.device for p in self.average.parameters()}
+        q_devices={p.device for p in list(self.q.parameters())+list(self.q.buffers())};avg_devices={p.device for p in list(self.average.parameters())+list(self.average.buffers())}
         if len(q_devices)!=1 or q_devices!=avg_devices:raise ValueError('snapshot models must share one device')
         self.device=next(iter(q_devices))
 
@@ -79,7 +80,7 @@ class EpisodeActor:
         if choice.acting_policy=='q':probabilities=epsilon_greedy_distribution(q,legal,choice.epsilon)
         elif choice.acting_policy=='average':
             logits=self.snapshot.average(**inputs)
-            if logits.shape!=legal.shape or not bool(torch.isfinite(logits[legal]).all()):raise ValueError('invalid average-policy logits')
+            if logits.shape!=legal.shape or bool(torch.isnan(logits[legal]).any()) or bool(torch.isposinf(logits[legal]).any()) or not bool(torch.isfinite(logits.masked_fill(~legal,-torch.inf)).any(-1).all()):raise ValueError('invalid average-policy logits')
             probabilities=masked_log_probs(logits,legal).exp()
         else:probabilities=legal.float()/legal.sum(-1,keepdim=True)
         p=probabilities[0].double().cpu().numpy();p/=p.sum()
@@ -90,7 +91,8 @@ class EpisodeActor:
             if not 0<=action<len(p) or not observation.legal[action]:raise ValueError('illegal forced root action')
             probability=1.
         else:
-            action=int(self.rng.choice(len(p),p=p));probability=float(p[action])
+            drawn,logged=draw_actions(p[None],self.rng)
+            action=int(drawn[0]);probability=float(logged[0])
         return Commitment(action,probability,greedy,choice.best_response_mode,choice.acting_policy,self.version,choice.epsilon,forced_action is not None)
 
     def state_dict(self):return {'choice':asdict(self.choice),'rng':deepcopy(self.rng.bit_generator.state),'snapshot_version':self.snapshot.version}
@@ -113,8 +115,9 @@ class JointEpisode:
         if black.rng is white.rng:raise ValueError('players require independent private action RNG streams')
         self.log=[]
 
-    def step(self,replay,reservoir,reservoir_rng,schedule,*,record,opening_enabled=True):
+    def step(self,replay,reservoir,reservoir_rng,schedule,*,record,opening_enabled=True,on_reservoir_change=None,label_rule='greedy'):
         if self.game.terminal(self.state):raise ValueError('episode is complete')
+        if label_rule not in ('greedy','executed'):raise ValueError('invalid averaging-label control')
         if type(record) is not int or record<0:raise ValueError('nonnegative aggregate record clock required')
         if record!=replay.insertions or replay.spec!=reservoir.spec:
             raise ValueError('joint record clock/schema disagrees with storage')
@@ -140,9 +143,13 @@ class JointEpisode:
                        opponent_version=other.policy_version,policy_version=own.policy_version,mode=int(own.logical_best_response),
                        actor_mask=not self.supplemental,value_mask=True,supplemental=self.supplemental)
             if own.greedy is not None:
-                reservoir.offer(observations[role],own.greedy,record=record+index,policy_version=own.policy_version,
+                label=own.greedy
+                if label_rule=='executed':
+                    label=np.zeros_like(own.greedy);label[own.action]=True
+                changed=reservoir.offer_index(observations[role],label,record=record+index,policy_version=own.policy_version,
                                 rng=reservoir_rng,best_response_mode=own.logical_best_response,
                                 supplemental=self.supplemental,enabled=opening_enabled)
+                if changed is not None and on_reservoir_change is not None:on_reservoir_change(reservoir,changed)
         event={'step':self.steps,'record':record,'actions':[commitments[r].action for r in (BLACK,WHITE)],
                'probabilities':[commitments[r].probability for r in (BLACK,WHITE)],
                'modes':[commitments[r].logical_best_response for r in (BLACK,WHITE)],

@@ -241,29 +241,33 @@ class ReservoirBuffer:
         layout={"spatial":(np.uint8,(spec.spatial_bytes,)),"globals":(np.float32,(spec.globals,)),
                 "legal":(np.uint8,(spec.legal_bytes,)),"greedy":(np.uint8,(spec.legal_bytes,)),
                 "record":(np.uint64,()),"policy_version":(np.uint64,())}
-        self.arrays=_allocate(capacity,layout,max_bytes);self.size=self.seen=0
+        self.arrays=_allocate(capacity,layout,max_bytes);self.size=self.seen=self.revisions=0
 
     @property
     def allocated_bytes(self):return sum(a.nbytes for a in self.arrays.values())
     @property
     def snapshot_raw_bytes(self):return sum(a[:self.size].nbytes for a in self.arrays.values())+65536
 
-    def offer(self,observation,greedy,*,record,policy_version,rng,best_response_mode,
+    def offer(self,observation,greedy,**kwargs):
+        """Compatibility predicate; offer_index also identifies a replaced slot."""
+        return self.offer_index(observation,greedy,**kwargs) is not None
+
+    def offer_index(self,observation,greedy,*,record,policy_version,rng,best_response_mode,
               supplemental=False,enabled=True):
         record=_integer(record,"label record");policy_version=_integer(policy_version,"label policy version")
-        if not enabled or supplemental or not best_response_mode or record<self.opening_record:return False
+        if not enabled or supplemental or not best_response_mode or record<self.opening_record:return None
         packed=self.spec.pack(observation);greedy=np.asarray(greedy)
         if greedy.dtype!=np.bool_ or greedy.shape!=(self.spec.actions,) or not greedy.any() or (greedy&~observation.legal).any():
             raise ValueError("frozen greedy targets must be a nonempty subset of legal actions")
         if self.seen>=2**64-1:raise OverflowError("reservoir counter exhausted")
         self.seen+=1
         index=self.size if self.size<self.capacity else int(rng.integers(0,self.seen))
-        if index>=self.capacity:return False
+        if index>=self.capacity:return None
         for name,data in zip(("spatial","globals","legal"),packed):self.arrays[name][index]=data
         self.arrays["greedy"][index]=np.packbits(greedy,bitorder="little")
         self.arrays["record"][index]=record;self.arrays["policy_version"][index]=policy_version
-        self.size=min(self.size+1,self.capacity)
-        return True
+        self.size=min(self.size+1,self.capacity);self.revisions+=1
+        return index
 
     def sample(self,count,rng):
         if type(count) is not int or count<1 or not self.size:raise ValueError("positive count and nonempty reservoir required")
@@ -277,7 +281,7 @@ class ReservoirBuffer:
     def save(self,path):
         _save(path,{"format_version":FORMAT_VERSION,"kind":"reservoir","capacity":self.capacity,
                     "spec":asdict(self.spec),"size":self.size,"seen":self.seen,
-                    "opening_record":self.opening_record},self.arrays,self.size)
+                    "opening_record":self.opening_record,"revisions":self.revisions},self.arrays,self.size)
 
     @classmethod
     def load(cls,path,*,max_bytes=DEFAULT_MAX_BYTES):
@@ -287,6 +291,8 @@ class ReservoirBuffer:
         seen=_integer(meta["seen"],"seen");size=_integer(meta["size"],"size",maximum=result.capacity)
         if size!=min(seen,result.capacity):raise ValueError("invalid reservoir counts")
         _restore_arrays(result.arrays,arrays,size);result.seen,result.size=seen,size
+        result.revisions=_integer(meta.get("revisions",size),"reservoir changes",maximum=seen)
+        if result.revisions<size:raise ValueError("invalid reservoir change counter")
         if size:
             if not np.isfinite(result.arrays["globals"][:size]).all():raise ValueError("nonfinite reservoir globals")
             greedy=np.unpackbits(result.arrays["greedy"][:size],axis=-1,count=result.spec.actions,bitorder="little")

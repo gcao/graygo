@@ -183,13 +183,14 @@ class NFSPBackend:
             raise ValueError('Q and average-policy parameters must be independent')
         self.target=deepcopy(q).to(self.device).eval().requires_grad_(False)
         self.q_optimizer=torch.optim.Adam(self.q.parameters(),lr=config.learning_rate)
-        self.average_optimizer=torch.optim.Adam(self.average.parameters(),lr=config.learning_rate)
+        self.exact_average=bool(getattr(self.average,'exact_reservoir_average',False))
+        self.average_optimizer=None if self.exact_average else torch.optim.Adam(self.average.parameters(),lr=config.learning_rate)
         self.counters=NFSPCadence()
 
     @property
     def average_ready(self):return self.counters.supervised_updates>0
 
-    def learn_after_fresh(self,count,ordinary,replay,reservoir,rng,*,epsilon):
+    def learn_after_fresh(self,count,ordinary,replay,reservoir,rng,*,epsilon,supervised_rng=None,sample_observer=None):
         if replay.spec!=reservoir.spec:raise ValueError('replay and reservoir schemas differ')
         # Validate available samples before advancing a recoverable clock.
         if replay.insertions!=self.counters.fresh_q+count:
@@ -201,13 +202,18 @@ class NFSPBackend:
         if q_due:
             for _ in range(self.config.q_reuse):
                 data=replay.sample(self.config.batch,rng)
+                if sample_observer is not None:sample_observer(data)
                 batch=OneStepBatch.from_replay(data,self.device)
                 report['q'].append(update_q(self.q,self.target,self.q_optimizer,batch,epsilon=epsilon,max_grad_norm=self.config.max_grad_norm))
                 self.counters.q_updates+=1;self.counters.q_loss_targets+=self.config.batch
         if sl_due and reservoir.size>=self.config.batch:
-            data=reservoir.sample(self.config.batch,rng)
-            report['supervised']=update_average(self.average,self.average_optimizer,data,device=self.device,max_grad_norm=self.config.max_grad_norm)
-            self.counters.supervised_updates+=1;self.counters.supervised_targets+=self.config.batch
+            if self.exact_average:
+                self.average.publish_reservoir(reservoir)
+                report['supervised']={'loss':None,'targets':reservoir.size,'method':'exact reservoir conditional label mean'}
+            else:
+                data=reservoir.sample(self.config.batch,rng if supervised_rng is None else supervised_rng)
+                report['supervised']=update_average(self.average,self.average_optimizer,data,device=self.device,max_grad_norm=self.config.max_grad_norm)
+            self.counters.supervised_updates+=1;self.counters.supervised_targets+=report['supervised']['targets']
         if refresh:
             self.target.load_state_dict(self.q.state_dict());self.counters.target_refreshes+=1
             report['target_refreshed']=True
@@ -216,12 +222,12 @@ class NFSPBackend:
     def state_dict(self):
         return {'config':asdict(self.config),'q':self.q.state_dict(),'target':self.target.state_dict(),
                 'average':self.average.state_dict(),'q_optimizer':self.q_optimizer.state_dict(),
-                'average_optimizer':self.average_optimizer.state_dict(),'counters':asdict(self.counters)}
+                'average_optimizer':None if self.average_optimizer is None else self.average_optimizer.state_dict(),'counters':asdict(self.counters)}
 
     def load_state_dict(self,state):
         if state['config']!=asdict(self.config):raise ValueError('NFSP resume settings differ')
         counters=NFSPCadence(**state['counters']);counters.validate()
-        if counters.q_loss_targets!=counters.q_updates*self.config.batch or counters.supervised_targets!=counters.supervised_updates*self.config.batch:
+        if counters.q_loss_targets!=counters.q_updates*self.config.batch or (not self.exact_average and counters.supervised_targets!=counters.supervised_updates*self.config.batch) or counters.supervised_targets<counters.supervised_updates*self.config.batch:
             raise ValueError('NFSP optimizer/target counts disagree')
         expected_q=max(0,counters.fresh_q//self.config.batch-self.config.learning_start//self.config.batch+1)*self.config.q_reuse
         if counters.q_updates!=expected_q or counters.supervised_updates>counters.fresh_ordinary//self.config.batch:
@@ -229,6 +235,9 @@ class NFSPBackend:
         if counters.target_refreshes!=counters.fresh_q//self.config.target_every:
             raise ValueError('NFSP target clock differs from fresh records')
         for name in ('q','target','average'):getattr(self,name).load_state_dict(state[name])
-        self.q_optimizer.load_state_dict(state['q_optimizer']);self.average_optimizer.load_state_dict(state['average_optimizer'])
+        self.q_optimizer.load_state_dict(state['q_optimizer'])
+        if self.average_optimizer is None:
+            if state['average_optimizer'] is not None:raise ValueError('exact-average control cannot restore a neural optimizer')
+        else:self.average_optimizer.load_state_dict(state['average_optimizer'])
         self.counters=counters
         self.target.eval().requires_grad_(False)

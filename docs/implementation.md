@@ -35,11 +35,21 @@ Objective: implement Gray Go following `docs/design.md`, including its verificat
 - Opaque 50/100/200-round controls, a forced-action indexing variant, a 40-equivalent-action stress variant and a meaningful two-round branching game are implemented. Codebooks are randomly permuted independently of semantic order, with exact manifest/digest support.
 - Exact finite Markov solving, policy/action-value evaluation and best responses are implemented for those adapters. Latent episode mixtures continue to use the complete-history evaluator.
 - Supported-coverage scheduling gives each horizon/controller equal rounds, with randomized ten-episode blocks containing eight ordinary and one episode per forced branch. Mid-block and mid-episode resume checks pass.
-- The full suite passes **100 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
+- The full suite passes **114 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
+
+## Resumable matrix NFSP trainer
+
+`graygo train-nfsp` now runs neural or tabular native self-play, with shared parameters across roles and two fresh own-side records per physical game. It batches inference over the two public role observations and reuses the production Q loss, replay, masks, schedules and action sampler. Q, supervised and reservoir RNG streams are separate.
+
+The tabular average policy is the exact conditional mean of the frozen greedy-label distributions currently in Algorithm R's reservoir, refreshed at the same supervised cadence. Integer counts by tie cardinality make tracker rebuilds independent of insertion order. Zero-support actions remain zero at deployment. A pure82 executed-action-label control uses the same behavior and changes only its averaging targets.
+
+Resume bundles include all three models, both optimizers where applicable, buffers/cursors, clocks, RNGs, evaluations and the episode-log committed prefix. Tests reproduce future weights, replay/reservoir arrays, action logs and evaluations exactly after a partial-update pause. A per-episode binary audit retains mode, actual actor, both mode/ramp draws, ramp probability, epsilon, model generation, actions, behavior probabilities and terminal payoff. Checksummed prefixes detect corruption and remove only uncommitted crash tails on explicit resume. Writer locks and stale-checkpoint checks prevent overlapping progress.
+
+Short diagnostic configurations cannot satisfy the formal-protocol flag. The default 15M-record primary recipe still requires three seeds, final-five checks, the other bounded/delayed/branching tasks and the complete cost ledger before A2 exit. No NFSP convergence or 9×9 strength claim is established by the trainer verification.
 
 ## Remaining work toward the full objective
 
-1. Build the NFSP run orchestrator, complete trainer/buffer/episode checkpoint bundles, actual tabular NFSP controls with reservoir-averaged targets, and task-specific neural adapters. The shared update/collector and direct tabular Q estimates are implemented; exact-BR fictitious play does not replace the required Q-learning control.
+1. Extend the implemented resumable matrix NFSP trainer to multiround task/board collection, full episode/buffer checkpoint bundles and per-branch evaluation. The neural and actual tabular reservoir-average matrix paths, shared loss/sampler/counters and CLI are implemented. Their formal learning runs remain pending profiling.
 2. Wire the implemented opaque/branching tasks and balanced supplemental schedule into production-path training/evaluation. Run the one-step reuse comparison and exact per-branch Q/greedy and average-policy gates before selecting any conditional Retrace work.
 3. Run the selected NFSP A2 protocol across short mixed tasks, bounded Gray Go and the delayed family with three seeds, final-five gates and fixed aggregate counters.
 4. Integrate the ninth-review development/confirmation cohorts, baseline confidence gates, opening checks and pilot safeguards. Keep packed-feature storage's current overhead explicit; the design's compact rule-state/regenerated-feature backend is still pending.

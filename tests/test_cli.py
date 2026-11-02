@@ -45,3 +45,20 @@ class CommandTests(unittest.TestCase):
         self.assertEqual(report['result']['filled_rows'],16)
         self.assertEqual(report['result']['fresh_records'],32)
         self.assertTrue(report['result']['roundtrip_verified'])
+
+    def test_nfsp_cli_writes_report_and_resumes_completed_run(self):
+        with tempfile.TemporaryDirectory() as folder:
+            run=Path(folder)/'run';output=Path(folder)/'report.json'
+            args=('train-nfsp','--task','asymmetric','--learner','tabular','--records','128',
+                  '--run-dir',str(run),'--output',str(output))
+            result=self.run_cli(*args)
+            self.assertEqual(result.returncode,0,result.stderr)
+            report=json.loads(output.read_text())
+            self.assertEqual(report['result']['per_role_records'],[64,64])
+            self.assertFalse(report['result']['formal_gate_passed'])
+            resumed=self.run_cli(*args,'--resume')
+            self.assertEqual(resumed.returncode,0,resumed.stderr)
+            other=json.loads(output.read_text())
+            self.assertEqual(other['result']['counters'],report['result']['counters'])
+            self.assertIsNone(other['manifest']['rules'])
+            self.assertEqual(other['manifest']['encoding_version'],'graygo/nfsp-matrix-role/1')

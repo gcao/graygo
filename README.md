@@ -39,7 +39,7 @@ The optional `audit-native --library PATH` command compares reference-engine tra
 
 ## Current implementation
 
-The repository contains the immutable reference engine, full-state encoding, random/tactical baselines, policy/value/Q networks, finite-game solvers, checkpoint storage and recovery, and CLI commands. The completed PPO matrix preflight selected NFSP; its independently audited evidence is in [the preflight report](docs/verification/ppo-preflight.md). The shared NFSP update/collection backend, compact buffers and solved delayed/branching controls are implemented. The NFSP campaign driver, convergence gates and scientific comparisons remain in progress; synthetic updates are not trained-game results.
+The repository contains the immutable reference engine, full-state encoding, random/tactical baselines, policy/value/Q networks, finite-game solvers, checkpoint storage and recovery, and CLI commands. The completed PPO matrix preflight selected NFSP; its independently audited evidence is in [the preflight report](docs/verification/ppo-preflight.md). The shared NFSP update/collection backend, compact buffers and solved delayed/branching controls are implemented. The resumable neural/tabular NFSP matrix driver is available; multiround orchestration, formal convergence gates and scientific comparisons remain in progress; synthetic updates are not trained-game results.
 
 ## Learning preflight
 
@@ -59,7 +59,7 @@ Preflight runs are resumable by repeating the command with the same plan. Finish
 
 ## NFSP verification
 
-The one-step backend in `nfsp.py` is shared by compact task and board models. `nfsp_collection.py` provides frozen per-episode native self-play and independently sampled simultaneous actions. `tasks.py` supplies opaque delayed/branching controls and balanced value-only coverage; `public_game.py` computes exact fixed-policy/action values and responses. Training-run orchestration and the tabular reservoir-average control remain required before formal NFSP A2 runs.
+The one-step backend in `nfsp.py` is shared by compact task and board models. `nfsp_collection.py` provides frozen per-episode native self-play and independently sampled simultaneous actions. `tasks.py` supplies opaque delayed/branching controls and balanced value-only coverage; `public_game.py` computes exact fixed-policy/action values and responses. The resumable matrix trainer includes an exact reservoir-average tabular control and a matched executed-action-label control for `pure82`. Multiround integration and formal A2 learning evidence remain required.
 
 ```sh
 .venv/bin/python -m unittest discover -s tests -v
@@ -68,3 +68,15 @@ The one-step backend in `nfsp.py` is shared by compact task and board models. `n
 ```
 
 See [NFSP backend verification](docs/verification/nfsp-backend.md) for the checks and their limits.
+
+## NFSP matrix training
+
+```sh
+# Primary 15M-record recipe; 5M reservoir opening, 5M–7M hand-off.
+.venv/bin/graygo train-nfsp --task asymmetric --learner tabular --run-dir runs/nfsp-asym-table-seed0
+.venv/bin/graygo train-nfsp --task asymmetric --learner neural --run-dir runs/nfsp-asym-neural-seed0
+# Continue the identical plan after interruption.
+.venv/bin/graygo train-nfsp --task asymmetric --learner neural --run-dir runs/nfsp-asym-neural-seed0 --resume
+```
+
+`--records`, `--reservoir-open` and `--handoff-end` can produce diagnostic profiles; such changed recipes cannot pass the formal-protocol flag. `--label-rule executed` is restricted to `pure82`. The exact tabular average is published at supervised cadence, while Q uses the same optimizer/loss/replay path as the neural learner. Runs save permanent public weights, bounded resume bundles and a checkpointed binary per-episode audit. SIGINT/SIGTERM saves at the next balanced collection chunk.

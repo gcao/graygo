@@ -168,10 +168,27 @@ def play(args):
     return {"black_score":str(result.black),"white_score":str(result.white),"reason":state.terminal_reason}
 
 
+def train_nfsp(args):
+    import signal
+    from .nfsp_training import NFSPMatrixConfig,NFSPMatrixTrainer
+    stopped=[]
+    previous={}
+    for name in (signal.SIGINT,signal.SIGTERM):
+        previous[name]=signal.signal(name,lambda signum,frame:stopped.append(signum))
+    try:
+        config=NFSPMatrixConfig(task=args.task,learner=args.learner,seed=args.seed,records=args.records,
+            eval_every=args.eval_every,device=args.device,q_reuse=args.q_reuse,reservoir_open=args.reservoir_open,
+            handoff_end=args.handoff_end,uniform_comparison=args.uniform_comparison,label_rule=args.label_rule,
+            time_cap_seconds=args.time_cap_hours*3600)
+        return NFSPMatrixTrainer(config,args.run_dir,resume=args.resume).run(stop_requested=lambda:bool(stopped))
+    finally:
+        for name,handler in previous.items():signal.signal(name,handler)
+
+
 def main(argv=None):
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
@@ -194,6 +211,14 @@ def main(argv=None):
             p.add_argument("--buffer-dir",required=True);p.add_argument("--capacity",type=int,default=500000)
             p.add_argument("--records",type=int,default=10000);p.add_argument("--iterations",type=int,default=50)
             p.add_argument("--batch",type=int,default=512)
+        elif name=="train-nfsp":
+            p.add_argument("--run-dir",required=True);p.add_argument("--task",choices=("asymmetric","rps","matching-pennies","pure82"),default="asymmetric")
+            p.add_argument("--learner",choices=("neural","tabular"),default="neural")
+            p.add_argument("--records",type=int,default=15000000);p.add_argument("--eval-every",type=int,default=500000)
+            p.add_argument("--device",default="cpu");p.add_argument("--q-reuse",type=int,choices=(1,4),default=1)
+            p.add_argument("--reservoir-open",type=int,default=5000000);p.add_argument("--handoff-end",type=int,default=7000000)
+            p.add_argument("--time-cap-hours",type=float,default=8);p.add_argument("--resume",action="store_true")
+            p.add_argument("--uniform-comparison",action="store_true");p.add_argument("--label-rule",choices=("greedy","executed"),default="greedy")
         elif name in ("train-matrix","preflight"):
             p.add_argument("--run-dir",required=True)
             p.add_argument("--records",type=int,default=2000000)
@@ -210,13 +235,14 @@ def main(argv=None):
     if any(getattr(args,name,1)<1 for name in ("games","rounds","batch","batches")):
         parser.error("games and rounds must be positive")
     try:
-        matrix_command=args.command in ("train-matrix","preflight")
+        matrix_command=args.command in ("train-matrix","preflight","train-nfsp")
         rules=None if matrix_command else _rules(args)
         metadata=make_manifest(seed=args.seed,command=vars(args),rules=None if rules is None else
                                {"size":rules.size,"max_rounds":rules.max_rounds,"collision":rules.collision})
         if matrix_command:
             metadata.update({"rule_version":None,"baseline_version":None,"encoding_version":"graygo/matrix-role/1"})
             if args.command=="preflight":metadata.update({"seed":None,"seeds":[0,1,2]})
+            if args.command=="train-nfsp":metadata["encoding_version"]="graygo/nfsp-matrix-role/1"
         result=globals()[args.command.replace("-","_")](args)
         if args.command=="solve":metadata["rules"]=result["state"]["rules"]
         report={"manifest":metadata,"result":result}

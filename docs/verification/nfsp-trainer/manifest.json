@@ -1,0 +1,31 @@
+{
+  "baseline_version": "graygo/baselines/1",
+  "command": {
+    "operation": "unittest discover -s tests -v",
+    "result": "114 passed",
+    "seconds": 22.907
+  },
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_threads": 24,
+  "created_at": "2026-11-02T02:36:12.220723+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 131382255616,
+  "encoding_version": "graygo/encoding/1",
+  "format_version": 1,
+  "git_commit": "5cb2c4b4785f2b5746da133cbfc414ab551cbf10",
+  "git_dirty": true,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "hostname": "home-ai",
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "rule_version": "graygo/1",
+  "rules": null,
+  "run_id": "4a738391e8f54174a6b9a7aff84e53eb",
+  "seed": 2,
+  "source_sha256": "4c13ba875326ed1f843cb3ca31433063e72793cb8a677d4968a0652766eb3e0c"
+}
