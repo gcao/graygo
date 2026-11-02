@@ -162,6 +162,35 @@ def run_board_diagnostic(args,*,prior_setup_seconds=0.):
     return result
 
 
+def _cohort_output_guard(args,roots):
+    if args.output is not None:
+        output=Path(args.output).resolve()
+        if any(output.is_relative_to(Path(root).resolve()) for root in roots):
+            raise ValueError('save cohort output outside its frozen registry and training inputs')
+
+
+def cohort_register(args):
+    from .cohort_evidence import DevelopmentCohort
+    if _rules(args)!=Rules():raise ValueError('development cohorts use the fixed official 9x9 rules')
+    roots={}
+    for item in args.training_run:
+        if '=' not in item:raise ValueError('training runs use seed=original_run_directory')
+        seed,path=item.split('=',1);seed=int(seed)
+        if seed in roots:raise ValueError('duplicate original development seed')
+        roots[seed]=path
+    _cohort_output_guard(args,[args.run_dir,*roots.values()])
+    cohort=DevelopmentCohort.register(args.run_dir,args.name,roots)
+    return {'registry_sha256':cohort.sha256,'registry':cohort.body,'a2_complete':False,'formal_scope_approved':False}
+
+
+def cohort_report(args):
+    from .cohort_evidence import DevelopmentCohort
+    if _rules(args)!=Rules():raise ValueError('development cohorts use the fixed official 9x9 rules')
+    cohort=DevelopmentCohort.load(args.run_dir)
+    _cohort_output_guard(args,[cohort.root,*[row['root'] for row in cohort.body['training_runs'].values()]])
+    return cohort.report(args.stage)
+
+
 def generate_exposure(args):
     import fcntl
     from .curriculum import create_catalog,ExposureCatalog
@@ -393,7 +422,7 @@ def main(argv=None):
     command_started=time.monotonic()
     parser=argparse.ArgumentParser(prog="graygo")
     commands=parser.add_subparsers(dest="command",required=True)
-    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board","run-board-diagnostic","generate-exposure","build-probes","verify-probes","science-evaluate","science-report"):
+    for name in ("simulate","profile","solve","play","audit-native","profile-network","train-matrix","preflight","profile-buffers","train-nfsp","train-nfsp-task","build-native","evaluate","calibrate-promotion","profile-board","run-board-diagnostic","cohort-register","cohort-report","generate-exposure","build-probes","verify-probes","science-evaluate","science-report"):
         p=commands.add_parser(name)
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
@@ -458,6 +487,11 @@ def main(argv=None):
         elif name=="generate-exposure":
             p.add_argument("--catalog",required=True);p.add_argument("--train-families",type=int,default=64)
             p.add_argument("--heldout-families",type=int,default=32);p.add_argument("--max-attempts",type=int,default=100000)
+        elif name=="cohort-register":
+            p.add_argument("--run-dir",required=True);p.add_argument("--name",required=True)
+            p.add_argument("--training-run",action="append",required=True)
+        elif name=="cohort-report":
+            p.add_argument("--run-dir",required=True);p.add_argument("--stage",choices=("pilot","screening"),default="pilot")
         elif name=="run-board-diagnostic":
             p.add_argument("--run-dir",required=True);p.add_argument("--records",type=int,default=16384)
             p.add_argument("--until-records",type=int);p.add_argument("--time-cap-hours",type=float,required=True)
@@ -528,6 +562,8 @@ def main(argv=None):
             metadata.update({key:actual[key] for key in ("rules","rule_version","encoding_version","baseline_version")})
         if args.command in ("science-evaluate","science-report"):
             metadata["rules"]={"size":9,"max_rounds":200,"collision":"gray/remove"}
+        if args.command in ("cohort-register","cohort-report"):
+            metadata.update(seed=None,seeds=[100,101,102])
         report={"manifest":metadata,"result":result}
         if args.output:write_report(args.output,report)
         print(json.dumps(report,indent=2,sort_keys=True))

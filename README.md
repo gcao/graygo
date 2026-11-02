@@ -235,3 +235,15 @@ This command is bounded to 65,536 records and one cumulative hour, with a delibe
 ```
 
 Only a complete catalog of 32 distinct classes, balanced sixteen increase/sixteen decrease, can pass family coverage. Partial proofs and actual counts remain visible. The historical liberty generator stays available for its one-class geometric regression catalog. See [construction, legal setup, exact qualification and evidence scope](docs/verification/probe-diversity.md).
+
+
+## Original development cohort evidence
+
+`cohort-register` freezes the three original seeded initializations before training. `cohort-report` reads permanent milestone models and raw scored SQLite inputs, recomputes the largest completed confidence looks and enforces the fixed three-seed pilot/screening rules. It retains mandatory average diagnostics, rejects changed source/seeds/models/baselines/openings and takes shared input locks while reporting. It writes no frozen input artifact.
+
+```sh
+.venv/bin/graygo cohort-register --run-dir runs/config/cohort --name config --training-run 100=runs/config/seed100 --training-run 101=runs/config/seed101 --training-run 102=runs/config/seed102
+.venv/bin/graygo cohort-report --run-dir runs/config/cohort --stage pilot --output reports/config-pilot.json
+```
+
+These commands collect no training records or evaluation games and issue no A2/resource/training authority. A numerical gate result remains conditional on the independently verified project prerequisites. See [archive/score verification, locking, protocol rules and remaining authority](docs/verification/cohort-evidence.md).

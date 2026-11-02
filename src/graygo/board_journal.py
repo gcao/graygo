@@ -5,15 +5,15 @@ nor advances a learner; the production scope/cohort controller must own that
 separate authority and call before_advance before collecting any records.
 """
 from dataclasses import dataclass,asdict
+from contextlib import ExitStack
 import io
 import json
 from pathlib import Path
 import torch
 from .confidence import canonical_sha
 from .engine import Rules
-from .evaluation import BaselinePolicy,EvaluationPlan,EvaluationRun,FrozenNeuralPolicy,seed_for
 from .manifest import make_manifest,source_digest,write_report
-from .pilot_gates import PilotProtocol,PRE,POST,DEVELOPMENT_SEEDS,CONFIRMATION_SEEDS,endpoint,subject_label
+from .pilot_gates import PilotProtocol,PRE,POST,DEVELOPMENT_SEEDS,CONFIRMATION_SEEDS
 from .storage import CheckpointStore,DEFAULT_RESERVE,digest
 
 JOURNAL_VERSION='graygo/board-milestone-journal/1'
@@ -189,34 +189,33 @@ class BoardMilestoneJournal:
         return self._write_decision({'kind':'diagnostic','status':status,'formal_evidence':False})
 
     def record_pilot_opening(self,protocol,evaluation_directories,*,budget_exhausted=False):
+        from .cohort_evidence import read_milestone
+        from .evaluation_evidence import evaluation_read_lock
         if self.plan.scope!='development' or self.records!=5000000:raise ValueError('formal pilot opening uses the original 5M development boundary')
         seed=self.runtime.config.seed
         if dict(protocol.training_runs).get(seed)!=self.run_sha256:raise ValueError('pilot registry is not this initialized training run')
-        reads=[]
+        allowed={(record,opponent) for record in PRE for opponent in ('random','tactical')}
+        if set(evaluation_directories)-allowed:raise ValueError('opening evidence must use only its original fixed pre-window')
+        reads=[];cache={}
         # Public weight loading/evaluation must not consume any training RNG.
         devices=[self.runtime.backend.device.index or 0] if self.runtime.backend.device.type=='cuda' else []
-        with torch.random.fork_rng(devices=devices):
+        with torch.random.fork_rng(devices=devices),ExitStack() as locks:
+            for path in evaluation_directories.values():locks.enter_context(evaluation_read_lock(path))
             for record in PRE:
                 if str(record) not in self.archived:raise ValueError('pre-opening snapshot archive is missing')
-                subject=FrozenNeuralPolicy.from_archive(self._archive_path(record),representation='greedy_q',device=str(self.runtime.backend.device),label=subject_label(seed,record,'greedy_q'))
                 for opponent in ('random','tactical'):
                     key=(record,opponent)
                     if key not in evaluation_directories:continue
-                    path=Path(evaluation_directories[key]);contract=json.loads((path/'plan.json').read_text());data=dict(contract['plan']);data['rules']=Rules(**data['rules']);plan=EvaluationPlan(**data)
-                    expected_seed=seed_for(self.plan.evaluation_seed,'pilot-evaluation',seed,record,'greedy_q',opponent)
-                    if plan.endpoint!=endpoint(seed,record,'greedy_q',opponent) or plan.subject_label!=subject.label or plan.seed!=expected_seed or plan.rules!=Rules() or plan.comparison!='utility' or plan.looks!=protocol.looks or plan.confidence_sha256!=protocol.family.sha256:
-                        raise ValueError('pilot evaluation plan is not the preregistered milestone/seed/family')
-                    run=EvaluationRun(plan,path,subject,BaselinePolicy(opponent),resume=True,reserve_bytes=self.reserve)
-                    available=2*len(run.records())
-                    if available>protocol.looks[-1]:raise ValueError('pilot evidence exceeds its registered look')
-                    completed=[n for n in protocol.looks if n<=available]
-                    if completed:reads.append(run.estimate(protocol.family,max(completed)))
-        window=protocol.window(reads,seed,window='pre')
-        if window['status']=='incomplete' and not budget_exhausted:
-            progress={'records':self.records,'protocol_sha256':protocol.sha256,'window':window,'reads':reads,'status':'incomplete'}
-            write_report(self.root/'opening-progress.json',progress,reserve_bytes=self.reserve);return progress
-        status='pass' if window['status']=='pass' else 'no_go'
-        return self._write_decision({'kind':'pilot','status':status,'protocol':protocol.to_dict(),'reads':reads,'window':window,'budget_exhausted':bool(budget_exhausted)})
+                    receipt,_=read_milestone(self.root,protocol,seed,record,'greedy_q',opponent,evaluation_directories[key],cache=cache)
+                    if receipt is not None:reads.append(receipt)
+            window=protocol.window(reads,seed,window='pre')
+            if window['status']=='incomplete' and not budget_exhausted:
+                progress={'records':self.records,'protocol_sha256':protocol.sha256,'window':window,'reads':reads,'status':'incomplete'}
+                write_report(self.root/'opening-progress.json',progress,reserve_bytes=self.reserve);return progress
+            status='pass' if window['status']=='pass' else 'no_go'
+            # All scored inputs remain shared-locked until the immutable event
+            # commits. A concurrent later look cannot race this decision.
+            return self._write_decision({'kind':'pilot','status':status,'protocol':protocol.to_dict(),'reads':reads,'window':window,'budget_exhausted':bool(budget_exhausted)})
 
     def state_dict(self):
         self._sync_decision()

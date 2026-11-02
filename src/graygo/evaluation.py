@@ -65,12 +65,12 @@ class FrozenNeuralPolicy:
         directory=Path(archive).resolve()
         if directory.is_file():directory=directory.parent
         if directory.parent.name!='weights' or representation not in ('average','greedy_q'):raise ValueError('NFSP public weights archive and explicit policy required')
-        root=directory.parents[1];store=CheckpointStore(root);sealed=store.verify(directory)
+        root=directory.parents[1];sealed=CheckpointStore.verify(directory)
         manifest=json.loads((root/'run.json').read_text());data=torch.load(directory/'models.pt',weights_only=True,map_location=device)
         if manifest.get('rules') is None or data['config']!=manifest['config'] or sealed['metadata']['source_sha256']!=manifest['source_sha256']:raise ValueError('archive provenance/configuration differs')
         config=data['config'];shape=ModelConfig(config.get('width',64),config.get('blocks',8),config.get('norm_groups',8))
         # Loading public weights must not consume the training process's RNG.
-        with torch.random.fork_rng(devices=[]):
+        with torch.random.fork_rng(devices=[]),torch.device('cpu'):
             model=(QNet(shape) if representation=='greedy_q' else PolicyNet(shape)).to(device)
         model.load_state_dict(data['q' if representation=='greedy_q' else 'average'])
         origin={'training_run_sha256':hashlib.sha256((root/'run.json').read_bytes()).hexdigest(),'source_sha256':manifest['source_sha256'],
@@ -218,12 +218,21 @@ class EvaluationPlan:
 
     def __post_init__(self):
         object.__setattr__(self,'looks',tuple(self.looks))
-        if not all(isinstance(v,str) and v for v in (self.label,self.subject_label,self.endpoint)) or type(self.seed) is not int or self.seed<0:raise ValueError('named fixed evaluation labels and seed required')
+        if not all(isinstance(v,str) and v for v in (self.label,self.subject_label,self.endpoint)) or not isinstance(self.rules,Rules) or type(self.seed) is not int or self.seed<0:raise ValueError('named fixed evaluation labels, rules and seed required')
         if not isinstance(self.confidence_sha256,str) or len(self.confidence_sha256)!=64 or any(c not in '0123456789abcdef' for c in self.confidence_sha256) or self.comparison not in ('utility','improvement'):raise ValueError('predeclared confidence-family fingerprint and endpoint type required')
         if (self.decision_protocol_sha256 is None)!=(self.calibration_sha256 is None):raise ValueError('protected protocol and pre-candidate calibration must be bound together')
         for value in (self.decision_protocol_sha256,self.calibration_sha256):
             if value is not None and (not isinstance(value,str) or len(value)!=64 or any(c not in '0123456789abcdef' for c in value)):raise ValueError('invalid protected protocol/calibration fingerprint')
         if not self.looks or tuple(sorted(set(self.looks)))!=self.looks or any(type(n) is not int or n<4 or n%2 for n in self.looks):raise ValueError('fixed increasing color-balanced looks required')
+
+
+def evaluation_contract(plan,subject,opponent,openings,incumbent=None):
+    """Pure shared contract for collection and read-only archive verification."""
+    return {'evaluation_version':EVALUATION_VERSION,'plan':json.loads(json.dumps(asdict(plan))),
+        'subject':subject.identity,'subject_sha256':subject.sha256,'opponent':opponent.identity,'opponent_sha256':opponent.sha256,
+        'incumbent':None if incumbent is None else incumbent.identity,'incumbent_sha256':None if incumbent is None else incumbent.sha256,
+        'opening_distribution':openings.identity,'opening_sha256':openings.sha256,'rule_version':RULE_VERSION,'source_sha256':source_digest(),
+        'unit':'agents exchange colors on the same complete opening; within-pair dependence retained; no trajectory deduplication','opening_semantics':'declared new episode roots; continuation-prefix mixtures require strategies.py'}
 
 
 class EvaluationRun:
@@ -233,11 +242,7 @@ class EvaluationRun:
         self.subject,self.opponent,self.incumbent=subject,opponent,incumbent;self.openings=openings or EmptyStarts();self.reserve=reserve_bytes
         for p in (subject,opponent,incumbent):
             if p is not None:p.assert_frozen()
-        self.contract={'evaluation_version':EVALUATION_VERSION,'plan':json.loads(json.dumps(asdict(plan))),
-            'subject':subject.identity,'subject_sha256':subject.sha256,'opponent':opponent.identity,'opponent_sha256':opponent.sha256,
-            'incumbent':None if incumbent is None else incumbent.identity,'incumbent_sha256':None if incumbent is None else incumbent.sha256,
-            'opening_distribution':self.openings.identity,'opening_sha256':self.openings.sha256,'rule_version':RULE_VERSION,'source_sha256':source_digest(),
-            'unit':'agents exchange colors on the same complete opening; within-pair dependence retained; no trajectory deduplication','opening_semantics':'declared new episode roots; continuation-prefix mixtures require strategies.py'}
+        self.contract=evaluation_contract(plan,subject,opponent,self.openings,incumbent)
         self.sha256=canonical_sha(self.contract);path=self.root/'plan.json';self.database=self.root/'evidence.sqlite'
         with self._lock():
             if resume:

@@ -65,3 +65,10 @@ The candidate-independent multigroup probe feasibility run completed 9,382 propo
 ## Frozen multigroup construction reservation
 
 The [single multigroup allocation](collision-probe-diverse-v1-allocation.json) reserves at most 1,800 seconds of new construction and 3,600 seconds of independent proof/source-seed verification under the design's eight-hour CPU probe stage. These are separately declared ceilings, **not completed costs**. Its source is isolated in a clean frozen worktree; the actual run/limits were checked against the allocation and original OS PID 2384063 was observed live. Prior construction measurements and additional audit/test/development overhead remain separately recorded. A partial catalog cannot pass coverage, and this reservation funds no training or confirmation inference campaign.
+
+
+## Terminal multigroup construction, independent audit in progress
+
+The original frozen construction has stopped at its unchanged cap: **1,800.007 CPU process-wall seconds**, 150,507 proposals and 24 distinct complete-game families. The roughly 0.007-second overrun is a bounded final attempt. This settles the construction portion as measured consumption; it does not select an extension or replacement. The [full terminal partial proofs](../verification/probe-diversity-v1-construction/README.md) remain below the required 32-family coverage.
+
+The separately reserved 3,600-second exact-proof/source-seed audit is still live as original PID 2393525. Its regeneration repeats the original proposal prefix solely for verification; it is separate measured audit work, not another construction search. Actual audit cost and original-prefix reproduction remain pending its terminal result. Earlier construction/feasibility measurements and additional test/development overhead retain their existing scope; this ledger remains a partial cost record.
