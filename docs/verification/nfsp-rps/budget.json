@@ -1,0 +1,19 @@
+{
+  "funding": [
+    {
+      "learner": "tabular",
+      "phase_weighted_15M_seconds": 1361.6516857466195,
+      "time_ceiling_seconds": 5400.0,
+      "twofold_margin_passed": true
+    },
+    {
+      "learner": "neural",
+      "phase_weighted_15M_seconds": 1446.5676719002659,
+      "time_ceiling_seconds": 5400.0,
+      "twofold_margin_passed": true
+    }
+  ],
+  "scope": "terminal matrix only; no delayed/9x9 price",
+  "source_sha256": "4c13ba875326ed1f843cb3ca31433063e72793cb8a677d4968a0652766eb3e0c",
+  "task": "rps"
+}

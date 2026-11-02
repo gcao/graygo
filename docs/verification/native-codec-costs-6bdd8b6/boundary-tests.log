@@ -1,0 +1,11 @@
+test_build_reuse_and_descriptor_hash_enforcement (test_native_decode.NativeDecodeTests.test_build_reuse_and_descriptor_hash_enforcement) ... ok
+test_generated_states_both_rules_sizes_perspectives_and_terminal_modes (test_native_decode.NativeDecodeTests.test_generated_states_both_rules_sizes_perspectives_and_terminal_modes) ... ok
+test_invalid_packets_match_reference_rejection_and_padding (test_native_decode.NativeDecodeTests.test_invalid_packets_match_reference_rejection_and_padding) ... ok
+test_mutated_packets_have_identical_acceptance_and_observations (test_native_decode.NativeDecodeTests.test_mutated_packets_have_identical_acceptance_and_observations) ... ok
+test_real_neural_training_and_active_checkpoint_match_reference (test_native_decode.NativeDecodeTests.test_real_neural_training_and_active_checkpoint_match_reference) ... ok
+test_transforms_history_restrictions_and_counter_width (test_native_decode.NativeDecodeTests.test_transforms_history_restrictions_and_counter_width) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 4.792s
+
+OK

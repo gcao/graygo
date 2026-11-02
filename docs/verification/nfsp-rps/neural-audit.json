@@ -1,0 +1,43 @@
+{
+  "a2_complete": false,
+  "accepted_reservoir_changes": 521518,
+  "average_final_five_passed": true,
+  "eligible_labels": 997988,
+  "episode_audit_sha256": "d28b27f7835f448925de3a38b3cfc5fab73b45ec4778cb2a5fae16ecb2b66ffa",
+  "final_five_gaps": [
+    [
+      0.007963121411986462,
+      0.011252314187655266
+    ],
+    [
+      0.0013322234153747559,
+      0.0041658878326416016
+    ],
+    [
+      0.0069250764526449515,
+      0.002698451441434102
+    ],
+    [
+      0.0036142468452453613,
+      0.012268036969543594
+    ],
+    [
+      0.007368504781469554,
+      0.006388396786260242
+    ]
+  ],
+  "first_supervised_record": 5001472,
+  "formal_protocol": true,
+  "format_version": 1,
+  "learner": "neural",
+  "manifest_sha256": "f30945640258acbf48ee9910c74b3dc19ffba0f62b06fc8e3546ef7d7c899ab2",
+  "method": "checksummed model reconstruction; closed-form security gaps; all episode mode/ramp/RNG accounting; exact Algorithm R and retained replay audit",
+  "physical_games": 7500000,
+  "q_updates": 117156,
+  "records": 15000000,
+  "seed": 0,
+  "source_sha256": "4c13ba875326ed1f843cb3ca31433063e72793cb8a677d4968a0652766eb3e0c",
+  "supervised_updates": 78114,
+  "task": "rps",
+  "verified": true
+}

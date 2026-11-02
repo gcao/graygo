@@ -30,7 +30,7 @@ class NativeDecodeTests(unittest.TestCase):
 
     def test_generated_states_both_rules_sizes_perspectives_and_terminal_modes(self):
         rng=random.Random(93)
-        for rules,rounds in ((Rules(),700),(Rules(9,200,'remove'),500),(Rules(3,10),150),(Rules(13,8),80),(Rules(19,4),40)):
+        for rules,rounds in ((Rules(),700),(Rules(9,200,'remove'),500),(Rules(3,10),150),(Rules(4,256),30),(Rules(13,8),80),(Rules(16,5),20),(Rules(19,4),40)):
             states=[];state=State(rules)
             for _ in range(rounds):
                 states.append(state)
@@ -45,6 +45,9 @@ class NativeDecodeTests(unittest.TestCase):
         state=replace(state,forbidden_black=frozenset({0,8}),forbidden_white=frozenset({0}),rounds_played=512)
         states=[transform(state,rotation=r,reflect=f,swap=c,shift=(1,2)) for r in range(4) for f in (False,True) for c in (False,True)]
         self.compare(rules,states)
+        wide_rules=Rules(3,2**32-1)
+        wide=replace(state,rules=wide_rules,rounds_played=2**32-2)
+        self.compare(wide_rules,[wide])
 
     def test_invalid_packets_match_reference_rejection_and_padding(self):
         rules=Rules();codec=RuleStateCodec(rules);native=NativeRuleDecoder(self.library)
