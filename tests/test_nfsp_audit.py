@@ -8,9 +8,9 @@ from tools.audit_nfsp_matrix import audit
 
 class MatrixAuditTests(unittest.TestCase):
     def test_archives_rng_reservoir_and_reported_gate_are_independently_checked(self):
-        for learner in ('neural','tabular'):
-            with self.subTest(learner=learner),tempfile.TemporaryDirectory() as directory:
-                config=NFSPMatrixConfig(learner=learner,seed=2,records=1024,eval_every=128,batch=16,
+        for task,learner in (('asymmetric','neural'),('asymmetric','tabular'),('rps','neural'),('rps','tabular')):
+            with self.subTest(task=task,learner=learner),tempfile.TemporaryDirectory() as directory:
+                config=NFSPMatrixConfig(task=task,learner=learner,seed=2,records=1024,eval_every=128,batch=16,
                     learning_start=32,capacity=32,target_every=64,hidden=8,reservoir_open=32,handoff_end=96,epsilon_decay=160)
                 t=NFSPMatrixTrainer(config,directory,reserve_bytes=0);result=t.run(verbose=False)
                 checked=audit(directory,require_formal=False)

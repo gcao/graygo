@@ -61,6 +61,23 @@ class RuleStorageTests(unittest.TestCase):
         with self.assertRaises(ValueError):codec.pack(State(rules),True)
         with self.assertRaises(ValueError):RuleStateSpec(rules).pack(encode(State(rules),BLACK))
 
+    def test_fast_color_normalization_keeps_numpy_support_and_rejects_invalid_values(self):
+        from graygo.engine import RoundRecord
+        rules=Rules(3,4)
+        board=np.zeros(9,dtype=np.uint8);board[0]=1
+        state=State(rules,board)
+        self.assertTrue(all(type(v) is int for v in state.board))
+        before=[0,np.int64(1),0,0,0,0,0,0,0]
+        record=RoundRecord(before,np.int64(9),np.int64(2))
+        self.assertTrue(all(type(v) is int for v in record.before))
+        for invalid in (True,np.bool_(True),1.,'1',-1,4,None):
+            bad=[0]*9;bad[4]=invalid
+            with self.subTest(invalid=repr(invalid)):
+                with self.assertRaises(ValueError):State(rules,bad)
+                with self.assertRaises(ValueError):RoundRecord(bad,0,0)
+        # Validation of zero-liberty resolved states remains active.
+        with self.assertRaises(ValueError):State(rules,[1]*9)
+
     def test_sequence_padding_is_explicit_and_terminal_state_is_retained(self):
         rules=Rules(3,3);spec=RuleStateSpec(rules);state=State(rules)
         row,g,l=spec.pack(RuleObservation(state,BLACK))

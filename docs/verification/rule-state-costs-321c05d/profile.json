@@ -1,0 +1,141 @@
+{
+  "plan": {
+    "baseline_version": "graygo/baselines/1",
+    "command": {
+      "capacity": 500000,
+      "iterations": 20,
+      "operation": "paired-storage-io",
+      "records": 20000,
+      "sample_batch": 512,
+      "storage": [
+        "features",
+        "rule-state"
+      ]
+    },
+    "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "cpu_threads": 24,
+    "created_at": "2026-11-02T04:01:03.371068+00:00",
+    "dependencies": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "torch": "2.11.0"
+    },
+    "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+    "disk_free_bytes": 128252502016,
+    "encoding_version": "graygo/encoding/1",
+    "filesystem": "ext2/ext3",
+    "format_version": 1,
+    "git_commit": "321c05d1ec2b924a302ef9e7483444812c734c0a",
+    "git_dirty": false,
+    "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+    "host_memory": {
+      "available_bytes": 29683470336,
+      "swap_bytes": 12884897792,
+      "total_bytes": 33558446080
+    },
+    "hostname": "home-ai",
+    "pid": 2224354,
+    "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "rule_version": "graygo/1",
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "run_id": "1715ac92354b4a4c8bf02280c940e487",
+    "seed": 42,
+    "source_sha256": "b6fa3b686f2d39cb54e5dcfd8073e9ec84a6d97923cd4258925502fcd9a09e57"
+  },
+  "results": [
+    {
+      "capacity_per_buffer": 500000,
+      "checkpoint_payload_bytes": 2932834,
+      "checkpoint_seconds": 0.5023886419949122,
+      "collection_seconds": 9.12568433699198,
+      "completed_games": 57,
+      "filled_rows": 20000,
+      "fresh_records": 20000,
+      "label_generation": "synthetic all-legal ties, all records eligible for storage benchmark",
+      "partial_capacity_fill": true,
+      "replay_decode_seconds": 0.04006146901519969,
+      "replay_logical_allocation_bytes": 404500000,
+      "reservoir_logical_allocation_bytes": 199000000,
+      "reservoir_sample_seconds": 0.0054582649609074,
+      "restore_validation_seconds": 0.08362108399160206,
+      "roundtrip_verified": true,
+      "sample_batch": 512,
+      "sample_iterations": 20,
+      "schema": {
+        "actions": 82,
+        "globals": 14,
+        "spatial_shape": [
+          30,
+          9,
+          9
+        ],
+        "version": "graygo/encoding/1"
+      },
+      "scope": "buffer IO only; neither a complete learner profile nor an isolated campaign runtime estimate",
+      "storage": "features"
+    },
+    {
+      "capacity_per_buffer": 500000,
+      "checkpoint_payload_bytes": 824284,
+      "checkpoint_seconds": 0.1734232470043935,
+      "collection_seconds": 5.818111699016299,
+      "completed_games": 57,
+      "filled_rows": 20000,
+      "fresh_records": 20000,
+      "label_generation": "synthetic all-legal ties, all records eligible for storage benchmark",
+      "partial_capacity_fill": true,
+      "replay_decode_seconds": 7.396208096004557,
+      "replay_logical_allocation_bytes": 137500000,
+      "reservoir_logical_allocation_bytes": 65500000,
+      "reservoir_sample_seconds": 3.701638569997158,
+      "restore_validation_seconds": 16.359923125011846,
+      "roundtrip_verified": true,
+      "sample_batch": 512,
+      "sample_iterations": 20,
+      "schema": {
+        "codec": "graygo/rule-state/1",
+        "encoding_version": "graygo/encoding/1",
+        "rule_version": "graygo/1",
+        "rules": {
+          "collision": "gray",
+          "max_rounds": 200,
+          "size": 9
+        },
+        "storage": "rule-state"
+      },
+      "scope": "buffer IO only; neither a complete learner profile nor an isolated campaign runtime estimate",
+      "storage": "rule-state"
+    }
+  ]
+}

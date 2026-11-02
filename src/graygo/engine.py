@@ -47,11 +47,34 @@ class Rules:
         return row * self.size + col
 
 
+def _colors(values):
+    """Normalize integral colors; ordinary Python ints avoid expensive ABC checks."""
+    values = tuple(values)
+    normalized = None
+    for index, value in enumerate(values):
+        if type(value) is int:
+            color = value
+        elif not isinstance(value, bool) and isinstance(value, Integral):
+            color = int(value)
+            if normalized is None:
+                normalized = list(values[:index])
+        else:
+            raise ValueError("integer colors 0..3 required")
+        if not 0 <= color <= 3:
+            raise ValueError("integer colors 0..3 required")
+        if normalized is not None:
+            normalized.append(color)
+    return values if normalized is None else tuple(normalized)
+
+
 def _board(values, rules):
     values = tuple(values)
-    if len(values) != rules.points or any(isinstance(v, bool) or not isinstance(v, Integral) or v not in range(4) for v in values):
+    if len(values) != rules.points:
         raise ValueError("board must contain size**2 integer colors 0..3")
-    return tuple(map(int, values))
+    try:
+        return _colors(values)
+    except ValueError:
+        raise ValueError("board must contain size**2 integer colors 0..3") from None
 
 
 def _action(action, rules):
@@ -68,10 +91,11 @@ class RoundRecord:
 
     def __post_init__(self):
         # Copy and normalize values so a record cannot alias a caller's array.
-        values = tuple(self.before)
-        if any(isinstance(v, bool) or not isinstance(v, Integral) or v not in range(4) for v in values):
-            raise ValueError("invalid historical board colors")
-        object.__setattr__(self, "before", tuple(map(int, values)))
+        try:
+            values = _colors(self.before)
+        except ValueError:
+            raise ValueError("invalid historical board colors") from None
+        object.__setattr__(self, "before", values)
         for field in ("black", "white"):
             value = getattr(self, field)
             if isinstance(value, bool) or not isinstance(value, Integral) or value < 0:

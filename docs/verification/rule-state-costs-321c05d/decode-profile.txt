@@ -1,0 +1,28 @@
+         3643112 function calls (3642965 primitive calls) in 0.863 seconds
+
+   Ordered by: cumulative time
+   List reduced from 281 to 20 due to restriction <20>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.868    0.868 buffers.py:182(sample)
+        1    0.001    0.001    0.868    0.868 buffers.py:186(sample_sequences)
+        2    0.005    0.002    0.867    0.434 rule_state.py:150(unpack)
+     1024    0.012    0.000    0.706    0.001 rule_state.py:57(unpack)
+     8192    0.032    0.000    0.510    0.000 {built-in method builtins.any}
+     1024    0.002    0.000    0.413    0.000 <string>:2(__init__)
+     1024    0.009    0.000    0.411    0.000 engine.py:92(__post_init__)
+   843645    0.103    0.000    0.358    0.000 {built-in method builtins.isinstance}
+     3045    0.011    0.000    0.312    0.000 engine.py:50(_board)
+   249690    0.075    0.000    0.283    0.000 engine.py:52(<genexpr>)
+   418728    0.046    0.000    0.255    0.000 <frozen abc>:117(__instancecheck__)
+     2021    0.010    0.000    0.220    0.000 engine.py:69(__post_init__)
+   418728    0.087    0.000    0.208    0.000 {built-in method _abc._abc_instancecheck}
+   165722    0.052    0.000    0.193    0.000 engine.py:72(<genexpr>)
+     1024    0.066    0.000    0.157    0.000 encoding.py:17(encode)
+     2048    0.098    0.000    0.154    0.000 engine.py:196(groups)
+418744/418732    0.047    0.000    0.122    0.000 <frozen abc>:121(__subclasscheck__)
+418744/418732    0.075    0.000    0.075    0.000 {built-in method _abc._abc_subclasscheck}
+     3072    0.033    0.000    0.038    0.000 rule_state.py:34(_board)
+   296956    0.027    0.000    0.027    0.000 {method 'add' of 'set' objects}
+
+

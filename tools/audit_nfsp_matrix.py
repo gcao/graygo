@@ -164,7 +164,8 @@ def audit(root,*,require_formal=True):
                 acting=int(row['acting'][role]);scores_role=qvalues[role]
                 if acting==0:
                     ties=(scores_role==scores_role.max()).float();eps=torch.tensor(float(row['epsilon'][role]),dtype=scores_role.dtype)
-                    p=((1-eps)*(ties/ties.sum())+eps*torch.ones_like(ties)/actions).double().numpy()
+                    uniform=torch.ones_like(ties)/actions
+                    p=((1-eps)*(ties/ties.sum())+eps*uniform).double().numpy()
                 elif acting==1:p=probabilities[role].copy()
                 else:p=np.ones(actions)/actions
                 p/=p.sum();selected=int(row['actions'][role])

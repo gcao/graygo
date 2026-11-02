@@ -35,7 +35,7 @@ Objective: implement Gray Go following `docs/design.md`, including its verificat
 - Opaque 50/100/200-round controls, a forced-action indexing variant, a 40-equivalent-action stress variant and a meaningful two-round branching game are implemented. Codebooks are randomly permuted independently of semantic order, with exact manifest/digest support.
 - Exact finite Markov solving, policy/action-value evaluation and best responses are implemented for those adapters. Latent episode mixtures continue to use the complete-history evaluator.
 - Supported-coverage scheduling gives each horizon/controller equal rounds, with randomized ten-episode blocks containing eight ordinary and one episode per forced branch. Mid-block and mid-episode resume checks pass.
-- The full suite passes **134 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
+- The full suite passes **135 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
 
 ## Resumable matrix NFSP trainer
 
@@ -61,7 +61,7 @@ Exact delayed evaluation checks root action values and early target-policy value
 
 Full runs require an explicit time ceiling and matching declared complete-pipeline budget-profile hash. `purpose=profile` cannot satisfy formal gates. `tools/profile_nfsp_tasks.py` produces paired pre/post, R=1/R=4 costs; terminal-matrix costs are not substituted for these. Runtime settings, optimizer defaults, actual host memory/affinity/filesystem and complete adapter/codebook metadata are recorded.
 
-The suite passes **134 tests**, including exact mid-episode resume for neural/tabular delayed and mixed-Go runs. See `verification/nfsp-multiround.md`. No delayed-credit convergence or 9×9 strength claim follows from these implementation checks.
+The suite passes **135 tests**, including exact mid-episode resume for neural/tabular delayed and mixed-Go runs. See `verification/nfsp-multiround.md`. No delayed-credit convergence or 9×9 strength claim follows from these implementation checks.
 
 The first complete delayed-pipeline profiler finished all eight cases. Its source is now historical for funding purposes after the native-opponent Q reference correction. The immutable eight-case plan and resource ceilings are in `experiments/nfsp-delayed-profile-plan.json`. Its results are not yet convergence evidence or a completed full-study budget.
 
@@ -91,3 +91,5 @@ The budget-bound seed-0 delayed R=1 control/neural first screen has now launched
 `RuleStateSpec` stores canonical complete-state packets and regenerates the unchanged 30+14 features and legal masks on sampling. The default 9×9 packet is 104 bytes, binding rule/codec versions, perspective, both historical boards/moves, per-player restrictions, pass streak and rounds remaining. Reference replay/reservoir algorithms, generation-safe sequences, frozen labels, counters and checkpoint seals are reused. Existing feature-buffer snapshots still load.
 
 `--storage rule-state` now runs the real bounded neural Go trainer and buffer profiler. Actual Q/target/average weights, sampling results, metrics, trajectory audit bytes and mid-episode continuation match feature storage exactly. At 500k entries per buffer, logical arrays require 203 MB combined versus 603.5 MB for the feature representation. These are allocation sizes, not total resident memory or campaign forecasts. Python feature regeneration is a correctness reference whose production cost still needs measurement and possible acceleration. See `verification/rule-state-storage.md`; the suite passes 134 tests.
+
+The initial paired rule-storage benchmark is recorded in `verification/rule-state-costs-321c05d.md`: 203 MB logical arrays and smaller checkpoints come with expensive reference decoding/restore. A profiled canonical-integer validation fast path is implemented and passes the full 135-test suite, with game/state invariants intact. Remeasurement on the same data is the next performance decision; full-capacity IO, large-board batching and complete-learner pricing remain pending.
