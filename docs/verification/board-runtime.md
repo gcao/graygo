@@ -21,3 +21,31 @@ The full previous suite plus the first six new checks passed 176 tests in 61.904
 Reports retain full configurations, source/environment/native identity, actual record and per-role counts, optimizer/refresh/target counts, collection/learning/setup/IO/evaluation time, peak CUDA allocation/reservation and process-lifetime RSS, endpoint checkpoint inventory and coverage flags. Both Q and average are timed against the frozen random/tactical baselines with one complete color pair each. Those tiny matches are timing diagnostics, without confidence or strength claims. A changed time cap, model or source is a new declared measurement, not an implicit continuation.
 
 This remains a low-level collector/learner component. It does not yet provide the A2-exit controller, fixed pre-/post-opening checkpoint journal, development label-opening approval, all-seed milestone decisions or independent confirmation/scientific orchestration. Full-capacity native buffer IO has separate verified evidence; a short untrained profile cannot replace trained-phase cost/memory measurements or fill the full campaign ledger by itself.
+
+
+## Completed full-model GPU hardware measurement
+
+Source commit `dc97531` (`47ed7a7b188eb883d35e7fb03e04e6d55635d2c612cb48795b759ee72a26104c`) completed the declared measurement on `home-ai`'s RTX 3080 Ti. Original profile PID 2271075 is terminal; both its final report and process termination were checked. The run took **50.966 seconds** total, below its fixed 720-second ceiling. It used 16 environments, full 64-channel/eight-block models, logical batch 512, R1, deterministic CUDA, paired augmentation and the checksummed native rule decoder. Each phase retained both full 500k-capacity arrays (203 MB combined), with only the actual 16,384 fresh records populated.
+
+| Actual component | Closed | Early-open diagnostic |
+|---|---:|---:|
+| Fresh own-side records | 16,384 | 16,384 |
+| Q updates / targets | 25 / 12,800 | 25 / 12,800 |
+| Supervised updates / targets | 0 / 0 | 26 / 13,312 |
+| Target refreshes | 1 | 1 |
+| Eligible reservoir labels | 0 | 3,028 |
+| Collection seconds | 15.415 | 17.523 |
+| Learning seconds | 2.280 | 3.035 |
+| Checkpoint write / strict restore seconds | 0.434 / 0.467 | 0.407 / 0.420 |
+| Eight paired-color evaluation games, seconds | 4.860 | 4.768 |
+| Total phase seconds | 24.441 | 26.330 |
+| Peak CUDA allocated bytes | 814,530,560 | 830,899,200 |
+| Peak CUDA reserved bytes | 1,042,284,544 | 1,008,730,112 |
+| Process-lifetime peak RSS bytes | 2,078,449,664 | 2,160,947,200 |
+| Actual checkpoint payload bytes | 48,880,981 | 43,887,602 |
+
+Both phases passed every component-coverage check. The early-open phase recorded 9,971 average-policy and 6,413 Q actions; its 3,028 logical best-response visits exactly equal eligible labels. The closed phase recorded no labels, SL updates or average acting. Each phase's 25 Q updates follow the 4,096-record warm-up; the configured R1 cadence is not an assertion that every warm-up record had a loss. All endpoints, restored clocks, raw ordinals, buffer capacities, source/native identities, complete episode accounting, scored evaluation totals and payload inventories passed the separate [read-only audit](../../tools/audit_board_profile.py). Run it with the measured source on `PYTHONPATH`.
+
+The [plan](board-runtime-profile/plan.json), [environment manifest](board-runtime-profile/run.json), [complete measurements](board-runtime-profile/report.json) and [audit hashes/checks](board-runtime-profile/audit.json) are archived. Checkpoint bundles remain at the run path on `ai`. The report's pre-save `timings.checkpoint` is zero; the explicit checkpoint write/restore fields above are the actual measured IO. RSS is a process high-water mark, so the second phase includes the first phase's history.
+
+This is **not** an 80M-record price: untrained self-play averaged short games and frequently mutual-passed, the diagnostic changed opening endpoints, and the full buffers were allocated without being filled here. The separate full-capacity IO test supplies filled-buffer evidence. Trained-phase game distributions, production milestone/cohort integration, official evaluation sample budgets and the applicable A2/resource decisions remain required before filling H_P/H_D/H_N or launching development.

@@ -1,0 +1,143 @@
+{
+  "baseline_version": "graygo/baselines/1",
+  "command": {
+    "profile": {
+      "a2_complete": false,
+      "budget_boundary": "checked between collector chunks and complete color pairs; atomic IO may overrun",
+      "evaluation": {
+        "color_pairs_per_match": 1,
+        "opponents": [
+          "random",
+          "tactical"
+        ],
+        "representations": [
+          "greedy_q",
+          "average"
+        ],
+        "strength_claim": false
+      },
+      "formal_learning_run": false,
+      "phases": {
+        "closed": {
+          "augmentation": true,
+          "batch": 512,
+          "blocks": 8,
+          "capacity": 500000,
+          "deterministic": true,
+          "device": "cuda",
+          "envs": 16,
+          "handoff_end": 7000000,
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "native_library": "/home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so",
+          "norm_groups": 8,
+          "q_reuse": 1,
+          "reservoir_open": 5000000,
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 200,
+            "size": 9
+          },
+          "seed": 17,
+          "target_every": 12800,
+          "uniform_comparison": false,
+          "width": 64
+        },
+        "early_open_diagnostic": {
+          "augmentation": true,
+          "batch": 512,
+          "blocks": 8,
+          "capacity": 500000,
+          "deterministic": true,
+          "device": "cuda",
+          "envs": 16,
+          "handoff_end": 2,
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "native_library": "/home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so",
+          "norm_groups": 8,
+          "q_reuse": 1,
+          "reservoir_open": 0,
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 200,
+            "size": 9
+          },
+          "seed": 17,
+          "target_every": 12800,
+          "uniform_comparison": false,
+          "width": 64
+        }
+      },
+      "promotion_permitted": false,
+      "records_per_phase": 16384,
+      "runtime_version": "graygo/board-nfsp-runtime/1",
+      "scope": "bounded untrained pipeline measurement; early opening is diagnostic only",
+      "source_sha256": "47ed7a7b188eb883d35e7fb03e04e6d55635d2c612cb48795b759ee72a26104c",
+      "total_record_cap": 32768,
+      "total_time_ceiling_seconds": 720.0,
+      "version": "graygo/board-hardware-profile/1"
+    }
+  },
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cpu_threads": 24,
+  "created_at": "2026-11-02T05:49:08.217597+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 127402655744,
+  "encoding_version": "graygo/encoding/1",
+  "filesystem": "ext2/ext3",
+  "format_version": 1,
+  "git_commit": "dc9753179cd90c3d5c4b3199fd43c473b25918c4",
+  "git_dirty": false,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "host_memory": {
+    "available_bytes": 29743149056,
+    "swap_bytes": 12884897792,
+    "total_bytes": 33558446080
+  },
+  "hostname": "home-ai",
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "rule_version": "graygo/1",
+  "rules": {
+    "collision": "gray",
+    "max_rounds": 200,
+    "size": 9
+  },
+  "run_id": "0ea7696f14604037ae71142cf8c0a5ad",
+  "seed": 17,
+  "source_sha256": "47ed7a7b188eb883d35e7fb03e04e6d55635d2c612cb48795b759ee72a26104c"
+}

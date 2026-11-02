@@ -1,0 +1,26 @@
+{
+  "artifact_sha256": {
+    "plan.json": "cacb6208d7b00ba28bd3a5292a18c430b1ea73b1a19f86de3076e51716ff7b62",
+    "report.json": "99543c7bdc40aa0b8853bbb846f1e1d22c3237fe26113c5b72b2a52df63558a8",
+    "run.json": "70a3a2306bd34b71df9d2c3466710b0e1254d4d3e2b4ed31f488e9f19c3ff137"
+  },
+  "checks": {
+    "closed": {
+      "checkpoint_manifest_sha256": "9ef1728c2b32f4c9a5729c7e1b1361a20fb32f06c03cd154db2c5b1f51955c1b",
+      "paired_evaluation_games": 8,
+      "q_updates": 25,
+      "records": 16384,
+      "supervised_updates": 0
+    },
+    "early_open_diagnostic": {
+      "checkpoint_manifest_sha256": "03b92c444dd0fdc0fa18d3bd365c7ebb4732e4735e2a2a15e06e85cbe98d6624",
+      "paired_evaluation_games": 8,
+      "q_updates": 25,
+      "records": 16384,
+      "supervised_updates": 26
+    }
+  },
+  "profile_source_sha256": "47ed7a7b188eb883d35e7fb03e04e6d55635d2c612cb48795b759ee72a26104c",
+  "scope": "read-only accounting, artifact, decoder, score and resource audit; no learner-strength or full-campaign claim",
+  "verified": true
+}
