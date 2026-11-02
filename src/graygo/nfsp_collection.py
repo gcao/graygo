@@ -20,6 +20,13 @@ class BoardGame(GrayGoGame):
     observation=staticmethod(encode)
 
 
+class RuleBoardGame(BoardGame):
+    @staticmethod
+    def observation(state,player):
+        from .rule_state import RuleObservation
+        return RuleObservation(state,player)
+
+
 class FrozenPolicies:
     def __init__(self,q,average,*,version,average_ready):
         if type(version) is not int or not 0<=version<2**63:raise ValueError('bounded policy snapshot version required')

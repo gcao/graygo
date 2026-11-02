@@ -53,11 +53,30 @@ class ObservationSpec:
         return (np.packbits(x.reshape(-1).astype(np.uint8),bitorder="little"),
                 scalars,np.packbits(legal,bitorder="little"))
 
-    def unpack(self,spatial,globals,legal):
+    @property
+    def stored_globals(self):return self.globals
+    @property
+    def stored_legal_bytes(self):return self.legal_bytes
+
+    def legal_masks(self,spatial,globals,legal):
+        return np.unpackbits(legal,axis=-1,count=self.actions,bitorder="little").astype(bool)
+
+    def unpack(self,spatial,globals,legal,*,valid=None):
         leading=spatial.shape[:-1]
         x=np.unpackbits(spatial,axis=-1,count=math.prod(self.spatial_shape),bitorder="little").reshape(*leading,*self.spatial_shape)
         mask=np.unpackbits(legal,axis=-1,count=self.actions,bitorder="little").astype(bool)
         return x,globals.copy(),mask
+
+
+def spec_metadata(spec):
+    return spec.to_dict() if hasattr(spec,"to_dict") else asdict(spec)
+
+
+def load_spec(metadata):
+    if metadata.get("storage")=="rule-state":
+        from .rule_state import RuleStateSpec
+        return RuleStateSpec.from_dict(metadata)
+    return ObservationSpec(**metadata)
 
 
 def _integer(value,name,*,maximum=2**64-1):
@@ -99,9 +118,9 @@ def _restore_arrays(destination,loaded,size):
 class ReplayBuffer:
     def __init__(self,capacity,spec,*,max_bytes=DEFAULT_MAX_BYTES):
         self.capacity,self.spec=capacity,spec
-        layout={"spatial":(np.uint8,(spec.spatial_bytes,)),"globals":(np.float32,(spec.globals,)),
-                "legal":(np.uint8,(spec.legal_bytes,)),"next_spatial":(np.uint8,(spec.spatial_bytes,)),
-                "next_globals":(np.float32,(spec.globals,)),"next_legal":(np.uint8,(spec.legal_bytes,)),
+        layout={"spatial":(np.uint8,(spec.spatial_bytes,)),"globals":(np.float32,(spec.stored_globals,)),
+                "legal":(np.uint8,(spec.stored_legal_bytes,)),"next_spatial":(np.uint8,(spec.spatial_bytes,)),
+                "next_globals":(np.float32,(spec.stored_globals,)),"next_legal":(np.uint8,(spec.stored_legal_bytes,)),
                 "action":(np.uint16,()),"reward":(np.float32,()),"terminated":(np.bool_,()),
                 "behavior_prob":(np.float32,()),"stream":(np.uint64,()),"step":(np.uint32,()),
                 "opponent_version":(np.uint64,()),"policy_version":(np.uint64,()),"mode":(np.uint8,()),
@@ -184,20 +203,20 @@ class ReplayBuffer:
         for name,array in data.items():array[~valid]=False if array.dtype==bool else 0
         data["terminated"][~valid]=True;data["behavior_prob"][~valid]=1
         for prefix in ("","next_"):
-            spatial,globals,legal=self.spec.unpack(data.pop(prefix+"spatial"),data.pop(prefix+"globals"),data.pop(prefix+"legal"))
+            spatial,globals,legal=self.spec.unpack(data.pop(prefix+"spatial"),data.pop(prefix+"globals"),data.pop(prefix+"legal"),valid=valid)
             data[prefix+"spatial"],data[prefix+"globals"],data[prefix+"legal"]=spatial,globals,legal
         data.update(indices=indices,valid=valid)
         return data
 
     def save(self,path):
         _save(path,{"format_version":FORMAT_VERSION,"kind":"replay","capacity":self.capacity,
-                    "spec":asdict(self.spec),"size":self.size,"cursor":self.cursor,"insertions":self.insertions},self.arrays,self.size)
+                    "spec":spec_metadata(self.spec),"size":self.size,"cursor":self.cursor,"insertions":self.insertions},self.arrays,self.size)
 
     @classmethod
     def load(cls,path,*,max_bytes=DEFAULT_MAX_BYTES):
         meta,arrays=_read(path)
         if meta.get("kind")!="replay":raise ValueError("not a replay snapshot")
-        spec=ObservationSpec(**meta["spec"]);result=cls(meta["capacity"],spec,max_bytes=max_bytes)
+        spec=load_spec(meta["spec"]);result=cls(meta["capacity"],spec,max_bytes=max_bytes)
         size=_integer(meta["size"],"size",maximum=result.capacity)
         insertions=_integer(meta["insertions"],"insertions")
         if size!=min(insertions,result.capacity) or meta["cursor"]!=insertions%result.capacity:
@@ -208,8 +227,8 @@ class ReplayBuffer:
         if size and set(map(int,a["ordinal"][:size]))!=set(range(insertions-size,insertions)):
             raise ValueError("invalid live replay generations")
         if size:
-            legal=np.unpackbits(a["legal"][:size],axis=-1,count=spec.actions,bitorder="little").astype(bool)
-            next_legal=np.unpackbits(a["next_legal"][:size],axis=-1,count=spec.actions,bitorder="little").astype(bool)
+            legal=spec.legal_masks(a["spatial"][:size],a["globals"][:size],a["legal"][:size])
+            next_legal=spec.legal_masks(a["next_spatial"][:size],a["next_globals"][:size],a["next_legal"][:size])
             if (a["action"][:size]>=spec.actions).any() or not legal[np.arange(size),a["action"][:size]].all():
                 raise ValueError("illegal restored source action")
             if (next_legal.any(-1)==a["terminated"][:size]).any():raise ValueError("restored done/mask mismatch")
@@ -238,8 +257,8 @@ class ReservoirBuffer:
     def __init__(self,capacity,spec,*,opening_record=0,max_bytes=DEFAULT_MAX_BYTES):
         self.capacity,self.spec=capacity,spec
         self.opening_record=_integer(opening_record,"reservoir opening")
-        layout={"spatial":(np.uint8,(spec.spatial_bytes,)),"globals":(np.float32,(spec.globals,)),
-                "legal":(np.uint8,(spec.legal_bytes,)),"greedy":(np.uint8,(spec.legal_bytes,)),
+        layout={"spatial":(np.uint8,(spec.spatial_bytes,)),"globals":(np.float32,(spec.stored_globals,)),
+                "legal":(np.uint8,(spec.stored_legal_bytes,)),"greedy":(np.uint8,(spec.legal_bytes,)),
                 "record":(np.uint64,()),"policy_version":(np.uint64,())}
         self.arrays=_allocate(capacity,layout,max_bytes);self.size=self.seen=self.revisions=0
 
@@ -280,14 +299,14 @@ class ReservoirBuffer:
 
     def save(self,path):
         _save(path,{"format_version":FORMAT_VERSION,"kind":"reservoir","capacity":self.capacity,
-                    "spec":asdict(self.spec),"size":self.size,"seen":self.seen,
+                    "spec":spec_metadata(self.spec),"size":self.size,"seen":self.seen,
                     "opening_record":self.opening_record,"revisions":self.revisions},self.arrays,self.size)
 
     @classmethod
     def load(cls,path,*,max_bytes=DEFAULT_MAX_BYTES):
         meta,arrays=_read(path)
         if meta.get("kind")!="reservoir":raise ValueError("not a reservoir snapshot")
-        result=cls(meta["capacity"],ObservationSpec(**meta["spec"]),opening_record=meta["opening_record"],max_bytes=max_bytes)
+        result=cls(meta["capacity"],load_spec(meta["spec"]),opening_record=meta["opening_record"],max_bytes=max_bytes)
         seen=_integer(meta["seen"],"seen");size=_integer(meta["size"],"size",maximum=result.capacity)
         if size!=min(seen,result.capacity):raise ValueError("invalid reservoir counts")
         _restore_arrays(result.arrays,arrays,size);result.seen,result.size=seen,size
@@ -296,7 +315,7 @@ class ReservoirBuffer:
         if size:
             if not np.isfinite(result.arrays["globals"][:size]).all():raise ValueError("nonfinite reservoir globals")
             greedy=np.unpackbits(result.arrays["greedy"][:size],axis=-1,count=result.spec.actions,bitorder="little")
-            legal=np.unpackbits(result.arrays["legal"][:size],axis=-1,count=result.spec.actions,bitorder="little")
+            legal=result.spec.legal_masks(result.arrays["spatial"][:size],result.arrays["globals"][:size],result.arrays["legal"][:size])
             if not greedy.any(-1).all() or (greedy&~legal.astype(bool)).any():raise ValueError("invalid restored greedy labels")
             if (result.arrays["record"][:size]<result.opening_record).any():raise ValueError("pre-opening labels in reservoir")
         return result

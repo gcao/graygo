@@ -76,3 +76,13 @@ class CommandTests(unittest.TestCase):
             self.assertFalse(report['result']['formal_case_passed'])
             b=self.run_cli(*args,'--resume');self.assertEqual(b.returncode,0,b.stderr)
             self.assertEqual(json.loads(output.read_text())['result']['counters'],report['result']['counters'])
+
+    def test_rule_buffer_profile_writes_schema_and_checks_checkpoint_restore(self):
+        with tempfile.TemporaryDirectory() as root:
+            result=self.run_cli('profile-buffers','--storage','rule-state','--size','3','--limit','4',
+                '--capacity','16','--records','32','--iterations','1','--batch','8','--buffer-dir',root)
+        self.assertEqual(result.returncode,0,result.stderr)
+        report=json.loads(result.stdout)['result']
+        self.assertEqual(report['schema']['storage'],'rule-state')
+        self.assertTrue(report['roundtrip_verified'])
+        self.assertGreaterEqual(report['restore_validation_seconds'],0.)

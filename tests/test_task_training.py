@@ -39,6 +39,23 @@ class TaskTrainerTests(unittest.TestCase):
                 for x,y in zip(a['evaluations'],b['evaluations']):self.assertEqual(x['roots'],y['roots'])
                 self.assertFalse(a['formal_protocol']);self.assertFalse(a['formal_case_passed']);self.assertFalse(a['a2_complete'])
 
+    def test_rule_state_storage_matches_feature_training_and_mid_episode_resume(self):
+        from graygo.rule_state import RuleStateSpec
+        with tempfile.TemporaryDirectory() as d:
+            feature=self.config(task='gray-mixed',learner='neural',records=32)
+            compact=replace(feature,storage='rule-state')
+            a=NFSPTaskTrainer(feature,Path(d)/'feature',reserve_bytes=0);a.run(verbose=False)
+            b=NFSPTaskTrainer(compact,Path(d)/'compact',reserve_bytes=0);b.run(until_records=2,verbose=False)
+            c=NFSPTaskTrainer(compact,Path(d)/'compact',resume=True,reserve_bytes=0);c.run(verbose=False)
+            self.assertIsInstance(c.replay.spec,RuleStateSpec)
+            for name in ('q','target','average'):
+                for key,value in getattr(a.backend,name).state_dict().items():
+                    torch.testing.assert_close(value,getattr(c.backend,name).state_dict()[key],rtol=0,atol=0)
+            for name,array in a.metrics.items():np.testing.assert_array_equal(array,c.metrics[name])
+            self.assertEqual((Path(d)/'feature/episodes.bin').read_bytes(),(Path(d)/'compact/episodes.bin').read_bytes())
+            for left,right in zip(a.evaluations,c.evaluations):self.assertEqual(left['roots'],right['roots'])
+            self.assertLess(c.replay.allocated_bytes,a.replay.allocated_bytes)
+
     def test_analytic_chain_values_detect_unlearned_avoided_root_action(self):
         config=replace(self.config(),horizons=(3,5),equivalent_actions=3)
         adapter=TaskAdapter(config);q,average=adapter.models();backend=NFSPBackend(q,average,config.backend_config())

@@ -35,7 +35,7 @@ Objective: implement Gray Go following `docs/design.md`, including its verificat
 - Opaque 50/100/200-round controls, a forced-action indexing variant, a 40-equivalent-action stress variant and a meaningful two-round branching game are implemented. Codebooks are randomly permuted independently of semantic order, with exact manifest/digest support.
 - Exact finite Markov solving, policy/action-value evaluation and best responses are implemented for those adapters. Latent episode mixtures continue to use the complete-history evaluator.
 - Supported-coverage scheduling gives each horizon/controller equal rounds, with randomized ten-episode blocks containing eight ordinary and one episode per forced branch. Mid-block and mid-episode resume checks pass.
-- The full suite passes **125 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
+- The full suite passes **134 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
 
 ## Resumable matrix NFSP trainer
 
@@ -61,7 +61,7 @@ Exact delayed evaluation checks root action values and early target-policy value
 
 Full runs require an explicit time ceiling and matching declared complete-pipeline budget-profile hash. `purpose=profile` cannot satisfy formal gates. `tools/profile_nfsp_tasks.py` produces paired pre/post, R=1/R=4 costs; terminal-matrix costs are not substituted for these. Runtime settings, optimizer defaults, actual host memory/affinity/filesystem and complete adapter/codebook metadata are recorded.
 
-The suite passes **125 tests**, including exact mid-episode resume for neural/tabular delayed and mixed-Go runs. See `verification/nfsp-multiround.md`. No delayed-credit convergence or 9×9 strength claim follows from these implementation checks.
+The suite passes **134 tests**, including exact mid-episode resume for neural/tabular delayed and mixed-Go runs. See `verification/nfsp-multiround.md`. No delayed-credit convergence or 9×9 strength claim follows from these implementation checks.
 
 The first complete delayed-pipeline profiler finished all eight cases. Its source is now historical for funding purposes after the native-opponent Q reference correction. The immutable eight-case plan and resource ceilings are in `experiments/nfsp-delayed-profile-plan.json`. Its results are not yet convergence evidence or a completed full-study budget.
 
@@ -70,11 +70,11 @@ The first complete delayed-pipeline profiler finished all eight cases. Its sourc
 1. Independently audit completed matrix trials, finish the declared first-screen set (RPS and delayed family), then the required seed/task cohorts. Both seed-0 asymmetric primary runs completed 15M each and passed the independent archive/RNG/reservoir/replay audit. See `verification/nfsp-asymmetric.md`. This does not complete the other families/seeds.
 2. The corrected-reference delayed profiles are complete and C1/C4 costs are entered; run the selected R=1 first screen, profile bounded neural/control paths, and run the selected one-step comparisons with actual tabular controls. Per-branch gates and full multiround resume are implemented; learning evidence and any conditional Retrace selection remain pending.
 3. Run the selected NFSP A2 protocol across short mixed tasks, bounded Gray Go and the delayed family with three seeds, final-five gates and fixed aggregate counters.
-4. Integrate the ninth-review development/confirmation cohorts, baseline confidence gates, opening checks and pilot safeguards. Keep packed-feature storage's current overhead explicit; the design's compact rule-state/regenerated-feature backend is still pending.
+4. Integrate the ninth-review development/confirmation cohorts, baseline confidence gates, opening checks and pilot safeguards. Compact rule-state/regenerated-feature storage is now implemented and checked against feature storage; production throughput and full-capacity IO remain to be measured.
 5. Profile the complete selected learner, fill its cost ledger and run only the eligible declared pilot/screening/confirmation stages.
 6. Implement protected evaluation/promotion, gray-rule/exposure comparisons, certified collision probes and required reports. Optional modeling/search remains conditional.
 
-The Python engine is the independently readable reference. Its throughput must be measured before choosing a batched/native production backend. The reviewer prototype is used for differential evidence only. Both matrix and finite multiround trainers now have verified complete resume protocols. Large-board collection optimization, compact rule-state storage, pilot/confirmation orchestration and their production-scale verification remain pending.
+The Python engine is the independently readable reference. Its throughput must be measured before choosing a batched/native production backend. The reviewer prototype is used for differential evidence only. Both matrix and finite multiround trainers now have verified complete resume protocols. Large-board collection/decoding optimization, pilot/confirmation orchestration and their production-scale verification remain pending.
 
 ## Reference-value correction before delayed learning
 
@@ -85,3 +85,9 @@ Q credit is now evaluated for its own target policy against the actual native op
 The source-corrected delayed cost report and partial actual-resource ledger are in `verification/nfsp-delayed-costs-9fefeee.md` and `experiments/resource-ledger.md`. RPS cost profiles passed their explicit gate and its seed-0 primary screen is live. The delayed driver permits only the budget-bound R=1 control/neural first screen; R=4 is not automatically selected by profiling it. All one-seed results remain partial A2 evidence.
 
 The budget-bound seed-0 delayed R=1 control/neural first screen has now launched from the corrected pinned source. Its immutable plan, complete profile hashes and per-case ceilings are in `experiments/nfsp-delayed-R1-primary-plan.json`. RPS and delayed runs have distinct process handles; retain them across continuations and check OS liveness before any resume. Neither allocation automatically advances the project beyond A2.
+
+## Complete public rule-state storage
+
+`RuleStateSpec` stores canonical complete-state packets and regenerates the unchanged 30+14 features and legal masks on sampling. The default 9×9 packet is 104 bytes, binding rule/codec versions, perspective, both historical boards/moves, per-player restrictions, pass streak and rounds remaining. Reference replay/reservoir algorithms, generation-safe sequences, frozen labels, counters and checkpoint seals are reused. Existing feature-buffer snapshots still load.
+
+`--storage rule-state` now runs the real bounded neural Go trainer and buffer profiler. Actual Q/target/average weights, sampling results, metrics, trajectory audit bytes and mid-episode continuation match feature storage exactly. At 500k entries per buffer, logical arrays require 203 MB combined versus 603.5 MB for the feature representation. These are allocation sizes, not total resident memory or campaign forecasts. Python feature regeneration is a correctness reference whose production cost still needs measurement and possible acceleration. See `verification/rule-state-storage.md`; the suite passes 134 tests.

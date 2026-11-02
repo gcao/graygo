@@ -2,10 +2,10 @@
 from dataclasses import asdict
 import json
 import numpy as np
-from .buffers import ObservationSpec
+from .buffers import ObservationSpec,spec_metadata
 from .engine import BLACK,WHITE,State,Rules,resolve
 from .models import QNet,PolicyNet,ModelConfig
-from .nfsp_collection import BoardGame
+from .nfsp_collection import BoardGame,RuleBoardGame
 from .public_game import PublicGameSolver
 from .tabular_average import TabularAverage
 from .task_models import CompactQ,CompactPolicy,TabularQ
@@ -39,7 +39,7 @@ class TaskAdapter:
             self.oracle={'method':'analytic terminal-outcome chain','values':self.values,'matrix_certificate_gap':0.}
         else:
             if self.board:
-                self.game=BoardGame()
+                self.game=RuleBoardGame() if config.storage=="rule-state" else BoardGame()
                 if config.task=='gray-pure':root=State(Rules(3,1))
                 else:
                     root=State(Rules(3,6))
@@ -55,7 +55,11 @@ class TaskAdapter:
             self.oracle={'method':'exhaustive public-state finite game','values':self.values,'nodes':solver.nodes,'matrix_certificate_gap':solver.max_residual_gap}
         if self.board:
             if config.learner=='tabular':self.game=IndexedBoard(self.game,self.states,config.seed+501)
-            self.spec=self.game.spec if config.learner=='tabular' else ObservationSpec.board(3)
+            if config.learner=='tabular':self.spec=self.game.spec
+            elif config.storage=='rule-state':
+                from .rule_state import RuleStateSpec
+                self.spec=RuleStateSpec(self.roots[0].rules)
+            else:self.spec=ObservationSpec.board(3)
         else:self.spec=self.game.spec
         self.index={state:i for i,state in enumerate(self.states)}
         self.observations=[self.game.observation(state,role) for state in self.states for role in (BLACK,WHITE)]
@@ -88,7 +92,7 @@ class TaskAdapter:
         return DelayedState(**data) if self.delayed else BranchState(**data)
 
     def manifest(self):
-        result={'version':ADAPTER_VERSION,'task':self.config.task,'observation_spec':asdict(self.spec),
+        result={'version':ADAPTER_VERSION,'task':self.config.task,'observation_spec':spec_metadata(self.spec),
                 'roots':[{'tag':tag,'state':self.encode_state(s),'value':v} for tag,s,v in zip(self.root_tags,self.roots,self.values)],
                 'states':[self.encode_state(s) for s in self.states],'oracle':self.oracle,
                 'early_value_states':'root legal action values plus target-policy values at depths 1, 2, 5 on both delayed branches; all nonterminal states in two-round controls',

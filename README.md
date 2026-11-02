@@ -91,3 +91,14 @@ See [NFSP backend verification](docs/verification/nfsp-backend.md) for the check
 ```
 
 `delayed-forced` retains the forced-action indexing diagnostic; `delayed` uses 40 equivalent intermediate choices by default. `branching` gives later actions meaningful payoffs. Bounded neural Go tasks use the full board encoder. Resume with the identical command plus `--resume`; active episodes retain their original frozen parameters even if the learner has updated since episode start. Use `tools/profile_nfsp_tasks.py` from a pinned worktree for complete paired cost profiles before full A2 allocations. The budget artifact must match source, task, learner and Q reuse. Full A2 exit still requires the specified cohorts and all gates.
+
+## Compact board storage
+
+```sh
+# Compare storage/restore/regeneration cost using legal game data.
+.venv/bin/graygo profile-buffers --storage rule-state --buffer-dir artifacts/rule-buffers --records 20000
+# Bounded neural training uses the same update path with regenerated features.
+.venv/bin/graygo train-nfsp-task --task gray-mixed --learner neural --storage rule-state --purpose profile --records 10000 --time-cap-hours .25 --run-dir runs/compact-gray-profile
+```
+
+Rule-state packets retain the full public game state and player perspective. Masks/global planes are regenerated rather than duplicated in host arrays. Feature-storage snapshots remain supported. Timing budgets must match the storage choice; the reference Python decoder's cost is not yet a production throughput claim. See [storage verification](docs/verification/rule-state-storage.md).

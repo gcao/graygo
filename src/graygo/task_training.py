@@ -67,6 +67,7 @@ class NFSPTaskConfig:
     device: str='cpu'
     purpose: str='a2'
     budget_profile_sha256: str|None=None
+    storage: str='features'
 
     def __post_init__(self):
         object.__setattr__(self,'horizons',tuple(self.horizons))
@@ -75,6 +76,8 @@ class NFSPTaskConfig:
         if type(self.seed) is not int or self.seed<0:raise ValueError('nonnegative seed required')
         if any(type(n) is not int or n<2 or n%2 for n in (self.records,self.eval_every,self.batch)):
             raise ValueError('positive even record/evaluation/update counts required')
+        if self.storage not in ('features','rule-state') or (self.storage=='rule-state' and (self.task not in ('gray-pure','gray-mixed') or self.learner!='neural')):
+            raise ValueError('rule-state storage is for neural board tasks')
         self.backend_config();self.schedule();ModelConfig(self.width,self.blocks,self.norm_groups)
         if type(self.capacity) is not int or self.capacity<self.learning_start:raise ValueError('replay must cover warm-up')
         if any(type(n) is not int or n<1 for n in (self.hidden,self.eval_batch,self.max_nodes,self.equivalent_actions)):

@@ -23,6 +23,7 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--run-dir',required=True)
     parser.add_argument('--expected-source-sha',required=True);parser.add_argument('--records',type=int,default=50000)
     parser.add_argument('--device',default='cpu');parser.add_argument('--case-minutes',type=float,default=15)
+    parser.add_argument('--storage',choices=('features','rule-state'),default='features')
     parser.add_argument('--task',choices=('delayed','branching','gray-pure','gray-mixed'),default='delayed')
     parser.add_argument('--learners',nargs='+',choices=('neural','tabular'),default=['neural','tabular'])
     parser.add_argument('--reuses',nargs='+',type=int,choices=(1,4),default=[1,4]);parser.add_argument('--resume',action='store_true')
@@ -36,7 +37,7 @@ def main():
         for reuse in args.reuses:
             for phase in ('pre','post'):
                 c=NFSPTaskConfig(time_cap_seconds=args.case_minutes*60,task=args.task,learner=learner,records=args.records,
-                    eval_every=args.records//2,q_reuse=reuse,device=args.device,purpose='profile',
+                    eval_every=args.records//2,q_reuse=reuse,device=args.device,purpose='profile',storage=args.storage,
                     reservoir_open=5_000_000 if phase=='pre' else 0,handoff_end=7_000_000 if phase=='pre' else 1000)
                 cases.append({'phase':phase,'config':c.plan()})
     plan={'format_version':1,'source_commit':subprocess.run(['git','rev-parse','HEAD'],capture_output=True,text=True,check=True).stdout.strip(),
@@ -81,7 +82,7 @@ def main():
                         and post['counters']['supervised_updates']>0 and post['acting_policy_counts']['average']>0)
                     forecast=5_000_000/pre['records']*pre['seconds_including_setup']+10_000_000/post['records']*post['seconds_including_setup']
                     budget={'format_version':1,'source_sha256':source_digest(),'task':args.task,'learner':learner,'q_reuse':reuse,
-                        'target':'one-step','device':args.device,'phases':['pre','post'],'complete_pipeline':complete,
+                        'target':'one-step','device':args.device,'storage':args.storage,'phases':['pre','post'],'complete_pipeline':complete,
                         'profile_plan_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'profile_cases':pair,
                         'phase_weighted_15M_seconds':forecast,'proposed_time_ceiling_seconds':max(900,math.ceil(2*forecast/900)*900),
                         'margin':2.,'limits':'partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast'}

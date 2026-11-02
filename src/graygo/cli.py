@@ -120,7 +120,7 @@ def profile_network(args):
 def profile_buffers(args):
     from .buffer_profile import profile_buffers as benchmark
     return benchmark(_rules(args),args.buffer_dir,capacity=args.capacity,records=args.records,
-                     iterations=args.iterations,batch=args.batch,seed=args.seed)
+                     iterations=args.iterations,batch=args.batch,seed=args.seed,storage=args.storage)
 
 
 def train_matrix(args):
@@ -193,7 +193,7 @@ def train_nfsp_task(args):
     budget_hash=None
     if args.budget_profile:
         profile=Path(args.budget_profile).read_bytes();budget=json.loads(profile)
-        if budget.get("source_sha256")!=source_digest() or budget.get("task")!=args.task or budget.get("learner")!=args.learner or budget.get("q_reuse")!=args.q_reuse:
+        if budget.get("source_sha256")!=source_digest() or budget.get("task")!=args.task or budget.get("learner")!=args.learner or budget.get("q_reuse")!=args.q_reuse or budget.get("storage","features")!=args.storage:
             raise ValueError("budget profile does not match this source/task/learner/reuse")
         if not budget.get("complete_pipeline") or set(budget.get("phases",[]))!={"pre","post"}:
             raise ValueError("budget profile must cover pre/post-opening complete learner work")
@@ -203,7 +203,7 @@ def train_nfsp_task(args):
         reservoir_open=args.reservoir_open,handoff_end=args.handoff_end,uniform_comparison=args.uniform_comparison,
         horizons=tuple(args.horizons),equivalent_actions=args.equivalent_actions,hidden=args.hidden,
         width=args.width,blocks=args.blocks,norm_groups=args.norm_groups,eval_batch=args.eval_batch,
-        capacity=args.capacity,purpose=args.purpose,budget_profile_sha256=budget_hash)
+        capacity=args.capacity,purpose=args.purpose,budget_profile_sha256=budget_hash,storage=args.storage)
     stopped=[];previous={}
     for name in (signal.SIGINT,signal.SIGTERM):previous[name]=signal.signal(name,lambda signum,frame:stopped.append(signum))
     try:return NFSPTaskTrainer(config,args.run_dir,resume=args.resume).run(stop_requested=lambda:bool(stopped))
@@ -234,10 +234,12 @@ def main(argv=None):
             p.add_argument("--device",default="cpu");p.add_argument("--batch",type=int,default=16)
             p.add_argument("--batches",type=int,default=10)
         elif name=="profile-buffers":
+            p.add_argument("--storage",choices=("features","rule-state"),default="features")
             p.add_argument("--buffer-dir",required=True);p.add_argument("--capacity",type=int,default=500000)
             p.add_argument("--records",type=int,default=10000);p.add_argument("--iterations",type=int,default=50)
             p.add_argument("--batch",type=int,default=512)
         elif name=="train-nfsp-task":
+            p.add_argument("--storage",choices=("features","rule-state"),default="features")
             p.add_argument("--run-dir",required=True);p.add_argument("--task",choices=("delayed","delayed-forced","branching","gray-pure","gray-mixed"),default="delayed")
             p.add_argument("--learner",choices=("neural","tabular"),default="neural")
             p.add_argument("--records",type=int,default=15000000);p.add_argument("--eval-every",type=int,default=500000)
