@@ -1,0 +1,41 @@
+{
+  "files": {
+    "models.pt": {
+      "bytes": 5058895,
+      "sha256": "c37dbd2a7ace04780cd2f3e545178f240ebcbe8e1c9ddef27d9d3563c8fea677"
+    }
+  },
+  "format_version": 1,
+  "kind": "weights",
+  "metadata": {
+    "counters": {
+      "fresh_ordinary": 16384,
+      "fresh_q": 16384,
+      "q_loss_targets": 51200,
+      "q_updates": 100,
+      "supervised_targets": 5120,
+      "supervised_updates": 10,
+      "target_refreshes": 1
+    },
+    "journal_plan_sha256": "9b17f779831159816e276a116e178ed78bbea6a0d7da03b05d54bacd20947f60",
+    "native_schema": {
+      "codec": "graygo/rule-state/1",
+      "encoding_version": "graygo/encoding/1",
+      "native_decoder": {
+        "abi": 1,
+        "path": "/home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so",
+        "sha256": "f40906ebe6df9974ebf890ef6d665ee2459ac56863b62aa2e2bcaf200e040289"
+      },
+      "rule_version": "graygo/1",
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "storage": "rule-state"
+    },
+    "source_sha256": "418c9dfc6031fb17cb88045c00aa18f28b1212a65948a51b8bb29863305a210f",
+    "training_run_sha256": "a7187442f7121ede63af323ca07ff6866bcd7a895d0ca442b09d97c1f49acae3"
+  },
+  "step": 16384
+}

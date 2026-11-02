@@ -1,0 +1,46 @@
+{
+  "a2_complete": false,
+  "auditor_sha256": "c015b87a92499d0363bd5bf40bbdc6d7578de54accb9b09266ef3f2838711a14",
+  "checks": {
+    "full": {
+      "clock_sha256": "e098f1862904d36dc940a3464abcf382544fe2094118191274ba8ac461962996",
+      "counters": {
+        "fresh_ordinary": 16384,
+        "fresh_q": 16384,
+        "q_loss_targets": 51200,
+        "q_updates": 100,
+        "supervised_targets": 5120,
+        "supervised_updates": 10,
+        "target_refreshes": 1
+      },
+      "final_manifest_sha256": "b5ea1f93d389b8abcb25972ef10feb80c70614a6b53498314c02feb7baa480d2",
+      "labels": 903,
+      "observed_seconds": 26.02061396901263,
+      "sessions": 1
+    },
+    "resumed": {
+      "clock_sha256": "4ce41d8c3d67252afd858318ea90273f4468fdee7347f55e49aa8cb34302a438",
+      "counters": {
+        "fresh_ordinary": 16384,
+        "fresh_q": 16384,
+        "q_loss_targets": 51200,
+        "q_updates": 100,
+        "supervised_targets": 5120,
+        "supervised_updates": 10,
+        "target_refreshes": 1
+      },
+      "final_manifest_sha256": "50f8d4b80937c65397b2aac2eed4d89f422466a1fa5c11c97be7d7552c26f113",
+      "labels": 903,
+      "observed_seconds": 32.285889484977815,
+      "sessions": 3
+    }
+  },
+  "early_labels_absent": true,
+  "exact_complete_saved_state_and_buffers": true,
+  "formal_scope_approved": false,
+  "live_tensor_device_layout": "covered by separate CPU/CUDA executor tests; saved-state audit loads tensors on CPU",
+  "plan_sha256": "dc8fdc2fad26ebcf975a833b282bf8efaa266fa45ffb80f0e3b70aa4ae04d796",
+  "purpose": "diagnostic",
+  "source_sha256": "418c9dfc6031fb17cb88045c00aa18f28b1212a65948a51b8bb29863305a210f",
+  "verified": true
+}

@@ -1,0 +1,79 @@
+{
+  "a2_complete": false,
+  "aggregate_records": 32768,
+  "commands": [
+    {
+      "clock": {
+        "inflight_since": null,
+        "last_checkpoint": {
+          "manifest_sha256": "b5ea1f93d389b8abcb25972ef10feb80c70614a6b53498314c02feb7baa480d2",
+          "records": 16384
+        },
+        "observed_seconds": 26.02061396901263,
+        "recovery_charge_seconds": 0.0,
+        "sessions": 1,
+        "status": "complete",
+        "training_run_sha256": "201907c7d0059f8e0640388a55ad17f898a4fa4a16be2a12637f3a5db0694123",
+        "unclean_recoveries": 0
+      },
+      "records": 16384,
+      "status": "complete"
+    },
+    {
+      "clock": {
+        "inflight_since": null,
+        "last_checkpoint": {
+          "manifest_sha256": "ed3d0d0183edfa5effc50fd29a37d954f4d41545beb91732f401e0f703f82cb2",
+          "records": 4096
+        },
+        "observed_seconds": 5.448389227967709,
+        "recovery_charge_seconds": 0.0,
+        "sessions": 1,
+        "status": "checkpoint_boundary",
+        "training_run_sha256": "a7187442f7121ede63af323ca07ff6866bcd7a895d0ca442b09d97c1f49acae3",
+        "unclean_recoveries": 0
+      },
+      "records": 4096,
+      "status": "checkpoint_boundary"
+    },
+    {
+      "clock": {
+        "inflight_since": null,
+        "last_checkpoint": {
+          "manifest_sha256": "bbd84b0c14157130774155c1fb22565cb651aaa754ff4e24735b9b072138aa40",
+          "records": 8192
+        },
+        "observed_seconds": 14.414119336986914,
+        "recovery_charge_seconds": 0.0,
+        "sessions": 2,
+        "status": "opening_pending",
+        "training_run_sha256": "a7187442f7121ede63af323ca07ff6866bcd7a895d0ca442b09d97c1f49acae3",
+        "unclean_recoveries": 0
+      },
+      "records": 8192,
+      "status": "opening_pending"
+    },
+    {
+      "clock": {
+        "inflight_since": null,
+        "last_checkpoint": {
+          "manifest_sha256": "50f8d4b80937c65397b2aac2eed4d89f422466a1fa5c11c97be7d7552c26f113",
+          "records": 16384
+        },
+        "observed_seconds": 32.285889484977815,
+        "recovery_charge_seconds": 0.0,
+        "sessions": 3,
+        "status": "complete",
+        "training_run_sha256": "a7187442f7121ede63af323ca07ff6866bcd7a895d0ca442b09d97c1f49acae3",
+        "unclean_recoveries": 0
+      },
+      "records": 16384,
+      "status": "complete"
+    }
+  ],
+  "elapsed_collection_seconds": 61.15435382199939,
+  "formal_scope_approved": false,
+  "purpose": "diagnostic",
+  "source_sha256": "418c9dfc6031fb17cb88045c00aa18f28b1212a65948a51b8bb29863305a210f",
+  "verified": true
+}

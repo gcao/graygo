@@ -56,3 +56,10 @@ The driver requires clean committed package source, two trajectories of 16,384 r
 ## Test result
 
 The final combined suite passes **245 tests in 107.462 seconds**. Eighteen execution-specific tests include exact live CPU/CUDA continuation, private RNGs and complete arrays; opening pass/no-go retention; lifetime locking; bounded CLI rejection; cumulative setup/runtime ceilings; clean versus unclean/offline/reversed-wall handling; missing/corrupt provenance; bundle-before-clock crash recovery; full-capacity write headroom; low-disk stops; and safe durable state after unexpected exceptions.
+
+
+## Completed native/CUDA CLI integration
+
+Clean revision `0b15b8c` / package SHA `418c9dfc6031fb17cb88045c00aa18f28b1212a65948a51b8bb29863305a210f` completed the frozen native-decoder/full-model exercise. The [plan](board-execution-diagnostic/plan.json), [collection report](board-execution-diagnostic/report.json), [independent audit](board-execution-diagnostic/audit.json) and [artifact index](board-execution-diagnostic/README.md) retain all four real CLI invocations, closed clocks and seals. Collection took **61.154 seconds**; persisted execution clocks were **26.021 seconds** uninterrupted and **32.286 seconds** across three resumed processes. No unclean/offline charge was needed.
+
+Each trajectory reached exactly 16,384 records, 8,192 per role, with 100 Q updates / 51,200 Q targets, ten averaging updates / 5,120 supervised targets and one fresh-record target refresh. Each final reservoir contains 903 labels, none before its reduced 8,192 opening. The independent saved-state/buffer comparison is exact. Each run retains all five public model archives and one final heavy bundle. The final public Q/average tensors match the actual saved learner. This diagnostic does not establish formal learning eligibility or campaign throughput/cost.

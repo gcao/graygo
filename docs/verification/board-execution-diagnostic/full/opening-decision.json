@@ -1,0 +1,14 @@
+{
+  "body": {
+    "archive_manifest_sha256": "078bc4865de57318af871227d8e1f39225467208d475e7abdd3cee11723ca65f",
+    "formal_evidence": false,
+    "kind": "diagnostic",
+    "plan_sha256": "9b17f779831159816e276a116e178ed78bbea6a0d7da03b05d54bacd20947f60",
+    "records": 8192,
+    "seed": 17,
+    "status": "pass",
+    "training_run_sha256": "201907c7d0059f8e0640388a55ad17f898a4fa4a16be2a12637f3a5db0694123"
+  },
+  "sha256": "ad59c79f1a4c39d091febdf9c6355554f58521a2e61fafa3cdd33dbde3f0c666",
+  "version": "graygo/board-opening-decision/1"
+}

@@ -45,3 +45,10 @@ The matched collector completed 384 random-baseline games across one resumed and
 The clean `546d2e2` full-model CUDA lifecycle exercise completed two 16,384-record trajectories (32,768 aggregate fresh records) in **87.245 process-wall seconds**, or **0.02423 elapsed hours of a GPU-equipped process**. It includes full model updates, archive/checkpoint IO, public loading and interrupted continuation. This is allocated process time, not measured kernel-active GPU time. Its independent artifact audit and test/development overhead are additional and are not comprehensively summed here.
 
 The [frozen evidence](../verification/board-milestone-diagnostic/README.md) uses reference Python decoding, Q reuse four and reduced diagnostic opening/hand-off clocks. It is not a reuse-only comparison with the earlier R1/native profile, a full-population measurement, or H_P/H_D/H_N/campaign pricing. No campaign allocation follows from this diagnostic.
+
+
+## Locked native/CUDA execution integration
+
+The clean `0b15b8c` integration driver completed four actual CLI invocations across two 16,384-record full-model CUDA trajectories in **61.154 process-wall seconds**, or **0.01699 hours of a GPU-equipped process**. The persisted clocks charge 26.021 seconds uninterrupted and 32.286 seconds across the three resumed sessions, with zero recovery-gap charge. These clocks are a breakdown within the driver total. The driver measurement includes command startup/reporting outside the component clocks; its own initial import/setup, independent saved-artifact audit, tests and development are additional overhead.
+
+This is allocated process time, not measured kernel-active GPU time. The [frozen native/CUDA evidence](../verification/board-execution-diagnostic/README.md) uses Q reuse four, full capacity declarations but partial live buffers, untrained game lengths and reduced diagnostic opening/hand-off clocks. It does not price H_P/H_D/H_N or select a development/confirmation campaign. No direct timing comparison isolates Q reuse across the differently configured historical diagnostics.
