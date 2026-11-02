@@ -478,7 +478,7 @@ def main(argv=None):
         elif name=="build-probes":
             p.set_defaults(size=9,limit=200,collision="gray")
             p.add_argument("--run-dir",required=True);p.add_argument("--attempts",type=int,default=10000)
-            p.add_argument("--generator",choices=("liberty","multigroup"),default="liberty")
+            p.add_argument("--generator",choices=("liberty","multigroup","multicell"),default="liberty")
             p.add_argument("--time-cap-hours",type=float,required=True)
         elif name=="verify-probes":
             p.set_defaults(size=9,limit=200,collision="gray")

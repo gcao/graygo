@@ -7,14 +7,17 @@ from pathlib import Path
 import time
 from .engine import BLACK,WHITE,Rules,State,resolve,score
 from .manifest import make_manifest,source_digest,write_report
-from .probe_benchmark import ProbeBenchmark,construct_benchmark,assess_marginals,GENERATOR_VERSION,DIVERSE_GENERATOR_VERSION
+from .probe_benchmark import ProbeBenchmark,construct_benchmark,assess_marginals,GENERATOR_VERSION,DIVERSE_GENERATOR_VERSION,MULTICELL_GENERATOR_VERSION
 from .probe_certification import CertificateBudget
 from .storage import digest
 
 
 def build_probes(root,*,seed,attempt_cap,time_cap_seconds,stop_requested=lambda:False,generator='liberty'):
-    if generator not in ('liberty','multigroup'):raise ValueError('unknown probe construction generator')
-    if generator=='multigroup':
+    if generator not in ('liberty','multigroup','multicell'):raise ValueError('unknown probe construction generator')
+    if generator=='multicell':
+        from .probe_diversity import construct_multicell_benchmark
+        constructor=construct_multicell_benchmark;version=MULTICELL_GENERATOR_VERSION
+    elif generator=='multigroup':
         from .probe_diversity import construct_diverse_benchmark
         constructor=construct_diverse_benchmark;version=DIVERSE_GENERATOR_VERSION
     else:constructor=construct_benchmark;version=GENERATOR_VERSION
@@ -30,7 +33,8 @@ def build_probes(root,*,seed,attempt_cap,time_cap_seconds,stop_requested=lambda:
         plan={'version':'graygo/collision-probe-construction/1','generator':version,'seed':seed,'attempt_cap':attempt_cap,
               'time_ceiling_seconds':time_cap_seconds,'certificate_budget':asdict(budget),'target_geometric_pairs':32,'required_strategic_families':32,
               'generator_scope':('one liberty-change motif; conservative complete-game family equivalence' if generator=='liberty' else
-                                 'multigroup three-faction single-cell changes; one accepted pair per complete base/remove game class'),
+                                 'multigroup three-faction single-cell changes; one accepted pair per complete base/remove game class' if generator=='multigroup' else
+                                 'multigroup three-faction two-cell changes; one accepted pair per complete base/remove game class'),
               'directions':{'increase':16,'decrease':16},
               'source_sha256':source_digest(),'rules':{'size':9,'max_rounds':200,'collision':'gray'},'candidate_policy_used':False,
               'scope':'reachable default-game round-199 benchmark construction; no learner or gray-specialization result'}
@@ -77,7 +81,10 @@ def verify_probes(path,*,regenerate=False,time_cap_seconds=180):
     if not oracle['all_seed_instance_thresholds_passed']:raise ValueError('exact equilibrium fixtures fail their certified directional benchmark')
     regenerated=False
     if regenerate:
-        if benchmark.generator==DIVERSE_GENERATOR_VERSION:
+        if benchmark.generator==MULTICELL_GENERATOR_VERSION:
+            from .probe_diversity import construct_multicell_benchmark
+            constructor=construct_multicell_benchmark
+        elif benchmark.generator==DIVERSE_GENERATOR_VERSION:
             from .probe_diversity import construct_diverse_benchmark
             constructor=construct_diverse_benchmark
         else:constructor=construct_benchmark

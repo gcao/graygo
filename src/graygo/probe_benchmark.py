@@ -21,6 +21,7 @@ FAMILY_VERSION='graygo/paired-collision-family/1'
 BENCHMARK_VERSION='graygo/collision-probe-catalog/1'
 GENERATOR_VERSION='graygo/reachable-liberty-change-probes/1'
 DIVERSE_GENERATOR_VERSION='graygo/reachable-multigroup-collision-probes/1'
+MULTICELL_GENERATOR_VERSION='graygo/reachable-multigroup-collision-probes/2'
 FAMILIES=32
 REQUIRED=24
 
@@ -74,7 +75,7 @@ def strategy_family_id(before,after):
 class ProbeFamily:
     before:CertifiedRoot
     after:CertifiedRoot
-    changed_point:int
+    changed_point:int|None
     attempt:int
     before_setup:tuple
     after_setup:tuple
@@ -94,6 +95,8 @@ class ProbeFamily:
             if len(trace)!=199 or replay_setup(trace)!=root:raise ValueError('probe root does not match its legal empty-board setup trace')
         if type(self.attempt) is not int or self.attempt<0:raise ValueError('nonnegative generator proposal index required')
         if self.root_ids[0]==self.root_ids[1]:raise ValueError('symmetry copies do not define a new family')
+    @property
+    def changed_points(self):return tuple(p for p,(a,b) in enumerate(zip(self.before.state.board,self.after.state.board)) if a!=b)
     @property
     def root_ids(self):return (geometric_root_id(self.before.state),geometric_root_id(self.after.state))
     @property
@@ -124,10 +127,12 @@ class ProbeBenchmark:
     families:tuple
     generator:str=GENERATOR_VERSION
     def __post_init__(self):
-        if self.generator not in (GENERATOR_VERSION,DIVERSE_GENERATOR_VERSION):raise ValueError('unknown collision probe generator')
+        if self.generator not in (GENERATOR_VERSION,DIVERSE_GENERATOR_VERSION,MULTICELL_GENERATOR_VERSION):raise ValueError('unknown collision probe generator')
         object.__setattr__(self,'families',tuple(self.families))
         if type(self.seed) is not int or self.seed<0 or len(self.families)!=FAMILIES:raise ValueError('complete 32-case catalog and generation seed required')
         if any(not isinstance(f,ProbeFamily) for f in self.families):raise ValueError('certified paired families required')
+        if self.generator==DIVERSE_GENERATOR_VERSION and any(len(f.changed_points)!=1 for f in self.families):raise ValueError('version-one multigroup pairs require one controlled cell')
+        if self.generator==MULTICELL_GENERATOR_VERSION and any(len(f.changed_points)!=2 or f.changed_point is not None for f in self.families):raise ValueError('version-two multigroup pairs require exactly two controlled cells')
         if any(f.before.state.rules!=Rules() or f.after.state.rules!=Rules() for f in self.families):raise ValueError('default 9x9/200-round rules required')
         ids=[f.identity for f in self.families];roots=[key for f in self.families for key in f.root_ids]
         if len(set(ids))!=FAMILIES or len(set(roots))!=2*FAMILIES:raise ValueError('root or family symmetry copies cannot be counted independently')
@@ -139,7 +144,7 @@ class ProbeBenchmark:
     @property
     def family_coverage_complete(self):return self.strategic_family_count==FAMILIES
     def to_dict(self):
-        return {'version':BENCHMARK_VERSION,'generator':self.generator,'generation_seed':self.seed,'cases':[f.to_dict() for f in self.families],
+        result={'version':BENCHMARK_VERSION,'generator':self.generator,'generation_seed':self.seed,'cases':[f.to_dict() for f in self.families],
             'required_families':FAMILIES,'distinct_strategic_families':self.strategic_family_count,'family_coverage_complete':self.family_coverage_complete,
             'family_equivalence':'complete base/remove game pair up to shared placement labels, global color exchange and pair reversal',
             'required_passes_per_seed':REQUIRED,'seeds':list(CONFIRMATION_SEEDS),'individual_value_gap':str(GAP),
@@ -147,8 +152,12 @@ class ProbeBenchmark:
             'root_semantics':'reachable default 9x9 round-199 states; every probe episode starts at its declared root; setup traces certify reachability',
             'construction':('versioned independent public-root proposals; current generator uses one minority-stone liberty motif'
                             if self.generator==GENERATOR_VERSION else
-                            'versioned independent multigroup three-faction growth; single-cell removal/recoloring; unique complete-game classes; legal default-game setup traces'),
+                            'versioned independent multigroup three-faction growth; single-cell removal/recoloring; unique complete-game classes; legal default-game setup traces'
+                            if self.generator==DIVERSE_GENERATOR_VERSION else
+                            'versioned independent multigroup three-faction growth; two-cell removal/recoloring; unique complete-game classes; legal default-game setup traces'),
             'inference':'descriptive finite benchmark; no binomial population confidence bound'}
+        if self.generator==MULTICELL_GENERATOR_VERSION:result['controlled_changes']={f.identity:list(f.changed_points) for f in self.families}
+        return result
     @property
     def sha256(self):return canonical_sha(self.to_dict())
     @classmethod

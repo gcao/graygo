@@ -7,7 +7,7 @@ import numpy as np
 from .curriculum import canonical_board
 from .confidence import canonical_sha
 from .engine import Rules,State,neighbors,groups
-from .probe_benchmark import ProbeBenchmark,ProbeFamily,FAMILIES,DIVERSE_GENERATOR_VERSION,strategy_family_id,rule_sensitive
+from .probe_benchmark import ProbeBenchmark,ProbeFamily,FAMILIES,DIVERSE_GENERATOR_VERSION,MULTICELL_GENERATOR_VERSION,strategy_family_id,rule_sensitive
 from .probe_certification import CertificateBudget,certify_one_round,collision_range,_one_round_matrix,SEPARATION
 from .probe_setup import reachable_multigroup_pair
 from .solving import SolveBudgetExceeded
@@ -53,14 +53,36 @@ def multigroup_proposal(rng):
     return (State(Rules(9,1),board),State(Rules(9,1),other),point),None,operation
 
 
+def multicell_proposal(rng):
+    """Make exactly two occupied-cell removals/recolorings on a stable base.
+
+    The first change follows the unchanged version-one proposal algorithm. A
+    second distinct occupied point changes group/score interactions. Original
+    holes stay empty; at most five points are empty in either root, so the
+    complete six-action certificate budget remains unchanged.
+    """
+    candidate,reason,first=multigroup_proposal(rng)
+    if candidate is None:return None,'unstable_first_change','base_'+first
+    before,middle,point=candidate;other=list(middle.board)
+    second_point=int(rng.choice([p for p,c in enumerate(other) if c and p!=point]))
+    second='recolor' if other.count(0)>=5 else 'remove' if rng.random()<.5 else 'recolor'
+    other[second_point]=0 if second=='remove' else int(rng.choice([c for c in (1,2,3) if c!=other[second_point]]))
+    removals=int(first=='remove')+int(second=='remove')
+    operation=('double_recolor','remove_recolor','double_remove')[removals]
+    if any(not g.liberties for g in groups(other,9)):return None,'unstable_second_change',operation
+    after=State(Rules(9,1),other)
+    changed=[p for p,(a,b) in enumerate(zip(before.board,after.board)) if a!=b]
+    if len(changed)!=2 or after.board.count(0)>5:raise ValueError('two-cell proposal violated its exact change/action budget')
+    return (before,after,None),None,operation
+
+
 @lru_cache(maxsize=8192)
 def _normalized_range(matrix,budget):
     actions=tuple(range(len(matrix)))
     return collision_range(matrix,actions,actions,len(matrix)-1,budget=budget)
 
 
-def construct_diverse_benchmark(seed,*,attempt_cap=100000,time_cap_seconds=900,budget=CertificateBudget(),
-                                stop_requested=lambda:False,on_progress=lambda value:None):
+def _construct(seed,*,attempt_cap,time_cap_seconds,budget,stop_requested,on_progress,proposal_fn,generator):
     if (type(seed) is not int or seed<0 or type(attempt_cap) is not int or not 1<=attempt_cap<=1000000
             or type(time_cap_seconds) not in (int,float) or not math.isfinite(time_cap_seconds)
             or not 0<time_cap_seconds<=8*3600):
@@ -68,14 +90,16 @@ def construct_diverse_benchmark(seed,*,attempt_cap=100000,time_cap_seconds=900,b
     rng=np.random.default_rng(seed);counts=Counter();used_boards=set();used_classes=set();families=[]
     started=time.monotonic();status='running';attempts=0
     def progress():
-        return {'generator':DIVERSE_GENERATOR_VERSION,'status':status,'attempts':attempts,'counts':dict(counts),
+        value={'generator':generator,'status':status,'attempts':attempts,'counts':dict(counts),
                 'qualified_geometric_pairs':len(families),'distinct_strategic_families':len(used_classes),
                 'elapsed_seconds':time.monotonic()-started,'candidate_policy_used':False,
                 'benchmark_complete':False,'partial_families':[f.to_dict() for f in families]}
+        if generator==MULTICELL_GENERATOR_VERSION:value['controlled_changes']={f.identity:list(f.changed_points) for f in families}
+        return value
     for attempt in range(attempt_cap):
         if stop_requested():status='interrupted';break
         if time.monotonic()-started>=time_cap_seconds:status='budget_limited';break
-        attempts=attempt+1;proposal,reason,operation=multigroup_proposal(rng);counts['proposed_'+operation]+=1
+        attempts=attempt+1;proposal,reason,operation=proposal_fn(rng);counts['proposed_'+operation]+=1
         if proposal is None:counts[reason]+=1;continue
         before,after,point=proposal;counts['holes_'+str(before.board.count(0))]+=1
         try:
@@ -117,9 +141,21 @@ def construct_diverse_benchmark(seed,*,attempt_cap=100000,time_cap_seconds=900,b
         on_progress(progress())
         if len(families)==FAMILIES:status='complete';break
     if status=='running':status='attempt_limited'
-    benchmark=ProbeBenchmark(seed,tuple(families),DIVERSE_GENERATOR_VERSION) if len(families)==FAMILIES else None
+    benchmark=ProbeBenchmark(seed,tuple(families),generator) if len(families)==FAMILIES else None
     report=progress();report['case_catalog_complete']=benchmark is not None
     report['benchmark_complete']=benchmark is not None and benchmark.family_coverage_complete
     report['benchmark_sha256']=None if benchmark is None else benchmark.sha256
     if benchmark is not None:report['partial_families']=[]
     return benchmark,report
+
+
+def construct_diverse_benchmark(seed,*,attempt_cap=100000,time_cap_seconds=900,budget=CertificateBudget(),
+                                stop_requested=lambda:False,on_progress=lambda value:None):
+    return _construct(seed,attempt_cap=attempt_cap,time_cap_seconds=time_cap_seconds,budget=budget,
+        stop_requested=stop_requested,on_progress=on_progress,proposal_fn=multigroup_proposal,generator=DIVERSE_GENERATOR_VERSION)
+
+
+def construct_multicell_benchmark(seed,*,attempt_cap=100000,time_cap_seconds=900,budget=CertificateBudget(),
+                                  stop_requested=lambda:False,on_progress=lambda value:None):
+    return _construct(seed,attempt_cap=attempt_cap,time_cap_seconds=time_cap_seconds,budget=budget,
+        stop_requested=stop_requested,on_progress=on_progress,proposal_fn=multicell_proposal,generator=MULTICELL_GENERATOR_VERSION)

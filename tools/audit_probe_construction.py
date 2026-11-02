@@ -11,9 +11,14 @@ import time
 from unittest.mock import patch
 from graygo.manifest import make_manifest,source_digest,write_report
 from graygo.probe_benchmark import ProbeBenchmark,ProbeFamily,DIVERSE_GENERATOR_VERSION,rule_sensitive
+from graygo import probe_benchmark as benchmark_module
 from graygo.probe_certification import CertificateBudget,grade_pair
 from graygo.probe_diversity import construct_diverse_benchmark
+from graygo import probe_diversity as diversity_module
 from graygo.storage import digest
+
+MULTICELL_GENERATOR_VERSION=getattr(benchmark_module,'MULTICELL_GENERATOR_VERSION','graygo/reachable-multigroup-collision-probes/2')
+construct_multicell_benchmark=getattr(diversity_module,'construct_multicell_benchmark',None)
 
 
 def require(condition,message):
@@ -38,9 +43,10 @@ def audit(root,allocation_path,output,time_cap_seconds,regenerate):
     report=json.loads((root/'report.json').read_text());source=source_digest()
     require(source==plan['source_sha256']==manifest['source_sha256']==process['source_sha256']==report['source_sha256']==allocation['source_sha256'],'use the original frozen package source')
     require(manifest['git_dirty'] is False and manifest['git_commit'].startswith(allocation['source_commit']),'source was not the declared clean frozen commit')
-    require(plan['generator']==allocation['generator']==DIVERSE_GENERATOR_VERSION and plan['seed']==allocation['seed']
+    require(plan['generator']==allocation['generator'] and plan['generator'] in (DIVERSE_GENERATOR_VERSION,MULTICELL_GENERATOR_VERSION) and plan['seed']==allocation['seed']
             and plan['attempt_cap']==allocation['attempt_cap'] and plan['time_ceiling_seconds']==allocation['construction_time_ceiling_seconds'],'construction allocation/plan differs')
     require(time_cap_seconds<=allocation['verification_time_ceiling_seconds'],'verification exceeds its selected allocation')
+    require(plan['generator']!=MULTICELL_GENERATOR_VERSION or construct_multicell_benchmark is not None,'version-two construction requires its own frozen package source')
     require(report['plan_sha256']==digest(root/'plan.json') and report['training_started'] is False
             and report['gray_specialization_demonstrated'] is False,'terminal provenance or scope differs')
     require(report['status'] in ('complete','budget_limited','attempt_limited','interrupted'),'nonterminal construction status')
@@ -78,8 +84,13 @@ def audit(root,allocation_path,output,time_cap_seconds,regenerate):
             require(grade['passed'],'exact equilibrium fixture fails its complete paired criterion');teacher+=1
             a,b=family.before.state,family.after.state
             changed=[p for p,(x,y) in enumerate(zip(a.board,b.board)) if x!=y]
-            require(changed==[family.changed_point],'proposal is not its declared single-cell change')
-            operation='remove' if 0 in (a.board[changed[0]],b.board[changed[0]]) else 'recolor'
+            if plan['generator']==DIVERSE_GENERATOR_VERSION:
+                require(changed==[family.changed_point],'proposal is not its declared single-cell change')
+                operation='remove' if 0 in (a.board[changed[0]],b.board[changed[0]]) else 'recolor'
+            else:
+                require(len(changed)==2 and family.changed_point is None,'proposal is not its declared two-cell change')
+                removals=sum(0 in (a.board[p],b.board[p]) for p in changed)
+                operation=('double_recolor','remove_recolor','double_remove')[removals]
             counts['accepted_'+operation]+=1;counts['increase' if family.direction==1 else 'decrease']+=1
             if any(r.state.board.count(3) for r in (family.before,family.after)):counts['accepted_with_gray']+=1
             if any(sum(v>0 for v in p)>1 for r in (family.before,family.after) for p in r.certificate.equilibrium):counts['accepted_with_mixed_equilibrium']+=1
@@ -88,14 +99,17 @@ def audit(root,allocation_path,output,time_cap_seconds,regenerate):
     proof_seconds=time.monotonic()-started
     require(len(ids)==report['distinct_strategic_families']==report['qualified_geometric_pairs'],'reported unique counts differ')
     require([f.attempt for f in families]==sorted({f.attempt for f in families}) and all(f.attempt<report['attempts'] for f in families),'accepted proposal indices differ')
-    for key in ('accepted_remove','accepted_recolor','increase','decrease','accepted_with_gray','accepted_with_mixed_equilibrium'):
+    operation_keys=('accepted_remove','accepted_recolor') if plan['generator']==DIVERSE_GENERATOR_VERSION else ('accepted_double_recolor','accepted_remove_recolor','accepted_double_remove')
+    for key in (*operation_keys,'increase','decrease','accepted_with_gray','accepted_with_mixed_equilibrium'):
         require(counts[key]==report['counts'].get(key,0),'reported accepted-case summary differs: '+key)
     complete=len(families)==32
     require(report['benchmark_complete']==report['case_catalog_complete']==complete,'partial/full completion flag differs')
     require((benchmark is not None)==complete,'benchmark inventory differs from coverage')
     if benchmark is not None:
-        require(benchmark.seed==plan['seed'] and benchmark.generator==DIVERSE_GENERATOR_VERSION
+        require(benchmark.seed==plan['seed'] and benchmark.generator==plan['generator']
                 and benchmark.family_coverage_complete and benchmark.sha256==report['benchmark_sha256'],'full catalog identity differs')
+    if plan['generator']==MULTICELL_GENERATOR_VERSION:
+        require(report['controlled_changes']=={f.identity:list(f.changed_points) for f in families},'controlled point metadata differs')
     generation_seconds=0.
     if regenerate:
         def progress(value):
@@ -103,7 +117,8 @@ def audit(root,allocation_path,output,time_cap_seconds,regenerate):
                 'distinct_strategic_families':value['distinct_strategic_families'],'elapsed_seconds':time.monotonic()-started})
         at=time.monotonic()
         if report['attempts']:
-            rebuilt,reproduction=construct_diverse_benchmark(plan['seed'],attempt_cap=report['attempts'],time_cap_seconds=remaining(),
+            constructor=construct_diverse_benchmark if plan['generator']==DIVERSE_GENERATOR_VERSION else construct_multicell_benchmark
+            rebuilt,reproduction=constructor(plan['seed'],attempt_cap=report['attempts'],time_cap_seconds=remaining(),
                 budget=CertificateBudget(**plan['certificate_budget']),stop_requested=lambda:stopped[0],on_progress=progress)
             remaining()
             require(reproduction['attempts']==report['attempts'] and reproduction['counts']==report['counts'],'original proposal prefix/counts do not reproduce')

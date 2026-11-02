@@ -247,3 +247,8 @@ Only a complete catalog of 32 distinct classes, balanced sixteen increase/sixtee
 ```
 
 These commands collect no training records or evaluation games and issue no A2/resource/training authority. A numerical gate result remains conditional on the independently verified project prerequisites. See [archive/score verification, locking, protocol rules and remaining authority](docs/verification/cohort-evidence.md).
+
+
+## Controlled changes at two points
+
+The version-two probe constructor (`build-probes --generator multicell`) explores two occupied-cell removals/recolorings while preserving the exact certificates, legal 199-round setup, uniqueness and 32-family requirements. It retains all original holes and limits either root to five empty points, so pass and every legal placement still fit the six-action proof budget. Catalogs record both changed positions explicitly. The separately versioned one-cell generator and its audited partial catalog remain unchanged. See [method, compatibility and verified test scope](docs/verification/probe-multicell.md).
