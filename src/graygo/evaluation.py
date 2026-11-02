@@ -69,7 +69,9 @@ class FrozenNeuralPolicy:
         manifest=json.loads((root/'run.json').read_text());data=torch.load(directory/'models.pt',weights_only=True,map_location=device)
         if manifest.get('rules') is None or data['config']!=manifest['config'] or sealed['metadata']['source_sha256']!=manifest['source_sha256']:raise ValueError('archive provenance/configuration differs')
         config=data['config'];shape=ModelConfig(config.get('width',64),config.get('blocks',8),config.get('norm_groups',8))
-        model=(QNet(shape) if representation=='greedy_q' else PolicyNet(shape)).to(device)
+        # Loading public weights must not consume the training process's RNG.
+        with torch.random.fork_rng(devices=[]):
+            model=(QNet(shape) if representation=='greedy_q' else PolicyNet(shape)).to(device)
         model.load_state_dict(data['q' if representation=='greedy_q' else 'average'])
         origin={'training_run_sha256':hashlib.sha256((root/'run.json').read_bytes()).hexdigest(),'source_sha256':manifest['source_sha256'],
             'archive_sha256':hashlib.sha256((directory/'manifest.json').read_bytes()).hexdigest(),'records':sealed['step'],'seed':config['seed'],'rules':manifest['rules']}

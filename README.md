@@ -197,3 +197,18 @@ The numeric ceiling above is an example, not an allocation. The campaign scope d
 One atomic block includes both curricula, official-empty and shared held-out-gray roots, all three seeds, both evaluation rules and both agent colors: **48 games**. Planned looks of 500/2,000 blocks are exactly 24,000/96,000 total games. The interaction uses matched within-block differences; simultaneous bounds cover all registered aggregate/seed diagnostics and looks. The primary exposure-controlled official-empty endpoint needs both lower bounds above +0.05 and positive point estimates in every seed. Empty-trained effects remain secondary, and held-out-gray effects remain diagnostic.
 
 Plans, policy/runtime/catalog identities, scored blocks and a checksummed cumulative clock persist across resume. A failed partial block commits no subset. An unclean in-flight gap is conservatively charged, including offline time, so crashes cannot silently refresh the time budget. The read-only reporter never mutates evidence and refuses a hidden later completed look. Small baseline exercises require `--purpose diagnostic`, explicit small `--block-looks`, and `baseline:random`/`baseline:tactical` registry values. They cannot establish a confirmation result. See [verification and inference scope](docs/verification/scientific-contrast.md).
+
+
+## Exact board milestones and opening journal
+
+`BoardMilestoneJournal` permanently archives the current Q/average weights at exact fresh-record boundaries and binds its lifecycle state into atomic runtime checkpoints. Development declarations retain the 4.5M/4.75M/5M pre-window, 6M/7M/8M post-window and 20M horizon; confirmation declarations retain the fixed opening and 80M horizon under either rule. The journal records a scope declaration, while the project controller must separately verify A2, resources and cohort approval before starting any formal training.
+
+Call `capture_if_due()` and `before_advance(count)` before collecting a chunk. At the fixed development opening, collection stops with a closed reservoir until `record_pilot_opening` reconstructs the real frozen milestone evaluations and records the original pre-window decision. A pass/no-go file is immutable; incomplete reads remain pending, and no later window can replace a final no-go. Confirmation label opening follows the fixed schedule and cannot be performance-filtered.
+
+```sh
+# Bounded diagnostic: full models, real rules, 512-target updates, CUDA and
+# a deliberately reduced opening to exercise the lifecycle in little work.
+.venv/bin/python tools/check_board_journal.py --run-dir runs/board-journal-check --device cuda --time-cap-seconds 300
+```
+
+The check compares uninterrupted and resumed 16,384-record trajectories, including a crash after the opening decision but before another full checkpoint. Public weight loading preserves training CPU/CUDA RNGs. All declared weights remain permanent; completed runs retain one verified heavy resume bundle. An active/time-capped run cannot be finalized as a completed endpoint. See [journal verification and remaining controller work](docs/verification/board-milestones.md).

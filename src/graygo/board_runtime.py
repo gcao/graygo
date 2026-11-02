@@ -24,6 +24,7 @@ from .rule_state import RuleStateSpec
 from .schedules import LearnerSchedule
 from .storage import CheckpointStore,DEFAULT_RESERVE
 from .manifest import make_manifest,source_digest,write_report
+from .confidence import canonical_sha
 
 RUNTIME_VERSION='graygo/board-nfsp-runtime/1'
 
@@ -130,12 +131,17 @@ class BoardNFSPRuntime:
             'rng':{k:v.bit_generator.state for k,v in self.rng.items()},'timings':self.timings,'loss':self.loss,
             'torch_rng':torch.get_rng_state(),'cuda_rng':torch.cuda.get_rng_state_all() if self.backend.device.type=='cuda' else []}
 
-    def save(self,root,*,reserve_bytes=DEFAULT_RESERVE):
+    def save(self,root,*,reserve_bytes=DEFAULT_RESERVE,controller_state=None):
         start=time.perf_counter();store=CheckpointStore(root,reserve_bytes=reserve_bytes)
+        control=None if controller_state is None else (json.dumps(controller_state,sort_keys=True,indent=2,allow_nan=False)+'\n').encode()
         raw=io.BytesIO();torch.save(self.state_dict(),raw);payload=raw.getvalue()
-        def writer(path):self.replay.save(path/'replay.npz');self.reservoir.save(path/'reservoir.npz');(path/'runtime.pt').write_bytes(payload)
-        peak=math.ceil(1.05*(len(payload)+self.replay.snapshot_raw_bytes+self.reservoir.snapshot_raw_bytes))+65536
-        path=store.save(self.records,writer,metadata={'version':RUNTIME_VERSION,'source_sha256':source_digest(),'native_schema':self.spec.to_dict()},estimated_peak_bytes=peak)
+        def writer(path):
+            self.replay.save(path/'replay.npz');self.reservoir.save(path/'reservoir.npz');(path/'runtime.pt').write_bytes(payload)
+            if control is not None:(path/'controller.json').write_bytes(control)
+        peak=math.ceil(1.05*(len(payload)+(0 if control is None else len(control))+self.replay.snapshot_raw_bytes+self.reservoir.snapshot_raw_bytes))+65536
+        metadata={'version':RUNTIME_VERSION,'source_sha256':source_digest(),'native_schema':self.spec.to_dict()}
+        if control is not None:metadata['controller_sha256']=canonical_sha(controller_state)
+        path=store.save(self.records,writer,metadata=metadata,estimated_peak_bytes=peak)
         self.timings['checkpoint']+=time.perf_counter()-start;return path
 
     def restore(self,path):
