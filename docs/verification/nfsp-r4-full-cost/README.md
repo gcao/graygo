@@ -30,8 +30,10 @@ The **pilot forecast exceeds the initial 24-hour per-seed pilot ceiling**, and t
 
 The source package, producer and allocation fingerprints must be supplied independently by the caller. The full-model CUDA profile is required: CPU/reduced/changed-schedule measurements cannot become production prices. All outputs retain `selected_scope_qualified=false`, `runtime_bound_proven=false`, `a2_complete=false` and `execution_authorized=false`.
 
-Thirteen targeted tests pass on the retained real measurement and adversarial undercount/omission/mismatch cases. The existing complete suite remains the previously recorded 376 tests; no new full-suite run is claimed. The actual artifact audit is the next verification step and will be retained separately.
+Thirteen targeted tests pass on the retained real measurement and adversarial undercount/omission/mismatch cases. The existing complete suite remains the previously recorded 376 tests; no new full-suite run is claimed. The actual artifact audit is complete: frozen auditor commit `c24f7ed`, SHA `36c737a86337efc5a85368e95a62154f75d944d895681bd5d45c674507826ecc`, 6.620969 CPU process-wall seconds. It verifies all retained original inputs unchanged and reproduces both cost-limit violations. The [audit output](audit.json) SHA is `741533c3c60a357612fd8ca87de53238d7575cf5b6415a401040dbf1d0d52fa6`. This verifies source-bound empirical accounting; it does not qualify the initial scope.
 
 ## Retained files
 
 [Report](report.json), [pipeline](pipeline.json), [plan](plan.json), [source/hardware manifest](run.json), [original OS job](job.json), [driver](driver.py), and [targeted tests](auditor-tests.txt). Large sealed buffers and timing-only model payloads remain in the ignored original run; they are not deployed agents or learning evidence.
+
+The [updated partial ledger](../nfsp-resource-ledger-measured-r4/README.md) enters these measured H values, keeps C1/C4 device prices missing, retains the original control reservation and adds the actual physical profile interval and independent audit. Its companion scope review separately compares measured science/probe work with the unchanged 16-hour design component; it does not silently replace that ceiling.

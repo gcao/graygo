@@ -1,0 +1,27 @@
+{
+  "a2_complete": false,
+  "audit_file_sha256": "741533c3c60a357612fd8ca87de53238d7575cf5b6415a401040dbf1d0d52fa6",
+  "component_limit_violations": [
+    "H_P exceeds initial 24-device-hour per-seed pilot ceiling",
+    "scientific/probe forecast exceeds 16-device-hour component"
+  ],
+  "design_formula_known_term_subtotal_device_hours": "3469.367963498129663333333333",
+  "design_scientific_and_probe_component_device_hours": "16",
+  "execution_authorized": false,
+  "known_component_forecast_subtotal_using_measured_science_device_hours": "3529.984449495495663333333333",
+  "measured_scientific_and_probe_device_hours": "76.616485997366",
+  "measured_scientific_component_shortfall_device_hours": "60.616485997366",
+  "missing_required_device_prices": [
+    "C1",
+    "C4"
+  ],
+  "pilot_component_within_24_hours": false,
+  "production_scope_selected": false,
+  "science_probe_component_within_16_hours": false,
+  "scope": "empirical measured prices exceed initial components; subtotal excludes unpriced A2 terms and other unreconciled consumption; no scope/funding change",
+  "selected_reuse": 4,
+  "selected_target": "one-step",
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "version": 1,
+  "whole_project_device_ceiling_declared": false
+}

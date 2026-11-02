@@ -1,0 +1,13 @@
+{
+  "all_independent_audit_inputs_still_unchanged": true,
+  "audit_existing_output_overwrite_rejected": true,
+  "audit_sha256": "741533c3c60a357612fd8ca87de53238d7575cf5b6415a401040dbf1d0d52fa6",
+  "auditor_sha256": "36c737a86337efc5a85368e95a62154f75d944d895681bd5d45c674507826ecc",
+  "execution_authorized": false,
+  "latest_complete_suite_tests": 376,
+  "negative_cli_error": "audit output must be new and outside original run",
+  "new_complete_suite_run_claimed": false,
+  "new_targeted_tests": 13,
+  "resource_cli_reproduces_plan_and_usage": true,
+  "version": 1
+}

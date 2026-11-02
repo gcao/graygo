@@ -1,0 +1,149 @@
+{
+  "execution_authorized": false,
+  "input_files_sha256": {
+    "docs/verification/nfsp-r4-full-cost/audit.json": "741533c3c60a357612fd8ca87de53238d7575cf5b6415a401040dbf1d0d52fa6",
+    "docs/verification/nfsp-r4-full-cost/report.json": "e55a346c2ec449a8f192dfa7a5288c4b981d8be7ecdc73b0dc464552d07599f1",
+    "docs/verification/nfsp-resource-ledger-current/usage.json": "5bbfe022078f46f412b72cba663d5d9491642e0e446355ed853e1674db707c85",
+    "docs/verification/nfsp-resource-ledger-measured-r4/plan.json": "6fa7e615438747bf6a9283b5ec5e04462750af011cb51e491067fb11b1330ec5",
+    "docs/verification/nfsp-resource-ledger-measured-r4/usage.json": "b2e6e4c9509e765a3fd7882902e131a18b114552348b8dda862d4365dd775e07"
+  },
+  "measured_candidate_scope_review": {
+    "a2_complete": false,
+    "audit_file_sha256": "741533c3c60a357612fd8ca87de53238d7575cf5b6415a401040dbf1d0d52fa6",
+    "component_limit_violations": [
+      "H_P exceeds initial 24-device-hour per-seed pilot ceiling",
+      "scientific/probe forecast exceeds 16-device-hour component"
+    ],
+    "design_formula_known_term_subtotal_device_hours": "3469.367963498129663333333333",
+    "design_scientific_and_probe_component_device_hours": "16",
+    "execution_authorized": false,
+    "known_component_forecast_subtotal_using_measured_science_device_hours": "3529.984449495495663333333333",
+    "measured_scientific_and_probe_device_hours": "76.616485997366",
+    "measured_scientific_component_shortfall_device_hours": "60.616485997366",
+    "missing_required_device_prices": [
+      "C1",
+      "C4"
+    ],
+    "pilot_component_within_24_hours": false,
+    "production_scope_selected": false,
+    "science_probe_component_within_16_hours": false,
+    "scope": "empirical measured prices exceed initial components; subtotal excludes unpriced A2 terms and other unreconciled consumption; no scope/funding change",
+    "selected_reuse": 4,
+    "selected_target": "one-step",
+    "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+    "version": 1,
+    "whole_project_device_ceiling_declared": false
+  },
+  "plan": {
+    "N_A2": null,
+    "a2_components": {
+      "B_0": "0",
+      "C4": null,
+      "CT": "0",
+      "D": "0",
+      "primary_short": "96",
+      "three_C1": null
+    },
+    "component_limit_violations": [
+      "profiled H_P exceeds the initial twenty-four-device-hour per-seed pilot limit"
+    ],
+    "continuous_device_days_not_wall_time_promise": null,
+    "execution_authorized": false,
+    "full_study_components": {
+      "B_U": "0",
+      "N_A2": null,
+      "P_actual": "0",
+      "U_actual_unreused": "0",
+      "corrective_reserve": "0",
+      "other_unreused": "0.04320152308333333333333333333",
+      "promotions": "0",
+      "scientific_probe_inference": "16",
+      "three_H_D": "267.49769056746561",
+      "twelve_H_N": "3089.82707140758072"
+    },
+    "full_study_device_hours": null,
+    "known_term_device_ceiling_subtotal": "3469.367963498129663333333333",
+    "learner_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+    "missing_required_terms": [
+      "C1",
+      "C4"
+    ],
+    "numerical_cost_status": "uncosted",
+    "per_seed_H_D_includes_H_P": "89.16589685582187",
+    "per_seed_H_P": "52.74488929064047",
+    "plan_sha256": "8f03a660763e2798718ba329704537e8a5300768695c906c438fbc6d64caa02f",
+    "project_device_hour_ceiling": null,
+    "runtime_prices_independently_qualified": false,
+    "scope": "formula and reference inventory, not a measured complete-NFSP price; CPU seconds are separate; no PPO-price substitution, scope selection or launch",
+    "selected_reuse": 4,
+    "selected_target": "one-step",
+    "unit": "device_hours",
+    "unreferenced_numeric_terms": [],
+    "version": "graygo/nfsp-resource-ledger/1"
+  },
+  "recorded_usage": {
+    "cpu_categories": {
+      "control": {
+        "actual_process_seconds": "26991.557927068962898",
+        "ceiling_seconds": "43200",
+        "committed_process_seconds": "42321.557927068962898",
+        "reserved_process_seconds": "15330",
+        "unallocated_seconds": "878.442072931037102",
+        "within_ceiling": true
+      },
+      "development": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": null,
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": null,
+        "within_ceiling": null
+      },
+      "neural": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": null,
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": null,
+        "within_ceiling": null
+      },
+      "probe": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": "28800",
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": "28800",
+        "within_ceiling": true
+      },
+      "resolver_evaluator": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": "14400",
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": "14400",
+        "within_ceiling": true
+      },
+      "verification": {
+        "actual_process_seconds": "6.620969477924518",
+        "ceiling_seconds": null,
+        "committed_process_seconds": "6.620969477924518",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": null,
+        "within_ceiling": null
+      }
+    },
+    "gpu_equipped_actual_process_seconds": "155.5254831",
+    "gpu_equipped_reserved_process_seconds": "0",
+    "gpu_measurements_without_physical_intervals": [],
+    "known_physical_gpu_allocation_seconds_by_device": {
+      "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2": "155.5254831"
+    },
+    "measurements": 24,
+    "physical_gpu_allocation_device_hours": "0.04320152308333333333333333333",
+    "project_consumption_complete": false,
+    "scope": "declared non-overlapping measurement scopes only; GPU-equipped process elapsed sums are not kernel-active time or physical hours without intervals; CPU process-wall seconds sum across workers",
+    "version": "graygo/nfsp-resource-ledger/1"
+  },
+  "resource_tool_sha256": "a22d5e2559a02b9f46e4f0ca3668f94443bdced43f41f477a77249ae47daf1d0",
+  "runtime_prices_independently_qualified": false
+}

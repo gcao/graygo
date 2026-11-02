@@ -1,0 +1,14 @@
+{
+  "complete_cost_measurement_job_path": "docs/verification/nfsp-r4-full-cost/job.json",
+  "complete_cost_measurement_job_sha256": "e8ba107dc1ee53603e70f54e229144971c1c0d6da2c7ad5ab05823a1609c1496",
+  "independent_cost_audit_path": "docs/verification/nfsp-r4-full-cost/audit.json",
+  "independent_cost_audit_sha256": "741533c3c60a357612fd8ca87de53238d7575cf5b6415a401040dbf1d0d52fa6",
+  "prior_inventory_path": "docs/verification/nfsp-resource-ledger-current/usage.json",
+  "prior_inventory_sha256": "5bbfe022078f46f412b72cba663d5d9491642e0e446355ed853e1674db707c85",
+  "scope": "adds one physical CUDA allocation and one read-only CPU audit to previous declared subset; preserves control reservation; not total project consumption",
+  "unpriced_device_terms": [
+    "C1",
+    "C4"
+  ],
+  "version": 1
+}
