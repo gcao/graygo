@@ -1,0 +1,14 @@
+{
+  "actual_plan_sha256": "71c9c61803a69b8536b23331f00fc099d5e524e6a0f740d2c2241768483908de",
+  "allocation_sha256": "19b80d7dcbcf3184424b724d045a77be648e4e8782a08afba784020db1a15f20",
+  "current_trial": "tabular",
+  "driver_sha256": "fb3808c547fc63ea5d70e0be5e5948cc792ccccbe5936f09fcb93d9fec07612e",
+  "exact_configurations_and_caps_verified": true,
+  "original_driver_pid": 2538230,
+  "original_r1_not_restarted": true,
+  "os_handle_observed_live": true,
+  "other_scope_selected": false,
+  "preflight_sha256": "d292fd87a5ead160b677d2a540a49f6398e358eae2d5d278bebc0446bb0b6fd0",
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "version": 1
+}

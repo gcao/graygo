@@ -17,3 +17,7 @@ This work is the conditional R4 comparison in design §6.2, not another use of t
 The [record-zero preflight](nfsp-eligibility-R4-primary-preflight.json) verifies both exact source-seeded initial models, target=online, empty optimizers/buffers/counters, private RNG state, balanced zero role counts and the source's zero/uniform tabular initialization. It neither transfers R1 parameters nor resumes a historical trial. Actual launch/OS handle and emitted plan must be checked against the allocation before accepting execution. An observation timeout does not authorize a replacement or restart.
 
 A complete single-seed case does not complete A2 or authorize 9x9 learning. A time cap without the declared endpoint/windows remains budget-limited; no shorter convenient checkpoint substitutes for the comparison.
+
+## Verified live launch
+
+The selected pair is live as original OS **PID 2538230**, currently in its table case. The [launch validation](nfsp-eligibility-R4-primary-launch.json) checks the real process, exact emitted plan, source/driver/funding/preflight bindings, both full configurations and both 15,300-second caps. Root: `/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-primary-ca45a53`. Original R1 PID 2444001 is terminal and is not restarted. Inspect this exact current process and durable state before any resume; an observation timeout is not a stopped run.
