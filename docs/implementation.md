@@ -1,115 +1,48 @@
-# Implementation status
+# Gray Go implementation status
 
-Objective: implement Gray Go following `docs/design.md`, including its verification and learning gates. This file records progress; it does not replace or narrow that objective.
+Objective: implement Gray Go following the complete `docs/design.md`, including its verification, learning, resource and scientific gates. This tracker records current evidence; it does not narrow that objective. Historical measurements and source lineages remain in `docs/verification/` and `docs/experiments/`.
 
-## Foundation
+## Current implementation and evidence
 
-| Design requirement | Current evidence/status |
+| Requirement | Authoritative evidence and limit |
 |---|---|
-| Immutable full public rule state and deterministic joint resolver | Implemented in `engine.py`; hand-authored capture, suicide, ko, history, pass, round-limit and scoring tests. |
-| Toroidal topology and exact quarter-point totals | Implemented; wrap/group and all territory-boundary allocation tests. |
-| Complete-state geometric/color symmetry | Resolution commutation and scoring tests across shifts, rotations, reflections, and color exchange. |
-| Complete 30+14 feature encoding and action masks | Implemented with fixed oldest/newest history slots; perspective and missing-history tests. |
-| Frozen reproducible baseline agents | Random and tactical v1; tactical effects use hypothetical opponent pass, randomized ties, capture/save/safe/pass priorities. |
-| Policy/value/Q architecture | Circular 64-channel/eight-block encoder, masked policy, bounded critic/Q, critic-only bucket input. Shape/gradient/equivariance tests and a full-network CUDA synthetic profile. |
-| Checkpoint retention and disk reserve | Checksummed atomic bundles; two active resume generations, final-generation retention, permanent weight archive, 20 GiB projected guard. Interrupted-process, corruption/fallback, and real model/optimizer/RNG/environment restore tests. |
-| Exact bounded-game tools | Matrix LP certificates and exhaustive public-state solver with explicit node budgets. Matching pennies, asymmetric matrix, RPS and actual one/two-round Gray Go fixtures. |
-| Genuinely mixed Gray Go fixture | Reachable 3×3 position, two rounds remaining; root continuation matrix `diag(-1,-1,-1/2)`, value `-1/4`, both policies `(1/4,1/4,1/2)`. Prefix replay and independent best-response checks. |
-| Shared PPO/GAE update backend | Implemented with terminal bootstrapping, eligibility, masking, clipping, entropy and KL stopping tests. Board rollout collection remains pending; matrix collection is verified. |
-| Matrix real-trainer adapter | Implemented shared-update rollouts, current/history critic buckets, strict trial-plan resume, complete trainer-state recovery, and full preflight orchestration. Formal 12-trial gate completed and independently audited; neither protocol passed. Route: NFSP. See `verification/ppo-preflight.md`. |
-| Run manifests and engine/network profiling | Implemented CLI and JSON reports. See `verification/phase-a.md` for recorded evidence and limits. |
+| Immutable complete public state; toroidal simultaneous resolver; capture-before-suicide; restrictions/ko; pass/round endings; quarter-unit scoring | Reference engine and extensive invariant/symmetry/differential tests. Both collision rules are implemented. See `verification/phase-a.md`. |
+| Complete 30+14 observation and public action masks | Perspective, history-slot, missing-history, restriction, countdown, terminal and geometric/color tests. |
+| Frozen random/tactical baseline semantics | Versioned seeded private ties; hypothetical-opponent-pass tactical priorities. These are evaluation opponents for NFSP, not extra training anchors. |
+| Circular 64-channel/eight-block models | Public policy/value/Q architecture, bounded heads, independent NFSP encoders and critic-only PPO buckets. Shape, gradient and equivariance checks; CUDA synthetic evidence is not a full learner price. |
+| Shared PPO backend and route preflight | All 12 formal matrix trials completed 24M records. Independent weight audit found neither entropy protocol passed the full route. PPO campaign is unselected. See `verification/ppo-preflight.md`. |
+| Selected NFSP one-step backend | Online-policy/frozen-target expected bootstrap; true-terminal handling; projected targets; exact fresh-record reuse/refresh clocks; frozen greedy labels; separate logical and acting modes/RNGs. R1 is the primary comparison. R4 is profiled, not automatically selected. |
+| Actual tabular controls | Direct tabular Q uses the shared replay/loss/counters. Exact reservoir-conditional label means use integer tie histograms. Pure82 executed-action labeling is an explicit comparison. |
+| Formal matrix first screens | Asymmetric and RPS, seed 0: neural and tabular each completed 15M records per task and passed independent archive/RNG/reservoir/replay audits. This is 60M aggregate records and only one seed of two families. See `verification/nfsp-asymmetric.md` and `verification/nfsp-rps.md`. |
+| Multiround solved-task adapters | Opaque 50/100/200-round controls, forced-action indexing, 40 equivalent choices, meaningful branching, balanced supplemental real-root edges and exact values/gaps are implemented. Pure/mixed bounded Go roots use actual rules and complete public states. Formal cohort evidence remains pending. |
+| Q reference distribution | Own target policy against the frozen native opponent episode mixture, with Bayesian conditioning on public prefixes. Credit and averaging are graded separately. Corrected before full delayed runs; see `verification/nfsp-native-reference.md`. |
+| Full trainer/buffer/episode recovery | CPU continuations reproduce weights, optimizers, private RNGs, old frozen episode actors, arrays, counters, metrics, trajectories and evaluations. Budget boundaries remain nonterminal. CUDA continuation evidence is still required. |
+| Compact rule-state storage | Canonical 104-byte 9×9 packets retain full history/restrictions/counters/rules/perspective. Combined 500k replay/reservoir arrays use 203 MB versus 603.5 MB of packed features. Allocations are not total RSS. |
+| Native decoder | Explicit checksummed C++17 batch decoder preserves all state validation and exact features. Differential malformed/boundary/transform tests and neural continuation pass. Source is packaged; immutable binaries/ABI are bound to snapshots. Keep the declared build available for restore. |
+| Full-capacity storage IO | 600k records filled and overwrote both 500k native buffers. Verified restore took 2.79 seconds, checkpoint write 3.07 seconds, payload 24.31 MB. This is a storage benchmark, not complete learner/GPU cost. See `verification/native-buffer-full.md`. |
+| Checkpoint/disk discipline | Atomic sealed bundles, two verified active resume generations, one completed final generation, permanent weights and projected 20 GiB free reserve are implemented/tested. |
+| Paired frozen evaluation | Private simultaneous moves, color-exchanged openings, matched incumbent comparisons, per-episode private mixtures, transactional paired evidence and exact resume are implemented. Repeats remain observations. Plans bind confidence family, endpoint, policies, rules, source and looks before collection. |
+| Confidence/milestone controls | Independent units are color pairs. Finite-sample lower bounds cover endpoints and planned looks. Pilot/screening constants and run/checkpoint origins are checked on reload. Fixed 5M opening events, both Q windows, all three development seeds and average diagnostics are enforced. Confirmation does not performance-filter seeds. |
+| Actual baseline evaluation evidence | A 128-game baseline-only 9×9 variance pilot completed; scores/checksums/units/openings and bound arithmetic audit pass. Wide small-sample bounds do not calibrate protected promotion. See `verification/paired-baseline-pilot.md`. |
 
-## Selected-route infrastructure
+The current full suite passes **160 tests**. Numerical/statistical controls are implementation evidence, not proof of convergence or full-board strength. `verification/paired-evaluation.md` records the confidence method and its independence/scope assumptions.
 
-- Packed replay/reservoir buffers, generation-safe sequences and resumable snapshots are implemented. The storage profile is deliberately partial; see `verification/buffers.md`.
-- Complete-public-history independent episode-mixture evaluation, Bayesian prefix conditioning and optimal response are implemented and tested on a repeated-action counterexample and the reachable mixed Gray Go fixture.
-- Fixed A2/9×9 exploration, logical-mode label eligibility and 5M–7M episode hand-off schedules are implemented. Marginal epsilon-greedy action probabilities include exploration hitting a greedy action.
-- The formal PPO matrix preflight completed 24M aggregate records from a pinned source, with all 12 trials and reference controls. A separate weight-based audit confirms route **NFSP**. Unselected PPO bounded/delayed runs are skipped under the declared staged selection plan.
+## Live experiment
 
-## Selected NFSP backend and controls
+The original seed-0 delayed **R1** first screen runs from pinned source `9fefeee`: tabular control, then neural learner, 15M records each. Original OS handle: PID **2217027**. Its budget-bound plan is `experiments/nfsp-delayed-R1-primary-plan.json`, with 4.25/4.5 CPU-process-hour case ceilings. Inspect this exact OS handle and actual output before any resume; state files or an observation timeout do not establish termination. The completed matrix/profiler processes are historical and must not be relaunched as live continuations.
 
-- `nfsp.py` implements expected one-step targets using online epsilon-greedy probabilities and frozen target-network values. Terminal successors do not bootstrap; continuing replay cuts do. Targets are projected to `[-1,1]`, and raw excursions are reported.
-- Q and average policy have independent encoders/optimizers. The board average policy has no unused PPO critic. Masked soft-target cross-entropy preserves frozen greedy ties.
-- Fresh Q/ordinary counters drive reuse, warm-up, supervised cadence and 12,800-record hard refresh. Actual replay insertions must match the Q clock. Target refresh follows the boundary's optimizer work and remains fixed when reuse changes.
-- `nfsp_collection.py` freezes actor parameters and epsilon per episode. Logical mode, acting policy, version, marginal behavior probability and supplemental origin are separate. Both commitments precede transition resolution. Forced coverage includes the actual root edge; its entire episode is excluded from reservoir labels.
-- Opaque 50/100/200-round controls, a forced-action indexing variant, a 40-equivalent-action stress variant and a meaningful two-round branching game are implemented. Codebooks are randomly permuted independently of semantic order, with exact manifest/digest support.
-- Exact finite Markov solving, policy/action-value evaluation and best responses are implemented for those adapters. Latent episode mixtures continue to use the complete-history evaluator.
-- Supported-coverage scheduling gives each horizon/controller equal rounds, with randomized ten-episode blocks containing eight ordinary and one episode per forced branch. Mid-block and mid-episode resume checks pass.
-- The full suite passes **160 tests**. See `verification/nfsp-backend.md`. This is implementation verification, not an NFSP convergence or 9×9 strength result.
+Progress before the final-five window is diagnostic. Do not replace the full 15M comparison with a 5M read, move opening, filter seeds, reset label history, or infer a neural bug from an inadequate/improving tabular control.
 
-## Resumable matrix NFSP trainer
+## Required work remaining
 
-`graygo train-nfsp` now runs neural or tabular native self-play, with shared parameters across roles and two fresh own-side records per physical game. It batches inference over the two public role observations and reuses the production Q loss, replay, masks, schedules and action sampler. Q, supervised and reservoir RNG streams are separate.
+1. Finish and independently audit the declared delayed first-screen results. Apply the Q/greedy credit and separate average-readiness requirements. Select the same-budget R4 comparison only when the design's R1 decision permits; Retrace/uncorrected work remains conditional. The marginal extension rule is tightly bounded and cannot become an entropy/opening sweep.
+2. Complete applicable three-seed short/delayed/branching and pure/mixed bounded-Go A2 cohorts with original-game final-five gates, actual controls, balanced coverage and explicit aggregate/update/refresh counts. A2 weights are gate agents, not 9×9 deployment weights.
+3. Implement and verify production 9×9 collection/orchestration, batching, accelerator continuation and the full selected learner profile. Include actor/target inference, Q reuse, averaging, native replay, evaluation/checkpoint costs and measured memory. Fill P/N_A2/H_P/H_D/H_N and the full-study ledger at the selected reuse before an A2-exit scope decision. CPU/table ceilings and actual unreused costs must remain explicit. Current component/storage costs cannot price a full campaign.
+4. Run only an eligible limited development pilot: seeds 100/101/102 through 8M under the fixed 40M epsilon clock. Observe/archive pre-window 4.5M/4.75M/5M and post-window 6M/7M/8M. Label insertion pauses at 5M pending its fixed-window decision. All three seeds must pass both Q windows; average diagnostics are mandatory. Continue eligible development runs to 20M and grade the deployed average against the explicit random/tactical lower-bound bars.
+5. Implement/calibrate the complete protected-pool promotion gate before candidate data: fixed weights/openings, at most ten opponents, aggregate gain, per-opponent regression tolerance -0.15 and absolute floor -0.10. Joint calibration must cover the declared scenarios, >=80% power and <=5% false promotion, with all looks in confidence coverage. The current evaluator deliberately cannot promote a policy.
+6. If development and resource decisions permit, implement independent confirmation/scientific cohorts 200/201/202 with fresh initialization and all seeds retained. Keep development selection data separate. Performance reads remain diagnostics, not per-seed filters.
+7. Implement the full base/remove × empty/exposure study: independently generated valid gray starts, frozen train/held-out family split, matched exposures and three matched seeds. Evaluate both policies under both rules, retain empty-start/descriptive and held-out-gray results, and measure transient gray/capture/territory effects.
+8. Construct and certify 32 independent paired collision-probe families with complete-strategy gaps and near-equilibrium collision-range qualification. Apply the 24/32-per-seed criterion and the exposure-controlled performance/interaction endpoints. Ineligible/incomplete families do not count as evidence of intent or success.
+9. Produce the required resource, learning-curve, uncertainty, cross-play, game/gray/restriction and scientific reports, with limitations stated at the actual measurement scope. The partial resource ledger is not complete project consumption.
 
-The tabular average policy is the exact conditional mean of the frozen greedy-label distributions currently in Algorithm R's reservoir, refreshed at the same supervised cadence. Integer counts by tie cardinality make tracker rebuilds independent of insertion order. Zero-support actions remain zero at deployment. A pure82 executed-action-label control uses the same behavior and changes only its averaging targets.
-
-Resume bundles include all three models, both optimizers where applicable, buffers/cursors, clocks, RNGs, evaluations and the episode-log committed prefix. Tests reproduce future weights, replay/reservoir arrays, action logs and evaluations exactly after a partial-update pause. A per-episode binary audit retains mode, actual actor, both mode/ramp draws, ramp probability, epsilon, model generation, actions, behavior probabilities and terminal payoff. Checksummed prefixes detect corruption and remove only uncommitted crash tails on explicit resume. Writer locks and stale-checkpoint checks prevent overlapping progress.
-
-Short diagnostic configurations cannot satisfy the formal-protocol flag. The default 15M-record primary recipe still requires three seeds, final-five checks, the other bounded/delayed/branching tasks and the complete cost ledger before A2 exit. No NFSP convergence or 9×9 strength claim is established by the trainer verification.
-
-## Current learning evidence
-
-Four full-path terminal-matrix timing diagnostics are recorded in `verification/nfsp-matrix-profile.md`. They include Q, averaging, audit, evaluation and checkpoint costs, with pre/post-opening scopes explicit. They do not price multiround or 9×9 work. The immutable first asymmetric screen plan is in `experiments/nfsp-asymmetric-primary-plan.json`; its source is isolated from subsequent development. Treat process/state files as observations, not gate results.
-
-## Multiround NFSP integration
-
-`train-nfsp-task` now integrates native simultaneous collection, frozen episode actors, replay/reservoir updates, complete resume and exact evaluation for opaque delayed/branching tasks and actual pure/mixed Gray Go roots. Bounded neural runs use the declared circular board encoder; tabular bounded controls index the complete public rule state. Delayed controllers/horizons use randomized 8/1/1 blocks with balanced round allocations. A 15M run over 50/100/200 rounds contains complete coverage macrocycles.
-
-The checkpoints preserve active episode state, old frozen policy weights, mode/ramp choices, private action RNGs and trajectory history. Budget/chunk boundaries remain nonterminal. Coverage and replay counts are separate by public state, role, action and supplemental origin. Target/behavior overlap is measured using the same pre-update Q prediction as the loss, with mode/origin/fresh-age bins; no second diagnostic network forward changes the profiled work.
-
-Exact delayed evaluation checks root action values and early target-policy values at depths 1/2/5 on both supported branches, with last-depth errors reported separately. Deployed average-policy gaps are graded separately from greedy-Q credit and readiness bands. Two-round Q value checks now condition the frozen native-opponent mixture on the observed public prefix; average/greedy game gaps remain against the original unregularized game. The branch control retains its meaningful mixed continuation matrices; no test threshold or game was simplified to manufacture a pass.
-
-Full runs require an explicit time ceiling and matching declared complete-pipeline budget-profile hash. `purpose=profile` cannot satisfy formal gates. `tools/profile_nfsp_tasks.py` produces paired pre/post, R=1/R=4 costs; terminal-matrix costs are not substituted for these. Runtime settings, optimizer defaults, actual host memory/affinity/filesystem and complete adapter/codebook metadata are recorded.
-
-The suite passes **160 tests**, including exact mid-episode resume for neural/tabular delayed and mixed-Go runs. See `verification/nfsp-multiround.md`. No delayed-credit convergence or 9×9 strength claim follows from these implementation checks.
-
-The first complete delayed-pipeline profiler finished all eight cases. Its source is now historical for funding purposes after the native-opponent Q reference correction. The immutable eight-case plan and resource ceilings are in `experiments/nfsp-delayed-profile-plan.json`. Its results are not yet convergence evidence or a completed full-study budget.
-
-## Remaining work toward the full objective
-
-1. Independently audit completed matrix trials, finish the declared first-screen set (RPS and delayed family), then the required seed/task cohorts. Both seed-0 asymmetric primary runs completed 15M each and passed the independent archive/RNG/reservoir/replay audit. See `verification/nfsp-asymmetric.md`. This does not complete the other families/seeds.
-2. The corrected-reference delayed profiles are complete and C1/C4 costs are entered; run the selected R=1 first screen, profile bounded neural/control paths, and run the selected one-step comparisons with actual tabular controls. Per-branch gates and full multiround resume are implemented; learning evidence and any conditional Retrace selection remain pending.
-3. Run the selected NFSP A2 protocol across short mixed tasks, bounded Gray Go and the delayed family with three seeds, final-five gates and fixed aggregate counters.
-4. Integrate the ninth-review development/confirmation cohorts, baseline confidence gates, opening checks and pilot safeguards. Compact rule-state/regenerated-feature storage is now implemented and checked against feature storage; production throughput and full-capacity IO remain to be measured.
-5. Profile the complete selected learner, fill its cost ledger and run only the eligible declared pilot/screening/confirmation stages.
-6. Implement protected evaluation/promotion, gray-rule/exposure comparisons, certified collision probes and required reports. Optional modeling/search remains conditional.
-
-The Python engine is the independently readable reference. Its throughput must be measured before choosing a batched/native production backend. The reviewer prototype is used for differential evidence only. Both matrix and finite multiround trainers now have verified complete resume protocols. Large-board collection/decoding optimization, pilot/confirmation orchestration and their production-scale verification remain pending.
-
-## Reference-value correction before delayed learning
-
-Q credit is now evaluated for its own target policy against the actual native opponent episode mixture, including posterior conditioning after public prefixes. This keeps averaging lag separate from credit learning. The previous joint-epsilon-Q assumption was an implementation error, corrected before full delayed comparisons. See `verification/nfsp-native-reference.md`. Historical timing measurements are retained and their actual CPU cost remains in the record; they cannot fund the changed source.
-
-## Current allocations after audited asymmetric results
-
-The source-corrected delayed cost report and partial actual-resource ledger are in `verification/nfsp-delayed-costs-9fefeee.md` and `experiments/resource-ledger.md`. RPS cost profiles passed their explicit gate and its seed-0 primary screen is live. The delayed driver permits only the budget-bound R=1 control/neural first screen; R=4 is not automatically selected by profiling it. All one-seed results remain partial A2 evidence.
-
-The budget-bound seed-0 delayed R=1 control/neural first screen has now launched from the corrected pinned source. Its immutable plan, complete profile hashes and per-case ceilings are in `experiments/nfsp-delayed-R1-primary-plan.json`. RPS and delayed runs have distinct process handles; retain them across continuations and check OS liveness before any resume. Neither allocation automatically advances the project beyond A2.
-
-## Complete public rule-state storage
-
-`RuleStateSpec` stores canonical complete-state packets and regenerates the unchanged 30+14 features and legal masks on sampling. The default 9×9 packet is 104 bytes, binding rule/codec versions, perspective, both historical boards/moves, per-player restrictions, pass streak and rounds remaining. Reference replay/reservoir algorithms, generation-safe sequences, frozen labels, counters and checkpoint seals are reused. Existing feature-buffer snapshots still load.
-
-`--storage rule-state` now runs the real bounded neural Go trainer and buffer profiler. Actual Q/target/average weights, sampling results, metrics, trajectory audit bytes and mid-episode continuation match feature storage exactly. At 500k entries per buffer, logical arrays require 203 MB combined versus 603.5 MB for the feature representation. These are allocation sizes, not total resident memory or campaign forecasts. Python feature regeneration is a correctness reference whose production cost still needs measurement and possible acceleration. See `verification/rule-state-storage.md`; the suite passes 134 tests.
-
-The initial paired rule-storage benchmark is recorded in `verification/rule-state-costs-321c05d.md`: 203 MB logical arrays and smaller checkpoints come with expensive reference decoding/restore. A profiled canonical-integer validation fast path is implemented and passes the full 135-test suite, with game/state invariants intact. Remeasurement on the same data is the next performance decision; full-capacity IO, large-board batching and complete-learner pricing remain pending.
-
-The integer fast path was remeasured on the original stored corpus; decoded samples remain identical. Reference compact replay decoding fell to 4.06 seconds for 20×512 starts and strict restore to 6.52 seconds. Native/batched decoding remains an explicit production bottleneck; no complete 9×9 cost is inferred. See `verification/rule-decode-f09c931.md`. The seed-0 RPS tabular control now has an independent full-archive pass (`verification/nfsp-rps-tabular.md`); neural RPS and delayed screens continue under their existing process handles.
-
-## Explicit native batch decoding
-
-The optional checksummed C++ decoder now validates and regenerates compact packets in batches, with all reference state invariants intact. It is integrated into real buffer loading/sampling, bounded neural training, active-episode resume and storage-specific pricing. Native source and binary identity are recorded; compiler builds publish atomically and remain immutable. The wheel retains the C++ source. The full suite passes 142 tests, including broad differential/malformed-packet coverage and exact trained-weight/trajectory continuation. See `verification/native-rule-decoder.md`.
-
-Performance measurements remain the next decision: neither correctness nor logical host-memory savings alone authorizes large-board budgets. The original RPS and R1 delayed runs remain on their pinned pre-native implementations and are not restarted by this work.
-
-The seed-0 RPS tabular and neural first-screen passes are now independently audited (`verification/nfsp-rps.md`); the delayed R1 screen continues on its original source/process. Native decoding matches all sampled fields while reducing the measured replay workload from 3.99 to 0.045 seconds and strict partial restore from 6.45 to 0.124 seconds. Full-capacity native IO has launched under its own non-learning plan; complete GPU learner and later cohort/scientific gates remain active work.
-
-## Frozen paired evaluation and milestone controls
-
-The paired evaluator, SQL evidence/resume, fixed confidence-family/endpoint contracts and explicit frozen policy/episode-mixture wrappers are implemented. Unit count is color pairs; repeats stay in the sample. Native checkpoint provenance is bound to actual archived weights, training run, seed, rules and record clock. The CLI emits conditional tested-matchup bounds and cannot promote a policy.
-
-The fixed NFSP pilot/screening cohorts and snapshot windows are executable, including simultaneous endpoint/look coverage, post-opening average diagnostics, same-checkpoint random/tactical passes and a recorded development 5M opening event. Confirmation performance does not filter seeds. The suite passes 160 tests. See `verification/paired-evaluation.md`. Protected-pool joint power/false-promotion calibration, production 9×9 training/orchestration and the remaining scientific endpoints still require implementation/evidence.
-
-The complete native 500k-buffer capacity/IO benchmark passed (`verification/native-buffer-full.md`); this closes that storage evidence gap without claiming complete GPU-learner cost.
-
-The baseline-only 9×9 paired variance pilot completed 128 physical games with transactional evidence. Its scored receipts/opening/UID/checksum and lower-bound arithmetic audits pass; raw exports and covariance diagnostics are in `verification/paired-baseline-pilot.md`. Small-sample bounds remain inconclusive and no promotion/power calibration is claimed. The full delayed R1 experiment remains separate and live.
+Opponent prediction and simultaneous search remain optional after a stable baseline and protected pool; they cannot replace failed learner, cost or scientific gates. No production pilot, confirmation campaign, protected promotion or gray-specialization conclusion is currently approved by the evidence above.
