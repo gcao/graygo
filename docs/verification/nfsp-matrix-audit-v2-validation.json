@@ -1,0 +1,30 @@
+{
+  "a2_complete": false,
+  "all_tests_passed": true,
+  "auditor_sha256": "83f8df070b283fe170808542fe50fc46d9082852acd1c8529edbc1f23cd50de3",
+  "full_test_log_sha256": "f0ae5388446eb74534efb14b6ea52b977bc46331e8516c6452f17c9620429626",
+  "historical_recheck_executed": false,
+  "new_learning_selected": false,
+  "new_matrix_test_methods": 12,
+  "previous_auditor_sha256": "b68209811329daa7f337ff195d54a4994996b630c259711d1b31230133393a9d",
+  "reproduced_publication_fixture": {
+    "label_rule": "executed",
+    "latest_labels": 15,
+    "learner": "tabular",
+    "original_rejection_max_probability_difference": 0.1,
+    "published_label_counts_per_role": [
+      9,
+      5
+    ],
+    "published_record": 248,
+    "records": 254,
+    "seed": 2,
+    "task": "pure82"
+  },
+  "scope": "audit implementation regressions and unchanged learner source; actual cohort decisions remain separate",
+  "source_sha256": "9dbe715f543b2067a078693c943254010602616defaf5e3cecf81fe23ab5e10f",
+  "test_seconds": 264.905,
+  "test_sha256": "4b18d10201a8a49699f348c6711cbd11b99a0a7f59fdedb5fa1349a4219b74ac",
+  "tests": 332,
+  "version": 1
+}

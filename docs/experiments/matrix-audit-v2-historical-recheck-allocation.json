@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "matrix-audit-v2-historical-asymmetric-tabular-recheck",
+  "purpose": "verify the strengthened receipt on one original completed full 15M-record trial, preserving its original result and source",
+  "original_trial": "runs/nfsp-asymmetric-primary-6a92132/tabular",
+  "original_training_manifest_sha256": "b599d5918394a3e4ae5c15328d2a0b08ebe7cbac0d743abafd248dd605db3ec6",
+  "original_package_source_sha256": "4c13ba875326ed1f843cb3ca31433063e72793cb8a677d4968a0652766eb3e0c",
+  "original_frozen_package": ".worktrees/nfsp-matrix-6a92132/src",
+  "original_audit": "docs/verification/nfsp-asymmetric/tabular-audit.json",
+  "auditor_binding": "clean matrix-audit-v2 commit and exact auditor SHA recorded before execution",
+  "audit_watchdog_seconds": 600,
+  "outer_driver_watchdog_seconds": 660,
+  "maximum_cases": 1,
+  "require_all_original_inputs_unchanged": true,
+  "compare_original_final_five_grades": true,
+  "new_learning_records": 0,
+  "experimental_control_trial_selected": false,
+  "accelerator_work_selected": false,
+  "new_learner_source_reuse_approved": false,
+  "a2_complete": false,
+  "scope": "bounded CPU read-only verification overhead; no original handle restart, cohort completion or training allocation"
+}
