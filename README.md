@@ -1,13 +1,42 @@
 # Gray Go
 
-Gray Go is a two-player Go variant with simultaneous moves on a toroidal board. Both players secretly choose a placement or pass; collisions create neutral gray stones.
+Simultaneous Go on a 9×9 torus. Both players secretly choose a placement or pass; collisions create neutral gray stones. The game uses capture-before-suicide resolution, player-specific restrictions, two-round ko history, and exact fractional area scoring.
 
-The default board is 9×9. Black, white, and gray groups participate in captures, and fractional area scoring divides gray's contribution between the players.
+The authoritative [design](docs/design.md) includes rules, the neural-network architecture, training gates, and review history. [Implementation status](docs/implementation.md) tracks the full project against it.
 
-## Design
+## Setup
 
-[Game specification and AI training design](docs/design.md) contains the rules, proposed neural-network architecture, training and evaluation plans, and review history.
+Python 3.12 is the tested interpreter. From the repository:
 
-## Project status
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -e '.[train]'
+.venv/bin/python -m unittest discover -s tests -v
+```
 
-This initial repository contains the design. The first implementation milestone is Phase A: the deterministic resolver, correctness tests, checkpoint/storage checks, and profiling described in the design document.
+The core rules/CLI need NumPy. The `train` extra adds Torch and SciPy for networks and certified numerical game solving. The tested Linux/CUDA environment is recorded in `requirements-linux.lock`; it is specific to the `home-ai` target.
+
+## Commands
+
+```sh
+# Human black versus a tactical white opponent. Coordinates are 1-based.
+.venv/bin/graygo play --seed 42
+
+# Baseline games; each agent commits from the same immutable public state.
+.venv/bin/graygo simulate --games 10 --seed 42 --output artifacts/games.json
+
+# Fixed reference-engine workload and full-network synthetic timing.
+.venv/bin/graygo profile --rounds 100000 --seed 42
+.venv/bin/graygo profile-network --device cuda --batch 16 --batches 10
+
+# Fully enumerate a bounded research game. Other sizes require a limit.
+.venv/bin/graygo solve --size 3 --limit 1
+```
+
+`simulate`, `profile`, and `solve` produce JSON with rule/schema versions, configuration, source fingerprint, seed, dependencies, hardware, and results. `--output` writes the report atomically with the disk-reserve guard. A solver budget exhaustion returns an error rather than a heuristic solution.
+
+The optional `audit-native --library PATH` command compares reference-engine transitions and the full observation against the review prototype ABI. That external library is not a production dependency.
+
+## Current implementation
+
+The repository contains the immutable reference engine, full-state encoding, random/tactical baselines, policy/value/Q networks, finite-game solvers, checkpoint storage and recovery, and CLI commands. The trainer, learning gates, and scientific comparisons are tracked as remaining work; synthetic network updates are not trained-game results.

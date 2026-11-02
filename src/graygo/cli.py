@@ -1,0 +1,178 @@
+"""Commands for playing, reproducible baseline games, profiling and exact solving."""
+import argparse
+import hashlib
+import json
+import random
+import statistics
+import sys
+import time
+from .engine import BLACK, WHITE, Rules, State, resolve, score
+from .agents import uniform, tactical
+from .manifest import make_manifest, write_report
+
+AGENTS={"random":uniform,"tactical":tactical}
+
+
+def render(state):
+    glyph=".BW#"
+    return "\n".join(" ".join(glyph[x] for x in state.board[r*state.rules.size:(r+1)*state.rules.size])
+                     for r in range(state.rules.size))
+
+
+def _rules(args):
+    return Rules(args.size,args.limit,args.collision)
+
+
+def simulate(args):
+    rules=_rules(args)
+    outcomes=[]; lengths=[]; collisions=0; hashes=set(); terminations={}
+    started=time.perf_counter()
+    for game in range(args.games):
+        state=State(rules)
+        black_rng=random.Random(args.seed+game*2)
+        white_rng=random.Random(args.seed+game*2+1)
+        transcript=hashlib.sha256()
+        while not state.done:
+            b=AGENTS[args.black](state,BLACK,black_rng)
+            w=AGENTS[args.white](state,WHITE,white_rng)
+            transcript.update(f"{b},{w};".encode())
+            result=resolve(state,b,w)
+            collisions+=result.collision is not None
+            state=result.state
+        hashes.add(transcript.hexdigest())
+        lengths.append(state.rounds_played)
+        outcomes.append(score(state.board,rules.size).utility_black)
+        terminations[state.terminal_reason]=terminations.get(state.terminal_reason,0)+1
+    return {"games":args.games,"black_wins":outcomes.count(1),"white_wins":outcomes.count(-1),
+            "draws":outcomes.count(0),"mean_black_utility":statistics.mean(outcomes),
+            "mean_rounds":statistics.mean(lengths),"min_rounds":min(lengths),"max_rounds":max(lengths),
+            "collisions":collisions,"distinct_trajectories":len(hashes),"terminations":terminations,
+            "elapsed_seconds":time.perf_counter()-started}
+
+
+def profile(args):
+    rules=_rules(args); state=State(rules); rng=random.Random(args.seed)
+    games=0; began=time.perf_counter()
+    for _ in range(args.rounds):
+        state=resolve(state,rng.choice(state.legal_actions(BLACK)),rng.choice(state.legal_actions(WHITE))).state
+        if state.done: games+=1;state=State(rules)
+    seconds=time.perf_counter()-began
+    return {"joint_rounds":args.rounds,"completed_games":games,"seconds":seconds,
+            "rounds_per_second":args.rounds/seconds,"engine":"immutable_python_reference"}
+
+
+def solve(args):
+    from .solving import FiniteSolver
+    from pathlib import Path
+    if args.state:
+        state=State.from_dict(json.loads(Path(args.state).read_text()))
+    else:
+        state=State(_rules(args))
+    solver=FiniteSolver(max_nodes=args.max_nodes)
+    value,b,w,solution=solver.solve(state)
+    return {"state":state.to_dict(),"nodes":solver.nodes,"value_black":value,
+            "black_actions":b,"white_actions":w,
+            "black_policy":None if solution is None else solution.row.tolist(),
+            "white_policy":None if solution is None else solution.column.tolist(),
+            "numerical_gap":0 if solution is None else solution.residual_gap,
+            "numerical_value_error_bound":solver.numerical_value_error_bound(state)}
+
+
+def audit_native(args):
+    from .audit import compare_native
+    return compare_native(args.library,rounds=args.rounds,seed=args.seed)
+
+
+def profile_network(args):
+    import torch
+    from .encoding import encode
+    from .models import PolicyValueNet,masked_log_probs
+    torch.set_num_threads(1)
+    torch.manual_seed(args.seed)
+    device=torch.device(args.device)
+    model=PolicyValueNet().to(device)
+    o=encode(State(_rules(args)),BLACK)
+    x=torch.tensor(o.spatial[None],device=device).expand(args.batch,-1,-1,-1)
+    g=torch.tensor(o.global_features[None],device=device).expand(args.batch,-1)
+    mask=torch.tensor(o.legal[None],device=device).expand(args.batch,-1)
+    opt=torch.optim.Adam(model.parameters(),lr=3e-4)
+    def sync():
+        if device.type=="cuda":torch.cuda.synchronize(device)
+    for _ in range(3):
+        with torch.no_grad():model(x,g)
+    sync();t=time.perf_counter()
+    for _ in range(args.batches):
+        with torch.no_grad():model(x,g)
+    sync();inference=time.perf_counter()-t
+    if device.type=="cuda":torch.cuda.reset_peak_memory_stats(device)
+    t=time.perf_counter()
+    for _ in range(args.batches):
+        logits,value=model(x,g)
+        loss=-masked_log_probs(logits,mask)[:,0].mean()+value.square().mean()
+        opt.zero_grad(set_to_none=True);loss.backward();opt.step()
+    sync();update=time.perf_counter()-t
+    return {"device":str(device),"parameters":sum(p.numel() for p in model.parameters()),
+            "batch":args.batch,"batches":args.batches,"inference_seconds":inference,
+            "synthetic_update_seconds":update,"synthetic_only":True,
+            "peak_cuda_bytes":torch.cuda.max_memory_allocated(device) if device.type=="cuda" else None}
+
+
+def play(args):
+    state=State(_rules(args)); rng=random.Random(args.seed)
+    while not state.done:
+        # The AI commits using the unchanged public state before the human input.
+        ai=AGENTS[args.opponent](state,WHITE,rng)
+        print(render(state)); print(f"Round {state.rounds_played+1}; black forbidden: {sorted(state.forbidden_black)}")
+        while True:
+            try:
+                text=input("Black move (row,col, 1-based; or pass): ").strip()
+                if text=="pass": action=state.rules.pass_action
+                else:
+                    r,c=map(int,text.split(","));action=state.rules.action(r-1,c-1)
+                if action not in state.legal_actions(BLACK): raise ValueError("occupied or forbidden")
+                break
+            except ValueError as exc: print(f"Invalid move: {exc}")
+            except EOFError: return {"interrupted":True,"state":state.to_dict()}
+        state=resolve(state,action,ai).state
+        print(f"Revealed: black={action}, white={ai}")
+    print(render(state)); result=score(state.board,state.rules.size)
+    return {"black_score":str(result.black),"white_score":str(result.white),"reason":state.terminal_reason}
+
+
+def main(argv=None):
+    parser=argparse.ArgumentParser(prog="graygo")
+    commands=parser.add_subparsers(dest="command",required=True)
+    for name in ("simulate","profile","solve","play","audit-native","profile-network"):
+        p=commands.add_parser(name)
+        p.add_argument("--size",type=int,default=9)
+        p.add_argument("--limit",type=int)
+        p.add_argument("--collision",choices=("gray","remove"),default="gray")
+        p.add_argument("--seed",type=int,default=0)
+        p.add_argument("--output")
+        if name=="simulate":
+            p.add_argument("--games",type=int,default=10)
+            p.add_argument("--black",choices=AGENTS,default="random")
+            p.add_argument("--white",choices=AGENTS,default="random")
+        elif name=="profile":p.add_argument("--rounds",type=int,default=1000)
+        elif name=="solve":
+            p.add_argument("--state");p.add_argument("--max-nodes",type=int,default=100000)
+        elif name=="audit-native":
+            p.add_argument("--library",required=True);p.add_argument("--rounds",type=int,default=3000)
+        elif name=="profile-network":
+            p.add_argument("--device",default="cpu");p.add_argument("--batch",type=int,default=16)
+            p.add_argument("--batches",type=int,default=10)
+        else:p.add_argument("--opponent",choices=AGENTS,default="tactical")
+    args=parser.parse_args(argv)
+    if any(getattr(args,name,1)<1 for name in ("games","rounds","batch","batches")):
+        parser.error("games and rounds must be positive")
+    try:
+        rules=_rules(args)
+        metadata=make_manifest(seed=args.seed,command=vars(args),rules={"size":rules.size,"max_rounds":rules.max_rounds,"collision":rules.collision})
+        result=globals()[args.command.replace("-","_")](args)
+        if args.command=="solve":metadata["rules"]=result["state"]["rules"]
+        report={"manifest":metadata,"result":result}
+        if args.output:write_report(args.output,report)
+        print(json.dumps(report,indent=2,sort_keys=True))
+        return 0
+    except (ValueError,RuntimeError,OSError) as exc:
+        parser.exit(1,f"graygo: {exc}\n")

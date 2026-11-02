@@ -1,0 +1,115 @@
+{
+  "seed": 18,
+  "prefix": [
+    [
+      1,
+      7
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      9,
+      3
+    ]
+  ],
+  "state": {
+    "rule_version": "graygo/1",
+    "rules": {
+      "size": 3,
+      "max_rounds": 6,
+      "collision": "gray"
+    },
+    "board": [
+      0,
+      1,
+      1,
+      2,
+      2,
+      2,
+      1,
+      2,
+      0
+    ],
+    "forbidden_black": [],
+    "forbidden_white": [],
+    "history": [
+      {
+        "before": [
+          0,
+          1,
+          0,
+          0,
+          2,
+          0,
+          1,
+          2,
+          0
+        ],
+        "black": 2,
+        "white": 5
+      },
+      {
+        "before": [
+          0,
+          1,
+          1,
+          0,
+          2,
+          2,
+          1,
+          2,
+          0
+        ],
+        "black": 9,
+        "white": 3
+      }
+    ],
+    "pass_streak": 0,
+    "rounds_played": 4
+  },
+  "black_actions": [
+    0,
+    8,
+    9
+  ],
+  "white_actions": [
+    0,
+    8,
+    9
+  ],
+  "matrix": [
+    [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      -0.5
+    ]
+  ],
+  "value": -0.25,
+  "row": [
+    0.25,
+    0.25,
+    0.5
+  ],
+  "column": [
+    0.25,
+    0.25,
+    0.5
+  ],
+  "nodes": 243
+}
