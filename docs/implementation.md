@@ -26,13 +26,13 @@ Objective: implement Gray Go following the complete `docs/design.md`, including 
 | Confidence/milestone controls | Independent units are color pairs. Finite-sample lower bounds cover endpoints and planned looks. Pilot/screening constants and run/checkpoint origins are checked on reload. Fixed 5M opening events, both Q windows, all three development seeds and average diagnostics are enforced. Confirmation does not performance-filter seeds. |
 | Actual baseline evaluation evidence | A 128-game baseline-only 9×9 variance pilot completed; scores/checksums/units/openings and bound arithmetic audit pass. Wide small-sample bounds do not calibrate protected promotion. See `verification/paired-baseline-pilot.md`. |
 
-The current full suite passes **178 tests**. Numerical/statistical controls are implementation evidence, not proof of convergence or full-board strength. `verification/paired-evaluation.md` records the confidence method and its independence/scope assumptions.
+The current full suite passes **181 tests** (67.000 seconds). Numerical/statistical controls are implementation evidence, not proof of convergence or full-board strength. `verification/paired-evaluation.md` records the confidence method and its independence/scope assumptions.
 
 ## Live experiment
 
 The original seed-0 delayed **R1** first screen runs from pinned source `9fefeee`: tabular control, then neural learner, 15M records each. Original OS handle: PID **2217027**. Its budget-bound plan is `experiments/nfsp-delayed-R1-primary-plan.json`, with 4.25/4.5 CPU-process-hour case ceilings. Inspect this exact OS handle and actual output before any resume; state files or an observation timeout do not establish termination. The completed matrix/profiler processes are historical and must not be relaunched as live continuations.
 
-The tabular case has now completed all 15M records and reports failure of both final-five credit and average-readiness gates (maximum early-value error 1.1583649069; maximum average gap 0.6318537859). Independent task-result audit remains required. The same original driver is live in its neural case; no new reuse/schedule has been selected.
+The tabular case has now completed all 15M records and reports failure of both final-five credit and average-readiness gates (maximum early-value error 1.1583649069; maximum average gap 0.6318537859). The independent closed-form/archive/RNG/storage audit now confirms this full-budget miss (`verification/nfsp-delayed-R1-control.md`); it verifies all root reservoir means and explicitly bounds the small unpublished tail. The same original driver is live in its neural case; no new reuse/schedule has been selected.
 
 Progress before the final-five window is diagnostic. Do not replace the full 15M comparison with a 5M read, move opening, filter seeds, reset label history, or infer a neural bug from an inadequate/improving tabular control.
 
@@ -56,4 +56,4 @@ The fixed-pool numerical gate and whole-gate pre-candidate simulator are now imp
 
 This is procedure implementation, not a calibrated deployment claim. The real protected set, adequate designated pilot data, joint power/false-promotion qualification and global A2/9×9 approval integration remain required. Synthetic or small diagnostic results cannot authorize a promotion.
 
-The protected calibration diagnostic on actual baseline evidence completed as **not_calibrated**, as required for its insufficient pilot/replication counts and infeasible useful-case assumptions (`verification/promotion-diagnostic.md`). No candidate was promoted or tested. Corrupt calibration progress/budget clocks now fail checksum validation on resume. The final combined suite passes 178 tests (62.210 seconds), including full-model CUDA continuation.
+The protected calibration diagnostic on actual baseline evidence completed as **not_calibrated**, as required for its insufficient pilot/replication counts and infeasible useful-case assumptions (`verification/promotion-diagnostic.md`). No candidate was promoted or tested. Corrupt calibration progress/budget clocks now fail checksum validation on resume. The latest combined suite passes 181 tests (67.000 seconds), including full-model CUDA continuation and independent delayed-audit regression checks.

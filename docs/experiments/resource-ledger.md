@@ -12,7 +12,7 @@ These are completed sequential **CPU process wall times**, not accelerator-hours
 | RPS NFSP first screen (both completed cases) | 2782.993 | 0.77305 |
 | Delayed R1 first screen (completed tabular case only) | 7218.411 | 2.00511 |
 
-The historical delayed cost is retained even though its source cannot fund the corrected evaluator. The corrected cost report enters C1 and the separate tabular-control ceiling; C4 remains conditional. RPS is complete and independently audited. The delayed tabular case completed the full 15M records and reports a gate miss; its independent task audit remains pending. Its matching neural case is still live and is not counted as a completed allocation. R1 delayed first-screen trial settings are bound to the measured budget hashes before launch. H_P, H_D, H_N, CE and the full-study envelope remain unfilled until their applicable selection/profiling steps. CPU terminal/opaque-task costs never substitute for 9×9 accelerator measurements.
+The historical delayed cost is retained even though its source cannot fund the corrected evaluator. The corrected cost report enters C1 and the separate tabular-control ceiling; C4 remains conditional. RPS is complete and independently audited. The delayed tabular case completed the full 15M records and reports a gate miss; its independent task audit now confirms the grade. Its matching neural case is still live and is not counted as a completed allocation. R1 delayed first-screen trial settings are bound to the measured budget hashes before launch. H_P, H_D, H_N, CE and the full-study envelope remain unfilled until their applicable selection/profiling steps. CPU terminal/opaque-task costs never substitute for 9×9 accelerator measurements.
 
 
 ## Bounded accelerator pipeline measurement
