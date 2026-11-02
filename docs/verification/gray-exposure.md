@@ -1,6 +1,6 @@
 # Candidate-independent gray-exposure curriculum
 
-`curriculum.py` implements the synthetic initial-state distribution in design section 5.3. The versioned seeded generator accepts no candidate outputs. Each family starts from an independent generated board, with one to six gray stones, small connected/singleton gray groups (at most three stones per group), and zero to twelve balanced black/white pairs. The reference `State` validator rejects every zero-liberty group. Total gray counts and first-cluster sizes vary deterministically across the generated inventory; a separate seeded shuffle freezes training/held-out membership.
+`curriculum.py` implements the synthetic initial-state distribution in design section 5.3. The versioned seeded generator accepts no candidate outputs. Each family has its own generated board, with one to six gray stones, small connected/singleton gray groups (at most three stones per group), and zero to twelve balanced black/white pairs. The reference `State` validator rejects every zero-liberty group. Total gray counts and first-cluster sizes vary deterministically across the generated inventory; a separate seeded shuffle freezes training/held-out membership.
 
 Each board's identity is canonical over D4 symmetries, all 81 torus translations and black/white exchange. Duplicate equivalence classes are rejected both within and across splits. The catalog is immutable, completely serialized and checksummed by canonical identity. A strict loader regenerates its inventory/split from the recorded seed, so changing seed labels, family IDs, settings or split membership fails. A generation-budget exhaustion returns no partial catalog. The CLI's locked atomic write preserves an existing identical artifact and refuses to replace a different frozen catalog.
 
@@ -13,3 +13,16 @@ The new tests verify seed regeneration and family independence, group liberties,
 This component does not launch scientific training. The four-arm controller, independent confirmation seeds, matched actual start consumption/decision exposure, both-rule evaluations, held-out diagnostics and performance/interaction confidence endpoints remain required. Sampling the same seed-indexed sequence alone does not equalize its realized consumption when episode lengths differ; that coupling and its recorded counts belong in the paired controller. Initial gray ages are observed from curriculum start and are distinct from gray created during play.
 
 The catalog's 32 held-out start families are **not** 32 certified paired collision-probe families. They have no near-equilibrium collision-range qualification. Probe construction/certification and the 24-of-32 criterion remain separate work. No empirical gray-specialization conclusion or A2/pilot approval follows from this generator.
+
+
+## Frozen version-1 catalog and native/reference audit
+
+The default catalog was generated before scientific training from seed **8675309**, with **64 training families and 32 held-out families**. Its canonical SHA-256 is `ac942803e2abd65510d7970e30d2818baa2ea17342ea33313d0b46bf0f40716b`. Source commit `65ea438` and source SHA `9b788d45d284764d774f80728fc56e806e6666785c02716b3155785f6536c61f` were clean at generation. The [catalog](../experiments/gray-exposure-v1/catalog.json), [generation/environment record](../experiments/gray-exposure-v1/generation.json) and [read-only audit](../experiments/gray-exposure-v1/audit.json) are versioned together. The entire 96-family inventory contains 16 representatives at each total gray count from one through six; the frozen split membership is in the artifact.
+
+The audit checked 512 sample seeds for each of the mixed-training and gray-only-held-out distributions under each collision rule. Same-seed initial boards/family IDs match across rules, reset metadata is verified, and the subsequent random simultaneous round uses the actual resolver. It checks 4,096 complete public states including roots and successors, all fractional score totals, and **8,192 perspective observations** through direct encoding, compact reference decoding and the checksummed native decoder. All three paths match exactly for all 30 spatial planes, 14 globals and legal masks. The audit completed in 3.386 seconds and used no candidate policy or training run.
+
+These are deterministic corpus and feature checks, not independent playing-strength trials. No collision-probe family is certified by this catalog. Different game lengths still require explicit paired-controller start-consumption/exposure accounting.
+
+```sh
+.venv/bin/python tools/audit_exposure_catalog.py artifacts/gray-exposure-v1.json --native-library /home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so --output runs/gray-exposure-catalog-v1/audit.json
+```

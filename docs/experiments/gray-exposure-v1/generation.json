@@ -1,0 +1,85 @@
+{
+  "manifest": {
+    "baseline_version": "graygo/baselines/1",
+    "command": {
+      "catalog": "artifacts/gray-exposure-v1.json",
+      "collision": "gray",
+      "command": "generate-exposure",
+      "heldout_families": 32,
+      "limit": null,
+      "max_attempts": 100000,
+      "output": "runs/gray-exposure-catalog-v1/report.json",
+      "seed": 8675309,
+      "size": 9,
+      "train_families": 64
+    },
+    "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "cpu_threads": 24,
+    "created_at": "2026-11-02T06:09:51.596178+00:00",
+    "dependencies": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "torch": "2.11.0"
+    },
+    "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+    "disk_free_bytes": 127301423104,
+    "encoding_version": "graygo/encoding/1",
+    "filesystem": "ext2/ext3",
+    "format_version": 1,
+    "git_commit": "65ea43860b8a7e90fe9f64abd19991581d745899",
+    "git_dirty": false,
+    "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+    "host_memory": {
+      "available_bytes": 30059294720,
+      "swap_bytes": 12884897792,
+      "total_bytes": 33558446080
+    },
+    "hostname": "home-ai",
+    "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "rule_version": "graygo/1",
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "run_id": "7e1544fb2bb0411c9c363c6e9413847a",
+    "seed": 8675309,
+    "source_sha256": "9b788d45d284764d774f80728fc56e806e6666785c02716b3155785f6536c61f"
+  },
+  "result": {
+    "candidate_independent_generator": true,
+    "catalog_path": "/home/gcao/proj/graygo/artifacts/gray-exposure-v1.json",
+    "catalog_sha256": "ac942803e2abd65510d7970e30d2818baa2ea17342ea33313d0b46bf0f40716b",
+    "collision_probe_families_certified": 0,
+    "heldout_families": 32,
+    "train_families": 64,
+    "training_started": false
+  }
+}
