@@ -63,10 +63,12 @@ Full runs require an explicit time ceiling and matching declared complete-pipeli
 
 The suite passes **122 tests**, including exact mid-episode resume for neural/tabular delayed and mixed-Go runs. See `verification/nfsp-multiround.md`. No delayed-credit convergence or 9×9 strength claim follows from these implementation checks.
 
+The complete delayed-pipeline profiler has launched from pinned source for neural/tabular, R=1/R=4 and pre/post-opening paths. The immutable eight-case plan and resource ceilings are in `experiments/nfsp-delayed-profile-plan.json`. Its results are not yet convergence evidence or a completed full-study budget.
+
 ## Remaining work toward the full objective
 
 1. Independently audit completed matrix trials, finish the declared first-screen set (RPS and delayed family), then the required seed/task cohorts. The seed-0 tabular asymmetric run reports a complete 15M final-five pass; that is provisional until its archive-based audit. The neural trial is still being observed by its original process handle.
-2. Profile the now-integrated complete delayed/bounded pipeline, enter C1/C4 ceilings, and run the selected one-step comparisons with actual tabular controls. Per-branch gates and full multiround resume are implemented; learning evidence and any conditional Retrace selection remain pending.
+2. Inspect the launched complete delayed-pipeline profiles, enter C1/C4 ceilings, profile bounded neural/control paths, and run the selected one-step comparisons with actual tabular controls. Per-branch gates and full multiround resume are implemented; learning evidence and any conditional Retrace selection remain pending.
 3. Run the selected NFSP A2 protocol across short mixed tasks, bounded Gray Go and the delayed family with three seeds, final-five gates and fixed aggregate counters.
 4. Integrate the ninth-review development/confirmation cohorts, baseline confidence gates, opening checks and pilot safeguards. Keep packed-feature storage's current overhead explicit; the design's compact rule-state/regenerated-feature backend is still pending.
 5. Profile the complete selected learner, fill its cost ledger and run only the eligible declared pilot/screening/confirmation stages.

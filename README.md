@@ -59,7 +59,7 @@ Preflight runs are resumable by repeating the command with the same plan. Finish
 
 ## NFSP verification
 
-The one-step backend in `nfsp.py` is shared by compact task and board models. `nfsp_collection.py` provides frozen per-episode native self-play and independently sampled simultaneous actions. `tasks.py` supplies opaque delayed/branching controls and balanced value-only coverage; `public_game.py` computes exact fixed-policy/action values and responses. The resumable matrix trainer includes an exact reservoir-average tabular control and a matched executed-action-label control for `pure82`. Multiround integration and formal A2 learning evidence remain required.
+The one-step backend in `nfsp.py` is shared by compact task and board models. `nfsp_collection.py` provides frozen per-episode native self-play and independently sampled simultaneous actions. `tasks.py` supplies opaque delayed/branching controls and balanced value-only coverage; `public_game.py` computes exact fixed-policy/action values and responses. The resumable matrix trainer includes an exact reservoir-average tabular control and a matched executed-action-label control for `pure82`. Formal A2 learning evidence and the production 9×9 stages remain required.
 
 ```sh
 .venv/bin/python -m unittest discover -s tests -v
