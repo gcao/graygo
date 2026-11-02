@@ -81,10 +81,24 @@ class ScienceProtocolTests(unittest.TestCase):
 class ScientificEvidenceTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):cls.catalog=create_catalog(443,train_families=6,heldout_families=6)
-    def build(self,path,*,resume=False,cap=60):
+    def build(self,path,*,resume=False,cap=60,pair_batching=False):
         policies={key:PassPolicy() for key in policy_keys()}
         p=ScienceProtocol('diag',self.catalog.sha256,{key:policy.sha256 for key,policy in policies.items()},cap,seed=13,block_looks=(2,4),purpose='diagnostic')
-        return ScientificRun(p,path,policies,self.catalog,resume=resume,reserve_bytes=0)
+        return ScientificRun(p,path,policies,self.catalog,resume=resume,reserve_bytes=0,pair_batching=pair_batching)
+
+    def test_batched_whole_blocks_match_scalar_and_failed_group_is_not_partly_committed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            scalar=self.build(Path(directory)/'scalar');scalar.run(96)
+            grouped=self.build(Path(directory)/'grouped',pair_batching=True)
+            with patch('graygo.evaluation_batch.commit_evaluation_actions',side_effect=RuntimeError('injected batched block failure')):
+                with self.assertRaisesRegex(RuntimeError,'block failure'):grouped.run(96)
+            self.assertEqual(grouped.records(),[]);self.assertEqual(grouped.clock()['committed_blocks'],0)
+            grouped.run(96)
+            old=[dict(row,plan_sha256=None) for row in scalar.records()]
+            new=[dict(row,plan_sha256=None) for row in grouped.records()]
+            self.assertEqual(new,old)
+            self.assertEqual(ScientificEvidence(grouped.root).estimate(96)['physical_games'],96)
+            with self.assertRaises(ValueError):self.build(grouped.root,resume=True,pair_batching=False)
 
     def test_actual_both_rule_context_seed_blocks_resume_exactly_and_remain_diagnostic(self):
         with tempfile.TemporaryDirectory() as directory:

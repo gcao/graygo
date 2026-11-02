@@ -82,7 +82,7 @@ def _archive_provenance(protocol,policies,paths,catalog,*,expected_keys=None):
         seal=CheckpointStore.verify(path)
         if path.parent.name!='weights':raise ValueError('permanent public confirmation archive required')
         manifest_path=path.parents[1]/'run.json';manifest=json.loads(manifest_path.read_text());config=manifest['config']
-        expected=FrozenNeuralPolicy.from_archive(path,representation='average',device=str(policy.device))
+        expected=FrozenNeuralPolicy.from_archive(path,representation='average',device=str(policy.device),inference_batch_size=policy.inference_batch_size)
         if expected.sha256!=policy.sha256:raise ValueError('provided policy differs from the verified public checkpoint')
         origin=policy.identity.get('origin') or {}
         rules={'size':9,'max_rounds':200,'collision':training_rule}
@@ -128,6 +128,7 @@ class ScientificEvidence:
         if json.loads((self.root/'plan.json').read_text())!=self.contract:raise ValueError('scientific external/database plans differ')
         if self.contract.get('version')!=SCIENCE_RUN_VERSION or self.contract.get('evaluation_version')!=EVALUATION_VERSION or self.contract.get('rule_version')!=RULE_VERSION:
             raise ValueError('unsupported scientific evidence semantics')
+        if 'pair_batching' in self.contract and type(self.contract['pair_batching']) is not bool:raise ValueError('invalid scientific pair batching contract')
         self.protocol=ScienceProtocol.from_dict(self.contract['protocol']);self.catalog=ExposureCatalog.from_dict(self.contract['catalog'])
         if self.catalog.sha256!=self.protocol.catalog_sha256:raise ValueError('scientific held-out catalog differs')
         self.sha256=canonical_sha(self.contract);self.reserve=self.contract['reserve_bytes']
@@ -198,11 +199,12 @@ class ScientificEvidence:
 
 
 class ScientificRun(ScientificEvidence):
-    def __init__(self,protocol,root,policies,catalog,*,archive_paths=None,resume=False,reserve_bytes=DEFAULT_RESERVE,prior_setup_seconds=0.):
+    def __init__(self,protocol,root,policies,catalog,*,archive_paths=None,resume=False,reserve_bytes=DEFAULT_RESERVE,prior_setup_seconds=0.,pair_batching=False):
         initialization_started=time.monotonic()
         if not math.isfinite(prior_setup_seconds) or prior_setup_seconds<0:raise ValueError('finite observed setup time required')
         if set(policies)!=set(policy_keys()) or catalog.sha256!=protocol.catalog_sha256:raise ValueError('complete frozen policy/catalog registry required')
         if type(reserve_bytes) is not int or reserve_bytes<0:raise ValueError('nonnegative scientific disk reserve required')
+        if type(pair_batching) is not bool:raise ValueError('explicit scientific pair batching selection required')
         if protocol.purpose=='confirmation' and reserve_bytes<DEFAULT_RESERVE:raise ValueError('confirmation cannot reduce the twenty-GiB reserve')
         ids=tuple(sorted((*key,policy.sha256) for key,policy in policies.items()))
         if ids!=protocol.policy_ids:raise ValueError('scientific policy registry differs from its preregistered protocol')
@@ -212,6 +214,7 @@ class ScientificRun(ScientificEvidence):
         if protocol.purpose=='confirmation' and not runtime['deterministic_algorithms']:raise ValueError('confirmation requires declared deterministic inference settings')
         root=Path(root).resolve();root.mkdir(parents=True,exist_ok=True)
         contract={'version':SCIENCE_RUN_VERSION,'protocol':protocol.to_dict(),'catalog':catalog.to_dict(),
+            'pair_batching':pair_batching,
             'policy_bindings':[{'curriculum':c,'training_rule':r,'seed':s,'sha256':policies[c,r,s].sha256,'identity':policies[c,r,s].identity,
                                'archive_reference':provenance.get((c,r,s))} for c,r,s in policy_keys()],
             'rule_version':RULE_VERSION,'evaluation_version':EVALUATION_VERSION,'source_sha256':source_digest(),'runtime':runtime,'reserve_bytes':reserve_bytes,
@@ -235,7 +238,7 @@ class ScientificRun(ScientificEvidence):
                 finally:db.close()
                 write_report(path,contract,reserve_bytes=reserve_bytes)
                 write_report(root/'run.json',make_manifest(seed=protocol.seed,command={'scientific_protocol':protocol.to_dict()},rules={'size':9,'max_rounds':200,'collision':'gray/remove'}),reserve_bytes=reserve_bytes)
-        super().__init__(root);self.policies=policies
+        super().__init__(root);self.policies=policies;self.pair_batching=pair_batching
         with _EvaluationLock(self.root/'.scientific.lock'):
             state=self.clock();setup=prior_setup_seconds+time.monotonic()-initialization_started
             if state['inflight_since'] is not None:
@@ -266,6 +269,7 @@ class ScientificRun(ScientificEvidence):
 
     def _block(self,index):
         row={'index':index,'uid':str(seed_for(self.protocol.seed,'scientific-block',index)),'plan_sha256':self.sha256,'openings':{},'cells':{}}
+        requests=[];locations=[]
         for context in CONTEXTS:
             openings={rule:self.opening(index,context,rule) for rule in RULES}
             row['openings'][context]={rule:{'root_sha256':hashlib.sha256(root.canonical_json().encode()).hexdigest(),'family_id':family} for rule,(root,family) in openings.items()}
@@ -274,7 +278,16 @@ class ScientificRun(ScientificEvidence):
                 row['cells'][context][curriculum]={}
                 for seed in CONFIRMATION_SEEDS:
                     subject=self.policies[curriculum,'gray',seed];opponent=self.policies[curriculum,'remove',seed];unit=self.unit_seed(index,seed)
-                    row['cells'][context][curriculum][str(seed)]={rule:evaluate_pair(subject,opponent,openings[rule][0],unit_seed=unit) for rule in RULES}
+                    row['cells'][context][curriculum][str(seed)]={}
+                    for rule in RULES:
+                        if self.pair_batching:
+                            from .evaluation_batch import PairRequest
+                            requests.append(PairRequest(subject,opponent,openings[rule][0],unit));locations.append((context,curriculum,str(seed),rule))
+                        else:row['cells'][context][curriculum][str(seed)][rule]=evaluate_pair(subject,opponent,openings[rule][0],unit_seed=unit)
+        if self.pair_batching:
+            from .evaluation_batch import evaluate_pairs_batched
+            for (context,curriculum,seed,rule),result in zip(locations,evaluate_pairs_batched(requests)):
+                row['cells'][context][curriculum][seed][rule]=result
         return row
 
     def run(self,total_games,*,stop_requested=lambda:False):

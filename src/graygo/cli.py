@@ -179,7 +179,8 @@ def cohort_register(args):
         if seed in roots:raise ValueError('duplicate original development seed')
         roots[seed]=path
     _cohort_output_guard(args,[args.run_dir,*roots.values()])
-    cohort=DevelopmentCohort.register(args.run_dir,args.name,roots)
+    cohort=DevelopmentCohort.register(args.run_dir,args.name,roots,inference_batch_size=args.inference_batch_size,
+        pair_batch_size=args.pair_batch_size,inference_device=args.device)
     return {'registry_sha256':cohort.sha256,'registry':cohort.body,'a2_complete':False,'formal_scope_approved':False}
 
 
@@ -245,11 +246,11 @@ def science_evaluate(args):
             if args.purpose!='diagnostic':raise ValueError('baselines cannot be relabeled as confirmation models')
             policies[key]=BaselinePolicy(value.split(':',1)[1])
         else:
-            policies[key]=FrozenNeuralPolicy.from_archive(value,representation=args.representation,device=args.device,label=label);paths[key]=value
+            policies[key]=FrozenNeuralPolicy.from_archive(value,representation=args.representation,device=args.device,label=label,inference_batch_size=args.inference_batch_size);paths[key]=value
     if set(policies)!=set(policy_keys()):raise ValueError('all twelve curriculum/rule/seed policy bindings required')
     protocol=ScienceProtocol(args.name,catalog.sha256,{key:policy.sha256 for key,policy in policies.items()},args.time_cap_hours*3600,
         seed=args.seed,block_looks=tuple(args.block_looks),purpose=args.purpose,training_records=args.training_records,representation=args.representation)
-    run=ScientificRun(protocol,args.run_dir,policies,catalog,archive_paths=paths,resume=args.resume,prior_setup_seconds=time.monotonic()-started)
+    run=ScientificRun(protocol,args.run_dir,policies,catalog,archive_paths=paths,resume=args.resume,prior_setup_seconds=time.monotonic()-started,pair_batching=args.pair_batching)
     collection=run.run(args.games,stop_requested=_signal_flag());available=collection['committed_blocks']
     completed=[n for n in protocol.block_looks if n<=available]
     summary=None if not completed else run.estimate(max(completed)*48)
@@ -271,7 +272,7 @@ def _probe_output_guard(args,roots):
             raise ValueError('save probe output outside its frozen inputs and evidence directory')
 
 
-def _probe_policies(bindings,representation,device):
+def _probe_policies(bindings,representation,device,inference_batch_size=1):
     from .evaluation import FrozenNeuralPolicy
     policies={};paths={}
     for binding in bindings:
@@ -279,7 +280,8 @@ def _probe_policies(bindings,representation,device):
         seed,path=binding.split('=',1);seed=int(seed)
         if seed in policies:raise ValueError('duplicate frozen probe seed')
         paths[seed]=Path(path).expanduser().resolve()
-        policies[seed]=FrozenNeuralPolicy.from_archive(paths[seed],representation=representation,device=device)
+        batch=inference_batch_size[seed] if isinstance(inference_batch_size,dict) else inference_batch_size
+        policies[seed]=FrozenNeuralPolicy.from_archive(paths[seed],representation=representation,device=device,inference_batch_size=batch)
     if set(policies)!={200,201,202}:raise ValueError('original probe seeds 200, 201 and 202 required')
     return policies,paths
 
@@ -306,7 +308,7 @@ def probe_evaluate(args,*,prior_setup_seconds=0.):
     science=None
     if args.science_protocol:
         data=json.loads(Path(args.science_protocol).expanduser().read_text());science=ScienceProtocol.from_dict(data.get('protocol',data))
-    policies,paths=_probe_policies(args.policy,args.representation,args.device)
+    policies,paths=_probe_policies(args.policy,args.representation,args.device,args.inference_batch_size)
     _probe_output_guard(args,[args.run_dir,args.benchmark,args.freeze_receipt,*[p.parents[1] if p.is_dir() else p.parent.parents[1] for p in paths.values()],
                               *[p for p in (args.catalog,args.science_protocol) if p]])
     protocol=ProbePolicyProtocol(args.name,benchmark.sha256,canonical_sha(freeze),{seed:p.sha256 for seed,p in policies.items()},
@@ -344,7 +346,8 @@ def probe_audit(args,*,prior_setup_seconds=0.):
         ref=row['archive_reference']
         if ref is None:raise ValueError('probe audit requires original public archives; API fixtures require their original policy objects')
         bindings.append(str(seed)+'='+ref['archive'])
-    policies,paths=_probe_policies(bindings,evidence.protocol.representation,devices[0])
+    batches={seed:(row['identity'].get('inference') or {'batch_size':1})['batch_size'] for seed,row in evidence.bindings.items()}
+    policies,paths=_probe_policies(bindings,evidence.protocol.representation,devices[0],batches)
     _probe_output_guard(args,[evidence.root,*[p.parents[1] for p in paths.values()]])
     catalog=None if evidence.contract['catalog'] is None else ExposureCatalog.from_dict(evidence.contract['catalog'])
     run=ProbePolicyRun(evidence.protocol,evidence.root,evidence.benchmark,evidence.contract['freeze_receipt'],policies,
@@ -453,17 +456,22 @@ def build_native(args):
 def evaluate(args):
     from .confidence import ConfidenceFamily
     from .evaluation import BaselinePolicy,FrozenNeuralPolicy,EvaluationPlan,EvaluationRun
+    if args.inference_batch_size>1 or args.pair_batch_size>1:
+        from .board_runtime import configure_runtime
+        configure_runtime(args.device,True)
+        import torch
+        torch.set_num_threads(1)
     data=json.loads(Path(args.confidence_plan).read_text());family=ConfidenceFamily(**data)
     def policy(name,archive,representation,label):
         if name in ('random','tactical'):
             if archive is not None:raise ValueError("baseline does not use a checkpoint")
             return BaselinePolicy(name)
         if archive is None:raise ValueError("neural evaluation requires an archived public checkpoint")
-        return FrozenNeuralPolicy.from_archive(archive,representation=representation,device=args.device,label=label)
+        return FrozenNeuralPolicy.from_archive(archive,representation=representation,device=args.device,label=label,inference_batch_size=args.inference_batch_size)
     subject=policy(args.subject,args.subject_archive,args.representation,args.subject_label)
     opponent=policy(args.opponent,args.opponent_archive,args.opponent_representation,'opponent')
     incumbent=None if args.incumbent is None else policy(args.incumbent,args.incumbent_archive,args.incumbent_representation,'incumbent')
-    plan=EvaluationPlan(args.name,args.subject_label,args.endpoint,_rules(args),args.seed,family.looks,confidence_sha256=family.sha256,comparison='improvement' if incumbent is not None else 'utility')
+    plan=EvaluationPlan(args.name,args.subject_label,args.endpoint,_rules(args),args.seed,family.looks,confidence_sha256=family.sha256,comparison='improvement' if incumbent is not None else 'utility',pair_batch_size=args.pair_batch_size)
     run=EvaluationRun(plan,args.run_dir,subject,opponent,incumbent=incumbent,resume=args.resume)
     stopped=_signal_flag();collection=run.run(args.games,time_cap_seconds=args.time_cap_hours*3600,stop_requested=stopped)
     estimate=None
@@ -535,6 +543,7 @@ def main(argv=None):
             p.add_argument("--incumbent",choices=("random","tactical","neural"));p.add_argument("--incumbent-archive")
             p.add_argument("--incumbent-representation",choices=("average","greedy_q"),default="average")
             p.add_argument("--device",default="cpu");p.add_argument("--resume",action="store_true")
+            p.add_argument("--inference-batch-size",type=int,default=1);p.add_argument("--pair-batch-size",type=int,default=1)
         elif name=="simulate":
             p.add_argument("--games",type=int,default=10)
             p.add_argument("--black",choices=AGENTS,default="random")
@@ -563,6 +572,7 @@ def main(argv=None):
             p.add_argument("--purpose",choices=("confirmation","diagnostic"),default="confirmation")
             p.add_argument("--families",type=int,default=32);p.add_argument("--time-cap-hours",type=float,required=True)
             p.add_argument("--device",default="cpu");p.add_argument("--resume",action="store_true");p.add_argument("--no-audit",action="store_true")
+            p.add_argument("--inference-batch-size",type=int,default=1)
         elif name in ("probe-report","probe-audit"):
             p.add_argument("--run-dir",required=True)
         elif name=="science-evaluate":
@@ -574,6 +584,7 @@ def main(argv=None):
             p.add_argument("--purpose",choices=("confirmation","diagnostic"),default="confirmation")
             p.add_argument("--block-looks",nargs="+",type=int,default=[500,2000]);p.add_argument("--training-records",type=int,default=80000000)
             p.add_argument("--representation",choices=("average","actor"),default="average");p.add_argument("--resume",action="store_true")
+            p.add_argument("--inference-batch-size",type=int,default=1);p.add_argument("--pair-batching",action="store_true")
         elif name=="science-report":
             p.add_argument("--run-dir",required=True);p.add_argument("--games",type=int,required=True)
         elif name=="build-probes":
@@ -591,6 +602,8 @@ def main(argv=None):
         elif name=="cohort-register":
             p.add_argument("--run-dir",required=True);p.add_argument("--name",required=True)
             p.add_argument("--training-run",action="append",required=True)
+            p.add_argument("--inference-batch-size",type=int,default=1);p.add_argument("--pair-batch-size",type=int,default=1)
+            p.add_argument("--device",default="cpu")
         elif name=="cohort-report":
             p.add_argument("--run-dir",required=True);p.add_argument("--stage",choices=("pilot","screening"),default="pilot")
         elif name=="run-board-diagnostic":

@@ -26,6 +26,24 @@ from .storage import DEFAULT_RESERVE,DiskBudgetError
 EVALUATION_VERSION='graygo/paired-evaluation/2'
 
 
+def neural_inference_identity(batch_size,device):
+    if type(batch_size) is not int or not 1<=batch_size<=64:raise ValueError('fixed inference batch size must be between one and sixty-four')
+    if batch_size==1:return None
+    device=str(device)
+    if device=='cuda':device='cuda:0'
+    if device!='cpu' and not (device.startswith('cuda:') and device[5:].isdigit()):raise ValueError('declared CPU/CUDA inference device required')
+    return {'version':'graygo/fixed-evaluation-inference/1','batch_size':batch_size,
+        'placement':'SHA-256 encoded public observation to fixed row; collisions use separate forwards',
+        'padding':'zero spatial/globals and pass-only mask; never sampled','device':device}
+
+
+def pair_execution_identity(batch_size,has_incumbent=False):
+    if type(batch_size) is not int or not 1<=batch_size<=16:raise ValueError('one to sixteen concurrent evaluation pairs required')
+    return {'version':'graygo/frozen-pair-execution/1','pair_batch_size':batch_size,
+        'maximum_physical_games_per_group':batch_size*(4 if has_incumbent else 2),
+        'budget_boundary':'between complete groups; final group and IO may overrun'}
+
+
 def seed_for(seed,*parts):
     if type(seed) is not int or seed<0:raise ValueError('nonnegative integral evaluation seed required')
     return int.from_bytes(hashlib.sha256(json.dumps([seed,*parts],separators=(',',':')).encode()).digest()[:16],'little')
@@ -48,17 +66,22 @@ class _BaselineActor:
 
 
 class FrozenNeuralPolicy:
-    def __init__(self,model,*,representation='average',label='frozen-policy',origin=None):
+    def __init__(self,model,*,representation='average',label='frozen-policy',origin=None,inference_batch_size=1):
         import torch
+        from .models import QNet,PolicyNet,PolicyValueNet
         if representation not in ('average','actor','greedy_q'):raise ValueError('explicit deployed representation required')
+        if type(inference_batch_size) is not int or not 1<=inference_batch_size<=64:raise ValueError('fixed inference batch size must be between one and sixty-four')
+        if inference_batch_size>1 and type(model) not in (QNet,PolicyNet,PolicyValueNet):raise ValueError('batched evaluation requires the standard independent-row GroupNorm model')
+        self.inference_batch_size=inference_batch_size
         self._model=deepcopy(model).eval().requires_grad_(False);self.representation=representation;self.label=label
         devices={x.device for x in list(self._model.parameters())+list(self._model.buffers())}
         if len(devices)!=1:raise ValueError('one model device required')
         self.device=next(iter(devices));self._weights=self._weight_sha()
         self.identity={'kind':representation,'model_class':type(model).__name__,'weights_sha256':self._weights,'encoding_version':ENCODING_VERSION,'source_sha256':source_digest(),'origin':None if origin is None else json.loads(json.dumps(origin))}
+        if inference_batch_size>1:self.identity['inference']=self._inference_identity()
         self.sha256=canonical_sha(self.identity)
     @classmethod
-    def from_archive(cls,archive,*,representation='average',device='cpu',label='checkpoint'):
+    def from_archive(cls,archive,*,representation='average',device='cpu',label='checkpoint',inference_batch_size=1):
         import torch
         from .models import QNet,PolicyNet,ModelConfig
         from .storage import CheckpointStore
@@ -75,7 +98,7 @@ class FrozenNeuralPolicy:
         model.load_state_dict(data['q' if representation=='greedy_q' else 'average'])
         origin={'training_run_sha256':hashlib.sha256((root/'run.json').read_bytes()).hexdigest(),'source_sha256':manifest['source_sha256'],
             'archive_sha256':hashlib.sha256((directory/'manifest.json').read_bytes()).hexdigest(),'records':sealed['step'],'seed':config['seed'],'rules':manifest['rules']}
-        return cls(model,representation=representation,label=label,origin=origin)
+        return cls(model,representation=representation,label=label,origin=origin,inference_batch_size=inference_batch_size)
 
     def _weight_sha(self):
         h=hashlib.sha256()
@@ -83,24 +106,63 @@ class FrozenNeuralPolicy:
             a=value.detach().cpu().contiguous().numpy();h.update(name.encode()+b'\0'+str(a.dtype).encode()+str(a.shape).encode()+a.tobytes())
         return h.hexdigest()
     def assert_frozen(self):
-        if canonical_sha(self.identity)!=self.sha256 or self.identity['kind']!=self.representation or self.identity['source_sha256']!=source_digest() or self._weight_sha()!=self._weights:raise ValueError('evaluation model changed after freezing')
+        if (canonical_sha(self.identity)!=self.sha256 or self.identity['kind']!=self.representation or self.identity['source_sha256']!=source_digest()
+                or self._weight_sha()!=self._weights or self.identity.get('inference')!=self._inference_identity()):raise ValueError('evaluation model or inference layout changed after freezing')
+    def _inference_identity(self):
+        return neural_inference_identity(self.inference_batch_size,self.device)
     def _action_weights(self,state,player):
+        return self._action_weights_many([(state,player)])[0]
+
+    def _action_weights_many(self,requests):
+        """Fixed-shape forwards; single/probe calls use the same padded shape.
+
+        No row contains a private commitment or an episode's random state. The
+        explicit shape is part of policy identity because floating reductions
+        may differ between batch sizes, even for independent GroupNorm rows.
+        """
         import torch
         from .models import greedy_distribution,masked_log_probs
-        p=self;o=encode(state,player)
-        with torch.no_grad():
-            x=torch.tensor(o.spatial[None],device=p.device,dtype=torch.float32);g=torch.tensor(o.global_features[None],device=p.device,dtype=torch.float32)
-            legal=torch.tensor(o.legal[None],device=p.device)
-            if p.representation=='greedy_q':
-                q=p._model(x,g)
-                if q.shape!=legal.shape or not bool(torch.isfinite(q[legal]).all()) or bool((q[legal].abs()>1+1e-6).any()):raise ValueError('invalid legal Q values')
-                probs=greedy_distribution(q,legal)
-            else:
-                logits=p._model.policy_logits(x,g) if hasattr(p._model,'policy_logits') else p._model(x,g)
-                if isinstance(logits,tuple):logits=logits[0]
-                if logits.shape!=legal.shape or bool(torch.isnan(logits[legal]).any()) or bool(torch.isposinf(logits[legal]).any()):raise ValueError('invalid actor logits')
-                probs=masked_log_probs(logits,legal).exp()
-        return probs.cpu().double().numpy()[0]
+        if not requests:return []
+        if any(state.done for state,player in requests):raise ValueError('terminal states do not need evaluation inference')
+        if len({state.rules.size for state,player in requests})!=1:raise ValueError('one board size per inference group required')
+        # Fixed shape alone is insufficient on CPU: BLAS row microkernels can
+        # round tied Q values differently at different row positions. Assign a
+        # public observation a fixed row as well. Duplicate observations share
+        # immutable weights, while every actor still draws its own private RNG.
+        result=[None]*len(requests);batch=self.inference_batch_size;unique={};lanes={}
+        for index,(state,player) in enumerate(requests):
+            observation=encode(state,player)
+            key=observation.spatial.tobytes()+observation.global_features.tobytes()+observation.legal.tobytes()
+            if key in unique:unique[key][1].append(index);continue
+            item=(observation,[index]);unique[key]=item
+            lane=int.from_bytes(hashlib.sha256(key).digest()[:8],'little')%batch
+            lanes.setdefault(lane,[]).append(item)
+        while lanes:
+            wave={lane:items.pop(0) for lane,items in lanes.items()}
+            lanes={lane:items for lane,items in lanes.items() if items}
+            example=next(iter(wave.values()))[0]
+            spatial=np.zeros((batch,*example.spatial.shape),dtype=example.spatial.dtype)
+            globals_=np.zeros((batch,*example.global_features.shape),dtype=example.global_features.dtype)
+            legal_=np.zeros((batch,*example.legal.shape),dtype=example.legal.dtype);legal_[:,-1]=True
+            for lane,(observation,indices) in wave.items():
+                spatial[lane]=observation.spatial;globals_[lane]=observation.global_features;legal_[lane]=observation.legal
+            with torch.no_grad():
+                x=torch.tensor(spatial,device=self.device,dtype=torch.float32)
+                g=torch.tensor(globals_,device=self.device,dtype=torch.float32)
+                legal=torch.tensor(legal_,device=self.device)
+                if self.representation=='greedy_q':
+                    q=self._model(x,g)
+                    if q.shape!=legal.shape or not bool(torch.isfinite(q[legal]).all()) or bool((q[legal].abs()>1+1e-6).any()):raise ValueError('invalid legal Q values')
+                    probs=greedy_distribution(q,legal)
+                else:
+                    logits=self._model.policy_logits(x,g) if hasattr(self._model,'policy_logits') else self._model(x,g)
+                    if isinstance(logits,tuple):logits=logits[0]
+                    if logits.shape!=legal.shape or bool(torch.isnan(logits[legal]).any()) or bool(torch.isposinf(logits[legal]).any()):raise ValueError('invalid actor logits')
+                    probs=masked_log_probs(logits,legal).exp()
+            values=probs.cpu().double().numpy()
+            for lane,(observation,indices) in wave.items():
+                for index in indices:result[index]=values[lane].copy()
+        return result
 
     def initial_distribution(self,state,player,*,fresh_episode=False):
         # Same normalization as the private sampler, without drawing an action.
@@ -112,8 +174,10 @@ class FrozenNeuralPolicy:
 class _NeuralActor:
     def __init__(self,policy,seed):self.policy=policy;self.rng=np.random.default_rng(seed);self.component=None
     def action(self,state,player):
+        return self._draw(self.policy._action_weights(state,player))
+    def _draw(self,weights):
         from .sampling import draw_actions
-        action,_=draw_actions(self.policy._action_weights(state,player)[None],self.rng)
+        action,_=draw_actions(weights[None],self.rng)
         return int(action[0])
 
 
@@ -215,6 +279,7 @@ class EvaluationPlan:
     comparison: str='utility'
     decision_protocol_sha256: str|None=None
     calibration_sha256: str|None=None
+    pair_batch_size: int=1
 
     def __post_init__(self):
         object.__setattr__(self,'looks',tuple(self.looks))
@@ -224,11 +289,13 @@ class EvaluationPlan:
         for value in (self.decision_protocol_sha256,self.calibration_sha256):
             if value is not None and (not isinstance(value,str) or len(value)!=64 or any(c not in '0123456789abcdef' for c in value)):raise ValueError('invalid protected protocol/calibration fingerprint')
         if not self.looks or tuple(sorted(set(self.looks)))!=self.looks or any(type(n) is not int or n<4 or n%2 for n in self.looks):raise ValueError('fixed increasing color-balanced looks required')
+        if type(self.pair_batch_size) is not int or not 1<=self.pair_batch_size<=16:raise ValueError('one to sixteen concurrent evaluation pairs required')
 
 
 def evaluation_contract(plan,subject,opponent,openings,incumbent=None):
     """Pure shared contract for collection and read-only archive verification."""
     return {'evaluation_version':EVALUATION_VERSION,'plan':json.loads(json.dumps(asdict(plan))),
+        'execution':pair_execution_identity(plan.pair_batch_size,incumbent is not None),
         'subject':subject.identity,'subject_sha256':subject.sha256,'opponent':opponent.identity,'opponent_sha256':opponent.sha256,
         'incumbent':None if incumbent is None else incumbent.identity,'incumbent_sha256':None if incumbent is None else incumbent.sha256,
         'opening_distribution':openings.identity,'opening_sha256':openings.sha256,'rule_version':RULE_VERSION,'source_sha256':source_digest(),
@@ -283,18 +350,28 @@ class EvaluationRun:
             if self.contract['source_sha256']!=source_digest():raise ValueError('evaluation source changed')
             rows=self.records();target=games//2;started=time.monotonic();status='complete'
             if len(rows)>max(self.plan.looks)//2:raise ValueError('evaluation exceeds its declared maximum look')
-            for index in range(len(rows),target):
+            while len(rows)<target:
                 if stop_requested():status='interrupted';break
                 if time.monotonic()-started>=time_cap_seconds:status='budget_limited';break
                 if shutil.disk_usage(self.root).free-65536<self.reserve:raise DiskBudgetError('evaluation would violate disk reserve')
-                unit=seed_for(self.plan.seed,'unit',index);opening=self.openings.sample(seed_for(unit,'opening'),self.plan.rules)
-                result=evaluate_pair(self.subject,self.opponent,opening,unit_seed=unit,incumbent=self.incumbent)
-                row={'index':index,'uid':str(unit),**result};payload=json.dumps(row,sort_keys=True,separators=(',',':'),allow_nan=False)
-                db=self._connect()
-                try:
-                    with db:db.execute('INSERT INTO units VALUES (?,?,?,?)',(index,str(unit),payload,hashlib.sha256(payload.encode()).hexdigest()))
-                finally:db.close()
-                rows.append(row)
+                units=[seed_for(self.plan.seed,'unit',index) for index in range(len(rows),min(target,len(rows)+self.plan.pair_batch_size))]
+                openings=[self.openings.sample(seed_for(unit,'opening'),self.plan.rules) for unit in units]
+                if self.plan.pair_batch_size==1:
+                    results=[evaluate_pair(self.subject,self.opponent,openings[0],unit_seed=units[0],incumbent=self.incumbent)]
+                else:
+                    from .evaluation_batch import PairRequest,evaluate_pairs_batched
+                    results=evaluate_pairs_batched([PairRequest(self.subject,self.opponent,opening,unit,self.incumbent) for opening,unit in zip(openings,units)])
+                # Commit an ordered complete-unit prefix. A crash between rows
+                # never persists half a color pair or a partial incumbent match.
+                for unit,result in zip(units,results):
+                    index=len(rows);row={'index':index,'uid':str(unit),**result};validate_pair(row,self.plan.rules,self.incumbent is not None)
+                    payload=json.dumps(row,sort_keys=True,separators=(',',':'),allow_nan=False)
+                    if shutil.disk_usage(self.root).free-len(payload.encode())-65536<self.reserve:raise DiskBudgetError('evaluation commit would violate disk reserve')
+                    db=self._connect()
+                    try:
+                        with db:db.execute('INSERT INTO units VALUES (?,?,?,?)',(index,str(unit),payload,hashlib.sha256(payload.encode()).hexdigest()))
+                    finally:db.close()
+                    rows.append(row)
             for p in (self.subject,self.opponent,self.incumbent):
                 if p is not None:p.assert_frozen()
             if len(rows)<target and status=='complete':status='incomplete'
@@ -314,6 +391,7 @@ class EvaluationRun:
         hashes=[g['trajectory_sha256'] for r in rows for g in r['subject']]
         evidence=canonical_sha([canonical_sha(r) for r in rows])
         return dict(bound,comparison=comparison,plan_sha256=self.sha256,available_games_per_pairing=2*len(available),representation=self.subject.identity['kind'],evidence_sha256=evidence,
+            subject_inference=self.subject.identity.get('inference'),evaluation_execution=self.contract['execution'],
             subject_label=self.plan.subject_label,subject_sha256=self.subject.sha256,opponent_sha256=self.opponent.sha256,
             subject_origin=self.subject.identity.get('origin'),rules=self.contract['plan']['rules'],opening_kind=self.openings.identity['kind'],
             repeated_trajectory_fraction=1-len(set(hashes))/len(hashes),scope='fixed policies and opening distribution; color pairs are independent units')

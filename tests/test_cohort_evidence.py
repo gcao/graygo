@@ -30,14 +30,14 @@ def hashes(root):return {str(p.relative_to(root)):digest(p) for p in Path(root).
 
 
 class CohortFixture:
-    def __init__(self,root,*,complete=False):
+    def __init__(self,root,*,complete=False,execution=None):
         self.root=Path(root);self.runs={};self.journals={}
         self.plan=BoardJournalPlan('development',20000000,(0,*PRE,*POST,20000000))
         for seed in DEVELOPMENT_SEEDS:
             runtime=BoardNFSPRuntime(BoardRuntimeConfig(seed=seed))
             directory=self.root/str(seed);journal=BoardMilestoneJournal(directory,runtime,self.plan)
             journal.checkpoint();self.runs[seed]=directory;self.journals[seed]=journal
-        self.cohort=DevelopmentCohort.register(self.root/'cohort','fixture',self.runs)
+        self.cohort=DevelopmentCohort.register(self.root/'cohort','fixture',self.runs,**(execution or {}))
         if complete:self.populate()
 
     def archive(self,seed,record):
@@ -56,7 +56,8 @@ class CohortFixture:
         archive=self.archive(seed,record);plan,family,_,path=self.cohort.plan_for(seed,record,representation,opponent)
         if wrong_seed:
             values=asdict(plan);values['rules']=plan.rules;values['seed']+=1;plan=EvaluationPlan(**values)
-        subject=FrozenNeuralPolicy.from_archive(archive,representation=representation,label=plan.subject_label)
+        owner=self.cohort.screening.pilot if record==20000000 else self.cohort.pilot
+        subject=FrozenNeuralPolicy.from_archive(archive,representation=representation,label=plan.subject_label,inference_batch_size=owner.inference_batch_size)
         run=EvaluationRun(plan,path,subject,BaselinePolicy(opponent),resume=(path/'plan.json').exists(),reserve_bytes=0)
         db=run._connect()
         try:
@@ -87,6 +88,19 @@ class CohortFixture:
 
 
 class CohortEvidenceTests(unittest.TestCase):
+    def test_batched_registry_binds_actual_archive_and_reads_without_sampling_or_input_writes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            fixture=CohortFixture(directory,execution=dict(inference_batch_size=8,pair_batch_size=4))
+            fixture.scores(100,PRE[0],'greedy_q','random')
+            before=hashes(directory);rng=torch.get_rng_state().clone()
+            with patch('graygo.evaluation_batch.commit_evaluation_actions',side_effect=AssertionError('reader must not sample')):
+                report=fixture.cohort.report('pilot')['body']
+            self.assertEqual(report['status'],'incomplete');self.assertEqual(len(report['reads']['pilot']),1)
+            self.assertEqual(report['reads']['pilot'][0]['subject_inference']['batch_size'],8)
+            self.assertEqual(report['reads']['pilot'][0]['evaluation_execution']['pair_batch_size'],4)
+            self.assertFalse(report['formal_scope_approved']);self.assertEqual(hashes(directory),before)
+            torch.testing.assert_close(torch.get_rng_state(),rng,atol=0,rtol=0)
+
     def test_real_fresh_initializations_register_once_without_issuing_authority(self):
         with tempfile.TemporaryDirectory() as directory:
             fixture=CohortFixture(directory);cohort=fixture.cohort

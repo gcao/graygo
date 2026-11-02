@@ -77,6 +77,26 @@ class PilotTests(unittest.TestCase):
             self.assertTrue(p.label_insertion([],seed,5_000_000,scope='confirmation')['allowed'])
         with self.assertRaises(ValueError):p.label_insertion([],100,5_000_000,scope='confirmation')
 
+    def test_batched_execution_is_preregistered_and_cannot_be_changed_by_receipts(self):
+        from graygo.evaluation import pair_execution_identity
+        settings=dict(inference_batch_size=8,pair_batch_size=4,inference_device='cuda')
+        p=PilotProtocol('batch','a'*64,'b'*64,{s:f'{s:064x}' for s in DEVELOPMENT_SEEDS},**settings)
+        self.assertEqual(PilotProtocol.from_dict(p.to_dict()),p)
+        reads=self.all_reads(p)
+        for read in reads:read.update(subject_inference=p.execution_settings()['neural_inference'],evaluation_execution=pair_execution_identity(4))
+        self.assertEqual(p.cohort(reads)['status'],'pass')
+        bad=deepcopy(reads);bad[0]['subject_inference']['batch_size']=4
+        with self.assertRaisesRegex(ValueError,'inference layout'):p.cohort(bad)
+        bad=deepcopy(reads);bad[0]['evaluation_execution']=pair_execution_identity(1)
+        with self.assertRaisesRegex(ValueError,'pair batching'):p.cohort(bad)
+        screen=ScreeningProtocol('screen','a'*64,'b'*64,{s:f'{s:064x}' for s in DEVELOPMENT_SEEDS},**settings)
+        self.assertEqual(ScreeningProtocol.from_dict(screen.to_dict()).to_dict(),screen.to_dict())
+        rows=[self.read(screen,s,20000000,o,representation='average',games=2000) for s in DEVELOPMENT_SEEDS for o in ('random','tactical')]
+        for row in rows:row.update(subject_inference=screen.pilot.execution_settings()['neural_inference'],evaluation_execution=pair_execution_identity(4))
+        self.assertEqual(screen.decide(rows)['status'],'pass')
+        rows[0].pop('subject_inference')
+        with self.assertRaises(ValueError):screen.decide(rows)
+
     def test_screening_grades_average_with_explicit_tactical_bar(self):
         p=ScreeningProtocol('screen','a'*64,'b'*64,{s:f'{s:064x}' for s in DEVELOPMENT_SEEDS})
         reads=[self.read(p,s,20_000_000,o,representation='average',games=2000,value=1. if o=='random' else .2) for s in DEVELOPMENT_SEEDS for o in ('random','tactical')]

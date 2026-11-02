@@ -9,7 +9,7 @@ import sqlite3
 import numpy as np
 from .confidence import canonical_sha
 from .engine import RULE_VERSION,Rules,State
-from .evaluation import EVALUATION_VERSION,EvaluationPlan,EmptyStarts,FixedStarts,seed_for,validate_pair
+from .evaluation import EVALUATION_VERSION,EvaluationPlan,EmptyStarts,FixedStarts,seed_for,validate_pair,pair_execution_identity
 
 
 @contextmanager
@@ -46,6 +46,8 @@ class FrozenEvaluationEvidence:
             raise ValueError('unsupported evaluation/rule version')
         data=dict(contract['plan']);data['rules']=Rules(**data['rules']);plan=EvaluationPlan(**data)
         incumbent=contract['incumbent'];has_incumbent=incumbent is not None
+        if 'pair_batch_size' in contract['plan'] or 'execution' in contract:
+            if contract.get('execution')!=pair_execution_identity(plan.pair_batch_size,has_incumbent):raise ValueError('evaluation execution/budget boundary differs')
         if plan.comparison=='improvement' and not has_incumbent:raise ValueError('matched improvement evidence lacks its incumbent')
         for key in ('subject','opponent','incumbent'):
             identity=contract[key]
@@ -116,6 +118,7 @@ class FrozenEvaluationEvidence:
                               minimum=-2. if comparison=='improvement' else -1.,maximum=2. if comparison=='improvement' else 1.)
         hashes=[game['trajectory_sha256'] for row in rows for game in row['subject']]
         return dict(bound,comparison=comparison,plan_sha256=canonical_sha(self.contract),available_games_per_pairing=self.available_games,
+            subject_inference=self.contract['subject'].get('inference'),evaluation_execution=self.contract.get('execution'),
             representation=self.contract['subject']['kind'],evidence_sha256=canonical_sha([canonical_sha(row) for row in rows]),
             subject_label=plan.subject_label,subject_sha256=self.contract['subject_sha256'],opponent_sha256=self.contract['opponent_sha256'],
             subject_origin=self.contract['subject'].get('origin'),rules=self.contract['plan']['rules'],opening_kind=self.contract['opening_distribution']['kind'],

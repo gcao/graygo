@@ -15,7 +15,7 @@ from .board_journal import BoardJournalPlan,JOURNAL_VERSION
 from .board_runtime import BoardRuntimeConfig
 from .confidence import canonical_sha
 from .engine import Rules
-from .evaluation import BaselinePolicy,EmptyStarts,EvaluationPlan,FrozenNeuralPolicy,evaluation_contract,seed_for
+from .evaluation import BaselinePolicy,EmptyStarts,EvaluationPlan,FrozenNeuralPolicy,evaluation_contract,seed_for,neural_inference_identity
 from .evaluation_evidence import FrozenEvaluationEvidence,evaluation_read_lock
 from .manifest import source_digest,write_report
 from .nfsp import NFSPCadence
@@ -81,9 +81,10 @@ def milestone_plan(protocol,journal,seed,record,representation,opponent,*,label=
         valid=record==20000000 and representation=='average';phase='screening-evaluation'
     else:raise ValueError('fixed pilot or screening protocol required')
     if not valid:raise ValueError('unregistered cohort milestone/representation')
+    owner=protocol if isinstance(protocol,PilotProtocol) else protocol.pilot
     return EvaluationPlan(label,subject_label(seed,record,representation),endpoint(seed,record,representation,opponent),
                           Rules(),seed_for(journal.evaluation_seed,phase,seed,record,representation,opponent),
-                          protocol.family.looks,protocol.family.sha256)
+                          protocol.family.looks,protocol.family.sha256,pair_batch_size=owner.pair_batch_size)
 
 
 def _initial_weight_hashes(runtime):
@@ -113,8 +114,14 @@ def read_milestone(training_root,protocol,seed,record,representation,opponent,di
         if cache is not None:cache[key]=subject
     baseline=BaselinePolicy(opponent)
     expected=evaluation_contract(plan,subject,baseline,EmptyStarts())
-    if evidence.contract!=expected:raise ValueError('scored milestone uses another policy, plan, baseline, source or opening')
     owner=protocol if isinstance(protocol,PilotProtocol) else protocol.pilot
+    if owner.inference_batch_size>1:
+        # Verify the declared device's identity from archived weights on CPU;
+        # this read-only score reader performs no GPU inference or sampling.
+        expected['subject']=deepcopy(expected['subject'])
+        expected['subject']['inference']=neural_inference_identity(owner.inference_batch_size,owner.inference_device)
+        expected['subject_sha256']=canonical_sha(expected['subject'])
+    if evidence.contract!=expected:raise ValueError('scored milestone uses another policy, plan, baseline, source or opening')
     baseline_sha=owner.random_sha256 if opponent=='random' else owner.tactical_sha256
     if baseline.sha256!=baseline_sha:raise ValueError('cohort baseline source/version differs')
     look=evidence.largest_completed_look
@@ -129,7 +136,7 @@ class DevelopmentCohort:
         self.pilot=PilotProtocol.from_dict(body['pilot']);self.screening=ScreeningProtocol.from_dict(body['screening'])
 
     @classmethod
-    def register(cls,root,name,training_roots):
+    def register(cls,root,name,training_roots,*,inference_batch_size=1,pair_batch_size=1,inference_device='cpu'):
         if not isinstance(name,str) or not name or set(training_roots)!=set(DEVELOPMENT_SEEDS):
             raise ValueError('named original three-seed cohort required')
         root=Path(root).resolve();root.mkdir(parents=True,exist_ok=True)
@@ -162,8 +169,9 @@ class DevelopmentCohort:
                                     'initial_q_weights_sha256':q.identity['weights_sha256'],'initial_average_weights_sha256':average.identity['weights_sha256']}
             runs={int(seed):row['training_run_sha256'] for seed,row in entries.items()}
             random=BaselinePolicy('random');tactical=BaselinePolicy('tactical')
-            pilot=PilotProtocol(name+'/pilot',random.sha256,tactical.sha256,runs)
-            screening=ScreeningProtocol(name+'/screening',random.sha256,tactical.sha256,runs)
+            execution=dict(inference_batch_size=inference_batch_size,pair_batch_size=pair_batch_size,inference_device=inference_device)
+            pilot=PilotProtocol(name+'/pilot',random.sha256,tactical.sha256,runs,**execution)
+            screening=ScreeningProtocol(name+'/screening',random.sha256,tactical.sha256,runs,**execution)
             body={'version':COHORT_VERSION,'name':name,'source_sha256':source_digest(),'training_runs':entries,
                   'shared_config_without_seed':common,'pilot':pilot.to_dict(),'screening':screening.to_dict(),
                   'authority':'registration and numerical evidence only; no A2/resource/training-scope grant'}
@@ -183,6 +191,7 @@ class DevelopmentCohort:
                 or cohort.pilot.tactical_sha256!=BaselinePolicy('tactical').sha256
                 or cohort.screening.pilot.random_sha256!=cohort.pilot.random_sha256
                 or cohort.screening.pilot.tactical_sha256!=cohort.pilot.tactical_sha256
+                or cohort.screening.pilot.execution_settings()!=cohort.pilot.execution_settings()
                 or cohort.pilot.name!=body['name']+'/pilot' or cohort.screening.family.name!=body['name']+'/screening'
                 or not cohort.pilot.include_average_diagnostics):
             raise ValueError('original cohort runs/baselines/mandatory average diagnostics differ')
