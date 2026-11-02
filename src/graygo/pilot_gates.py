@@ -17,14 +17,19 @@ OPPONENTS=('random','tactical')
 
 def _execution_settings(value):
     from .evaluation import neural_inference_identity,pair_execution_identity
-    if value is None:return {'inference_batch_size':1,'pair_batch_size':1,'inference_device':'cpu'}
-    if not isinstance(value,dict) or set(value)!={'pair_batch_size','neural_inference'}:raise ValueError('invalid preregistered evaluation execution')
+    if value is None:return {'inference_batch_size':1,'pair_batch_size':1,'inference_device':'cpu','cuda_graphs':False}
+    fields={'pair_batch_size','neural_inference'}
+    if not isinstance(value,dict) or set(value) not in (fields,fields|{'cuda_graphs','inference_device'}):raise ValueError('invalid preregistered evaluation execution')
     pair_execution_identity(value['pair_batch_size']);inference=value['neural_inference']
     if inference is None:batch=1;device='cpu'
     else:
         batch=inference['batch_size'];device=inference['device']
         if inference!=neural_inference_identity(batch,device):raise ValueError('unknown fixed neural inference convention')
-    return {'inference_batch_size':batch,'pair_batch_size':value['pair_batch_size'],'inference_device':device}
+    graphs=value.get('cuda_graphs',False)
+    if 'cuda_graphs' in value:
+        if graphs is not True:raise ValueError('nondefault graph execution must be explicitly selected')
+        device=value['inference_device']
+    return {'inference_batch_size':batch,'pair_batch_size':value['pair_batch_size'],'inference_device':device,'cuda_graphs':graphs}
 
 
 def subject_label(seed,record,representation):return f'seed{seed}/{representation}/{record}'
@@ -43,11 +48,15 @@ class PilotProtocol:
     inference_batch_size: int=1
     pair_batch_size: int=1
     inference_device: str='cpu'
+    cuda_graphs: bool=False
 
     def __post_init__(self):
         from .evaluation import neural_inference_identity,pair_execution_identity
         inference=neural_inference_identity(self.inference_batch_size,self.inference_device);pair_execution_identity(self.pair_batch_size)
-        object.__setattr__(self,'inference_device','cpu' if inference is None else inference['device'])
+        if type(self.cuda_graphs) is not bool:raise ValueError('explicit cohort CUDA graph selection required')
+        device='cuda:0' if self.inference_device=='cuda' else self.inference_device
+        if self.cuda_graphs and not (isinstance(device,str) and device.startswith('cuda:') and device[5:].isdigit()):raise ValueError('graph cohort requires a declared CUDA device')
+        object.__setattr__(self,'inference_device',device if self.cuda_graphs else ('cpu' if inference is None else inference['device']))
         object.__setattr__(self,'looks',tuple(self.looks))
         registry=tuple(sorted(self.training_runs.items() if isinstance(self.training_runs,dict) else self.training_runs))
         object.__setattr__(self,'training_runs',registry)
@@ -71,18 +80,25 @@ class PilotProtocol:
         'training_runs':{str(s):h for s,h in self.training_runs},'pre_records':list(PRE),'post_records':list(POST),'required_complete_snapshots':2,'baselines':{'random':self.random_sha256,'tactical':self.tactical_sha256},
         'confidence':self.family.to_dict(),'average_is_diagnostic':True,'confirmation_performance_filters':False,
         'thresholds':{'random_lower_strictly_above':0.,'tactical_lower_at_least':0.},'evaluation_rules':{'size':9,'max_rounds':200,'collision':'gray'},'opening_kind':'official-empty'}
-        if self.inference_batch_size>1 or self.pair_batch_size>1:result['evaluation_execution']=self.execution_settings()
+        if self.inference_batch_size>1 or self.pair_batch_size>1 or self.cuda_graphs:result['evaluation_execution']=self.execution_settings()
         return result
 
     def execution_settings(self):
         from .evaluation import neural_inference_identity
-        return {'pair_batch_size':self.pair_batch_size,'neural_inference':neural_inference_identity(self.inference_batch_size,self.inference_device)}
+        result={'pair_batch_size':self.pair_batch_size,'neural_inference':neural_inference_identity(self.inference_batch_size,self.inference_device)}
+        if self.cuda_graphs:result.update(cuda_graphs=True,inference_device=self.inference_device)
+        return result
 
     def _validate_execution(self,read):
         from .evaluation import pair_execution_identity
         if read.get('subject_inference')!=self.execution_settings()['neural_inference']:raise ValueError('cohort inference layout differs from preregistration')
+        expected_graphs=None
+        if self.cuda_graphs:
+            from .frozen_forward import execution_identity
+            expected_graphs=execution_identity(True)
+        if read.get('subject_frozen_execution')!=expected_graphs:raise ValueError('cohort frozen execution differs from preregistration')
         expected=pair_execution_identity(self.pair_batch_size)
-        if read.get('evaluation_execution')!=expected and (read.get('evaluation_execution') is not None or self.pair_batch_size>1 or self.inference_batch_size>1):
+        if read.get('evaluation_execution')!=expected and (read.get('evaluation_execution') is not None or self.pair_batch_size>1 or self.inference_batch_size>1 or self.cuda_graphs):
             raise ValueError('cohort pair batching differs from preregistration')
 
     @classmethod
@@ -175,15 +191,15 @@ class PilotProtocol:
 
 
 class ScreeningProtocol:
-    def __init__(self,name,random_sha256,tactical_sha256,training_runs,*,alpha=.05,looks=(500,2000),inference_batch_size=1,pair_batch_size=1,inference_device='cpu'):
-        self.pilot=PilotProtocol(name,random_sha256,tactical_sha256,training_runs,False,alpha,looks,inference_batch_size,pair_batch_size,inference_device)
+    def __init__(self,name,random_sha256,tactical_sha256,training_runs,*,alpha=.05,looks=(500,2000),inference_batch_size=1,pair_batch_size=1,inference_device='cpu',cuda_graphs=False):
+        self.pilot=PilotProtocol(name,random_sha256,tactical_sha256,training_runs,False,alpha,looks,inference_batch_size,pair_batch_size,inference_device,cuda_graphs)
         self.family=ConfidenceFamily(name,tuple(endpoint(s,20_000_000,'average',o) for s in DEVELOPMENT_SEEDS for o in OPPONENTS),tuple(looks),alpha)
     def to_dict(self):
         result={'version':'graygo/nfsp-screening-gates/1','name':self.family.name,'confidence':self.family.to_dict(),
             'training_runs':{str(s):h for s,h in self.pilot.training_runs},'baselines':{'random':self.pilot.random_sha256,'tactical':self.pilot.tactical_sha256},
             'seeds':list(DEVELOPMENT_SEEDS),'records':20_000_000,'representation':'average',
             'thresholds':{'random_lower_strictly_above':0.,'tactical_lower_at_least':.1},'confirmation_seed_filtering':False}
-        if self.pilot.inference_batch_size>1 or self.pilot.pair_batch_size>1:result['evaluation_execution']=self.pilot.execution_settings()
+        if self.pilot.inference_batch_size>1 or self.pilot.pair_batch_size>1 or self.pilot.cuda_graphs:result['evaluation_execution']=self.pilot.execution_settings()
         return result
 
     @classmethod

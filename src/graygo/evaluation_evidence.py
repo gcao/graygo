@@ -118,7 +118,7 @@ class FrozenEvaluationEvidence:
                               minimum=-2. if comparison=='improvement' else -1.,maximum=2. if comparison=='improvement' else 1.)
         hashes=[game['trajectory_sha256'] for row in rows for game in row['subject']]
         return dict(bound,comparison=comparison,plan_sha256=canonical_sha(self.contract),available_games_per_pairing=self.available_games,
-            subject_inference=self.contract['subject'].get('inference'),evaluation_execution=self.contract.get('execution'),
+            subject_inference=self.contract['subject'].get('inference'),subject_frozen_execution=self.contract['subject'].get('frozen_execution'),evaluation_execution=self.contract.get('execution'),
             representation=self.contract['subject']['kind'],evidence_sha256=canonical_sha([canonical_sha(row) for row in rows]),
             subject_label=plan.subject_label,subject_sha256=self.contract['subject_sha256'],opponent_sha256=self.contract['opponent_sha256'],
             subject_origin=self.contract['subject'].get('origin'),rules=self.contract['plan']['rules'],opening_kind=self.contract['opening_distribution']['kind'],

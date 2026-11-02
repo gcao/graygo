@@ -82,7 +82,7 @@ def _archive_provenance(protocol,policies,paths,catalog,*,expected_keys=None):
         seal=CheckpointStore.verify(path)
         if path.parent.name!='weights':raise ValueError('permanent public confirmation archive required')
         manifest_path=path.parents[1]/'run.json';manifest=json.loads(manifest_path.read_text());config=manifest['config']
-        expected=FrozenNeuralPolicy.from_archive(path,representation='average',device=str(policy.device),inference_batch_size=policy.inference_batch_size)
+        expected=FrozenNeuralPolicy.from_archive(path,representation='average',device=str(policy.device),inference_batch_size=policy.inference_batch_size,cuda_graphs=policy.cuda_graphs)
         if expected.sha256!=policy.sha256:raise ValueError('provided policy differs from the verified public checkpoint')
         origin=policy.identity.get('origin') or {}
         rules={'size':9,'max_rounds':200,'collision':training_rule}

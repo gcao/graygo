@@ -113,13 +113,13 @@ class BoardCollector:
             'active':[None if e is None else e.state_dict(lambda s:s.to_dict()) for e in self.active],
             'snapshots':snapshots,'start_records':self.start_records,'start_families':self.start_families,'births':self.births,'metrics':deepcopy(self.metrics)}
 
-    def load_state_dict(self,state,q,average):
+    def load_state_dict(self,state,q,average,*,forward_pool=None):
         expected=(COLLECTOR_VERSION,{'size':self.rules.size,'max_rounds':self.rules.max_rounds,'collision':self.rules.collision},self.envs,self.seed,self.starts.sha256)
         actual=(state['version'],state['rules'],state['envs'],state['seed'],state['starts_sha256'])
         if actual!=expected:raise ValueError('collector configuration/start distribution differs')
         snapshots={}
         for version,saved in state['snapshots'].items():
-            snapshot=FrozenPolicies(q,average,version=int(version),average_ready=saved['average_ready']);snapshot.load_state_dict(saved);snapshots[int(version)]=snapshot
+            snapshot=FrozenPolicies(q,average,version=int(version),average_ready=saved['average_ready'],forward_pool=forward_pool);snapshot.load_state_dict(saved);snapshots[int(version)]=snapshot
         for name in ('cursor','records','started','completed','start_records','start_families','births','metrics'):setattr(self,name,deepcopy(state[name]))
         if not 0<=self.cursor<self.envs or self.records<0 or self.records%2 or self.completed>self.started:raise ValueError('invalid collector clocks')
         if len(self.start_records)!=self.envs or len(self.start_families)!=self.envs or len(self.births)!=self.envs:raise ValueError('collector curriculum progress dimensions differ')

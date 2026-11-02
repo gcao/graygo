@@ -28,7 +28,7 @@ class RuleBoardGame(BoardGame):
 
 
 class FrozenPolicies:
-    def __init__(self,q,average,*,version,average_ready):
+    def __init__(self,q,average,*,version,average_ready,forward_pool=None):
         if type(version) is not int or not 0<=version<2**63:raise ValueError('bounded policy snapshot version required')
         self.q=deepcopy(q).eval().requires_grad_(False)
         self.average=(average.inference_copy() if hasattr(average,'inference_copy') else deepcopy(average)).eval().requires_grad_(False)
@@ -36,14 +36,30 @@ class FrozenPolicies:
         q_devices={p.device for p in list(self.q.parameters())+list(self.q.buffers())};avg_devices={p.device for p in list(self.average.parameters())+list(self.average.buffers())}
         if len(q_devices)!=1 or q_devices!=avg_devices:raise ValueError('snapshot models must share one device')
         self.device=next(iter(q_devices))
+        if forward_pool is not None and forward_pool.device!=self.device:raise ValueError('snapshot forward pool device differs')
+        self.forward_pool=forward_pool
+
+    def forward(self,kind,**inputs):
+        if kind not in ('q','average'):raise ValueError('unknown frozen forward policy')
+        model=self.q if kind=='q' else self.average
+        if self.forward_pool is None:return model(**inputs)
+        return self.forward_pool.forward(model,inputs['spatial'],inputs['globals'])
 
     def state_dict(self):
-        return {'q':self.q.state_dict(),'average':self.average.state_dict(),'version':self.version,'average_ready':self.average_ready}
+        result={'q':self.q.state_dict(),'average':self.average.state_dict(),'version':self.version,'average_ready':self.average_ready}
+        if self.forward_pool is not None:
+            from .frozen_forward import execution_identity
+            result['frozen_execution']=execution_identity(True)
+        return result
 
     def load_state_dict(self,state):
+        from .frozen_forward import execution_identity
+        if state.get('frozen_execution')!=execution_identity(self.forward_pool is not None):raise ValueError('snapshot frozen execution differs')
         if self.version!=state['version'] or self.average_ready!=state['average_ready']:
             raise ValueError('snapshot identity/availability changed')
         self.q.load_state_dict(state['q']);self.average.load_state_dict(state['average'])
+        if self.forward_pool is not None:
+            self.forward_pool.invalidate(self.q);self.forward_pool.invalidate(self.average)
 
 
 @dataclass(frozen=True)
@@ -79,14 +95,14 @@ class EpisodeActor:
         if label_eligible and (supplemental or not choice.best_response_mode):
             raise ValueError('label eligibility disagrees with logical mode/coverage origin')
         if choice.acting_policy=='q' or label_eligible:
-            q=self.snapshot.q(**inputs)
+            q=self.snapshot.forward('q',**inputs)
             if q.shape!=legal.shape or not bool(torch.isfinite(q[legal]).all()) or bool((q[legal].abs()>1+1e-6).any()):
                 raise ValueError('frozen Q must produce bounded legal action values')
             if label_eligible:
                 greedy=(greedy_distribution(q,legal)[0]>0).cpu().numpy().copy();greedy.flags.writeable=False
         if choice.acting_policy=='q':probabilities=epsilon_greedy_distribution(q,legal,choice.epsilon)
         elif choice.acting_policy=='average':
-            logits=self.snapshot.average(**inputs)
+            logits=self.snapshot.forward('average',**inputs)
             if logits.shape!=legal.shape or bool(torch.isnan(logits[legal]).any()) or bool(torch.isposinf(logits[legal]).any()) or not bool(torch.isfinite(logits.masked_fill(~legal,-torch.inf)).any(-1).all()):raise ValueError('invalid average-policy logits')
             probabilities=masked_log_probs(logits,legal).exp()
         else:probabilities=legal.float()/legal.sum(-1,keepdim=True)
@@ -212,13 +228,13 @@ def commit_many(requests):
                 'globals':torch.tensor(np.stack([o.global_features for o in observations]),device=device,dtype=torch.float32)}
         greedy=None
         if kind=='q':
-            q=snapshot.q(**inputs)
+            q=snapshot.forward('q',**inputs)
             if q.shape!=legal.shape or not bool(torch.isfinite(q[legal]).all()) or bool((q[legal].abs()>1+1e-6).any()):raise ValueError('invalid batched legal Q values')
             eps=torch.tensor([a.choice.epsilon for a in actors],device=device,dtype=q.dtype)
             probabilities=epsilon_greedy_distribution(q,legal,eps)
             greedy=(greedy_distribution(q,legal)>0).cpu().numpy()
         elif kind=='average':
-            logits=snapshot.average(**inputs)
+            logits=snapshot.forward('average',**inputs)
             if logits.shape!=legal.shape or bool(torch.isnan(logits[legal]).any()) or bool(torch.isposinf(logits[legal]).any()):raise ValueError('invalid batched actor logits')
             probabilities=masked_log_probs(logits,legal).exp()
         elif kind=='uniform':probabilities=legal.float()/legal.sum(-1,keepdim=True)

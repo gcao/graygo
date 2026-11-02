@@ -127,7 +127,7 @@ def profile_board(args):
     from .board_profile import profile_board as benchmark
     from .board_runtime import BoardRuntimeConfig
     config=BoardRuntimeConfig(rules=_rules(args),envs=args.envs,seed=args.seed,device=args.device,
-                              q_reuse=args.q_reuse,native_library=args.native_library)
+                              q_reuse=args.q_reuse,native_library=args.native_library,cuda_graphs=args.cuda_graphs)
     return benchmark(config,args.run_dir,records=args.records,time_cap_seconds=args.time_cap_hours*3600,
                      stop_requested=_signal_flag())
 
@@ -143,7 +143,7 @@ def run_board_diagnostic(args,*,prior_setup_seconds=0.):
     if args.until_records is not None and (args.until_records<0 or args.until_records%2 or args.until_records>args.records):
         raise ValueError('paired operational endpoint within the unchanged diagnostic horizon required')
     config=BoardRuntimeConfig(seed=args.seed,envs=args.envs,device=args.device,q_reuse=args.q_reuse,
-        native_library=args.native_library,reservoir_open=args.reservoir_open,handoff_end=args.handoff_end)
+        native_library=args.native_library,reservoir_open=args.reservoir_open,handoff_end=args.handoff_end,cuda_graphs=args.cuda_graphs)
     points=tuple(sorted({0,args.records,*[n for n in (4096,args.reservoir_open,args.handoff_end) if n<=args.records]}))
     journal=BoardJournalPlan('diagnostic',args.records,points,args.evaluation_seed)
     execution=BoardExecutionPlan(args.time_cap_hours*3600,args.checkpoint_every,args.heartbeat_seconds)
@@ -180,7 +180,7 @@ def cohort_register(args):
         roots[seed]=path
     _cohort_output_guard(args,[args.run_dir,*roots.values()])
     cohort=DevelopmentCohort.register(args.run_dir,args.name,roots,inference_batch_size=args.inference_batch_size,
-        pair_batch_size=args.pair_batch_size,inference_device=args.device)
+        pair_batch_size=args.pair_batch_size,inference_device=args.device,cuda_graphs=args.cuda_graphs)
     return {'registry_sha256':cohort.sha256,'registry':cohort.body,'a2_complete':False,'formal_scope_approved':False}
 
 
@@ -246,7 +246,7 @@ def science_evaluate(args):
             if args.purpose!='diagnostic':raise ValueError('baselines cannot be relabeled as confirmation models')
             policies[key]=BaselinePolicy(value.split(':',1)[1])
         else:
-            policies[key]=FrozenNeuralPolicy.from_archive(value,representation=args.representation,device=args.device,label=label,inference_batch_size=args.inference_batch_size);paths[key]=value
+            policies[key]=FrozenNeuralPolicy.from_archive(value,representation=args.representation,device=args.device,label=label,inference_batch_size=args.inference_batch_size,cuda_graphs=args.cuda_graphs);paths[key]=value
     if set(policies)!=set(policy_keys()):raise ValueError('all twelve curriculum/rule/seed policy bindings required')
     protocol=ScienceProtocol(args.name,catalog.sha256,{key:policy.sha256 for key,policy in policies.items()},args.time_cap_hours*3600,
         seed=args.seed,block_looks=tuple(args.block_looks),purpose=args.purpose,training_records=args.training_records,representation=args.representation)
@@ -272,7 +272,7 @@ def _probe_output_guard(args,roots):
             raise ValueError('save probe output outside its frozen inputs and evidence directory')
 
 
-def _probe_policies(bindings,representation,device,inference_batch_size=1):
+def _probe_policies(bindings,representation,device,inference_batch_size=1,cuda_graphs=False):
     from .evaluation import FrozenNeuralPolicy
     policies={};paths={}
     for binding in bindings:
@@ -281,7 +281,8 @@ def _probe_policies(bindings,representation,device,inference_batch_size=1):
         if seed in policies:raise ValueError('duplicate frozen probe seed')
         paths[seed]=Path(path).expanduser().resolve()
         batch=inference_batch_size[seed] if isinstance(inference_batch_size,dict) else inference_batch_size
-        policies[seed]=FrozenNeuralPolicy.from_archive(paths[seed],representation=representation,device=device,inference_batch_size=batch)
+        graphs=cuda_graphs[seed] if isinstance(cuda_graphs,dict) else cuda_graphs
+        policies[seed]=FrozenNeuralPolicy.from_archive(paths[seed],representation=representation,device=device,inference_batch_size=batch,cuda_graphs=graphs)
     if set(policies)!={200,201,202}:raise ValueError('original probe seeds 200, 201 and 202 required')
     return policies,paths
 
@@ -308,7 +309,7 @@ def probe_evaluate(args,*,prior_setup_seconds=0.):
     science=None
     if args.science_protocol:
         data=json.loads(Path(args.science_protocol).expanduser().read_text());science=ScienceProtocol.from_dict(data.get('protocol',data))
-    policies,paths=_probe_policies(args.policy,args.representation,args.device,args.inference_batch_size)
+    policies,paths=_probe_policies(args.policy,args.representation,args.device,args.inference_batch_size,args.cuda_graphs)
     _probe_output_guard(args,[args.run_dir,args.benchmark,args.freeze_receipt,*[p.parents[1] if p.is_dir() else p.parent.parents[1] for p in paths.values()],
                               *[p for p in (args.catalog,args.science_protocol) if p]])
     protocol=ProbePolicyProtocol(args.name,benchmark.sha256,canonical_sha(freeze),{seed:p.sha256 for seed,p in policies.items()},
@@ -347,7 +348,8 @@ def probe_audit(args,*,prior_setup_seconds=0.):
         if ref is None:raise ValueError('probe audit requires original public archives; API fixtures require their original policy objects')
         bindings.append(str(seed)+'='+ref['archive'])
     batches={seed:(row['identity'].get('inference') or {'batch_size':1})['batch_size'] for seed,row in evidence.bindings.items()}
-    policies,paths=_probe_policies(bindings,evidence.protocol.representation,devices[0],batches)
+    graphs={seed:row['identity'].get('frozen_execution') is not None for seed,row in evidence.bindings.items()}
+    policies,paths=_probe_policies(bindings,evidence.protocol.representation,devices[0],batches,graphs)
     _probe_output_guard(args,[evidence.root,*[p.parents[1] for p in paths.values()]])
     catalog=None if evidence.contract['catalog'] is None else ExposureCatalog.from_dict(evidence.contract['catalog'])
     run=ProbePolicyRun(evidence.protocol,evidence.root,evidence.benchmark,evidence.contract['freeze_receipt'],policies,
@@ -456,7 +458,7 @@ def build_native(args):
 def evaluate(args):
     from .confidence import ConfidenceFamily
     from .evaluation import BaselinePolicy,FrozenNeuralPolicy,EvaluationPlan,EvaluationRun
-    if 'neural' in (args.subject,args.opponent,args.incumbent) and (args.inference_batch_size>1 or args.pair_batch_size>1):
+    if 'neural' in (args.subject,args.opponent,args.incumbent) and (args.inference_batch_size>1 or args.pair_batch_size>1 or args.cuda_graphs):
         from .board_runtime import configure_runtime
         configure_runtime(args.device,True)
         import torch
@@ -467,7 +469,7 @@ def evaluate(args):
             if archive is not None:raise ValueError("baseline does not use a checkpoint")
             return BaselinePolicy(name)
         if archive is None:raise ValueError("neural evaluation requires an archived public checkpoint")
-        return FrozenNeuralPolicy.from_archive(archive,representation=representation,device=args.device,label=label,inference_batch_size=args.inference_batch_size)
+        return FrozenNeuralPolicy.from_archive(archive,representation=representation,device=args.device,label=label,inference_batch_size=args.inference_batch_size,cuda_graphs=args.cuda_graphs)
     subject=policy(args.subject,args.subject_archive,args.representation,args.subject_label)
     opponent=policy(args.opponent,args.opponent_archive,args.opponent_representation,'opponent')
     incumbent=None if args.incumbent is None else policy(args.incumbent,args.incumbent_archive,args.incumbent_representation,'incumbent')
@@ -533,6 +535,7 @@ def main(argv=None):
             p.add_argument("--run-dir",required=True);p.add_argument("--simulations",type=int,default=2000)
             p.add_argument("--time-cap-hours",type=float,required=True);p.add_argument("--resume",action="store_true")
         elif name=="evaluate":
+            p.add_argument("--cuda-graphs",action="store_true")
             p.add_argument("--run-dir",required=True);p.add_argument("--confidence-plan",required=True)
             p.add_argument("--name",required=True);p.add_argument("--subject-label",required=True);p.add_argument("--endpoint",required=True)
             p.add_argument("--games",type=int,default=500);p.add_argument("--time-cap-hours",type=float,required=True)
@@ -565,6 +568,7 @@ def main(argv=None):
             p.add_argument("--records",type=int,default=10000);p.add_argument("--iterations",type=int,default=50)
             p.add_argument("--batch",type=int,default=512)
         elif name=="probe-evaluate":
+            p.add_argument("--cuda-graphs",action="store_true")
             p.add_argument("--run-dir",required=True);p.add_argument("--benchmark",required=True);p.add_argument("--freeze-receipt",required=True)
             p.add_argument("--name",required=True);p.add_argument("--policy",action="append",required=True)
             p.add_argument("--science-protocol");p.add_argument("--catalog");p.add_argument("--curriculum",choices=("empty","exposure"),default="exposure")
@@ -576,6 +580,7 @@ def main(argv=None):
         elif name in ("probe-report","probe-audit"):
             p.add_argument("--run-dir",required=True)
         elif name=="science-evaluate":
+            p.add_argument("--cuda-graphs",action="store_true")
             p.add_argument("--run-dir",required=True);p.add_argument("--catalog",required=True);p.add_argument("--name",required=True)
             registry=p.add_mutually_exclusive_group(required=True)
             registry.add_argument("--policy",action="append");registry.add_argument("--registry")
@@ -600,6 +605,7 @@ def main(argv=None):
             p.add_argument("--catalog",required=True);p.add_argument("--train-families",type=int,default=64)
             p.add_argument("--heldout-families",type=int,default=32);p.add_argument("--max-attempts",type=int,default=100000)
         elif name=="cohort-register":
+            p.add_argument("--cuda-graphs",action="store_true")
             p.add_argument("--run-dir",required=True);p.add_argument("--name",required=True)
             p.add_argument("--training-run",action="append",required=True)
             p.add_argument("--inference-batch-size",type=int,default=1);p.add_argument("--pair-batch-size",type=int,default=1)
@@ -607,6 +613,7 @@ def main(argv=None):
         elif name=="cohort-report":
             p.add_argument("--run-dir",required=True);p.add_argument("--stage",choices=("pilot","screening"),default="pilot")
         elif name=="run-board-diagnostic":
+            p.add_argument("--cuda-graphs",action="store_true")
             p.add_argument("--run-dir",required=True);p.add_argument("--records",type=int,default=16384)
             p.add_argument("--until-records",type=int);p.add_argument("--time-cap-hours",type=float,required=True)
             p.add_argument("--device",default="cpu");p.add_argument("--envs",type=int,default=16)
@@ -616,6 +623,7 @@ def main(argv=None):
             p.add_argument("--heartbeat-seconds",type=float,default=30.)
             p.add_argument("--opening-decision",choices=("pass","no_go"));p.add_argument("--resume",action="store_true")
         elif name=="profile-board":
+            p.add_argument("--cuda-graphs",action="store_true")
             p.add_argument("--run-dir",required=True);p.add_argument("--records",type=int,default=16384)
             p.add_argument("--time-cap-hours",type=float,required=True);p.add_argument("--device",default="cpu")
             p.add_argument("--envs",type=int,default=16);p.add_argument("--q-reuse",type=int,choices=(1,4),default=1)

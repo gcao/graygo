@@ -66,7 +66,7 @@ class _BaselineActor:
 
 
 class FrozenNeuralPolicy:
-    def __init__(self,model,*,representation='average',label='frozen-policy',origin=None,inference_batch_size=1):
+    def __init__(self,model,*,representation='average',label='frozen-policy',origin=None,inference_batch_size=1,cuda_graphs=False):
         import torch
         from .models import QNet,PolicyNet,PolicyValueNet
         if representation not in ('average','actor','greedy_q'):raise ValueError('explicit deployed representation required')
@@ -77,11 +77,15 @@ class FrozenNeuralPolicy:
         devices={x.device for x in list(self._model.parameters())+list(self._model.buffers())}
         if len(devices)!=1:raise ValueError('one model device required')
         self.device=next(iter(devices));self._weights=self._weight_sha()
+        from .frozen_forward import FrozenForwardPool,execution_identity
+        if type(cuda_graphs) is not bool:raise ValueError('explicit frozen CUDA graph selection required')
+        self.cuda_graphs=cuda_graphs;self.forward_pool=FrozenForwardPool(self.device) if cuda_graphs else None
         self.identity={'kind':representation,'model_class':type(model).__name__,'weights_sha256':self._weights,'encoding_version':ENCODING_VERSION,'source_sha256':source_digest(),'origin':None if origin is None else json.loads(json.dumps(origin))}
         if inference_batch_size>1:self.identity['inference']=self._inference_identity()
+        if cuda_graphs:self.identity['frozen_execution']=execution_identity(True)
         self.sha256=canonical_sha(self.identity)
     @classmethod
-    def from_archive(cls,archive,*,representation='average',device='cpu',label='checkpoint',inference_batch_size=1):
+    def from_archive(cls,archive,*,representation='average',device='cpu',label='checkpoint',inference_batch_size=1,cuda_graphs=False):
         import torch
         from .models import QNet,PolicyNet,ModelConfig
         from .storage import CheckpointStore
@@ -98,7 +102,7 @@ class FrozenNeuralPolicy:
         model.load_state_dict(data['q' if representation=='greedy_q' else 'average'])
         origin={'training_run_sha256':hashlib.sha256((root/'run.json').read_bytes()).hexdigest(),'source_sha256':manifest['source_sha256'],
             'archive_sha256':hashlib.sha256((directory/'manifest.json').read_bytes()).hexdigest(),'records':sealed['step'],'seed':config['seed'],'rules':manifest['rules']}
-        return cls(model,representation=representation,label=label,origin=origin,inference_batch_size=inference_batch_size)
+        return cls(model,representation=representation,label=label,origin=origin,inference_batch_size=inference_batch_size,cuda_graphs=cuda_graphs)
 
     def _weight_sha(self):
         h=hashlib.sha256()
@@ -106,8 +110,10 @@ class FrozenNeuralPolicy:
             a=value.detach().cpu().contiguous().numpy();h.update(name.encode()+b'\0'+str(a.dtype).encode()+str(a.shape).encode()+a.tobytes())
         return h.hexdigest()
     def assert_frozen(self):
+        from .frozen_forward import execution_identity
         if (canonical_sha(self.identity)!=self.sha256 or self.identity['kind']!=self.representation or self.identity['source_sha256']!=source_digest()
-                or self._weight_sha()!=self._weights or self.identity.get('inference')!=self._inference_identity()):raise ValueError('evaluation model or inference layout changed after freezing')
+                or self._weight_sha()!=self._weights or self.identity.get('inference')!=self._inference_identity()
+                or self.identity.get('frozen_execution')!=execution_identity(self.cuda_graphs)):raise ValueError('evaluation model or inference layout changed after freezing')
     def _inference_identity(self):
         return neural_inference_identity(self.inference_batch_size,self.device)
     def _action_weights(self,state,player):
@@ -151,11 +157,12 @@ class FrozenNeuralPolicy:
                 g=torch.tensor(globals_,device=self.device,dtype=torch.float32)
                 legal=torch.tensor(legal_,device=self.device)
                 if self.representation=='greedy_q':
-                    q=self._model(x,g)
+                    q=self._model(x,g) if self.forward_pool is None else self.forward_pool.forward(self._model,x,g)
                     if q.shape!=legal.shape or not bool(torch.isfinite(q[legal]).all()) or bool((q[legal].abs()>1+1e-6).any()):raise ValueError('invalid legal Q values')
                     probs=greedy_distribution(q,legal)
                 else:
-                    logits=self._model.policy_logits(x,g) if hasattr(self._model,'policy_logits') else self._model(x,g)
+                    method='policy_logits' if hasattr(self._model,'policy_logits') else 'forward'
+                    logits=getattr(self._model,method)(x,g) if self.forward_pool is None else self.forward_pool.forward(self._model,x,g,method=method)
                     if isinstance(logits,tuple):logits=logits[0]
                     if logits.shape!=legal.shape or bool(torch.isnan(logits[legal]).any()) or bool(torch.isposinf(logits[legal]).any()):raise ValueError('invalid actor logits')
                     probs=masked_log_probs(logits,legal).exp()
@@ -391,7 +398,7 @@ class EvaluationRun:
         hashes=[g['trajectory_sha256'] for r in rows for g in r['subject']]
         evidence=canonical_sha([canonical_sha(r) for r in rows])
         return dict(bound,comparison=comparison,plan_sha256=self.sha256,available_games_per_pairing=2*len(available),representation=self.subject.identity['kind'],evidence_sha256=evidence,
-            subject_inference=self.subject.identity.get('inference'),evaluation_execution=self.contract['execution'],
+            subject_inference=self.subject.identity.get('inference'),subject_frozen_execution=self.subject.identity.get('frozen_execution'),evaluation_execution=self.contract['execution'],
             subject_label=self.plan.subject_label,subject_sha256=self.subject.sha256,opponent_sha256=self.opponent.sha256,
             subject_origin=self.subject.identity.get('origin'),rules=self.contract['plan']['rules'],opening_kind=self.openings.identity['kind'],
             repeated_trajectory_fraction=1-len(set(hashes))/len(hashes),scope='fixed policies and opening distribution; color pairs are independent units')

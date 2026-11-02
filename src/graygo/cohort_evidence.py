@@ -121,6 +121,10 @@ def read_milestone(training_root,protocol,seed,record,representation,opponent,di
         expected['subject']=deepcopy(expected['subject'])
         expected['subject']['inference']=neural_inference_identity(owner.inference_batch_size,owner.inference_device)
         expected['subject_sha256']=canonical_sha(expected['subject'])
+    if owner.cuda_graphs:
+        from .frozen_forward import execution_identity
+        expected['subject']=deepcopy(expected['subject']);expected['subject']['frozen_execution']=execution_identity(True)
+        expected['subject_sha256']=canonical_sha(expected['subject'])
     if evidence.contract!=expected:raise ValueError('scored milestone uses another policy, plan, baseline, source or opening')
     baseline_sha=owner.random_sha256 if opponent=='random' else owner.tactical_sha256
     if baseline.sha256!=baseline_sha:raise ValueError('cohort baseline source/version differs')
@@ -136,7 +140,7 @@ class DevelopmentCohort:
         self.pilot=PilotProtocol.from_dict(body['pilot']);self.screening=ScreeningProtocol.from_dict(body['screening'])
 
     @classmethod
-    def register(cls,root,name,training_roots,*,inference_batch_size=1,pair_batch_size=1,inference_device='cpu'):
+    def register(cls,root,name,training_roots,*,inference_batch_size=1,pair_batch_size=1,inference_device='cpu',cuda_graphs=False):
         if not isinstance(name,str) or not name or set(training_roots)!=set(DEVELOPMENT_SEEDS):
             raise ValueError('named original three-seed cohort required')
         root=Path(root).resolve();root.mkdir(parents=True,exist_ok=True)
@@ -169,7 +173,7 @@ class DevelopmentCohort:
                                     'initial_q_weights_sha256':q.identity['weights_sha256'],'initial_average_weights_sha256':average.identity['weights_sha256']}
             runs={int(seed):row['training_run_sha256'] for seed,row in entries.items()}
             random=BaselinePolicy('random');tactical=BaselinePolicy('tactical')
-            execution=dict(inference_batch_size=inference_batch_size,pair_batch_size=pair_batch_size,inference_device=inference_device)
+            execution=dict(inference_batch_size=inference_batch_size,pair_batch_size=pair_batch_size,inference_device=inference_device,cuda_graphs=cuda_graphs)
             pilot=PilotProtocol(name+'/pilot',random.sha256,tactical.sha256,runs,**execution)
             screening=ScreeningProtocol(name+'/screening',random.sha256,tactical.sha256,runs,**execution)
             body={'version':COHORT_VERSION,'name':name,'source_sha256':source_digest(),'training_runs':entries,

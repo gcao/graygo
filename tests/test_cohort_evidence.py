@@ -57,7 +57,8 @@ class CohortFixture:
         if wrong_seed:
             values=asdict(plan);values['rules']=plan.rules;values['seed']+=1;plan=EvaluationPlan(**values)
         owner=self.cohort.screening.pilot if record==20000000 else self.cohort.pilot
-        subject=FrozenNeuralPolicy.from_archive(archive,representation=representation,label=plan.subject_label,inference_batch_size=owner.inference_batch_size)
+        subject=FrozenNeuralPolicy.from_archive(archive,representation=representation,label=plan.subject_label,inference_batch_size=owner.inference_batch_size,
+            device=owner.inference_device if owner.cuda_graphs else 'cpu',cuda_graphs=owner.cuda_graphs)
         run=EvaluationRun(plan,path,subject,BaselinePolicy(opponent),resume=(path/'plan.json').exists(),reserve_bytes=0)
         db=run._connect()
         try:
@@ -88,6 +89,20 @@ class CohortFixture:
 
 
 class CohortEvidenceTests(unittest.TestCase):
+    @unittest.skipUnless(torch.cuda.is_available(),'CUDA required')
+    def test_graph_execution_is_preregistered_and_verified_on_cpu_without_any_gpu_sampling(self):
+        configure_runtime('cuda',True)
+        with tempfile.TemporaryDirectory() as directory:
+            fixture=CohortFixture(directory,execution=dict(inference_batch_size=32,pair_batch_size=16,inference_device='cuda',cuda_graphs=True))
+            fixture.scores(100,PRE[0],'greedy_q','random')
+            before=hashes(directory);rng=torch.get_rng_state().clone()
+            with patch('torch.cuda._lazy_init',side_effect=AssertionError('read-only gate must not initialize CUDA')):
+                report=fixture.cohort.report('pilot')['body']
+            self.assertEqual(report['status'],'incomplete');self.assertEqual(len(report['reads']['pilot']),1)
+            self.assertEqual(report['reads']['pilot'][0]['subject_frozen_execution']['backend'],'shared-static-weight-cuda-graph')
+            self.assertFalse(report['formal_scope_approved']);self.assertEqual(hashes(directory),before)
+            torch.testing.assert_close(torch.get_rng_state(),rng,atol=0,rtol=0)
+
     def test_batched_registry_binds_actual_archive_and_reads_without_sampling_or_input_writes(self):
         with tempfile.TemporaryDirectory() as directory:
             fixture=CohortFixture(directory,execution=dict(inference_batch_size=8,pair_batch_size=4))

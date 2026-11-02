@@ -64,13 +64,15 @@ class BoardRuntimeConfig:
     reservoir_open: int=5_000_000
     handoff_end: int=7_000_000
     uniform_comparison: bool=False
+    cuda_graphs: bool=False
 
     def __post_init__(self):
         if not isinstance(self.rules,Rules) or type(self.envs) is not int or self.envs<1 or type(self.seed) is not int or self.seed<0:raise ValueError('board rules, env count and seed required')
         if type(self.batch) is not int or self.batch%2 or type(self.capacity) is not int or self.capacity<self.learning_start:raise ValueError('paired update batch and adequate replay required')
         self.backend_config();self.model_config();self.schedule()
         if self.reservoir_open%2 or self.handoff_end%2:raise ValueError('paired opening boundaries required')
-        if any(type(v) is not bool for v in (self.augmentation,self.deterministic,self.uniform_comparison)):raise ValueError('explicit runtime flags required')
+        if any(type(v) is not bool for v in (self.augmentation,self.deterministic,self.uniform_comparison,self.cuda_graphs)):raise ValueError('explicit runtime flags required')
+        if self.cuda_graphs and (torch.device(self.device).type!='cuda' or not self.deterministic):raise ValueError('frozen CUDA graph runtime requires deterministic CUDA')
         if self.native_library is not None:object.__setattr__(self,'native_library',str(Path(self.native_library).expanduser().resolve()))
     def backend_config(self):return NFSPConfig(self.batch,self.learning_start,self.q_reuse,self.target_every,self.learning_rate,self.max_grad_norm)
     def model_config(self):return ModelConfig(self.width,self.blocks,self.norm_groups)
@@ -83,6 +85,8 @@ class BoardNFSPRuntime:
         self.config=config;torch.set_num_threads(1);self.settings=configure_runtime(config.device,config.deterministic)
         torch.manual_seed(config.seed);self.spec=RuleStateSpec(config.rules,config.native_library)
         self.backend=NFSPBackend(QNet(config.model_config()),PolicyNet(config.model_config()),config.backend_config(),device=config.device)
+        from .frozen_forward import FrozenForwardPool
+        self.forward_pool=FrozenForwardPool(config.device) if config.cuda_graphs else None
         self.replay=ReplayBuffer(config.capacity,self.spec);self.reservoir=ReservoirBuffer(config.capacity,self.spec,opening_record=config.reservoir_open)
         self.collector=BoardCollector(config.rules,config.envs,config.seed,starts=starts);self.schedule=config.schedule();self.snapshot=None
         from .evaluation import seed_for
@@ -93,7 +97,7 @@ class BoardNFSPRuntime:
     def records(self):return self.backend.counters.fresh_records
     def _snapshot(self):
         version=self.backend.counters.q_updates+self.backend.counters.supervised_updates
-        if self.snapshot is None or self.snapshot.version!=version:self.snapshot=FrozenPolicies(self.backend.q,self.backend.average,version=version,average_ready=self.backend.average_ready)
+        if self.snapshot is None or self.snapshot.version!=version:self.snapshot=FrozenPolicies(self.backend.q,self.backend.average,version=version,average_ready=self.backend.average_ready,forward_pool=self.forward_pool)
         return self.snapshot
 
     def advance(self,count,*,opening_enabled=True):
@@ -122,6 +126,7 @@ class BoardNFSPRuntime:
                 if self.records<boundary:count=min(count,boundary-self.records)
             self.advance(count)
         return {'status':status,'records':self.records,'per_role_records':self.collector.metrics['per_role_records'],
+            'frozen_forward_stats':None if self.forward_pool is None else self.forward_pool.stats(),
             'counters':asdict(self.backend.counters),'metrics':deepcopy(self.collector.metrics),'timings':dict(self.timings),'loss':dict(self.loss),
             'elapsed_seconds':time.monotonic()-started,'formal_learning_run':False,'a2_complete':False,'promotion_permitted':False,
             'scope':'bounded real pipeline hardware exercise; untrained game lengths/modes are not full-campaign estimates'}
@@ -154,7 +159,8 @@ class BoardNFSPRuntime:
         if state['version']!=RUNTIME_VERSION or state['config']!=self.config.plan() or state['settings']!=self.settings:raise ValueError('runtime resume configuration/settings differ')
         self.backend.load_state_dict(state['backend']);self.replay=ReplayBuffer.load(Path(path)/'replay.npz');self.reservoir=ReservoirBuffer.load(Path(path)/'reservoir.npz')
         if self.replay.spec!=self.spec or self.reservoir.spec!=self.spec or self.replay.capacity!=self.config.capacity or self.reservoir.capacity!=self.config.capacity or self.reservoir.opening_record!=self.config.reservoir_open:raise ValueError('runtime buffer identity differs')
-        self.collector.load_state_dict(state['collector'],self.backend.q,self.backend.average)
+        if self.forward_pool is not None:self.forward_pool.clear()
+        self.collector.load_state_dict(state['collector'],self.backend.q,self.backend.average,forward_pool=self.forward_pool)
         if self.collector.records!=self.records or self.replay.insertions!=self.records or self.replay.q_insertions!=self.backend.counters.fresh_q or meta['step']!=self.records:raise ValueError('runtime record accounting differs')
         for k,v in state['rng'].items():self.rng[k].bit_generator.state=v
         self.timings=state['timings'];self.loss=state['loss'];self.snapshot=None
