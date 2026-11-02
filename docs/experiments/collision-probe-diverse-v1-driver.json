@@ -1,0 +1,14 @@
+{
+  "allocation_sha256": "04dc676b64f0a52de652528505887ff5307090018d85bf92dd3dcf325d4a933c",
+  "observed_at": "2026-11-02T11:05:13.035205+00:00",
+  "pid": 2384063,
+  "plan_sha256": "2c9acd16dca0f52e79fd8c0334635e0912bb245100e1d43c456677742363e86e",
+  "purpose": "frozen allocated probe-construction source/plan validation",
+  "run_manifest_sha256": "b54cb9478c3b0bdae60d1e49cda1492ced1f5eb60a2e7d4cb005b2237556d838",
+  "scientific_claim": false,
+  "scope": "current OS liveness observed separately; a plan/PID file alone never proves liveness; source-seed/full-proof audit remains required",
+  "source_commit": "7da67d9e6c803ac5ea0ac8f20b3954dcebbcaa8d",
+  "source_sha256": "8376aead9575a4ff63ec35c1f78ff0ab1ca847c1f1f6b4218ad8e036463b505b",
+  "training_selected": false,
+  "verified": true
+}

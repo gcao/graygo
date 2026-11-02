@@ -39,6 +39,8 @@ The original seed-0 delayed R1 driver (PID **2217027**) is terminal/absent. Both
 
 The **R4 seed-0 first screen** uses the same pinned learner source `9fefeee`, with matched profiles and an explicit CPU-control reservation (`experiments/nfsp-delayed-R4-primary.md`). The tabular case completed all 15M records in 9,250.354 seconds and passed its independent artifact/accounting audit. Its final-five maxima are average gap **0.353488**, supported early Q error **1.214686** and greedy gap **0**: credit and averaging readiness still miss. See `verification/nfsp-delayed-R4-control.md`. The reservation is settled with measured cost; no new control work is allocated. The exact original OS handle **PID 2320416** remains live in the matching neural case, which keeps its full 15M-record/5.25-process-hour ceiling. Target refresh remains 12,800 fresh records, and the only learner change from R1 is Q reuse. Do not restart the terminal R1 handle or infer liveness from a file alone.
 
+The separately allocated multigroup probe-construction run is live from frozen source `7da67d9`, original OS PID **2384063** (`experiments/collision-probe-diverse-v1.md`). Its 1,800-second/200k-proposal cap targets 32 distinct complete-game classes, with a separate bounded proof/source-seed audit. Initial partial counts are not completed coverage.
+
 No R4 remainder cohort, Retrace run, marginal extension, later opening, production pilot, confirmation or study has been selected. Final-five gates and the full objective remain unchanged.
 
 ## Required work remaining
