@@ -16,7 +16,7 @@ import sys
 import time
 import torch
 from graygo.manifest import write_report
-from graygo.storage import digest, CheckpointStore
+from graygo.storage import digest as _storage_digest, CheckpointStore
 from graygo.task_training import NFSPTaskConfig
 from tools.a2_source_cohort import _fresh_bridge
 from tools import task_source_bridge
@@ -25,6 +25,11 @@ from tools.nfsp_resources import number, require
 VERSION='graygo/delayed-cpu-runtime-prices/1'
 PROPOSAL_VERSION='graygo/prospective-delayed-cpu-prices/1'
 IDENTITY_KEYS=('hostname','cpu','python','platform','dependencies','runtime')
+
+
+def digest(path):return _storage_digest(Path(path))
+
+def inputs_match(inputs):return bool(inputs) and all(digest(path)==value for path,value in inputs.items())
 
 
 def load(path):return json.loads(Path(path).read_text())
@@ -71,7 +76,7 @@ def selected_profile_prices(repo,root,proposal,reference_prices,inputs,identitie
     require(job['source_sha256']==allocation['learner_source_sha256']==proposal['target_runtime_source_sha256'],'direct profiles used another package')
     require(len(job['commands'])==5 and job['commands'][0]['label']=='profiles' and all(c['returncode']==0 for c in job['commands']) and set(job['cases'])=={'C1/pre','C1/post','C4/pre','C4/post'},'direct profile/audit inventory differs')
     inputs.update({str(job_path):digest(job_path),str(allocation_path):digest(allocation_path)})
-    require(job['original_inputs_sha256'] and all(digest(p)==h for p,h in job['original_inputs_sha256'].items()),'direct profile original inputs changed');inputs.update(job['original_inputs_sha256'])
+    require(inputs_match(job['original_inputs_sha256']),'direct profile original inputs changed');inputs.update(job['original_inputs_sha256'])
     profile_root=root/'profiles';profile=load(profile_root/'profile.json');plan=load(profile_root/'plan.json')
     require(load(profile_root/'state.json')['status']=='complete' and profile['plan']==plan and plan['source_sha256']==job['source_sha256'] and plan['driver_sha256']==job['runner_sha256'] and len(profile['results'])==4,'direct matched profile plan differs')
     prices={}
@@ -137,7 +142,7 @@ def qualify(repo,proposal_path,audit_root,selected_root):
         locks|={selected_root/'profiles/.driver.lock',*sorted((selected_root/'profiles').glob('neural-R*/.trainer.lock'))}
         for path in sorted(locks):fcntl.flock(stack.enter_context(path.open('rb')),fcntl.LOCK_SH|fcntl.LOCK_NB)
         original=job['original_inputs_sha256']
-        require(original and all(digest(p)==value for p,value in original.items()),'original profile/checkpoint/trajectory inputs changed')
+        require(inputs_match(original),'original profile/checkpoint/trajectory inputs changed')
         inputs.update(original)
         for term,reuse in [('C1',1),('C4',4)]:
             proposed=proposal['candidate_terms'][term];budget_path=repo/proposed['raw_budget'];budget=load(budget_path);root=budget_path.parent.parent
@@ -168,7 +173,7 @@ def qualify(repo,proposal_path,audit_root,selected_root):
         prices=selected_profile_prices(repo,selected_root,proposal,prices,inputs,identities)
         require(all(i==identities[0] for i in identities) and runtime_identity()==identities[0],'current CPU/runtime/dependency identity differs from measured profiles')
         require(identities[0]['dependencies']==bridge['dependencies'],'source bridge numerical dependencies differ')
-        require(all(digest(p)==value for p,value in inputs.items()),'pricing inputs changed during qualification')
+        require(inputs_match(inputs),'pricing inputs changed during qualification')
     return {'version':VERSION,'status':'qualified_prospective_cpu_delayed_prices','qualifier_sha256':digest(Path(__file__)),'reference_source_sha256':proposal['reference_source_sha256'],'target_runtime_source_sha256':proposal['target_runtime_source_sha256'],'runtime_identity':identities[0],'prices':prices,'original_inputs_sha256':inputs,'cpu_delayed_prices_independently_qualified':True,'direct_selected_package_profiles_verified':True,'current_inputs_verified':True,'current_runtime_identity_verified':True,'original_cases_rewritten':False,'cpu_control_ceiling_separate_seconds':43200,'new_training_selected':False,'a2_complete':False,'project_scope_selected':False,'execution_authorized':False,'qualification_seconds':time.monotonic()-started,'evidence':{'repo':str(repo),'proposal':str(proposal_path),'audit_root':str(audit_root),'selected_root':str(selected_root)},'scope':'Prospective CPU/features neural delayed one-step prices, directly profiled on the selected package with the larger original/current twofold CPU ceilings; exact original seeds/recipes/runtime/package only. Zero device-hours is conditional on CPU execution; CPU process ceilings and partial-buffer forecasting limits remain explicit. No control funding, convergence claim, existing-case relabeling, project scope or execution grant.'}
 
 

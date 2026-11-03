@@ -6,7 +6,7 @@ import io
 import tempfile
 from pathlib import Path
 from graygo.task_training import NFSPTaskConfig
-from tools.nfsp_delayed_cpu_prices import profile_price,combine_source_prices,check_case,VERSION,main
+from tools.nfsp_delayed_cpu_prices import profile_price,combine_source_prices,check_case,VERSION,main,digest,inputs_match
 
 
 class DelayedCPUPriceTests(unittest.TestCase):
@@ -55,6 +55,12 @@ class DelayedCPUPriceTests(unittest.TestCase):
         with self.assertRaises(ValueError):check_case(changed,proof,'C4')
         changed=deepcopy(manifest);changed['runtime']={'device':'cuda'}
         with self.assertRaises(ValueError):check_case(changed,proof,'C4')
+
+    def test_serialized_snapshot_string_paths_are_read_and_changes_are_detected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path=Path(temporary)/'model.json';path.write_text('immutable original')
+            snapshot={str(path):digest(path)};self.assertEqual(digest(str(path)),digest(path));self.assertTrue(inputs_match(snapshot));self.assertFalse(inputs_match({}))
+            path.write_text('changed model');self.assertFalse(inputs_match(snapshot))
 
     def test_cli_refuses_to_overwrite_any_existing_input_or_evidence(self):
         with tempfile.TemporaryDirectory() as temporary:
