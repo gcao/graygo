@@ -1,0 +1,108 @@
+{
+  "a2_evidence_reusable": false,
+  "candidate_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "case_count": 12,
+  "counts": {
+    "gray-mixed/neural/0": {
+      "joint_transitions": 242,
+      "nonterminal": 10,
+      "observations": 20,
+      "raw_forwards": 40,
+      "states": 243,
+      "terminal": 233
+    },
+    "gray-mixed/neural/1": {
+      "joint_transitions": 242,
+      "nonterminal": 10,
+      "observations": 20,
+      "raw_forwards": 40,
+      "states": 243,
+      "terminal": 233
+    },
+    "gray-mixed/neural/2": {
+      "joint_transitions": 242,
+      "nonterminal": 10,
+      "observations": 20,
+      "raw_forwards": 40,
+      "states": 243,
+      "terminal": 233
+    },
+    "gray-mixed/tabular/0": {
+      "joint_transitions": 242,
+      "nonterminal": 10,
+      "observations": 20,
+      "raw_forwards": 40,
+      "states": 243,
+      "terminal": 233
+    },
+    "gray-mixed/tabular/1": {
+      "joint_transitions": 242,
+      "nonterminal": 10,
+      "observations": 20,
+      "raw_forwards": 40,
+      "states": 243,
+      "terminal": 233
+    },
+    "gray-mixed/tabular/2": {
+      "joint_transitions": 242,
+      "nonterminal": 10,
+      "observations": 20,
+      "raw_forwards": 40,
+      "states": 243,
+      "terminal": 233
+    },
+    "gray-pure/neural/0": {
+      "joint_transitions": 100,
+      "nonterminal": 1,
+      "observations": 2,
+      "raw_forwards": 4,
+      "states": 101,
+      "terminal": 100
+    },
+    "gray-pure/neural/1": {
+      "joint_transitions": 100,
+      "nonterminal": 1,
+      "observations": 2,
+      "raw_forwards": 4,
+      "states": 101,
+      "terminal": 100
+    },
+    "gray-pure/neural/2": {
+      "joint_transitions": 100,
+      "nonterminal": 1,
+      "observations": 2,
+      "raw_forwards": 4,
+      "states": 101,
+      "terminal": 100
+    },
+    "gray-pure/tabular/0": {
+      "joint_transitions": 100,
+      "nonterminal": 1,
+      "observations": 2,
+      "raw_forwards": 4,
+      "states": 101,
+      "terminal": 100
+    },
+    "gray-pure/tabular/1": {
+      "joint_transitions": 100,
+      "nonterminal": 1,
+      "observations": 2,
+      "raw_forwards": 4,
+      "states": 101,
+      "terminal": 100
+    },
+    "gray-pure/tabular/2": {
+      "joint_transitions": 100,
+      "nonterminal": 1,
+      "observations": 2,
+      "raw_forwards": 4,
+      "states": 101,
+      "terminal": 100
+    }
+  },
+  "execution_authorized": false,
+  "reference_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "scope": "Complete finite domain equality for both fixed bounded families, both learners, three original codebook seeds and the recorded numerical runtime. Separate default-collector, update, original-cohort and resource checks remain required.",
+  "status": "complete_bounded_A2_domains_identical",
+  "version": "graygo/task-domain-boundary/1"
+}

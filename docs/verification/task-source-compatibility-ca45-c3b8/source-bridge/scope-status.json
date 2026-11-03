@@ -1,0 +1,13 @@
+{
+  "a2_complete": false,
+  "bridge_sha256": "e7176fe2128fc78fcf2ecc49420c35dabbadda37fba31505ce9124f1e0f3b78a",
+  "execution_authorized": false,
+  "missing_A2_cases": 34,
+  "original_paired_assessment_sha256": "9942f756692e6a55155cdc2cf920082620d4aedfef56f56e6ed97c1dd9a73a9d",
+  "present_A2_cases": 2,
+  "production_entry_controller_complete": false,
+  "qualification_scope": "fixed primary CPU/features A2 task APIs; original source/cohort identities preserved",
+  "resource_project_scope_verified": false,
+  "task_source_compatibility_qualified": true,
+  "version": 1
+}

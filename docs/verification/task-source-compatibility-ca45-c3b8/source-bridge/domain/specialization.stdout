@@ -1,0 +1,41 @@
+{
+  "version": "graygo/default-task-actor-specialization/1",
+  "status": "default_collection_ast_equivalent",
+  "reference_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "candidate_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "default_constructor_sites": [
+    {
+      "module": "task_training",
+      "line": 182,
+      "call": "Call(func=Name(id='FrozenPolicies', ctx=Load()), args=[Attribute(value=Attribute(value=Name(id='self', ctx=Load()), attr='backend', ctx=Load()), attr='q', ctx=Load()), Attribute(value=Attribute(value=Name(id='self', ctx=Load()), attr='backend', ctx=Load()), attr='average', ctx=Load())], keywords=[keyword(arg='version', value=Name(id='version', ctx=Load())), keyword(arg='average_ready', value=Attribute(value=Attribute(value=Name(id='self', ctx=Load()), attr='backend', ctx=Load()), attr='average_ready', ctx=Load()))])"
+    },
+    {
+      "module": "task_training",
+      "line": 316,
+      "call": "Call(func=Name(id='FrozenPolicies', ctx=Load()), args=[Attribute(value=Attribute(value=Name(id='self', ctx=Load()), attr='backend', ctx=Load()), attr='q', ctx=Load()), Attribute(value=Attribute(value=Name(id='self', ctx=Load()), attr='backend', ctx=Load()), attr='average', ctx=Load())], keywords=[keyword(arg='version', value=Subscript(value=Name(id='saved', ctx=Load()), slice=Constant(value='version'), ctx=Load())), keyword(arg='average_ready', value=Subscript(value=Name(id='saved', ctx=Load()), slice=Constant(value='average_ready'), ctx=Load()))])"
+    }
+  ],
+  "specialization_rules": {
+    "inlined_forwards": 4,
+    "pool_assignment": 1,
+    "pool_argument": 1,
+    "false_branches": 4,
+    "metadata_get": 1,
+    "identity_false": 1,
+    "identity_import": 1,
+    "state_return": 1,
+    "delegate_removed": 1
+  },
+  "reference_collection_ast_sha256": "bbd60ad98c8e70e2f9038d229183744488bdfba0ded7d96045ab5997fcdca8dd",
+  "specialized_candidate_ast_sha256": "bbd60ad98c8e70e2f9038d229183744488bdfba0ded7d96045ab5997fcdca8dd",
+  "conditions": [
+    "Pinned unmodified task callers construct both live/restored snapshots without an optional pool.",
+    "Valid default/old snapshot schema contains q, average, version and average_ready; frozen_execution is absent.",
+    "No external mutation, monkey-patching, graph snapshot or caller outside the pinned task dependency closure.",
+    "Disabled execution-identity import has separately verified unchanged numerical RNG behavior."
+  ],
+  "scope": "Direct default collector forward/serialization/restore specialization only; game-domain, runtime, numerical and full-cohort evidence remain separate.",
+  "full_source_compatibility_qualified": false,
+  "a2_evidence_reusable": false,
+  "execution_authorized": false
+}

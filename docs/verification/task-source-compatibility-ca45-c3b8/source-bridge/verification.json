@@ -1,0 +1,15 @@
+{
+  "a2_complete": false,
+  "application_source_unchanged": true,
+  "archive_source_seals_rechecked": 19,
+  "bridge_sha256": "e7176fe2128fc78fcf2ecc49420c35dabbadda37fba31505ce9124f1e0f3b78a",
+  "execution_authorized": false,
+  "integrated_tool_tests_passed": 35,
+  "original_cohort_assessment_unchanged": true,
+  "prior_54_leaves_preserved": true,
+  "qualifier_source_sha256": "a4f3c4ec1b6d9e1f5e4b49a8a09a4d227462d0c1b49f52c5ece2278fc31700e5",
+  "receipt_inputs_rechecked": 391,
+  "resource_inventory_recomputed": true,
+  "resource_measurements": 57,
+  "version": 1
+}

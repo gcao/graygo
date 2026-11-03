@@ -1,0 +1,34 @@
+{
+  "a2_complete": false,
+  "bridge_sha256": "e7176fe2128fc78fcf2ecc49420c35dabbadda37fba31505ce9124f1e0f3b78a",
+  "case_source_checks": {
+    "neural": {
+      "a2_complete": false,
+      "execution_authorized": false,
+      "original_case_plan_and_audit_required": true,
+      "original_source_identity_preserved": true,
+      "original_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "original_training_manifest_sha256": "b11c43dc35fa2c31867ca2c32a7f7ea373baddbe5c9432c468d99dc151a87929",
+      "source_bridge_applies": true
+    },
+    "tabular": {
+      "a2_complete": false,
+      "execution_authorized": false,
+      "original_case_plan_and_audit_required": true,
+      "original_source_identity_preserved": true,
+      "original_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "original_training_manifest_sha256": "481446fa95e06dffd03906d11a9f1917e74b7c840ca466634e931717540325fc",
+      "source_bridge_applies": true
+    }
+  },
+  "cases": {
+    "delayed/neural/0": "numeric_pass",
+    "delayed/tabular/0": "numeric_miss"
+  },
+  "current_assessment_identical_to_original": true,
+  "current_assessment_sha256": "9942f756692e6a55155cdc2cf920082620d4aedfef56f56e6ed97c1dd9a73a9d",
+  "execution_authorized": false,
+  "missing_cases": 34,
+  "present_cases": 2,
+  "version": 1
+}

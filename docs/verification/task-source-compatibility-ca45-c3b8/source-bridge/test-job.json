@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "-m",
+    "unittest",
+    "tests.test_task_source_diff",
+    "tests.test_task_actor_boundary",
+    "tests.test_task_pipeline_parity",
+    "tests.test_task_default_specialization",
+    "tests.test_task_domain_boundary",
+    "tests.test_task_source_bridge",
+    "-v"
+  ],
+  "returncode": 0,
+  "measured_process_seconds": 1.4253134849714115,
+  "scope": "all six source-compatibility tools; application source unchanged"
+}

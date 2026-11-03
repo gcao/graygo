@@ -1,0 +1,78 @@
+{
+  "a2_evidence_reusable": false,
+  "allocation_sha256": "11b97d2adeb8e68ce78142c210a83f2f8f85c50975665b7126dc05be48082b32",
+  "commands": [
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "-m",
+        "tools.task_default_specialization",
+        "--reference",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-eligibility-ca45a53/src/graygo",
+        "--candidate",
+        "/home/gcao/proj/graygo/.worktrees/frozen-cuda-c3b8b5f/src/graygo",
+        "--expected-reference",
+        "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+        "--expected-candidate",
+        "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "--output",
+        "/home/gcao/proj/graygo/runs/task-source-bridge-446a058/specialization.json"
+      ],
+      "label": "specialization",
+      "pid": 2669968,
+      "returncode": 0,
+      "seconds": 0.46459951892029494
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "-m",
+        "tools.task_domain_boundary",
+        "--expected-source-sha",
+        "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+        "--time-cap-seconds",
+        "600",
+        "--output",
+        "/home/gcao/proj/graygo/runs/task-source-bridge-446a058/reference.json"
+      ],
+      "label": "reference",
+      "pid": 2669969,
+      "returncode": 0,
+      "seconds": 3.229388931998983
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "-m",
+        "tools.task_domain_boundary",
+        "--expected-source-sha",
+        "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "--time-cap-seconds",
+        "600",
+        "--output",
+        "/home/gcao/proj/graygo/runs/task-source-bridge-446a058/candidate.json"
+      ],
+      "label": "candidate",
+      "pid": 2670027,
+      "returncode": 0,
+      "seconds": 3.177561390097253
+    }
+  ],
+  "comparison_sha256": "f7a89e6b63f520690f0de7eed24b4782adb2b9ac17cc15c5aad21c18958cf212",
+  "current_phase": null,
+  "domain_producer_sha256": "a941391d4436fd6ca58a222f3b8d7f928b0cb37cc8b16f4f7be544a905183871",
+  "driver_sha256": "73eb9134fd771e8ce5f3c78d0261ab6fe27b371fa71ddc0bf4757c679afd20e4",
+  "execution_authorized": false,
+  "measured_driver_seconds": 7.958725764998235,
+  "new_accelerator_job": false,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "original_driver_pid": 2669961,
+  "outer_watchdog_seconds": 1320,
+  "source_packages_unchanged": true,
+  "specialization_producer_sha256": "4e7ab1991557a4ddaa6ec25f8e7dc980c881f581de204cf48f4677825fedba42",
+  "specialization_sha256": "896fa78d442ca185b993530d27eaad936975c8795c40c9724a952a15d6518788",
+  "status": "verified_domain_and_default_specialization",
+  "tool_commit": "446a0589d0bcec76e16d49df1f7e525c9a34569d",
+  "version": 1
+}

@@ -1,0 +1,83 @@
+{
+  "copied_files": {
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/candidate.json": {
+      "original": "runs/task-source-bridge-446a058/candidate.json",
+      "sha256": "6fac5984a66d407f80db1554ea8335e43e170d161cd5bbbf7f52427a22011fdd"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/candidate.stderr": {
+      "original": "runs/task-source-bridge-446a058/candidate.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/candidate.stdout": {
+      "original": "runs/task-source-bridge-446a058/candidate.stdout",
+      "sha256": "c116c8934ed95bac1d03ead75e1cfa85c127dbefc95f88735087cd3fd2b8cc7e"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/comparison.json": {
+      "original": "runs/task-source-bridge-446a058/comparison.json",
+      "sha256": "f7a89e6b63f520690f0de7eed24b4782adb2b9ac17cc15c5aad21c18958cf212"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/driver.log": {
+      "original": "runs/task-source-bridge-446a058/driver.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/driver.py": {
+      "original": "runs/task-source-bridge-446a058/driver.py",
+      "sha256": "73eb9134fd771e8ce5f3c78d0261ab6fe27b371fa71ddc0bf4757c679afd20e4"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/job.json": {
+      "original": "runs/task-source-bridge-446a058/job.json",
+      "sha256": "829b7d162f7dfe93ed30104f546676f5565787acdd2ca5a2e7ac33d21f4fa5dd"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/reference.json": {
+      "original": "runs/task-source-bridge-446a058/reference.json",
+      "sha256": "473bf06dd4279a0f673d8c04df9ee403d18fd851ae51a0743bfcab1d03ad0c03"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/reference.stderr": {
+      "original": "runs/task-source-bridge-446a058/reference.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/reference.stdout": {
+      "original": "runs/task-source-bridge-446a058/reference.stdout",
+      "sha256": "48e1a8098163e15eba19ac1d72d602c01f365c73748ae859a441a90aa44888bb"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/specialization.json": {
+      "original": "runs/task-source-bridge-446a058/specialization.json",
+      "sha256": "896fa78d442ca185b993530d27eaad936975c8795c40c9724a952a15d6518788"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/specialization.stderr": {
+      "original": "runs/task-source-bridge-446a058/specialization.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/domain/specialization.stdout": {
+      "original": "runs/task-source-bridge-446a058/specialization.stdout",
+      "sha256": "8e67b62cb3df65a962dc9dad231dd7007f8f8502490a572c47c222af39c39928"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/qualification/bridge.json": {
+      "original": "runs/task-source-qualified-cea1fa6/bridge.json",
+      "sha256": "e7176fe2128fc78fcf2ecc49420c35dabbadda37fba31505ce9124f1e0f3b78a"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/qualification/driver.log": {
+      "original": "runs/task-source-qualified-cea1fa6/driver.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/qualification/driver.py": {
+      "original": "runs/task-source-qualified-cea1fa6/driver.py",
+      "sha256": "6fd9d918ab655c937edbc9846e6f0aef9974acdd4b71e834f2a90d1127accc51"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/qualification/job.json": {
+      "original": "runs/task-source-qualified-cea1fa6/job.json",
+      "sha256": "f2c161e684b8410da4f74aba86decc0e6a6fd291999425da16781f9c20c78726"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/qualification/stderr.log": {
+      "original": "runs/task-source-qualified-cea1fa6/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/qualification/stdout.json": {
+      "original": "runs/task-source-qualified-cea1fa6/stdout.json",
+      "sha256": "4f169bb0102fc8a21c2e57c9b40720f7e65c63ca347a0b40032b520bacea38d6"
+    }
+  },
+  "original_case_and_numerical_gate_mutations": false,
+  "source_identities_preserved": true,
+  "version": 1
+}

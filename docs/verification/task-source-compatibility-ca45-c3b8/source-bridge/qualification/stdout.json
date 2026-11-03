@@ -1,0 +1,8 @@
+{
+  "status": "qualified_cpu_features_A2_source_bridge",
+  "bounded_domain_cases": 12,
+  "trained_actor_archives": 2,
+  "exact_complete_pipeline_pairs": 4,
+  "qualification_seconds": 2.938054473954253,
+  "a2_complete": false
+}

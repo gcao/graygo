@@ -13,7 +13,7 @@ There are **24 byte-identical dependency modules, including package initializati
 
 The comparison also lists changed files outside the static task-import closure. Their exclusion does not certify that arbitrary runtime hooks, dynamic imports, settings or environments cannot affect a task. Source identity, behavior/configuration, numerical runtime and original cohort evidence remain distinct requirements.
 
-**Compatibility remains unqualified.** This inventory does not rewrite any older run, loosen the A2 collector's exact-package checks, merge cohorts, mark missing seeds complete, or grant training. Next verify actual changed call boundaries and applicable old/current trajectories/settings, then explicitly connect that proof to project entry. The [validation record](validation.json) retains the real CLI pins and 24 passing focused tests (eight new source-inventory tests plus sixteen existing resource checks). The unchanged application's latest complete suite remains 430 tests; no new full-suite run is claimed.
+**The inventory alone does not qualify compatibility.** The [completed scoped bridge](source-bridge/README.md) now qualifies the fixed CPU/features A2 task APIs using the additional structural, domain, trained-actor and update-state proofs. This inventory does not rewrite any older run, loosen the A2 collector's exact-package checks, merge cohorts, mark missing seeds complete, or grant training. The linked scoped bridge supplies those compatibility checks; complete cohorts and project entry remain separate. The [validation record](validation.json) retains the real CLI pins and 24 passing focused tests (eight new source-inventory tests plus sixteen existing resource checks). The unchanged application's latest complete suite remains 430 tests; no new full-suite run is claimed.
 
 ```sh
 .venv/bin/python -m tools.task_source_diff \
@@ -26,4 +26,4 @@ The comparison also lists changed files outside the static task-import closure. 
 
 An existing output is preserved. Both source trees are checked again after analysis, and output inside either compared package is rejected.
 
-The [trained default-actor boundary](actor-boundary/README.md) now passes exact old/current checks for both full original 15M archives, all 2,788 observations and explicit private sampling/restore partitions. Full learner-update/buffer trajectory checks remain separate; a newly declared bounded matched pipeline diagnostic will test those next.
+The [trained default-actor boundary](actor-boundary/README.md) now passes exact old/current checks for both full original 15M archives, all 2,788 observations and explicit private sampling/restore partitions. The [matched pipeline checks](pipeline/README.md) subsequently verify exact update/buffer/trajectory state. The [combined source bridge](source-bridge/README.md) now applies within its explicit CPU/features scope.
