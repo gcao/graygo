@@ -1,0 +1,17 @@
+{
+  "a2_evidence_reusable": false,
+  "application_source_unchanged": true,
+  "behavioral_compatibility_verified": false,
+  "execution_authorized": false,
+  "focused_test_command": "PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_task_source_diff test_nfsp_resources -v",
+  "focused_test_seconds": 0.092,
+  "focused_tests_passed": 24,
+  "inventory_sha256": "e41d5baf64ce85bb48d7b88473344658be6c1cc6198e3fbdd3763220dcb55f31",
+  "new_evaluation_games": 0,
+  "new_learning_records": 0,
+  "real_cli_package_hash_matches_manifest_source_digest": true,
+  "test_sha256": "6cc5248fc05fe04a11151ecab3ca5eb1fb0f25f94e38b87e74c146681e39b2c3",
+  "tool_sha256": "220c9ecfbb606a85edc0bb31bf66b3853c1a056a382637de6c0e6348b9c8a433",
+  "unchanged_dependency_modules_including_package_init": 24,
+  "version": 1
+}

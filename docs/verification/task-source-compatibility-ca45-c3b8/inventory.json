@@ -1,0 +1,489 @@
+{
+  "a2_evidence_reusable": false,
+  "behavioral_compatibility_verified": false,
+  "candidate_dependencies": {
+    "dynamic_sites": [
+      {
+        "call": "Call(func=Name(id='__import__', ctx=Load()), args=[Constant(value='os')], keywords=[])",
+        "line": 137,
+        "module": "matrix_training"
+      },
+      {
+        "call": "Call(func=Attribute(value=Call(func=Attribute(value=Call(func=Name(id='deepcopy', ctx=Load()), args=[Name(id='q', ctx=Load())], keywords=[]), attr='to', ctx=Load()), args=[Attribute(value=Name(id='self', ctx=Load()), attr='device', ctx=Load())], keywords=[]), attr='eval', ctx=Load()), args=[], keywords=[])",
+        "line": 193,
+        "module": "nfsp"
+      },
+      {
+        "call": "Call(func=Attribute(value=Attribute(value=Name(id='self', ctx=Load()), attr='target', ctx=Load()), attr='eval', ctx=Load()), args=[], keywords=[])",
+        "line": 259,
+        "module": "nfsp"
+      },
+      {
+        "call": "Call(func=Attribute(value=Call(func=Name(id='deepcopy', ctx=Load()), args=[Name(id='q', ctx=Load())], keywords=[]), attr='eval', ctx=Load()), args=[], keywords=[])",
+        "line": 33,
+        "module": "nfsp_collection"
+      },
+      {
+        "call": "Call(func=Attribute(value=IfExp(test=Call(func=Name(id='hasattr', ctx=Load()), args=[Name(id='average', ctx=Load()), Constant(value='inference_copy')], keywords=[]), body=Call(func=Attribute(value=Name(id='average', ctx=Load()), attr='inference_copy', ctx=Load()), args=[], keywords=[]), orelse=Call(func=Name(id='deepcopy', ctx=Load()), args=[Name(id='average', ctx=Load())], keywords=[])), attr='eval', ctx=Load()), args=[], keywords=[])",
+        "line": 34,
+        "module": "nfsp_collection"
+      }
+    ],
+    "external_imports": [
+      "__future__",
+      "collections",
+      "contextlib",
+      "copy",
+      "ctypes",
+      "dataclasses",
+      "datetime",
+      "fcntl",
+      "fractions",
+      "functools",
+      "hashlib",
+      "importlib",
+      "io",
+      "json",
+      "math",
+      "numbers",
+      "numpy",
+      "os",
+      "pathlib",
+      "platform",
+      "random",
+      "re",
+      "scipy.optimize",
+      "shutil",
+      "socket",
+      "subprocess",
+      "sys",
+      "threading",
+      "time",
+      "torch",
+      "torch.nn",
+      "uuid",
+      "weakref"
+    ],
+    "modules": {
+      "__init__": [
+        "engine"
+      ],
+      "agents": [
+        "engine"
+      ],
+      "buffers": [
+        "encoding",
+        "rule_state"
+      ],
+      "encoding": [
+        "engine"
+      ],
+      "engine": [],
+      "episode_audit": [],
+      "frozen_forward": [
+        "models"
+      ],
+      "manifest": [
+        "agents",
+        "encoding",
+        "engine",
+        "storage"
+      ],
+      "matrix_training": [
+        "manifest",
+        "models",
+        "ppo",
+        "solving",
+        "storage"
+      ],
+      "models": [
+        "encoding"
+      ],
+      "native_decode": [
+        "encoding"
+      ],
+      "nfsp": [
+        "models"
+      ],
+      "nfsp_collection": [
+        "encoding",
+        "engine",
+        "frozen_forward",
+        "models",
+        "rule_state",
+        "sampling",
+        "schedules",
+        "strategies"
+      ],
+      "nfsp_training": [
+        "buffers",
+        "encoding",
+        "episode_audit",
+        "manifest",
+        "matrix_training",
+        "models",
+        "nfsp",
+        "sampling",
+        "schedules",
+        "solving",
+        "storage",
+        "tabular_average",
+        "task_models"
+      ],
+      "ppo": [
+        "models"
+      ],
+      "public_game": [
+        "engine",
+        "solving"
+      ],
+      "rule_state": [
+        "encoding",
+        "engine",
+        "native_decode"
+      ],
+      "sampling": [],
+      "schedules": [],
+      "solving": [
+        "engine"
+      ],
+      "storage": [],
+      "strategies": [
+        "engine",
+        "solving"
+      ],
+      "tabular_average": [],
+      "task_adapter": [
+        "buffers",
+        "engine",
+        "models",
+        "nfsp_collection",
+        "public_game",
+        "rule_state",
+        "tabular_average",
+        "task_models",
+        "tasks"
+      ],
+      "task_evaluation": [
+        "engine",
+        "models",
+        "public_game",
+        "solving"
+      ],
+      "task_models": [],
+      "task_training": [
+        "buffers",
+        "engine",
+        "episode_audit",
+        "manifest",
+        "models",
+        "nfsp",
+        "nfsp_collection",
+        "schedules",
+        "storage",
+        "task_adapter",
+        "task_evaluation",
+        "tasks"
+      ],
+      "tasks": [
+        "buffers",
+        "encoding",
+        "engine"
+      ]
+    }
+  },
+  "candidate_package_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "candidate_root": "/home/gcao/proj/graygo/src/graygo",
+  "changed_dependency_modules": {
+    "agents": {
+      "ast_identical": false,
+      "candidate_sha256": "211d35bc08b13f383c186240723ac1ae26b0e870e289780aa56206b91f25b4c4",
+      "changed_definitions": [
+        "_tactical_ranks",
+        "_tactical_reference",
+        "tactical"
+      ],
+      "reference_sha256": "82a094b3e25d9e6164e3d3d6de5d9403595fa30a094d77a7b4422cdee43b8c62"
+    },
+    "engine": {
+      "ast_identical": false,
+      "candidate_sha256": "544f9f5527a76516041727698aa263a7bfb189b45720c313d9509dd42b79bb1e",
+      "changed_definitions": [
+        "PlacementOutcome",
+        "PlacementResolver",
+        "PlacementResolver.__post_init__",
+        "PlacementResolver.resolve",
+        "_finish_placement",
+        "resolve",
+        "resolve_reference"
+      ],
+      "reference_sha256": "40ebd3141bc66e66e9743c5be38bcfbcb506ee396f41223d759f6d4949aa8650"
+    },
+    "frozen_forward": {
+      "ast_identical": false,
+      "candidate_sha256": "e8f74319b36aa9f06bf9690bd1ecac4b027821c1aaa4694b098f8cf621727a54",
+      "changed_definitions": [
+        "FrozenForwardPool",
+        "FrozenForwardPool.__init__",
+        "FrozenForwardPool._context",
+        "FrozenForwardPool._eligible",
+        "FrozenForwardPool._pack",
+        "FrozenForwardPool.clear",
+        "FrozenForwardPool.forward",
+        "FrozenForwardPool.invalidate",
+        "FrozenForwardPool.stats",
+        "execution_identity"
+      ],
+      "reference_sha256": null
+    },
+    "nfsp_collection": {
+      "ast_identical": false,
+      "candidate_sha256": "2089c6cee35b31549bb2677084ac87f902e00a3c142b732d62e2f14e1bb456bb",
+      "changed_definitions": [
+        "EpisodeActor",
+        "EpisodeActor.commit",
+        "FrozenPolicies",
+        "FrozenPolicies.__init__",
+        "FrozenPolicies.forward",
+        "FrozenPolicies.load_state_dict",
+        "FrozenPolicies.state_dict",
+        "commit_many"
+      ],
+      "reference_sha256": "085101a02f948f1a88f705572bcdd9c39e4d3e36bd1f5eade0b4d2d10d7e701f"
+    }
+  },
+  "changed_files_outside_dependency_closure": [
+    "board_collection.py",
+    "board_runtime.py",
+    "cli.py",
+    "cohort_evidence.py",
+    "evaluation.py",
+    "evaluation_batch.py",
+    "evaluation_evidence.py",
+    "pilot_gates.py",
+    "probe_policy_evaluation.py",
+    "probe_policy_protocol.py",
+    "science_evaluation.py"
+  ],
+  "classification": "dependency_changes_require_review",
+  "entry_modules": [
+    "nfsp_training",
+    "task_training"
+  ],
+  "execution_authorized": false,
+  "reference_dependencies": {
+    "dynamic_sites": [
+      {
+        "call": "Call(func=Name(id='__import__', ctx=Load()), args=[Constant(value='os')], keywords=[])",
+        "line": 137,
+        "module": "matrix_training"
+      },
+      {
+        "call": "Call(func=Attribute(value=Call(func=Attribute(value=Call(func=Name(id='deepcopy', ctx=Load()), args=[Name(id='q', ctx=Load())], keywords=[]), attr='to', ctx=Load()), args=[Attribute(value=Name(id='self', ctx=Load()), attr='device', ctx=Load())], keywords=[]), attr='eval', ctx=Load()), args=[], keywords=[])",
+        "line": 193,
+        "module": "nfsp"
+      },
+      {
+        "call": "Call(func=Attribute(value=Attribute(value=Name(id='self', ctx=Load()), attr='target', ctx=Load()), attr='eval', ctx=Load()), args=[], keywords=[])",
+        "line": 259,
+        "module": "nfsp"
+      },
+      {
+        "call": "Call(func=Attribute(value=Call(func=Name(id='deepcopy', ctx=Load()), args=[Name(id='q', ctx=Load())], keywords=[]), attr='eval', ctx=Load()), args=[], keywords=[])",
+        "line": 33,
+        "module": "nfsp_collection"
+      },
+      {
+        "call": "Call(func=Attribute(value=IfExp(test=Call(func=Name(id='hasattr', ctx=Load()), args=[Name(id='average', ctx=Load()), Constant(value='inference_copy')], keywords=[]), body=Call(func=Attribute(value=Name(id='average', ctx=Load()), attr='inference_copy', ctx=Load()), args=[], keywords=[]), orelse=Call(func=Name(id='deepcopy', ctx=Load()), args=[Name(id='average', ctx=Load())], keywords=[])), attr='eval', ctx=Load()), args=[], keywords=[])",
+        "line": 34,
+        "module": "nfsp_collection"
+      }
+    ],
+    "external_imports": [
+      "__future__",
+      "collections",
+      "contextlib",
+      "copy",
+      "ctypes",
+      "dataclasses",
+      "datetime",
+      "fcntl",
+      "fractions",
+      "functools",
+      "hashlib",
+      "importlib",
+      "io",
+      "json",
+      "math",
+      "numbers",
+      "numpy",
+      "os",
+      "pathlib",
+      "platform",
+      "random",
+      "re",
+      "scipy.optimize",
+      "shutil",
+      "socket",
+      "subprocess",
+      "sys",
+      "time",
+      "torch",
+      "torch.nn",
+      "uuid"
+    ],
+    "modules": {
+      "__init__": [
+        "engine"
+      ],
+      "agents": [
+        "engine"
+      ],
+      "buffers": [
+        "encoding",
+        "rule_state"
+      ],
+      "encoding": [
+        "engine"
+      ],
+      "engine": [],
+      "episode_audit": [],
+      "manifest": [
+        "agents",
+        "encoding",
+        "engine",
+        "storage"
+      ],
+      "matrix_training": [
+        "manifest",
+        "models",
+        "ppo",
+        "solving",
+        "storage"
+      ],
+      "models": [
+        "encoding"
+      ],
+      "native_decode": [
+        "encoding"
+      ],
+      "nfsp": [
+        "models"
+      ],
+      "nfsp_collection": [
+        "encoding",
+        "engine",
+        "models",
+        "rule_state",
+        "sampling",
+        "schedules",
+        "strategies"
+      ],
+      "nfsp_training": [
+        "buffers",
+        "encoding",
+        "episode_audit",
+        "manifest",
+        "matrix_training",
+        "models",
+        "nfsp",
+        "sampling",
+        "schedules",
+        "solving",
+        "storage",
+        "tabular_average",
+        "task_models"
+      ],
+      "ppo": [
+        "models"
+      ],
+      "public_game": [
+        "engine",
+        "solving"
+      ],
+      "rule_state": [
+        "encoding",
+        "engine",
+        "native_decode"
+      ],
+      "sampling": [],
+      "schedules": [],
+      "solving": [
+        "engine"
+      ],
+      "storage": [],
+      "strategies": [
+        "engine",
+        "solving"
+      ],
+      "tabular_average": [],
+      "task_adapter": [
+        "buffers",
+        "engine",
+        "models",
+        "nfsp_collection",
+        "public_game",
+        "rule_state",
+        "tabular_average",
+        "task_models",
+        "tasks"
+      ],
+      "task_evaluation": [
+        "engine",
+        "models",
+        "public_game",
+        "solving"
+      ],
+      "task_models": [],
+      "task_training": [
+        "buffers",
+        "engine",
+        "episode_audit",
+        "manifest",
+        "models",
+        "nfsp",
+        "nfsp_collection",
+        "schedules",
+        "storage",
+        "task_adapter",
+        "task_evaluation",
+        "tasks"
+      ],
+      "tasks": [
+        "buffers",
+        "encoding",
+        "engine"
+      ]
+    }
+  },
+  "reference_package_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "reference_root": "/home/gcao/proj/graygo/.worktrees/nfsp-eligibility-ca45a53/src/graygo",
+  "scope": "Source and conservative import inventory only. Exact behavior/configuration, numerical runtime, trajectory/control and original-cohort checks remain separate; old evidence and source identities are never rewritten.",
+  "unchanged_dependency_modules": [
+    "__init__",
+    "buffers",
+    "encoding",
+    "episode_audit",
+    "manifest",
+    "matrix_training",
+    "models",
+    "native_decode",
+    "nfsp",
+    "nfsp_training",
+    "ppo",
+    "public_game",
+    "rule_state",
+    "sampling",
+    "schedules",
+    "solving",
+    "storage",
+    "strategies",
+    "tabular_average",
+    "task_adapter",
+    "task_evaluation",
+    "task_models",
+    "task_training",
+    "tasks"
+  ],
+  "version": "graygo/task-source-diff/1"
+}
