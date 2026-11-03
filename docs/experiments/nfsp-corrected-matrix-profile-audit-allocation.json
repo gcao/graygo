@@ -1,0 +1,31 @@
+{
+  "auditor": "tools/audit_nfsp_matrix.py",
+  "auditor_sha256": "7a9898ba046fdb4aa638c0ddbc92ccb721b362a6b0767eb38d8723802f30f728",
+  "case_records": 100000,
+  "cases": [
+    "asymmetric/profiles/pre-tabular",
+    "asymmetric/profiles/pre-neural",
+    "asymmetric/profiles/post-tabular",
+    "asymmetric/profiles/post-neural",
+    "rps/profiles/pre-tabular",
+    "rps/profiles/pre-neural",
+    "rps/profiles/post-tabular",
+    "rps/profiles/post-neural"
+  ],
+  "formal_case_grade_or_A2_exit_claimed": false,
+  "learner_package_path": ".worktrees/nfsp-eligibility-ca45a53/src",
+  "learner_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "name": "corrected-matrix-first-screen-profile-audits",
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "original_allocation_sha256": "136d70dc1d17c05fc62a36bbea13cf8f96e76532f3974a63f5184c2b91f3ed27",
+  "original_stage_driver_pid": 2679743,
+  "original_stage_root": "runs/nfsp-corrected-matrix-656fa26",
+  "outer_watchdog_seconds": 360,
+  "per_case_time_ceiling_seconds": 30,
+  "process_time_ceiling_seconds": 300,
+  "profile_inputs_must_remain_unchanged": true,
+  "resource_category": "verification",
+  "scope": "Eight fresh read-only independent model/episode/RNG/replay/reservoir/counter and original-game evaluation audits of the completed diagnostic profiles. Formal stage processes remain on their original handles/caps. Diagnostic audit verification supplies no formal case or additional scope.",
+  "version": 1
+}
