@@ -6,7 +6,7 @@ import io
 import tempfile
 from pathlib import Path
 from graygo.task_training import NFSPTaskConfig
-from tools.nfsp_delayed_cpu_prices import profile_price,check_case,VERSION,main
+from tools.nfsp_delayed_cpu_prices import profile_price,combine_source_prices,check_case,VERSION,main
 
 
 class DelayedCPUPriceTests(unittest.TestCase):
@@ -36,6 +36,13 @@ class DelayedCPUPriceTests(unittest.TestCase):
             changed=deepcopy(rows);changed[0]['seconds_including_setup']=value
             with self.assertRaises(ValueError):profile_price(4,changed,configs)
 
+    def test_direct_selected_source_is_priced_and_neither_original_nor_new_cost_is_dropped(self):
+        rows,configs=self.fixture();reference=profile_price(4,rows,configs);changed=deepcopy(rows);changed[1]['seconds_including_setup']=90;selected=profile_price(4,changed,configs)
+        merged=combine_source_prices(reference,selected);self.assertEqual(merged['cpu_process_ceiling_seconds'],selected['cpu_process_ceiling_seconds']);self.assertEqual(merged['selected_package_forecast_seconds'],selected['phase_weighted_15M_seconds'])
+        reversed_cost=combine_source_prices(selected,reference);self.assertEqual(reversed_cost['cpu_process_ceiling_seconds'],selected['cpu_process_ceiling_seconds']);self.assertEqual(reversed_cost['selected_package_forecast_seconds'],reference['phase_weighted_15M_seconds'])
+        with self.assertRaises(ValueError):combine_source_prices(reference,selected|{'q_reuse':1})
+        with self.assertRaises(ValueError):combine_source_prices(reference,selected|{'device_hours':'1'})
+
     def test_formal_applicability_is_bound_to_package_cpu_runtime_exact_recipe_and_ceiling(self):
         rows,configs=self.fixture();price=profile_price(4,rows,configs)|{'raw_budget_sha256':'a'*64};identity={k:{} for k in ['hostname','cpu','python','platform','dependencies','runtime']}
         proof={'version':VERSION,'status':'qualified_prospective_cpu_delayed_prices','target_runtime_source_sha256':'b'*64,'prices':{'C4':price},'runtime_identity':identity}
@@ -52,7 +59,7 @@ class DelayedCPUPriceTests(unittest.TestCase):
     def test_cli_refuses_to_overwrite_any_existing_input_or_evidence(self):
         with tempfile.TemporaryDirectory() as temporary:
             path=Path(temporary)/'original.json';path.write_text('original evidence')
-            with redirect_stderr(io.StringIO()),self.assertRaises(SystemExit):main(['--repo',temporary,'--proposal',str(path),'--audits',temporary,'--output',str(path)])
+            with redirect_stderr(io.StringIO()),self.assertRaises(SystemExit):main(['--repo',temporary,'--proposal',str(path),'--audits',temporary,'--selected',temporary,'--output',str(path)])
             self.assertEqual(path.read_text(),'original evidence')
 
 
