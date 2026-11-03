@@ -1,0 +1,33 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "aaed74d244c91d8f043b1f514da84946488b63cec2a7ea750a358bf194018d86",
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "/home/gcao/proj/graygo/.worktrees/nfsp-gray-cpu-fa33155/tools/nfsp_cpu_gray.py",
+    "qualify",
+    "--repo",
+    "/home/gcao/proj/graygo",
+    "--specification",
+    "/home/gcao/proj/graygo/.worktrees/nfsp-gray-cpu-fa33155/docs/experiments/nfsp-gray-cpu-price-evidence.json",
+    "--output",
+    "/home/gcao/proj/graygo/runs/nfsp-gray-cpu-price-fa33155/prices.json"
+  ],
+  "cpu_process_caps_seconds": {
+    "gray-mixed": "132300",
+    "gray-pure": "110700"
+  },
+  "driver_sha256": "0637b750ee5b5620b3ccad7f7e72df6ca7d93a705f73f7809d42b9e27e078d31",
+  "execution_authorized": false,
+  "measured_driver_wall_seconds": 7.378854312933981,
+  "measured_process_seconds": 7.3782374140573665,
+  "new_accelerator_jobs": 0,
+  "new_control_allocation_seconds": "0",
+  "new_training_records": 0,
+  "original_driver_pid": 2800647,
+  "original_qualification_pid": 2800648,
+  "price_receipt_sha256": "62dd344185b3e3957a435f913a91812a43fa368f8d4a8cec2e1e4fc131eab16f",
+  "returncode": 0,
+  "status": "qualified_cpu_gray_neural_prices",
+  "verifier_sha256": "292a8b1897da27f63a06180389a341322d8a4709c49e181a705170668b20ba38",
+  "version": 1
+}

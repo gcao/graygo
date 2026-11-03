@@ -1,0 +1,26 @@
+{
+  "docs/verification/nfsp-gray-cpu-prices/driver.log": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-cpu-price-fa33155/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-gray-cpu-prices/driver.py": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-cpu-price-fa33155/driver.py",
+    "sha256": "0637b750ee5b5620b3ccad7f7e72df6ca7d93a705f73f7809d42b9e27e078d31"
+  },
+  "docs/verification/nfsp-gray-cpu-prices/job.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-cpu-price-fa33155/job.json",
+    "sha256": "d9111494693968681331e3a444b18f6672d13dcd6ef2e4e6a7cd79cef46e6cec"
+  },
+  "docs/verification/nfsp-gray-cpu-prices/prices.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-cpu-price-fa33155/prices.json",
+    "sha256": "62dd344185b3e3957a435f913a91812a43fa368f8d4a8cec2e1e4fc131eab16f"
+  },
+  "docs/verification/nfsp-gray-cpu-prices/qualification.stderr": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-cpu-price-fa33155/qualification.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-gray-cpu-prices/qualification.stdout": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-cpu-price-fa33155/qualification.stdout",
+    "sha256": "300260cb832ce0fb3d24930066f47211d21f3f9fa2724a48d0fea6369fa76f50"
+  }
+}
