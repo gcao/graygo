@@ -1,0 +1,20 @@
+{
+  "control_allocation": "docs/experiments/nfsp-control-campaign-allocation.json",
+  "control_allocation_sha256": "ebdbaef58ab9f5847027bb8cdfd3a4b0a4fa44ec6c0d7b95e22ddf1aa0185c5e",
+  "name": "dual-source-read-only-prepared-control-runner-preview",
+  "new_accelerator_jobs": 0,
+  "new_control_reservation_seconds": "0",
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "outer_watchdog_seconds": 150,
+  "per_process_ceiling_seconds": 60,
+  "runner": "tools/nfsp_control_campaign.py",
+  "runner_sha256": "ae602b84e87fd2c67d3f2d1c0c7865bc2b705eaac6d7c3001e369989568e1b72",
+  "scope": "Exactly two bounded read-only previews in the two original source contexts. Verify fresh source/price/plan identities and the complete thirteen-case prepared allocation, while owner approval stays absent. Assert no actual campaign registry, case/model directory, owner-decision record or control reservation is created.",
+  "source_contexts": {
+    "a522": ".worktrees/frozen-cuda-c3b8b5f/src",
+    "db9": ".worktrees/nfsp-eligibility-ca45a53/src"
+  },
+  "source_verifier_checkout": ".worktrees/cpu-cache-admission-1b405bd",
+  "version": 1
+}
