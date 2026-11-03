@@ -1,0 +1,322 @@
+{
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/tabular-process-portion.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/tabular-process-portion.json",
+    "sha256": "8cd9323ae4d775bf686b084eeed99e43228fc8d96abb64a867f0f4379bf9d188"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/episodes.schema.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/episodes.schema.json",
+    "sha256": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/progress.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/progress.json",
+    "sha256": "0eadb2eda26843a8980fb795e48bc0653d0dbddccebc0a22eee476f0f255136d"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/result.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/result.json",
+    "sha256": "dc33d421b029931b899bb962b48e760af958929b730b88139f4726d4cee477b8"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/resume/000015000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/resume/000015000000/manifest.json",
+    "sha256": "a41eb011cef2415c388a7321560a23e92015c7fea2a6844aee52a334d2131897"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/resume/latest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/resume/latest.json",
+    "sha256": "24e199c73206f2d2b4251122e069a60a91b3f860b48c640e6fea2ff880cee766"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/run.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/run.json",
+    "sha256": "fed08ad2a96150ec5b8634da86dd1faea81ff64300a84cb540690ce0bc8ab1dd"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000000500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000000500000/manifest.json",
+    "sha256": "50e7dd624a950a887d0f394099e847c3f7fc81293d30673df92b148ea8c7384c"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000001000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000001000000/manifest.json",
+    "sha256": "f81ebc46a6d93ff6f0a0dcfb681c5683dafbbb15f76f76bda62ff3c6f7acdb12"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000001500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000001500000/manifest.json",
+    "sha256": "df1e0fb40c8c95cdfbbc488c2b1d6270760da9f17d21c53b7da01cad06651f1a"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000002000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000002000000/manifest.json",
+    "sha256": "f9ef80908064f618e0aaec54f99fdded679886738a4ad9303ded4035709c3766"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000002500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000002500000/manifest.json",
+    "sha256": "cf461735b930cf23f7bab6932668dafe061a07cfdee99ff5173ec35f69c4dcf4"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000003000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000003000000/manifest.json",
+    "sha256": "d93a7741d4222596c5d691f3202cec3c4bb1210e84095fe2b14fb5e1ee28adab"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000003500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000003500000/manifest.json",
+    "sha256": "b93824bc84fedd9d8c88dbf9f6b4dfd9b125f47819bc3ae1e11737e0e8370f3e"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000004000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000004000000/manifest.json",
+    "sha256": "178bad470f83f362657c05d3b828f02f702a9781b4ee7fc0bff50d1525db13af"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000004500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000004500000/manifest.json",
+    "sha256": "bdfc6eb08a460188730f74fb474549df7e4b9c601a273d123fdf9857dc0bf2a1"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000005000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000005000000/manifest.json",
+    "sha256": "430714e567203d9f56c331bee98491f7d3fbb4afeb4a3172908911eec1dc7faa"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000005500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000005500000/manifest.json",
+    "sha256": "0d5667996a57551d3ecae2728f06293506ec5f39441f692fdfebb2b71bb47856"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000006000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000006000000/manifest.json",
+    "sha256": "0d0e556dc94895edfd8aeef25823a97a4da39c4344180b27fb26def495493275"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000006500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000006500000/manifest.json",
+    "sha256": "f50a4d7a95a6a8495d2a4b60af3d769e900a8ce1c8503aebfebd44015c0d3287"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000007000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000007000000/manifest.json",
+    "sha256": "1c37a65857dd10a96f7a17187f4cd6a361cf64b27db91095c411f546271a98fa"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000007500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000007500000/manifest.json",
+    "sha256": "a57b55e8d379f3dfdb1042e2daf35d4b139a08a9dfa7e1728f8a42c3edeb72a9"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000008000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000008000000/manifest.json",
+    "sha256": "bd311a021d517dec7c44f3cdbef48c62a697edb254a5cf70752336e13fb1d53d"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000008500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000008500000/manifest.json",
+    "sha256": "49a62849e8d5eee2b26c686213b4d81aa965a2d9e8d064cdcf485d9c59e2d16c"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000009000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000009000000/manifest.json",
+    "sha256": "1a9c345e0b3d2fbff76997d988c8873b0a1eb294a5514a31045b28e6b7102a49"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000009500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000009500000/manifest.json",
+    "sha256": "7a6d6a12986594da70d64f1267fa6d51c3bd95e97d7b9bf305b2901f2a150b21"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000010000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000010000000/manifest.json",
+    "sha256": "f7f2e27b6e04246913ae1d37a661acac94464dd64853c8c51bbe0d4d36dd7e39"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000010500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000010500000/manifest.json",
+    "sha256": "bd7ffcfe34a18d58dec59b508b53efa515ae50e7cedb09aff681759a06ea26e1"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000011000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000011000000/manifest.json",
+    "sha256": "e6b79a54bb26c2fd9e8afbbe2f5a34c646f6ff0c9b56bc25f0af72b1e1b36e05"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000011500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000011500000/manifest.json",
+    "sha256": "abb5ffe24d92225915005874461448ce8b25c2311abf9eff814950c74f2ab04b"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000012000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000012000000/manifest.json",
+    "sha256": "b729c0f95b6b57092b740eadb49229dfbddc68a17d77acef81409e00b08368ba"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000012500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000012500000/manifest.json",
+    "sha256": "d74b1003813e75011d747eb49ded324d15a40edb49a536f1a7a550456ec52408"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000013000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000013000000/manifest.json",
+    "sha256": "c3e741943646096f5941fe48add2021eb07dc80d7f39a536ba53156c1de4fbbe"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000013500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000013500000/manifest.json",
+    "sha256": "414fb54993b72a53eb281ea45fb3ce4adaeb3debfa71e4f3b267eae8cdd7bd80"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000014000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000014000000/manifest.json",
+    "sha256": "8f1e705179b6197e1f36e575f829f79726e5d47fa8fc155ef3dbe6a69df3d3c0"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000014500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000014500000/manifest.json",
+    "sha256": "29ceb8475cf50532f286ee811495bbd09daaab7b74b8ce0ddbafdcf5f13f9d01"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/trials/tabular/weights/000015000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular/weights/000015000000/manifest.json",
+    "sha256": "68645a51f100fcf6d5a5b61106cce680fd04ec4d208ca5cdd297feb3f47f72d3"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/cohort-audits/assessment-01-archived.json": {
+    "original": "runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-01-archived.json",
+    "sha256": "26cc88b67af3bec996ed7ab104645a2be27b86721755a0412a0c418c5956e656"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/cohort-audits/assessment-01-current.json": {
+    "original": "runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-01-current.json",
+    "sha256": "7ab6c363ea757f350e5315261689aa9c75a955dd2a39c72948538f11764c56f3"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/cohort-audits/assessment-02-archived.json": {
+    "original": "runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-02-archived.json",
+    "sha256": "9c44c5e37ac23ec4364ec20b024f84d9921fffbbeb576f8dd9967a76f86b43e5"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/cohort-audits/assessment-02-current.json": {
+    "original": "runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-02-current.json",
+    "sha256": "2db5608c06a890d31c909d17234d34ed363f51f56b2281600efbda3fa0852796"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/cohort-audits/case-asymmetric-tabular-0.json": {
+    "original": "runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-tabular-0.json",
+    "sha256": "eee6183934372f1620afeed5bd5c2895212ad1f2127e57fbe7cad0835394edc1"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/cohort-audits/case-rps-tabular-0.json": {
+    "original": "runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-tabular-0.json",
+    "sha256": "981e4ee9b4b1ce5cb293c80d60d2beda70337a1df5f7e19ad1ebf4dbf001b45a"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/tabular-process-portion.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/tabular-process-portion.json",
+    "sha256": "4b6a25f8403621051667519af37122bcd0ffdbc971759f7414c2bde885965151"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/episodes.schema.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/episodes.schema.json",
+    "sha256": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/progress.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/progress.json",
+    "sha256": "d26854e1cee3c2738c3bb6617906d402e2e0f7ecc5b794f2a698ac9c29677fca"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/result.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/result.json",
+    "sha256": "136e1ca8bab3d907ec715d616bd433bc5bdc8b33e5a46085342e8a92a9c2dc20"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/resume/000015000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/resume/000015000000/manifest.json",
+    "sha256": "32ffa899a046d4a98cfe8428d11a1d96a28db8cfe51f2bc5608129bede1db8c9"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/resume/latest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/resume/latest.json",
+    "sha256": "888dd83d6bfaaff0ac29b5f7f6c0f5bc0d0e10eb4046fa7cca48775d262584ad"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/run.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/run.json",
+    "sha256": "dd681c8cdd7f5eb9419e7807acdb8ef99ea8f0b8d2371b3b2c20db2b023c0e4f"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000000500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000000500000/manifest.json",
+    "sha256": "dc9ff25e56911724c2b7ddc0dc2a544f4e0c7043888c057fe6b06bfa0867e3d3"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000001000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000001000000/manifest.json",
+    "sha256": "a128fadb6f4923ea48a5c950b7dc55a0a5e1cbbd830341f2a1761b272d0bb8a8"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000001500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000001500000/manifest.json",
+    "sha256": "8019756979b301d322bf08b9ca22765ddd7d15d7930825cee8a27d075d89a47c"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000002000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000002000000/manifest.json",
+    "sha256": "14bfc2b9881b739779723bbd9dfbfc5760b1b768dc9590356e847509449ee2db"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000002500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000002500000/manifest.json",
+    "sha256": "a4424eb624595f829f1e9a83aac001c7a4d7e32db643f4f99f5dfec69b4743c2"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000003000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000003000000/manifest.json",
+    "sha256": "176604b0e29423425065564c9a7ba785442066d4c4a4d87447015bf65ca7da94"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000003500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000003500000/manifest.json",
+    "sha256": "6399ba79d0091567a074fc97417b62a5ec73f5f1b3a9550e4b1a541c1372d940"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000004000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000004000000/manifest.json",
+    "sha256": "a6425515af33b1fe7997bdb22dbb54c0475eee381a1b854816d6e596188ee829"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000004500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000004500000/manifest.json",
+    "sha256": "85b2e27e7b9298f827c38b4adc3519e2ce1aa84deb82f896ff5217ba88e265fa"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000005000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000005000000/manifest.json",
+    "sha256": "e359982c4fc48a8875bb6d7b0d3f2fbf48daad0113814ecef94c43c89d086b78"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000005500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000005500000/manifest.json",
+    "sha256": "ee25979743871624da8027363cd1378482bdeeb2815c0ee8b26fe2d54c801cfb"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000006000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000006000000/manifest.json",
+    "sha256": "f7b5daceb39ada9e386b1f450f413ef264a9e45a7996c1479277f58cd8c32e77"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000006500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000006500000/manifest.json",
+    "sha256": "23a95a565db0cbd7b64a3ca0bc61627d6d3dcfaff37660f39fbe7ddae23d16f6"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000007000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000007000000/manifest.json",
+    "sha256": "d9b7b77df58347cc5e0539af03a0b4c3d5b453791fdd20be11d670bd16944950"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000007500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000007500000/manifest.json",
+    "sha256": "a9ff26ec12049d742c1978d4b8c7c3e7796aeadfd5b19e0031951b20f4b979a4"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000008000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000008000000/manifest.json",
+    "sha256": "8276ddc43128bccf8c164c15bfe700927ee5826ad00491b6fe697c402784fb4a"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000008500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000008500000/manifest.json",
+    "sha256": "057c7413a8ec55e27e2ed873eb50c13407d189dd838588a3d0e2c1f4923d59d1"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000009000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000009000000/manifest.json",
+    "sha256": "fe07ef725e4bc8b9ed84ed5242fb36adf4b5ec7705acd9383cfd9c46319b50a6"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000009500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000009500000/manifest.json",
+    "sha256": "8f4980158f56f30c9eaf00c6b84414efdf6d268c4b01f29765aa01d0ff8ec27d"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000010000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000010000000/manifest.json",
+    "sha256": "1bcea991ed35c517d56dc81eddc5fe714edf8feb41af02bf5b0323f4d1a46608"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000010500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000010500000/manifest.json",
+    "sha256": "3c146269039c8c33561e72f3680d4a2d081c2b09b1b6e5e4abfab92f478f687c"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000011000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000011000000/manifest.json",
+    "sha256": "037b59c68e28b5c56b3f31ce8d5f72f33ad012a12fd85ab3aaa0e0a877912e5d"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000011500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000011500000/manifest.json",
+    "sha256": "3dc025b4013bb3e4f2bfc7ee19513121ca7c0dd3300ae0466adaf82f7601bef5"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000012000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000012000000/manifest.json",
+    "sha256": "a5b8f4b73ba19ff3e3e8b52be4c3d92c81c25ff08f4f9c9fb1fa8af2bf1b03f4"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000012500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000012500000/manifest.json",
+    "sha256": "2f839e5ff3492ff5231c31b86ff3609b14f6d5706b425936a8f12f41aab08252"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000013000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000013000000/manifest.json",
+    "sha256": "7942b547425a0243840b2b88fecb4dd94ab108cccabad97cc57bc1ae382c05b9"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000013500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000013500000/manifest.json",
+    "sha256": "6170a9eaf261f2bd22434485a139933a752d52c8d460797add115e67b40e8fd8"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000014000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000014000000/manifest.json",
+    "sha256": "ae7cbb9d5224d8d69789770828a20e2a608467088956db6b44c5400308aa6086"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000014500000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000014500000/manifest.json",
+    "sha256": "c64d650cfb1d118b0cc52765f62f97d379595be7667fa60d874b9f6974502364"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/rps/trials/tabular/weights/000015000000/manifest.json": {
+    "original": "runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular/weights/000015000000/manifest.json",
+    "sha256": "35dfa0fcebbcdef5a17ecd73d616b0af4b80b5ab11e41e03b302d5d8c4b7a98a"
+  }
+}

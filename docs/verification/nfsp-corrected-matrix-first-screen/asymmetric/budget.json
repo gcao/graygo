@@ -1,0 +1,23 @@
+{
+  "funding": [
+    {
+      "complete_pre_post_work": true,
+      "learner": "tabular",
+      "measured_setup_included": true,
+      "phase_weighted_15M_seconds": 1460.8076359378174,
+      "time_ceiling_seconds": 3000.0,
+      "twofold_margin_passed": true
+    },
+    {
+      "complete_pre_post_work": true,
+      "learner": "neural",
+      "measured_setup_included": true,
+      "phase_weighted_15M_seconds": 1502.8994848951697,
+      "time_ceiling_seconds": 3600.0,
+      "twofold_margin_passed": true
+    }
+  ],
+  "scope": "terminal matrix only; no delayed/9x9 price",
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "task": "asymmetric"
+}

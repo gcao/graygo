@@ -1,0 +1,333 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "1a458dc368841282e5d0121390d9aa861ba2e939bc36adf4744bca8447bb1f94",
+  "cases": {
+    "asymmetric/neural/0": {
+      "case_sha256": "638fd853d53b83d1b6b30c8d480ce1558cdc4f801da5d65bbf893aaebe5ebdc3",
+      "fresh_audit_verified": true,
+      "records": 15000000,
+      "status": "complete"
+    },
+    "asymmetric/tabular/0": {
+      "case_sha256": "eee6183934372f1620afeed5bd5c2895212ad1f2127e57fbe7cad0835394edc1",
+      "fresh_audit_verified": true,
+      "records": 15000000,
+      "status": "complete"
+    },
+    "rps/neural/0": {
+      "case_sha256": "eea18cc47589bfdcbcba006d4aef04c83c1740fdfd71fd48c4701f3626e76fc4",
+      "fresh_audit_verified": true,
+      "records": 15000000,
+      "status": "complete"
+    },
+    "rps/tabular/0": {
+      "case_sha256": "981e4ee9b4b1ce5cb293c80d60d2beda70337a1df5f7e19ad1ebf4dbf001b45a",
+      "fresh_audit_verified": true,
+      "records": 15000000,
+      "status": "complete"
+    }
+  },
+  "collector_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "commands": [
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "audit-case",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular",
+        "--time-cap-seconds",
+        "600",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-tabular-0.json"
+      ],
+      "label": "audit-rps-tabular-0",
+      "measured_process_seconds": 8.486736359074712,
+      "pid": 2687084,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-tabular-0.json",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-01-current.json"
+      ],
+      "label": "assess-01-current",
+      "measured_process_seconds": 0.8174099359894171,
+      "pid": 2687175,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-tabular-0.json",
+        "--archived",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-01-archived.json"
+      ],
+      "label": "assess-01-archived",
+      "measured_process_seconds": 0.16522091103252023,
+      "pid": 2687199,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "audit-case",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular",
+        "--time-cap-seconds",
+        "600",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-tabular-0.json"
+      ],
+      "label": "audit-asymmetric-tabular-0",
+      "measured_process_seconds": 8.582971447962336,
+      "pid": 2687244,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-tabular-0.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-tabular-0.json",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-02-current.json"
+      ],
+      "label": "assess-02-current",
+      "measured_process_seconds": 1.3700875929789618,
+      "pid": 2687331,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-tabular-0.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-tabular-0.json",
+        "--archived",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-02-archived.json"
+      ],
+      "label": "assess-02-archived",
+      "measured_process_seconds": 0.16545970097649843,
+      "pid": 2687355,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "audit-case",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/rps/trials/neural",
+        "--time-cap-seconds",
+        "600",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-neural-0.json"
+      ],
+      "label": "audit-rps-neural-0",
+      "measured_process_seconds": 7.836503991973586,
+      "pid": 2693382,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-tabular-0.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-tabular-0.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-neural-0.json",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-03-current.json"
+      ],
+      "label": "assess-03-current",
+      "measured_process_seconds": 1.8182708700187504,
+      "pid": 2693513,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-tabular-0.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-tabular-0.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-neural-0.json",
+        "--archived",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-03-archived.json"
+      ],
+      "label": "assess-03-archived",
+      "measured_process_seconds": 0.16556015005335212,
+      "pid": 2693537,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "audit-case",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/neural",
+        "--time-cap-seconds",
+        "600",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-neural-0.json"
+      ],
+      "label": "audit-asymmetric-neural-0",
+      "measured_process_seconds": 7.788820200017653,
+      "pid": 2693580,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-tabular-0.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-tabular-0.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-neural-0.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-neural-0.json",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-04-current.json"
+      ],
+      "label": "assess-04-current",
+      "measured_process_seconds": 2.2685313780093566,
+      "pid": 2693669,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-tabular-0.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-tabular-0.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-neural-0.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-neural-0.json",
+        "--archived",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-04-archived.json"
+      ],
+      "label": "assess-04-archived",
+      "measured_process_seconds": 0.1654410510091111,
+      "pid": 2693693,
+      "returncode": 0
+    }
+  ],
+  "driver_sha256": "9a357b0d0d7dcd9008392d0fb73bda89f33231a5ebe8d8ea31de68188ee712d7",
+  "driver_wall_seconds": 1735.0625162180513,
+  "execution_authorized": false,
+  "latest_assessment": {
+    "archived": "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-04-archived.json",
+    "archived_sha256": "0086be35a0755d17a4dc35a362091e600c43999122375f7b6235dba2c9b28039",
+    "current": "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/assessment-04-current.json",
+    "current_archived_numerics_match": true,
+    "current_sha256": "e722f78850b6a016cde99f59865ce622bdade851b28d6a6c0cf2196065911ec5",
+    "missing_cases": 30,
+    "present_cases": 6
+  },
+  "matrix_auditor_sha256": "7a9898ba046fdb4aa638c0ddbc92ccb721b362a6b0767eb38d8723802f30f728",
+  "measured_child_process_seconds": 39.631013589096256,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "no_training_launch_or_resume": true,
+  "original_case_files_unchanged": true,
+  "original_driver_pid": 2686024,
+  "original_stage_handles_live": {
+    "asymmetric": false,
+    "rps": false
+  },
+  "outer_watchdog_seconds": 11000,
+  "status": "fixed_original_case_evidence_collected",
+  "terminal_missing_cases": [],
+  "version": 1,
+  "wait_seconds": 1695.0284288289258
+}

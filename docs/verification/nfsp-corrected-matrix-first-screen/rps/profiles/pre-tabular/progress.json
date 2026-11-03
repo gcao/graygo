@@ -1,0 +1,185 @@
+{
+  "acting_policy_counts": {
+    "average": 0,
+    "q": 100000,
+    "uniform": 0
+  },
+  "average_final_five_passed": false,
+  "best_response_visits": [
+    4896,
+    5059
+  ],
+  "counters": {
+    "fresh_ordinary": 100000,
+    "fresh_q": 100000,
+    "fresh_records": 100000,
+    "q_loss_targets": 96000,
+    "q_updates": 750,
+    "supervised_targets": 0,
+    "supervised_updates": 0,
+    "target_refreshes": 7
+  },
+  "elapsed_seconds": 8.958652143017389,
+  "episode_audit_bytes": 6050000,
+  "evaluations": [
+    {
+      "average_gaps": [
+        0.0,
+        0.0
+      ],
+      "average_policies": [
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      ],
+      "average_ready": false,
+      "counters": {
+        "fresh_ordinary": 50000,
+        "fresh_q": 50000,
+        "fresh_records": 50000,
+        "q_loss_targets": 45952,
+        "q_updates": 359,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 3
+      },
+      "elapsed_seconds": 4.296672459924594,
+      "epsilon": 0.09939999999999999,
+      "greedy_q_gaps": [
+        1.0,
+        1.0
+      ],
+      "greedy_q_policies": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "handoff_probability": 0.0,
+      "q_values": [
+        [
+          -0.00978346448391676,
+          0.028743727132678032,
+          -0.049996934831142426
+        ],
+        [
+          -0.060256488621234894,
+          0.00490664504468441,
+          0.1153523400425911
+        ]
+      ],
+      "records": 50000,
+      "reservoir_seen": 0,
+      "reservoir_size": 0
+    },
+    {
+      "average_gaps": [
+        0.0,
+        0.0
+      ],
+      "average_policies": [
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      ],
+      "average_ready": false,
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "fresh_records": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 8.738731123972684,
+      "epsilon": 0.0988,
+      "greedy_q_gaps": [
+        1.0,
+        1.0
+      ],
+      "greedy_q_policies": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "handoff_probability": 0.0,
+      "q_values": [
+        [
+          0.18663369119167328,
+          -0.09249304234981537,
+          -0.07490804046392441
+        ],
+        [
+          -0.1132761687040329,
+          0.021599024534225464,
+          0.17179088294506073
+        ]
+      ],
+      "records": 100000,
+      "reservoir_seen": 0,
+      "reservoir_size": 0
+    }
+  ],
+  "formal_gate_passed": false,
+  "formal_protocol": false,
+  "learner": "tabular",
+  "loss_stats": {
+    "projected_targets": 0,
+    "q_loss_sum": 495.0092779994011,
+    "q_updates": 750,
+    "raw_target_max": 1.0,
+    "raw_target_min": -1.0,
+    "supervised_loss_sum": 0.0,
+    "supervised_loss_updates": 0
+  },
+  "matrix_certificate_gap": 2.220446049250313e-16,
+  "matrix_value": 0.0,
+  "per_role_records": [
+    50000,
+    50000
+  ],
+  "physical_games": 50000,
+  "records": 100000,
+  "reservoir_changes": 0,
+  "reservoir_seen": 0,
+  "reservoir_size": 0,
+  "seed": 0,
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "status": "running",
+  "task": "rps",
+  "timings": {
+    "checkpoint": 0.5363160229753703,
+    "collection": 7.719371614395641,
+    "evaluation": 0.0006291508907452226,
+    "learning": 0.7873950893990695
+  }
+}

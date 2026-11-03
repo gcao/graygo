@@ -1,0 +1,66 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "136d70dc1d17c05fc62a36bbea13cf8f96e76532f3974a63f5184c2b91f3ed27",
+  "checks": {
+    "asymmetric": {
+      "emitted_source_plan_verified": true,
+      "first_public_archive_step": 500000,
+      "first_public_archive_verified": true,
+      "fresh_stage_root_required_by_original_driver": true,
+      "independent_Decimal_funding_review": {
+        "neural": {
+          "cap_seconds": "3600.0",
+          "forecast_seconds": "1502.899484895169700",
+          "measured_margin": "2.395369774347289321252085361"
+        },
+        "tabular": {
+          "cap_seconds": "3000.0",
+          "forecast_seconds": "1460.807635937817400",
+          "measured_margin": "2.053658487398337931647076829"
+        }
+      },
+      "initialization_basis": "pinned fresh-directory constructor path sets seed and creates new models/optimizers; the matrix runner archives public models from its first evaluation",
+      "original_stage_pid": 2679816,
+      "pre_opening_average_still_uniform_at_first_archive": true,
+      "record_zero_public_archive_retained": false,
+      "recorded_seed": 0,
+      "source_bridge_applies": true
+    },
+    "rps": {
+      "emitted_source_plan_verified": true,
+      "first_public_archive_step": 500000,
+      "first_public_archive_verified": true,
+      "fresh_stage_root_required_by_original_driver": true,
+      "independent_Decimal_funding_review": {
+        "neural": {
+          "cap_seconds": "3600.0",
+          "forecast_seconds": "1495.835274399723900",
+          "measured_margin": "2.406682113740547904364624980"
+        },
+        "tabular": {
+          "cap_seconds": "3000.0",
+          "forecast_seconds": "1460.820946795865950",
+          "measured_margin": "2.053639774662416450441907890"
+        }
+      },
+      "initialization_basis": "pinned fresh-directory constructor path sets seed and creates new models/optimizers; the matrix runner archives public models from its first evaluation",
+      "original_stage_pid": 2679817,
+      "pre_opening_average_still_uniform_at_first_archive": true,
+      "record_zero_public_archive_retained": false,
+      "recorded_seed": 0,
+      "source_bridge_applies": true
+    }
+  },
+  "driver_sha256": "035268fa99f5c82fafe1ea6216060466174cb0831370332077d84e5f31a93ea9",
+  "execution_authorized_for_other_scopes": false,
+  "formal_table_cases_running": true,
+  "learner_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "no_existing_learner_restarted": true,
+  "numerical_formal_case_result_claimed": false,
+  "original_driver_pid": 2679743,
+  "parent_funding_recalculation_uses_same_implementation": true,
+  "raw_profiles_complete": true,
+  "runner_sha256": "8d7ee99ea56a58dc2ad22fd451ec3dd2e32607d75fe542d73c3e1762730cf7d5",
+  "separate_independent_profile_audits_pending": true,
+  "version": 1
+}

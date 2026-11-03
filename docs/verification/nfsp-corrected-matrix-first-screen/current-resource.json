@@ -1,0 +1,1233 @@
+{
+  "active_table_reservation_seconds": "6060",
+  "added_leaves": [
+    {
+      "identity": "e25f181669b0f8521038b2c578513e199517b1052667aec801a87050ffc280a8",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/profile.json",
+      "scope": "corrected-matrix-asymmetric-pre-tabular",
+      "sha256": "871c91650de53e95355546a3628c6d97e888da445c338862ff5c8b7265309e89",
+      "state": "actual"
+    },
+    {
+      "identity": "2305a09e52e00c65e03bd7af2492fba64d472641aa38a8a153c83cc2eb8cc4fa",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/profile.json",
+      "scope": "corrected-matrix-asymmetric-pre-tabular-unknown-overhead",
+      "sha256": "871c91650de53e95355546a3628c6d97e888da445c338862ff5c8b7265309e89",
+      "state": "reserved"
+    },
+    {
+      "identity": "fc31a6e4ef361051a4bb0fe73a8a172b138e12fce0d3a74f4fe3c5e2be096ae2",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/profile.json",
+      "scope": "corrected-matrix-asymmetric-pre-neural",
+      "sha256": "871c91650de53e95355546a3628c6d97e888da445c338862ff5c8b7265309e89",
+      "state": "actual"
+    },
+    {
+      "identity": "026f853cef5ac712f25139154df7c01bb52f3b19e01c2ec4919c278c83e1ffe0",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/profile.json",
+      "scope": "corrected-matrix-asymmetric-post-tabular",
+      "sha256": "871c91650de53e95355546a3628c6d97e888da445c338862ff5c8b7265309e89",
+      "state": "actual"
+    },
+    {
+      "identity": "e8636aa247a10b86de225299057623917d2779b94fa1381b0225ffdb1e4ece63",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/profile.json",
+      "scope": "corrected-matrix-asymmetric-post-tabular-unknown-overhead",
+      "sha256": "871c91650de53e95355546a3628c6d97e888da445c338862ff5c8b7265309e89",
+      "state": "reserved"
+    },
+    {
+      "identity": "dada741ea84a3f80325e108899ed157bee62c2258f2f2cb310057bca69676b42",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/asymmetric/profile.json",
+      "scope": "corrected-matrix-asymmetric-post-neural",
+      "sha256": "871c91650de53e95355546a3628c6d97e888da445c338862ff5c8b7265309e89",
+      "state": "actual"
+    },
+    {
+      "identity": "26ac0b5bf904ffb62623d2b7a55cbe4a4fce5d18874a4e2fc947ea356d169c31",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/rps/profile.json",
+      "scope": "corrected-matrix-rps-pre-tabular",
+      "sha256": "653211560b8cf75979eacd07f8a62252610bdf161f76d332b9653080c1ab125c",
+      "state": "actual"
+    },
+    {
+      "identity": "38f64c53f9b85add2f9a02b43e001990177269f54fd31659f6478e4bd4708504",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/rps/profile.json",
+      "scope": "corrected-matrix-rps-pre-tabular-unknown-overhead",
+      "sha256": "653211560b8cf75979eacd07f8a62252610bdf161f76d332b9653080c1ab125c",
+      "state": "reserved"
+    },
+    {
+      "identity": "fa088e21f11ee477e2830696c2450028f53275d23f80f90de05a1e9a4f73166f",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/rps/profile.json",
+      "scope": "corrected-matrix-rps-pre-neural",
+      "sha256": "653211560b8cf75979eacd07f8a62252610bdf161f76d332b9653080c1ab125c",
+      "state": "actual"
+    },
+    {
+      "identity": "0ccbb24cec770082524627f5ce149a15f3b2e394bf91c53c46502cb62b8b6dfb",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/rps/profile.json",
+      "scope": "corrected-matrix-rps-post-tabular",
+      "sha256": "653211560b8cf75979eacd07f8a62252610bdf161f76d332b9653080c1ab125c",
+      "state": "actual"
+    },
+    {
+      "identity": "32aaefb185ac6f3673cc68c5211f47d8ab189a8b9f0d382dece0526076fb1f1b",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/rps/profile.json",
+      "scope": "corrected-matrix-rps-post-tabular-unknown-overhead",
+      "sha256": "653211560b8cf75979eacd07f8a62252610bdf161f76d332b9653080c1ab125c",
+      "state": "reserved"
+    },
+    {
+      "identity": "67d437fb848648931372ba400e19faa1846f29f2d6623deab90ae70ed0500fc5",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/rps/profile.json",
+      "scope": "corrected-matrix-rps-post-neural",
+      "sha256": "653211560b8cf75979eacd07f8a62252610bdf161f76d332b9653080c1ab125c",
+      "state": "actual"
+    },
+    {
+      "identity": "0c54c8b89ab8c35454786f5501947d8db7bba75d7f354b9e00c6e4438b0a0ab7",
+      "receipt": "docs/experiments/nfsp-corrected-matrix-first-screen-allocation.json",
+      "scope": "corrected-matrix-two-active-table-trials",
+      "sha256": "136d70dc1d17c05fc62a36bbea13cf8f96e76532f3974a63f5184c2b91f3ed27",
+      "state": "reserved"
+    },
+    {
+      "identity": "3b0136b5ea721aa0e1df2a200e4bfb6ae11036080ccfa3f56b4e947beec7b282",
+      "receipt": "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/job.json",
+      "scope": "corrected-matrix-independent-profile-audits",
+      "sha256": "0c76fc566ef90d7bd2f5c42d53a5ee09fc49fd7d6579feb8dcfa51822ab702ff",
+      "state": "actual"
+    },
+    {
+      "identity": "cf3b5d8de76a30ecaa3a001945d84d0d2d9bac6d613cabe7565ad485867c9db9",
+      "receipt": "docs/experiments/nfsp-corrected-matrix-first-screen-allocation.json",
+      "scope": "corrected-matrix-two-conditional-neural-loops",
+      "sha256": "136d70dc1d17c05fc62a36bbea13cf8f96e76532f3974a63f5184c2b91f3ed27",
+      "state": "reserved"
+    }
+  ],
+  "completed_profile_control_settlement": [
+    {
+      "actual_loop_and_setup_seconds": "9.758067038841546",
+      "phase": "pre",
+      "task": "asymmetric",
+      "unknown_overhead_reserved_seconds": "29.2280312430812046"
+    },
+    {
+      "actual_loop_and_setup_seconds": "9.729042839957401",
+      "phase": "post",
+      "task": "asymmetric",
+      "unknown_overhead_reserved_seconds": "29.87152147910092026"
+    },
+    {
+      "actual_loop_and_setup_seconds": "9.753317601978779",
+      "phase": "pre",
+      "task": "rps",
+      "unknown_overhead_reserved_seconds": "29.2229266290087253"
+    },
+    {
+      "actual_loop_and_setup_seconds": "9.73155066696927",
+      "phase": "post",
+      "task": "rps",
+      "unknown_overhead_reserved_seconds": "29.86863549100235105"
+    }
+  ],
+  "conditional_neural_loop_reservation_seconds": "7200",
+  "formal_trials_not_settled": true,
+  "inventory": {
+    "measurements": [
+      {
+        "category": "control",
+        "covered_scopes": [
+          "b599d5918394a3e4ae5c15328d2a0b08ebe7cbac0d743abafd248dd605db3ec6"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "b9f9806783d3aacd3d5c8e3b829416456f0ea60d3a61d32d494546ca6610a7ed",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "1338.7451892039971",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "dd655c2cc133fafeddbb73fdb969638b36c79f6f11678f6731a000a7a6f5ffd3"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "6a1cfced16ee9f876ea6d8ff72bfe9f90fe1e1abd390bc48de71a6d973974030",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "7218.410642870003",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "93d585dc588cd89f31092a1ff7e4860b1383581b0bcfabc149fca2019aee6309"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "9f3315b57e62e5151017ea3768f55da7dddc6ac7788b398711f6bdb0b4aa12e8",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "9.386666339996736",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "b8d45ba8a75dc093e1d75dc36b07d51a733fab889f80545e0ded805f7938461a"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "88202bb6dbd81a622ee6051a32fe62ab2d6da6fa34eb97b9d522d3537d7f75d5",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "8.6998783639865",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "a1eddfbd4742e6007e54d14a29be9b286d9ff7faa54c0d37c4fbbbdc6f109b4d"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "874f3e294ade4af4d94cf5b213bafe79afbd7a3262260e16f284c334e3e96465",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "9.305035030993167",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "9293e223a2d9587f064374af5a823e0be71de06782b889af8080dbd1aafa017b"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "2f37242051c04bfdd5eaceace7b8bf2f0e7cd02263c391a75e4a9481e123c882",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "8.622963652946055",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "e67c1a86a488f107ccb127d2a35c657a341e41aad252e36fb895a9bb205d79cb"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "2535591968d08af80ca7e916b8fa5f6e0ba9c13eae5cd0d5b1aa9a0352c6bda0",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "1341.0014055719948",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "d6fb86ab5ba45459211fd609caf334141238a2a91da920ea8cc832bb82ab50e9"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "b73dac3580a85e149f9853c86c7d14d64ca00cf6e45ac362f775bb8d4d560e65",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "24.189032648981083",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "5926bd88a6c4bae117ea551adf1edd9dea84588197be4393887a8141b8e49c79"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "699db93e656111c58e128ae3b7a36eac3009e1f375e439f9d4c044b0858987d8",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "26.27139743900625",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "0f76a5b1688854a2826cb1579e6d1e3a86ce2217bbb9ad52f7521378120faad3"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "39ab274855b4a3b95b487500bb52ff00b281ec810f367811a3247ce62fe37f34",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "29.938982944993768",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "bc482ee3278390ab27573d5b08cb3f811c171c6d85de848276ea79e80b91d1fd"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "ce76df491f8fdb97f107cfa6980873cc62fe8830bdb04a9af30151a695fff070",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "32.463548425992485",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "0ee6ceb861c2231280c1b675efdd3cdd31b4f74b4579e61fe3e9020b60451b76"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "27900e7860e0a5540d762b4503a8bb6b51402ff40f96b3031cc9ca9840b6575c",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "23.98126772197429",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "8d5c70cabe042394caf88f653f225f34331895551335c4a67ab9fba91cb95d0e"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "ee4b6dc039fc85258c9718acd3ada114c1bf760f694a023ebf648f2a71f6ec33",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "26.06753469799878",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "d2870a8adf09f42a5f6907b3b331674d4ec48dbf97aab954217d8f19b13a6eae"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "4ca55c0dc758121d0b48683538647060fd8c95979e80c979926ed026ab873338",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "29.655093784967903",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "d56728545ee391ee84fa5fee44d22b5cf6b11ac08c57d537305df64e2b589fe5"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "df469e5120c2441999a590b32568acc5ce7e4349b5a0d8c2bbb5903ec9634b0a",
+        "identity": "ac75bf65a0bd09bb77ec6f3226422b1f13633c24eeb33709a89b9684c5af134b",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "31.996727588004433",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "aead09d72d3ffb82f45e0069b7c3bc1aa008682f38e0789f0966ecb324b3ff8c"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "3da6bacbfce0b6648801a2fed3b518a9f798a0498bba9071f64373f37ed58872",
+        "identity": "abd552765a74aec1c941a47122cc6bdc102378557978e1ec4f796c71b1f52372",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "9250.354252206045",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "616d282a9ae6ce2f0378cf80121b90b77cd7f6d0c9671763507d0598c2445e71"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "4e6dfd61e012885c6eac6177c7568d746b3ad314df3e395a0b05626b61d02d77",
+        "identity": "4b65acc42c10a434ec38343b3490042bba6cbb3807c6f6e653177031ab906571",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "34.238584031991195",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "5e280ac401e949587979d0982b11566ea81972861a2bd9949a65a6ed044acaa1"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "4e6dfd61e012885c6eac6177c7568d746b3ad314df3e395a0b05626b61d02d77",
+        "identity": "10ad483c3c8511913fa7acd753defd4a22d4ac988388b08950cf05bdda204d78",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "31.734897031041328",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "b411a26a0c92d271eb5058981262b8d636f9fa73ef80c82e2d8ed1c19688e8f4"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "cbb7a73d7a03b289f4d31b8b2695dc16e9d8a7711d60b94dffb592ee525f3a8f",
+        "identity": "6c788e7bc53bf867fea5e7bdd20134791ad75c7c2ad80f65bad762cb8275d4a2",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "43.672724096046295",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "b41dbe87415f06b32f50d885d2b1e900510c8a9c44c292192c225ff18d2127f9"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "cbb7a73d7a03b289f4d31b8b2695dc16e9d8a7711d60b94dffb592ee525f3a8f",
+        "identity": "f12aa017dc654b92a0b8f84c5224e1e3f49e4b77156d1ca52cb1ea46c8d0072d",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "41.02294478402473",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "1a58167031140cd4819ca7b0cfdb00b063c4e3e6773a3fe750edf404aa74069d"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "e3d33e4d4f7a1f271bff6481356208fd5bf382039b9348bcce64fe908b96317e",
+        "identity": "956e06f5adce4a13d613c196ba845c37f527bff66994dbb1ce5e38a96770af8f",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "7431.799158633978",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "accelerator",
+        "covered_scopes": [
+          "903864ebb061f02cb4fa05458e814aea5b78da902c041154726f96efc39fb008"
+        ],
+        "device_ids": [
+          "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2"
+        ],
+        "evidence_sha256": "741533c3c60a357612fd8ca87de53238d7575cf5b6415a401040dbf1d0d52fa6",
+        "identity": "408ea846112bfc8a2bc44566892ec5f1b98caa3a49cbbde4b6f7886bd8b7a8ce",
+        "interval_end": "1793648432.9245007",
+        "interval_start": "1793648277.3990176",
+        "seconds": "155.5254831",
+        "state": "actual",
+        "unit": "gpu_equipped_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "06a7efc58ff4574a9cb0eda3985a14cb3e73b940e523052d2e0ca324e9c4c0e1"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "741533c3c60a357612fd8ca87de53238d7575cf5b6415a401040dbf1d0d52fa6",
+        "identity": "a2f963d2c05bdf3a5c204a33893b36738f8452076ac374bfab9e6f7b17b7fb95",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "6.620969477924518",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "c670c4fe6920bd63ea9ec7e962e096c850b8a8f6abe654eccc27845c3dd788bc"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "a1662ac607f35673be5815966183de923fd3439e7d65de39ca9282e3e4dd8feb",
+        "identity": "954a4a38a68cc8916e10d3ca0638a82c129aa48c5cbd31f06bb89184fafda080",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "9392.739873325976",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "cc605b4d378dcabe4a2624694530781ecbb7e6714f23e1a867b9c3e7677f0b65"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "a1662ac607f35673be5815966183de923fd3439e7d65de39ca9282e3e4dd8feb",
+        "identity": "6145aaf17c04fce9a5dfe2b7fd3d30eb6c7e16534664da162066ef8bf9d84e9c",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "1.415806275967043",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "679ea478f4dd18a7394ec5f2344b980351d4c675d2f432d3f28a71a4dfe4f358"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "a1662ac607f35673be5815966183de923fd3439e7d65de39ca9282e3e4dd8feb",
+        "identity": "3a5bb8eb6563b09a17594dbdb2c84b0b840cf679dff38141a7b24fd778bd3e33",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "28.584193724032957",
+        "state": "reserved",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "accelerator",
+        "covered_scopes": [
+          "364120389ad7c865d62c0dbb99bdbe10b9e1ea16f565440b531a88bfd4e87884"
+        ],
+        "device_ids": [
+          "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2"
+        ],
+        "evidence_sha256": "42905e9f7acd40f386c0c923fdae980a0a75f8b5059cf6f30ab14c0a1ed65f5f",
+        "identity": "d46299c5a10ade6368198badb5c72654c4375c305c66905e532dd0c96d3ae9fa",
+        "interval_end": "1793655836.2430754",
+        "interval_start": "1793654810.765719",
+        "seconds": "1025.4773564",
+        "state": "actual",
+        "unit": "gpu_equipped_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "b10ec2e855cc7f1c669003e4ed150adab9bc86a183bdcf153f5818c0de9186b4"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "cd187e239eaa8cb23c76536641bd44a6e2fbcdf050d6080bf2a404cdc07f2794",
+        "identity": "6b1900d00b1871cbc03002ea459ed47d3ea06817caa37b8ab34e614120fe016e",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "35.84342504804954",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "997365f68593d9dcfa21f964cb7624c8f2df55c797e5b3d9089f576d8c622286"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "42905e9f7acd40f386c0c923fdae980a0a75f8b5059cf6f30ab14c0a1ed65f5f",
+        "identity": "5c4e672e4432b2be929ed8a97c484dfd492cb4f67de03baa37022e640eff5d7e",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "7.289224922074936",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "accelerator",
+        "covered_scopes": [
+          "b9a64e727546bea3cbd057b346bd4dd27beec85c5d0bb84ac325c63310510221"
+        ],
+        "device_ids": [
+          "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2"
+        ],
+        "evidence_sha256": "716681bf1c43bda3a257b5c8487d6a36b1c64cf4871e84bb3396de6128f74c69",
+        "identity": "0bee71c72f02a782fd5cd22029dc26c95dfd125d729b8cba8fa6d512ce58eaea",
+        "interval_end": "1793660961.7471101",
+        "interval_start": "1793660571.8815427",
+        "seconds": "389.8655674",
+        "state": "actual",
+        "unit": "gpu_equipped_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "ee278e9f24c167ac5b1ff0b56d43bbb6c50254a4ce647291fcc1cc2092bbf932"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "fc275da243e5ae243a568100f2a21341819608ad1bf079737528c06537c031b8",
+        "identity": "958c908964dcbc42cfba4d0446500e3a17cee194370df5eb5dde1e86ec03ac51",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "287.871262060944",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "46d356448ee9e13b6ebec603751ba00de1ea3a9729c5d07d85fe35d98718072d"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "716681bf1c43bda3a257b5c8487d6a36b1c64cf4871e84bb3396de6128f74c69",
+        "identity": "ad1da41ebc133b0916a980ae35122635e060c3373029772e1bdded556fff8043",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "7.323103734990582",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "7e692d675f042b0fadad30f1180a2194079b161b9957907af681025667009487"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "3aa084a8902a8ca8853d0257be320b430726a350fd4044ac1bfc2010a1f32b4c",
+        "identity": "d6c7b0679dfeabc0f7b6aedc6d529c6e7a372c515261b2cd8884eb1d5e1be593",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "3.115832002949901",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "accelerator",
+        "covered_scopes": [
+          "7d59e77cf0d5afe8048eb29af629edce0b673d907279ad0f93a0ca133adbd7d9"
+        ],
+        "device_ids": [
+          "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2"
+        ],
+        "evidence_sha256": "3dec9025a45e8ceef1e2d8ec2b98c1eea975a3db274ce90a6c5121614546c954",
+        "identity": "83861342eebb930e7bdcf6254d29909bcf9f0e3955bcb19db60bd8f188fcb650",
+        "interval_end": "1793662893.0300698",
+        "interval_start": "1793662815.138314",
+        "seconds": "77.8917558",
+        "state": "actual",
+        "unit": "gpu_equipped_process_seconds"
+      },
+      {
+        "category": "accelerator",
+        "covered_scopes": [
+          "0ba7f9243db6a0902354e23f008768ac63d8d02abbc47aa679b61152545e290d"
+        ],
+        "device_ids": [
+          "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2"
+        ],
+        "evidence_sha256": "74694d2bd584c1226634f562000f7a5190d248e170c17a710520837ec1af2676",
+        "identity": "6b3073235613b454c00e1d61fe785b87ba2f21882f7dceec88ffbe5a62a00f17",
+        "interval_end": "1793663945.3539584",
+        "interval_start": "1793663943.6664865",
+        "seconds": "1.6874719",
+        "state": "actual",
+        "unit": "gpu_equipped_process_seconds"
+      },
+      {
+        "category": "accelerator",
+        "covered_scopes": [
+          "05546ad15a4d2f9bfd91552968b67fbb44a849d00c84a4c0519d50ede882b072"
+        ],
+        "device_ids": [
+          "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2"
+        ],
+        "evidence_sha256": "18ab40db8797c079268101e03f398ee32ad18000ab6da3e3173787722d435594",
+        "identity": "1f974e9567779926ebd61c1480b4d25a5194125063ca3c9ca7086ff99e51fca9",
+        "interval_end": "1793664455.6917834",
+        "interval_start": "1793664137.5309515",
+        "seconds": "318.1608319",
+        "state": "actual",
+        "unit": "gpu_equipped_process_seconds"
+      },
+      {
+        "category": "neural",
+        "covered_scopes": [
+          "a1da575777f636e56e7d2201272fc8a64964d6bf2892780d0751ef543749e253"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "a441936e6e369fa3ddc694c09b6b045f227de2758c31fd5939e07c92a4c37190",
+        "identity": "64e934f2ce2b710ced3bf69042fb1b1d1525cf943ffecd03ae134015cd7a5863",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "9671.735913385986",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "02f36784e32890a625c8897963bc50ece94289e86316e2425bfebba8a97d5d2c"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "43f760b6b959813c2bd899b53459720739b66e953b2d4cc67791302e1f6981ce",
+        "identity": "6744beb0410beae0b3d6af674ca92c2333756536e6e860ec1200e97e93023abb",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "33.08582529705018",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "533a64954059e0854edb82b240941b5026bc16c767fade2e8aada811238b9e1a"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "73ebeb6dd7ab8b01d4eb7d358f2b27e1aaf23ddce9f52633b1c89b9de79e8679",
+        "identity": "a5b85a3d271c6de81930f1587581041deddef3c95685b4f855d47b100dccc555",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "13.463698575040326",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "2b8c87b2bbe6f1d1e4b1d8946a437713a371d927eaaa9f59ac00e2220eeaf3c9"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "d07410db25ef63559e8dbb4a6244a308c906ae60626a0943b7e2c9ceb9627b43",
+        "identity": "9c6113f35ef2715315f1a10b344930490ecfd756314fdad659c7b843a2397b20",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "119.57110065803863",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "neural",
+        "covered_scopes": [
+          "b10dbf1b57eac830fd5ffb54c1a31a98a13c4e9c3d5c950b808170306ac4e38b"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5",
+        "identity": "431a8fcb32a6c877b913a8c376fac39799af185611d84ea25a90fd476ee04ec7",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "44.83905064908322",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "neural",
+        "covered_scopes": [
+          "2421e10965673bd824b21b24e5f342119f76eb78972164cea7fc75d2ec30933a"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5",
+        "identity": "ea6fa76bf645b780852c5fc59bda2ed0bf2070eb31e28676029be7c05422da00",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "40.485569825046696",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "c7cbb3f690a8a46fa5f24c08c53322902671519df0a5bfb8a8ae90ce43c68772"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5",
+        "identity": "45287be771dade05888f55b9e1c8c7c9d959fdd3d967e38dd55cadf005d42144",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "42.6977479220368",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "66b796745aefbb36c042b88f49877c8e214d7a042dd8b56f07544ecc2730e0a1"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5",
+        "identity": "9cd7d3634662c45787d5294f307823d1d819ffa8a7e2f24d4dd937896733f161",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "29.90577576798386872",
+        "state": "reserved",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "ebedb7e3114320d4aed1c2a40fc934577c2f4f04ca8c9544b19898033ff86a51"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5",
+        "identity": "2a6d31b5e355a782619a8a65845480d9d887d8b275ac08eecaaa25f9bbbc86c1",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "39.483934312011115",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "75bde32fe70aea85e21c2f5d9a5d226ea823a52e836fffe71a3378fd5111e7a1"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5",
+        "identity": "2ed5b842b672af9a4d1ab16b0ac459174589f5e01e0fb2d6cb8e136894d94642",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "29.90574124804697931",
+        "state": "reserved",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "neural",
+        "covered_scopes": [
+          "5390e3c480033cc3a19f0981e8657e7be4c8bec56e7968ea404abb825a8974e5"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9",
+        "identity": "3f63754942982137daf44db10917060638e34859f1c4ae48a02f0c419599b766",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "45.09561782993842",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "neural",
+        "covered_scopes": [
+          "0d38c564cdd424c66b9b3f6ff7734d6e7f7906e16be760060e3ddf1ea29f8241"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9",
+        "identity": "139d8a6876fac26c0d4ea6ed6e5c304da162cf1d9a6e9710b507c7389f4dbce4",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "40.452928551938385",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "0a3ffde2bd8330587793a65c4224c77600db84c5ec3c5f0b0f13a89440651181"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9",
+        "identity": "331a3df23c53c057d47258a13ee2f02d7573d0fca4c28b472fa12699f60eb922",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "43.03608335496392",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "b609bfb63d61f84d129cfb162a7c29ac3e867e9b91c748b69fe5bdee22d1fc4f"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9",
+        "identity": "1be4d686a84713ebe5e944a8aab13b8d3d9e9a215484999ba70edae1cabbb6bb",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "29.90466492401901633",
+        "state": "reserved",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "a52c0b3eb716afff5dd95804e871b19364be25d85ce6a4bb6b275af2eae62776"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9",
+        "identity": "42c33f06b278b4d2da2b4b79f885664b50cac1770b89f57157704276cd2f4500",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "40.135500645963475",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "0f6a2da7c7c5d5a6a630da25eaac70c5b7380f2aac2b370f2602c3b4ca15bff0"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9",
+        "identity": "78a458d47ae1c415fa28d562425f053709731f19999db68c7bc55985520f3291",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "29.81687599106226116",
+        "state": "reserved",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "d335513b3b8c94f0f429aaf988213f1d4f0de11a30a7268d32049622d6c6ee61"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "8beb63c9be5101794c818fa5ef49de6fc3801015b580e8959de639a3a959c288",
+        "identity": "ce3867f8eda093fe283a0e874ff53d59ef636ee6637a58af96773c5ec58f03f8",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "1.6188021679408848",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "d605c1e955772ed7a7294cd2c0c77373e41a8e5634040b3b8a2ae2e52727f6b8"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "5076d0dcb7643bb0805d0afbecdb46b088e3a60a78e88ea2e2ed87c24b69f0ac",
+        "identity": "535c34e8b07091dd0ae680a367263a329a767a887e725e436103f7d0e854b80d",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "3.387266017962247",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "b6723a8afaca5c133e4bb06f3717306b4c33e01879e8f69a3b1e4570f34a4463"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "829b7d162f7dfe93ed30104f546676f5565787acdd2ca5a2e7ac33d21f4fa5dd",
+        "identity": "cb5ac17a45f4a66ac40e0d5069417c73996c3b953cb56cdeb23f677aa49b834f",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "7.958725764998235",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "9cad6cd214bb87b8f51868320228e3a9be156bca60cd9dbd8551a1c36fff0964"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "f2c161e684b8410da4f74aba86decc0e6a6fd291999425da16781f9c20c78726",
+        "identity": "0aad0b9e1cfc01bb7be972c308346481e44e7858e24dbae5597eab7a574da678",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "4.471947698970325",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "c888deabf4a13fd2eef4ada59f2d099b1e1c3f2ba550caf480970319ae22efda"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "cd9ee0d2e6f922b5e3554174c636611567ddcd503fd9f64375ec2511621afc49",
+        "identity": "45c5d246c97d659f966d21a309ece4bfcd163132e9ccfe4c6909fd18270224f3",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "0.15932746301405132",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "474a2b3035e554dcea0b91e34bccc1fea17537451880674cc2bfd29c74cf2470"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "871c91650de53e95355546a3628c6d97e888da445c338862ff5c8b7265309e89",
+        "identity": "e25f181669b0f8521038b2c578513e199517b1052667aec801a87050ffc280a8",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "9.758067038841546",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "464d13d27ae363d3dd04298c216f2ac2b4d4bd8f0a3cad1c18dfe7140fc25c12"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "871c91650de53e95355546a3628c6d97e888da445c338862ff5c8b7265309e89",
+        "identity": "2305a09e52e00c65e03bd7af2492fba64d472641aa38a8a153c83cc2eb8cc4fa",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "29.2280312430812046",
+        "state": "reserved",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "neural",
+        "covered_scopes": [
+          "a47188b1a229cffded2d25274c11eb1040dcfb1bc4e9ce4b3a133c8fe3843509"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "871c91650de53e95355546a3628c6d97e888da445c338862ff5c8b7265309e89",
+        "identity": "fc31a6e4ef361051a4bb0fe73a8a172b138e12fce0d3a74f4fe3c5e2be096ae2",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "9.35365381790325",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "518d44da2dccdf95af423bc08b41a0c54b6b2a64c8a0b21613bc00816c77db8e"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "871c91650de53e95355546a3628c6d97e888da445c338862ff5c8b7265309e89",
+        "identity": "026f853cef5ac712f25139154df7c01bb52f3b19e01c2ec4919c278c83e1ffe0",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "9.729042839957401",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "af117d8949be7d5966da7e69be6a5a5f3cb808e7d4f2418a3dab28aaf27be82c"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "871c91650de53e95355546a3628c6d97e888da445c338862ff5c8b7265309e89",
+        "identity": "e8636aa247a10b86de225299057623917d2779b94fa1381b0225ffdb1e4ece63",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "29.87152147910092026",
+        "state": "reserved",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "neural",
+        "covered_scopes": [
+          "215ba06c26730255d0257d02f69bedbc08880a4c2931b8c68289d7abe503119f"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "871c91650de53e95355546a3628c6d97e888da445c338862ff5c8b7265309e89",
+        "identity": "dada741ea84a3f80325e108899ed157bee62c2258f2f2cb310057bca69676b42",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "10.352167940000072",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "b41a5608df233d6730d1dcd204f82644d520b4382b66ff1ac03b90b532072ca8"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "653211560b8cf75979eacd07f8a62252610bdf161f76d332b9653080c1ab125c",
+        "identity": "26ac0b5bf904ffb62623d2b7a55cbe4a4fce5d18874a4e2fc947ea356d169c31",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "9.753317601978779",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "92a34b1aa930c95face7663ee8748b64c9cac3bb387e3f4e138cf282cfc874a7"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "653211560b8cf75979eacd07f8a62252610bdf161f76d332b9653080c1ab125c",
+        "identity": "38f64c53f9b85add2f9a02b43e001990177269f54fd31659f6478e4bd4708504",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "29.2229266290087253",
+        "state": "reserved",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "neural",
+        "covered_scopes": [
+          "5add8682ec343c5d773fb8ec13cbf882044669fedaaad41598e732f1fb87bfb3"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "653211560b8cf75979eacd07f8a62252610bdf161f76d332b9653080c1ab125c",
+        "identity": "fa088e21f11ee477e2830696c2450028f53275d23f80f90de05a1e9a4f73166f",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "9.29125951603055",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "864b6ce67f23117ec9e88c9d7444213bb2d479bbb8e3375b62ba604127696762"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "653211560b8cf75979eacd07f8a62252610bdf161f76d332b9653080c1ab125c",
+        "identity": "0ccbb24cec770082524627f5ce149a15f3b2e394bf91c53c46502cb62b8b6dfb",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "9.73155066696927",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "3a5aa7bd12244a2d33d6ec2537f4c34372c476ac19610bb19f9fa6e63719b17f"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "653211560b8cf75979eacd07f8a62252610bdf161f76d332b9653080c1ab125c",
+        "identity": "32aaefb185ac6f3673cc68c5211f47d8ab189a8b9f0d382dece0526076fb1f1b",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "29.86863549100235105",
+        "state": "reserved",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "neural",
+        "covered_scopes": [
+          "f69bccb681f5cd87d35a92bc39fd7fc7a89481fab5f99d6ad68e1ebbeb2e4aa6"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "653211560b8cf75979eacd07f8a62252610bdf161f76d332b9653080c1ab125c",
+        "identity": "67d437fb848648931372ba400e19faa1846f29f2d6623deab90ae70ed0500fc5",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "10.312722985981964",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "control",
+        "covered_scopes": [
+          "e57960833f3391ad0f8b6cfb6bcf1faafa61ffd56a24311b4ce817e9fbcca298",
+          "18ab625217d98741d2b0714bb3d86b6c5016a2ca2ccb23d7b9bb047ed1ee4396"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "136d70dc1d17c05fc62a36bbea13cf8f96e76532f3974a63f5184c2b91f3ed27",
+        "identity": "0c54c8b89ab8c35454786f5501947d8db7bba75d7f354b9e00c6e4438b0a0ab7",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "6060",
+        "state": "reserved",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "verification",
+        "covered_scopes": [
+          "eda891b1257959b3f60ef5e648da816155bc4d238a6b4f3bcf1d753d3e0b77c8"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "0c76fc566ef90d7bd2f5c42d53a5ee09fc49fd7d6579feb8dcfa51822ab702ff",
+        "identity": "3b0136b5ea721aa0e1df2a200e4bfb6ae11036080ccfa3f56b4e947beec7b282",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "13.73435139900539",
+        "state": "actual",
+        "unit": "cpu_process_seconds"
+      },
+      {
+        "category": "neural",
+        "covered_scopes": [
+          "ea03ad689fee274bf07bbf3abd68d830a46f528a562ef51078d92c557d8f6709",
+          "bd3554a3326bebd6b73a928a08be696d347c00f920964896e12367053d7f2e37"
+        ],
+        "device_ids": [],
+        "evidence_sha256": "136d70dc1d17c05fc62a36bbea13cf8f96e76532f3974a63f5184c2b91f3ed27",
+        "identity": "cf3b5d8de76a30ecaa3a001945d84d0d2d9bac6d613cabe7565ad485867c9db9",
+        "interval_end": null,
+        "interval_start": null,
+        "seconds": "7200",
+        "state": "reserved",
+        "unit": "cpu_process_seconds"
+      }
+    ],
+    "version": "graygo/nfsp-resource-ledger/1"
+  },
+  "neural_constructor_or_other_unknown_cost_not_invented": true,
+  "original_allocation_control_reservation_seconds": "6440",
+  "prior_usage_sha256": "1751fb46aaa8a55dddd9a4d28adc01a9838af9538ff528b525dfb5cee1ac056a",
+  "review": {
+    "cpu_categories": {
+      "control": {
+        "actual_process_seconds": "36590.038851053628247",
+        "ceiling_seconds": "43200",
+        "committed_process_seconds": "42916.34721755096653073",
+        "reserved_process_seconds": "6326.30836649733828373",
+        "unallocated_seconds": "283.65278244903346927",
+        "within_ceiling": true
+      },
+      "development": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": null,
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": null,
+        "within_ceiling": null
+      },
+      "neural": {
+        "actual_process_seconds": "9881.918884501908557",
+        "ceiling_seconds": null,
+        "committed_process_seconds": "17081.918884501908557",
+        "reserved_process_seconds": "7200",
+        "unallocated_seconds": null,
+        "within_ceiling": null
+      },
+      "probe": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": "28800",
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": "28800",
+        "within_ceiling": true
+      },
+      "resolver_evaluator": {
+        "actual_process_seconds": "0",
+        "ceiling_seconds": "14400",
+        "committed_process_seconds": "0",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": "14400",
+        "within_ceiling": true
+      },
+      "verification": {
+        "actual_process_seconds": "545.51486228895374612",
+        "ceiling_seconds": null,
+        "committed_process_seconds": "545.51486228895374612",
+        "reserved_process_seconds": "0",
+        "unallocated_seconds": null,
+        "within_ceiling": null
+      }
+    },
+    "gpu_equipped_actual_process_seconds": "1968.6084665",
+    "gpu_equipped_reserved_process_seconds": "0",
+    "gpu_measurements_without_physical_intervals": [],
+    "known_physical_gpu_allocation_seconds_by_device": {
+      "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2": "1968.6084665"
+    },
+    "measurements": 72,
+    "physical_gpu_allocation_device_hours": "0.5468356851388888888888888889",
+    "project_consumption_complete": false,
+    "scope": "declared non-overlapping measurement scopes only; GPU-equipped process elapsed sums are not kernel-active time or physical hours without intervals; CPU process-wall seconds sum across workers",
+    "version": "graygo/nfsp-resource-ledger/1"
+  },
+  "scope": "Replace the original grouped reservation only in this new version: completed profile loops/known setup become actual, unknown profile overhead remains reserved, both full table-loop/setup reservations stay intact. Source warm-up/profile rows and whole parent are not added twice. No new scope follows from released reservations.",
+  "version": 1
+}

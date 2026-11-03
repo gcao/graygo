@@ -1,0 +1,17 @@
+{
+  "a2_complete": false,
+  "combined_affected_tests_passed": 27,
+  "formal_case_result_claimed": false,
+  "independent_profile_audits_verified": 8,
+  "new_funding_gate_tests_passed": 5,
+  "original_stage_parent_pid": 2679743,
+  "original_stage_pids": {
+    "asymmetric": 2679816,
+    "rps": 2679817
+  },
+  "profile_inputs_unchanged": true,
+  "profile_records_each": 100000,
+  "runner_sha256": "8d7ee99ea56a58dc2ad22fd451ec3dd2e32607d75fe542d73c3e1762730cf7d5",
+  "test_command": "PYTHONPATH=src:.:tests .venv/bin/python -m unittest test_nfsp_matrix_stage test_nfsp_resources test_task_source_bridge -v",
+  "version": 1
+}

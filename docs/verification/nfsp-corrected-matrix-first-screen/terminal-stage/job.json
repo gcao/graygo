@@ -1,0 +1,189 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "136d70dc1d17c05fc62a36bbea13cf8f96e76532f3974a63f5184c2b91f3ed27",
+  "conservative_control_prefix_guard_seconds": 6400,
+  "conservative_control_prefix_sum_seconds": 2841.5554460780695,
+  "control_reservation_seconds": "6440",
+  "diagnostic_profile_records": 800000,
+  "driver_sha256": "035268fa99f5c82fafe1ea6216060466174cb0831370332077d84e5f31a93ea9",
+  "formal_cases_complete": 4,
+  "formal_records": 60000000,
+  "learner_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "measured_driver_seconds": 2899.9527758299373,
+  "new_accelerator_jobs": 0,
+  "no_observation_timeout_restart": true,
+  "original_driver_pid": 2679743,
+  "outer_watchdog_seconds": 7560,
+  "pilot_selected": false,
+  "runner_commit": "656fa26fab303f38e3e5a78b7b10d48bd5ba274f",
+  "runner_sha256": "8d7ee99ea56a58dc2ad22fd451ec3dd2e32607d75fe542d73c3e1762730cf7d5",
+  "source_package_unchanged": true,
+  "stages": {
+    "asymmetric": {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-corrected-matrix-656fa26/tools/run_nfsp_matrix_stage.py",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/asymmetric",
+        "--task",
+        "asymmetric",
+        "--expected-source-sha",
+        "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+        "--profile-seconds",
+        "65",
+        "--tabular-trial-hours",
+        "0.8333333333333334",
+        "--neural-trial-hours",
+        "1"
+      ],
+      "conservative_control_prefix_seconds": 1423.7834598900517,
+      "control_prefix_closed_at_seconds": 1423.7834598900517,
+      "emitted_plan_verified": true,
+      "final_returncode": 0,
+      "final_state": {
+        "completed_profiles": 4,
+        "completed_trials": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 2896.6743630100973,
+        "phase": null,
+        "pid": 2679816,
+        "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+        "status": "complete"
+      },
+      "final_state_sha256": "c6d48d3794fb7cd766f2d98b507244ad9d7daf1b164188e8386f77d9f8538aec",
+      "funding": [
+        {
+          "complete_pre_post_work": true,
+          "learner": "tabular",
+          "measured_setup_included": true,
+          "phase_weighted_15M_seconds": 1460.8076359378174,
+          "time_ceiling_seconds": 3000.0,
+          "twofold_margin_passed": true
+        },
+        {
+          "complete_pre_post_work": true,
+          "learner": "neural",
+          "measured_setup_included": true,
+          "phase_weighted_15M_seconds": 1502.8994848951697,
+          "time_ceiling_seconds": 3600.0,
+          "twofold_margin_passed": true
+        }
+      ],
+      "funding_independently_recomputed_in_parent": true,
+      "latest_case_progress": {
+        "counters": {
+          "fresh_ordinary": 14500000,
+          "fresh_q": 14500000,
+          "fresh_records": 14500000,
+          "q_loss_targets": 14496000,
+          "q_updates": 113250,
+          "supervised_targets": 9498624,
+          "supervised_updates": 74208,
+          "target_refreshes": 1132
+        },
+        "elapsed_seconds": 1423.23226792505,
+        "learner": "neural",
+        "records": 14500000,
+        "status": "running",
+        "task": "asymmetric"
+      },
+      "original_pid": 2679816,
+      "returncode": 0,
+      "started_monotonic": 548752.002521895,
+      "state": {
+        "completed_profiles": 4,
+        "completed_trials": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 2896.6743630100973,
+        "phase": null,
+        "pid": 2679816,
+        "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+        "status": "complete"
+      }
+    },
+    "rps": {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-corrected-matrix-656fa26/tools/run_nfsp_matrix_stage.py",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/rps",
+        "--task",
+        "rps",
+        "--expected-source-sha",
+        "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+        "--profile-seconds",
+        "65",
+        "--tabular-trial-hours",
+        "0.8333333333333334",
+        "--neural-trial-hours",
+        "1"
+      ],
+      "conservative_control_prefix_seconds": 1417.7719861880178,
+      "control_prefix_closed_at_seconds": 1417.7719861880178,
+      "emitted_plan_verified": true,
+      "final_returncode": 0,
+      "final_state": {
+        "completed_profiles": 4,
+        "completed_trials": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 2880.124550925102,
+        "phase": null,
+        "pid": 2679817,
+        "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+        "status": "complete"
+      },
+      "final_state_sha256": "279c69398ac4fdb00f2177c1d41f7e40c7595320a83aad1a602ab1f32cee63e8",
+      "funding": [
+        {
+          "complete_pre_post_work": true,
+          "learner": "tabular",
+          "measured_setup_included": true,
+          "phase_weighted_15M_seconds": 1460.820946795866,
+          "time_ceiling_seconds": 3000.0,
+          "twofold_margin_passed": true
+        },
+        {
+          "complete_pre_post_work": true,
+          "learner": "neural",
+          "measured_setup_included": true,
+          "phase_weighted_15M_seconds": 1495.8352743997239,
+          "time_ceiling_seconds": 3600.0,
+          "twofold_margin_passed": true
+        }
+      ],
+      "funding_independently_recomputed_in_parent": true,
+      "latest_case_progress": {
+        "counters": {
+          "fresh_ordinary": 14500000,
+          "fresh_q": 14500000,
+          "fresh_records": 14500000,
+          "q_loss_targets": 14496000,
+          "q_updates": 113250,
+          "supervised_targets": 9498624,
+          "supervised_updates": 74208,
+          "target_refreshes": 1132
+        },
+        "elapsed_seconds": 1413.1422895450378,
+        "learner": "neural",
+        "records": 14500000,
+        "status": "running",
+        "task": "rps"
+      },
+      "original_pid": 2679817,
+      "returncode": 0,
+      "started_monotonic": 548752.003330763,
+      "state": {
+        "completed_profiles": 4,
+        "completed_trials": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 2880.124550925102,
+        "phase": null,
+        "pid": 2679817,
+        "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+        "status": "complete"
+      }
+    }
+  },
+  "status": "original_stages_terminal_unreviewed",
+  "version": 1
+}

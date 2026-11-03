@@ -1,0 +1,234 @@
+{
+  "a2_complete": false,
+  "analysis_mode": "archived_snapshots",
+  "assessor_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "cases": {
+    "delayed/neural/0": {
+      "average_band": "at_most_0.10",
+      "case_sha256": "698806976f9b6dd10959474d58ad969c8a0e89f22d7acaffdf269dd2be7027cd",
+      "final_five_maxima": {
+        "max_average_gap": 1.8018596925628572e-07,
+        "max_early_error": 0.012568628757958611,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": true,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "delayed/tabular/0": {
+      "average_band": "above_0.25",
+      "case_sha256": "c146e6046052e0b1371d02ca1ef934da6b6a2f595591362cd68d405658cc0c85",
+      "final_five_maxima": {
+        "max_average_gap": 0.25116279069767433,
+        "max_early_error": 1.2147537438446208,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": false,
+      "q_credit_passed": false,
+      "status": "numeric_miss",
+      "violations": [
+        {
+          "metric": "max_average_gap",
+          "records": 13000000,
+          "threshold": 0.1,
+          "value": 0.25116279069767433
+        },
+        {
+          "metric": "max_early_error",
+          "records": 13000000,
+          "threshold": 0.1,
+          "value": 1.2007381000080872
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 13500000,
+          "threshold": 0.1,
+          "value": 0.2477064220183487
+        },
+        {
+          "metric": "max_early_error",
+          "records": 13500000,
+          "threshold": 0.1,
+          "value": 1.2048151710149435
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 14000000,
+          "threshold": 0.1,
+          "value": 0.24884792626728114
+        },
+        {
+          "metric": "max_early_error",
+          "records": 14000000,
+          "threshold": 0.1,
+          "value": 1.2099391951765144
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 14500000,
+          "threshold": 0.1,
+          "value": 0.23636363636363633
+        },
+        {
+          "metric": "max_early_error",
+          "records": 14500000,
+          "threshold": 0.1,
+          "value": 1.2147537438446208
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 15000000,
+          "threshold": 0.1,
+          "value": 0.2222222222222221
+        },
+        {
+          "metric": "max_early_error",
+          "records": 15000000,
+          "threshold": 0.1,
+          "value": 1.2144878674100674
+        }
+      ]
+    },
+    "rps/tabular/0": {
+      "average_band": "short_game_pass",
+      "case_sha256": "07169de939a0b58e31211807bda297d4f20fead534ee48b4932ae667ab28cd03",
+      "final_five_maxima": {
+        "max_average_gap": 0.023302270298344974
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    }
+  },
+  "control_interpretation_required": true,
+  "controls": {
+    "case_misses": [
+      "delayed/tabular/0"
+    ],
+    "complete": false,
+    "missing_cases": [
+      "asymmetric/tabular/0",
+      "asymmetric/tabular/1",
+      "asymmetric/tabular/2",
+      "rps/tabular/1",
+      "rps/tabular/2",
+      "gray-pure/tabular/0",
+      "gray-pure/tabular/1",
+      "gray-pure/tabular/2",
+      "gray-mixed/tabular/0",
+      "gray-mixed/tabular/1",
+      "gray-mixed/tabular/2",
+      "delayed/tabular/1",
+      "delayed/tabular/2",
+      "branching/tabular/0",
+      "branching/tabular/1",
+      "branching/tabular/2"
+    ],
+    "numeric_passed": false,
+    "status": "incomplete"
+  },
+  "current_input_snapshots_verified": false,
+  "extension_authorized": false,
+  "independent_training_trajectory_verified": false,
+  "learner_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "marginal_extension": {
+    "budget_reference_sha256": null,
+    "numeric_eligible": false,
+    "reason": "complete original neural cohort required",
+    "resource_authorization_verified": false,
+    "selected": false
+  },
+  "missing_cases": [
+    "asymmetric/neural/0",
+    "asymmetric/neural/1",
+    "asymmetric/neural/2",
+    "asymmetric/tabular/0",
+    "asymmetric/tabular/1",
+    "asymmetric/tabular/2",
+    "rps/neural/0",
+    "rps/neural/1",
+    "rps/neural/2",
+    "rps/tabular/1",
+    "rps/tabular/2",
+    "gray-pure/neural/0",
+    "gray-pure/neural/1",
+    "gray-pure/neural/2",
+    "gray-pure/tabular/0",
+    "gray-pure/tabular/1",
+    "gray-pure/tabular/2",
+    "gray-mixed/neural/0",
+    "gray-mixed/neural/1",
+    "gray-mixed/neural/2",
+    "gray-mixed/tabular/0",
+    "gray-mixed/tabular/1",
+    "gray-mixed/tabular/2",
+    "delayed/neural/1",
+    "delayed/neural/2",
+    "delayed/tabular/1",
+    "delayed/tabular/2",
+    "branching/neural/0",
+    "branching/neural/1",
+    "branching/neural/2",
+    "branching/tabular/0",
+    "branching/tabular/1",
+    "branching/tabular/2"
+  ],
+  "neural": {
+    "case_misses": [],
+    "complete": false,
+    "missing_cases": [
+      "asymmetric/neural/0",
+      "asymmetric/neural/1",
+      "asymmetric/neural/2",
+      "rps/neural/0",
+      "rps/neural/1",
+      "rps/neural/2",
+      "gray-pure/neural/0",
+      "gray-pure/neural/1",
+      "gray-pure/neural/2",
+      "gray-mixed/neural/0",
+      "gray-mixed/neural/1",
+      "gray-mixed/neural/2",
+      "delayed/neural/1",
+      "delayed/neural/2",
+      "branching/neural/0",
+      "branching/neural/1",
+      "branching/neural/2"
+    ],
+    "numeric_passed": false,
+    "status": "incomplete"
+  },
+  "neural_deployment_band": "incomplete",
+  "original_cohort_registration_verified": false,
+  "pilot_authorized": false,
+  "plan_sha256": "0c5e7bdd7c792573edd1ab283737a8a7cbfb8c3f9ea9cc647052d64b6a27049c",
+  "present_cases": 3,
+  "required_cases": 36,
+  "resource_scope_verified": false,
+  "scope": "numerical fixed-cohort assessment of source-bound audited case snapshots; control outcomes remain separate; original registration/trajectory, comparator/fixture checks, 9x9 smoke and filled resource/entry decision remain required",
+  "version": "graygo/nfsp-a2-assessment/1",
+  "worst_delayed_average_gap": null
+}

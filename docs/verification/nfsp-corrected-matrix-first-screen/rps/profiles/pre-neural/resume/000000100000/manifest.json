@@ -1,0 +1,23 @@
+{
+  "files": {
+    "replay.npz": {
+      "bytes": 400780,
+      "sha256": "0cc53fca2d0d4017c28b0c67d79bee3c0af09a154372765dc25ca921613d8288"
+    },
+    "reservoir.npz": {
+      "bytes": 1564,
+      "sha256": "bf9d54fc7ddb9b0655959f60d6b5c95ec893eef88d947a5ee57a2bd5c88169b8"
+    },
+    "trainer.pt": {
+      "bytes": 111412,
+      "sha256": "526b1f9f32718591d7cf1fe24db9c3aa5287984407e4f03f1f8f56dcc3680851"
+    }
+  },
+  "format_version": 1,
+  "kind": "resume",
+  "metadata": {
+    "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+    "task_schema": "graygo/nfsp-matrix-role/1"
+  },
+  "step": 100000
+}

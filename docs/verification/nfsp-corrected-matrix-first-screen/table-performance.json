@@ -1,0 +1,24 @@
+{
+  "asymmetric": {
+    "collection_fraction_of_loop": 0.9026319004932806,
+    "final_five_max_average_gap": 0.03767656191172869,
+    "records": 15000000,
+    "timings": {
+      "checkpoint": 21.287535452865995,
+      "collection": 1247.7713407058036,
+      "evaluation": 0.009236511890776455,
+      "learning": 111.47455223521683
+    }
+  },
+  "rps": {
+    "collection_fraction_of_loop": 0.9011119951962276,
+    "final_five_max_average_gap": 0.023302270298344974,
+    "records": 15000000,
+    "timings": {
+      "checkpoint": 21.40998155507259,
+      "collection": 1240.1456649437314,
+      "evaluation": 0.009273539064452052,
+      "learning": 112.84408024710137
+    }
+  }
+}

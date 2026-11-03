@@ -1,0 +1,41 @@
+{
+  "Retrace_selected": false,
+  "a2_complete": false,
+  "all_four_cases_complete_and_freshly_audited": true,
+  "archived_assessment_sha256": "0086be35a0755d17a4dc35a362091e600c43999122375f7b6235dba2c9b28039",
+  "corrected_source_first_screen_neural_set_viable": true,
+  "current_archived_numerics_match": true,
+  "current_assessment_sha256": "e722f78850b6a016cde99f59865ce622bdade851b28d6a6c0cf2196065911ec5",
+  "delayed_table_numeric_miss_retained": true,
+  "diagnostic_records": 800000,
+  "final_five_maxima": {
+    "asymmetric/neural/0": {
+      "max_average_gap": 0.027429994480992925
+    },
+    "asymmetric/tabular/0": {
+      "max_average_gap": 0.03767656191172869
+    },
+    "rps/neural/0": {
+      "max_average_gap": 0.012268036969543594
+    },
+    "rps/tabular/0": {
+      "max_average_gap": 0.023302270298344974
+    }
+  },
+  "formal_records": 60000000,
+  "missing_cases": 30,
+  "original_case_audit_watch_pid": 2686024,
+  "original_driver_pid": 2679743,
+  "original_stage_pids": {
+    "asymmetric": 2679816,
+    "rps": 2679817
+  },
+  "original_training_processes_terminal": true,
+  "other_families_selected": false,
+  "other_seeds_selected": false,
+  "pilot_selected": false,
+  "present_cases": 6,
+  "stability_extension_selected": false,
+  "version": 1,
+  "watch_terminal": true
+}

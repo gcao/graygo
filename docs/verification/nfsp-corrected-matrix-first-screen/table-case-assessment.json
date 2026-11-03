@@ -1,0 +1,18 @@
+{
+  "a2_complete": false,
+  "archived_assessment_sha256": "9c44c5e37ac23ec4364ec20b024f84d9921fffbbeb576f8dd9967a76f86b43e5",
+  "case_statuses": {
+    "asymmetric/tabular/0": "numeric_pass",
+    "delayed/neural/0": "numeric_pass",
+    "delayed/tabular/0": "numeric_miss",
+    "rps/tabular/0": "numeric_pass"
+  },
+  "current_archived_numerics_match": true,
+  "current_assessment_sha256": "2db5608c06a890d31c909d17234d34ed363f51f56b2281600efbda3fa0852796",
+  "execution_authorized": false,
+  "missing_cases": 32,
+  "neural_matrix_cases_still_running": true,
+  "new_table_cases_freshly_audited": true,
+  "present_cases": 4,
+  "version": 1
+}

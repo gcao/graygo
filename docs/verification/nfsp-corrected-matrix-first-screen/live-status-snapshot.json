@@ -1,0 +1,25 @@
+{
+  "a2_complete": false,
+  "actual_OS_process_snapshot": "    PID    PPID     ELAPSED STAT COMMAND\n2679743       1       21:33 Ssl  /home/gcao/proj/graygo/.venv/bin/python /home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/driver.py\n2679816 2679743       21:32 Rsl  /home/gcao/proj/graygo/.venv/bin/python /home/gcao/proj/graygo/.worktrees/nfsp-corrected-matrix-656fa26/tools/run_nfsp_matrix_stage.py --run-dir /home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/asymmetric --task asymmetric --expected-source-sha db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873 --profile-seconds 65 --tabular-trial-hours 0.8333333333333334 --neural-trial-hours 1\n2679817 2679743       21:32 Rsl  /home/gcao/proj/graygo/.venv/bin/python /home/gcao/proj/graygo/.worktrees/nfsp-corrected-matrix-656fa26/tools/run_nfsp_matrix_stage.py --run-dir /home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/rps --task rps --expected-source-sha db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873 --profile-seconds 65 --tabular-trial-hours 0.8333333333333334 --neural-trial-hours 1\n2686024       1       01:56 Ss   /home/gcao/proj/graygo/.venv/bin/python /home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/driver.py\n",
+  "case_audits_completed": 0,
+  "current_stage_progress": {
+    "asymmetric": {
+      "case": "tabular",
+      "original_pid": 2679816,
+      "phase": "formal",
+      "records_at_last_scheduled_read": 13500000
+    },
+    "rps": {
+      "case": "tabular",
+      "original_pid": 2679817,
+      "phase": "formal",
+      "records_at_last_scheduled_read": 13500000
+    }
+  },
+  "no_current_case_numeric_result_claimed": true,
+  "observed_epoch": 1793670644.0252166,
+  "original_case_audit_watch_pid": 2686024,
+  "original_training_driver_pid": 2679743,
+  "source_case_plan_unchanged": true,
+  "version": 1
+}

@@ -1,0 +1,173 @@
+{
+  "acting_policy_counts": {
+    "average": 0,
+    "q": 100000,
+    "uniform": 0
+  },
+  "average_final_five_passed": false,
+  "best_response_visits": [
+    4896,
+    5059
+  ],
+  "counters": {
+    "fresh_ordinary": 100000,
+    "fresh_q": 100000,
+    "fresh_records": 100000,
+    "q_loss_targets": 96000,
+    "q_updates": 750,
+    "supervised_targets": 0,
+    "supervised_updates": 0,
+    "target_refreshes": 7
+  },
+  "elapsed_seconds": 8.98609828192275,
+  "episode_audit_bytes": 6050000,
+  "evaluations": [
+    {
+      "average_gaps": [
+        0.10714285714285715,
+        0.14285714285714285
+      ],
+      "average_policies": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "average_ready": false,
+      "counters": {
+        "fresh_ordinary": 50000,
+        "fresh_q": 50000,
+        "fresh_records": 50000,
+        "q_loss_targets": 45952,
+        "q_updates": 359,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 3
+      },
+      "elapsed_seconds": 4.302735703997314,
+      "epsilon": 0.09939999999999999,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "greedy_q_policies": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "handoff_probability": 0.0,
+      "q_values": [
+        [
+          -0.07184234261512756,
+          0.046047039330005646
+        ],
+        [
+          0.0821046233177185,
+          -0.025376103818416595
+        ]
+      ],
+      "records": 50000,
+      "reservoir_seen": 0,
+      "reservoir_size": 0
+    },
+    {
+      "average_gaps": [
+        0.10714285714285715,
+        0.14285714285714285
+      ],
+      "average_policies": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "average_ready": false,
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "fresh_records": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 8.741337207960896,
+      "epsilon": 0.0988,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "greedy_q_policies": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "handoff_probability": 0.0,
+      "q_values": [
+        [
+          -0.08880565315485,
+          -0.11147745698690414
+        ],
+        [
+          0.2504745423793793,
+          -0.07631737738847733
+        ]
+      ],
+      "records": 100000,
+      "reservoir_seen": 0,
+      "reservoir_size": 0
+    }
+  ],
+  "formal_gate_passed": false,
+  "formal_protocol": false,
+  "learner": "tabular",
+  "loss_stats": {
+    "projected_targets": 0,
+    "q_loss_sum": 470.4035902917385,
+    "q_updates": 750,
+    "raw_target_max": 1.0,
+    "raw_target_min": -1.0,
+    "supervised_loss_sum": 0.0,
+    "supervised_loss_updates": 0
+  },
+  "matrix_certificate_gap": 0.0,
+  "matrix_value": -0.14285714285714285,
+  "per_role_records": [
+    50000,
+    50000
+  ],
+  "physical_games": 50000,
+  "records": 100000,
+  "reservoir_changes": 0,
+  "reservoir_seen": 0,
+  "reservoir_size": 0,
+  "seed": 0,
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "status": "complete",
+  "task": "asymmetric",
+  "timings": {
+    "checkpoint": 0.5280696790432557,
+    "collection": 7.747268861858174,
+    "evaluation": 0.0006188430124893785,
+    "learning": 0.76894849864766
+  }
+}

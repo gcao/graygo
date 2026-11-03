@@ -1,0 +1,110 @@
+{
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/0.stderr": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/0.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/0.stdout": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/0.stdout",
+    "sha256": "cc63c423e9ef75ffaa5ffc640f71c1f278fdd454fe906c820ca54b59308cb8f7"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/1.stderr": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/1.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/1.stdout": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/1.stdout",
+    "sha256": "25f36d45fa1fd510a9f80a161f6a4473070fd03b5812ebbffd2302d2442a893c"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/2.stderr": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/2.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/2.stdout": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/2.stdout",
+    "sha256": "3ae0555c453bb1f4e107004e49e612a521ca220cb25b701d3b944feb961bd062"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/3.stderr": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/3.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/3.stdout": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/3.stdout",
+    "sha256": "cdb8e48c807047d891b26b82a0f7f5557cbe5f670768f8d9bd377278fa2456f2"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/4.stderr": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/4.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/4.stdout": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/4.stdout",
+    "sha256": "1745aaaf003e60916ff0a0ae11e0430e1a847ca390cb3670a6cc67cc2252cc31"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/5.stderr": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/5.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/5.stdout": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/5.stdout",
+    "sha256": "5fec5c97b3c646c2afa37d1f06f188ebaf7bc621620890811b6dea8ea8ae70fc"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/6.stderr": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/6.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/6.stdout": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/6.stdout",
+    "sha256": "d7ddafa4d24dc43502f939ca0a91c6bd96dd0a0deff8298819982bbfad52d90b"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/7.stderr": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/7.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/7.stdout": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/7.stdout",
+    "sha256": "84a1d8c51b23f0111de0aa4dd4e1794c33b46b1b7a5a37306a4f6dc320192121"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/asymmetric-profiles-post-neural.json": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/asymmetric-profiles-post-neural.json",
+    "sha256": "5df7a7f21dd2d9eceb9cf9a77a90748bd8d5e7b112a4822a3485283a06dccc1a"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/asymmetric-profiles-post-tabular.json": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/asymmetric-profiles-post-tabular.json",
+    "sha256": "edc5ff94e72f76e2cb306d3a11127f1db2b6d5f7d9cb9c2871735b61d93d8ad0"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/asymmetric-profiles-pre-neural.json": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/asymmetric-profiles-pre-neural.json",
+    "sha256": "558e9f6073d5073a30d9913fd8a4c1d44244ade9ff8abe39109d43b873553aa5"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/asymmetric-profiles-pre-tabular.json": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/asymmetric-profiles-pre-tabular.json",
+    "sha256": "849fe1953bf474eca13bd86006025288d3fa467318fa36128e7b9b315d8b2215"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/driver.log": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/driver.py": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/driver.py",
+    "sha256": "cf506728bce275c1d67a8fe4229b5f8e3d5e8a9085c8a7e09577b0e8e341a377"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/job.json": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/job.json",
+    "sha256": "0c76fc566ef90d7bd2f5c42d53a5ee09fc49fd7d6579feb8dcfa51822ab702ff"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/rps-profiles-post-neural.json": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/rps-profiles-post-neural.json",
+    "sha256": "d1252be621c81d884aac66cc707cf5b5755cc001a9d71b55d4e357c0d37adc17"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/rps-profiles-post-tabular.json": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/rps-profiles-post-tabular.json",
+    "sha256": "ed07fed06750e20266cc2bc09f828abc10c315f4fcd04b3f72970224e87a330e"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/rps-profiles-pre-neural.json": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/rps-profiles-pre-neural.json",
+    "sha256": "1b1ac04e16dff651d5f3ed727ff9f42c17104a4ad81a6724c05305cbf0d7d8c1"
+  },
+  "docs/verification/nfsp-corrected-matrix-first-screen/independent-profile-audits/rps-profiles-pre-tabular.json": {
+    "original": "runs/nfsp-corrected-matrix-profile-audit-84d1c97/rps-profiles-pre-tabular.json",
+    "sha256": "daaa0767c1ba4cec53dfa27679fc995c15110ba0383b0a78f0fa3117e883a0b1"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "a2_complete": false,
+  "all_original_training_and_watch_handles_terminal": true,
+  "application_source_unchanged": true,
+  "combined_affected_tests_passed": 27,
+  "complete_public_gate_model_bundles_verified": 120,
+  "control_commitment": {
+    "actual_process_seconds": "39348.903154167637347",
+    "ceiling_seconds": "43200",
+    "committed_process_seconds": "39674.95652170001960048",
+    "reserved_process_seconds": "326.05336753238225348",
+    "unallocated_seconds": "3525.04347829998039952",
+    "within_ceiling": true
+  },
+  "current_assessment_sha256": "e722f78850b6a016cde99f59865ce622bdade851b28d6a6c0cf2196065911ec5",
+  "diagnostic_records": 800000,
+  "first_screen_neural_set_viable": true,
+  "formal_records": 60000000,
+  "fresh_current_cohort_assessment_identical": true,
+  "immutable_archive_source_hashes_verified": 608,
+  "independent_profile_audits_passed": 8,
+  "missing_cases": 30,
+  "new_formal_cases_complete_and_freshly_audited": 4,
+  "new_funding_tests_passed": 5,
+  "present_cases": 6,
+  "resource_inventory_recomputed": true,
+  "version": 1
+}
