@@ -1,0 +1,13 @@
+{
+  "actual_reference_purpose": "one source-matched seed-0 R4 pair after full independently audited corrected R1 credit miss",
+  "interpretation": "The old B_U=0 reference is an original primary R4 seed-zero allocation, not a matched uniform-board price. The new scope review marks that required comparison unpriced rather than treating this zero/reference pair as a full-study budget.",
+  "matched_uniform_board_price_present": false,
+  "prior_B_U_reference_sha256": "19b80d7dcbcf3184424b724d045a77be648e4e8782a08afba784020db1a15f20",
+  "reference": "docs/experiments/nfsp-eligibility-R4-primary-allocation.json",
+  "reference_excludes_9x9_pilot_confirmation_study": true,
+  "reference_uniform_flags": [
+    false,
+    false
+  ],
+  "version": 1
+}
