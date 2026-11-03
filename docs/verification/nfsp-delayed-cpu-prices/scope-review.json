@@ -1,0 +1,22 @@
+{
+  "N_A2_device_hours": "96",
+  "a2_complete": false,
+  "a2_device_ceiling_numeric_terms_filled": true,
+  "cpu_delayed_prices_independently_qualified": true,
+  "direct_selected_package_profile_evidence_verified": true,
+  "execution_authorized": false,
+  "full_runtime_or_production_entry_qualified": false,
+  "full_study_device_ceiling_formula": "1809.114168995977444444444444",
+  "original_r4_reduced_margin_seed_zero_funding_rewritten": false,
+  "partial_gpu_inventory_disclosed": true,
+  "project_device_hour_ceiling": null,
+  "project_scope_selected": false,
+  "remaining": [
+    "Complete original A2 cohorts and interpret controls.",
+    "Fill explicit affordable remaining control/CPU allocations; existing twelve-hour ceiling stays in force.",
+    "Freshly qualify all applicable board runtime/cost/entry prerequisites and make a numerical project scope decision.",
+    "Run protected-pool calibration, development cohort gates and independent confirmation/scientific protocols only under selected scope."
+  ],
+  "scope": "Numerical route expression is now filled using qualified exact CPU delayed terms and the existing source-bound graph component references. Existing graph/reference evidence is preserved; this arithmetic update supplies no whole-route runtime or project authorization.",
+  "version": 1
+}

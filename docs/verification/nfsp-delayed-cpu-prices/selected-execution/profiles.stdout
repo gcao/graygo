@@ -1,0 +1,4 @@
+{"case": "neural-R1-pre", "status": "complete", "records": 65536, "seconds_including_setup": 37.75344421714544, "fresh_records_per_second": 1735.8946013788411}
+{"case": "neural-R1-post", "status": "complete", "records": 65536, "seconds_including_setup": 33.46664449991658, "fresh_records_per_second": 1958.24830900401}
+{"case": "neural-R4-pre", "status": "complete", "records": 65536, "seconds_including_setup": 44.37923996313475, "fresh_records_per_second": 1476.726506682852}
+{"case": "neural-R4-post", "status": "complete", "records": 65536, "seconds_including_setup": 40.990175107028335, "fresh_records_per_second": 1598.8221525982929}

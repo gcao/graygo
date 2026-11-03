@@ -1,0 +1,53 @@
+{
+  "accepted_reservoir_changes": 0,
+  "active_episode_steps": 18,
+  "auditor_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "average_readiness": "not_ready",
+  "checkpoint_manifest_sha256": "55d084fdc43ff386493bf8d903000a66907a704674bca7cc73b339e0480c36fa",
+  "eligibility_version": 2,
+  "eligible_labels": 0,
+  "episode_audit_sha256": "af7e2a2469c458388cddac1d233c2f2e7c5bb45885188876af9d2158d2fc8651",
+  "excluded_passive_root_records": 75,
+  "formal_case_passed": false,
+  "formal_protocol": false,
+  "format_version": 1,
+  "last_accepted_label_record": -1,
+  "last_supervised_fresh_record": null,
+  "learner": "neural",
+  "ordinary_records": 52436,
+  "physical_complete_games": 375,
+  "published_tabular_ambiguous_mean_states": 0,
+  "published_tabular_exact_mean_states": 0,
+  "published_tabular_exact_root_mean_states": 0,
+  "published_tabular_mean_checked": false,
+  "q_credit_passed": false,
+  "q_eligible_records": 65461,
+  "q_updates": 120,
+  "records": 65536,
+  "retained_executed_records_checked": 65536,
+  "retained_label_records_checked": 0,
+  "scheduled_evaluations": [
+    {
+      "average_ready": false,
+      "max_average_gap": 0.9192838668823242,
+      "max_early_error": 1.0957346086812403,
+      "max_greedy_gap": 0.0,
+      "records": 32768
+    },
+    {
+      "average_ready": false,
+      "max_average_gap": 0.9192838668823242,
+      "max_early_error": 1.084542618420789,
+      "max_greedy_gap": 0.0,
+      "records": 65536
+    }
+  ],
+  "scope": "independent closed-form archived policy/value grades, exact episode/mode/coverage/Algorithm-R/RNG clocks and retained transitions; completed full action trajectories and every historical greedy target are not reconstructed from header-only logs",
+  "seed": 0,
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "supervised_updates": 0,
+  "target_refreshes": 5,
+  "task": "delayed",
+  "training_manifest_sha256": "236744a04f017635b16bd0ae8d85f5feb21d9a50c7e9dae1eeca3776ca2c05d0",
+  "verified": true
+}

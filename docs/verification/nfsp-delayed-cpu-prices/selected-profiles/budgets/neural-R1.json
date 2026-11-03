@@ -1,0 +1,385 @@
+{
+  "complete_pipeline": true,
+  "device": "cpu",
+  "format_version": 1,
+  "learner": "neural",
+  "limits": "partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast",
+  "margin": 2.0,
+  "native_library_sha256": null,
+  "phase_weighted_15M_seconds": 7986.963899000443,
+  "phases": [
+    "pre",
+    "post"
+  ],
+  "profile_cases": [
+    {
+      "acting_policy_counts": {
+        "average": 0,
+        "q": 65536,
+        "uniform": 0
+      },
+      "case": "neural-R1-pre",
+      "counters": {
+        "fresh_ordinary": 52436,
+        "fresh_q": 65461,
+        "fresh_records": 65536,
+        "q_loss_targets": 61440,
+        "q_updates": 120,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 5
+      },
+      "coverage": {
+        "excluded_q_records": 75,
+        "overlap_counts": [
+          [
+            [
+              21404,
+              22412,
+              0
+            ],
+            [
+              5356,
+              5646,
+              0
+            ]
+          ],
+          [
+            [
+              2351,
+              2675,
+              0
+            ],
+            [
+              821,
+              775,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                10226.478287505028,
+                7391.888454284519,
+                17453.6800235447,
+                122732750.0
+              ],
+              [
+                3697.7307963945577,
+                1522.3107001224998,
+                18365.138858404243,
+                633812438.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                2635.674559275725,
+                1920.3088998110034,
+                4370.164494406432,
+                30300174.0
+              ],
+              [
+                894.8223018476596,
+                341.9155760095455,
+                4621.450634354027,
+                159207581.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                1156.126032437928,
+                816.1043847715482,
+                1891.8907224871218,
+                13334448.0
+              ],
+              [
+                493.1272264312265,
+                201.98088597808965,
+                2161.6798634324223,
+                72422423.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                439.04926174703184,
+                321.6631133968476,
+                666.4721738819499,
+                4475164.0
+              ],
+              [
+                116.7055084549661,
+                38.996178458677605,
+                633.2154480756726,
+                23043801.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 65461,
+        "root_episodes": [
+          [
+            93,
+            23
+          ],
+          [
+            80,
+            20
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            24,
+            6
+          ],
+          [
+            24,
+            6
+          ]
+        ],
+        "sampled_start_targets": 61440,
+        "visit_records": 65536
+      },
+      "formal_protocol": false,
+      "fresh_records_per_second": 1735.8946013788411,
+      "learner": "neural",
+      "logical_replay_bytes": 391500000,
+      "logical_reservoir_bytes": 189500000,
+      "phase": "pre",
+      "q_reuse": 1,
+      "records": 65536,
+      "replay_size": 65536,
+      "reservoir_size": 0,
+      "seconds_including_setup": 37.75344421714544,
+      "status": "complete",
+      "timings": {
+        "checkpoint": 0.9410298460861668,
+        "collection": 31.863953895517625,
+        "evaluation": 0.07998243300244212,
+        "learning": 3.8318983428180218,
+        "setup": 0.7356905920896679
+      }
+    },
+    {
+      "acting_policy_counts": {
+        "average": 49336,
+        "q": 16200,
+        "uniform": 0
+      },
+      "case": "neural-R1-post",
+      "counters": {
+        "fresh_ordinary": 52436,
+        "fresh_q": 65461,
+        "fresh_records": 65536,
+        "q_loss_targets": 61440,
+        "q_updates": 120,
+        "supervised_targets": 44032,
+        "supervised_updates": 86,
+        "target_refreshes": 5
+      },
+      "coverage": {
+        "excluded_q_records": 75,
+        "overlap_counts": [
+          [
+            [
+              21404,
+              22412,
+              0
+            ],
+            [
+              5356,
+              5646,
+              0
+            ]
+          ],
+          [
+            [
+              2351,
+              2675,
+              0
+            ],
+            [
+              821,
+              775,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                6762.199091397953,
+                4283.629335403908,
+                7885.439931117697,
+                122732750.0
+              ],
+              [
+                2680.32601615318,
+                581.1132725055795,
+                8928.15007641865,
+                633812438.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                1564.4023103029288,
+                975.809513536049,
+                1782.6924864663742,
+                30300174.0
+              ],
+              [
+                650.5062643889106,
+                129.35400146897882,
+                1915.647280590143,
+                159207581.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                1394.4808248369704,
+                1046.6038039478008,
+                1907.198088065721,
+                13334448.0
+              ],
+              [
+                361.48960204640116,
+                84.89188289595768,
+                2165.2817810066044,
+                72422423.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                458.9917385882291,
+                338.77374867652543,
+                665.5714670892339,
+                4475164.0
+              ],
+              [
+                74.83617783756027,
+                4.7716535401996225,
+                635.9167500659823,
+                23043801.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 65461,
+        "root_episodes": [
+          [
+            93,
+            23
+          ],
+          [
+            80,
+            20
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            40,
+            10
+          ],
+          [
+            24,
+            6
+          ],
+          [
+            24,
+            6
+          ]
+        ],
+        "sampled_start_targets": 61440,
+        "visit_records": 65536
+      },
+      "formal_protocol": false,
+      "fresh_records_per_second": 1958.24830900401,
+      "learner": "neural",
+      "logical_replay_bytes": 391500000,
+      "logical_reservoir_bytes": 189500000,
+      "phase": "post",
+      "q_reuse": 1,
+      "records": 65536,
+      "replay_size": 65536,
+      "reservoir_size": 4900,
+      "seconds_including_setup": 33.46664449991658,
+      "status": "complete",
+      "timings": {
+        "checkpoint": 0.9968710190150887,
+        "collection": 28.107597659691237,
+        "evaluation": 0.07905346294865012,
+        "learning": 3.8755181019660085,
+        "setup": 0.0990979359485209
+      }
+    }
+  ],
+  "profile_plan_sha256": "e82588b6284b5f06a40ff4114a36b6c960319186939bdf3c8cfbe867ce26024d",
+  "proposed_time_ceiling_seconds": 16200,
+  "q_reuse": 1,
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "storage": "features",
+  "target": "one-step",
+  "task": "delayed"
+}

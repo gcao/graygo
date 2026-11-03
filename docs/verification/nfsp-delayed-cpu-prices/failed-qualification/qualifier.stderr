@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/gcao/proj/graygo/.worktrees/nfsp-delayed-cpu-price-qualification-1a98f8e/tools/nfsp_delayed_cpu_prices.py", line 186, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/nfsp-delayed-cpu-price-qualification-1a98f8e/tools/nfsp_delayed_cpu_prices.py", line 183, in main
+    result=qualify(args.repo,args.proposal,args.audits,args.selected);write_report(args.output,result);print(json.dumps({'status':result['status'],'prices':result['prices']},sort_keys=True))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/nfsp-delayed-cpu-price-qualification-1a98f8e/tools/nfsp_delayed_cpu_prices.py", line 140, in qualify
+    require(original and all(digest(p)==value for p,value in original.items()),'original profile/checkpoint/trajectory inputs changed')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/nfsp-delayed-cpu-price-qualification-1a98f8e/tools/nfsp_delayed_cpu_prices.py", line 140, in <genexpr>
+    require(original and all(digest(p)==value for p,value in original.items()),'original profile/checkpoint/trajectory inputs changed')
+                             ^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/frozen-cuda-c3b8b5f/src/graygo/storage.py", line 28, in digest
+    with path.open("rb") as source:
+         ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'open'

@@ -1,0 +1,514 @@
+{
+  "docs/verification/nfsp-delayed-cpu-prices/failed-qualification/driver.log": {
+    "original": "runs/nfsp-delayed-cpu-price-qualification-1a98f8e/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/failed-qualification/driver.py": {
+    "original": "runs/nfsp-delayed-cpu-price-qualification-1a98f8e/driver.py",
+    "sha256": "a56b322d302f2c362ff72bbd884e431b86518ecbf528f08ca9508d846982d015"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/failed-qualification/job.json": {
+    "original": "runs/nfsp-delayed-cpu-price-qualification-1a98f8e/job.json",
+    "sha256": "abc3f1fd5041a0b5d7859e18c75070c8be9f0fb9e5016da43382d0df0e3b8ad0"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/failed-qualification/qualifier.stderr": {
+    "original": "runs/nfsp-delayed-cpu-price-qualification-1a98f8e/qualifier.stderr",
+    "sha256": "36da88be5405082c79264d53d78ecc77e0fd3b61dc5831c40ea5b113ec31c36b"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/failed-qualification/qualifier.stdout": {
+    "original": "runs/nfsp-delayed-cpu-price-qualification-1a98f8e/qualifier.stdout",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/qualification/driver.log": {
+    "original": "runs/nfsp-delayed-cpu-price-qualification-b7b4209/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/qualification/driver.py": {
+    "original": "runs/nfsp-delayed-cpu-price-qualification-b7b4209/driver.py",
+    "sha256": "97d32121feb0f2f05038010c523ddbebad04931354aebd29287705329b1818ba"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/qualification/job.json": {
+    "original": "runs/nfsp-delayed-cpu-price-qualification-b7b4209/job.json",
+    "sha256": "bb456d3611e4726474552003cc5c36f2a22621be46a57393d0fb558d243f6d75"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/qualification/prices.json": {
+    "original": "runs/nfsp-delayed-cpu-price-qualification-b7b4209/prices.json",
+    "sha256": "93f3c87dfd9f52f0bc191f2ce0fda5cbbbe1efe77637415a222f0c9f75816ecb"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/qualification/qualifier.stderr": {
+    "original": "runs/nfsp-delayed-cpu-price-qualification-b7b4209/qualifier.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/qualification/qualifier.stdout": {
+    "original": "runs/nfsp-delayed-cpu-price-qualification-b7b4209/qualifier.stdout",
+    "sha256": "f57eff057485554b6ed6a7e672fd13f7111a99d928cedd5069011d083408e593"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/C1-post.json": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/C1-post.json",
+    "sha256": "6794580dcb6cdfcd88a01f9059ba6f6a1837afd2dff52e71185f602cf6312eff"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/C1-post.stderr": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/C1-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/C1-post.stdout": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/C1-post.stdout",
+    "sha256": "82839c6e846489e968376bdb0f288deede856ac7644c343ffbe94473090c039e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/C1-pre.json": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/C1-pre.json",
+    "sha256": "a01f9102bcb45e943f7eb66323754ba28b0e62668b52cbf6c2f6245f7028715e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/C1-pre.stderr": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/C1-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/C1-pre.stdout": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/C1-pre.stdout",
+    "sha256": "82839c6e846489e968376bdb0f288deede856ac7644c343ffbe94473090c039e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/C4-post.json": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/C4-post.json",
+    "sha256": "49e05c16fcb31ac0864709b26450c1a1ddc56bedc092122e7072d01cb4e71681"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/C4-post.stderr": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/C4-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/C4-post.stdout": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/C4-post.stdout",
+    "sha256": "82839c6e846489e968376bdb0f288deede856ac7644c343ffbe94473090c039e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/C4-pre.json": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/C4-pre.json",
+    "sha256": "62c0f2616ca2a2ecf741f084b8ae938f3d9c4297265490a49ced7f75c0be4177"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/C4-pre.stderr": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/C4-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/C4-pre.stdout": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/C4-pre.stdout",
+    "sha256": "82839c6e846489e968376bdb0f288deede856ac7644c343ffbe94473090c039e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/driver.log": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/driver.py": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/driver.py",
+    "sha256": "16128a51c540ded7b5cfb5f4708b1bb5ee3fa66dbe8194905ebcd019e325ebc9"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-audits/job.json": {
+    "original": "runs/nfsp-delayed-cpu-price-audit-8650f18/job.json",
+    "sha256": "7d45ac38e39ccf68706b21d6231d020aa30d75b72c97d91d91b0be3d31a98be8"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/budgets/neural-R1.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/budgets/neural-R1.json",
+    "sha256": "b0f98a36d2ad8e6af6cf8c3a03cbc372750d8c11bc066e88db9fd08bedc5c499"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-post/episodes.schema.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-post/result.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-post/result.json",
+    "sha256": "6feccb0e42cd539472927521f1bd12942341814c5c6a57961e4b37d209a8b98d"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-post/run.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-post/run.json",
+    "sha256": "1076ecd6c12b148cb43eb073aced138b2f33b852a9c1d52265cbe6b9d4ebf9d7"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-post/weights/000000032768/manifest.json",
+    "sha256": "6e90de3bcf62b24cc2dae5a69c957c4d12be9185692fa3064290116c3928830e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-post/weights/000000032768/manifest.sha256",
+    "sha256": "feaaee07724e627105d3874f6f2a5d00b838dbee72269606914a120cc144aa7e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-post/weights/000000032768/models.pt": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-post/weights/000000032768/models.pt",
+    "sha256": "4edc201df600c5802fad649fce8a91beded96c45290f147410f7589eb67d4739"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-post/weights/000000065536/manifest.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-post/weights/000000065536/manifest.json",
+    "sha256": "aa54d25cf6c26df46d99001289c7eeb0ab0ceb556da0a17fc69d9abcbf6ce7c5"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-post/weights/000000065536/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-post/weights/000000065536/manifest.sha256",
+    "sha256": "278d70c28cefc6e9a67737fa9fa111bd63891de6acbcfbca8074621690bb8b3a"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-post/weights/000000065536/models.pt": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-post/weights/000000065536/models.pt",
+    "sha256": "8f53835e445fa69a3761cc3c5cc8a4a10857f36e933159da581f84a749694f3b"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-pre/episodes.schema.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-pre/result.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-pre/result.json",
+    "sha256": "c02ea92ad2e6baf7e8ac9579e869419c0a7dfd22f856e6971537c6b9e53bc99d"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-pre/run.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-pre/run.json",
+    "sha256": "cdb4b916b5349ac304c90f4cffa5246dae29f802a9ea5f62e166aca18f950e81"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-pre/weights/000000032768/manifest.json",
+    "sha256": "57676906fd36b3d6f4f85e3749376385f222105760645ffc5f7458f9c1988284"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-pre/weights/000000032768/manifest.sha256",
+    "sha256": "4ab8e15050a19f930cddcf1d9bc76574b9135cab4563ea62db64af504b258242"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-pre/weights/000000032768/models.pt": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-pre/weights/000000032768/models.pt",
+    "sha256": "9cf4caa7b3990e08e432701490e493352cc7bfff6e1f06c324a93aaff837b6b1"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-pre/weights/000000065536/manifest.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-pre/weights/000000065536/manifest.json",
+    "sha256": "fbba99397ea912ae0804df0a7986591a6fa9f7d850f4e93249fbfd9b697955ee"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-pre/weights/000000065536/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-pre/weights/000000065536/manifest.sha256",
+    "sha256": "4ec068ed98718ff5bdfacbf62f227fe0f1899791c47e0b02a1268e1a1f6c1a35"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/neural-R1-pre/weights/000000065536/models.pt": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-pre/weights/000000065536/models.pt",
+    "sha256": "dcb1bc431a720166a72b98a0d6d7f2448fbfda35f4cbe9fddf4a9002de0a90da"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/plan.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/plan.json",
+    "sha256": "0d21f7ba993067cea283697de3efb0c6073cb693777289392c2e738df8d675dc"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/profile.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/profile.json",
+    "sha256": "4e6dfd61e012885c6eac6177c7568d746b3ad314df3e395a0b05626b61d02d77"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R1/state.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/state.json",
+    "sha256": "4a4229af706b8e34b1a24e04a885378d80bd014348337cc33aba4cd11409d2aa"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/budgets/neural-R4.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/budgets/neural-R4.json",
+    "sha256": "37fd47f048cc463c014293643dea8c5c994d0c1bf595b9da7b0887a49c2099e7"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-post/episodes.schema.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-post/result.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-post/result.json",
+    "sha256": "79e4aa731a60c3848bb90c195cb7036e9576da29a1ec796bd8fd06464d7757ff"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-post/run.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-post/run.json",
+    "sha256": "583eed9093ae52ac76093db45b1a9803c7a844c4e2c7b4bd20ec886c978ccc97"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-post/weights/000000032768/manifest.json",
+    "sha256": "3098b6b108b2348289ecbae1f558adca817a6db0cc0dd91b18be0309fc161e32"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "6ed932729bb26288b4199a9ccc04ee61a0142bf8c666350a31ecddd3282d5b31"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-post/weights/000000032768/models.pt": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-post/weights/000000032768/models.pt",
+    "sha256": "0d926aa05acc06c234ccef370d7d84df93e0e583a6e7a94ef9df767498196e0a"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-post/weights/000000065536/manifest.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-post/weights/000000065536/manifest.json",
+    "sha256": "d145fa824a3121f2e452bd2bc06476f32f95cf957165fb2bd07765d8e93e3858"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-post/weights/000000065536/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-post/weights/000000065536/manifest.sha256",
+    "sha256": "1939f8e9de9e00cad256ed198b65f704b11c71972b81b63ba1fd121ffd3e57b6"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-post/weights/000000065536/models.pt": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-post/weights/000000065536/models.pt",
+    "sha256": "933f34e1f7b0cdc1638ca89b925684e63641e7178fd0914b4ec07a7afd9115a5"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-pre/episodes.schema.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-pre/result.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-pre/result.json",
+    "sha256": "383cfc548367b0b68b7f7d1957cc58a694b76c81fc057ab0d2422311d67a44c6"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-pre/run.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-pre/run.json",
+    "sha256": "01b7135367e3a3a59d7401bce76b1e001f46633f458f5a24d7a042cee04bdac1"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "628ae6ce6faf8a7849ff95a09d7e981a3ce24a2180c49150b71c6ce2d90194c2"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "041e4b50ac9094956927a00f524307038dee3218ac2e80e796ed2836c1a185b6"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-pre/weights/000000032768/models.pt": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-pre/weights/000000032768/models.pt",
+    "sha256": "52cc0e322797233b39c5dd4d2fe8bea5982f38d07bbfc7fc30c988912b2a6f84"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-pre/weights/000000065536/manifest.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-pre/weights/000000065536/manifest.json",
+    "sha256": "87026506e2335b2572205654499754dfc2ed5abecf7c89b51277547c4022ce3f"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-pre/weights/000000065536/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-pre/weights/000000065536/manifest.sha256",
+    "sha256": "909a66ea91712ce6246ccec2b043a2d9370b99d22d97b34adb3c458596eff232"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/neural-R4-pre/weights/000000065536/models.pt": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-pre/weights/000000065536/models.pt",
+    "sha256": "f25c5179502cf12e0f7516873aa1921eafca049814346bd079f3dee40b26a5fa"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/plan.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/plan.json",
+    "sha256": "a20dec02cea6eb45d28deb01b968718cf163f28f4ee6a9020a4b1c714a22e46a"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/profile.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/profile.json",
+    "sha256": "cbb7a73d7a03b289f4d31b8b2695dc16e9d8a7711d60b94dffb592ee525f3a8f"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/reference-profiles/R4/state.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/state.json",
+    "sha256": "a267035bbb5974ee54a11e2ae50a2f60082e00c6d535bc4a3ddefd4c88ffbca8"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/C1-post.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/C1-post.json",
+    "sha256": "a662848a541005fa69474437912057bf6b3f800c6875a2756d519d17ac2da8cb"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/C1-pre.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/C1-pre.json",
+    "sha256": "f82208b513c532eb60fdccff409096d4e9ed75155a16f7c29e50db22abbc9c95"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/C4-post.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/C4-post.json",
+    "sha256": "ef756e60122ed3ff3699421fd89ee759244ed9c2499c3307918a41932ee599ec"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/C4-pre.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/C4-pre.json",
+    "sha256": "bd2b1fdc35a3b5f6ca9ea1aa2d0081231f51b580edc8ba229ae2c1fcac32aa8f"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/audit-C1-post.stderr": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/audit-C1-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/audit-C1-post.stdout": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/audit-C1-post.stdout",
+    "sha256": "82839c6e846489e968376bdb0f288deede856ac7644c343ffbe94473090c039e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/audit-C1-pre.stderr": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/audit-C1-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/audit-C1-pre.stdout": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/audit-C1-pre.stdout",
+    "sha256": "82839c6e846489e968376bdb0f288deede856ac7644c343ffbe94473090c039e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/audit-C4-post.stderr": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/audit-C4-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/audit-C4-post.stdout": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/audit-C4-post.stdout",
+    "sha256": "82839c6e846489e968376bdb0f288deede856ac7644c343ffbe94473090c039e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/audit-C4-pre.stderr": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/audit-C4-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/audit-C4-pre.stdout": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/audit-C4-pre.stdout",
+    "sha256": "82839c6e846489e968376bdb0f288deede856ac7644c343ffbe94473090c039e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/driver.log": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/driver.py": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/driver.py",
+    "sha256": "ea8e8595a50f91f5282b33498961b9c869db6ba573c4bf66c949252317d497bf"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/job.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/job.json",
+    "sha256": "979c783ea5e815381dc93add1ee3bf202520ccb05bef6b63289d0a551361fd64"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/profiles.stderr": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-execution/profiles.stdout": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles.stdout",
+    "sha256": "49a3a603aa03c60843f1ac000d640dc87fd9c0ba93e38d102a3de63825151c02"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/budgets/neural-R1.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/budgets/neural-R1.json",
+    "sha256": "285c87469d4bafaebd6d9792ee51fd28c8726b03c855a536253c3f32b44a56e0"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/budgets/neural-R4.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/budgets/neural-R4.json",
+    "sha256": "86faeeacb07c29b85e948f41340630780ad288af200c03f5b6f7b0e08b8ea220"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-post/episodes.schema.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-post/result.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-post/result.json",
+    "sha256": "808ba4b43640089a3f95b960e62432eb7eb6f5399eb5a23114de84ffbfec598e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-post/run.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-post/run.json",
+    "sha256": "93f1f3abf890c0db2d2a21569c612a5a07abb8c5e1c9c7b146fcf72bad28f7d2"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-post/weights/000000032768/manifest.json",
+    "sha256": "d3ee3032c0042e2d3d6fce26c6814c562c77b4000780e7a4c08ccd9fe9b9932f"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-post/weights/000000032768/manifest.sha256",
+    "sha256": "4a1b582d39cd534c06c2f75feb801150c5725dc9ad2d5dbab38c776368d52fa7"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-post/weights/000000032768/models.pt": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-post/weights/000000032768/models.pt",
+    "sha256": "4edc201df600c5802fad649fce8a91beded96c45290f147410f7589eb67d4739"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-post/weights/000000065536/manifest.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-post/weights/000000065536/manifest.json",
+    "sha256": "35ad84dbefc88da1c386da6ff1f859ad903854e8a17e238dba7db9308669f032"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-post/weights/000000065536/manifest.sha256": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-post/weights/000000065536/manifest.sha256",
+    "sha256": "7286770575d089698d5082f3d9ce3fc8a045f3f1fb9b2943768ebe2ebbef7d81"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-post/weights/000000065536/models.pt": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-post/weights/000000065536/models.pt",
+    "sha256": "8f53835e445fa69a3761cc3c5cc8a4a10857f36e933159da581f84a749694f3b"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-pre/episodes.schema.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-pre/result.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-pre/result.json",
+    "sha256": "70cdb7290059365de9d8431b25de25e3ce8c08182119a726ff856a3a9e21d332"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-pre/run.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-pre/run.json",
+    "sha256": "236744a04f017635b16bd0ae8d85f5feb21d9a50c7e9dae1eeca3776ca2c05d0"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-pre/weights/000000032768/manifest.json",
+    "sha256": "4cae03b9d278082eaecc2f46b45502c56e2459bbf57e29fc14cf6bd89b8f1cb3"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-pre/weights/000000032768/manifest.sha256",
+    "sha256": "8fec1eae72ff87760808b34266292f5dea96d04e6412df11ff38ec295b73d75a"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-pre/weights/000000032768/models.pt": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-pre/weights/000000032768/models.pt",
+    "sha256": "9cf4caa7b3990e08e432701490e493352cc7bfff6e1f06c324a93aaff837b6b1"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-pre/weights/000000065536/manifest.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-pre/weights/000000065536/manifest.json",
+    "sha256": "7e38576ccaead33e1a9f2827c068e48b916969ad10f7174d68f8367ea9e4b54d"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-pre/weights/000000065536/manifest.sha256": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-pre/weights/000000065536/manifest.sha256",
+    "sha256": "d7e4350cb0e2bac213a16be7b20f58d1e0b9db1ad4d5f95078720b83ee0af38a"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R1-pre/weights/000000065536/models.pt": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R1-pre/weights/000000065536/models.pt",
+    "sha256": "dcb1bc431a720166a72b98a0d6d7f2448fbfda35f4cbe9fddf4a9002de0a90da"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-post/episodes.schema.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-post/result.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-post/result.json",
+    "sha256": "7c17ff2697f729315b5ad49b7c9f47621f1b04bcf082ea8e96140913753eefcc"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-post/run.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-post/run.json",
+    "sha256": "6424b0351bc66176693644d6c614adb10cc557ab9984ff6b11cae4bda95fee75"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-post/weights/000000032768/manifest.json",
+    "sha256": "c7b5903ab2f6631a82c4e8387ea1a90dff5a808bc7193e0df12e0de7d154676e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "382a9087942d22978301e6657e775a09059562db2ac97427130ee3901c8bf032"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-post/weights/000000032768/models.pt": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-post/weights/000000032768/models.pt",
+    "sha256": "0d926aa05acc06c234ccef370d7d84df93e0e583a6e7a94ef9df767498196e0a"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-post/weights/000000065536/manifest.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-post/weights/000000065536/manifest.json",
+    "sha256": "a961009c7d01a0501ead988a38d7c18fc9fcc87224cff49c066b0bce0a88f244"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-post/weights/000000065536/manifest.sha256": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-post/weights/000000065536/manifest.sha256",
+    "sha256": "8a3cea803864b6ebf31c854868ee54af89cccb8bccc7d61de4c2d314387187b5"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-post/weights/000000065536/models.pt": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-post/weights/000000065536/models.pt",
+    "sha256": "933f34e1f7b0cdc1638ca89b925684e63641e7178fd0914b4ec07a7afd9115a5"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-pre/episodes.schema.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-pre/result.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-pre/result.json",
+    "sha256": "81826a68f30d4b3dbeba7f7ba7c4ba937f16c38d6aaddded12045b9f91deccf2"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-pre/run.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-pre/run.json",
+    "sha256": "4b4b665587abe1f3055e573d5c6ac922fa28b64c21bee609d49de9d3f583f621"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "bfd6132b5d8613beecfc8472acd0ff1962d173310173728bef5919a1360ea26c"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "616ea82110a94a314949f8e96c9c05d8e581405e6c016cd21a4464ce0906e122"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-pre/weights/000000032768/models.pt": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-pre/weights/000000032768/models.pt",
+    "sha256": "52cc0e322797233b39c5dd4d2fe8bea5982f38d07bbfc7fc30c988912b2a6f84"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-pre/weights/000000065536/manifest.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-pre/weights/000000065536/manifest.json",
+    "sha256": "6a01eca14e79577ac013c8655f4d2a2f40bba0cee818e1283ff0f526f853339d"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-pre/weights/000000065536/manifest.sha256": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-pre/weights/000000065536/manifest.sha256",
+    "sha256": "6a983a3acb27765068c2934691b30ec33c116ad0400fa6f1addb9a1e154c151e"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/neural-R4-pre/weights/000000065536/models.pt": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/neural-R4-pre/weights/000000065536/models.pt",
+    "sha256": "f25c5179502cf12e0f7516873aa1921eafca049814346bd079f3dee40b26a5fa"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/plan.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/plan.json",
+    "sha256": "e82588b6284b5f06a40ff4114a36b6c960319186939bdf3c8cfbe867ce26024d"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/profile.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/profile.json",
+    "sha256": "b97febdea531171818aa55c2898495122a017a18dc77449600046b92f0e1e0d4"
+  },
+  "docs/verification/nfsp-delayed-cpu-prices/selected-profiles/state.json": {
+    "original": "runs/nfsp-delayed-selected-cpu-prices-1583ea7/profiles/state.json",
+    "sha256": "3721be30fe49cb75c99df673c99aa0d78fac9f66f7c4bfee2919fa2c67dc47ac"
+  }
+}

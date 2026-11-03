@@ -1,0 +1,33 @@
+{
+  "allocation_sha256": "ca5662375d457f77f2ad74f90fc906f970b72ae41a84b7228eccd9624165ab1a",
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "-m",
+    "tools.nfsp_delayed_cpu_prices",
+    "--repo",
+    "/home/gcao/proj/graygo",
+    "--proposal",
+    "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-cpu-price-proposal.json",
+    "--audits",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-cpu-price-audit-8650f18",
+    "--selected",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-selected-cpu-prices-1583ea7",
+    "--output",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-cpu-price-qualification-b7b4209/prices.json"
+  ],
+  "driver_sha256": "97d32121feb0f2f05038010c523ddbebad04931354aebd29287705329b1818ba",
+  "execution_authorized": false,
+  "loaded_package_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "measured_driver_seconds": 4.645750608062372,
+  "measured_qualifier_process_seconds": 4.580462761921808,
+  "new_accelerator_jobs": 0,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "original_driver_pid": 2738211,
+  "original_qualifier_pid": 2738212,
+  "prices_sha256": "93f3c87dfd9f52f0bc191f2ce0fda5cbbbe1efe77637415a222f0c9f75816ecb",
+  "qualifier_sha256": "ca5fa1419901a6257b0c47a065054afd74a60b9357ddc85f87593177ee60ff28",
+  "returncode": 0,
+  "status": "qualified_direct_selected_package_cpu_delayed_prices",
+  "version": 1
+}

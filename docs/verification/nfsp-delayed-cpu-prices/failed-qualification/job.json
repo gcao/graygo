@@ -1,0 +1,33 @@
+{
+  "allocation_sha256": "f6f0e3d7531fcd555a85d908fd32453a2ac0bfb1453d028fa91866f1d8c56541",
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "-m",
+    "tools.nfsp_delayed_cpu_prices",
+    "--repo",
+    "/home/gcao/proj/graygo",
+    "--proposal",
+    "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-cpu-price-proposal.json",
+    "--audits",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-cpu-price-audit-8650f18",
+    "--selected",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-selected-cpu-prices-1583ea7",
+    "--output",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-cpu-price-qualification-1a98f8e/prices.json"
+  ],
+  "driver_sha256": "a56b322d302f2c362ff72bbd884e431b86518ecbf528f08ca9508d846982d015",
+  "error": "AssertionError('price qualifier failed; preserve original evidence')",
+  "execution_authorized": false,
+  "loaded_package_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "measured_driver_seconds": 4.637420283979736,
+  "measured_qualifier_process_seconds": 4.572080104029737,
+  "new_accelerator_jobs": 0,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "original_driver_pid": 2737143,
+  "original_qualifier_pid": 2737146,
+  "qualifier_sha256": "4439db37d8e5dcc2378f8c8776525a6e98ecf2b28b421e3b608e831f0cdb236f",
+  "returncode": 1,
+  "status": "failed",
+  "version": 1
+}
