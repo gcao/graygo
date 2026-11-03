@@ -1,0 +1,16 @@
+{
+  "auditor": "tools/audit_nfsp_uniform_costs.py",
+  "auditor_sha256": "a537986c13da120610d3d0998dfee127feb380120ee84e6b113691d6a93c181e",
+  "base_tooling_root": ".worktrees/nfsp-graph-cost-bbfd5e4",
+  "measurement_allocation": "docs/experiments/nfsp-uniform-board-cost-allocation.json",
+  "measurement_allocation_sha256": "d3a310554fcb16bf3261d90bc4103ace62690d7592b3439f16092c69f5a44b1b",
+  "name": "read-only-uniform-board-component-independent-audit",
+  "new_accelerator_jobs": 0,
+  "new_control_allocation_seconds": "0",
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "outer_watchdog_seconds": 240,
+  "scope": "Fresh independent original-base accounting plus actual uniform pipeline/checkpoint/logical-counter/cold-span/memory and separate three-seed reference equation. Read-only, after the original profile and writer terminate. CPU A2 subset pricing and full route/scope remain separate.",
+  "source_package": ".worktrees/frozen-cuda-c3b8b5f/src",
+  "version": 1
+}
