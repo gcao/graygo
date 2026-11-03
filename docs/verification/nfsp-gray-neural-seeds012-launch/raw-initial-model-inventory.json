@@ -1,0 +1,32 @@
+{
+  "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed0/initial-checkpoint/trainer.pt": {
+    "bytes": 7593461,
+    "scope": "Permanent actual private zero-record checkpoint outside rolling resume retention",
+    "sha256": "438e6331970d77ff99d14220d04e20de41dbb2967ef9972754ddd15d650ff737"
+  },
+  "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed1/initial-checkpoint/trainer.pt": {
+    "bytes": 7593461,
+    "scope": "Permanent actual private zero-record checkpoint outside rolling resume retention",
+    "sha256": "75e992afa126416f2bf63ceefea3476c90db98fba3b865d9b26998c00e9e268b"
+  },
+  "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed2/initial-checkpoint/trainer.pt": {
+    "bytes": 7593461,
+    "scope": "Permanent actual private zero-record checkpoint outside rolling resume retention",
+    "sha256": "0119e43dab59407a157374b668bcd89e43f263d6f0fbaf7eeb05ede4b95db3a7"
+  },
+  "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed0/initial-checkpoint/trainer.pt": {
+    "bytes": 7593461,
+    "scope": "Permanent actual private zero-record checkpoint outside rolling resume retention",
+    "sha256": "4ca4bf6c2d29ef9df5beb6b0a5b4be907ff88ff9a1e9e8de448f822faf12ba9d"
+  },
+  "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed1/initial-checkpoint/trainer.pt": {
+    "bytes": 7593461,
+    "scope": "Permanent actual private zero-record checkpoint outside rolling resume retention",
+    "sha256": "14e3c939e18c3bf829486dab25f534663b6cc1f5226a64b21a248502ecccac29"
+  },
+  "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed2/initial-checkpoint/trainer.pt": {
+    "bytes": 7593461,
+    "scope": "Permanent actual private zero-record checkpoint outside rolling resume retention",
+    "sha256": "f515fec64377b2ff7f4dbe49b0ee9ed5106882b716af040cf2d47d17a5ab2a4b"
+  }
+}

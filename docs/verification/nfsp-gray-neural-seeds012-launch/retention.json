@@ -1,0 +1,202 @@
+{
+  "docs/verification/nfsp-gray-neural-seeds012-launch/driver.py": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/driver.py",
+    "sha256": "3832bf0044c0d223831910aab3d630028aeb1fff39150342b5d81ca27f05da5f"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed0/admission.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed0/admission.json",
+    "sha256": "51e9a7aecbcab1c853e1413259935c6ea890bd62ea2a8a05fa3cd9eda0741e00"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed0/initial-checkpoint/manifest.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed0/initial-checkpoint/manifest.json",
+    "sha256": "b8b5fd1a7513b783961ce68129f637a385f6567f8f14982c23cc6e8826de9b2e"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed0/initial-checkpoint/manifest.sha256": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed0/initial-checkpoint/manifest.sha256",
+    "sha256": "c6120de06c6972b5d4c6b6acb22624038f18536c4a1d3ffa2b2cfa660c54d62f"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed0/initial-checkpoint/metrics.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed0/initial-checkpoint/metrics.npz",
+    "sha256": "8956f7949abf86a2e9d868d3e0c6b979f907af7111e692468688e1018bbe10ae"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed0/initial-checkpoint/replay.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed0/initial-checkpoint/replay.npz",
+    "sha256": "4ef74feb477433522afd8dc0ad8de0f5dbfe4a094546e5f6052386432b8b803c"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed0/initial-checkpoint/reservoir.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed0/initial-checkpoint/reservoir.npz",
+    "sha256": "5374f9eadf7150c0fdaf7e0b37ce18d0edd8e2c6db32e26742e4c3a555b67195"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed0/initialization.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed0/initialization.json",
+    "sha256": "f3b6410dadd8e7d2189fb101e7e27bad1d8fa988c291b041417ed8fff570e1df"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed0/run.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed0/run.json",
+    "sha256": "1566c410e9dd931a36320b96eca0a4858062c63cdf6ea4a86ebe4860babb673a"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed1/admission.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed1/admission.json",
+    "sha256": "6590ed5eab89579de470ef3a15f9bad4a66e16a844c2de5de4182a49bc4d9390"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed1/initial-checkpoint/manifest.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed1/initial-checkpoint/manifest.json",
+    "sha256": "55b4db0704163c6b656b7f05a8cc94a54dd6c3acacc787ca31f6ca3728f8eea8"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed1/initial-checkpoint/manifest.sha256": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed1/initial-checkpoint/manifest.sha256",
+    "sha256": "9e4842a00f7fd14afcf45653a79cacf60ef63c806f0eab57df71d437fdf8e899"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed1/initial-checkpoint/metrics.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed1/initial-checkpoint/metrics.npz",
+    "sha256": "8956f7949abf86a2e9d868d3e0c6b979f907af7111e692468688e1018bbe10ae"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed1/initial-checkpoint/replay.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed1/initial-checkpoint/replay.npz",
+    "sha256": "4ef74feb477433522afd8dc0ad8de0f5dbfe4a094546e5f6052386432b8b803c"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed1/initial-checkpoint/reservoir.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed1/initial-checkpoint/reservoir.npz",
+    "sha256": "5374f9eadf7150c0fdaf7e0b37ce18d0edd8e2c6db32e26742e4c3a555b67195"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed1/initialization.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed1/initialization.json",
+    "sha256": "2c93a577cdabac3af28d890a7ad0338fae6f6a02a9f553e8bda76647eca2725b"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed1/run.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed1/run.json",
+    "sha256": "e739ecf1eb9a038b08d03a6395018f74781d5e7f18623d9c2f806f5b88210b2b"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed2/admission.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed2/admission.json",
+    "sha256": "3341ba2aa33a2d2db4aaedc7616013ddd7b6c970de59a2a477c3bda5a1167803"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed2/initial-checkpoint/manifest.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed2/initial-checkpoint/manifest.json",
+    "sha256": "fffb9137eafe8182244219e6cde2ac3f67fef4584736363664f8adaca23a4611"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed2/initial-checkpoint/manifest.sha256": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed2/initial-checkpoint/manifest.sha256",
+    "sha256": "50bb7246fdf93fd819959631444e328e22ed67a45241bb02d1049a882e2cb552"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed2/initial-checkpoint/metrics.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed2/initial-checkpoint/metrics.npz",
+    "sha256": "8956f7949abf86a2e9d868d3e0c6b979f907af7111e692468688e1018bbe10ae"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed2/initial-checkpoint/replay.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed2/initial-checkpoint/replay.npz",
+    "sha256": "4ef74feb477433522afd8dc0ad8de0f5dbfe4a094546e5f6052386432b8b803c"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed2/initial-checkpoint/reservoir.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed2/initial-checkpoint/reservoir.npz",
+    "sha256": "5374f9eadf7150c0fdaf7e0b37ce18d0edd8e2c6db32e26742e4c3a555b67195"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed2/initialization.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed2/initialization.json",
+    "sha256": "eef6959266d32e587e838d9aa9c4c17d5e8dc4713d0e4eec4dd9f5a01df30a8e"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-mixed/seed2/run.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-mixed/seed2/run.json",
+    "sha256": "7bc67e1915ebbe4331b51f64846c22c01b03a51af484e9b6f086cd9c04da0f55"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed0/admission.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed0/admission.json",
+    "sha256": "a8c5a3117ed49636465b88ee505ff5de8cd6306e02b9ba4ae72d6dd82c226505"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed0/initial-checkpoint/manifest.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed0/initial-checkpoint/manifest.json",
+    "sha256": "b9924ec61d1751270866b92308f1a6304345fd4366d7003fe4ee80274f323189"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed0/initial-checkpoint/manifest.sha256": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed0/initial-checkpoint/manifest.sha256",
+    "sha256": "f14d3e0c5bf1ef460b84d9c89cb4dcede12cd4821918faf097f263ba91e50955"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed0/initial-checkpoint/metrics.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed0/initial-checkpoint/metrics.npz",
+    "sha256": "2b4f170123f7c92edebb3f10db1028c0b73ceee886ce8a21a416cedfa243ce6a"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed0/initial-checkpoint/replay.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed0/initial-checkpoint/replay.npz",
+    "sha256": "4ef74feb477433522afd8dc0ad8de0f5dbfe4a094546e5f6052386432b8b803c"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed0/initial-checkpoint/reservoir.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed0/initial-checkpoint/reservoir.npz",
+    "sha256": "5374f9eadf7150c0fdaf7e0b37ce18d0edd8e2c6db32e26742e4c3a555b67195"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed0/initialization.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed0/initialization.json",
+    "sha256": "46a7e84b61e9a11562209522fea6c84b5c9c07e51029fd2c29f9c24618fa9ac6"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed0/run.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed0/run.json",
+    "sha256": "3ed1859a0d8d16efc8e14b8205cfacd712003d2a91c0a510cb36de51a8d13b14"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed1/admission.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed1/admission.json",
+    "sha256": "f7e98a1007b16f8c80c7e67c930dbd6dc9f3bad86afabb8ef5e3bc2fb740d2e7"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed1/initial-checkpoint/manifest.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed1/initial-checkpoint/manifest.json",
+    "sha256": "587f4839290e192351ef76426ce20075a9ec4e650ce61b7a00a5449c1ba4d472"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed1/initial-checkpoint/manifest.sha256": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed1/initial-checkpoint/manifest.sha256",
+    "sha256": "f436a0e50c9bbc38525c20607a0c836ce98bd29b1f096b612c4ab384fcac8f41"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed1/initial-checkpoint/metrics.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed1/initial-checkpoint/metrics.npz",
+    "sha256": "2b4f170123f7c92edebb3f10db1028c0b73ceee886ce8a21a416cedfa243ce6a"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed1/initial-checkpoint/replay.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed1/initial-checkpoint/replay.npz",
+    "sha256": "4ef74feb477433522afd8dc0ad8de0f5dbfe4a094546e5f6052386432b8b803c"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed1/initial-checkpoint/reservoir.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed1/initial-checkpoint/reservoir.npz",
+    "sha256": "5374f9eadf7150c0fdaf7e0b37ce18d0edd8e2c6db32e26742e4c3a555b67195"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed1/initialization.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed1/initialization.json",
+    "sha256": "c85f905239ceb9508de74fa913e9bd16b343529df768af3df1c0dd530889be2a"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed1/run.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed1/run.json",
+    "sha256": "e34aab71e9e57f7dd62f2a353e3a4d95b268b1996b7594c57bcf1d0dad86b4dc"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed2/admission.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed2/admission.json",
+    "sha256": "16b09f7a6a5734c5ba3f3227a745b981cda36001cff84dd05e2d5c889261cb2b"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed2/initial-checkpoint/manifest.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed2/initial-checkpoint/manifest.json",
+    "sha256": "79a63a131719994e261e08a51d9e778026fe6e0db12fba763c0c73f85baa4a87"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed2/initial-checkpoint/manifest.sha256": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed2/initial-checkpoint/manifest.sha256",
+    "sha256": "339dfcdc0e7a89929d094b1c2912ac19bc8dc32b19c0721dc8f6840fb6d96c2a"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed2/initial-checkpoint/metrics.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed2/initial-checkpoint/metrics.npz",
+    "sha256": "2b4f170123f7c92edebb3f10db1028c0b73ceee886ce8a21a416cedfa243ce6a"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed2/initial-checkpoint/replay.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed2/initial-checkpoint/replay.npz",
+    "sha256": "4ef74feb477433522afd8dc0ad8de0f5dbfe4a094546e5f6052386432b8b803c"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed2/initial-checkpoint/reservoir.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed2/initial-checkpoint/reservoir.npz",
+    "sha256": "5374f9eadf7150c0fdaf7e0b37ce18d0edd8e2c6db32e26742e4c3a555b67195"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed2/initialization.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed2/initialization.json",
+    "sha256": "7e7345bb92b3e7624a05ea8d5dbd6ac21f35f7493731dd473fd1f50f6c4812f1"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/gray-pure/seed2/run.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/gray-pure/seed2/run.json",
+    "sha256": "d38a4a5f170d2b6cee4583049d8690ead5545aad5be8bc1fc4e663c069186f8c"
+  },
+  "docs/verification/nfsp-gray-neural-seeds012-launch/process-identity-confirmation.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-gray-neural-seeds012-a714-v1/process-identity-confirmation.json",
+    "sha256": "c22060097e7aea4dceca61a1c1415a028e75ff7c4de61a0cc4ec6426997fc847"
+  }
+}

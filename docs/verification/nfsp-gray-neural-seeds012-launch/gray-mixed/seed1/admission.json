@@ -1,0 +1,16 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "6368c33ff903e3d9cd8526f13c0bd2b5cd90726f02cc0fe4e916f2accf8c728c",
+  "fresh_prices_and_source_inputs_verified": true,
+  "input_receipts_sha256": {
+    "cpu_price_receipt": "62dd344185b3e3957a435f913a91812a43fa368f8d4a8cec2e1e4fc131eab16f",
+    "own_source_plan": "55d0dc4bc9b5c8eb332154eb163014036795fe623ba75fcdce158eca75047642",
+    "source_admission": "603add2790eba6af8ec39de3f1be9c4ed881aad484f93385c95e27313e714d71",
+    "source_registry": "9eaf57118223392ad1693b3709bb1c2cb713cb1b83c6129769fddbb01233835e"
+  },
+  "measured_preinitialization_seconds": 8.365673086955212,
+  "seed": 1,
+  "source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+  "task": "gray-mixed",
+  "version": 1
+}

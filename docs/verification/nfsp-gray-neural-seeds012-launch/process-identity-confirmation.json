@@ -1,0 +1,53 @@
+{
+  "allocation_sha256": "6368c33ff903e3d9cd8526f13c0bd2b5cd90726f02cc0fe4e916f2accf8c728c",
+  "no_worker_restart": true,
+  "observation_unix_seconds": "1793690046.5809987",
+  "original_case_identities": {
+    "gray-mixed/0": {
+      "cmdline_sha256": "dce12781b85697a14e203d610f4df271ce4b9f614905fd996f7612f5af6edc80",
+      "exact_expected_argv_verified": true,
+      "original_immediate_cmdline_sha256": "dce12781b85697a14e203d610f4df271ce4b9f614905fd996f7612f5af6edc80",
+      "pid": 2801280,
+      "start_ticks": "56934451"
+    },
+    "gray-mixed/1": {
+      "cmdline_sha256": "d593aa79ab984343287bf4c8521dda4295878ee6f81ec276a873be855335ac3f",
+      "exact_expected_argv_verified": true,
+      "original_immediate_cmdline_sha256": "d593aa79ab984343287bf4c8521dda4295878ee6f81ec276a873be855335ac3f",
+      "pid": 2801281,
+      "start_ticks": "56934451"
+    },
+    "gray-mixed/2": {
+      "cmdline_sha256": "39fb8d8c052e79c18cb3436b50773f50904be6feff370d553bc73c06af6b2efa",
+      "exact_expected_argv_verified": true,
+      "original_immediate_cmdline_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pid": 2801282,
+      "start_ticks": "56934451"
+    },
+    "gray-pure/0": {
+      "cmdline_sha256": "b9f75297e84a42846a947bdef0c74c36ce6f78661b0d43a7b4f9d2fccc152193",
+      "exact_expected_argv_verified": true,
+      "original_immediate_cmdline_sha256": "b9f75297e84a42846a947bdef0c74c36ce6f78661b0d43a7b4f9d2fccc152193",
+      "pid": 2801277,
+      "start_ticks": "56934451"
+    },
+    "gray-pure/1": {
+      "cmdline_sha256": "01dcd8b3137a867c69c8d4d67d6f6dcafc965e7b129b9e07d5d5c025de808980",
+      "exact_expected_argv_verified": true,
+      "original_immediate_cmdline_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pid": 2801278,
+      "start_ticks": "56934451"
+    },
+    "gray-pure/2": {
+      "cmdline_sha256": "8ff08c81d3a6453fce95fa5adfa7209066404644f98fb4b9f19750b31f21880b",
+      "exact_expected_argv_verified": true,
+      "original_immediate_cmdline_sha256": "8ff08c81d3a6453fce95fa5adfa7209066404644f98fb4b9f19750b31f21880b",
+      "pid": 2801279,
+      "start_ticks": "56934451"
+    }
+  },
+  "original_driver_pid": 2801276,
+  "original_driver_sha256": "3832bf0044c0d223831910aab3d630028aeb1fff39150342b5d81ca27f05da5f",
+  "scope": "Confirm the six already-running original worker identities after exec. Immediate post-Popen proc command-line snapshots can be empty before exec; preserve original job snapshots and bind unchanged PIDs/start ticks to their complete exact allocated argv now.",
+  "version": 1
+}
