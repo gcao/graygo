@@ -1,0 +1,31 @@
+{
+  "a2_complete": false,
+  "aggregate_records": 30000000,
+  "both_one_step_neural_choices_miss": false,
+  "conditional_Retrace_selected": false,
+  "neural_case_audit_sha256": "a441936e6e369fa3ddc694c09b6b045f227de2758c31fd5939e07c92a4c37190",
+  "neural_final_five_maxima": {
+    "final_five_max_average_gap": 1.8018596925628572e-07,
+    "final_five_max_early_error": 0.012568628757958611,
+    "final_five_max_greedy_gap": 0.0
+  },
+  "neural_primary_numeric_pass_independently_verified": true,
+  "neural_recorded_loop_seconds": "9671.735913385986",
+  "original_parent_pid": 2538230,
+  "original_parent_terminal": true,
+  "original_source_commit": "ca45a53824ab5e2909cdfa6a75ab3f1752eafc5a",
+  "other_seeds_selected": false,
+  "paired_current_assessment_sha256": "9942f756692e6a55155cdc2cf920082620d4aedfef56f56e6ed97c1dd9a73a9d",
+  "parent_interval_not_added_to_leaf_loops": true,
+  "parent_process_interval_seconds": "19065.63490602799",
+  "per_case_records": 15000000,
+  "pilot_selected": false,
+  "scope": "original full matched comparison settled; seed-zero viability is not three-seed/cohort/resource authority",
+  "source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "stability_extension_selected": false,
+  "staged_one_step_R4_seed_zero_viable": true,
+  "table_control_settlement_retained": "docs/verification/nfsp-eligibility-R4-tabular/control-settlement.json",
+  "table_credit_and_average_still_miss": true,
+  "table_recorded_loop_seconds": "9392.739873325976",
+  "version": 1
+}

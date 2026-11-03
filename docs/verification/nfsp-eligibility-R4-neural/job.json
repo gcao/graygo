@@ -1,0 +1,96 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "66f28af5c95b131dba3835b08e402fa589e6ff115d77684fb4acadfba52dd690",
+  "archived_report_sha256": "0e5905c9b6eee83c18d6357fa39ee26ef172a6290c7262b73b08c467e2e14027",
+  "case_sha256": "a441936e6e369fa3ddc694c09b6b045f227de2758c31fd5939e07c92a4c37190",
+  "child_pid": 2648331,
+  "commands": [
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "plan",
+        "--name",
+        "corrected-R4-cohort-evidence",
+        "--learner-source-sha",
+        "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+        "--reuse",
+        "4",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json"
+      ],
+      "name": "plan",
+      "returncode": 0,
+      "seconds": 0.12377076596021652
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "audit-case",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-primary-ca45a53/neural",
+        "--time-cap-seconds",
+        "600",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json"
+      ],
+      "name": "case",
+      "returncode": 0,
+      "seconds": 32.374852785957046
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/current.json"
+      ],
+      "name": "current",
+      "returncode": 0,
+      "seconds": 0.31597319105640054
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "assess",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json",
+        "--case",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json",
+        "--archived",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/archived.json"
+      ],
+      "name": "archived",
+      "returncode": 0,
+      "seconds": 0.11609768006019294
+    }
+  ],
+  "current_archived_numerics_match": true,
+  "current_report_sha256": "9942f756692e6a55155cdc2cf920082620d4aedfef56f56e6ed97c1dd9a73a9d",
+  "driver_sha256": "085578ae6ded5be99dc61f9f337f7381890e496b92b591f47d799751c336eb76",
+  "fresh_primary_case_audit_verified": true,
+  "measured_driver_seconds": 33.08582529705018,
+  "missing_cases": 34,
+  "new_learning_records": 0,
+  "original_driver_pid": 2648095,
+  "original_inputs_unchanged": true,
+  "status": "verified",
+  "tool_commit": "30f8d912ac61efb5f69a80b2744b2438e89f51b0",
+  "tool_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "version": 1,
+  "watchdog_seconds": 660
+}
