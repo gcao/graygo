@@ -1,0 +1,174 @@
+{
+  "acting_policy_counts": {
+    "average": 88768,
+    "q": 11232,
+    "uniform": 0
+  },
+  "average_final_five_passed": false,
+  "best_response_visits": [
+    4896,
+    5059
+  ],
+  "collection_implementation": "terminal-batch",
+  "counters": {
+    "fresh_ordinary": 100000,
+    "fresh_q": 100000,
+    "fresh_records": 100000,
+    "q_loss_targets": 96000,
+    "q_updates": 750,
+    "supervised_targets": 3890224,
+    "supervised_updates": 771,
+    "target_refreshes": 7
+  },
+  "elapsed_seconds": 3.2259414580184966,
+  "episode_audit_bytes": 6050000,
+  "evaluations": [
+    {
+      "average_gaps": [
+        0.19198448610213326,
+        0.5465214454576157
+      ],
+      "average_policies": [
+        [
+          0.332579185520362,
+          0.6674208144796381
+        ],
+        [
+          0.06422379826635148,
+          0.9357762017336486
+        ]
+      ],
+      "average_ready": true,
+      "counters": {
+        "fresh_ordinary": 50000,
+        "fresh_q": 50000,
+        "fresh_records": 50000,
+        "q_loss_targets": 45952,
+        "q_updates": 359,
+        "supervised_targets": 969646,
+        "supervised_updates": 380,
+        "target_refreshes": 3
+      },
+      "elapsed_seconds": 1.385495990049094,
+      "epsilon": 0.09939999999999999,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "greedy_q_policies": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "handoff_probability": 1.0,
+      "q_values": [
+        [
+          -0.11067727953195572,
+          0.011935703456401825
+        ],
+        [
+          -0.06300467997789383,
+          0.11298990994691849
+        ]
+      ],
+      "records": 50000,
+      "reservoir_seen": 4975,
+      "reservoir_size": 4975
+    },
+    {
+      "average_gaps": [
+        0.5268732492997199,
+        0.5945083194440521
+      ],
+      "average_policies": [
+        [
+          0.16513480392156862,
+          0.8348651960784315
+        ],
+        [
+          0.032232548942060506,
+          0.9677674510579395
+        ]
+      ],
+      "average_ready": true,
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "fresh_records": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 3890224,
+        "supervised_updates": 771,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 2.9738388309488073,
+      "epsilon": 0.0988,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        0.6428571428571428
+      ],
+      "greedy_q_policies": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "handoff_probability": 1.0,
+      "q_values": [
+        [
+          -0.2160840481519699,
+          0.15343748033046722
+        ],
+        [
+          -0.08090014010667801,
+          0.13460411131381989
+        ]
+      ],
+      "records": 100000,
+      "reservoir_seen": 9955,
+      "reservoir_size": 9955
+    }
+  ],
+  "formal_gate_passed": false,
+  "formal_protocol": false,
+  "learner": "tabular",
+  "loss_stats": {
+    "projected_targets": 0,
+    "q_loss_sum": 510.2710895240307,
+    "q_updates": 750,
+    "raw_target_max": 1.0,
+    "raw_target_min": -1.0,
+    "supervised_loss_sum": 0.0,
+    "supervised_loss_updates": 0
+  },
+  "matrix_certificate_gap": 0.0,
+  "matrix_value": -0.14285714285714285,
+  "per_role_records": [
+    50000,
+    50000
+  ],
+  "physical_games": 50000,
+  "records": 100000,
+  "reservoir_changes": 9955,
+  "reservoir_seen": 9955,
+  "reservoir_size": 9955,
+  "seed": 0,
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "status": "complete",
+  "task": "asymmetric",
+  "timings": {
+    "checkpoint": 0.4617356719681993,
+    "collection": 2.0661507602781057,
+    "evaluation": 0.0005922219716012478,
+    "learning": 0.7239102973835543
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "all_original_validation_handles_terminal": true,
+  "archive_source_seals_verified": 257,
+  "complete_exact_pipeline_pairs": 12,
+  "control_commitment": {
+    "actual_process_seconds": "39415.6622695556721900",
+    "ceiling_seconds": "43200",
+    "committed_process_seconds": "40099.65247545798740042",
+    "reserved_process_seconds": "683.99020590231521042",
+    "unallocated_seconds": "3100.34752454201259958",
+    "within_ceiling": true
+  },
+  "diagnostic_records": 2124288,
+  "failed_noop_mutation_test_preserved": true,
+  "full_package_tests_passed": 493,
+  "independent_diagnostic_audits": 24,
+  "new_formal_A2_records": 0,
+  "prior_measurements_preserved": 77,
+  "resource_arithmetic_recomputed": true,
+  "source_admission_or_full_run_price_qualified": false,
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "version": 1
+}

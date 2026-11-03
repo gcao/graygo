@@ -1,0 +1,65 @@
+{
+  "actual_diagnostic_records": 2124288,
+  "exact_pipeline_pairs": 12,
+  "execution_authorized": false,
+  "formal_A2_records": 0,
+  "full_package_tests_passed": 493,
+  "full_run_price_qualified": false,
+  "full_suite_test_seconds": 326.145,
+  "independent_diagnostic_audits_verified": 24,
+  "initial_full_suite_failure": "test assigned utility 1.0 to a row already equal to 1.0; test-only guaranteed mutation correction; production promotion checks unchanged",
+  "initial_full_suite_tests": 491,
+  "ratios": {
+    "production-layout/asymmetric/neural/post": {
+      "collection_speed_ratio": 4.208352781868388,
+      "loop_speed_ratio": 2.5595881652867707
+    },
+    "production-layout/asymmetric/neural/pre": {
+      "collection_speed_ratio": 4.9967129921103055,
+      "loop_speed_ratio": 3.1647796891525726
+    },
+    "production-layout/asymmetric/tabular/post": {
+      "collection_speed_ratio": 3.998208419650517,
+      "loop_speed_ratio": 2.9201484402677114
+    },
+    "production-layout/asymmetric/tabular/pre": {
+      "collection_speed_ratio": 5.11304188328297,
+      "loop_speed_ratio": 3.474006132491897
+    },
+    "production-layout/rps/neural/post": {
+      "collection_speed_ratio": 4.187675976315107,
+      "loop_speed_ratio": 2.555557095396924
+    },
+    "production-layout/rps/neural/pre": {
+      "collection_speed_ratio": 5.0098955625,
+      "loop_speed_ratio": 3.1666249734177616
+    },
+    "production-layout/rps/tabular/post": {
+      "collection_speed_ratio": 3.860538654576092,
+      "loop_speed_ratio": 2.8286313862855854
+    },
+    "production-layout/rps/tabular/pre": {
+      "collection_speed_ratio": 5.042731141576666,
+      "loop_speed_ratio": 3.3838417560156038
+    },
+    "wrap-stress/asymmetric/neural/post": {
+      "collection_speed_ratio": 4.418144513704884,
+      "loop_speed_ratio": 2.7109454537630384
+    },
+    "wrap-stress/asymmetric/tabular/post": {
+      "collection_speed_ratio": 4.030349316800767,
+      "loop_speed_ratio": 2.985641680454494
+    },
+    "wrap-stress/rps/neural/post": {
+      "collection_speed_ratio": 4.142914607265629,
+      "loop_speed_ratio": 2.562475818977705
+    },
+    "wrap-stress/rps/tabular/post": {
+      "collection_speed_ratio": 4.012642161581558,
+      "loop_speed_ratio": 2.897113211595322
+    }
+  },
+  "source_admitted_to_original_A2_cohort": false,
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "version": 1
+}

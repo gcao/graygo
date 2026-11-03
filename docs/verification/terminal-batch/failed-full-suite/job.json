@@ -1,0 +1,17 @@
+{
+  "allocation_interval_end_epoch": 1793674175.386631,
+  "allocation_interval_start_epoch": 1793673850.1080067,
+  "measured_driver_seconds": 325.27862316998653,
+  "new_formal_A2_records": 0,
+  "original_driver_pid": 2701444,
+  "physical_gpu_uuid": "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2",
+  "returncode": 1,
+  "scope": "whole package regression suite; tests/diagnostics only, no learning gate or price qualification",
+  "source_commit": "2aa4f08641b70214bb08ec3282eceaf6bbae16a1",
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "source_unchanged": true,
+  "status": "failed",
+  "test_pid": 2701470,
+  "time_ceiling_seconds": 900,
+  "version": 1
+}

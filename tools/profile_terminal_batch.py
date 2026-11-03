@@ -95,7 +95,9 @@ def run(root,*,expected_source,time_cap_seconds):
             'source_unchanged':True,'diagnostic_records':sum(row['records'] for row in results),'elapsed_seconds':time.monotonic()-started,
             'formal_A2_records':0,'full_run_price_qualified':False,'execution_authorized':False,
             'scope':'finite actual production-learner comparisons, with partial production replay and separate both-buffer wrap stress; mode/source/capacity bound, no universal speedup or learning readiness claim'}
-    write_report(root/'report.json',report);print(json.dumps({'status':report['status'],'diagnostic_records':report['diagnostic_records'],'elapsed_seconds':report['elapsed_seconds'],
+    write_report(root/'report.json',report)
+    write_report(root/'progress.json',{'status':'complete','completed_pairs':len(pairs),'current_case':None,'current_mode':None})
+    print(json.dumps({'status':report['status'],'diagnostic_records':report['diagnostic_records'],'elapsed_seconds':report['elapsed_seconds'],
         'ratios':{label:{key:pair[key] for key in ('collection_speed_ratio','loop_speed_ratio')} for label,pair in pairs.items()}},indent=2));return report
 
 

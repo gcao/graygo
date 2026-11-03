@@ -1,0 +1,1074 @@
+{
+  "completed_pairs": 12,
+  "pairs": {
+    "production-layout/asymmetric/neural/post": {
+      "capacity": 200000,
+      "collection_speed_ratio": 4.208352781868388,
+      "equal_partitions": {
+        "episode_bytes": "068f4f80808caea6777ebbf21903fc32aa74d018c2b172456c52a72d64b76068",
+        "episode_schema": "ca81e25db0d1548dac75a76abb77f9cccc2255befc6dc0a199804923e27639d9",
+        "manifest": "c6b9acdc333a4b0eac3d24b59f989f6339275633d317b5733c7611f0c6c0d949",
+        "public_weights": {
+          "000000050000": "963a522d7d0596d1e7e9aab65cf6ac57cdc97720890878c95c3a7190fd9710a3",
+          "000000100000": "13f11820c6b7cbf164deb0ed95993084233a1753f79057576d26d3867dca7e89"
+        },
+        "replay": "1ae8982b70181e77fab57be299eafe2ed8591f645cfafb514d52788bbe1748a1",
+        "reservoir": "9bdf4208a7e2c24f23367ddb200df11eea86e7c25733629332d955cd94b3c56f",
+        "result": "9d8cd806fd61b4c9cb151a6b1d0764ad09cde5e124a9d53b2e3901bfa053e53c",
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "trainer_state": "c9c74f326492ca93764597badded91109fd3bf631fa3e1e25ea467ab2201530f"
+      },
+      "exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory",
+          "collection_implementation"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "collection_implementation"
+        ],
+        "scheduled_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings",
+          "collection_implementation"
+        ]
+      },
+      "input_files_sha256": {
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/scalar-reference": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "068f4f80808caea6777ebbf21903fc32aa74d018c2b172456c52a72d64b76068",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "82c517ee01a0e15832c51bc803ac625a416b1dbb184c6ba595e9175052c1c572",
+          "result.json": "77b162fdcd946fb1db6dcc33588a62f7f2c59bfcb7bb5775d258d31fdc628510",
+          "resume/000000100000/manifest.json": "357c305b0eb9ca83f4376aca7a462b9c42557c516ece2bd5aa71da64e88e22b5",
+          "resume/000000100000/manifest.sha256": "ddf1d4bc548d60649412e984ec17ccb05237fd165976f2ccdd4fd00692893863",
+          "resume/000000100000/replay.npz": "c9da48f1ee5f887c15f2dc02559e72264fec5cc7ccc890d74b408fec04ca489a",
+          "resume/000000100000/reservoir.npz": "938045e39cccdd2c8bb15611ed95d78ff08b22bedf6a607c9916ca44bfc15312",
+          "resume/000000100000/trainer.pt": "f83e400de02fe3621b4fc77c3423ee8599e7727a19bef3d7050dc6b2ea44cf4e",
+          "resume/latest.json": "2fa971b5bf3469c8bb5f0756b2900774fe767669b1ef506d22ce458e4e9a74d7",
+          "run.json": "4bf5d3f6f9fc4221e26a2ca454b6c6d7c66d327bdf892ac4caa26d18b096226e",
+          "weights/000000050000/manifest.json": "5adbc772c9eee26404d38578e7df0d8103141ffbdbcf06f3244c635ae7b46634",
+          "weights/000000050000/manifest.sha256": "b38aa9fed85967cd798d50091d14889ea23d94a768136e6c68aecf944b892642",
+          "weights/000000050000/models.pt": "579c74ea7fecb80c3565e51fb474bce2c30ad2224a468645486854fca83f9eb7",
+          "weights/000000100000/manifest.json": "bf640d4117a7c34a8101e87985bb130da07207e55003b0d54997773058d2698e",
+          "weights/000000100000/manifest.sha256": "5f021fec64114434a340eaa41f9f5452c1d2a9e615998f56457a3d366d583598",
+          "weights/000000100000/models.pt": "eb2c8cf226d8083563e131b063c01bcd5ef712bb3dad3a2ce59c62cc483ae39d"
+        },
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/terminal-batch": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "068f4f80808caea6777ebbf21903fc32aa74d018c2b172456c52a72d64b76068",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "3ff924f95ad8c486c9b77d8b45dcb39d331fd0e22461ac094556c39496084c69",
+          "result.json": "7ab3b3ebac6d0a1070dc3ff2f2ed02dbed6c12d754d8f22d5d3091cf76f3a078",
+          "resume/000000100000/manifest.json": "e0a9778af7bee981b3b504700509a135146c32f7e8d0329f65e762ea5ab3148c",
+          "resume/000000100000/manifest.sha256": "fe4bd7bdb65c3fa5b1d2d80dba247130f7d3fc68ed0698c5cd2ad74b86aacdbc",
+          "resume/000000100000/replay.npz": "c9da48f1ee5f887c15f2dc02559e72264fec5cc7ccc890d74b408fec04ca489a",
+          "resume/000000100000/reservoir.npz": "938045e39cccdd2c8bb15611ed95d78ff08b22bedf6a607c9916ca44bfc15312",
+          "resume/000000100000/trainer.pt": "81210d87a2795c7fc7f93a64f953caf7d8c6c78a9b0de5fba2b0bdcedee3ee48",
+          "resume/latest.json": "ad3c8e069e34dd009a5f3a1815e91d253f9e0855ab44e27a0a13d2819abd046c",
+          "run.json": "336d83f6ce7ebe278b294c9fa57f3c47ebc71a6cc67e2a6c93a27ab56206ea07",
+          "weights/000000050000/manifest.json": "5adbc772c9eee26404d38578e7df0d8103141ffbdbcf06f3244c635ae7b46634",
+          "weights/000000050000/manifest.sha256": "b38aa9fed85967cd798d50091d14889ea23d94a768136e6c68aecf944b892642",
+          "weights/000000050000/models.pt": "579c74ea7fecb80c3565e51fb474bce2c30ad2224a468645486854fca83f9eb7",
+          "weights/000000100000/manifest.json": "bf640d4117a7c34a8101e87985bb130da07207e55003b0d54997773058d2698e",
+          "weights/000000100000/manifest.sha256": "5f021fec64114434a340eaa41f9f5452c1d2a9e615998f56457a3d366d583598",
+          "weights/000000100000/models.pt": "eb2c8cf226d8083563e131b063c01bcd5ef712bb3dad3a2ce59c62cc483ae39d"
+        }
+      },
+      "loop_speed_ratio": 2.5595881652867707,
+      "records_per_mode": 100000
+    },
+    "production-layout/asymmetric/neural/pre": {
+      "capacity": 200000,
+      "collection_speed_ratio": 4.9967129921103055,
+      "equal_partitions": {
+        "episode_bytes": "e4c534c58f0097788a7bda20de98d617752ea80c7f44996c421a99b4ce888f5b",
+        "episode_schema": "ca81e25db0d1548dac75a76abb77f9cccc2255befc6dc0a199804923e27639d9",
+        "manifest": "32c5fd0c764665e641f146d66095e54ddd4b1330d4d3def651fdcdd80a6b3392",
+        "public_weights": {
+          "000000050000": "4226320232127abaccf55ba533e1703c7c27014aa52bebcbba28db212dfbe84a",
+          "000000100000": "acae3cdfc4f521c1a488c891606d357137a626d8087584aca3d2f39631304c7f"
+        },
+        "replay": "96b702fce0e654d39801f42c1222ce86dfd1b42484bd15273084b09e72c1349c",
+        "reservoir": "ce6824cb6553ffb2bc67181478c4d4091f47987f454bbedb8841fabd5835a5ac",
+        "result": "6ccb462fb590de19e4b8f7cdddf217092a98682d47654cb5457e2e741b0109ac",
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "trainer_state": "c1c8f09644d6cd1c31129ded62a180f5d84d6cd79f1204a7d8ef1d3e906e5edc"
+      },
+      "exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory",
+          "collection_implementation"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "collection_implementation"
+        ],
+        "scheduled_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings",
+          "collection_implementation"
+        ]
+      },
+      "input_files_sha256": {
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/scalar-reference": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "e4c534c58f0097788a7bda20de98d617752ea80c7f44996c421a99b4ce888f5b",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "d07c077cd5146fb13c9c3fe565b926757b863bf000deca899d83ffab4bf7bb12",
+          "result.json": "0ffbe82504f14bc458e907fa91d5d0a0195727ddc3ec1ba8f31eff91a75ba463",
+          "resume/000000100000/manifest.json": "d0868342f8965ccda0a1fd6ab242d0f4bb0342e4687a6a5e4fea5167583a4bca",
+          "resume/000000100000/manifest.sha256": "85806dc5ecef6242b4a28c76692f3b36c61d034a194cacb48c82976cf84eea16",
+          "resume/000000100000/replay.npz": "7a8c7563b79757483903826c6eef0a6c5a1d85979b8b25de5d12f749b92f140c",
+          "resume/000000100000/reservoir.npz": "b537238c34ad5e2fda77dc7d0b1468aa10c441bc2038790d93ca54db118cc86f",
+          "resume/000000100000/trainer.pt": "b5bf1b70d41d465aecea28e925842cb6bf61cf37849f510e823514bc46d8cf6b",
+          "resume/latest.json": "19c9cd0818e5da05cd4136bf8aecb8220a91a5bf9b97b48c3101cd02a4f4d1bf",
+          "run.json": "b52216dd79c3363e35c28541e2268257602712db53baf287c89164c95f731d85",
+          "weights/000000050000/manifest.json": "14b7e6614f6ef2976b882cb6a2c49ec999b4ccc50dbecf3f06b4aed3a4564b3b",
+          "weights/000000050000/manifest.sha256": "062d069d7c310604376e2e6cbbf97a94572aa8195e5c602f01fb87223777fce3",
+          "weights/000000050000/models.pt": "5a9a4aa021e64117924faa60e631c4d61e29fc3890e0c5e3b9d3ddb86a8d9409",
+          "weights/000000100000/manifest.json": "c7e06d669b2db0a61120cdf60c8c6eca5c84546a32167d088cefca644c49fc28",
+          "weights/000000100000/manifest.sha256": "967b216d1d0a29e37a04bb00bd9397b7568875f154e10aab2e8ff1d5682fd21d",
+          "weights/000000100000/models.pt": "7189f879931cceda89410c4caac9ee312d7a6b108213425ef8e4708d6e4f98bc"
+        },
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/terminal-batch": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "e4c534c58f0097788a7bda20de98d617752ea80c7f44996c421a99b4ce888f5b",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "f48b1a830f45ab934bc9adc46c57144de1e68714a4f61925953146e8f1956df0",
+          "result.json": "06e7236210be2fb1d6329b92e89dc604a4ac6ec823ea69dc1a22cd3bb11191cb",
+          "resume/000000100000/manifest.json": "11aecdf58120c3c24f9bf1a210a38ea4bd51c039f875d15fadaf5526b5566983",
+          "resume/000000100000/manifest.sha256": "6d8e34958f55600e44736f11d610897493e4124aa738e406ce9b45b8fc4dd47c",
+          "resume/000000100000/replay.npz": "7a8c7563b79757483903826c6eef0a6c5a1d85979b8b25de5d12f749b92f140c",
+          "resume/000000100000/reservoir.npz": "b537238c34ad5e2fda77dc7d0b1468aa10c441bc2038790d93ca54db118cc86f",
+          "resume/000000100000/trainer.pt": "dd0253d28cbceee8d85cd28bf03f0207cd78b67c4ce3f5f591d851e721278c93",
+          "resume/latest.json": "34706998c25fcd2623c3fc1043ac4a7b335da2f27e1b5d0e694b5d117c8bd769",
+          "run.json": "6131a464a996ad16e8c9467693800a56dd24bd83cc0062bbb029faefba541dcb",
+          "weights/000000050000/manifest.json": "14b7e6614f6ef2976b882cb6a2c49ec999b4ccc50dbecf3f06b4aed3a4564b3b",
+          "weights/000000050000/manifest.sha256": "062d069d7c310604376e2e6cbbf97a94572aa8195e5c602f01fb87223777fce3",
+          "weights/000000050000/models.pt": "5a9a4aa021e64117924faa60e631c4d61e29fc3890e0c5e3b9d3ddb86a8d9409",
+          "weights/000000100000/manifest.json": "c7e06d669b2db0a61120cdf60c8c6eca5c84546a32167d088cefca644c49fc28",
+          "weights/000000100000/manifest.sha256": "967b216d1d0a29e37a04bb00bd9397b7568875f154e10aab2e8ff1d5682fd21d",
+          "weights/000000100000/models.pt": "7189f879931cceda89410c4caac9ee312d7a6b108213425ef8e4708d6e4f98bc"
+        }
+      },
+      "loop_speed_ratio": 3.1647796891525726,
+      "records_per_mode": 100000
+    },
+    "production-layout/asymmetric/tabular/post": {
+      "capacity": 200000,
+      "collection_speed_ratio": 3.998208419650517,
+      "equal_partitions": {
+        "episode_bytes": "9dab6d0a8456c862b99f87a456b8e3b99602b3c80919dfed8a7e0a0b27684a7c",
+        "episode_schema": "ca81e25db0d1548dac75a76abb77f9cccc2255befc6dc0a199804923e27639d9",
+        "manifest": "4cbe208024f380b1b6b1fddf890584ef5faf448cad7d4c7eee22f0fb2d8fd47b",
+        "public_weights": {
+          "000000050000": "acb2c04f140146598cb25938f7688367320d7f16969d65a952ac2457d9b30ef6",
+          "000000100000": "47d6e8c42aa6ce79368f5a2032996a651d27291f9327108b83f8737371c42f3c"
+        },
+        "replay": "17fffb5f82932fb26eff04f06300629a6db4dd70cf775b79c047a2e433ce7198",
+        "reservoir": "fce626c92a84559c31df447ce3ab24f663bbe258607d748e8eb5b42b1536c094",
+        "result": "bb181baf27551df0c5544ba35a0155cc8d45c08eabdfbf3bc86ecd8187305497",
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "trainer_state": "a3abdc3c2a529f876cacadac42fb24b42c0015953386218b3be170dffa9cd713"
+      },
+      "exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory",
+          "collection_implementation"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "collection_implementation"
+        ],
+        "scheduled_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings",
+          "collection_implementation"
+        ]
+      },
+      "input_files_sha256": {
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/scalar-reference": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "9dab6d0a8456c862b99f87a456b8e3b99602b3c80919dfed8a7e0a0b27684a7c",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "fdfc5ea49923df5d934291f1b20ef2195023a7f728817e43593c80a36b1609e1",
+          "result.json": "6fc5a2df60bf482a6c439e09205d9b3dfb07670091f178903e38209d70e5ecd0",
+          "resume/000000100000/manifest.json": "e77ce4b2f2c964b4967b068cf176e1c25ac68ff0762025d5f6e010c78f365272",
+          "resume/000000100000/manifest.sha256": "1703f39c3451eb6d88eb9c7878abac54e13e58ab82e1ed846a1dc61ab2b9c32b",
+          "resume/000000100000/replay.npz": "7029784afbfe3a4a51e0aab220e957af227d1683c82b2b293318408ca04ca318",
+          "resume/000000100000/reservoir.npz": "bc2677d0a4d757f60a53be41c9068b241f04bf980d324213f0e647facf024813",
+          "resume/000000100000/trainer.pt": "6199346e318bcce6dd9cbdb437f497b4a5817549f6001b8db9eaf2dccd89d3ce",
+          "resume/latest.json": "ba1f48e101d9c9f37bd12232e10cc23fa2510538acea1a3a99bf978a5ab8183c",
+          "run.json": "ce7da4c660b5340441be97f0f73c9da6d511868b696225907c590fd19aeea723",
+          "weights/000000050000/manifest.json": "96cf4e024f627d82304abd231f4e0d56f0c1234f43c3a60e3b56b0d473e98231",
+          "weights/000000050000/manifest.sha256": "91f42deb180d16269a4a47ada728932ab62df67eddd89264f64621482e0c1114",
+          "weights/000000050000/models.pt": "c636dc1a68c5ead23d84729e3c672789ee8ffff7c2bc538052ac4b2041f5333e",
+          "weights/000000100000/manifest.json": "51ac194947e2cb26878773b299f94d27a4a45a8176f500995c45151ce93cb36f",
+          "weights/000000100000/manifest.sha256": "7ca89f404528c54aba55aab94bdfb66495b60fcfc7c2b073c5b34f54cc7e2fc4",
+          "weights/000000100000/models.pt": "2fa00d5b2453be1cbb59ac52c2e94d551bf2deed892e5b8d96750ecb83ea8912"
+        },
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/terminal-batch": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "9dab6d0a8456c862b99f87a456b8e3b99602b3c80919dfed8a7e0a0b27684a7c",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "b2b9a3986e1245b1f21d1cbd418bebb2e4a8576ea72873b6b1eb60e46a4711cd",
+          "result.json": "47b0adc8ea4ef33106ee200e92cdb793d9cf3b0740337b8539fe22df17dbab75",
+          "resume/000000100000/manifest.json": "54aadbfeba21fca14291d8e6d324969c714e2c02d0afb08864097d2b1c1b7514",
+          "resume/000000100000/manifest.sha256": "d4c0c8afd5abbde210de8caf073b8c06a732e0fcbadd72f5240319e08de3a21c",
+          "resume/000000100000/replay.npz": "7029784afbfe3a4a51e0aab220e957af227d1683c82b2b293318408ca04ca318",
+          "resume/000000100000/reservoir.npz": "bc2677d0a4d757f60a53be41c9068b241f04bf980d324213f0e647facf024813",
+          "resume/000000100000/trainer.pt": "fd28c3651277344f9b2351f97343d4ee19d8e5f54fed027f703ec3e6cb0694c6",
+          "resume/latest.json": "ed62fd536be0a36adf43ab85d846783ef7f8d25928b184a47a8ed8221f3d21bf",
+          "run.json": "034f6729adbe59333ce1622cd7399b13a99bc3e1ddba99db280272b1c3e65448",
+          "weights/000000050000/manifest.json": "96cf4e024f627d82304abd231f4e0d56f0c1234f43c3a60e3b56b0d473e98231",
+          "weights/000000050000/manifest.sha256": "91f42deb180d16269a4a47ada728932ab62df67eddd89264f64621482e0c1114",
+          "weights/000000050000/models.pt": "c636dc1a68c5ead23d84729e3c672789ee8ffff7c2bc538052ac4b2041f5333e",
+          "weights/000000100000/manifest.json": "51ac194947e2cb26878773b299f94d27a4a45a8176f500995c45151ce93cb36f",
+          "weights/000000100000/manifest.sha256": "7ca89f404528c54aba55aab94bdfb66495b60fcfc7c2b073c5b34f54cc7e2fc4",
+          "weights/000000100000/models.pt": "2fa00d5b2453be1cbb59ac52c2e94d551bf2deed892e5b8d96750ecb83ea8912"
+        }
+      },
+      "loop_speed_ratio": 2.9201484402677114,
+      "records_per_mode": 100000
+    },
+    "production-layout/asymmetric/tabular/pre": {
+      "capacity": 200000,
+      "collection_speed_ratio": 5.11304188328297,
+      "equal_partitions": {
+        "episode_bytes": "2dfd7b76f58e13ac5f5de2da1aea2a935f14477c9507e5a3331c775046351e9e",
+        "episode_schema": "ca81e25db0d1548dac75a76abb77f9cccc2255befc6dc0a199804923e27639d9",
+        "manifest": "3e339e07cf9eb051cfca0c3c940fa23e853a7c500e08bc5baaa0080e53bb95fc",
+        "public_weights": {
+          "000000050000": "d2442df87023b79e8b38fe75badfbef9bd170c4306012d20ab0ef89022db174e",
+          "000000100000": "ac0afdd51cb83d0a6a151a1982228c6c73070a1c56a31c6aa3b88b08648db718"
+        },
+        "replay": "930f36c32eddd4530cb0bac9f791738c313d4d80c00a09855c028636f981b9df",
+        "reservoir": "ce6824cb6553ffb2bc67181478c4d4091f47987f454bbedb8841fabd5835a5ac",
+        "result": "38ac44493e8f8e4d8638a6a556da2b22b75ec3d633e55c68f2bdfcf7b5d8ac54",
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "trainer_state": "1563a5925e442325c26f1a84f680c2ccd23986a19b5478cacdd079fde0986fbb"
+      },
+      "exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory",
+          "collection_implementation"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "collection_implementation"
+        ],
+        "scheduled_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings",
+          "collection_implementation"
+        ]
+      },
+      "input_files_sha256": {
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/scalar-reference": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "2dfd7b76f58e13ac5f5de2da1aea2a935f14477c9507e5a3331c775046351e9e",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "3d63cb75ae9a147f9ceb9985a52a0d797a670905cfeda75b43a4044e1952f79a",
+          "result.json": "94001e6e307c64ab8d37f3bdb7b154019ab254cd0373c344cd65febe71811fde",
+          "resume/000000100000/manifest.json": "0baa1c083ca8ac12f29f7da7008bdd7aaea0b0e1e37bfeac917a3a7e242db194",
+          "resume/000000100000/manifest.sha256": "d8074fb7439b4aad3934a85b1be2d69cf77277609ea98495a4272217bc79a9b9",
+          "resume/000000100000/replay.npz": "c15fc4c9e00d66cba0272e3f2b24f0c9da7bd4835cb5b692f4e0371433d6acc3",
+          "resume/000000100000/reservoir.npz": "b537238c34ad5e2fda77dc7d0b1468aa10c441bc2038790d93ca54db118cc86f",
+          "resume/000000100000/trainer.pt": "092055fb1e223988fc87cd66701dc7eabd74424b6174c059da34076c493ddaff",
+          "resume/latest.json": "1436c6cb48ab2f22400f8a983087f3e87276102d1742bd727ab7040860df6324",
+          "run.json": "0e3fa3993c20bce5570ec368f4f233f19615033de433afb120cfaa8760c80135",
+          "weights/000000050000/manifest.json": "221d72a77ad86b8113761b83b2f971834d54a4aa258ce473a1eabe8a727f1673",
+          "weights/000000050000/manifest.sha256": "dde8491c0aa2d543922ff46cd7900db7365d1eb8df85c23729bf160ac0db5746",
+          "weights/000000050000/models.pt": "e0002cad6dae31fb6eefece71674b2087ffd3318fd25b5ccc547602d755aa897",
+          "weights/000000100000/manifest.json": "47faed5c7a5800e137b916057198d169632364c30c3dfd50f0663434ce175f55",
+          "weights/000000100000/manifest.sha256": "45308023eabf2c884c11d13eb72195d148e40fd4f9d5ab35aa9b7dbe9f72180a",
+          "weights/000000100000/models.pt": "398399641d40de9cd9248f4a63d7e03294adf8e6d84b387464c2775bbc177506"
+        },
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/terminal-batch": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "2dfd7b76f58e13ac5f5de2da1aea2a935f14477c9507e5a3331c775046351e9e",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "926e1de55489da15be43d93b22367fe8b507b14cb1a9dcfa5d6c4528356f1a7d",
+          "result.json": "cd755629b542203c26abac656208c43a55b5ab328c4eb9c20019a05acd5d4def",
+          "resume/000000100000/manifest.json": "c403b52b488355a53569680f7ef36163f1ae515fbe1d68e324830727661cc1de",
+          "resume/000000100000/manifest.sha256": "b9e17230a57e80e3899eb9469be8c3ecfde5addebb1bb86d5bf3c611b81794a3",
+          "resume/000000100000/replay.npz": "c15fc4c9e00d66cba0272e3f2b24f0c9da7bd4835cb5b692f4e0371433d6acc3",
+          "resume/000000100000/reservoir.npz": "b537238c34ad5e2fda77dc7d0b1468aa10c441bc2038790d93ca54db118cc86f",
+          "resume/000000100000/trainer.pt": "71ed694415a46227f79c109f7ff2b08cb4aa458656f552781c98c2901325f6e0",
+          "resume/latest.json": "0f1f522782df1e3b33051cfa6a3725021593a3b18c646bdeb74739bc823aef98",
+          "run.json": "666dd2f059c8d9ccdd3b101f3793ffeb9e5be465877496357d4e1204630c06ac",
+          "weights/000000050000/manifest.json": "221d72a77ad86b8113761b83b2f971834d54a4aa258ce473a1eabe8a727f1673",
+          "weights/000000050000/manifest.sha256": "dde8491c0aa2d543922ff46cd7900db7365d1eb8df85c23729bf160ac0db5746",
+          "weights/000000050000/models.pt": "e0002cad6dae31fb6eefece71674b2087ffd3318fd25b5ccc547602d755aa897",
+          "weights/000000100000/manifest.json": "47faed5c7a5800e137b916057198d169632364c30c3dfd50f0663434ce175f55",
+          "weights/000000100000/manifest.sha256": "45308023eabf2c884c11d13eb72195d148e40fd4f9d5ab35aa9b7dbe9f72180a",
+          "weights/000000100000/models.pt": "398399641d40de9cd9248f4a63d7e03294adf8e6d84b387464c2775bbc177506"
+        }
+      },
+      "loop_speed_ratio": 3.474006132491897,
+      "records_per_mode": 100000
+    },
+    "production-layout/rps/neural/post": {
+      "capacity": 200000,
+      "collection_speed_ratio": 4.187675976315107,
+      "equal_partitions": {
+        "episode_bytes": "b5aadc2dd6772fa69af9d9472ebc2b5c096dddf9402ecded4a08ee43ad8ba544",
+        "episode_schema": "ca81e25db0d1548dac75a76abb77f9cccc2255befc6dc0a199804923e27639d9",
+        "manifest": "ba22db053c46cc05cfc9e784d1e4ef238de2d374dc549e2f67b2ac87b5c4b484",
+        "public_weights": {
+          "000000050000": "b80a48ae2ce4e48db0ce9ea61ccded29e39257c47e05d148278c7fe9204a155f",
+          "000000100000": "c6bee4b41388882de28bfe5a1dcfe3af802e27b31eaaba7ce749537d3930523d"
+        },
+        "replay": "20c507dd325ca1b2fc8ec498043d731ba99c394634abafc6690b62ba12381fce",
+        "reservoir": "5da8dec0954dadf80b3d4e96b48b68e60a715ce942d41b32d7494f1eafdda4f3",
+        "result": "1c3015570e5c1fb11b055e5d0876d5dc0dd0e0747effb387a996ede45c7ba16e",
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "trainer_state": "f32995e57bb1d351b7e4102b706d430ecfe498f408aa9ec7f73ee88609b12943"
+      },
+      "exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory",
+          "collection_implementation"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "collection_implementation"
+        ],
+        "scheduled_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings",
+          "collection_implementation"
+        ]
+      },
+      "input_files_sha256": {
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/scalar-reference": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "b5aadc2dd6772fa69af9d9472ebc2b5c096dddf9402ecded4a08ee43ad8ba544",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "6d1ed49a01fdc6a6bd24b2626565d65d92676da92aa326caab24663698628217",
+          "result.json": "71101d2a3f5c0bb0c1d450f4fb102797b9453706ec4ceadd7715df8fcae5ed8e",
+          "resume/000000100000/manifest.json": "3967518e57df32d431751f9372388e732cc6107b326d8c8aba685c7e57e40009",
+          "resume/000000100000/manifest.sha256": "aa288948f00602a2934c201ec9f0920e15ca326e3121e69029632f6cb51bd0e4",
+          "resume/000000100000/replay.npz": "64414901f277a6d4b290a334de21812b6d8c769575a8eb6a7ff7157bbfe4179c",
+          "resume/000000100000/reservoir.npz": "2afa8ba8d2a3432793c6a66127180246af4c12b0d654d855f1926fae22f1e7f7",
+          "resume/000000100000/trainer.pt": "c35b8b97d02c4a8c2edeaa65a2e8cb2af6f510de93eb8eb2595f71ffc4765760",
+          "resume/latest.json": "46beab932ddce0ccfac67ff5b6aa83f479cbda79d0ed3cf694f73a9003ea45cc",
+          "run.json": "d3749346948f8da8c7f156c5de79799ddf2e59c204e7559612b6706e1896dbad",
+          "weights/000000050000/manifest.json": "c103ea2da7341218799c050fa29f26e690727f5b9be401c8203f63628af83d22",
+          "weights/000000050000/manifest.sha256": "9854ba6e8a71b2d5c0eaced43e780dda1d106559e8bf070541d69e85e4adb68e",
+          "weights/000000050000/models.pt": "8c0c4a39b17b22326d9a80882eb7b26cf50aae675d1e5c744005b14d86bd0f25",
+          "weights/000000100000/manifest.json": "6b6d038ce949db166f22fad281f6b1f7351d8bbd18a6e501224c11192764ea57",
+          "weights/000000100000/manifest.sha256": "e1f47a29d45b90889239e4222949d486798a97730d554cf490e5afaa16402e4d",
+          "weights/000000100000/models.pt": "aefcc8712a3f259cf86139d3356ddaffa17628666a39ef99be6e7cffeaae4f4e"
+        },
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/terminal-batch": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "b5aadc2dd6772fa69af9d9472ebc2b5c096dddf9402ecded4a08ee43ad8ba544",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "3853bfe27ebf607bb875147d7ac88e934cac9288c780c5f6bae78d903ae874f3",
+          "result.json": "0b7aad2cee34990d8a25d5256a55b2392fca6bbbd38ba7370b8c0abfa284da8b",
+          "resume/000000100000/manifest.json": "c7662f60cb67de3e2e1845e99e1223332f9c4e722b4de634b1bb631fc9565ff2",
+          "resume/000000100000/manifest.sha256": "2b77d4b3673f93710a71ffaaafe003a13bdf4a036798ec0747dfec1f0ea80964",
+          "resume/000000100000/replay.npz": "64414901f277a6d4b290a334de21812b6d8c769575a8eb6a7ff7157bbfe4179c",
+          "resume/000000100000/reservoir.npz": "2afa8ba8d2a3432793c6a66127180246af4c12b0d654d855f1926fae22f1e7f7",
+          "resume/000000100000/trainer.pt": "5fb74cf7bdc667b94e5b8230acfa904cd964cf219970520bac285c0a42c38357",
+          "resume/latest.json": "ea061c7ca77ef23c74af79abf3adee96740e9eeb44cfa9e33089b8c22f983911",
+          "run.json": "f78260b8497dd447416b13f9abdc13ce1e666e5a7fa3cc979fd51a8f0401e9db",
+          "weights/000000050000/manifest.json": "c103ea2da7341218799c050fa29f26e690727f5b9be401c8203f63628af83d22",
+          "weights/000000050000/manifest.sha256": "9854ba6e8a71b2d5c0eaced43e780dda1d106559e8bf070541d69e85e4adb68e",
+          "weights/000000050000/models.pt": "8c0c4a39b17b22326d9a80882eb7b26cf50aae675d1e5c744005b14d86bd0f25",
+          "weights/000000100000/manifest.json": "6b6d038ce949db166f22fad281f6b1f7351d8bbd18a6e501224c11192764ea57",
+          "weights/000000100000/manifest.sha256": "e1f47a29d45b90889239e4222949d486798a97730d554cf490e5afaa16402e4d",
+          "weights/000000100000/models.pt": "aefcc8712a3f259cf86139d3356ddaffa17628666a39ef99be6e7cffeaae4f4e"
+        }
+      },
+      "loop_speed_ratio": 2.555557095396924,
+      "records_per_mode": 100000
+    },
+    "production-layout/rps/neural/pre": {
+      "capacity": 200000,
+      "collection_speed_ratio": 5.0098955625,
+      "equal_partitions": {
+        "episode_bytes": "3b505c731500acbefd5af04f7675b657ddfb7fd1c1abebe7732770c89f4857a6",
+        "episode_schema": "ca81e25db0d1548dac75a76abb77f9cccc2255befc6dc0a199804923e27639d9",
+        "manifest": "dfc24131b1cc0dd515335318f9fbda4a92b3b5fbbbeeff94c670df58979dd8c0",
+        "public_weights": {
+          "000000050000": "7b05e319812eef530345c3e2b0e64f008c8014cb8030b9d091ac66843961b1be",
+          "000000100000": "d426dd8fc154a6b15f1297c7c5566eba85cd5ef9238240655eb40cf8eac9b2e6"
+        },
+        "replay": "270df35a082ced1879f36cb495dc1024826d44297429619a6e0024935dac1e03",
+        "reservoir": "434650d8857a2128c1e5f3fa28a31230201a11467794794328588a72102c4e38",
+        "result": "585418e584b7224320978684dfdf00c76ae928cf8298c552e71ff1f2f7c2a78f",
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "trainer_state": "89bec8d38a440e0c38165bb3f0135ba114827ec5e40f8359f6911a2e00db3cb6"
+      },
+      "exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory",
+          "collection_implementation"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "collection_implementation"
+        ],
+        "scheduled_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings",
+          "collection_implementation"
+        ]
+      },
+      "input_files_sha256": {
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/scalar-reference": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "3b505c731500acbefd5af04f7675b657ddfb7fd1c1abebe7732770c89f4857a6",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "7c9843113417003c37ebf8530bd02298666222646d97cc0193e1f4af96ff438c",
+          "result.json": "5ed0c9546845fe27c1937b8936828b516f876a026ee4660f91320337967b8d53",
+          "resume/000000100000/manifest.json": "89820cb72ccafcfae909eb4ec91dba5f4aeabdc570137abbd269049499020926",
+          "resume/000000100000/manifest.sha256": "5fa2be26c37c62d39acd03b292a15870173b4a0bad5d4fdc81efc2ecf4a00b10",
+          "resume/000000100000/replay.npz": "0cc53fca2d0d4017c28b0c67d79bee3c0af09a154372765dc25ca921613d8288",
+          "resume/000000100000/reservoir.npz": "bf9d54fc7ddb9b0655959f60d6b5c95ec893eef88d947a5ee57a2bd5c88169b8",
+          "resume/000000100000/trainer.pt": "5ef237d743ea0faeb99fae6d1be5eb65f31081842a6f21928c6d7f8ff5207aa3",
+          "resume/latest.json": "dfd8b0cad3780f870a519402c12d8a9b806d352687035fb9a466ce5ed1f8bafa",
+          "run.json": "8a2f71c95cf551a7a26a8148c542c91650bf6588fe902bca369eec0cfebb14bc",
+          "weights/000000050000/manifest.json": "72536782ccb0545741725b21e10547928cfa1f3dacf3d6db169ec3c3e2c22dd2",
+          "weights/000000050000/manifest.sha256": "e6f60ef1819f4f0cb04b95213786f64bb85361441369c0fd496192c6ac36d721",
+          "weights/000000050000/models.pt": "1089cb6b2274309b7bf94d9d3036f9eba15defaa57dc7fe232f92d931181d2de",
+          "weights/000000100000/manifest.json": "347a1b08d065ec21b4d7e55e822f7fc583ec98e891138016aa730f12f91e1652",
+          "weights/000000100000/manifest.sha256": "0601801d898cb339525c3a7b88e00d96dbdb6a8c04129e6c93a0015cfe342df1",
+          "weights/000000100000/models.pt": "217008781e4fcf7e9e881e0e918abe3ba9c272d0b0dbf591d6022af5df002b8e"
+        },
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/terminal-batch": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "3b505c731500acbefd5af04f7675b657ddfb7fd1c1abebe7732770c89f4857a6",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "3be412a336808ecfff5fa1b7717108872c0ef08670b3a09ea95db1f89717a788",
+          "result.json": "94ac079048d86122e1c17b7c5b100a5233e2b4b41f71e7b2a933c11165053c4f",
+          "resume/000000100000/manifest.json": "c9dab0a8821c4a352ac2d4ec624a97bb4a1a1b37ac7daec10a1bd23311041f6e",
+          "resume/000000100000/manifest.sha256": "6020abc496c850b59681dafb13e37004ab6fef78e246c1604cb83ff1db52dc2c",
+          "resume/000000100000/replay.npz": "0cc53fca2d0d4017c28b0c67d79bee3c0af09a154372765dc25ca921613d8288",
+          "resume/000000100000/reservoir.npz": "bf9d54fc7ddb9b0655959f60d6b5c95ec893eef88d947a5ee57a2bd5c88169b8",
+          "resume/000000100000/trainer.pt": "38fcbec6ace123087a85ca6ef6f6bf7cb5d3833fe2d9d94821b2bbe20bdd119c",
+          "resume/latest.json": "409ea5e07c739923e81e3d44176cd6a61e3a2894c0eb50d577ea2975c790782e",
+          "run.json": "be73e4556a54a6176ecdfa8a6412cc93fe358d8f296e7e68c4fc0ec1c2b64797",
+          "weights/000000050000/manifest.json": "72536782ccb0545741725b21e10547928cfa1f3dacf3d6db169ec3c3e2c22dd2",
+          "weights/000000050000/manifest.sha256": "e6f60ef1819f4f0cb04b95213786f64bb85361441369c0fd496192c6ac36d721",
+          "weights/000000050000/models.pt": "1089cb6b2274309b7bf94d9d3036f9eba15defaa57dc7fe232f92d931181d2de",
+          "weights/000000100000/manifest.json": "347a1b08d065ec21b4d7e55e822f7fc583ec98e891138016aa730f12f91e1652",
+          "weights/000000100000/manifest.sha256": "0601801d898cb339525c3a7b88e00d96dbdb6a8c04129e6c93a0015cfe342df1",
+          "weights/000000100000/models.pt": "217008781e4fcf7e9e881e0e918abe3ba9c272d0b0dbf591d6022af5df002b8e"
+        }
+      },
+      "loop_speed_ratio": 3.1666249734177616,
+      "records_per_mode": 100000
+    },
+    "production-layout/rps/tabular/post": {
+      "capacity": 200000,
+      "collection_speed_ratio": 3.860538654576092,
+      "equal_partitions": {
+        "episode_bytes": "d2dc11a464e9e8bec63698e372733abd8c0b0e6570d3927b0018a291dd58c4ab",
+        "episode_schema": "ca81e25db0d1548dac75a76abb77f9cccc2255befc6dc0a199804923e27639d9",
+        "manifest": "0f4648314a3b23f659744ccbb9ec5acc1cba7b0a5fd2521911fb5181c3a6c657",
+        "public_weights": {
+          "000000050000": "c020982a3cb3379f8a983192987ea840240899c1fd38a68340a632ee075f25bd",
+          "000000100000": "40b9e3061156dd050cfe4fc6e8b8a9d35b3005ad67c6b426067e1b7853bbbe5a"
+        },
+        "replay": "54fdc20a399466aa05e50fca942232be15c71ecbbd477474ca49156f5cf15053",
+        "reservoir": "23d0f582bc96a04f43642437b9dafe01220cf8d3e85b1355ef5bd64bafe98827",
+        "result": "3b4eab0355a25451730e39a3ac43fa9acdb282a1b3b8767ceb727c180ca78a87",
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "trainer_state": "f6b9fc2d5efbb18537fcf79254de11ae75b0c4b156f9ea6990ea5a5a70675587"
+      },
+      "exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory",
+          "collection_implementation"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "collection_implementation"
+        ],
+        "scheduled_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings",
+          "collection_implementation"
+        ]
+      },
+      "input_files_sha256": {
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/scalar-reference": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "d2dc11a464e9e8bec63698e372733abd8c0b0e6570d3927b0018a291dd58c4ab",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "db07f44d97ba163869febde0217902a101f565b2f5bcd9a75ab4e2c4d48b18e6",
+          "result.json": "3e500d7c512770494fedfa8351dd388abf1436e80b97f89295fc14ea99ecd195",
+          "resume/000000100000/manifest.json": "8de740f9e27f968e86eb4b78a7bfb17a8b14152e3f0a92113c3ccdf10f6a4795",
+          "resume/000000100000/manifest.sha256": "b2f4dae3c942e2476e7f87c2a749b7320e900e5eeedf9ab0d2cc8f4d30aa25a2",
+          "resume/000000100000/replay.npz": "86ad629bc6032093e7971770dd954077516e9cd49cc76e273abd248aaa38e103",
+          "resume/000000100000/reservoir.npz": "b9b658fc84803646fb0cf11663940facbca7d49570918e10c38b645dc9f87fda",
+          "resume/000000100000/trainer.pt": "67487c7320419b03df39ced481cffc9d6f8d52f635689696b81a35a80d249a70",
+          "resume/latest.json": "05799699a2c7efc56148817282e740d0f7fbbc3097edc568ff9dc2abbece88e8",
+          "run.json": "6562167ffad23716bf16a464d4b4e7698f4936011c176fe3309f70081e994c83",
+          "weights/000000050000/manifest.json": "3793c41b9c4ee65ba117084a4ae086e997b72838c36e45dcb376b493e54fba81",
+          "weights/000000050000/manifest.sha256": "ce307bae42aea4236158a518e3e710eea16043039c810e4fbf7a066a6b6ca0e6",
+          "weights/000000050000/models.pt": "de859a5bbae2ea51d0253f852051adf414f1e4ac2bdea7d803696d63465621a4",
+          "weights/000000100000/manifest.json": "0ac65b2155199dd4696ef861bb55b6b6f55fe60105fead7581f624925999966b",
+          "weights/000000100000/manifest.sha256": "c1dee905aaca4c063f198c6d490cce7d4b3da22c4ff4061b2dc0cbc7642411ea",
+          "weights/000000100000/models.pt": "36a7cf595d07a651acfeb7cbedbe5b4aa6adb62af564052639b1e4861e30d228"
+        },
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/terminal-batch": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "d2dc11a464e9e8bec63698e372733abd8c0b0e6570d3927b0018a291dd58c4ab",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "71a32421421b37ebfb16c0046da852c8f32e4a1f707d0e4198d467b81c118682",
+          "result.json": "3ebbdb2b40a539f1df4ef7fce660d0b0f8e91a60f2d7bedbdea23c9cb11387d1",
+          "resume/000000100000/manifest.json": "2717fa5de1fc82a78faeac5495ff50af26bbe0ee5ca7dc62fb5a1c3c8334be31",
+          "resume/000000100000/manifest.sha256": "bdd1204bad3d97358e93ddcdfe57f8de0725fa6a9355f9be86c503ae2575d076",
+          "resume/000000100000/replay.npz": "86ad629bc6032093e7971770dd954077516e9cd49cc76e273abd248aaa38e103",
+          "resume/000000100000/reservoir.npz": "b9b658fc84803646fb0cf11663940facbca7d49570918e10c38b645dc9f87fda",
+          "resume/000000100000/trainer.pt": "eda70d716e052e8fb29b3a9e3f7589db2a4ef276840b99311f77d4869df75921",
+          "resume/latest.json": "ba7683436c1c44b69d437103b3021341774735208a15eb80439bd59a1e9ea145",
+          "run.json": "ebfb61f02e789f22e941f2dcf4c706a2da11c5526c92b7c4f77e85898d73cb09",
+          "weights/000000050000/manifest.json": "3793c41b9c4ee65ba117084a4ae086e997b72838c36e45dcb376b493e54fba81",
+          "weights/000000050000/manifest.sha256": "ce307bae42aea4236158a518e3e710eea16043039c810e4fbf7a066a6b6ca0e6",
+          "weights/000000050000/models.pt": "de859a5bbae2ea51d0253f852051adf414f1e4ac2bdea7d803696d63465621a4",
+          "weights/000000100000/manifest.json": "0ac65b2155199dd4696ef861bb55b6b6f55fe60105fead7581f624925999966b",
+          "weights/000000100000/manifest.sha256": "c1dee905aaca4c063f198c6d490cce7d4b3da22c4ff4061b2dc0cbc7642411ea",
+          "weights/000000100000/models.pt": "36a7cf595d07a651acfeb7cbedbe5b4aa6adb62af564052639b1e4861e30d228"
+        }
+      },
+      "loop_speed_ratio": 2.8286313862855854,
+      "records_per_mode": 100000
+    },
+    "production-layout/rps/tabular/pre": {
+      "capacity": 200000,
+      "collection_speed_ratio": 5.042731141576666,
+      "equal_partitions": {
+        "episode_bytes": "1f44cf3c3ee0ae66fdddf36a41edacdb603658ba6a044070f3facef3e2f48428",
+        "episode_schema": "ca81e25db0d1548dac75a76abb77f9cccc2255befc6dc0a199804923e27639d9",
+        "manifest": "90920c6078de15934c826527adc2e7c9b300fa76a17de3cceb8a2df88b19aba7",
+        "public_weights": {
+          "000000050000": "f3be4d310a53a73ed6546d391330b1a4983e6484d43ce3ae4f29fad8d27388fb",
+          "000000100000": "30bf7200c19dd02f5f1fb1d1fee4621b36feb313cf3d2543a07783a34861369a"
+        },
+        "replay": "86217801d7ffed4d64cb2d296a17c4df02d633f46a05fb0512038d27a4cc2001",
+        "reservoir": "434650d8857a2128c1e5f3fa28a31230201a11467794794328588a72102c4e38",
+        "result": "778c06fc0dd95da566213f57f0b981069837047099063567c1cafe5afe06442e",
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "trainer_state": "1c865719bdb5af52838724f89849494ac02d201f5f31b6365beda4293420b93c"
+      },
+      "exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory",
+          "collection_implementation"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "collection_implementation"
+        ],
+        "scheduled_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings",
+          "collection_implementation"
+        ]
+      },
+      "input_files_sha256": {
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/scalar-reference": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "1f44cf3c3ee0ae66fdddf36a41edacdb603658ba6a044070f3facef3e2f48428",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "29862600a3feb3e63d8fdc466b021551464f03a900810673612ba9311926b98f",
+          "result.json": "ced5dfd52037af60090beba65713aef8d84cb8d22c80235f0bb541a9f0c68b9a",
+          "resume/000000100000/manifest.json": "1ccfe21b6e8f44e7224a23c875c5c07680f259bc372ad00a105147e0d47113c4",
+          "resume/000000100000/manifest.sha256": "d2fb31de9a6cc044fb2d0effcab27d56629cccd9450124dc58f2c1dfd72da531",
+          "resume/000000100000/replay.npz": "c863367d562b702bea678e7c7c849cb544e8e2c3459e73bdf3f058357cd086e2",
+          "resume/000000100000/reservoir.npz": "bf9d54fc7ddb9b0655959f60d6b5c95ec893eef88d947a5ee57a2bd5c88169b8",
+          "resume/000000100000/trainer.pt": "d1920cb19f351fccb46acd85276fdf0f9fb1c86e6c12923dba1af77f4b1bc088",
+          "resume/latest.json": "5669d93af89552672e109fa5e253863a8ecf63bb3c5ae995c45b36a39c496073",
+          "run.json": "17cded4d5c21c25847c417d2cc2140ab1d5e5066bfb8f87b36aa0517cc88c8b2",
+          "weights/000000050000/manifest.json": "5f10b63ee28a5a9825465a3556ebf4534d0bd0385d00124b4cc57ac8670ebccb",
+          "weights/000000050000/manifest.sha256": "3db7048c43224b51c10b2365dd2fdb8589fc33309c7820bd68e375f75a8471dd",
+          "weights/000000050000/models.pt": "9e0e561ff4617f27b68e39b841618983bb8be8028cd737f78ab34d26678514e5",
+          "weights/000000100000/manifest.json": "03c60c88da9ad86927e917cce4b19d0de330bcff2631cb3044c7d77b9d861b19",
+          "weights/000000100000/manifest.sha256": "408cc217e3dd7266655f905ad732cf53286e4d9723e6e1a3f5f0b8fda021b44f",
+          "weights/000000100000/models.pt": "fdb1facb774a092ea63c4c9069a8201b89cafa1775f099b6c5dab7b18e81c4a6"
+        },
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/terminal-batch": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "1f44cf3c3ee0ae66fdddf36a41edacdb603658ba6a044070f3facef3e2f48428",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "98f98b0267621366f6ea7b859e952406ae97eef8feb0355820ecb2e7289c884e",
+          "result.json": "36b154e91e8dd675ea94715ed5d5b223a76044280de0e884b2f741c355b5257a",
+          "resume/000000100000/manifest.json": "93e2caa7894380943ddb717349d6455c0bf0666fe62c5f06b4c964c00ec222d5",
+          "resume/000000100000/manifest.sha256": "c0f0c895c1c2b0f6bed10ce32e2b3df9d8a5cdf78ae745955e5151ff98497529",
+          "resume/000000100000/replay.npz": "c863367d562b702bea678e7c7c849cb544e8e2c3459e73bdf3f058357cd086e2",
+          "resume/000000100000/reservoir.npz": "bf9d54fc7ddb9b0655959f60d6b5c95ec893eef88d947a5ee57a2bd5c88169b8",
+          "resume/000000100000/trainer.pt": "247b5bf20c3cffc6d15a07a6df3b34dc8a3a7ca7fd985d8d16f374df3703f93d",
+          "resume/latest.json": "72ff6bf9377c318d90ea6a245f2812528cf94623588ecec668a6fdb79d94924b",
+          "run.json": "d34fec915c14b6a549dd483e6c688f19730d6028335a51c3c0719b4d84c729f2",
+          "weights/000000050000/manifest.json": "5f10b63ee28a5a9825465a3556ebf4534d0bd0385d00124b4cc57ac8670ebccb",
+          "weights/000000050000/manifest.sha256": "3db7048c43224b51c10b2365dd2fdb8589fc33309c7820bd68e375f75a8471dd",
+          "weights/000000050000/models.pt": "9e0e561ff4617f27b68e39b841618983bb8be8028cd737f78ab34d26678514e5",
+          "weights/000000100000/manifest.json": "03c60c88da9ad86927e917cce4b19d0de330bcff2631cb3044c7d77b9d861b19",
+          "weights/000000100000/manifest.sha256": "408cc217e3dd7266655f905ad732cf53286e4d9723e6e1a3f5f0b8fda021b44f",
+          "weights/000000100000/models.pt": "fdb1facb774a092ea63c4c9069a8201b89cafa1775f099b6c5dab7b18e81c4a6"
+        }
+      },
+      "loop_speed_ratio": 3.3838417560156038,
+      "records_per_mode": 100000
+    },
+    "wrap-stress/asymmetric/neural/post": {
+      "capacity": 4096,
+      "collection_speed_ratio": 4.418144513704884,
+      "equal_partitions": {
+        "episode_bytes": "13219e8b6367e5a39c714bd7589b853350d8f1b1170a2229c15c85ae67cc5130",
+        "episode_schema": "ca81e25db0d1548dac75a76abb77f9cccc2255befc6dc0a199804923e27639d9",
+        "manifest": "1acf24def22206b587916734430667c508b2848e99e914d1c07a98d1713e1419",
+        "public_weights": {
+          "000000032768": "fdc8d91938d95c6a9dac5d9804f45ccbd7458e71a0e1e45d9232d7a6783bc747",
+          "000000065536": "08d1d3d890dc9eda647120faa3fcfd9f40ee7f25b69a4a79e7f7bea2beea91d1"
+        },
+        "replay": "f19073a0c4b1e6e4d4ef8e83b8c6801f5e92f746de2088d45049e7df453dd6b1",
+        "reservoir": "92f8931143bc143257131f6c13ad31b6c35da19ef828e689cb28326de8222eb3",
+        "result": "3ac8ad9ec71421913ce2bba809ce450f8f6fdef2f9d00ff4a42855b924fb2649",
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "trainer_state": "0c75be668641b578425e8b3c51042e0541f43815038b1dd127c6116993757fa0"
+      },
+      "exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory",
+          "collection_implementation"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "collection_implementation"
+        ],
+        "scheduled_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings",
+          "collection_implementation"
+        ]
+      },
+      "input_files_sha256": {
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/scalar-reference": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "13219e8b6367e5a39c714bd7589b853350d8f1b1170a2229c15c85ae67cc5130",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "f28fcde4ffc44307418d365c13f912b81cc2f47d81ba6f31a5f76b40bac5535d",
+          "result.json": "a6c31ce92871432554febd276a353d13eee36c7c329cc2a054e777e755cd4a85",
+          "resume/000000065536/manifest.json": "4dec28ef321f0e4f2dd6d3e556a64eef3a722df89fbbf159bfe8b622dc53115b",
+          "resume/000000065536/manifest.sha256": "c17f5559db991014354ff22aedafb6304ab2f14987f1773132d959fcfb608e69",
+          "resume/000000065536/replay.npz": "ef41eb07b692283366d3cdb457746a06fa36c2d567943b0e9c9f803d0d523714",
+          "resume/000000065536/reservoir.npz": "f1bcb6811ecd44a2120403d7ef54c7dab79d0286c52990cf831f45ddc22e9c65",
+          "resume/000000065536/trainer.pt": "4de33f52ee6f53c3423a97406158c1f142170a531e6a475fd2c978f5ce24e568",
+          "resume/latest.json": "8e0659e26636350b87498c296610bd1760f5eb2a55b25d871ee491328e84275b",
+          "run.json": "ff4f883f38606e5d737945093740d6831cb929f046b0963632c16fdf37ddd9b2",
+          "weights/000000032768/manifest.json": "ee16afe383b5b57a3880659fee6651d457428d460e3d539e8fe7a108ec3aa9b3",
+          "weights/000000032768/manifest.sha256": "bc1efef05300a74a21a2c77bdcfcd7584af4becc48d7498e6ce7e2db35be487d",
+          "weights/000000032768/models.pt": "c4d4fffa784b518eb8f40e2b81f0acc57009385e0d1453cd27d30365bee4d043",
+          "weights/000000065536/manifest.json": "f932c807075f45da7e6c2a37c9a4a337c02c3efcc9cb6516b38975b2946e1890",
+          "weights/000000065536/manifest.sha256": "4b87967f8b7222794d3ec7928a73f2957452759c104af19a0ad406a79341646e",
+          "weights/000000065536/models.pt": "118dff03f077eecb574cc32af61ebe473dfb7f10478bef001eb6d8b580ff49a7"
+        },
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/terminal-batch": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "13219e8b6367e5a39c714bd7589b853350d8f1b1170a2229c15c85ae67cc5130",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "269ae820a6720a2ec4357f75830534ad7498a52fc8e62e827aa96b1e08983219",
+          "result.json": "340afb49edf62f5e0eb9b0ca3af7a33b2c38caaed593fb92a8c6837902c90e78",
+          "resume/000000065536/manifest.json": "4c224356df1923fb596ab5593f2c9a4a1ea04689fd5f1b0286b7630bec15373a",
+          "resume/000000065536/manifest.sha256": "d2faf240603ca982f80e9c6a88617ca7a67152797fc347b48bdd02532713ef49",
+          "resume/000000065536/replay.npz": "ef41eb07b692283366d3cdb457746a06fa36c2d567943b0e9c9f803d0d523714",
+          "resume/000000065536/reservoir.npz": "f1bcb6811ecd44a2120403d7ef54c7dab79d0286c52990cf831f45ddc22e9c65",
+          "resume/000000065536/trainer.pt": "ecb9645d58cd84bb40d746dfdcc04f91a67d252dfedc898672370a7ece1bc3a7",
+          "resume/latest.json": "2cb2fa0cea3a6e0bd29b87678902f2a3e37e8032d3544cf0787b5a7ac61b1637",
+          "run.json": "1c68ef4ef031350547ab42a4efa554454d3a944bf1b4853d5f2e86ffa5c28ac6",
+          "weights/000000032768/manifest.json": "ee16afe383b5b57a3880659fee6651d457428d460e3d539e8fe7a108ec3aa9b3",
+          "weights/000000032768/manifest.sha256": "bc1efef05300a74a21a2c77bdcfcd7584af4becc48d7498e6ce7e2db35be487d",
+          "weights/000000032768/models.pt": "c4d4fffa784b518eb8f40e2b81f0acc57009385e0d1453cd27d30365bee4d043",
+          "weights/000000065536/manifest.json": "f932c807075f45da7e6c2a37c9a4a337c02c3efcc9cb6516b38975b2946e1890",
+          "weights/000000065536/manifest.sha256": "4b87967f8b7222794d3ec7928a73f2957452759c104af19a0ad406a79341646e",
+          "weights/000000065536/models.pt": "118dff03f077eecb574cc32af61ebe473dfb7f10478bef001eb6d8b580ff49a7"
+        }
+      },
+      "loop_speed_ratio": 2.7109454537630384,
+      "records_per_mode": 65536
+    },
+    "wrap-stress/asymmetric/tabular/post": {
+      "capacity": 4096,
+      "collection_speed_ratio": 4.030349316800767,
+      "equal_partitions": {
+        "episode_bytes": "7632198d5154e083ebc837850a52c0ea9c18ace9d589985aa8f4526097a5ad93",
+        "episode_schema": "ca81e25db0d1548dac75a76abb77f9cccc2255befc6dc0a199804923e27639d9",
+        "manifest": "7d0dd342ff1eebdf7b5faf11b8f8d779b09db73514235b63bc8aa63d232d54cc",
+        "public_weights": {
+          "000000032768": "4abb5dea3a7a02622340d1001977d0c5298609237d7598f9226be3ce30137568",
+          "000000065536": "4d4bac0ebe74ae9096960f7346b1d11fb6ab543c22642d467469cf7c945cfd46"
+        },
+        "replay": "10c18d8615239f70c1c5179ccd0c143f98ee3d8eab7153483e8b52ff8506e9e7",
+        "reservoir": "d15357d3feac16595d5b50b20a4bcde0de907e639ef36daf46035f49c891a734",
+        "result": "0e33e9f0b047c547ece484836f9fbdc52e88ac129ab99e3741233500ecb997ea",
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "trainer_state": "87111c2d483dca99128908e509ec03739c0e8d7b6c93ddf96af88ca4807238ff"
+      },
+      "exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory",
+          "collection_implementation"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "collection_implementation"
+        ],
+        "scheduled_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings",
+          "collection_implementation"
+        ]
+      },
+      "input_files_sha256": {
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/scalar-reference": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "7632198d5154e083ebc837850a52c0ea9c18ace9d589985aa8f4526097a5ad93",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "468f01306878e42908c792dd5551b6dca811ec6fd2b81ce7ec93952c6cc84219",
+          "result.json": "24c7caadd7b641925f28555f73a2ca05d3ae97a4eae4a2ca5b7b890bd46825f4",
+          "resume/000000065536/manifest.json": "88b9469f9d86a92909fa2f4de546703c267e5d158ab2b1faf1e68505034737e8",
+          "resume/000000065536/manifest.sha256": "b7234ebcbc17083398a574e416ad1194276b4cdd184f12b29a2bccbf5c2593c9",
+          "resume/000000065536/replay.npz": "9eaae118884876874e5254e25b4014a169e43cf5b5d559dd033f448969405d5b",
+          "resume/000000065536/reservoir.npz": "d2b2b93b213474d43384fafec12a6aed3517adae404566a78c205df5f7f7b1be",
+          "resume/000000065536/trainer.pt": "a723e2cf3310dacf28e9ad00154e10f503c8a1d40a314c9e952d77b31d02d93a",
+          "resume/latest.json": "4f4a52e951466c31a5b506f461b871715a5dd9b16d75b132b0730b8936e253a9",
+          "run.json": "e2544e648f2447516df21cd01185bef5f43800fbe8626260baf8d4af6378ebc1",
+          "weights/000000032768/manifest.json": "b9fc7320e864daa5282f0674791b7a66bbc2be8ec665f1974f399ff96a0014c2",
+          "weights/000000032768/manifest.sha256": "4e60c60b6f1f14bbf192c4a3d85174407b91989800cff76a3e0022588ad0b48e",
+          "weights/000000032768/models.pt": "d368e38559a2b46e7733ae5443f8751ef90948e1f999f3472b28ea8defebefe8",
+          "weights/000000065536/manifest.json": "2e7e3b24d86968e55963863901a5c1e24c8c7ca09c760bca8d380322c96ed803",
+          "weights/000000065536/manifest.sha256": "db55a047d3ef790621dd4e5773975605d2780b6a62e0da54ba07d505e228bbf7",
+          "weights/000000065536/models.pt": "5d8a90de72ae5ef5da235214132dd025ff26abf923191d8d6b193424fd5189c9"
+        },
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/terminal-batch": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "7632198d5154e083ebc837850a52c0ea9c18ace9d589985aa8f4526097a5ad93",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "287e91bb4d8bfc8d97294c2369fa4ea70cfadf31ece3a284ca7e0a513daafc9b",
+          "result.json": "7ad0d5d90dfad6308ac58eca73598ca726017056714e6bc80cd942d67acd4778",
+          "resume/000000065536/manifest.json": "5aae0dc7f5b7974554e1dc063fe20bbf7883b9e98918797f9b20e5fc65a39a47",
+          "resume/000000065536/manifest.sha256": "763a8b803de584a67a76101934f7c84f1a7fa7c8803a2753ecbb3803f19cb9a8",
+          "resume/000000065536/replay.npz": "9eaae118884876874e5254e25b4014a169e43cf5b5d559dd033f448969405d5b",
+          "resume/000000065536/reservoir.npz": "d2b2b93b213474d43384fafec12a6aed3517adae404566a78c205df5f7f7b1be",
+          "resume/000000065536/trainer.pt": "d5b1607fe77cc48c80b06b7f94f52674743275014635659da1ab872646582f2b",
+          "resume/latest.json": "426ddd92200dc1d9a2d00287e65c17134c9f554c720e1585a4a6494d2f0840bd",
+          "run.json": "b77e3a9af5b9d5cc73f84a1e08268ebfe6805a31534f25f9b04d578fb1a7c50b",
+          "weights/000000032768/manifest.json": "b9fc7320e864daa5282f0674791b7a66bbc2be8ec665f1974f399ff96a0014c2",
+          "weights/000000032768/manifest.sha256": "4e60c60b6f1f14bbf192c4a3d85174407b91989800cff76a3e0022588ad0b48e",
+          "weights/000000032768/models.pt": "d368e38559a2b46e7733ae5443f8751ef90948e1f999f3472b28ea8defebefe8",
+          "weights/000000065536/manifest.json": "2e7e3b24d86968e55963863901a5c1e24c8c7ca09c760bca8d380322c96ed803",
+          "weights/000000065536/manifest.sha256": "db55a047d3ef790621dd4e5773975605d2780b6a62e0da54ba07d505e228bbf7",
+          "weights/000000065536/models.pt": "5d8a90de72ae5ef5da235214132dd025ff26abf923191d8d6b193424fd5189c9"
+        }
+      },
+      "loop_speed_ratio": 2.985641680454494,
+      "records_per_mode": 65536
+    },
+    "wrap-stress/rps/neural/post": {
+      "capacity": 4096,
+      "collection_speed_ratio": 4.142914607265629,
+      "equal_partitions": {
+        "episode_bytes": "2bdf73394259c66f72a803e6114367cf5d25fe94b814fe69ba4ba45019055c1f",
+        "episode_schema": "ca81e25db0d1548dac75a76abb77f9cccc2255befc6dc0a199804923e27639d9",
+        "manifest": "29bb7fab167d3eeb331a7e83612d792dcb5b911345f37a8d1e9e2653e487686c",
+        "public_weights": {
+          "000000032768": "2cdea2a37cee43d9222cf8671ec4f404ec9e747ae9f46490ed26953a5e0adf93",
+          "000000065536": "21be16e799cd31003ef1ccf3d8c5b6aa56811e05cdd7cf28348beae4ec6a6c78"
+        },
+        "replay": "ed624bdd9fae3ae6e23b290bbb70efb2fac3d1d5f73891b124dfb50d72d47415",
+        "reservoir": "1aec30d5086639fdc5f746b3b21a9db6f64a4271e97c673f619c3d542a2ebb58",
+        "result": "b0dd40f6fc2647ce2f7c175bcd302e674582819bc1adce80450f280f8279730e",
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "trainer_state": "b63b315298ee647d8678aa4bdf25e906377f5b7eb33f0d5640917276a73851a6"
+      },
+      "exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory",
+          "collection_implementation"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "collection_implementation"
+        ],
+        "scheduled_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings",
+          "collection_implementation"
+        ]
+      },
+      "input_files_sha256": {
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/scalar-reference": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "2bdf73394259c66f72a803e6114367cf5d25fe94b814fe69ba4ba45019055c1f",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "a64d67e3bced5a0e79a1581d8ea431a6fa67f3e0129f8189248a4d718ed75040",
+          "result.json": "bf0a47df3adc884a9cbcf21aa1a5b84204f935c028b1a9f56af130a059286c72",
+          "resume/000000065536/manifest.json": "b7ecadb11ec9fa4a27511d6e4dd56723c8a758f72fe725988cb8f2b3c65ca197",
+          "resume/000000065536/manifest.sha256": "7a3a0ff5734ac8f2027e892377083221b099450f907d6fdfd0cd121663ec3d59",
+          "resume/000000065536/replay.npz": "fbbd5eb27abbcace42a9ac9e3e5f26030b38f0a5807329c24de628df4b45b099",
+          "resume/000000065536/reservoir.npz": "24c55d821dbba560e1b0ff748ecc1e190ea69d4b7742e2918be0541cc05b482d",
+          "resume/000000065536/trainer.pt": "3572b80171567269373dce5c8d725622eb5a0234a4414cc71fa85709952672bd",
+          "resume/latest.json": "c731f4b6269e22f66d4eae35d01be004b01e19fee6bc167daca47c4005bb2132",
+          "run.json": "66f71c69b3a1391007293daca41c37ae8ba164f21e9321e4ac6573ece3452880",
+          "weights/000000032768/manifest.json": "4978f58656c49b3a7c83271edb0fabe4ae031799ac08370778037dab862f1b06",
+          "weights/000000032768/manifest.sha256": "bf6b674f509025f8c108496674db3c177d358ab9622adca2c19f836f80ddf50b",
+          "weights/000000032768/models.pt": "3de9a5db25b89f02faa5dee4111759686352307842f1a61b10dd8c36fc63e519",
+          "weights/000000065536/manifest.json": "e2fa023847f8ec0018ba7440dabe19cc1b4c4f0b6d64439f9c3a09b66007c611",
+          "weights/000000065536/manifest.sha256": "36f0ff7483fd4ff4d1ef412cac8f7f2791a2f43730417d14165b2f5c43801c87",
+          "weights/000000065536/models.pt": "fc85909914a348e91a4e3f004cf08d27bafdf736c9d047dd03894deb046cb4ae"
+        },
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/terminal-batch": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "2bdf73394259c66f72a803e6114367cf5d25fe94b814fe69ba4ba45019055c1f",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "f47460c6fb5d910803353a71a67def05cc2e2bd3d6e30ee81dcc34503cdd3c43",
+          "result.json": "c34d3d974703a89abff8f1ab35a57f01e9710e9fc64f262d60af7b46949b7c4b",
+          "resume/000000065536/manifest.json": "a129bcc8fd3eb72b402ffbdc42a8815e193997b5af170d617bf765d8c57514ea",
+          "resume/000000065536/manifest.sha256": "86560286469bfc1e399ecc874ba911a8a0c5b43c61b27a2d48cb640a12a58e6a",
+          "resume/000000065536/replay.npz": "fbbd5eb27abbcace42a9ac9e3e5f26030b38f0a5807329c24de628df4b45b099",
+          "resume/000000065536/reservoir.npz": "24c55d821dbba560e1b0ff748ecc1e190ea69d4b7742e2918be0541cc05b482d",
+          "resume/000000065536/trainer.pt": "a05df00c6ffe47d4489218507d38c3e0b800412ff0300841bfc2a85614169275",
+          "resume/latest.json": "e68664f9ff432cabc994d3dc75e1facec0d89d86981bd388346b986ad3531680",
+          "run.json": "2065a44b12df691fbcf46aabbde7f8f378774a33beb908896980d99c1aef37ee",
+          "weights/000000032768/manifest.json": "4978f58656c49b3a7c83271edb0fabe4ae031799ac08370778037dab862f1b06",
+          "weights/000000032768/manifest.sha256": "bf6b674f509025f8c108496674db3c177d358ab9622adca2c19f836f80ddf50b",
+          "weights/000000032768/models.pt": "3de9a5db25b89f02faa5dee4111759686352307842f1a61b10dd8c36fc63e519",
+          "weights/000000065536/manifest.json": "e2fa023847f8ec0018ba7440dabe19cc1b4c4f0b6d64439f9c3a09b66007c611",
+          "weights/000000065536/manifest.sha256": "36f0ff7483fd4ff4d1ef412cac8f7f2791a2f43730417d14165b2f5c43801c87",
+          "weights/000000065536/models.pt": "fc85909914a348e91a4e3f004cf08d27bafdf736c9d047dd03894deb046cb4ae"
+        }
+      },
+      "loop_speed_ratio": 2.562475818977705,
+      "records_per_mode": 65536
+    },
+    "wrap-stress/rps/tabular/post": {
+      "capacity": 4096,
+      "collection_speed_ratio": 4.012642161581558,
+      "equal_partitions": {
+        "episode_bytes": "7ddb2d52c78728fb16d21553ee23aac4fa547ef804314bb50718ee0079816df9",
+        "episode_schema": "ca81e25db0d1548dac75a76abb77f9cccc2255befc6dc0a199804923e27639d9",
+        "manifest": "585f8093d76b1e0db3fed120820f2a8fa0271800b086c2a90835c14f4bd2a32b",
+        "public_weights": {
+          "000000032768": "c8202aad1bf821b415b0556fb5d4a7876fcbb9325e4450f578cde9fec93eb2ab",
+          "000000065536": "b72f4b83d8ae978ac272bc887cd6cf5c4fa8fe26a7d4e1c6a5c71703f617f7e8"
+        },
+        "replay": "0541f125ce050e16a9c09f5e8ee6106262c950b446f47c47ed82d71d12dc0209",
+        "reservoir": "a61361d80e8c40db624b0702ba92bb44a4dc0ec8a9a3f01e68dbaf1ef8a3bb5d",
+        "result": "99c7fe40be90f6dc497216afce70b7d06c4a482f683aded627daeae213850f90",
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "trainer_state": "eb2dc12e515c07c036b2c0b00ad074d336ee4a6ce88dae9fa9b5a02de7a8ec16"
+      },
+      "exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory",
+          "collection_implementation"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "collection_implementation"
+        ],
+        "scheduled_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings",
+          "collection_implementation"
+        ]
+      },
+      "input_files_sha256": {
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/scalar-reference": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "7ddb2d52c78728fb16d21553ee23aac4fa547ef804314bb50718ee0079816df9",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "10925f8846a06662b4af4912023951b606e6e65660bd284662555803d0e7a84c",
+          "result.json": "956ffb79e69f63343759eb299bed239bf4363af53232774c2904a1c0603c1ba7",
+          "resume/000000065536/manifest.json": "3bd2444a5b6cc64fe7816fd36ef229a1bc80adf8afbcfcc2dea899cf1f852736",
+          "resume/000000065536/manifest.sha256": "8937b8ee002d265ff5ca6bc1e3a521471826ff319f1b6cf436395bd63ded7780",
+          "resume/000000065536/replay.npz": "b3819651be2a2f8fa717c01f6f5c190d1c18fa03f71e70c9d07a1492d28616b8",
+          "resume/000000065536/reservoir.npz": "29f892350e53286163b06001a600e0f76b7b54089621f802cce4cbfa7d1e9bda",
+          "resume/000000065536/trainer.pt": "54cd3439fcab4852869485b2abd86f45c04a94033bc4428a29e34020736d5985",
+          "resume/latest.json": "a6f7074dd63d18f868275f4aea76998c26846d4423e074c2295fb107d35be2b2",
+          "run.json": "e0b2be298d26ebb824077ed1081720dbb7854450df6e498de46a6b6c2fbf319b",
+          "weights/000000032768/manifest.json": "8bdd222671cf312c793ea67319341629c0fc4fcd09139eb13adcdeafa02d3ba1",
+          "weights/000000032768/manifest.sha256": "49d8de4074b620f6276a28f5f714a5a0a8003e9042e07d6de0e6200489e603ac",
+          "weights/000000032768/models.pt": "60a960ffdb9a84068e7688a9da6f66a60f4396641d444664151f2b5827862258",
+          "weights/000000065536/manifest.json": "4e1ec83c82a4a62ef7eafdbf578833767a177aae6af2e5b69f54b4001966b180",
+          "weights/000000065536/manifest.sha256": "112c8f161b654c63e1b2e8e2ff624f0b2b3e3ec3987a78862c2adcdff62db5ab",
+          "weights/000000065536/models.pt": "4174e00749f578dc65137dac7f34f4f2079e682efbc9f5c36b15b5c5b6b36b93"
+        },
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/terminal-batch": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "7ddb2d52c78728fb16d21553ee23aac4fa547ef804314bb50718ee0079816df9",
+          "episodes.schema.json": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50",
+          "progress.json": "927689a43670310f3854a23a031be68fb72c94ef82bdde3b4b589d6bf07d22af",
+          "result.json": "164b187619de5a1a0f97cdd61db2a1683be91c93212775b337c5fcdbda97b69a",
+          "resume/000000065536/manifest.json": "d1449aba1f4025c501c0e7c276c6e5d2e921458f102709182bb2c5648fe57820",
+          "resume/000000065536/manifest.sha256": "e84ae13b329d001cb8c59d7550115abde0a9f48bf25d16b16463b97260ce2ec2",
+          "resume/000000065536/replay.npz": "b3819651be2a2f8fa717c01f6f5c190d1c18fa03f71e70c9d07a1492d28616b8",
+          "resume/000000065536/reservoir.npz": "29f892350e53286163b06001a600e0f76b7b54089621f802cce4cbfa7d1e9bda",
+          "resume/000000065536/trainer.pt": "7b7d75cac9455dffe3a56aabe71fb7067a3bd04923faca74231e58319d691ab3",
+          "resume/latest.json": "dcc96a245185314e21d7033b827cb4f4e08e442d29bff2f09eb5f537e31d7d30",
+          "run.json": "a512926e2c1346f1e0fb867f38676080d8912f0ee9ab6b6590693b71404e137a",
+          "weights/000000032768/manifest.json": "8bdd222671cf312c793ea67319341629c0fc4fcd09139eb13adcdeafa02d3ba1",
+          "weights/000000032768/manifest.sha256": "49d8de4074b620f6276a28f5f714a5a0a8003e9042e07d6de0e6200489e603ac",
+          "weights/000000032768/models.pt": "60a960ffdb9a84068e7688a9da6f66a60f4396641d444664151f2b5827862258",
+          "weights/000000065536/manifest.json": "4e1ec83c82a4a62ef7eafdbf578833767a177aae6af2e5b69f54b4001966b180",
+          "weights/000000065536/manifest.sha256": "112c8f161b654c63e1b2e8e2ff624f0b2b3e3ec3987a78862c2adcdff62db5ab",
+          "weights/000000065536/models.pt": "4174e00749f578dc65137dac7f34f4f2079e682efbc9f5c36b15b5c5b6b36b93"
+        }
+      },
+      "loop_speed_ratio": 2.897113211595322,
+      "records_per_mode": 65536
+    }
+  },
+  "version": "graygo/terminal-batch-profile/1"
+}

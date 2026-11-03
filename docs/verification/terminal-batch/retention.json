@@ -1,0 +1,1036 @@
+{
+  "diagnostic_payloads_are_deployment_policies": false,
+  "failed_test_run_preserved": true,
+  "files": {
+    "docs/verification/terminal-batch/comparison/comparisons.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/comparisons.json",
+      "sha256": "0fcea5c28123cfeaa1bbbae771e1723c2861d771f9f6b241d513427d98563505"
+    },
+    "docs/verification/terminal-batch/comparison/driver.py": {
+      "original": "runs/terminal-batch-comparison-7d92069/driver.py",
+      "sha256": "6c2f2c6e76763ebe1ee8cb5d9697d9a4e1ca439af66049ed1d270599a9854058"
+    },
+    "docs/verification/terminal-batch/comparison/job.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/job.json",
+      "sha256": "df88bcde5956c805398f16051682edce17d36aa965d8526b7a641d944726305c"
+    },
+    "docs/verification/terminal-batch/comparison/plan.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/plan.json",
+      "sha256": "132cf2a756cf455f6d67b28fd0abf8c719200361c6ea9880f78bef28661539da"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/scalar-reference/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/scalar-reference/result.json",
+      "sha256": "77b162fdcd946fb1db6dcc33588a62f7f2c59bfcb7bb5775d258d31fdc628510"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/scalar-reference/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/scalar-reference/resume/000000100000/manifest.json",
+      "sha256": "357c305b0eb9ca83f4376aca7a462b9c42557c516ece2bd5aa71da64e88e22b5"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/scalar-reference/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/scalar-reference/resume/000000100000/manifest.sha256",
+      "sha256": "ddf1d4bc548d60649412e984ec17ccb05237fd165976f2ccdd4fd00692893863"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/scalar-reference/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/scalar-reference/run.json",
+      "sha256": "4bf5d3f6f9fc4221e26a2ca454b6c6d7c66d327bdf892ac4caa26d18b096226e"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/scalar-reference/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/scalar-reference/weights/000000050000/manifest.json",
+      "sha256": "5adbc772c9eee26404d38578e7df0d8103141ffbdbcf06f3244c635ae7b46634"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/scalar-reference/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/scalar-reference/weights/000000050000/manifest.sha256",
+      "sha256": "b38aa9fed85967cd798d50091d14889ea23d94a768136e6c68aecf944b892642"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/scalar-reference/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/scalar-reference/weights/000000100000/manifest.json",
+      "sha256": "bf640d4117a7c34a8101e87985bb130da07207e55003b0d54997773058d2698e"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/scalar-reference/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/scalar-reference/weights/000000100000/manifest.sha256",
+      "sha256": "5f021fec64114434a340eaa41f9f5452c1d2a9e615998f56457a3d366d583598"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/terminal-batch/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/terminal-batch/result.json",
+      "sha256": "7ab3b3ebac6d0a1070dc3ff2f2ed02dbed6c12d754d8f22d5d3091cf76f3a078"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/terminal-batch/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/terminal-batch/resume/000000100000/manifest.json",
+      "sha256": "e0a9778af7bee981b3b504700509a135146c32f7e8d0329f65e762ea5ab3148c"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/terminal-batch/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/terminal-batch/resume/000000100000/manifest.sha256",
+      "sha256": "fe4bd7bdb65c3fa5b1d2d80dba247130f7d3fc68ed0698c5cd2ad74b86aacdbc"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/terminal-batch/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/terminal-batch/run.json",
+      "sha256": "336d83f6ce7ebe278b294c9fa57f3c47ebc71a6cc67e2a6c93a27ab56206ea07"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/terminal-batch/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/terminal-batch/weights/000000050000/manifest.json",
+      "sha256": "5adbc772c9eee26404d38578e7df0d8103141ffbdbcf06f3244c635ae7b46634"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/terminal-batch/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/terminal-batch/weights/000000050000/manifest.sha256",
+      "sha256": "b38aa9fed85967cd798d50091d14889ea23d94a768136e6c68aecf944b892642"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/terminal-batch/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/terminal-batch/weights/000000100000/manifest.json",
+      "sha256": "bf640d4117a7c34a8101e87985bb130da07207e55003b0d54997773058d2698e"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/post/terminal-batch/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/terminal-batch/weights/000000100000/manifest.sha256",
+      "sha256": "5f021fec64114434a340eaa41f9f5452c1d2a9e615998f56457a3d366d583598"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/scalar-reference/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/scalar-reference/result.json",
+      "sha256": "0ffbe82504f14bc458e907fa91d5d0a0195727ddc3ec1ba8f31eff91a75ba463"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/scalar-reference/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/scalar-reference/resume/000000100000/manifest.json",
+      "sha256": "d0868342f8965ccda0a1fd6ab242d0f4bb0342e4687a6a5e4fea5167583a4bca"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/scalar-reference/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/scalar-reference/resume/000000100000/manifest.sha256",
+      "sha256": "85806dc5ecef6242b4a28c76692f3b36c61d034a194cacb48c82976cf84eea16"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/scalar-reference/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/scalar-reference/run.json",
+      "sha256": "b52216dd79c3363e35c28541e2268257602712db53baf287c89164c95f731d85"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/scalar-reference/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/scalar-reference/weights/000000050000/manifest.json",
+      "sha256": "14b7e6614f6ef2976b882cb6a2c49ec999b4ccc50dbecf3f06b4aed3a4564b3b"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/scalar-reference/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/scalar-reference/weights/000000050000/manifest.sha256",
+      "sha256": "062d069d7c310604376e2e6cbbf97a94572aa8195e5c602f01fb87223777fce3"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/scalar-reference/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/scalar-reference/weights/000000100000/manifest.json",
+      "sha256": "c7e06d669b2db0a61120cdf60c8c6eca5c84546a32167d088cefca644c49fc28"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/scalar-reference/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/scalar-reference/weights/000000100000/manifest.sha256",
+      "sha256": "967b216d1d0a29e37a04bb00bd9397b7568875f154e10aab2e8ff1d5682fd21d"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/terminal-batch/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/terminal-batch/result.json",
+      "sha256": "06e7236210be2fb1d6329b92e89dc604a4ac6ec823ea69dc1a22cd3bb11191cb"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/terminal-batch/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/terminal-batch/resume/000000100000/manifest.json",
+      "sha256": "11aecdf58120c3c24f9bf1a210a38ea4bd51c039f875d15fadaf5526b5566983"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/terminal-batch/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/terminal-batch/resume/000000100000/manifest.sha256",
+      "sha256": "6d8e34958f55600e44736f11d610897493e4124aa738e406ce9b45b8fc4dd47c"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/terminal-batch/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/terminal-batch/run.json",
+      "sha256": "6131a464a996ad16e8c9467693800a56dd24bd83cc0062bbb029faefba541dcb"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/terminal-batch/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/terminal-batch/weights/000000050000/manifest.json",
+      "sha256": "14b7e6614f6ef2976b882cb6a2c49ec999b4ccc50dbecf3f06b4aed3a4564b3b"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/terminal-batch/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/terminal-batch/weights/000000050000/manifest.sha256",
+      "sha256": "062d069d7c310604376e2e6cbbf97a94572aa8195e5c602f01fb87223777fce3"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/terminal-batch/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/terminal-batch/weights/000000100000/manifest.json",
+      "sha256": "c7e06d669b2db0a61120cdf60c8c6eca5c84546a32167d088cefca644c49fc28"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/neural/pre/terminal-batch/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/terminal-batch/weights/000000100000/manifest.sha256",
+      "sha256": "967b216d1d0a29e37a04bb00bd9397b7568875f154e10aab2e8ff1d5682fd21d"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/scalar-reference/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/scalar-reference/result.json",
+      "sha256": "6fc5a2df60bf482a6c439e09205d9b3dfb07670091f178903e38209d70e5ecd0"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/scalar-reference/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/scalar-reference/resume/000000100000/manifest.json",
+      "sha256": "e77ce4b2f2c964b4967b068cf176e1c25ac68ff0762025d5f6e010c78f365272"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/scalar-reference/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/scalar-reference/resume/000000100000/manifest.sha256",
+      "sha256": "1703f39c3451eb6d88eb9c7878abac54e13e58ab82e1ed846a1dc61ab2b9c32b"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/scalar-reference/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/scalar-reference/run.json",
+      "sha256": "ce7da4c660b5340441be97f0f73c9da6d511868b696225907c590fd19aeea723"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/scalar-reference/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/scalar-reference/weights/000000050000/manifest.json",
+      "sha256": "96cf4e024f627d82304abd231f4e0d56f0c1234f43c3a60e3b56b0d473e98231"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/scalar-reference/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/scalar-reference/weights/000000050000/manifest.sha256",
+      "sha256": "91f42deb180d16269a4a47ada728932ab62df67eddd89264f64621482e0c1114"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/scalar-reference/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/scalar-reference/weights/000000100000/manifest.json",
+      "sha256": "51ac194947e2cb26878773b299f94d27a4a45a8176f500995c45151ce93cb36f"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/scalar-reference/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/scalar-reference/weights/000000100000/manifest.sha256",
+      "sha256": "7ca89f404528c54aba55aab94bdfb66495b60fcfc7c2b073c5b34f54cc7e2fc4"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/terminal-batch/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/terminal-batch/result.json",
+      "sha256": "47b0adc8ea4ef33106ee200e92cdb793d9cf3b0740337b8539fe22df17dbab75"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/terminal-batch/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/terminal-batch/resume/000000100000/manifest.json",
+      "sha256": "54aadbfeba21fca14291d8e6d324969c714e2c02d0afb08864097d2b1c1b7514"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/terminal-batch/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/terminal-batch/resume/000000100000/manifest.sha256",
+      "sha256": "d4c0c8afd5abbde210de8caf073b8c06a732e0fcbadd72f5240319e08de3a21c"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/terminal-batch/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/terminal-batch/run.json",
+      "sha256": "034f6729adbe59333ce1622cd7399b13a99bc3e1ddba99db280272b1c3e65448"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/terminal-batch/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/terminal-batch/weights/000000050000/manifest.json",
+      "sha256": "96cf4e024f627d82304abd231f4e0d56f0c1234f43c3a60e3b56b0d473e98231"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/terminal-batch/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/terminal-batch/weights/000000050000/manifest.sha256",
+      "sha256": "91f42deb180d16269a4a47ada728932ab62df67eddd89264f64621482e0c1114"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/terminal-batch/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/terminal-batch/weights/000000100000/manifest.json",
+      "sha256": "51ac194947e2cb26878773b299f94d27a4a45a8176f500995c45151ce93cb36f"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/post/terminal-batch/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/terminal-batch/weights/000000100000/manifest.sha256",
+      "sha256": "7ca89f404528c54aba55aab94bdfb66495b60fcfc7c2b073c5b34f54cc7e2fc4"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/scalar-reference/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/scalar-reference/result.json",
+      "sha256": "94001e6e307c64ab8d37f3bdb7b154019ab254cd0373c344cd65febe71811fde"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/scalar-reference/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/scalar-reference/resume/000000100000/manifest.json",
+      "sha256": "0baa1c083ca8ac12f29f7da7008bdd7aaea0b0e1e37bfeac917a3a7e242db194"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/scalar-reference/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/scalar-reference/resume/000000100000/manifest.sha256",
+      "sha256": "d8074fb7439b4aad3934a85b1be2d69cf77277609ea98495a4272217bc79a9b9"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/scalar-reference/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/scalar-reference/run.json",
+      "sha256": "0e3fa3993c20bce5570ec368f4f233f19615033de433afb120cfaa8760c80135"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/scalar-reference/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/scalar-reference/weights/000000050000/manifest.json",
+      "sha256": "221d72a77ad86b8113761b83b2f971834d54a4aa258ce473a1eabe8a727f1673"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/scalar-reference/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/scalar-reference/weights/000000050000/manifest.sha256",
+      "sha256": "dde8491c0aa2d543922ff46cd7900db7365d1eb8df85c23729bf160ac0db5746"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/scalar-reference/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/scalar-reference/weights/000000100000/manifest.json",
+      "sha256": "47faed5c7a5800e137b916057198d169632364c30c3dfd50f0663434ce175f55"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/scalar-reference/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/scalar-reference/weights/000000100000/manifest.sha256",
+      "sha256": "45308023eabf2c884c11d13eb72195d148e40fd4f9d5ab35aa9b7dbe9f72180a"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/terminal-batch/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/terminal-batch/result.json",
+      "sha256": "cd755629b542203c26abac656208c43a55b5ab328c4eb9c20019a05acd5d4def"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/terminal-batch/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/terminal-batch/resume/000000100000/manifest.json",
+      "sha256": "c403b52b488355a53569680f7ef36163f1ae515fbe1d68e324830727661cc1de"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/terminal-batch/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/terminal-batch/resume/000000100000/manifest.sha256",
+      "sha256": "b9e17230a57e80e3899eb9469be8c3ecfde5addebb1bb86d5bf3c611b81794a3"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/terminal-batch/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/terminal-batch/run.json",
+      "sha256": "666dd2f059c8d9ccdd3b101f3793ffeb9e5be465877496357d4e1204630c06ac"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/terminal-batch/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/terminal-batch/weights/000000050000/manifest.json",
+      "sha256": "221d72a77ad86b8113761b83b2f971834d54a4aa258ce473a1eabe8a727f1673"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/terminal-batch/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/terminal-batch/weights/000000050000/manifest.sha256",
+      "sha256": "dde8491c0aa2d543922ff46cd7900db7365d1eb8df85c23729bf160ac0db5746"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/terminal-batch/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/terminal-batch/weights/000000100000/manifest.json",
+      "sha256": "47faed5c7a5800e137b916057198d169632364c30c3dfd50f0663434ce175f55"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/asymmetric/tabular/pre/terminal-batch/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/terminal-batch/weights/000000100000/manifest.sha256",
+      "sha256": "45308023eabf2c884c11d13eb72195d148e40fd4f9d5ab35aa9b7dbe9f72180a"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/scalar-reference/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/scalar-reference/result.json",
+      "sha256": "71101d2a3f5c0bb0c1d450f4fb102797b9453706ec4ceadd7715df8fcae5ed8e"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/scalar-reference/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/scalar-reference/resume/000000100000/manifest.json",
+      "sha256": "3967518e57df32d431751f9372388e732cc6107b326d8c8aba685c7e57e40009"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/scalar-reference/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/scalar-reference/resume/000000100000/manifest.sha256",
+      "sha256": "aa288948f00602a2934c201ec9f0920e15ca326e3121e69029632f6cb51bd0e4"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/scalar-reference/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/scalar-reference/run.json",
+      "sha256": "d3749346948f8da8c7f156c5de79799ddf2e59c204e7559612b6706e1896dbad"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/scalar-reference/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/scalar-reference/weights/000000050000/manifest.json",
+      "sha256": "c103ea2da7341218799c050fa29f26e690727f5b9be401c8203f63628af83d22"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/scalar-reference/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/scalar-reference/weights/000000050000/manifest.sha256",
+      "sha256": "9854ba6e8a71b2d5c0eaced43e780dda1d106559e8bf070541d69e85e4adb68e"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/scalar-reference/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/scalar-reference/weights/000000100000/manifest.json",
+      "sha256": "6b6d038ce949db166f22fad281f6b1f7351d8bbd18a6e501224c11192764ea57"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/scalar-reference/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/scalar-reference/weights/000000100000/manifest.sha256",
+      "sha256": "e1f47a29d45b90889239e4222949d486798a97730d554cf490e5afaa16402e4d"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/terminal-batch/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/terminal-batch/result.json",
+      "sha256": "0b7aad2cee34990d8a25d5256a55b2392fca6bbbd38ba7370b8c0abfa284da8b"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/terminal-batch/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/terminal-batch/resume/000000100000/manifest.json",
+      "sha256": "c7662f60cb67de3e2e1845e99e1223332f9c4e722b4de634b1bb631fc9565ff2"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/terminal-batch/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/terminal-batch/resume/000000100000/manifest.sha256",
+      "sha256": "2b77d4b3673f93710a71ffaaafe003a13bdf4a036798ec0747dfec1f0ea80964"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/terminal-batch/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/terminal-batch/run.json",
+      "sha256": "f78260b8497dd447416b13f9abdc13ce1e666e5a7fa3cc979fd51a8f0401e9db"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/terminal-batch/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/terminal-batch/weights/000000050000/manifest.json",
+      "sha256": "c103ea2da7341218799c050fa29f26e690727f5b9be401c8203f63628af83d22"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/terminal-batch/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/terminal-batch/weights/000000050000/manifest.sha256",
+      "sha256": "9854ba6e8a71b2d5c0eaced43e780dda1d106559e8bf070541d69e85e4adb68e"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/terminal-batch/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/terminal-batch/weights/000000100000/manifest.json",
+      "sha256": "6b6d038ce949db166f22fad281f6b1f7351d8bbd18a6e501224c11192764ea57"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/post/terminal-batch/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/terminal-batch/weights/000000100000/manifest.sha256",
+      "sha256": "e1f47a29d45b90889239e4222949d486798a97730d554cf490e5afaa16402e4d"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/scalar-reference/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/scalar-reference/result.json",
+      "sha256": "5ed0c9546845fe27c1937b8936828b516f876a026ee4660f91320337967b8d53"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/scalar-reference/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/scalar-reference/resume/000000100000/manifest.json",
+      "sha256": "89820cb72ccafcfae909eb4ec91dba5f4aeabdc570137abbd269049499020926"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/scalar-reference/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/scalar-reference/resume/000000100000/manifest.sha256",
+      "sha256": "5fa2be26c37c62d39acd03b292a15870173b4a0bad5d4fdc81efc2ecf4a00b10"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/scalar-reference/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/scalar-reference/run.json",
+      "sha256": "8a2f71c95cf551a7a26a8148c542c91650bf6588fe902bca369eec0cfebb14bc"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/scalar-reference/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/scalar-reference/weights/000000050000/manifest.json",
+      "sha256": "72536782ccb0545741725b21e10547928cfa1f3dacf3d6db169ec3c3e2c22dd2"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/scalar-reference/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/scalar-reference/weights/000000050000/manifest.sha256",
+      "sha256": "e6f60ef1819f4f0cb04b95213786f64bb85361441369c0fd496192c6ac36d721"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/scalar-reference/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/scalar-reference/weights/000000100000/manifest.json",
+      "sha256": "347a1b08d065ec21b4d7e55e822f7fc583ec98e891138016aa730f12f91e1652"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/scalar-reference/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/scalar-reference/weights/000000100000/manifest.sha256",
+      "sha256": "0601801d898cb339525c3a7b88e00d96dbdb6a8c04129e6c93a0015cfe342df1"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/terminal-batch/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/terminal-batch/result.json",
+      "sha256": "94ac079048d86122e1c17b7c5b100a5233e2b4b41f71e7b2a933c11165053c4f"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/terminal-batch/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/terminal-batch/resume/000000100000/manifest.json",
+      "sha256": "c9dab0a8821c4a352ac2d4ec624a97bb4a1a1b37ac7daec10a1bd23311041f6e"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/terminal-batch/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/terminal-batch/resume/000000100000/manifest.sha256",
+      "sha256": "6020abc496c850b59681dafb13e37004ab6fef78e246c1604cb83ff1db52dc2c"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/terminal-batch/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/terminal-batch/run.json",
+      "sha256": "be73e4556a54a6176ecdfa8a6412cc93fe358d8f296e7e68c4fc0ec1c2b64797"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/terminal-batch/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/terminal-batch/weights/000000050000/manifest.json",
+      "sha256": "72536782ccb0545741725b21e10547928cfa1f3dacf3d6db169ec3c3e2c22dd2"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/terminal-batch/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/terminal-batch/weights/000000050000/manifest.sha256",
+      "sha256": "e6f60ef1819f4f0cb04b95213786f64bb85361441369c0fd496192c6ac36d721"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/terminal-batch/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/terminal-batch/weights/000000100000/manifest.json",
+      "sha256": "347a1b08d065ec21b4d7e55e822f7fc583ec98e891138016aa730f12f91e1652"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/neural/pre/terminal-batch/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/terminal-batch/weights/000000100000/manifest.sha256",
+      "sha256": "0601801d898cb339525c3a7b88e00d96dbdb6a8c04129e6c93a0015cfe342df1"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/scalar-reference/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/scalar-reference/result.json",
+      "sha256": "3e500d7c512770494fedfa8351dd388abf1436e80b97f89295fc14ea99ecd195"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/scalar-reference/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/scalar-reference/resume/000000100000/manifest.json",
+      "sha256": "8de740f9e27f968e86eb4b78a7bfb17a8b14152e3f0a92113c3ccdf10f6a4795"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/scalar-reference/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/scalar-reference/resume/000000100000/manifest.sha256",
+      "sha256": "b2f4dae3c942e2476e7f87c2a749b7320e900e5eeedf9ab0d2cc8f4d30aa25a2"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/scalar-reference/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/scalar-reference/run.json",
+      "sha256": "6562167ffad23716bf16a464d4b4e7698f4936011c176fe3309f70081e994c83"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/scalar-reference/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/scalar-reference/weights/000000050000/manifest.json",
+      "sha256": "3793c41b9c4ee65ba117084a4ae086e997b72838c36e45dcb376b493e54fba81"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/scalar-reference/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/scalar-reference/weights/000000050000/manifest.sha256",
+      "sha256": "ce307bae42aea4236158a518e3e710eea16043039c810e4fbf7a066a6b6ca0e6"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/scalar-reference/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/scalar-reference/weights/000000100000/manifest.json",
+      "sha256": "0ac65b2155199dd4696ef861bb55b6b6f55fe60105fead7581f624925999966b"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/scalar-reference/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/scalar-reference/weights/000000100000/manifest.sha256",
+      "sha256": "c1dee905aaca4c063f198c6d490cce7d4b3da22c4ff4061b2dc0cbc7642411ea"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/terminal-batch/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/terminal-batch/result.json",
+      "sha256": "3ebbdb2b40a539f1df4ef7fce660d0b0f8e91a60f2d7bedbdea23c9cb11387d1"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/terminal-batch/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/terminal-batch/resume/000000100000/manifest.json",
+      "sha256": "2717fa5de1fc82a78faeac5495ff50af26bbe0ee5ca7dc62fb5a1c3c8334be31"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/terminal-batch/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/terminal-batch/resume/000000100000/manifest.sha256",
+      "sha256": "bdd1204bad3d97358e93ddcdfe57f8de0725fa6a9355f9be86c503ae2575d076"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/terminal-batch/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/terminal-batch/run.json",
+      "sha256": "ebfb61f02e789f22e941f2dcf4c706a2da11c5526c92b7c4f77e85898d73cb09"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/terminal-batch/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/terminal-batch/weights/000000050000/manifest.json",
+      "sha256": "3793c41b9c4ee65ba117084a4ae086e997b72838c36e45dcb376b493e54fba81"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/terminal-batch/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/terminal-batch/weights/000000050000/manifest.sha256",
+      "sha256": "ce307bae42aea4236158a518e3e710eea16043039c810e4fbf7a066a6b6ca0e6"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/terminal-batch/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/terminal-batch/weights/000000100000/manifest.json",
+      "sha256": "0ac65b2155199dd4696ef861bb55b6b6f55fe60105fead7581f624925999966b"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/post/terminal-batch/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/terminal-batch/weights/000000100000/manifest.sha256",
+      "sha256": "c1dee905aaca4c063f198c6d490cce7d4b3da22c4ff4061b2dc0cbc7642411ea"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/scalar-reference/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/scalar-reference/result.json",
+      "sha256": "ced5dfd52037af60090beba65713aef8d84cb8d22c80235f0bb541a9f0c68b9a"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/scalar-reference/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/scalar-reference/resume/000000100000/manifest.json",
+      "sha256": "1ccfe21b6e8f44e7224a23c875c5c07680f259bc372ad00a105147e0d47113c4"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/scalar-reference/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/scalar-reference/resume/000000100000/manifest.sha256",
+      "sha256": "d2fb31de9a6cc044fb2d0effcab27d56629cccd9450124dc58f2c1dfd72da531"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/scalar-reference/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/scalar-reference/run.json",
+      "sha256": "17cded4d5c21c25847c417d2cc2140ab1d5e5066bfb8f87b36aa0517cc88c8b2"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/scalar-reference/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/scalar-reference/weights/000000050000/manifest.json",
+      "sha256": "5f10b63ee28a5a9825465a3556ebf4534d0bd0385d00124b4cc57ac8670ebccb"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/scalar-reference/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/scalar-reference/weights/000000050000/manifest.sha256",
+      "sha256": "3db7048c43224b51c10b2365dd2fdb8589fc33309c7820bd68e375f75a8471dd"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/scalar-reference/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/scalar-reference/weights/000000100000/manifest.json",
+      "sha256": "03c60c88da9ad86927e917cce4b19d0de330bcff2631cb3044c7d77b9d861b19"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/scalar-reference/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/scalar-reference/weights/000000100000/manifest.sha256",
+      "sha256": "408cc217e3dd7266655f905ad732cf53286e4d9723e6e1a3f5f0b8fda021b44f"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/terminal-batch/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/terminal-batch/result.json",
+      "sha256": "36b154e91e8dd675ea94715ed5d5b223a76044280de0e884b2f741c355b5257a"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/terminal-batch/resume/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/terminal-batch/resume/000000100000/manifest.json",
+      "sha256": "93e2caa7894380943ddb717349d6455c0bf0666fe62c5f06b4c964c00ec222d5"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/terminal-batch/resume/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/terminal-batch/resume/000000100000/manifest.sha256",
+      "sha256": "c0f0c895c1c2b0f6bed10ce32e2b3df9d8a5cdf78ae745955e5151ff98497529"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/terminal-batch/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/terminal-batch/run.json",
+      "sha256": "d34fec915c14b6a549dd483e6c688f19730d6028335a51c3c0719b4d84c729f2"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/terminal-batch/weights/000000050000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/terminal-batch/weights/000000050000/manifest.json",
+      "sha256": "5f10b63ee28a5a9825465a3556ebf4534d0bd0385d00124b4cc57ac8670ebccb"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/terminal-batch/weights/000000050000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/terminal-batch/weights/000000050000/manifest.sha256",
+      "sha256": "3db7048c43224b51c10b2365dd2fdb8589fc33309c7820bd68e375f75a8471dd"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/terminal-batch/weights/000000100000/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/terminal-batch/weights/000000100000/manifest.json",
+      "sha256": "03c60c88da9ad86927e917cce4b19d0de330bcff2631cb3044c7d77b9d861b19"
+    },
+    "docs/verification/terminal-batch/comparison/raw/production-layout/rps/tabular/pre/terminal-batch/weights/000000100000/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/terminal-batch/weights/000000100000/manifest.sha256",
+      "sha256": "408cc217e3dd7266655f905ad732cf53286e4d9723e6e1a3f5f0b8fda021b44f"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/scalar-reference/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/scalar-reference/result.json",
+      "sha256": "a6c31ce92871432554febd276a353d13eee36c7c329cc2a054e777e755cd4a85"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/scalar-reference/resume/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/scalar-reference/resume/000000065536/manifest.json",
+      "sha256": "4dec28ef321f0e4f2dd6d3e556a64eef3a722df89fbbf159bfe8b622dc53115b"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/scalar-reference/resume/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/scalar-reference/resume/000000065536/manifest.sha256",
+      "sha256": "c17f5559db991014354ff22aedafb6304ab2f14987f1773132d959fcfb608e69"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/scalar-reference/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/scalar-reference/run.json",
+      "sha256": "ff4f883f38606e5d737945093740d6831cb929f046b0963632c16fdf37ddd9b2"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/scalar-reference/weights/000000032768/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/scalar-reference/weights/000000032768/manifest.json",
+      "sha256": "ee16afe383b5b57a3880659fee6651d457428d460e3d539e8fe7a108ec3aa9b3"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/scalar-reference/weights/000000032768/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/scalar-reference/weights/000000032768/manifest.sha256",
+      "sha256": "bc1efef05300a74a21a2c77bdcfcd7584af4becc48d7498e6ce7e2db35be487d"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/scalar-reference/weights/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/scalar-reference/weights/000000065536/manifest.json",
+      "sha256": "f932c807075f45da7e6c2a37c9a4a337c02c3efcc9cb6516b38975b2946e1890"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/scalar-reference/weights/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/scalar-reference/weights/000000065536/manifest.sha256",
+      "sha256": "4b87967f8b7222794d3ec7928a73f2957452759c104af19a0ad406a79341646e"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/terminal-batch/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/terminal-batch/result.json",
+      "sha256": "340afb49edf62f5e0eb9b0ca3af7a33b2c38caaed593fb92a8c6837902c90e78"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/terminal-batch/resume/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/terminal-batch/resume/000000065536/manifest.json",
+      "sha256": "4c224356df1923fb596ab5593f2c9a4a1ea04689fd5f1b0286b7630bec15373a"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/terminal-batch/resume/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/terminal-batch/resume/000000065536/manifest.sha256",
+      "sha256": "d2faf240603ca982f80e9c6a88617ca7a67152797fc347b48bdd02532713ef49"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/terminal-batch/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/terminal-batch/run.json",
+      "sha256": "1c68ef4ef031350547ab42a4efa554454d3a944bf1b4853d5f2e86ffa5c28ac6"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/terminal-batch/weights/000000032768/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/terminal-batch/weights/000000032768/manifest.json",
+      "sha256": "ee16afe383b5b57a3880659fee6651d457428d460e3d539e8fe7a108ec3aa9b3"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/terminal-batch/weights/000000032768/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/terminal-batch/weights/000000032768/manifest.sha256",
+      "sha256": "bc1efef05300a74a21a2c77bdcfcd7584af4becc48d7498e6ce7e2db35be487d"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/terminal-batch/weights/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/terminal-batch/weights/000000065536/manifest.json",
+      "sha256": "f932c807075f45da7e6c2a37c9a4a337c02c3efcc9cb6516b38975b2946e1890"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/neural/post/terminal-batch/weights/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/terminal-batch/weights/000000065536/manifest.sha256",
+      "sha256": "4b87967f8b7222794d3ec7928a73f2957452759c104af19a0ad406a79341646e"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/scalar-reference/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/scalar-reference/result.json",
+      "sha256": "24c7caadd7b641925f28555f73a2ca05d3ae97a4eae4a2ca5b7b890bd46825f4"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/scalar-reference/resume/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/scalar-reference/resume/000000065536/manifest.json",
+      "sha256": "88b9469f9d86a92909fa2f4de546703c267e5d158ab2b1faf1e68505034737e8"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/scalar-reference/resume/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/scalar-reference/resume/000000065536/manifest.sha256",
+      "sha256": "b7234ebcbc17083398a574e416ad1194276b4cdd184f12b29a2bccbf5c2593c9"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/scalar-reference/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/scalar-reference/run.json",
+      "sha256": "e2544e648f2447516df21cd01185bef5f43800fbe8626260baf8d4af6378ebc1"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/scalar-reference/weights/000000032768/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/scalar-reference/weights/000000032768/manifest.json",
+      "sha256": "b9fc7320e864daa5282f0674791b7a66bbc2be8ec665f1974f399ff96a0014c2"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/scalar-reference/weights/000000032768/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/scalar-reference/weights/000000032768/manifest.sha256",
+      "sha256": "4e60c60b6f1f14bbf192c4a3d85174407b91989800cff76a3e0022588ad0b48e"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/scalar-reference/weights/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/scalar-reference/weights/000000065536/manifest.json",
+      "sha256": "2e7e3b24d86968e55963863901a5c1e24c8c7ca09c760bca8d380322c96ed803"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/scalar-reference/weights/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/scalar-reference/weights/000000065536/manifest.sha256",
+      "sha256": "db55a047d3ef790621dd4e5773975605d2780b6a62e0da54ba07d505e228bbf7"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/terminal-batch/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/terminal-batch/result.json",
+      "sha256": "7ad0d5d90dfad6308ac58eca73598ca726017056714e6bc80cd942d67acd4778"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/terminal-batch/resume/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/terminal-batch/resume/000000065536/manifest.json",
+      "sha256": "5aae0dc7f5b7974554e1dc063fe20bbf7883b9e98918797f9b20e5fc65a39a47"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/terminal-batch/resume/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/terminal-batch/resume/000000065536/manifest.sha256",
+      "sha256": "763a8b803de584a67a76101934f7c84f1a7fa7c8803a2753ecbb3803f19cb9a8"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/terminal-batch/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/terminal-batch/run.json",
+      "sha256": "b77e3a9af5b9d5cc73f84a1e08268ebfe6805a31534f25f9b04d578fb1a7c50b"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/terminal-batch/weights/000000032768/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/terminal-batch/weights/000000032768/manifest.json",
+      "sha256": "b9fc7320e864daa5282f0674791b7a66bbc2be8ec665f1974f399ff96a0014c2"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/terminal-batch/weights/000000032768/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/terminal-batch/weights/000000032768/manifest.sha256",
+      "sha256": "4e60c60b6f1f14bbf192c4a3d85174407b91989800cff76a3e0022588ad0b48e"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/terminal-batch/weights/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/terminal-batch/weights/000000065536/manifest.json",
+      "sha256": "2e7e3b24d86968e55963863901a5c1e24c8c7ca09c760bca8d380322c96ed803"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/asymmetric/tabular/post/terminal-batch/weights/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/terminal-batch/weights/000000065536/manifest.sha256",
+      "sha256": "db55a047d3ef790621dd4e5773975605d2780b6a62e0da54ba07d505e228bbf7"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/scalar-reference/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/scalar-reference/result.json",
+      "sha256": "bf0a47df3adc884a9cbcf21aa1a5b84204f935c028b1a9f56af130a059286c72"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/scalar-reference/resume/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/scalar-reference/resume/000000065536/manifest.json",
+      "sha256": "b7ecadb11ec9fa4a27511d6e4dd56723c8a758f72fe725988cb8f2b3c65ca197"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/scalar-reference/resume/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/scalar-reference/resume/000000065536/manifest.sha256",
+      "sha256": "7a3a0ff5734ac8f2027e892377083221b099450f907d6fdfd0cd121663ec3d59"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/scalar-reference/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/scalar-reference/run.json",
+      "sha256": "66f71c69b3a1391007293daca41c37ae8ba164f21e9321e4ac6573ece3452880"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/scalar-reference/weights/000000032768/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/scalar-reference/weights/000000032768/manifest.json",
+      "sha256": "4978f58656c49b3a7c83271edb0fabe4ae031799ac08370778037dab862f1b06"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/scalar-reference/weights/000000032768/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/scalar-reference/weights/000000032768/manifest.sha256",
+      "sha256": "bf6b674f509025f8c108496674db3c177d358ab9622adca2c19f836f80ddf50b"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/scalar-reference/weights/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/scalar-reference/weights/000000065536/manifest.json",
+      "sha256": "e2fa023847f8ec0018ba7440dabe19cc1b4c4f0b6d64439f9c3a09b66007c611"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/scalar-reference/weights/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/scalar-reference/weights/000000065536/manifest.sha256",
+      "sha256": "36f0ff7483fd4ff4d1ef412cac8f7f2791a2f43730417d14165b2f5c43801c87"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/terminal-batch/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/terminal-batch/result.json",
+      "sha256": "c34d3d974703a89abff8f1ab35a57f01e9710e9fc64f262d60af7b46949b7c4b"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/terminal-batch/resume/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/terminal-batch/resume/000000065536/manifest.json",
+      "sha256": "a129bcc8fd3eb72b402ffbdc42a8815e193997b5af170d617bf765d8c57514ea"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/terminal-batch/resume/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/terminal-batch/resume/000000065536/manifest.sha256",
+      "sha256": "86560286469bfc1e399ecc874ba911a8a0c5b43c61b27a2d48cb640a12a58e6a"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/terminal-batch/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/terminal-batch/run.json",
+      "sha256": "2065a44b12df691fbcf46aabbde7f8f378774a33beb908896980d99c1aef37ee"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/terminal-batch/weights/000000032768/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/terminal-batch/weights/000000032768/manifest.json",
+      "sha256": "4978f58656c49b3a7c83271edb0fabe4ae031799ac08370778037dab862f1b06"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/terminal-batch/weights/000000032768/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/terminal-batch/weights/000000032768/manifest.sha256",
+      "sha256": "bf6b674f509025f8c108496674db3c177d358ab9622adca2c19f836f80ddf50b"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/terminal-batch/weights/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/terminal-batch/weights/000000065536/manifest.json",
+      "sha256": "e2fa023847f8ec0018ba7440dabe19cc1b4c4f0b6d64439f9c3a09b66007c611"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/neural/post/terminal-batch/weights/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/terminal-batch/weights/000000065536/manifest.sha256",
+      "sha256": "36f0ff7483fd4ff4d1ef412cac8f7f2791a2f43730417d14165b2f5c43801c87"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/scalar-reference/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/scalar-reference/result.json",
+      "sha256": "956ffb79e69f63343759eb299bed239bf4363af53232774c2904a1c0603c1ba7"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/scalar-reference/resume/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/scalar-reference/resume/000000065536/manifest.json",
+      "sha256": "3bd2444a5b6cc64fe7816fd36ef229a1bc80adf8afbcfcc2dea899cf1f852736"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/scalar-reference/resume/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/scalar-reference/resume/000000065536/manifest.sha256",
+      "sha256": "8937b8ee002d265ff5ca6bc1e3a521471826ff319f1b6cf436395bd63ded7780"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/scalar-reference/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/scalar-reference/run.json",
+      "sha256": "e0b2be298d26ebb824077ed1081720dbb7854450df6e498de46a6b6c2fbf319b"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/scalar-reference/weights/000000032768/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/scalar-reference/weights/000000032768/manifest.json",
+      "sha256": "8bdd222671cf312c793ea67319341629c0fc4fcd09139eb13adcdeafa02d3ba1"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/scalar-reference/weights/000000032768/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/scalar-reference/weights/000000032768/manifest.sha256",
+      "sha256": "49d8de4074b620f6276a28f5f714a5a0a8003e9042e07d6de0e6200489e603ac"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/scalar-reference/weights/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/scalar-reference/weights/000000065536/manifest.json",
+      "sha256": "4e1ec83c82a4a62ef7eafdbf578833767a177aae6af2e5b69f54b4001966b180"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/scalar-reference/weights/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/scalar-reference/weights/000000065536/manifest.sha256",
+      "sha256": "112c8f161b654c63e1b2e8e2ff624f0b2b3e3ec3987a78862c2adcdff62db5ab"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/terminal-batch/result.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/terminal-batch/result.json",
+      "sha256": "164b187619de5a1a0f97cdd61db2a1683be91c93212775b337c5fcdbda97b69a"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/terminal-batch/resume/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/terminal-batch/resume/000000065536/manifest.json",
+      "sha256": "d1449aba1f4025c501c0e7c276c6e5d2e921458f102709182bb2c5648fe57820"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/terminal-batch/resume/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/terminal-batch/resume/000000065536/manifest.sha256",
+      "sha256": "e84ae13b329d001cb8c59d7550115abde0a9f48bf25d16b16463b97260ce2ec2"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/terminal-batch/run.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/terminal-batch/run.json",
+      "sha256": "a512926e2c1346f1e0fb867f38676080d8912f0ee9ab6b6590693b71404e137a"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/terminal-batch/weights/000000032768/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/terminal-batch/weights/000000032768/manifest.json",
+      "sha256": "8bdd222671cf312c793ea67319341629c0fc4fcd09139eb13adcdeafa02d3ba1"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/terminal-batch/weights/000000032768/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/terminal-batch/weights/000000032768/manifest.sha256",
+      "sha256": "49d8de4074b620f6276a28f5f714a5a0a8003e9042e07d6de0e6200489e603ac"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/terminal-batch/weights/000000065536/manifest.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/terminal-batch/weights/000000065536/manifest.json",
+      "sha256": "4e1ec83c82a4a62ef7eafdbf578833767a177aae6af2e5b69f54b4001966b180"
+    },
+    "docs/verification/terminal-batch/comparison/raw/wrap-stress/rps/tabular/post/terminal-batch/weights/000000065536/manifest.sha256": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/terminal-batch/weights/000000065536/manifest.sha256",
+      "sha256": "112c8f161b654c63e1b2e8e2ff624f0b2b3e3ec3987a78862c2adcdff62db5ab"
+    },
+    "docs/verification/terminal-batch/comparison/report.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/report.json",
+      "sha256": "350fe73d4e3b8829f913f8174b503703e8df63da4b1e9ea75aa3961589c3a492"
+    },
+    "docs/verification/terminal-batch/comparison/results.json": {
+      "original": "runs/terminal-batch-comparison-7d92069/measurement/results.json",
+      "sha256": "84d7978ddecbcfb78befb690e4dabaecadf3dc00368dbfce201bee010343d8fe"
+    },
+    "docs/verification/terminal-batch/comparison/stderr.log": {
+      "original": "runs/terminal-batch-comparison-7d92069/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/failed-full-suite/driver.log": {
+      "original": "runs/terminal-batch-full-suite-2aa4f08/driver.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/failed-full-suite/driver.py": {
+      "original": "runs/terminal-batch-full-suite-2aa4f08/driver.py",
+      "sha256": "a160b8c23e4f04399594fe278987668872eee02915137b6ada75bda01488199d"
+    },
+    "docs/verification/terminal-batch/failed-full-suite/job.json": {
+      "original": "runs/terminal-batch-full-suite-2aa4f08/job.json",
+      "sha256": "693907517c2689cb7b16315a4bfe5141f4ebb07cb57f180a78507085f66abe64"
+    },
+    "docs/verification/terminal-batch/failed-full-suite/tests.txt": {
+      "original": "runs/terminal-batch-full-suite-2aa4f08/tests.txt",
+      "sha256": "2cef5de4b4a9b9b99790d792d7de22454553a363697df8054b4a46fde6e3d875"
+    },
+    "docs/verification/terminal-batch/full-suite/driver.log": {
+      "original": "runs/terminal-batch-full-suite-f93f95b/driver.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/full-suite/driver.py": {
+      "original": "runs/terminal-batch-full-suite-f93f95b/driver.py",
+      "sha256": "a3158a12f8816e77b72038d1f34ebb5a9c288baa34c599c389b40448e4e93339"
+    },
+    "docs/verification/terminal-batch/full-suite/job.json": {
+      "original": "runs/terminal-batch-full-suite-f93f95b/job.json",
+      "sha256": "48626d6aaf3fc73af654cd0b6a6d052fac18f5133846581396f206cbbbdcba61"
+    },
+    "docs/verification/terminal-batch/full-suite/tests.txt": {
+      "original": "runs/terminal-batch-full-suite-f93f95b/tests.txt",
+      "sha256": "87779671eabb82f356a89e6b10b4bc12539ec6083fae8f50788bdbf345f61681"
+    },
+    "docs/verification/terminal-batch/independent-audit/0.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/0.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/1.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/10.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/10.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/11.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/11.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/12.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/12.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/13.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/13.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/14.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/14.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/15.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/15.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/16.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/16.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/17.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/17.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/18.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/18.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/19.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/19.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/2.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/20.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/20.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/21.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/21.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/22.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/22.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/23.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/23.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/3.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/3.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/4.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/4.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/5.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/5.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/6.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/6.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/7.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/7.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/8.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/8.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/9.stderr": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/9.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/terminal-batch/independent-audit/driver.py": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/driver.py",
+      "sha256": "1877dd10c70db087454c1b3d9b42a4b2b25a5ed0ba7777fa12cf31b6a14f264e"
+    },
+    "docs/verification/terminal-batch/independent-audit/job.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/job.json",
+      "sha256": "19d7361f95aba1dbe7e660f472edd457c8d0480f83b51019d0048b05f79316ee"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-asymmetric-neural-post-scalar-reference.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-neural-post-scalar-reference.json",
+      "sha256": "248511a8522c1839e56b3975ba16078ad614aadaba890e5d72066a166633b18f"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-asymmetric-neural-post-terminal-batch.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-neural-post-terminal-batch.json",
+      "sha256": "1179b873587a3b5740844532c4b73e0a02ca4462424dcfb2ea64c5397ed11ddc"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-asymmetric-neural-pre-scalar-reference.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-neural-pre-scalar-reference.json",
+      "sha256": "163bab247295f90b91ffbd37aa527f58fd22ca4bd38cfc57025b968fd422c891"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-asymmetric-neural-pre-terminal-batch.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-neural-pre-terminal-batch.json",
+      "sha256": "196c242b4ecc43def938c5f326b9991317be5c300976557020fdaa367c7c7e13"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-asymmetric-tabular-post-scalar-reference.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-tabular-post-scalar-reference.json",
+      "sha256": "f0afc2ef6253e54b681ba23951e38cb0f79ae2d5e88cb41e90ecd7d9322fd834"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-asymmetric-tabular-post-terminal-batch.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-tabular-post-terminal-batch.json",
+      "sha256": "b1fa615e819a7ff5812093d99a06f6abd321e132ebbd7c2225f9d6c0eb9d0b70"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-asymmetric-tabular-pre-scalar-reference.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-tabular-pre-scalar-reference.json",
+      "sha256": "ea08f97c014be6ab23a64e6aa0f9fea29ebb59b35085586e4fcd6b7f7993cd29"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-asymmetric-tabular-pre-terminal-batch.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-tabular-pre-terminal-batch.json",
+      "sha256": "02d56c9346c8020c23d82cdba2922e08ccfdb37d74fcb1258a1bb880ce4c53e1"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-rps-neural-post-scalar-reference.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-rps-neural-post-scalar-reference.json",
+      "sha256": "7b1f47e583abe486da8ff93693f6528c45c2d952018d3288ecc6f58f9fb2b8e1"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-rps-neural-post-terminal-batch.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-rps-neural-post-terminal-batch.json",
+      "sha256": "a5a851e07fffc94a9a4c4c32feb92e0a1c7718d2c5409ecc35c951aaf64a1314"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-rps-neural-pre-scalar-reference.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-rps-neural-pre-scalar-reference.json",
+      "sha256": "559d3723ef4a22112949d3ec05475f840d07350a24c3611777e0b04c5118bf31"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-rps-neural-pre-terminal-batch.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-rps-neural-pre-terminal-batch.json",
+      "sha256": "99e265b1fbc6c05e8aeb85562e46d4996f4812ceeb0b320cc3ea5f9377ad761c"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-rps-tabular-post-scalar-reference.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-rps-tabular-post-scalar-reference.json",
+      "sha256": "90bb97f19e07ed3b94ab5067a5123bcacbb1192c49c926c1e6f94e0c5f258a17"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-rps-tabular-post-terminal-batch.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-rps-tabular-post-terminal-batch.json",
+      "sha256": "1629de8561653f163db0198f7d25fab03ed5351a5175e576673be67ce80cff95"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-rps-tabular-pre-scalar-reference.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-rps-tabular-pre-scalar-reference.json",
+      "sha256": "b4bbe0456af778b76efcb6928e3ffbf9672f3cc0cbd5bd8c176c5ac38dafaec8"
+    },
+    "docs/verification/terminal-batch/independent-audit/production-layout-rps-tabular-pre-terminal-batch.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/production-layout-rps-tabular-pre-terminal-batch.json",
+      "sha256": "c21361c0a9d6d99efe292a28a342a40c77562d12ddbb9bd50cfd22d61133c118"
+    },
+    "docs/verification/terminal-batch/independent-audit/wrap-stress-asymmetric-neural-post-scalar-reference.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/wrap-stress-asymmetric-neural-post-scalar-reference.json",
+      "sha256": "3fb4d259a1bce566e107942ce85cd8c81669a0f26e32fb46b3168f2913c4564a"
+    },
+    "docs/verification/terminal-batch/independent-audit/wrap-stress-asymmetric-neural-post-terminal-batch.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/wrap-stress-asymmetric-neural-post-terminal-batch.json",
+      "sha256": "42d1289c63476e907f96c663ced0bb3f5e8afc593d3c9ff694138e1687505baa"
+    },
+    "docs/verification/terminal-batch/independent-audit/wrap-stress-asymmetric-tabular-post-scalar-reference.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/wrap-stress-asymmetric-tabular-post-scalar-reference.json",
+      "sha256": "b87c659dceb82df1970faf18dfd6ecd61f53884d6ef6ff9885931778f7c8a7f2"
+    },
+    "docs/verification/terminal-batch/independent-audit/wrap-stress-asymmetric-tabular-post-terminal-batch.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/wrap-stress-asymmetric-tabular-post-terminal-batch.json",
+      "sha256": "22a756198a1fa5c99563b11083d84d1f1005ff876e4b7cc386e69f23b6125007"
+    },
+    "docs/verification/terminal-batch/independent-audit/wrap-stress-rps-neural-post-scalar-reference.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/wrap-stress-rps-neural-post-scalar-reference.json",
+      "sha256": "6e16aa99fc4d933cd8a671bef380d430e19dd9b093189e743808bcbc0b8d1f41"
+    },
+    "docs/verification/terminal-batch/independent-audit/wrap-stress-rps-neural-post-terminal-batch.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/wrap-stress-rps-neural-post-terminal-batch.json",
+      "sha256": "610c22c1230c27343f0490e153fd7a7df48e92fd9a1b78a6238ca5aab56ed7c7"
+    },
+    "docs/verification/terminal-batch/independent-audit/wrap-stress-rps-tabular-post-scalar-reference.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/wrap-stress-rps-tabular-post-scalar-reference.json",
+      "sha256": "60d595ead16102f4a66137cc94dbb1e7c897a50fab2200ba6d314510333ef74f"
+    },
+    "docs/verification/terminal-batch/independent-audit/wrap-stress-rps-tabular-post-terminal-batch.json": {
+      "original": "runs/terminal-batch-independent-audit-3695aca/wrap-stress-rps-tabular-post-terminal-batch.json",
+      "sha256": "9c0c061afb8cd745e0d0bb24439b04c530ffc39c8f94454652b47fab3b27044d"
+    }
+  },
+  "heavy_diagnostic_payloads_and_episode_logs_retained_under": "runs/terminal-batch-comparison-7d92069",
+  "version": 1
+}

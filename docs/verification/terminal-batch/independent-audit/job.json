@@ -1,0 +1,424 @@
+{
+  "allocation_sha256": "37f4037fd996f50931381977839bf78ce137a073e2bc364543af15fc75d174ff",
+  "auditor_sha256": "7a9898ba046fdb4aa638c0ddbc92ccb721b362a6b0767eb38d8723802f30f728",
+  "commands": [
+    {
+      "case": "production-layout/asymmetric/tabular/pre/scalar-reference",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/scalar-reference",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-tabular-pre-scalar-reference.json"
+      ],
+      "pid": 2711503,
+      "result_sha256": "ea08f97c014be6ab23a64e6aa0f9fea29ebb59b35085586e4fcd6b7f7993cd29",
+      "returncode": 0,
+      "seconds": 1.670538400998339
+    },
+    {
+      "case": "production-layout/asymmetric/tabular/pre/terminal-batch",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/pre/terminal-batch",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-tabular-pre-terminal-batch.json"
+      ],
+      "pid": 2711550,
+      "result_sha256": "02d56c9346c8020c23d82cdba2922e08ccfdb37d74fcb1258a1bb880ce4c53e1",
+      "returncode": 0,
+      "seconds": 1.6714673379901797
+    },
+    {
+      "case": "production-layout/asymmetric/tabular/post/terminal-batch",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/terminal-batch",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-tabular-post-terminal-batch.json"
+      ],
+      "pid": 2711597,
+      "result_sha256": "b1fa615e819a7ff5812093d99a06f6abd321e132ebbd7c2225f9d6c0eb9d0b70",
+      "returncode": 0,
+      "seconds": 1.7216497299959883
+    },
+    {
+      "case": "production-layout/asymmetric/tabular/post/scalar-reference",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/tabular/post/scalar-reference",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-tabular-post-scalar-reference.json"
+      ],
+      "pid": 2711664,
+      "result_sha256": "f0afc2ef6253e54b681ba23951e38cb0f79ae2d5e88cb41e90ecd7d9322fd834",
+      "returncode": 0,
+      "seconds": 1.7188797049457207
+    },
+    {
+      "case": "production-layout/asymmetric/neural/pre/scalar-reference",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/scalar-reference",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-neural-pre-scalar-reference.json"
+      ],
+      "pid": 2711711,
+      "result_sha256": "163bab247295f90b91ffbd37aa527f58fd22ca4bd38cfc57025b968fd422c891",
+      "returncode": 0,
+      "seconds": 1.67043214594014
+    },
+    {
+      "case": "production-layout/asymmetric/neural/pre/terminal-batch",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/pre/terminal-batch",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-neural-pre-terminal-batch.json"
+      ],
+      "pid": 2711758,
+      "result_sha256": "196c242b4ecc43def938c5f326b9991317be5c300976557020fdaa367c7c7e13",
+      "returncode": 0,
+      "seconds": 1.6704857689328492
+    },
+    {
+      "case": "production-layout/asymmetric/neural/post/terminal-batch",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/terminal-batch",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-neural-post-terminal-batch.json"
+      ],
+      "pid": 2711824,
+      "result_sha256": "1179b873587a3b5740844532c4b73e0a02ca4462424dcfb2ea64c5397ed11ddc",
+      "returncode": 0,
+      "seconds": 1.6704812350217253
+    },
+    {
+      "case": "production-layout/asymmetric/neural/post/scalar-reference",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/asymmetric/neural/post/scalar-reference",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-asymmetric-neural-post-scalar-reference.json"
+      ],
+      "pid": 2711871,
+      "result_sha256": "248511a8522c1839e56b3975ba16078ad614aadaba890e5d72066a166633b18f",
+      "returncode": 0,
+      "seconds": 1.6719967519165948
+    },
+    {
+      "case": "production-layout/rps/tabular/pre/scalar-reference",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/scalar-reference",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-rps-tabular-pre-scalar-reference.json"
+      ],
+      "pid": 2711967,
+      "result_sha256": "b4bbe0456af778b76efcb6928e3ffbf9672f3cc0cbd5bd8c176c5ac38dafaec8",
+      "returncode": 0,
+      "seconds": 1.669539111899212
+    },
+    {
+      "case": "production-layout/rps/tabular/pre/terminal-batch",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/pre/terminal-batch",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-rps-tabular-pre-terminal-batch.json"
+      ],
+      "pid": 2712047,
+      "result_sha256": "c21361c0a9d6d99efe292a28a342a40c77562d12ddbb9bd50cfd22d61133c118",
+      "returncode": 0,
+      "seconds": 1.6210339539684355
+    },
+    {
+      "case": "production-layout/rps/tabular/post/terminal-batch",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/terminal-batch",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-rps-tabular-post-terminal-batch.json"
+      ],
+      "pid": 2712102,
+      "result_sha256": "1629de8561653f163db0198f7d25fab03ed5351a5175e576673be67ce80cff95",
+      "returncode": 0,
+      "seconds": 1.7207669810159132
+    },
+    {
+      "case": "production-layout/rps/tabular/post/scalar-reference",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/tabular/post/scalar-reference",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-rps-tabular-post-scalar-reference.json"
+      ],
+      "pid": 2712165,
+      "result_sha256": "90bb97f19e07ed3b94ab5067a5123bcacbb1192c49c926c1e6f94e0c5f258a17",
+      "returncode": 0,
+      "seconds": 1.772508340072818
+    },
+    {
+      "case": "production-layout/rps/neural/pre/scalar-reference",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/scalar-reference",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-rps-neural-pre-scalar-reference.json"
+      ],
+      "pid": 2712247,
+      "result_sha256": "559d3723ef4a22112949d3ec05475f840d07350a24c3611777e0b04c5118bf31",
+      "returncode": 0,
+      "seconds": 1.6713777669938281
+    },
+    {
+      "case": "production-layout/rps/neural/pre/terminal-batch",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/pre/terminal-batch",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-rps-neural-pre-terminal-batch.json"
+      ],
+      "pid": 2712318,
+      "result_sha256": "99e265b1fbc6c05e8aeb85562e46d4996f4812ceeb0b320cc3ea5f9377ad761c",
+      "returncode": 0,
+      "seconds": 1.6695173789048567
+    },
+    {
+      "case": "production-layout/rps/neural/post/terminal-batch",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/terminal-batch",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-rps-neural-post-terminal-batch.json"
+      ],
+      "pid": 2712365,
+      "result_sha256": "a5a851e07fffc94a9a4c4c32feb92e0a1c7718d2c5409ecc35c951aaf64a1314",
+      "returncode": 0,
+      "seconds": 1.7229673929978162
+    },
+    {
+      "case": "production-layout/rps/neural/post/scalar-reference",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/production-layout/rps/neural/post/scalar-reference",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/production-layout-rps-neural-post-scalar-reference.json"
+      ],
+      "pid": 2712432,
+      "result_sha256": "7b1f47e583abe486da8ff93693f6528c45c2d952018d3288ecc6f58f9fb2b8e1",
+      "returncode": 0,
+      "seconds": 1.671044321032241
+    },
+    {
+      "case": "wrap-stress/asymmetric/tabular/post/scalar-reference",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/scalar-reference",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/wrap-stress-asymmetric-tabular-post-scalar-reference.json"
+      ],
+      "pid": 2712479,
+      "result_sha256": "b87c659dceb82df1970faf18dfd6ecd61f53884d6ef6ff9885931778f7c8a7f2",
+      "returncode": 0,
+      "seconds": 1.5214943049941212
+    },
+    {
+      "case": "wrap-stress/asymmetric/tabular/post/terminal-batch",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/tabular/post/terminal-batch",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/wrap-stress-asymmetric-tabular-post-terminal-batch.json"
+      ],
+      "pid": 2712534,
+      "result_sha256": "22a756198a1fa5c99563b11083d84d1f1005ff876e4b7cc386e69f23b6125007",
+      "returncode": 0,
+      "seconds": 1.521791736013256
+    },
+    {
+      "case": "wrap-stress/asymmetric/neural/post/terminal-batch",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/terminal-batch",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/wrap-stress-asymmetric-neural-post-terminal-batch.json"
+      ],
+      "pid": 2712616,
+      "result_sha256": "42d1289c63476e907f96c663ced0bb3f5e8afc593d3c9ff694138e1687505baa",
+      "returncode": 0,
+      "seconds": 1.5214424530277029
+    },
+    {
+      "case": "wrap-stress/asymmetric/neural/post/scalar-reference",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/asymmetric/neural/post/scalar-reference",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/wrap-stress-asymmetric-neural-post-scalar-reference.json"
+      ],
+      "pid": 2712671,
+      "result_sha256": "3fb4d259a1bce566e107942ce85cd8c81669a0f26e32fb46b3168f2913c4564a",
+      "returncode": 0,
+      "seconds": 1.5212675769580528
+    },
+    {
+      "case": "wrap-stress/rps/tabular/post/scalar-reference",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/scalar-reference",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/wrap-stress-rps-tabular-post-scalar-reference.json"
+      ],
+      "pid": 2712726,
+      "result_sha256": "60d595ead16102f4a66137cc94dbb1e7c897a50fab2200ba6d314510333ef74f",
+      "returncode": 0,
+      "seconds": 1.521689381916076
+    },
+    {
+      "case": "wrap-stress/rps/tabular/post/terminal-batch",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/tabular/post/terminal-batch",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/wrap-stress-rps-tabular-post-terminal-batch.json"
+      ],
+      "pid": 2712801,
+      "result_sha256": "9c0c061afb8cd745e0d0bb24439b04c530ffc39c8f94454652b47fab3b27044d",
+      "returncode": 0,
+      "seconds": 1.5714412559755147
+    },
+    {
+      "case": "wrap-stress/rps/neural/post/terminal-batch",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/terminal-batch",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/wrap-stress-rps-neural-post-terminal-batch.json"
+      ],
+      "pid": 2712856,
+      "result_sha256": "610c22c1230c27343f0490e153fd7a7df48e92fd9a1b78a6238ca5aab56ed7c7",
+      "returncode": 0,
+      "seconds": 1.4688307230826467
+    },
+    {
+      "case": "wrap-stress/rps/neural/post/scalar-reference",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/terminal-batch-audit-3695aca/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement/wrap-stress/rps/neural/post/scalar-reference",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/terminal-batch-independent-audit-3695aca/wrap-stress-rps-neural-post-scalar-reference.json"
+      ],
+      "pid": 2712911,
+      "result_sha256": "6e16aa99fc4d933cd8a671bef380d430e19dd9b093189e743808bcbc0b8d1f41",
+      "returncode": 0,
+      "seconds": 1.5219471430173144
+    }
+  ],
+  "current_case": null,
+  "driver_sha256": "1877dd10c70db087454c1b3d9b42a4b2b25a5ed0ba7777fa12cf31b6a14f264e",
+  "formal_A2_case_claimed": false,
+  "measured_driver_seconds": 39.51505871291738,
+  "new_training_records": 0,
+  "original_driver_pid": 2711502,
+  "original_inputs_unchanged": true,
+  "outer_watchdog_seconds": 900,
+  "status": "verified_all_24_diagnostics",
+  "version": 1
+}

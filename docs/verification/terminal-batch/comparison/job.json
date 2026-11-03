@@ -1,0 +1,31 @@
+{
+  "allocation_sha256": "a354fdc72fb775b6ae791dec7b16001799c71a023b75392ea217d046e72196be",
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "-m",
+    "tools.profile_terminal_batch",
+    "--run-dir",
+    "/home/gcao/proj/graygo/runs/terminal-batch-comparison-7d92069/measurement",
+    "--expected-source-sha",
+    "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+    "--time-cap-seconds",
+    "2400"
+  ],
+  "control_reservation_seconds": "1140",
+  "diagnostic_records": 2124288,
+  "driver_sha256": "6c2f2c6e76763ebe1ee8cb5d9697d9a4e1ca439af66049ed1d270599a9854058",
+  "execution_authorized": false,
+  "measured_driver_seconds": 141.74886255303863,
+  "new_accelerator_jobs": 0,
+  "new_formal_A2_records": 0,
+  "original_driver_pid": 2706311,
+  "outer_watchdog_seconds": 2460,
+  "producer_sha256": "1504b1f72b32c7671f914b6910ffbc52b1a336304974aca26a3752c025807a2f",
+  "profile_pid": 2706317,
+  "report_sha256": "350fe73d4e3b8829f913f8174b503703e8df63da4b1e9ea75aa3961589c3a492",
+  "returncode": 0,
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "status": "complete_exact_pipeline_pairs",
+  "tool_commit": "7d920695f204790af1c8e6af0967b023491b77af",
+  "version": 1
+}

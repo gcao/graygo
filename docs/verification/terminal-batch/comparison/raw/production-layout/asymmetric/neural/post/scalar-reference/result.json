@@ -1,0 +1,174 @@
+{
+  "acting_policy_counts": {
+    "average": 88768,
+    "q": 11232,
+    "uniform": 0
+  },
+  "average_final_five_passed": false,
+  "best_response_visits": [
+    4896,
+    5059
+  ],
+  "collection_implementation": "scalar-reference",
+  "counters": {
+    "fresh_ordinary": 100000,
+    "fresh_q": 100000,
+    "fresh_records": 100000,
+    "q_loss_targets": 96000,
+    "q_updates": 750,
+    "supervised_targets": 98688,
+    "supervised_updates": 771,
+    "target_refreshes": 7
+  },
+  "elapsed_seconds": 10.061244950047694,
+  "episode_audit_bytes": 6050000,
+  "evaluations": [
+    {
+      "average_gaps": [
+        0.45642259462612417,
+        0.32690170042921796
+      ],
+      "average_policies": [
+        [
+          0.20036013125836655,
+          0.7996398687416335
+        ],
+        [
+          0.2106369616186166,
+          0.7893630383813834
+        ]
+      ],
+      "average_ready": true,
+      "counters": {
+        "fresh_ordinary": 50000,
+        "fresh_q": 50000,
+        "fresh_records": 50000,
+        "q_loss_targets": 45952,
+        "q_updates": 359,
+        "supervised_targets": 48640,
+        "supervised_updates": 380,
+        "target_refreshes": 3
+      },
+      "elapsed_seconds": 4.796900441986509,
+      "epsilon": 0.09939999999999999,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "greedy_q_policies": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "handoff_probability": 1.0,
+      "q_values": [
+        [
+          -0.5527709722518921,
+          0.2860034704208374
+        ],
+        [
+          0.15035876631736755,
+          -0.09561789035797119
+        ]
+      ],
+      "records": 50000,
+      "reservoir_seen": 4975,
+      "reservoir_size": 4975
+    },
+    {
+      "average_gaps": [
+        0.7519210460503074,
+        0.5147424834251292
+      ],
+      "average_policies": [
+        [
+          0.05261090554627495,
+          0.9473890944537251
+        ],
+        [
+          0.6859426702839931,
+          0.3140573297160068
+        ]
+      ],
+      "average_ready": true,
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "fresh_records": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 98688,
+        "supervised_updates": 771,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 9.805287258001044,
+      "epsilon": 0.0988,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "greedy_q_policies": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "handoff_probability": 1.0,
+      "q_values": [
+        [
+          -0.43282169103622437,
+          -0.055713530629873276
+        ],
+        [
+          0.6604657769203186,
+          -0.19918733835220337
+        ]
+      ],
+      "records": 100000,
+      "reservoir_seen": 9955,
+      "reservoir_size": 9955
+    }
+  ],
+  "formal_gate_passed": false,
+  "formal_protocol": false,
+  "learner": "neural",
+  "loss_stats": {
+    "projected_targets": 0,
+    "q_loss_sum": 396.88550412654877,
+    "q_updates": 750,
+    "raw_target_max": 1.0,
+    "raw_target_min": -1.0,
+    "supervised_loss_sum": 343.1179261058569,
+    "supervised_loss_updates": 771
+  },
+  "matrix_certificate_gap": 0.0,
+  "matrix_value": -0.14285714285714285,
+  "per_role_records": [
+    50000,
+    50000
+  ],
+  "physical_games": 50000,
+  "records": 100000,
+  "reservoir_changes": 9955,
+  "reservoir_seen": 9955,
+  "reservoir_size": 9955,
+  "seed": 0,
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "status": "complete",
+  "task": "asymmetric",
+  "timings": {
+    "checkpoint": 0.4639255499932915,
+    "collection": 8.04081422474701,
+    "evaluation": 0.0006225771503522992,
+    "learning": 1.582059737876989
+  }
+}
