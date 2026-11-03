@@ -1,0 +1,493 @@
+{
+  "diagnostic_payloads_are_deployment_agents": false,
+  "files": {
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/corrected/comparison.json": {
+      "original": "runs/task-pipeline-corrected-71c404e/comparison.json",
+      "sha256": "b121a36c63c291a4f9c4af0b1a2382bfa3cf173ffaf2db02780942256376cb7c"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/corrected/driver.log": {
+      "original": "runs/task-pipeline-corrected-71c404e/driver.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/corrected/driver.py": {
+      "original": "runs/task-pipeline-corrected-71c404e/driver.py",
+      "sha256": "05146b8fbc221b99d44b550012be42b5483fc6034572cdceea6a9cb5110fb7a6"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/corrected/job.json": {
+      "original": "runs/task-pipeline-corrected-71c404e/job.json",
+      "sha256": "5076d0dcb7643bb0805d0afbecdb46b088e3a60a78e88ea2e2ed87c24b69f0ac"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/corrected/stderr.log": {
+      "original": "runs/task-pipeline-corrected-71c404e/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/corrected/stdout.json": {
+      "original": "runs/task-pipeline-corrected-71c404e/stdout.json",
+      "sha256": "1450461dbd6ae5d98ac511ca7955fa3a51d5a4e6b5cbe46ac514758599ff24ba"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate.stderr": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate.stdout": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate.stdout",
+      "sha256": "0c24ec56516513183b233273805f37e97532c282bbf089bcd9a3ded13f744b5d"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/budgets/neural-R4.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/budgets/neural-R4.json",
+      "sha256": "4b6342d4abb92725eda30244b60e7c9e6d3432ab42469348db9a9cf73f9e79f6"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/budgets/tabular-R4.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/budgets/tabular-R4.json",
+      "sha256": "ff2f1fa377c256505c78c5e0344a7379587a8a6dd871b4f22b5b2c8dd0a6efbd"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-post/episodes.bin": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-post/episodes.bin",
+      "sha256": "86b7d3fe52971e478ddfd0c6e404ce2cdc5b1e59e2374e10f55af4a68028265f"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-post/episodes.schema.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-post/episodes.schema.json",
+      "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-post/progress.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-post/progress.json",
+      "sha256": "fd23761ed4993f2dc78a07dec690b4f84c9d0f1deb43fe7a5847b2014eb83a3e"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-post/result.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-post/result.json",
+      "sha256": "187d607244b88c20bee4a376e98672008ea568d6156e6bae06248d84750a61d2"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-post/resume/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-post/resume/000000065536/manifest.json",
+      "sha256": "ad06d7e44e073a175af6d46051fb6f1520c11812ed1193d9876a209562780a08"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-post/resume/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-post/resume/000000065536/manifest.sha256",
+      "sha256": "a20b24f4328fe2dac25e5fcac2f6835845414a01a220d937f2c196cdd803c10e"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-post/resume/latest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-post/resume/latest.json",
+      "sha256": "dc5fc5c25e8dbd87af672265d63a788fa7a93fae9c0d7990572463752438ab5a"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-post/run.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-post/run.json",
+      "sha256": "6875f87578ae875d25ba600a7acc63d3f5a0a02cbcf0c8dacd59a3c8c883044b"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-post/weights/000000032768/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-post/weights/000000032768/manifest.json",
+      "sha256": "c80beff0e034e24c1c1489a29fb31013d5dc97352e4ffbb5b08fbf0f0f2cf949"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-post/weights/000000032768/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-post/weights/000000032768/manifest.sha256",
+      "sha256": "94a4c9a2fa47b8d8b91dbd9e62d17b6cdc542b8b3e86a48ad6b862f34ed6754f"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-post/weights/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-post/weights/000000065536/manifest.json",
+      "sha256": "ff9f549e4152152528b08ae08db3b280513a433ebfd9c5f36a11dc723f6a2e79"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-post/weights/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-post/weights/000000065536/manifest.sha256",
+      "sha256": "efc1437b9d56640d387c9934572e636bbf5282b6d6253eb4f9015aecf8b06745"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-pre/episodes.bin": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre/episodes.bin",
+      "sha256": "f993c1907db9d557e8362743f2a7ccd0575b358a81b3c4da0be457fe0491bdbd"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-pre/episodes.schema.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre/episodes.schema.json",
+      "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-pre/progress.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre/progress.json",
+      "sha256": "43fa6771875a6cfa422079a23ff3843cd3c70f92e30c9283f492d3a4a9690a92"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-pre/result.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre/result.json",
+      "sha256": "c5e20218c235419d38ffc1112d3d56101f6c332e1ad2b1a0da7eab2555b776ae"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-pre/resume/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre/resume/000000065536/manifest.json",
+      "sha256": "8c7b051aa858c9d26f8bdc90af04a296bebf4e9ddddca908f9ac0fc26d01d5f3"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-pre/resume/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre/resume/000000065536/manifest.sha256",
+      "sha256": "2d30ebb67bb6ac6bfff6f86e2d7582c4e641f80e822f42f19e2da1c40afa44a9"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-pre/resume/latest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre/resume/latest.json",
+      "sha256": "7974006f1d378c1bd11cf80109c34f0bb4da6cad06d6ab19ec057343ca52e77a"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-pre/run.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre/run.json",
+      "sha256": "6ac4992d341855ed5f567d7643f7b8f7ef8f84dfcfda3533f8b2b1ec18e55b43"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-pre/weights/000000032768/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre/weights/000000032768/manifest.json",
+      "sha256": "f4a4ed1335ede9c9386a7b6f4ba9a6c02fd39d896c16a60f928324c72cb0e767"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-pre/weights/000000032768/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre/weights/000000032768/manifest.sha256",
+      "sha256": "b2c41cef5c1df08df054cd3b1c196b56854bd316a8d740251ac247cd33baacad"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-pre/weights/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre/weights/000000065536/manifest.json",
+      "sha256": "41dce31ba205c0c66831a40c5152ffc1d7ef560ebc47d4a65601f97b7dc6bb28"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/neural-R4-pre/weights/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre/weights/000000065536/manifest.sha256",
+      "sha256": "76ee1f89d8e997784ca006efab69a03757daf151fcacf1441f22b39e170d7221"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/plan.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/plan.json",
+      "sha256": "5fc120db952f7e90d54d24530cd27368b53156ebdb8541ba4fcef164129dd8bc"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/profile.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/profile.json",
+      "sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/state.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/state.json",
+      "sha256": "aaf03fdd1d0b26bf4e6c24f1835da16dd61638cff4c5d672fd561a93b79c2f28"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-post/episodes.bin": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post/episodes.bin",
+      "sha256": "c9c3e6e900a7652836bda84164a137c7fc1b890c338c2bf4af0f361f5f021884"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-post/episodes.schema.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post/episodes.schema.json",
+      "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-post/progress.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post/progress.json",
+      "sha256": "b5653dd94fc142023dc6d50d78debc136785df5c35498a717a690a61c73ee7e3"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-post/result.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post/result.json",
+      "sha256": "4a096cd810debd14fa794fa217c635a7a3fbac3611d5445d7807aef50e7be69f"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-post/resume/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post/resume/000000065536/manifest.json",
+      "sha256": "4b57f1827ca775be0dc5039a9ac0988b0f3e752d02cf4f247904f43f8674e5b6"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-post/resume/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post/resume/000000065536/manifest.sha256",
+      "sha256": "e0b173989fb925851ffa3b9f2b20d0acedc354e0ef9367d3086952ecfaed1524"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-post/resume/latest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post/resume/latest.json",
+      "sha256": "818d22dc636104f733e13f79d386399a4747b4443793cdaa17ceb89c20b04f74"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-post/run.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post/run.json",
+      "sha256": "81b85c2527c968342723be09835dc219015eb07c5b080d0daf221875fc9cc469"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-post/weights/000000032768/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post/weights/000000032768/manifest.json",
+      "sha256": "c3adc1b8b82ad767adfcb8ccd9737f225a819ee4c9d6963129600f1b32e9ff6a"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-post/weights/000000032768/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post/weights/000000032768/manifest.sha256",
+      "sha256": "62d8bfd59b22743077f64e2b1b812c1e36eeadc25626b778373e587d44c25a00"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-post/weights/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post/weights/000000065536/manifest.json",
+      "sha256": "5c48a0bfe7f4a9835b652d80a7bdba2b3082f3d38ea42a5aa82bbf112613dcdc"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-post/weights/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post/weights/000000065536/manifest.sha256",
+      "sha256": "9b3f862c88dd977de0325019e2c8555ba582e91f4bc32f52b6048b9e6c70454f"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-pre/episodes.bin": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre/episodes.bin",
+      "sha256": "530da8ad56f5de5712a903857ced18ef5be413ebe4af5ca2b0248641f97e32e2"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-pre/episodes.schema.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre/episodes.schema.json",
+      "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-pre/progress.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre/progress.json",
+      "sha256": "0e9456ee74247077592497ed9b6ba6571a0f92997e1639423c83ef3a2999486d"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-pre/result.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre/result.json",
+      "sha256": "6c9b82c15d2c63b6a665faa8b1cebe53dd918b0bfdf9a40aa2bb08283157950b"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-pre/resume/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre/resume/000000065536/manifest.json",
+      "sha256": "9648fde08ba2f849420eb7eb96e4a35481689353699f69d1105b17a7ddab60d3"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-pre/resume/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre/resume/000000065536/manifest.sha256",
+      "sha256": "1e2ba44b51e643eb78ede5e9964b878499535fd7c98dfb0222c7a9da6fdc632c"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-pre/resume/latest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre/resume/latest.json",
+      "sha256": "49c2c3e56a7215445d2cb6f27b1afbae2fbcac3f06f51dfe7028444a17cf661c"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-pre/run.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre/run.json",
+      "sha256": "dc5e08d55615a0ee8c2ce0ad1af67d9244958d5a9020cd74786902ee94a8e56c"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-pre/weights/000000032768/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre/weights/000000032768/manifest.json",
+      "sha256": "253a6fdbaa3aef32cdd7f30ca3c46072a0225f81115ac311dd1329cc5c3dc468"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-pre/weights/000000032768/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre/weights/000000032768/manifest.sha256",
+      "sha256": "c3c2d5b1778947a776809d1707c2852195a9b930b720bd62ae3045c93fcabec4"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-pre/weights/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre/weights/000000065536/manifest.json",
+      "sha256": "e9018de9370f9637e836bbd1d417fe637a5781afbaff11759d0418cb2c942693"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/tabular-R4-pre/weights/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre/weights/000000065536/manifest.sha256",
+      "sha256": "d91710df2cbd67a933b28d61b374d8b6d474a9ab140776d62df247a3091f982b"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/comparison.stderr": {
+      "original": "runs/task-pipeline-parity-d724e06/comparison.stderr",
+      "sha256": "bbcae297823ff94c0b2bb0007ba96b518c5141b04f56256d7bbf6faa000f058a"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/comparison.stdout": {
+      "original": "runs/task-pipeline-parity-d724e06/comparison.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/driver.log": {
+      "original": "runs/task-pipeline-parity-d724e06/driver.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/driver.py": {
+      "original": "runs/task-pipeline-parity-d724e06/driver.py",
+      "sha256": "49eb47f22dc34c0263f87f8698016db19131329f9bb66e59d7390e6364613a5e"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/job.json": {
+      "original": "runs/task-pipeline-parity-d724e06/job.json",
+      "sha256": "8beb63c9be5101794c818fa5ef49de6fc3801015b580e8959de639a3a959c288"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference.stderr": {
+      "original": "runs/task-pipeline-parity-d724e06/reference.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference.stdout": {
+      "original": "runs/task-pipeline-parity-d724e06/reference.stdout",
+      "sha256": "191e3bec08b8bd2d2ded93743926661b0b4f069131efb85d416fc4449b9748c7"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/budgets/neural-R4.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/budgets/neural-R4.json",
+      "sha256": "d99ed9a20912c5b49c7fb6f079b965135744a15eebaea223f7c57f4d079d2d5e"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/budgets/tabular-R4.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/budgets/tabular-R4.json",
+      "sha256": "4a248b247f37ba19c805aee0cc7aa534278278856dc3e3b7766839e2369966ab"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-post/episodes.bin": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-post/episodes.bin",
+      "sha256": "86b7d3fe52971e478ddfd0c6e404ce2cdc5b1e59e2374e10f55af4a68028265f"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-post/episodes.schema.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-post/episodes.schema.json",
+      "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-post/progress.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-post/progress.json",
+      "sha256": "35a96d5a93aaaaeab69adc49c92bec99940a6fc8449be91d173a758330ff6c5c"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-post/result.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-post/result.json",
+      "sha256": "d81fe14e535f72248c901d97d49833c4417c758d344c6dc8c89d4e338f250d86"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-post/resume/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-post/resume/000000065536/manifest.json",
+      "sha256": "fa28e86936f6fc97bb37695d78c2fd616e2a7ea0a299323f7c3d54fb0f543888"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-post/resume/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-post/resume/000000065536/manifest.sha256",
+      "sha256": "7eb6ae459afb3461a0b2477a35c02c98e669c0515ff7426a32d21c171ea8b092"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-post/resume/latest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-post/resume/latest.json",
+      "sha256": "d7b31db68a1dda8c5a2d3ee1c538c847c2c68ab466dc27d95149a647faec7b5f"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-post/run.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-post/run.json",
+      "sha256": "0ec1d75f15762df6aa5a5fc470259a6ae1a3bc55bbe9dc2950b6b5ff74d7a0d0"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-post/weights/000000032768/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-post/weights/000000032768/manifest.json",
+      "sha256": "7f94cd8bdf26c59b7a027cea962b4df36ea644a009493e5ba1c16b7da1f3f5fc"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-post/weights/000000032768/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-post/weights/000000032768/manifest.sha256",
+      "sha256": "9e16a9edd081e0fb7b39ff7ff8de88b83b6bd4ab689068a63b3be3ded0c7624e"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-post/weights/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-post/weights/000000065536/manifest.json",
+      "sha256": "8d207625bf326581262427120992664ea18e165d995831852551a0aad141e00b"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-post/weights/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-post/weights/000000065536/manifest.sha256",
+      "sha256": "d4bb026fdfc7e742bdaa4baef0b7b3eb32742e702f37e80c0a0c661ecb5e67cc"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-pre/episodes.bin": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-pre/episodes.bin",
+      "sha256": "f993c1907db9d557e8362743f2a7ccd0575b358a81b3c4da0be457fe0491bdbd"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-pre/episodes.schema.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-pre/episodes.schema.json",
+      "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-pre/progress.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-pre/progress.json",
+      "sha256": "1878104c8d90d8ca497cb0b88129c8193c402ea5d72319089bb9f938d89a235c"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-pre/result.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-pre/result.json",
+      "sha256": "f1d5c5481839e1a18419968ee3ea6991d39015486bcc37120f2ddd7b1c0bdaad"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-pre/resume/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-pre/resume/000000065536/manifest.json",
+      "sha256": "89b5ce7ab51bed430556b148a56da18e30bce95feee3dae789244e1a5a2dfb47"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-pre/resume/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-pre/resume/000000065536/manifest.sha256",
+      "sha256": "f34b4ef3c3968f31320dd906e04fa27fe8587210640cbd4a130a7ac8f54c11e6"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-pre/resume/latest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-pre/resume/latest.json",
+      "sha256": "941f6154fbceb6e36e8682e461d6f5a6b851e712b6fefc769f22eb1de67371d8"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-pre/run.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-pre/run.json",
+      "sha256": "e22dbc89a9c945ec3ccf2a4de356fb8f061898e8f8f382f726ffabf520f48a5a"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-pre/weights/000000032768/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-pre/weights/000000032768/manifest.json",
+      "sha256": "23cb945ec2578354f57e96ed76bdb0d6fcc870d4ac5c95fc9d07fbcb2ca9d501"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-pre/weights/000000032768/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-pre/weights/000000032768/manifest.sha256",
+      "sha256": "6e431e3d7da03948c361fbef12f7a672bb65620fbbf114951087cda794f99ce5"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-pre/weights/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-pre/weights/000000065536/manifest.json",
+      "sha256": "8c410595da1372b396e105926f1270df7d9d17ae263f09c75ddcb991c0edb012"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/neural-R4-pre/weights/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/neural-R4-pre/weights/000000065536/manifest.sha256",
+      "sha256": "9e2b0e3abfcf82736345ef77db694c29f8476a26fcb1f7d9232ea2d5f2f9fa31"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/plan.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/plan.json",
+      "sha256": "a1a695da10511877c785a5fa3d838fb946433bcebe3234fb1acb9de77bc0c789"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/profile.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/profile.json",
+      "sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/state.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/state.json",
+      "sha256": "435a5c6c6a60314366548b31c2c5fe630115aa3b0d19b5ab9ed790b201ee7c91"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-post/episodes.bin": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-post/episodes.bin",
+      "sha256": "c9c3e6e900a7652836bda84164a137c7fc1b890c338c2bf4af0f361f5f021884"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-post/episodes.schema.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-post/episodes.schema.json",
+      "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-post/progress.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-post/progress.json",
+      "sha256": "acc2f01eb243101dd7cbf6e1c8b1e41422683ec55575a23281d753332a3a75d7"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-post/result.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-post/result.json",
+      "sha256": "826db08864364c382c826fbc8da42f7918a7c18b6212165be4ce99d80b8fd52e"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-post/resume/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-post/resume/000000065536/manifest.json",
+      "sha256": "6e9d29126c6baca7da532d30015dad0c944379228bdc879b372b21dff22f5048"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-post/resume/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-post/resume/000000065536/manifest.sha256",
+      "sha256": "00e66272d9ae4ffd69bff5ede8d2ac72528b9e89e18ab9a6aec2bc2455a051b3"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-post/resume/latest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-post/resume/latest.json",
+      "sha256": "82dd094eec648f355c4666ef8c7b2c2a7b9bb2ccb4a9de5fff8703b5d5d0fa6f"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-post/run.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-post/run.json",
+      "sha256": "2854edf2be3d8b5cb4115cec00993e5f0e69975366ae4973efcf16a087267bc8"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-post/weights/000000032768/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-post/weights/000000032768/manifest.json",
+      "sha256": "573f5355f32e8aeea044c2de246c381cf20bb62dd9c9249ba2ac4a02a5aa72b7"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-post/weights/000000032768/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-post/weights/000000032768/manifest.sha256",
+      "sha256": "b38cf9c420378e34c981e1e9108dc4a7742880e5e7622639ae2ffd20ff9c4908"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-post/weights/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-post/weights/000000065536/manifest.json",
+      "sha256": "5eebb4c80ee7784a6cf35caba4ffd70d3ea6ca5e44d528780bff16de591f495e"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-post/weights/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-post/weights/000000065536/manifest.sha256",
+      "sha256": "48705d6b9113104cf3067d4ea018106debbd4889bba52b5b085d1d21baad84c0"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-pre/episodes.bin": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre/episodes.bin",
+      "sha256": "530da8ad56f5de5712a903857ced18ef5be413ebe4af5ca2b0248641f97e32e2"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-pre/episodes.schema.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre/episodes.schema.json",
+      "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-pre/progress.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre/progress.json",
+      "sha256": "ec602c247cab1e1a8d213cb4da42c3e7e4378e244fa94a58e70834532873de4d"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-pre/result.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre/result.json",
+      "sha256": "264b47040e3b12f597545d9738ae5c1ff08cd3cacb1fd3ec1af5f17db516a9d7"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-pre/resume/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre/resume/000000065536/manifest.json",
+      "sha256": "3eb9707baa17c2710b42c3bc8c9805db181dd7f731c17d8f2855cd1927c53a41"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-pre/resume/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre/resume/000000065536/manifest.sha256",
+      "sha256": "7459cabf210d00563275b029efadb4b0c975afc2366d89d206cd830d72b3a135"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-pre/resume/latest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre/resume/latest.json",
+      "sha256": "f6a098ce0a2bba4d6e51481e5d3014fe5e90027b63e6ce1b013d968d5c9cb9af"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-pre/run.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre/run.json",
+      "sha256": "3c46e9ca7bf45d83b1bf2d170010e99352726d75d9460903d4b63bb28e0ae1d0"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-pre/weights/000000032768/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre/weights/000000032768/manifest.json",
+      "sha256": "aa9160f1725a541efa03e980b1ed514f3d4b6e6f6fd0c3e36aff60846a4d5cf7"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-pre/weights/000000032768/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre/weights/000000032768/manifest.sha256",
+      "sha256": "6c262ffa1faa326da7304356db1ce663213ca43e16299e8a7f43b60d1fcd77a6"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-pre/weights/000000065536/manifest.json": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre/weights/000000065536/manifest.json",
+      "sha256": "67c196ea539118e98ef4945d7277704176a8be492647e8e3a0f032f26c93e696"
+    },
+    "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/tabular-R4-pre/weights/000000065536/manifest.sha256": {
+      "original": "runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre/weights/000000065536/manifest.sha256",
+      "sha256": "1867a0cd255b908a5e0e3112e881d6a7d8fc2895e30494c523fcd7c3cd58019e"
+    }
+  },
+  "heavy_diagnostic_payloads_retained_under": "runs/task-pipeline-parity-d724e06",
+  "original_failed_checker_preserved": true,
+  "training_restarted_after_checker_failure": false,
+  "version": 1
+}

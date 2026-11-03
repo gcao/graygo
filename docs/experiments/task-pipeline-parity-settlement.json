@@ -1,0 +1,51 @@
+{
+  "a2_evidence_reusable": false,
+  "aggregate_new_diagnostic_records": 524288,
+  "corrected_comparison_sha256": "b121a36c63c291a4f9c4af0b1a2382bfa3cf173ffaf2db02780942256376cb7c",
+  "corrected_comparison_verified": true,
+  "execution_authorized": false,
+  "global_control": {
+    "actual_process_seconds": "36551.066872905881251",
+    "ceiling_seconds": "43200",
+    "committed_process_seconds": "36699.18412456102633352",
+    "reserved_process_seconds": "148.11725165514508252",
+    "unallocated_seconds": "6500.81587543897366648",
+    "within_ceiling": true
+  },
+  "initial_extra_control_reservation_seconds": "840",
+  "new_formal_A2_records": 0,
+  "original_driver_pid": 2663858,
+  "original_failed_job_sha256": "8beb63c9be5101794c818fa5ef49de6fc3801015b580e8959de639a3a959c288",
+  "original_inputs_unchanged": true,
+  "original_strict_comparison_failed_on_evaluation_clocks": true,
+  "original_training_profiles_complete": true,
+  "source_compatibility_qualified": false,
+  "table_cases": [
+    {
+      "case": "task-pipeline-reference-tabular-R4-pre",
+      "known_setup_in_actual_seconds": "0.09422423201613128",
+      "loop_and_known_setup_actual_seconds": "42.6977479220368",
+      "unknown_overhead_reserved_seconds": "29.90577576798386872"
+    },
+    {
+      "case": "task-pipeline-reference-tabular-R4-post",
+      "known_setup_in_actual_seconds": "0.09425875195302069",
+      "loop_and_known_setup_actual_seconds": "39.483934312011115",
+      "unknown_overhead_reserved_seconds": "29.90574124804697931"
+    },
+    {
+      "case": "task-pipeline-candidate-tabular-R4-pre",
+      "known_setup_in_actual_seconds": "0.09533507598098367",
+      "loop_and_known_setup_actual_seconds": "43.03608335496392",
+      "unknown_overhead_reserved_seconds": "29.90466492401901633"
+    },
+    {
+      "case": "task-pipeline-candidate-tabular-R4-post",
+      "known_setup_in_actual_seconds": "0.18312400893773884",
+      "loop_and_known_setup_actual_seconds": "40.135500645963475",
+      "unknown_overhead_reserved_seconds": "29.81687599106226116"
+    }
+  ],
+  "training_restarted": false,
+  "version": 1
+}

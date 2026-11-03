@@ -1,0 +1,47 @@
+{
+  "corrective_device_hours": "0",
+  "diagnostic_selected": false,
+  "evidence_sha256": {
+    "B_U": "19b80d7dcbcf3184424b724d045a77be648e4e8782a08afba784020db1a15f20",
+    "H_D": "18ab40db8797c079268101e03f398ee32ad18000ab6da3e3173787722d435594",
+    "H_N": "18ab40db8797c079268101e03f398ee32ad18000ab6da3e3173787722d435594",
+    "H_P": "18ab40db8797c079268101e03f398ee32ad18000ab6da3e3173787722d435594",
+    "P": "b73250ae551e01d47833d1c04acca97832fa54d5449dd027523ae8052af4f41b",
+    "U": "b73250ae551e01d47833d1c04acca97832fa54d5449dd027523ae8052af4f41b"
+  },
+  "extensions": [],
+  "fixed": {
+    "a2_seeds": 3,
+    "confirmation_runs": 12,
+    "development_seeds": 3,
+    "initial_pilot_max_device_hours_per_seed": 24,
+    "per_promotion_device_hours": 8,
+    "scientific_and_probe_inference_device_hours": 16,
+    "short_a2_device_hours": 96
+  },
+  "learner_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "name": "audited-graph-prices-and-finite-task-source-parity",
+  "other_unreused_device_hours": "0.5468356851388888888888888889",
+  "project_device_hour_ceiling": null,
+  "promotion_rounds": 0,
+  "r4_selected": true,
+  "retrace_selected": false,
+  "scope": "numeric device-ceiling arithmetic only; references are not independent pricing qualification or execution authority",
+  "selected_reuse": 4,
+  "selected_target": "one-step",
+  "term_device_hours": {
+    "B_0": null,
+    "B_U": "0",
+    "C1": null,
+    "C4": null,
+    "CT": null,
+    "D": null,
+    "H_D": "38.176705413125",
+    "H_N": "131.8212948070965",
+    "H_P": "18.852894536612634",
+    "P": "0",
+    "U": "0"
+  },
+  "version": "graygo/nfsp-resource-ledger/1",
+  "zero_opening_selected": false
+}

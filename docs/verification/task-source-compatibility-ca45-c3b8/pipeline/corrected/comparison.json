@@ -1,0 +1,545 @@
+{
+  "a2_evidence_reusable": false,
+  "aggregate_new_diagnostic_records": 524288,
+  "comparisons": {
+    "neural-R4-post": {
+      "a2_evidence_reusable": false,
+      "all_other_nested_state_compared": true,
+      "candidate_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "config": {
+        "batch": 512,
+        "blocks": 8,
+        "budget_profile_sha256": null,
+        "capacity": 500000,
+        "device": "cpu",
+        "epsilon_decay": 7500000,
+        "equivalent_actions": 40,
+        "eval_batch": 128,
+        "eval_every": 32768,
+        "handoff_end": 1000,
+        "hidden": 64,
+        "horizons": [
+          50,
+          100,
+          200
+        ],
+        "learner": "neural",
+        "learning_rate": 0.0003,
+        "learning_start": 4096,
+        "max_grad_norm": 0.5,
+        "max_nodes": 100000,
+        "native_library": null,
+        "norm_groups": 8,
+        "purpose": "profile",
+        "q_reuse": 4,
+        "records": 65536,
+        "reservoir_open": 0,
+        "seed": 0,
+        "storage": "features",
+        "target_every": 12800,
+        "task": "delayed",
+        "time_cap_seconds": 180.0,
+        "uniform_comparison": false,
+        "width": 64
+      },
+      "equal_partitions": {
+        "episode_bytes": "86b7d3fe52971e478ddfd0c6e404ce2cdc5b1e59e2374e10f55af4a68028265f",
+        "episode_schema": "2623338b09e1033bc9cb8911c85e00cedc10f73569cc17cf4b153aceb747a1af",
+        "manifest": "d9fd956ca07fda80382d3ca18009e51d4a32d589676d1204c9c76abd6586fd50",
+        "metrics": "ae4c3e04bab3634e397ea91db2e5fa1d61251e1bccc55be05800071e554517bf",
+        "public_weights": {
+          "000000032768": "c33b166105c8567f2b0769a7fc15c6840075100a3673c192dd98a4ff7cde7f30",
+          "000000065536": "e03cdba5bd4768060281c24297c8d34b4d58cfc972a001759fce7893d1d22bfc"
+        },
+        "replay": "578893a01166eb1a329c952b59fbae6848f5904f9d26013fd3843ac8fcd9ac85",
+        "reservoir": "60b217c5e13c60bb5f3a20ab3ed669d4cfe256d1aa08a93dfed9f8877283efca",
+        "result": "379f7ee7325505d82fe98bb701763e2372635aac96b438bd03fb939700ef76f6",
+        "trainer_state": "99f7b7ffe61be1c0b1354335c5d2002a5f0d96a267b91e89588abb6e831f11ed"
+      },
+      "execution_authorized": false,
+      "full_15M_source_equivalence_verified": false,
+      "input_snapshots": {
+        "/home/gcao/proj/graygo/runs/task-pipeline-parity-d724e06/candidate/neural-R4-post": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "86b7d3fe52971e478ddfd0c6e404ce2cdc5b1e59e2374e10f55af4a68028265f",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "fd23761ed4993f2dc78a07dec690b4f84c9d0f1deb43fe7a5847b2014eb83a3e",
+          "result.json": "187d607244b88c20bee4a376e98672008ea568d6156e6bae06248d84750a61d2",
+          "resume/000000065536/manifest.json": "ad06d7e44e073a175af6d46051fb6f1520c11812ed1193d9876a209562780a08",
+          "resume/000000065536/manifest.sha256": "a20b24f4328fe2dac25e5fcac2f6835845414a01a220d937f2c196cdd803c10e",
+          "resume/000000065536/metrics.npz": "99478af451041e6f63e15bb778f0f34c5211885a4dd16c17d9a30432ec1ddea4",
+          "resume/000000065536/replay.npz": "158ffb8b031ebd03cd8ad7fe2d9c2ba486186a3f232a64afc63cb2252917f042",
+          "resume/000000065536/reservoir.npz": "a24298c780223eae34b73f35d257a30f4e2d27887e256e085f55125f4f4c86cf",
+          "resume/000000065536/trainer.pt": "2c819b8596630e6d9f7a7eb430a81214a5c55691e374168be691e805157da81c",
+          "resume/latest.json": "dc5fc5c25e8dbd87af672265d63a788fa7a93fae9c0d7990572463752438ab5a",
+          "run.json": "6875f87578ae875d25ba600a7acc63d3f5a0a02cbcf0c8dacd59a3c8c883044b",
+          "weights/000000032768/manifest.json": "c80beff0e034e24c1c1489a29fb31013d5dc97352e4ffbb5b08fbf0f0f2cf949",
+          "weights/000000032768/manifest.sha256": "94a4c9a2fa47b8d8b91dbd9e62d17b6cdc542b8b3e86a48ad6b862f34ed6754f",
+          "weights/000000032768/models.pt": "811ad127e88ad64028da124f349df16aebcf745805a61d935a52bd2b566c285c",
+          "weights/000000065536/manifest.json": "ff9f549e4152152528b08ae08db3b280513a433ebfd9c5f36a11dc723f6a2e79",
+          "weights/000000065536/manifest.sha256": "efc1437b9d56640d387c9934572e636bbf5282b6d6253eb4f9015aecf8b06745",
+          "weights/000000065536/models.pt": "f6a70c27e4c2b0c2a956dca7355bd7ca19469b4bd21a7ff9b77247665f3c7e4d"
+        },
+        "/home/gcao/proj/graygo/runs/task-pipeline-parity-d724e06/reference/neural-R4-post": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "86b7d3fe52971e478ddfd0c6e404ce2cdc5b1e59e2374e10f55af4a68028265f",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "35a96d5a93aaaaeab69adc49c92bec99940a6fc8449be91d173a758330ff6c5c",
+          "result.json": "d81fe14e535f72248c901d97d49833c4417c758d344c6dc8c89d4e338f250d86",
+          "resume/000000065536/manifest.json": "fa28e86936f6fc97bb37695d78c2fd616e2a7ea0a299323f7c3d54fb0f543888",
+          "resume/000000065536/manifest.sha256": "7eb6ae459afb3461a0b2477a35c02c98e669c0515ff7426a32d21c171ea8b092",
+          "resume/000000065536/metrics.npz": "99478af451041e6f63e15bb778f0f34c5211885a4dd16c17d9a30432ec1ddea4",
+          "resume/000000065536/replay.npz": "158ffb8b031ebd03cd8ad7fe2d9c2ba486186a3f232a64afc63cb2252917f042",
+          "resume/000000065536/reservoir.npz": "a24298c780223eae34b73f35d257a30f4e2d27887e256e085f55125f4f4c86cf",
+          "resume/000000065536/trainer.pt": "b30e1224d6a95fd75ebf054524fa5f6f3fdc8ae6c8fc70c5a761e96212905719",
+          "resume/latest.json": "d7b31db68a1dda8c5a2d3ee1c538c847c2c68ab466dc27d95149a647faec7b5f",
+          "run.json": "0ec1d75f15762df6aa5a5fc470259a6ae1a3bc55bbe9dc2950b6b5ff74d7a0d0",
+          "weights/000000032768/manifest.json": "7f94cd8bdf26c59b7a027cea962b4df36ea644a009493e5ba1c16b7da1f3f5fc",
+          "weights/000000032768/manifest.sha256": "9e16a9edd081e0fb7b39ff7ff8de88b83b6bd4ab689068a63b3be3ded0c7624e",
+          "weights/000000032768/models.pt": "811ad127e88ad64028da124f349df16aebcf745805a61d935a52bd2b566c285c",
+          "weights/000000065536/manifest.json": "8d207625bf326581262427120992664ea18e165d995831852551a0aad141e00b",
+          "weights/000000065536/manifest.sha256": "d4bb026fdfc7e742bdaa4baef0b7b3eb32742e702f37e80c0a0c661ecb5e67cc",
+          "weights/000000065536/models.pt": "f6a70c27e4c2b0c2a956dca7355bd7ca19469b4bd21a7ff9b77247665f3c7e4d"
+        }
+      },
+      "original_learning_runs_modified": false,
+      "records_per_source": 65536,
+      "reference_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "status": "finite_complete_pipeline_parity_verified",
+      "timing_and_environment_exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory"
+        ],
+        "result_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "source_sha256"
+        ],
+        "trainer_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings"
+        ]
+      }
+    },
+    "neural-R4-pre": {
+      "a2_evidence_reusable": false,
+      "all_other_nested_state_compared": true,
+      "candidate_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "config": {
+        "batch": 512,
+        "blocks": 8,
+        "budget_profile_sha256": null,
+        "capacity": 500000,
+        "device": "cpu",
+        "epsilon_decay": 7500000,
+        "equivalent_actions": 40,
+        "eval_batch": 128,
+        "eval_every": 32768,
+        "handoff_end": 7000000,
+        "hidden": 64,
+        "horizons": [
+          50,
+          100,
+          200
+        ],
+        "learner": "neural",
+        "learning_rate": 0.0003,
+        "learning_start": 4096,
+        "max_grad_norm": 0.5,
+        "max_nodes": 100000,
+        "native_library": null,
+        "norm_groups": 8,
+        "purpose": "profile",
+        "q_reuse": 4,
+        "records": 65536,
+        "reservoir_open": 5000000,
+        "seed": 0,
+        "storage": "features",
+        "target_every": 12800,
+        "task": "delayed",
+        "time_cap_seconds": 180.0,
+        "uniform_comparison": false,
+        "width": 64
+      },
+      "equal_partitions": {
+        "episode_bytes": "f993c1907db9d557e8362743f2a7ccd0575b358a81b3c4da0be457fe0491bdbd",
+        "episode_schema": "2623338b09e1033bc9cb8911c85e00cedc10f73569cc17cf4b153aceb747a1af",
+        "manifest": "fbd48059198f938aa36ffeb971f5be2c93a96a99f1e3c303442a381f1cd408e5",
+        "metrics": "bf6c7ea5cfe967576c670da0f598e7c9f7fb52da8746efdd772b369d2a9124c4",
+        "public_weights": {
+          "000000032768": "2729b25829803476bdda7167c81e719bdc45ed60a10dda8e300e4c79b0a4735b",
+          "000000065536": "a5724cd72fa649c9ba4d7f0548dce47790d0c9ca0af172f2d3825ca87de3e73e"
+        },
+        "replay": "241f95b0dc6a19b24ab6ac36bee20408b37b2b8b95ad5e79d7488e6e23a76adf",
+        "reservoir": "948982c9064cd6cfb9596db86fc296155228a3555029c35aa2fb65145246426b",
+        "result": "2515dabdfdf9fdabd98e6908316324b2c659c6910df752f9d6232c100d2b7fc5",
+        "trainer_state": "e2ee53482d8c9059b6aaf760425f05ca047cd0d2e8203f77213eee4c04c7f659"
+      },
+      "execution_authorized": false,
+      "full_15M_source_equivalence_verified": false,
+      "input_snapshots": {
+        "/home/gcao/proj/graygo/runs/task-pipeline-parity-d724e06/candidate/neural-R4-pre": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "f993c1907db9d557e8362743f2a7ccd0575b358a81b3c4da0be457fe0491bdbd",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "43fa6771875a6cfa422079a23ff3843cd3c70f92e30c9283f492d3a4a9690a92",
+          "result.json": "c5e20218c235419d38ffc1112d3d56101f6c332e1ad2b1a0da7eab2555b776ae",
+          "resume/000000065536/manifest.json": "8c7b051aa858c9d26f8bdc90af04a296bebf4e9ddddca908f9ac0fc26d01d5f3",
+          "resume/000000065536/manifest.sha256": "2d30ebb67bb6ac6bfff6f86e2d7582c4e641f80e822f42f19e2da1c40afa44a9",
+          "resume/000000065536/metrics.npz": "03d1aef4029850641d639e90185dd98fb0b02c7b3a921738a1f3cc8c2e0e11be",
+          "resume/000000065536/replay.npz": "08d41f8c0c1e8c6a331bbbfcc67e44b762f871258b27bcd67d1a8987ab37f40d",
+          "resume/000000065536/reservoir.npz": "1ef2f1a194c45ac9a346e45b2bd083452dddc78b4b898532e2e2d61a9259196c",
+          "resume/000000065536/trainer.pt": "eb92f713141df6ec3ab0044a306a20ff6e71a4f106fd34f41b0061792e25b02a",
+          "resume/latest.json": "7974006f1d378c1bd11cf80109c34f0bb4da6cad06d6ab19ec057343ca52e77a",
+          "run.json": "6ac4992d341855ed5f567d7643f7b8f7ef8f84dfcfda3533f8b2b1ec18e55b43",
+          "weights/000000032768/manifest.json": "f4a4ed1335ede9c9386a7b6f4ba9a6c02fd39d896c16a60f928324c72cb0e767",
+          "weights/000000032768/manifest.sha256": "b2c41cef5c1df08df054cd3b1c196b56854bd316a8d740251ac247cd33baacad",
+          "weights/000000032768/models.pt": "d71574cd0856fdf8048491b52bbe9c686db8eed496e2ea72580496c22928c200",
+          "weights/000000065536/manifest.json": "41dce31ba205c0c66831a40c5152ffc1d7ef560ebc47d4a65601f97b7dc6bb28",
+          "weights/000000065536/manifest.sha256": "76ee1f89d8e997784ca006efab69a03757daf151fcacf1441f22b39e170d7221",
+          "weights/000000065536/models.pt": "4f6a48b813f1fb483eceba87647224b35ed38cf77694e040fd860a61b7417c33"
+        },
+        "/home/gcao/proj/graygo/runs/task-pipeline-parity-d724e06/reference/neural-R4-pre": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "f993c1907db9d557e8362743f2a7ccd0575b358a81b3c4da0be457fe0491bdbd",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "1878104c8d90d8ca497cb0b88129c8193c402ea5d72319089bb9f938d89a235c",
+          "result.json": "f1d5c5481839e1a18419968ee3ea6991d39015486bcc37120f2ddd7b1c0bdaad",
+          "resume/000000065536/manifest.json": "89b5ce7ab51bed430556b148a56da18e30bce95feee3dae789244e1a5a2dfb47",
+          "resume/000000065536/manifest.sha256": "f34b4ef3c3968f31320dd906e04fa27fe8587210640cbd4a130a7ac8f54c11e6",
+          "resume/000000065536/metrics.npz": "03d1aef4029850641d639e90185dd98fb0b02c7b3a921738a1f3cc8c2e0e11be",
+          "resume/000000065536/replay.npz": "08d41f8c0c1e8c6a331bbbfcc67e44b762f871258b27bcd67d1a8987ab37f40d",
+          "resume/000000065536/reservoir.npz": "1ef2f1a194c45ac9a346e45b2bd083452dddc78b4b898532e2e2d61a9259196c",
+          "resume/000000065536/trainer.pt": "c431a161097f686a963716e697afced0ce197b1b988a45b47b74ef9530d1a1d4",
+          "resume/latest.json": "941f6154fbceb6e36e8682e461d6f5a6b851e712b6fefc769f22eb1de67371d8",
+          "run.json": "e22dbc89a9c945ec3ccf2a4de356fb8f061898e8f8f382f726ffabf520f48a5a",
+          "weights/000000032768/manifest.json": "23cb945ec2578354f57e96ed76bdb0d6fcc870d4ac5c95fc9d07fbcb2ca9d501",
+          "weights/000000032768/manifest.sha256": "6e431e3d7da03948c361fbef12f7a672bb65620fbbf114951087cda794f99ce5",
+          "weights/000000032768/models.pt": "d71574cd0856fdf8048491b52bbe9c686db8eed496e2ea72580496c22928c200",
+          "weights/000000065536/manifest.json": "8c410595da1372b396e105926f1270df7d9d17ae263f09c75ddcb991c0edb012",
+          "weights/000000065536/manifest.sha256": "9e2b0e3abfcf82736345ef77db694c29f8476a26fcb1f7d9232ea2d5f2f9fa31",
+          "weights/000000065536/models.pt": "4f6a48b813f1fb483eceba87647224b35ed38cf77694e040fd860a61b7417c33"
+        }
+      },
+      "original_learning_runs_modified": false,
+      "records_per_source": 65536,
+      "reference_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "status": "finite_complete_pipeline_parity_verified",
+      "timing_and_environment_exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory"
+        ],
+        "result_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "source_sha256"
+        ],
+        "trainer_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings"
+        ]
+      }
+    },
+    "tabular-R4-post": {
+      "a2_evidence_reusable": false,
+      "all_other_nested_state_compared": true,
+      "candidate_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "config": {
+        "batch": 512,
+        "blocks": 8,
+        "budget_profile_sha256": null,
+        "capacity": 500000,
+        "device": "cpu",
+        "epsilon_decay": 7500000,
+        "equivalent_actions": 40,
+        "eval_batch": 128,
+        "eval_every": 32768,
+        "handoff_end": 1000,
+        "hidden": 64,
+        "horizons": [
+          50,
+          100,
+          200
+        ],
+        "learner": "tabular",
+        "learning_rate": 0.0003,
+        "learning_start": 4096,
+        "max_grad_norm": 0.5,
+        "max_nodes": 100000,
+        "native_library": null,
+        "norm_groups": 8,
+        "purpose": "profile",
+        "q_reuse": 4,
+        "records": 65536,
+        "reservoir_open": 0,
+        "seed": 0,
+        "storage": "features",
+        "target_every": 12800,
+        "task": "delayed",
+        "time_cap_seconds": 180.0,
+        "uniform_comparison": false,
+        "width": 64
+      },
+      "equal_partitions": {
+        "episode_bytes": "c9c3e6e900a7652836bda84164a137c7fc1b890c338c2bf4af0f361f5f021884",
+        "episode_schema": "2623338b09e1033bc9cb8911c85e00cedc10f73569cc17cf4b153aceb747a1af",
+        "manifest": "2da26c83c7881848413ef656f21b48335a1e4b42dec281518e013f391b7441a2",
+        "metrics": "33515727b51535e9d2011605835b0f03fcc8210ffbceb96ac578d0cc58810e65",
+        "public_weights": {
+          "000000032768": "b771f70cbb6e735280d84d4b1d8d0669532b92a1567f9dd435d9f1a341ac4999",
+          "000000065536": "5fc230dc28e8407a4aff9d6db40c77fe1803f60682fb6c0a8149ad8cdf984b47"
+        },
+        "replay": "5cc8508e2d55ed5f1b373bfee81ca08f2ad888ee0a11102a9442011a5a99256f",
+        "reservoir": "6562d0e9822d1c92980c1cfa13226cba7a3685ca014ef076beed70049426db43",
+        "result": "8000ab11ec40b639181284e016a22c285561874245e286d5b0d08e8d8948fc38",
+        "trainer_state": "05f4e60123cacd5e98408e6ab450a3b51f02512ab94439575d21c32236dd41ec"
+      },
+      "execution_authorized": false,
+      "full_15M_source_equivalence_verified": false,
+      "input_snapshots": {
+        "/home/gcao/proj/graygo/runs/task-pipeline-parity-d724e06/candidate/tabular-R4-post": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "c9c3e6e900a7652836bda84164a137c7fc1b890c338c2bf4af0f361f5f021884",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "b5653dd94fc142023dc6d50d78debc136785df5c35498a717a690a61c73ee7e3",
+          "result.json": "4a096cd810debd14fa794fa217c635a7a3fbac3611d5445d7807aef50e7be69f",
+          "resume/000000065536/manifest.json": "4b57f1827ca775be0dc5039a9ac0988b0f3e752d02cf4f247904f43f8674e5b6",
+          "resume/000000065536/manifest.sha256": "e0b173989fb925851ffa3b9f2b20d0acedc354e0ef9367d3086952ecfaed1524",
+          "resume/000000065536/metrics.npz": "da9284a32ca5444d8b2511718a4ca1c50fa2c92b3ccf38f0adf70d962dec3c3f",
+          "resume/000000065536/replay.npz": "2aca652e3fcb89ce13d37c8baad8b00447ff3e49b6623da904f4da01df8a7632",
+          "resume/000000065536/reservoir.npz": "6d2045265351a603707e68fa03a02f9583e953d74f12c1964f965030681a6b85",
+          "resume/000000065536/trainer.pt": "9f44945d70c29f1aea6f750b796cb878e8c9547fa6a77900fe82c52f773d3015",
+          "resume/latest.json": "818d22dc636104f733e13f79d386399a4747b4443793cdaa17ceb89c20b04f74",
+          "run.json": "81b85c2527c968342723be09835dc219015eb07c5b080d0daf221875fc9cc469",
+          "weights/000000032768/manifest.json": "c3adc1b8b82ad767adfcb8ccd9737f225a819ee4c9d6963129600f1b32e9ff6a",
+          "weights/000000032768/manifest.sha256": "62d8bfd59b22743077f64e2b1b812c1e36eeadc25626b778373e587d44c25a00",
+          "weights/000000032768/models.pt": "cf334a55d61fe07e04a854c880a45cbc1d7fed4fc1d439f56287fa79141e1dba",
+          "weights/000000065536/manifest.json": "5c48a0bfe7f4a9835b652d80a7bdba2b3082f3d38ea42a5aa82bbf112613dcdc",
+          "weights/000000065536/manifest.sha256": "9b3f862c88dd977de0325019e2c8555ba582e91f4bc32f52b6048b9e6c70454f",
+          "weights/000000065536/models.pt": "cc357be6b1cae3b929e42fcc98cc6e8acb3898610946ad70f665cdbfad1dbdb0"
+        },
+        "/home/gcao/proj/graygo/runs/task-pipeline-parity-d724e06/reference/tabular-R4-post": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "c9c3e6e900a7652836bda84164a137c7fc1b890c338c2bf4af0f361f5f021884",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "acc2f01eb243101dd7cbf6e1c8b1e41422683ec55575a23281d753332a3a75d7",
+          "result.json": "826db08864364c382c826fbc8da42f7918a7c18b6212165be4ce99d80b8fd52e",
+          "resume/000000065536/manifest.json": "6e9d29126c6baca7da532d30015dad0c944379228bdc879b372b21dff22f5048",
+          "resume/000000065536/manifest.sha256": "00e66272d9ae4ffd69bff5ede8d2ac72528b9e89e18ab9a6aec2bc2455a051b3",
+          "resume/000000065536/metrics.npz": "da9284a32ca5444d8b2511718a4ca1c50fa2c92b3ccf38f0adf70d962dec3c3f",
+          "resume/000000065536/replay.npz": "2aca652e3fcb89ce13d37c8baad8b00447ff3e49b6623da904f4da01df8a7632",
+          "resume/000000065536/reservoir.npz": "6d2045265351a603707e68fa03a02f9583e953d74f12c1964f965030681a6b85",
+          "resume/000000065536/trainer.pt": "733edcf03fa807c220116f454cf35bf6573c28898a18625abb0d5a96b7be912d",
+          "resume/latest.json": "82dd094eec648f355c4666ef8c7b2c2a7b9bb2ccb4a9de5fff8703b5d5d0fa6f",
+          "run.json": "2854edf2be3d8b5cb4115cec00993e5f0e69975366ae4973efcf16a087267bc8",
+          "weights/000000032768/manifest.json": "573f5355f32e8aeea044c2de246c381cf20bb62dd9c9249ba2ac4a02a5aa72b7",
+          "weights/000000032768/manifest.sha256": "b38cf9c420378e34c981e1e9108dc4a7742880e5e7622639ae2ffd20ff9c4908",
+          "weights/000000032768/models.pt": "cf334a55d61fe07e04a854c880a45cbc1d7fed4fc1d439f56287fa79141e1dba",
+          "weights/000000065536/manifest.json": "5eebb4c80ee7784a6cf35caba4ffd70d3ea6ca5e44d528780bff16de591f495e",
+          "weights/000000065536/manifest.sha256": "48705d6b9113104cf3067d4ea018106debbd4889bba52b5b085d1d21baad84c0",
+          "weights/000000065536/models.pt": "cc357be6b1cae3b929e42fcc98cc6e8acb3898610946ad70f665cdbfad1dbdb0"
+        }
+      },
+      "original_learning_runs_modified": false,
+      "records_per_source": 65536,
+      "reference_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "status": "finite_complete_pipeline_parity_verified",
+      "timing_and_environment_exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory"
+        ],
+        "result_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "source_sha256"
+        ],
+        "trainer_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings"
+        ]
+      }
+    },
+    "tabular-R4-pre": {
+      "a2_evidence_reusable": false,
+      "all_other_nested_state_compared": true,
+      "candidate_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "config": {
+        "batch": 512,
+        "blocks": 8,
+        "budget_profile_sha256": null,
+        "capacity": 500000,
+        "device": "cpu",
+        "epsilon_decay": 7500000,
+        "equivalent_actions": 40,
+        "eval_batch": 128,
+        "eval_every": 32768,
+        "handoff_end": 7000000,
+        "hidden": 64,
+        "horizons": [
+          50,
+          100,
+          200
+        ],
+        "learner": "tabular",
+        "learning_rate": 0.0003,
+        "learning_start": 4096,
+        "max_grad_norm": 0.5,
+        "max_nodes": 100000,
+        "native_library": null,
+        "norm_groups": 8,
+        "purpose": "profile",
+        "q_reuse": 4,
+        "records": 65536,
+        "reservoir_open": 5000000,
+        "seed": 0,
+        "storage": "features",
+        "target_every": 12800,
+        "task": "delayed",
+        "time_cap_seconds": 180.0,
+        "uniform_comparison": false,
+        "width": 64
+      },
+      "equal_partitions": {
+        "episode_bytes": "530da8ad56f5de5712a903857ced18ef5be413ebe4af5ca2b0248641f97e32e2",
+        "episode_schema": "2623338b09e1033bc9cb8911c85e00cedc10f73569cc17cf4b153aceb747a1af",
+        "manifest": "345f00275dbbab85f8c27a85527c6ac4389e50edc9e551e83efd4506fad53ba7",
+        "metrics": "9755707420b64fed219ae0b12cc90482bbba9a00f0caea405eb6b7290622c9aa",
+        "public_weights": {
+          "000000032768": "e650ac61be969ec65c6852b68e11130e0030e1189a478982408807f745c7d4ab",
+          "000000065536": "1fc6a583833f5b09de42716e05f4efd6f7c080d3bd3dbf74a01a67f531332a95"
+        },
+        "replay": "ba2c9e6473ceef4d43fa9f8602b0a9801288f55591db85c9f99ca873c5b744fe",
+        "reservoir": "948982c9064cd6cfb9596db86fc296155228a3555029c35aa2fb65145246426b",
+        "result": "3fc4d27bf0d77366e2e51d403cda97c96d09bd68919ee210c3bcfc268e803b6e",
+        "trainer_state": "bca31d03d28af54600fac92c61eff570ded20b2e4c08383393ccfdee91f12160"
+      },
+      "execution_authorized": false,
+      "full_15M_source_equivalence_verified": false,
+      "input_snapshots": {
+        "/home/gcao/proj/graygo/runs/task-pipeline-parity-d724e06/candidate/tabular-R4-pre": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "530da8ad56f5de5712a903857ced18ef5be413ebe4af5ca2b0248641f97e32e2",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "0e9456ee74247077592497ed9b6ba6571a0f92997e1639423c83ef3a2999486d",
+          "result.json": "6c9b82c15d2c63b6a665faa8b1cebe53dd918b0bfdf9a40aa2bb08283157950b",
+          "resume/000000065536/manifest.json": "9648fde08ba2f849420eb7eb96e4a35481689353699f69d1105b17a7ddab60d3",
+          "resume/000000065536/manifest.sha256": "1e2ba44b51e643eb78ede5e9964b878499535fd7c98dfb0222c7a9da6fdc632c",
+          "resume/000000065536/metrics.npz": "b75b49e64d88baa23f02f360aba39c59c01c89421dd772e9bfa6570174b940e3",
+          "resume/000000065536/replay.npz": "70805d77bcc75786842320a2c4c6141462082a13a1341cbfe2849507e8f8bd42",
+          "resume/000000065536/reservoir.npz": "1ef2f1a194c45ac9a346e45b2bd083452dddc78b4b898532e2e2d61a9259196c",
+          "resume/000000065536/trainer.pt": "bbe60cda194077df84dc29645fd5627ee2b577f4aec272f02d492549bdf784e7",
+          "resume/latest.json": "49c2c3e56a7215445d2cb6f27b1afbae2fbcac3f06f51dfe7028444a17cf661c",
+          "run.json": "dc5e08d55615a0ee8c2ce0ad1af67d9244958d5a9020cd74786902ee94a8e56c",
+          "weights/000000032768/manifest.json": "253a6fdbaa3aef32cdd7f30ca3c46072a0225f81115ac311dd1329cc5c3dc468",
+          "weights/000000032768/manifest.sha256": "c3c2d5b1778947a776809d1707c2852195a9b930b720bd62ae3045c93fcabec4",
+          "weights/000000032768/models.pt": "74efb25a7705ff313782c5220fb94116c79d74af3127bf18e4b3227fc84bbd43",
+          "weights/000000065536/manifest.json": "e9018de9370f9637e836bbd1d417fe637a5781afbaff11759d0418cb2c942693",
+          "weights/000000065536/manifest.sha256": "d91710df2cbd67a933b28d61b374d8b6d474a9ab140776d62df247a3091f982b",
+          "weights/000000065536/models.pt": "945fc0e7d30b53f810f8ae881b3e4c30f5970ca2edaad7f984053431bf327254"
+        },
+        "/home/gcao/proj/graygo/runs/task-pipeline-parity-d724e06/reference/tabular-R4-pre": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "530da8ad56f5de5712a903857ced18ef5be413ebe4af5ca2b0248641f97e32e2",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "ec602c247cab1e1a8d213cb4da42c3e7e4378e244fa94a58e70834532873de4d",
+          "result.json": "264b47040e3b12f597545d9738ae5c1ff08cd3cacb1fd3ec1af5f17db516a9d7",
+          "resume/000000065536/manifest.json": "3eb9707baa17c2710b42c3bc8c9805db181dd7f731c17d8f2855cd1927c53a41",
+          "resume/000000065536/manifest.sha256": "7459cabf210d00563275b029efadb4b0c975afc2366d89d206cd830d72b3a135",
+          "resume/000000065536/metrics.npz": "b75b49e64d88baa23f02f360aba39c59c01c89421dd772e9bfa6570174b940e3",
+          "resume/000000065536/replay.npz": "70805d77bcc75786842320a2c4c6141462082a13a1341cbfe2849507e8f8bd42",
+          "resume/000000065536/reservoir.npz": "1ef2f1a194c45ac9a346e45b2bd083452dddc78b4b898532e2e2d61a9259196c",
+          "resume/000000065536/trainer.pt": "39a15a87cacccbeff4f3370161c661501e437d9b5dd88d4fb7e3a7d237889367",
+          "resume/latest.json": "f6a098ce0a2bba4d6e51481e5d3014fe5e90027b63e6ce1b013d968d5c9cb9af",
+          "run.json": "3c46e9ca7bf45d83b1bf2d170010e99352726d75d9460903d4b63bb28e0ae1d0",
+          "weights/000000032768/manifest.json": "aa9160f1725a541efa03e980b1ed514f3d4b6e6f6fd0c3e36aff60846a4d5cf7",
+          "weights/000000032768/manifest.sha256": "6c262ffa1faa326da7304356db1ce663213ca43e16299e8a7f43b60d1fcd77a6",
+          "weights/000000032768/models.pt": "74efb25a7705ff313782c5220fb94116c79d74af3127bf18e4b3227fc84bbd43",
+          "weights/000000065536/manifest.json": "67c196ea539118e98ef4945d7277704176a8be492647e8e3a0f032f26c93e696",
+          "weights/000000065536/manifest.sha256": "1867a0cd255b908a5e0e3112e881d6a7d8fc2895e30494c523fcd7c3cd58019e",
+          "weights/000000065536/models.pt": "945fc0e7d30b53f810f8ae881b3e4c30f5970ca2edaad7f984053431bf327254"
+        }
+      },
+      "original_learning_runs_modified": false,
+      "records_per_source": 65536,
+      "reference_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "status": "finite_complete_pipeline_parity_verified",
+      "timing_and_environment_exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory"
+        ],
+        "result_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "source_sha256"
+        ],
+        "trainer_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings"
+        ]
+      }
+    }
+  },
+  "execution_authorized": false,
+  "formal_A2_learning_records": 0,
+  "full_15M_source_equivalence_verified": false,
+  "scope": "Actual matched pre/post-opening production trainer prefixes, complete model/optimizer/active-actor/private-RNG/replay/reservoir/metric states and scheduled archives. Only named root timing/environment/source fields differ. This is finite source behavior verification, not completed A2 learning or a full-history replay.",
+  "source_compatibility_qualified": false,
+  "status": "four_finite_complete_pipelines_verified",
+  "version": "graygo/task-pipeline-parity/1"
+}

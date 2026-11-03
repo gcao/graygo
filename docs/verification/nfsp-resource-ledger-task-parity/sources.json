@@ -1,0 +1,113 @@
+{
+  "new_leaves": [
+    {
+      "measurement_identity": "9c6113f35ef2715315f1a10b344930490ecfd756314fdad659c7b843a2397b20",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/resource-leaf.json",
+      "scope": "actor-boundary-verification",
+      "sha256": "a564e12bfdd6ce87b0846a0312c8ccbf6d6624081f418ef523e9675b149b6d40"
+    },
+    {
+      "measurement_identity": "431a8fcb32a6c877b913a8c376fac39799af185611d84ea25a90fd476ee04ec7",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/profile.json",
+      "scope": "task-pipeline-reference-neural-R4-pre",
+      "sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5",
+      "state": "actual"
+    },
+    {
+      "measurement_identity": "ea6fa76bf645b780852c5fc59bda2ed0bf2070eb31e28676029be7c05422da00",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/profile.json",
+      "scope": "task-pipeline-reference-neural-R4-post",
+      "sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5",
+      "state": "actual"
+    },
+    {
+      "measurement_identity": "45287be771dade05888f55b9e1c8c7c9d959fdd3d967e38dd55cadf005d42144",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/profile.json",
+      "scope": "task-pipeline-reference-tabular-R4-pre",
+      "sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5",
+      "state": "actual"
+    },
+    {
+      "measurement_identity": "9cd7d3634662c45787d5294f307823d1d819ffa8a7e2f24d4dd937896733f161",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/profile.json",
+      "scope": "task-pipeline-reference-tabular-R4-pre-unknown-overhead",
+      "sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5",
+      "state": "reserved"
+    },
+    {
+      "measurement_identity": "2a6d31b5e355a782619a8a65845480d9d887d8b275ac08eecaaa25f9bbbc86c1",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/profile.json",
+      "scope": "task-pipeline-reference-tabular-R4-post",
+      "sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5",
+      "state": "actual"
+    },
+    {
+      "measurement_identity": "2ed5b842b672af9a4d1ab16b0ac459174589f5e01e0fb2d6cb8e136894d94642",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/reference/profile.json",
+      "scope": "task-pipeline-reference-tabular-R4-post-unknown-overhead",
+      "sha256": "0b8c339037698b824f9fe369f522828db85cb1a1767f10c8cf02ff81e10085a5",
+      "state": "reserved"
+    },
+    {
+      "measurement_identity": "3f63754942982137daf44db10917060638e34859f1c4ae48a02f0c419599b766",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/profile.json",
+      "scope": "task-pipeline-candidate-neural-R4-pre",
+      "sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9",
+      "state": "actual"
+    },
+    {
+      "measurement_identity": "139d8a6876fac26c0d4ea6ed6e5c304da162cf1d9a6e9710b507c7389f4dbce4",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/profile.json",
+      "scope": "task-pipeline-candidate-neural-R4-post",
+      "sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9",
+      "state": "actual"
+    },
+    {
+      "measurement_identity": "331a3df23c53c057d47258a13ee2f02d7573d0fca4c28b472fa12699f60eb922",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/profile.json",
+      "scope": "task-pipeline-candidate-tabular-R4-pre",
+      "sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9",
+      "state": "actual"
+    },
+    {
+      "measurement_identity": "1be4d686a84713ebe5e944a8aab13b8d3d9e9a215484999ba70edae1cabbb6bb",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/profile.json",
+      "scope": "task-pipeline-candidate-tabular-R4-pre-unknown-overhead",
+      "sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9",
+      "state": "reserved"
+    },
+    {
+      "measurement_identity": "42c33f06b278b4d2da2b4b79f885664b50cac1770b89f57157704276cd2f4500",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/profile.json",
+      "scope": "task-pipeline-candidate-tabular-R4-post",
+      "sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9",
+      "state": "actual"
+    },
+    {
+      "measurement_identity": "78a458d47ae1c415fa28d562425f053709731f19999db68c7bc55985520f3291",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/candidate/profile.json",
+      "scope": "task-pipeline-candidate-tabular-R4-post-unknown-overhead",
+      "sha256": "50a57845ccbf7971f17b9fed09000fd48b90d71c3b73891c4cc6acb96f8c82b9",
+      "state": "reserved"
+    },
+    {
+      "measurement_identity": "ce3867f8eda093fe283a0e874ff53d59ef636ee6637a58af96773c5ec58f03f8",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/original/job.json",
+      "scope": "original-strict-pipeline-comparison",
+      "sha256": "8beb63c9be5101794c818fa5ef49de6fc3801015b580e8959de639a3a959c288",
+      "state": "actual"
+    },
+    {
+      "measurement_identity": "535c34e8b07091dd0ae680a367263a329a767a887e725e436103f7d0e854b80d",
+      "receipt": "docs/verification/task-source-compatibility-ca45-c3b8/pipeline/corrected/job.json",
+      "scope": "corrected-readonly-pipeline-comparison",
+      "sha256": "5076d0dcb7643bb0805d0afbecdb46b088e3a60a78e88ea2e2ed87c24b69f0ac",
+      "state": "actual"
+    }
+  ],
+  "prior_inventory_path": "docs/verification/nfsp-resource-ledger-graph-r4/usage.json",
+  "prior_inventory_sha256": "d579126ffbd1844c120837c89440da9a67a56076358f354d9f98a5eb180eba1b",
+  "scope": "Declared partial use only; preserve every old leaf, settle four new table loops/setup portions conservatively and retain unknown overhead. Actor/comparison verification is disjoint; no device price follows from CPU timing.",
+  "version": 1,
+  "whole_mixed_driver_not_added_to_child_intervals": true
+}
