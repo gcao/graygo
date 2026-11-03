@@ -1,0 +1,26 @@
+{
+  "docs/verification/delayed-r1-comparison-source/admission.json": {
+    "original": "/home/gcao/proj/graygo/runs/delayed-r1-comparison-admission-75ab97c/admission.json",
+    "sha256": "d8bdf98947ab1656f1100da95865d42ca209ca0ac9565cc04e870b127eb0b55f"
+  },
+  "docs/verification/delayed-r1-comparison-source/driver.log": {
+    "original": "/home/gcao/proj/graygo/runs/delayed-r1-comparison-admission-75ab97c/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/delayed-r1-comparison-source/driver.py": {
+    "original": "/home/gcao/proj/graygo/runs/delayed-r1-comparison-admission-75ab97c/driver.py",
+    "sha256": "8cd3e88a24a9ab96c1cd0fa5cd28f58e08698133371a931a6ceacf0b98bb9286"
+  },
+  "docs/verification/delayed-r1-comparison-source/job.json": {
+    "original": "/home/gcao/proj/graygo/runs/delayed-r1-comparison-admission-75ab97c/job.json",
+    "sha256": "381640ec8c4383da9a5076c20b7973bb90da093357152796de493eae1f509230"
+  },
+  "docs/verification/delayed-r1-comparison-source/qualification.stderr": {
+    "original": "/home/gcao/proj/graygo/runs/delayed-r1-comparison-admission-75ab97c/qualification.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/delayed-r1-comparison-source/qualification.stdout": {
+    "original": "/home/gcao/proj/graygo/runs/delayed-r1-comparison-admission-75ab97c/qualification.stdout",
+    "sha256": "37dd28c6c5d3d7232f45e01f92d054794b72cf6ee33d0fe2bbdce7df0928bb8f"
+  }
+}

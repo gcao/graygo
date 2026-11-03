@@ -1,0 +1,31 @@
+{
+  "a2_complete": false,
+  "admission_sha256": "d8bdf98947ab1656f1100da95865d42ca209ca0ac9565cc04e870b127eb0b55f",
+  "allocation_sha256": "597fccbc972dfb69cbd56cdb6336bc02372f5e5a0d24529e174665fbfe2e8298",
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "/home/gcao/proj/graygo/.worktrees/delayed-r1-comparison-75ab97c/tools/delayed_r1_admission.py",
+    "--repo",
+    "/home/gcao/proj/graygo",
+    "--specification",
+    "/home/gcao/proj/graygo/.worktrees/delayed-r1-comparison-75ab97c/docs/experiments/delayed-r1-comparison-source-evidence.json",
+    "--output",
+    "/home/gcao/proj/graygo/runs/delayed-r1-comparison-admission-75ab97c/admission.json"
+  ],
+  "complete_pipeline_pairs": 2,
+  "cpu_process_cap_seconds": "16200",
+  "driver_sha256": "8cd3e88a24a9ab96c1cd0fa5cd28f58e08698133371a931a6ceacf0b98bb9286",
+  "execution_authorized": false,
+  "measured_driver_wall_seconds": 16.068702321033925,
+  "measured_process_seconds": 16.066925464081578,
+  "new_accelerator_jobs": 0,
+  "new_control_allocation_seconds": "0",
+  "new_training_records": 0,
+  "original_driver_pid": 2806686,
+  "original_qualification_pid": 2806687,
+  "primary_A2_slots_fillable": false,
+  "qualifier_sha256": "5650a7bf16abf923d34d00eb6dce500f8c471f8615a12597704546558476ba2b",
+  "returncode": 0,
+  "status": "qualified_cpu_delayed_R1_comparison_source",
+  "version": 1
+}
