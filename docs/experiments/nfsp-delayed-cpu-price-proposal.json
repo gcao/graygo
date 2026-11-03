@@ -1,0 +1,320 @@
+{
+  "a2_complete": false,
+  "candidate_terms": {
+    "C1": {
+      "cpu_process_ceiling_seconds": "15300",
+      "device_hour_reason": "Prospective entry is restricted to CPU execution of the complete neural delayed learner; CPU process ceilings are recorded separately. This is not a CUDA speed inference.",
+      "device_hours": "0",
+      "forecast_limits": "partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast",
+      "formal_record_cap": 15000000,
+      "original_profile_cases": {
+        "post": {
+          "original_manifest_sha256": "1076ecd6c12b148cb43eb073aced138b2f33b852a9c1d52265cbe6b9d4ebf9d7",
+          "original_result_sha256": "6feccb0e42cd539472927521f1bd12942341814c5c6a57961e4b37d209a8b98d",
+          "original_root": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-post",
+          "profile_config": {
+            "batch": 512,
+            "blocks": 8,
+            "budget_profile_sha256": null,
+            "capacity": 500000,
+            "device": "cpu",
+            "epsilon_decay": 7500000,
+            "equivalent_actions": 40,
+            "eval_batch": 128,
+            "eval_every": 32768,
+            "handoff_end": 1000,
+            "hidden": 64,
+            "horizons": [
+              50,
+              100,
+              200
+            ],
+            "learner": "neural",
+            "learning_rate": 0.0003,
+            "learning_start": 4096,
+            "max_grad_norm": 0.5,
+            "max_nodes": 100000,
+            "native_library": null,
+            "norm_groups": 8,
+            "purpose": "profile",
+            "q_reuse": 1,
+            "records": 65536,
+            "reservoir_open": 0,
+            "seed": 0,
+            "storage": "features",
+            "target_every": 12800,
+            "task": "delayed",
+            "time_cap_seconds": 300.0,
+            "uniform_comparison": false,
+            "width": 64
+          },
+          "records": 65536,
+          "runtime_identity": {
+            "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+            "dependencies": {
+              "numpy": "2.5.4",
+              "scipy": "1.18.1",
+              "torch": "2.11.0"
+            },
+            "hostname": "home-ai",
+            "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+            "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+            "runtime": {
+              "cudnn_benchmark": false,
+              "cudnn_deterministic": false,
+              "deterministic_algorithms": false,
+              "device": "cpu",
+              "torch_threads": 1,
+              "workers": 1
+            }
+          },
+          "seconds_including_setup": "32.82230901700677"
+        },
+        "pre": {
+          "original_manifest_sha256": "cdb4b916b5349ac304c90f4cffa5246dae29f802a9ea5f62e166aca18f950e81",
+          "original_result_sha256": "c02ea92ad2e6baf7e8ac9579e869419c0a7dfd22f856e6971537c6b9e53bc99d",
+          "original_root": "runs/nfsp-eligibility-R1-profiles-ca45a53/neural-R1-pre",
+          "profile_config": {
+            "batch": 512,
+            "blocks": 8,
+            "budget_profile_sha256": null,
+            "capacity": 500000,
+            "device": "cpu",
+            "epsilon_decay": 7500000,
+            "equivalent_actions": 40,
+            "eval_batch": 128,
+            "eval_every": 32768,
+            "handoff_end": 7000000,
+            "hidden": 64,
+            "horizons": [
+              50,
+              100,
+              200
+            ],
+            "learner": "neural",
+            "learning_rate": 0.0003,
+            "learning_start": 4096,
+            "max_grad_norm": 0.5,
+            "max_nodes": 100000,
+            "native_library": null,
+            "norm_groups": 8,
+            "purpose": "profile",
+            "q_reuse": 1,
+            "records": 65536,
+            "reservoir_open": 5000000,
+            "seed": 0,
+            "storage": "features",
+            "target_every": 12800,
+            "task": "delayed",
+            "time_cap_seconds": 300.0,
+            "uniform_comparison": false,
+            "width": 64
+          },
+          "records": 65536,
+          "runtime_identity": {
+            "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+            "dependencies": {
+              "numpy": "2.5.4",
+              "scipy": "1.18.1",
+              "torch": "2.11.0"
+            },
+            "hostname": "home-ai",
+            "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+            "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+            "runtime": {
+              "cudnn_benchmark": false,
+              "cudnn_deterministic": false,
+              "deterministic_algorithms": false,
+              "device": "cpu",
+              "torch_threads": 1,
+              "workers": 1
+            }
+          },
+          "seconds_including_setup": "34.06711078301305"
+        }
+      },
+      "original_seed_scope": [
+        0,
+        1,
+        2
+      ],
+      "phase_weighted_15M_seconds": "7607.401185381056976318359375",
+      "profile_plan_sha256": "0d21f7ba993067cea283697de3efb0c6073cb693777289392c2e738df8d675dc",
+      "profile_results_sha256": "4e6dfd61e012885c6eac6177c7568d746b3ad314df3e395a0b05626b61d02d77",
+      "q_reuse": 1,
+      "raw_budget": "runs/nfsp-eligibility-R1-profiles-ca45a53/budgets/neural-R1.json",
+      "raw_budget_sha256": "b0f98a36d2ad8e6af6cf8c3a03cbc372750d8c11bc066e88db9fd08bedc5c499",
+      "runtime_margin": "2"
+    },
+    "C4": {
+      "cpu_process_ceiling_seconds": "19800",
+      "device_hour_reason": "Prospective entry is restricted to CPU execution of the complete neural delayed learner; CPU process ceilings are recorded separately. This is not a CUDA speed inference.",
+      "device_hours": "0",
+      "forecast_limits": "partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast",
+      "formal_record_cap": 15000000,
+      "original_profile_cases": {
+        "post": {
+          "original_manifest_sha256": "583eed9093ae52ac76093db45b1a9803c7a844c4e2c7b4bd20ec886c978ccc97",
+          "original_result_sha256": "79e4aa731a60c3848bb90c195cb7036e9576da29a1ec796bd8fd06464d7757ff",
+          "original_root": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-post",
+          "profile_config": {
+            "batch": 512,
+            "blocks": 8,
+            "budget_profile_sha256": null,
+            "capacity": 500000,
+            "device": "cpu",
+            "epsilon_decay": 7500000,
+            "equivalent_actions": 40,
+            "eval_batch": 128,
+            "eval_every": 32768,
+            "handoff_end": 1000,
+            "hidden": 64,
+            "horizons": [
+              50,
+              100,
+              200
+            ],
+            "learner": "neural",
+            "learning_rate": 0.0003,
+            "learning_start": 4096,
+            "max_grad_norm": 0.5,
+            "max_nodes": 100000,
+            "native_library": null,
+            "norm_groups": 8,
+            "purpose": "profile",
+            "q_reuse": 4,
+            "records": 65536,
+            "reservoir_open": 0,
+            "seed": 0,
+            "storage": "features",
+            "target_every": 12800,
+            "task": "delayed",
+            "time_cap_seconds": 300.0,
+            "uniform_comparison": false,
+            "width": 64
+          },
+          "records": 65536,
+          "runtime_identity": {
+            "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+            "dependencies": {
+              "numpy": "2.5.4",
+              "scipy": "1.18.1",
+              "torch": "2.11.0"
+            },
+            "hostname": "home-ai",
+            "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+            "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+            "runtime": {
+              "cudnn_benchmark": false,
+              "cudnn_deterministic": false,
+              "deterministic_algorithms": false,
+              "device": "cpu",
+              "torch_threads": 1,
+              "workers": 1
+            }
+          },
+          "seconds_including_setup": "40.24623424297897"
+        },
+        "pre": {
+          "original_manifest_sha256": "01b7135367e3a3a59d7401bce76b1e001f46633f458f5a24d7a042cee04bdac1",
+          "original_result_sha256": "383cfc548367b0b68b7f7d1957cc58a694b76c81fc057ab0d2422311d67a44c6",
+          "original_root": "runs/nfsp-eligibility-R4-profiles-ca45a53/neural-R4-pre",
+          "profile_config": {
+            "batch": 512,
+            "blocks": 8,
+            "budget_profile_sha256": null,
+            "capacity": 500000,
+            "device": "cpu",
+            "epsilon_decay": 7500000,
+            "equivalent_actions": 40,
+            "eval_batch": 128,
+            "eval_every": 32768,
+            "handoff_end": 7000000,
+            "hidden": 64,
+            "horizons": [
+              50,
+              100,
+              200
+            ],
+            "learner": "neural",
+            "learning_rate": 0.0003,
+            "learning_start": 4096,
+            "max_grad_norm": 0.5,
+            "max_nodes": 100000,
+            "native_library": null,
+            "norm_groups": 8,
+            "purpose": "profile",
+            "q_reuse": 4,
+            "records": 65536,
+            "reservoir_open": 5000000,
+            "seed": 0,
+            "storage": "features",
+            "target_every": 12800,
+            "task": "delayed",
+            "time_cap_seconds": 300.0,
+            "uniform_comparison": false,
+            "width": 64
+          },
+          "records": 65536,
+          "runtime_identity": {
+            "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+            "dependencies": {
+              "numpy": "2.5.4",
+              "scipy": "1.18.1",
+              "torch": "2.11.0"
+            },
+            "hostname": "home-ai",
+            "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+            "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+            "runtime": {
+              "cudnn_benchmark": false,
+              "cudnn_deterministic": false,
+              "deterministic_algorithms": false,
+              "device": "cpu",
+              "torch_threads": 1,
+              "workers": 1
+            }
+          },
+          "seconds_including_setup": "43.70208402199205"
+        }
+      },
+      "original_seed_scope": [
+        0,
+        1,
+        2
+      ],
+      "phase_weighted_15M_seconds": "9475.292397151946258544921875",
+      "profile_plan_sha256": "a20dec02cea6eb45d28deb01b968718cf163f28f4ee6a9020a4b1c714a22e46a",
+      "profile_results_sha256": "cbb7a73d7a03b289f4d31b8b2695dc16e9d8a7711d60b94dffb592ee525f3a8f",
+      "q_reuse": 4,
+      "raw_budget": "runs/nfsp-eligibility-R4-profiles-ca45a53/budgets/neural-R4.json",
+      "raw_budget_sha256": "37fd47f048cc463c014293643dea8c5c994d0c1bf595b9da7b0887a49c2099e7",
+      "runtime_margin": "2"
+    }
+  },
+  "execution_authorized": false,
+  "native_library": null,
+  "new_training_selected": false,
+  "original_cases_rewritten": false,
+  "project_scope_selected": false,
+  "reference_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "remaining_qualification": [
+    "Fresh pinned independent audits of all four original neural profiling roots, with complete input/checkpoint/trajectory hash bindings and released trainer locks.",
+    "Verify exact current numerical dependencies, CPU/runtime identity and applicable unchanged CPU/features source bridge.",
+    "Validate complete formal 15M recipes and require the selected backend/source/storage constraints at entry; the CPU device-hour price cannot apply to CUDA, rule-state/native tasks, another target, or board training.",
+    "Independently verify forecast arithmetic and retain stated partial-buffer/scaled setup/evaluation/checkpoint limits.",
+    "Register qualified C1/C4 device terms with their separate CPU ceilings; do not infer missing A2, control affordability, project scope or production authority from zero accelerator use."
+  ],
+  "runtime_prices_independently_qualified": false,
+  "scope": "Prospective CPU-only neural delayed-family pricing proposal from the original matched complete-learner profiles, not a retrospective widening of seed-zero funding. Table controls keep their separate twelve-hour ceiling. Original raw twofold proposals are preserved; the seed-zero R4 reduced-margin allocation is not generalized.",
+  "source_bridge": "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/qualification/bridge.json",
+  "source_bridge_sha256": "e7176fe2128fc78fcf2ecc49420c35dabbadda37fba31505ce9124f1e0f3b78a",
+  "status": "proposal_pending_independent_price_qualification",
+  "storage": "features",
+  "target": "one-step",
+  "target_device": "cpu",
+  "target_runtime_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "torch_threads": 1,
+  "version": "graygo/prospective-delayed-cpu-prices/1",
+  "workers": 1
+}
