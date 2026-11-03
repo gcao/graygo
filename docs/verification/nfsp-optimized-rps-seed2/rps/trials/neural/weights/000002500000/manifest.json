@@ -1,0 +1,15 @@
+{
+  "files": {
+    "models.pt": {
+      "bytes": 41215,
+      "sha256": "2b94f792c5aab3092ff2f9a5e4682a0f214d4a75552db752a40a5ba3cb7ddad0"
+    }
+  },
+  "format_version": 1,
+  "kind": "weights",
+  "metadata": {
+    "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+    "task_schema": "graygo/nfsp-matrix-role/1"
+  },
+  "step": 2500000
+}

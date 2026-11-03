@@ -1,0 +1,82 @@
+{
+  "a2_complete": false,
+  "accepted_reservoir_changes": 10236,
+  "archive_boundary_actions_reconstructed": 48,
+  "archive_boundary_greedy_targets_verified": 4,
+  "archive_manifests_sha256": {
+    "100000": "084679e9749aa4219782bf66e43683e162d3c7318e08d794c5e0818e44312968",
+    "50000": "058818084aa64e7b18476ed26b20fe6a3761954b23615f5fb6fb4ae5855db344"
+  },
+  "audit_semantics": "graygo/independent-matrix-audit/2",
+  "audit_watchdog_seconds": 30,
+  "auditor_sha256": "7a9898ba046fdb4aa638c0ddbc92ccb721b362a6b0767eb38d8723802f30f728",
+  "average_final_five_passed": false,
+  "checkpoint_manifest_sha256": "0b8d9def22ae4d46b1d215992c40779dc9500a639e852c71b00a8a5bbd019d93",
+  "eligibility_version": 2,
+  "eligible_labels": 10236,
+  "episode_audit_sha256": "b0ff8495cc8fe0cbf46441e8da93b135bfa3a53984d235542361b617dad7ad56",
+  "exact_published_mean_roles": [],
+  "excluded_passive_root_records": 0,
+  "final_five_gaps": [
+    [
+      0.7531191526153383,
+      0.6387532734998632
+    ],
+    [
+      0.8705260615710616,
+      0.8198751679373049
+    ]
+  ],
+  "first_supervised_record": 1408,
+  "formal_protocol": false,
+  "format_version": 2,
+  "label_rule": "greedy",
+  "last_supervised_record": 99968,
+  "learner": "neural",
+  "manifest_sha256": "24816d0551b5551df993f96f572fab4a26baa2779c591d69ef0af2690981ca60",
+  "measured_audit_entry_wall_seconds": 0.23621338501106948,
+  "method": "checksummed model reconstruction; closed-form security gaps; all episode mode/ramp/RNG accounting; exact Algorithm R and retained replay audit",
+  "physical_games": 50000,
+  "published_tabular_mean_interval_checked": false,
+  "published_tabular_mean_verified": false,
+  "q_eligible_records": 100000,
+  "q_updates": 750,
+  "records": 100000,
+  "result_sha256": "a93524fa9f2ffd41c986e306d168ecd9c80fd6ee361a7591b5cd221ca64f488b",
+  "retained_executed_label_targets_verified": 0,
+  "retained_label_records_checked": 10236,
+  "retained_replay_records_checked": 100000,
+  "scheduled_evaluations": [
+    {
+      "average_gaps": [
+        0.7531191526153383,
+        0.6387532734998632
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        1.0,
+        1.0
+      ],
+      "records": 50000
+    },
+    {
+      "average_gaps": [
+        0.8705260615710616,
+        0.8198751679373049
+      ],
+      "average_ready": true,
+      "greedy_q_gaps": [
+        1.0,
+        1.0
+      ],
+      "records": 100000
+    }
+  ],
+  "scope": "complete matrix episode action logs support exact executed-label publication reconstruction. Replaced unpublished greedy targets retain explicit bounds; all historical model gradients/frozen greedy sets are not reconstructed",
+  "seed": 2,
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "supervised_updates": 771,
+  "task": "rps",
+  "unresolved_published_greedy_labels": 0,
+  "verified": true
+}

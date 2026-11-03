@@ -1,5 +1,6 @@
 """Synthetic grading tests establish rules, never real source admission."""
 from copy import deepcopy
+from dataclasses import asdict
 from pathlib import Path
 import json
 import ast
@@ -8,9 +9,11 @@ import tempfile
 import unittest
 from tests import test_a2_cohort as legacy_fixtures
 from tools.a2_cohort import NFSPA2Plan,assess,canonical,FAMILIES
-from tools.a2_source_cohort import (assess_sources,protocol_key,path_for,read_registry,assess_registry_files,REGISTRY_VERSION)
+from tools.a2_source_cohort import (assess_sources,protocol_key,path_for,read_registry,assess_registry_files,REGISTRY_VERSION,check_selected_cpu_case)
 from tools import task_source_bridge,terminal_batch_admission
 from tools import a2_source_cohort
+from graygo.task_training import NFSPTaskConfig
+from graygo.nfsp_training import NFSPMatrixConfig
 
 
 class SourceAwareGradingTests(unittest.TestCase):
@@ -77,6 +80,34 @@ class SourceAwareGradingTests(unittest.TestCase):
         edges=[{'left':'a','right':'b','families':{'rps'}},{'left':'b','right':'c','families':{'asymmetric'}}]
         self.assertEqual(path_for(edges,'b','a','rps'),[0]);self.assertIsNone(path_for(edges,'c','a','rps'))
 
+    def selected_case(self,*,matrix=False):
+        proof={'version':task_source_bridge.VERSION,'status':'qualified_cpu_features_A2_source_bridge','source_compatibility_qualified':True,
+            'families':list(FAMILIES),'reference_source_sha256':'a'*64,'candidate_source_sha256':'b'*64,'dependencies':{'torch':'test'},'execution_authorized':False}
+        config=asdict(NFSPMatrixConfig(task='rps',seed=2)) if matrix else NFSPTaskConfig(time_cap_seconds=19800,seed=2,q_reuse=4,budget_profile_sha256='c'*64).plan()
+        manifest={'source_sha256':'b'*64,'config':config,'dependencies':dict(proof['dependencies']),'runtime':{'device':'cpu','torch_threads':1,'workers':1}}
+        return manifest,proof
+
+    def test_selected_cpu_original_identity_is_admitted_without_relabeling(self):
+        for matrix in (False,True):
+            manifest,proof=self.selected_case(matrix=matrix);before=deepcopy((manifest,proof));result=check_selected_cpu_case(manifest,proof)
+            self.assertTrue(result['original_source_identity_preserved']);self.assertTrue(result['original_case_plan_and_audit_required']);self.assertFalse(result['a2_complete']);self.assertFalse(result['execution_authorized']);self.assertEqual((manifest,proof),before)
+            self.assertEqual(manifest['source_sha256'],proof['candidate_source_sha256'])
+
+    def test_selected_cpu_admission_rejects_other_source_native_cuda_recipe_and_runtime(self):
+        manifest,proof=self.selected_case()
+        for field,value in [('device','cuda'),('task','delayed-forced'),('seed',3),('q_reuse',1),('records',10000000),('handoff_end',8000000),('uniform_comparison',True)]:
+            changed=deepcopy(manifest);changed['config'][field]=value
+            with self.assertRaises(ValueError,msg=field):check_selected_cpu_case(changed,proof)
+        changed=deepcopy(manifest);changed['source_sha256']=proof['reference_source_sha256']
+        with self.assertRaises(ValueError):check_selected_cpu_case(changed,proof)
+        changed=deepcopy(manifest);changed['config']=NFSPTaskConfig(time_cap_seconds=19800,task='gray-pure',q_reuse=4,budget_profile_sha256='c'*64,storage='rule-state').plan()
+        with self.assertRaises(ValueError):check_selected_cpu_case(changed,proof)
+        for runtime in [{'device':'cpu','torch_threads':2,'workers':1},{'device':'cpu','torch_threads':1,'workers':2},{'device':'cuda','torch_threads':1,'workers':1}]:
+            changed=deepcopy(manifest);changed['runtime']=runtime
+            with self.assertRaises(ValueError):check_selected_cpu_case(changed,proof)
+        changed=deepcopy(manifest);changed['dependencies']={'torch':'other'}
+        with self.assertRaises(ValueError):check_selected_cpu_case(changed,proof)
+
     def test_archived_registry_can_reanalyze_without_claiming_current_inputs(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);runtime='e'*64
@@ -85,7 +116,7 @@ class SourceAwareGradingTests(unittest.TestCase):
             fastproof={'version':terminal_batch_admission.VERSION,'status':'qualified_cpu_matrix_terminal_batch','collection_implementation':'terminal-batch',
                 'families':['asymmetric','rps'],'reference_source_sha256':runtime,'candidate_source_sha256':self.b.learner_source_sha256,'verifier_sha256':'f'*64,'execution_authorized':False}
             body={'version':REGISTRY_VERSION,'canonical_plan_sha256':self.a.sha256,'protocol_sha256':protocol_key(self.a),'target_runtime_source_sha256':runtime,
-                'plans':[{'path':str(root/('absent-'+str(i))),'file_sha256':'f'*64,'plan_sha256':p.sha256,'plan':p.to_dict()} for i,p in enumerate((self.a,self.b))],
+                'plans':[{'path':str(root/('absent-'+str(i))),'file_sha256':'f'*64,'plan_sha256':p.sha256,'plan':p.to_dict()} for i,p in enumerate((self.a,self.b,NFSPA2Plan('selected',runtime,self.a.collector_sha256,dict(self.a.auditors),self.a.multiround_reuse)))],
                 'bridges':[{'path':str(root/('bridge-'+str(i))),'file_sha256':'f'*64,'proof':p} for i,p in enumerate((baseproof,fastproof))],
                 'original_case_and_source_identity_rewriting_allowed':False,'a2_complete':False,'execution_authorized':False}
             registry=root/'registry.json';registry.write_text(json.dumps({'body':body,'sha256':canonical(body)}));case=root/'case.json';case.write_text(json.dumps(self.fixture.case(self.b,'rps','neural',1)))

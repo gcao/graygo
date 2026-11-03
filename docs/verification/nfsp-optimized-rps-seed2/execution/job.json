@@ -1,0 +1,93 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "48e33ffaf66e1df3d751ab43b064a61bda707e5bedce208f1573d13906164055",
+  "conservative_control_prefix_guard_seconds": 1400,
+  "conservative_control_prefix_sum_seconds": 425.43958119594026,
+  "control_reservation_seconds": "1420",
+  "diagnostic_profile_records": 400000,
+  "driver_sha256": "5a30bca0d2873ff9eacfce21bb34307436675356a1be588ea0a31583c14c77a2",
+  "formal_cases_complete": 2,
+  "formal_records": 30000000,
+  "learner_source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "measured_driver_seconds": 934.1995290160412,
+  "new_accelerator_jobs": 0,
+  "no_observation_timeout_restart": true,
+  "original_driver_pid": 2736313,
+  "outer_watchdog_seconds": 3660,
+  "pilot_selected": false,
+  "runner_commit": "dad979d2254bdfbc60bc274a7d78c55c9ec6a859",
+  "runner_sha256": "42bdade275671e76a99fbc8d156b6d51ae684216f9b3d170bb44ef0d84fbd59d",
+  "source_package_unchanged": true,
+  "stages": {
+    "rps": {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-optimized-rps-seed2-dad979d/tools/run_nfsp_matrix_stage.py",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-rps-seed2-dad979d/rps",
+        "--task",
+        "rps",
+        "--expected-source-sha",
+        "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "--seed",
+        "2",
+        "--profile-seconds",
+        "65",
+        "--tabular-trial-hours",
+        "0.3333333333333333",
+        "--neural-trial-hours",
+        ".5"
+      ],
+      "conservative_control_prefix_seconds": 425.43958119594026,
+      "control_prefix_closed_at_seconds": 425.43958119594026,
+      "emitted_plan_verified": true,
+      "final_returncode": 0,
+      "final_state": {
+        "completed_profiles": 4,
+        "completed_trials": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 926.4512425330468,
+        "phase": null,
+        "pid": 2736345,
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "status": "complete"
+      },
+      "final_state_sha256": "54787a0dda664642e0ed56a20e3afc963a26c0ae77c3de14f5cb2931a3c1928c",
+      "funding": [
+        {
+          "complete_pre_post_work": true,
+          "learner": "tabular",
+          "measured_setup_included": true,
+          "phase_weighted_15M_seconds": 506.01624110131525,
+          "time_ceiling_seconds": 1200.0,
+          "twofold_margin_passed": true
+        },
+        {
+          "complete_pre_post_work": true,
+          "learner": "neural",
+          "measured_setup_included": true,
+          "phase_weighted_15M_seconds": 555.7694983494002,
+          "time_ceiling_seconds": 1800.0,
+          "twofold_margin_passed": true
+        }
+      ],
+      "funding_recomputed_same_formula_in_parent": true,
+      "original_pid": 2736345,
+      "progress_case": "None/None",
+      "returncode": 0,
+      "started_monotonic": 557834.261504887,
+      "state": {
+        "completed_profiles": 4,
+        "completed_trials": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 926.4512425330468,
+        "phase": null,
+        "pid": 2736345,
+        "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+        "status": "complete"
+      }
+    }
+  },
+  "status": "original_stages_terminal_unreviewed",
+  "version": 1
+}

@@ -1,0 +1,54 @@
+{
+  "Retrace_selected": false,
+  "a2_complete": false,
+  "additional_seed_or_family_selected": false,
+  "all_original_processes_terminal": true,
+  "archived_assessment_sha256": "fec2c2a6c86419feb9145950d7b5cda6c2f7cc55e993137568a76524cdc7b27a",
+  "both_cases_complete_and_freshly_audited": true,
+  "collection_implementation": "terminal-batch",
+  "current_archived_numerics_match": true,
+  "current_assessment_sha256": "b66bb8f60afec3ea14c61078cf3eed43f62b7cda300beaa82f47179f2de4db52",
+  "delayed_table_numeric_miss_retained": true,
+  "diagnostic_records": 400000,
+  "final_five_maxima": {
+    "rps/neural/2": {
+      "formal_gate_passed": true,
+      "loop_seconds": 502.55704173992854,
+      "max_average_gap": 0.017983079492541576,
+      "original_case_sha256": "347a0e7a5aba9fa267c89cba107e82b02251a5c0a8899d1f28e0d3013fb2c603"
+    },
+    "rps/tabular/2": {
+      "formal_gate_passed": true,
+      "loop_seconds": 409.7235652959207,
+      "max_average_gap": 0.026331892184694394,
+      "original_case_sha256": "0d6c309ca065265ad2974008af7107d88d802369e37765d6aab973460ea053a3"
+    }
+  },
+  "formal_records": 30000000,
+  "four_profiles_freshly_audited": true,
+  "funding_independently_recomputed_decimal": {
+    "neural": {
+      "cap_seconds": "1800.0",
+      "phase_weighted_15M_seconds": "555.769498349400250",
+      "twofold_margin_passed": true
+    },
+    "tabular": {
+      "cap_seconds": "1200.0",
+      "phase_weighted_15M_seconds": "506.0162411013152400",
+      "twofold_margin_passed": true
+    }
+  },
+  "missing_cases": 22,
+  "original_audit_watch_pid": 2737132,
+  "original_driver_pid": 2736313,
+  "original_source_specific_plan": "runs/a2-source-admission-584213f/optimized-plan.json",
+  "original_stage_pid": 2736345,
+  "pilot_selected": false,
+  "present_cases": 14,
+  "seed": 2,
+  "source_registry_sha256": "46bf447c2212c027327139f33a318bd5e2bb3a6fc9a2a3d52257af634f8b76a5",
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "stability_extension_selected": false,
+  "task": "rps",
+  "version": 1
+}

@@ -1,0 +1,1070 @@
+{
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/assess-01-archived.stderr": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/assess-01-archived.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/assess-01-archived.stdout": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/assess-01-archived.stdout",
+    "sha256": "1f04ca5d3b2566dde5cd2c3b9945eb3b4de05a87a878be96e93ece41cf847f4f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/assess-01-current.stderr": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/assess-01-current.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/assess-01-current.stdout": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/assess-01-current.stdout",
+    "sha256": "1f04ca5d3b2566dde5cd2c3b9945eb3b4de05a87a878be96e93ece41cf847f4f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/assess-02-archived.stderr": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/assess-02-archived.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/assess-02-archived.stdout": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/assess-02-archived.stdout",
+    "sha256": "1f04ca5d3b2566dde5cd2c3b9945eb3b4de05a87a878be96e93ece41cf847f4f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/assess-02-current.stderr": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/assess-02-current.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/assess-02-current.stdout": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/assess-02-current.stdout",
+    "sha256": "1f04ca5d3b2566dde5cd2c3b9945eb3b4de05a87a878be96e93ece41cf847f4f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/assessment-01-archived.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/assessment-01-archived.json",
+    "sha256": "89c930adff6f9539738d8862e7bbc6d6c51d29076fea4781c60ad24fcf62c8e6"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/assessment-01-current.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/assessment-01-current.json",
+    "sha256": "7deb03fecfa820d7f2c7601f18e0e597ca0f4ccf758c579095235a714d4de097"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/assessment-02-archived.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/assessment-02-archived.json",
+    "sha256": "fec2c2a6c86419feb9145950d7b5cda6c2f7cc55e993137568a76524cdc7b27a"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/assessment-02-current.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/assessment-02-current.json",
+    "sha256": "b66bb8f60afec3ea14c61078cf3eed43f62b7cda300beaa82f47179f2de4db52"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/audit-rps-neural-2.stderr": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/audit-rps-neural-2.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/audit-rps-neural-2.stdout": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/audit-rps-neural-2.stdout",
+    "sha256": "03e80462b9276e4c40fb2f3463b96109cb53ce8a86e14378703b865ce63ef4a8"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/audit-rps-tabular-2.stderr": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/audit-rps-tabular-2.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/audit-rps-tabular-2.stdout": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/audit-rps-tabular-2.stdout",
+    "sha256": "f8ea031e7d69eb204be532367868254b5441d52e4048cb5aac6264c90b4511e8"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/case-rps-neural-2.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/case-rps-neural-2.json",
+    "sha256": "347a0e7a5aba9fa267c89cba107e82b02251a5c0a8899d1f28e0d3013fb2c603"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/case-rps-tabular-2.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/case-rps-tabular-2.json",
+    "sha256": "0d6c309ca065265ad2974008af7107d88d802369e37765d6aab973460ea053a3"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/driver.log": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/driver.py": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/driver.py",
+    "sha256": "46c6c17e769e4451f5a8b2a32d7e2b738f45c5b8de64ee1afcc503e485a01a1f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/job.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/job.json",
+    "sha256": "81167ab0c69a9de70895ecae43a412aef6842fc34ed97f1a36f1c93ac88282c3"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/profile-rps-post-neural-2.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/profile-rps-post-neural-2.json",
+    "sha256": "4c9fba66004ddda8eed6539ae68a3ac7c109ceee9185fa236b9016e322d8ff29"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/profile-rps-post-neural-2.stderr": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/profile-rps-post-neural-2.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/profile-rps-post-neural-2.stdout": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/profile-rps-post-neural-2.stdout",
+    "sha256": "1ff956a81383595e9d5e90cbcb6f3e48a26fb537bdfe5301c4ac2805d8076672"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/profile-rps-post-tabular-2.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/profile-rps-post-tabular-2.json",
+    "sha256": "069ba6addd7576ef288ef68445729072ac66daad728afc132503a884e3051064"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/profile-rps-post-tabular-2.stderr": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/profile-rps-post-tabular-2.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/profile-rps-post-tabular-2.stdout": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/profile-rps-post-tabular-2.stdout",
+    "sha256": "da805d73e52d4d42dc4618ec75ca7002e89a4f1098e8e463e56d136f65842543"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/profile-rps-pre-neural-2.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/profile-rps-pre-neural-2.json",
+    "sha256": "6114c4ac4bf3e55fc1c6d54abf360d2d3683b848e1419875e34a41983fa97e85"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/profile-rps-pre-neural-2.stderr": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/profile-rps-pre-neural-2.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/profile-rps-pre-neural-2.stdout": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/profile-rps-pre-neural-2.stdout",
+    "sha256": "9ab102007c82af312a43e3946f7f5970d79481a6702213e3a1334c397b27ea91"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/profile-rps-pre-tabular-2.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/profile-rps-pre-tabular-2.json",
+    "sha256": "0e3007e4c873420a8b2a1b21fd4e0f0191ee63218efbacf8b58c0e57e30a94b2"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/profile-rps-pre-tabular-2.stderr": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/profile-rps-pre-tabular-2.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/cohort-audits/profile-rps-pre-tabular-2.stdout": {
+    "original": "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/profile-rps-pre-tabular-2.stdout",
+    "sha256": "760f2f2e266da3574c2109f014455c1ef33b5aaf5770d54d50fb77600ee25a8e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/execution/driver.log": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/execution/driver.py": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/driver.py",
+    "sha256": "5a30bca0d2873ff9eacfce21bb34307436675356a1be588ea0a31583c14c77a2"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/execution/job.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/job.json",
+    "sha256": "d585a00ad1a7052e9259c4473d8cba567cfaf17e49dfa3e0832c33d78ce4c714"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/execution/rps.stderr": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/execution/rps.stdout": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps.stdout",
+    "sha256": "af0494f383bd9c8641076d49612c4ec62bbbc49b066fb2552176f9774b7b506b"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/budget.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/budget.json",
+    "sha256": "9b3af4ce098202ed56909889547060a90d74d3f9826059e1c02f3f116b43f8ef"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/neural-process-portion.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/neural-process-portion.json",
+    "sha256": "8f1ed3e862721932ccc3015c462272e481165c90610b075da050106f7390f628"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/plan.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/plan.json",
+    "sha256": "39e78d0adc07ee282be1235a66b89a67cfc1b381cac28b5dcb7f6fc7f824ccd6"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profile.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profile.json",
+    "sha256": "a348c3d022d754245874d183528b0064f4f098f49ccc15951f03541fa3c6c686"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-neural/episodes.schema.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-neural/episodes.schema.json",
+    "sha256": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-neural/result.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-neural/result.json",
+    "sha256": "a93524fa9f2ffd41c986e306d168ecd9c80fd6ee361a7591b5cd221ca64f488b"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-neural/run.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-neural/run.json",
+    "sha256": "24816d0551b5551df993f96f572fab4a26baa2779c591d69ef0af2690981ca60"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-neural/weights/000000050000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-neural/weights/000000050000/manifest.json",
+    "sha256": "058818084aa64e7b18476ed26b20fe6a3761954b23615f5fb6fb4ae5855db344"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-neural/weights/000000050000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-neural/weights/000000050000/manifest.sha256",
+    "sha256": "0efd7aec7edb589fb0cde9ad0c4a3dc5c40ba6a3b383e3a7852b934d5021d736"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-neural/weights/000000050000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-neural/weights/000000050000/models.pt",
+    "sha256": "743cbe266850cba40addc6d1bc3448250dca45b24a45d04fdd323485d76aa92e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-neural/weights/000000100000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-neural/weights/000000100000/manifest.json",
+    "sha256": "084679e9749aa4219782bf66e43683e162d3c7318e08d794c5e0818e44312968"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-neural/weights/000000100000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-neural/weights/000000100000/manifest.sha256",
+    "sha256": "0c62b05b98ba11ff2e5af06f7aa38dc4ab583363a48b79e38f70bafb3363a6cb"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-neural/weights/000000100000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-neural/weights/000000100000/models.pt",
+    "sha256": "1161aaa7b72ca40869001f5b3174f48ae7e078344bee6937f313c8c809efb722"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-tabular/episodes.schema.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-tabular/episodes.schema.json",
+    "sha256": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-tabular/result.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-tabular/result.json",
+    "sha256": "6d61b126858439c388a9d15a1db9a25005b05f6d68d811457fd15fb5e5a148eb"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-tabular/run.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-tabular/run.json",
+    "sha256": "0e9d966b7246b119cbac7a9b55dd3eb9b4c197270d777910584cb051cda75762"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-tabular/weights/000000050000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-tabular/weights/000000050000/manifest.json",
+    "sha256": "a1a0a0674752c24542b4de4343eedd9bf23d249763ab5cd26cde6d5c83b25382"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-tabular/weights/000000050000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-tabular/weights/000000050000/manifest.sha256",
+    "sha256": "376aa6eb6f58055c01509dd3afaf81a329596d07aef568907d07a9f5e07c6c82"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-tabular/weights/000000050000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-tabular/weights/000000050000/models.pt",
+    "sha256": "8737d804ac7b687b38ba1275f169dabde81b1ced5afaf572af1465885590415b"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-tabular/weights/000000100000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-tabular/weights/000000100000/manifest.json",
+    "sha256": "696d2f5f57268ddc5df3c0de3aa450a22173d2147f052a270f2006e486de2b50"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-tabular/weights/000000100000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-tabular/weights/000000100000/manifest.sha256",
+    "sha256": "4d544e12f49fda5b1ba5563de7888656b657a36b9d5bc2f72ed663948ca449b2"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/post-tabular/weights/000000100000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/post-tabular/weights/000000100000/models.pt",
+    "sha256": "77a697560bad1df91680167139a67165495ec5fc1794bd53a530a0ed22a3876c"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-neural/episodes.schema.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-neural/episodes.schema.json",
+    "sha256": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-neural/result.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-neural/result.json",
+    "sha256": "02f6f9486cf6b46b4090c197ccd08eecbdf19d21bea301df178ab6ac71335f83"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-neural/run.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-neural/run.json",
+    "sha256": "b6c2e4fbb8c3b3e20db1769fbaf08c770913a2cc4d410f65f95274a7b5eb4e10"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-neural/weights/000000050000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-neural/weights/000000050000/manifest.json",
+    "sha256": "d10d0ef9834af6c21be4eec9ce73368c6bab00f170c9b5e223b66d6816229f68"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-neural/weights/000000050000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-neural/weights/000000050000/manifest.sha256",
+    "sha256": "ba083bb0a7c7a63930cd464fb2cc1571b6bac3e385dff564d60de5f5ba77ed6f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-neural/weights/000000050000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-neural/weights/000000050000/models.pt",
+    "sha256": "78e3a832c7941be90e1f81ffb54c4f6d949552ae2f7ba76017f690f209386683"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-neural/weights/000000100000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-neural/weights/000000100000/manifest.json",
+    "sha256": "5bb22e239a0add56dfdce975ffe5aa9c722086e24d9fc8067cfd9a23c7045d92"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-neural/weights/000000100000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-neural/weights/000000100000/manifest.sha256",
+    "sha256": "e95df428cb537af972c49fb65c4c4520f3349e5152e442f5986971c7ba49e1e4"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-neural/weights/000000100000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-neural/weights/000000100000/models.pt",
+    "sha256": "f620c170451b82fdecd25555da9ffc0437d7e38f217b89abf76f431b301668da"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-tabular/episodes.schema.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-tabular/episodes.schema.json",
+    "sha256": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-tabular/result.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-tabular/result.json",
+    "sha256": "2d678cf35fc708024b0eb9308c51e36c32f5f890d1f35560a55903f2244efd88"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-tabular/run.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-tabular/run.json",
+    "sha256": "7bde09922a75857ba28ea0a700bc11e5433cab3a478ed469b974245f010b3fc6"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-tabular/weights/000000050000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-tabular/weights/000000050000/manifest.json",
+    "sha256": "fb4f27d0204621e48032557e870e00353928348c6fb8a118bfa61248d4172f7e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-tabular/weights/000000050000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-tabular/weights/000000050000/manifest.sha256",
+    "sha256": "cb22bffacdd99f2ed2d6c716afc7e4d0b75e83058de9813d1e7b707382bedd29"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-tabular/weights/000000050000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-tabular/weights/000000050000/models.pt",
+    "sha256": "cebcee745bec47e6b07520b43b3100a1e75dd6cac14ac22cd903af2b9a8f967a"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-tabular/weights/000000100000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-tabular/weights/000000100000/manifest.json",
+    "sha256": "316d2b5e624a11720787aa43693e737ac176b823d9669bfe1a3284e52612ed2e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-tabular/weights/000000100000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-tabular/weights/000000100000/manifest.sha256",
+    "sha256": "ffe35bcf18591fa169eccb19e791860400a15a34c27c6ece94819612c1de8d90"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/profiles/pre-tabular/weights/000000100000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/profiles/pre-tabular/weights/000000100000/models.pt",
+    "sha256": "ecc444ecb1ef428c07bd99e13d6d944fbbb3e22d655e7f2c1f582e05562b03d1"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/state.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/state.json",
+    "sha256": "54787a0dda664642e0ed56a20e3afc963a26c0ae77c3de14f5cb2931a3c1928c"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/summary.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/summary.json",
+    "sha256": "7030d025a9b54798c3ac69d5c96f12a267890528662206b0b69066f409cee65a"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/tabular-process-portion.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/tabular-process-portion.json",
+    "sha256": "4ebe25594d128fbafe88bbb17458034a34b4ad5e29940d8c0ac2494f7e83d945"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/episodes.schema.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/episodes.schema.json",
+    "sha256": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/result.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/result.json",
+    "sha256": "cbd64bc95ab7aee44c094988d962cfbc77bbb9d72e8f9784d8b4849f332adb29"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/run.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/run.json",
+    "sha256": "ae363af3990b64368a85662873977dc593c7817215c533dc96b259e694c0828e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000000500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000000500000/manifest.json",
+    "sha256": "5fa5b3ccdf2cd584c643ef135f58e7a49de45467f02b485685f33261f6bf408b"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000000500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000000500000/manifest.sha256",
+    "sha256": "ee9f287164be54d5a108b231d50b061e12bdb122c4e214e281d493a4531c56b7"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000000500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000000500000/models.pt",
+    "sha256": "7ca254c5cdd2f5cce8cb94071cadbeec8270f19545b25485bb3fecca756de8a5"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000001000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000001000000/manifest.json",
+    "sha256": "46b87a07429a712e9ae60b0332dcc702c3f74656f6bc976e5d0deaad6df50d83"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000001000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000001000000/manifest.sha256",
+    "sha256": "08ae236fb8cd35528580cafab09779aa9de693f83f8fcf5c2ba6e885bc14590e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000001000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000001000000/models.pt",
+    "sha256": "a989a4a777d7cdcd1adc67b2d1b8941244f50213a54babb26ea7b2d71510bfdb"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000001500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000001500000/manifest.json",
+    "sha256": "b3140db777300e42fbebe09ddae8c88878b0162bb8db594950ae5992de7844a0"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000001500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000001500000/manifest.sha256",
+    "sha256": "f33dab1a93169572414e789e806746bee0aaf3ec6a6621c0a5817784cf2a776e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000001500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000001500000/models.pt",
+    "sha256": "fe2d5ec2031e89d8f074b56f9e9db4b51cf83997098ee1baec97b007c259f6c6"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000002000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000002000000/manifest.json",
+    "sha256": "c77d083194969ebb536a21d13c6d31853eb4c366951be39b4db852b664256ce7"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000002000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000002000000/manifest.sha256",
+    "sha256": "4c07378d457a4693a12726da46c312c5ec070162b36b39e8bce2f64509ce9dc4"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000002000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000002000000/models.pt",
+    "sha256": "3c16d49212dcbb0cf140b6d07aca371510176947dc7cbcd3a5b6b738c83b72cd"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000002500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000002500000/manifest.json",
+    "sha256": "b284514dcca30abd254906da47361c00821040eb4c26adaa56ac8cf8c6c2da9b"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000002500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000002500000/manifest.sha256",
+    "sha256": "ac39b2b735b9862da272a5d9f3f7deff90580ac3c167ab9af4354c36b6192a74"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000002500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000002500000/models.pt",
+    "sha256": "2b94f792c5aab3092ff2f9a5e4682a0f214d4a75552db752a40a5ba3cb7ddad0"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000003000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000003000000/manifest.json",
+    "sha256": "82c2935ec3e18fefc3ffbea7f2df36ae1db6fb46e166dbec75b5266919892166"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000003000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000003000000/manifest.sha256",
+    "sha256": "56d1ca679bff11b312026224ee0e758f5428e7115d27d8d3aad067d221a09005"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000003000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000003000000/models.pt",
+    "sha256": "99ba156c733482914c4eb32a19b95d3ad85fd3f8dbc3c23a8fecf84571800edf"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000003500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000003500000/manifest.json",
+    "sha256": "2202d7cab5cde420dccd205e7dd4f8e9e2d41184fb81faa5fa7ccaafdb5cec9a"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000003500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000003500000/manifest.sha256",
+    "sha256": "ae80ebf8c80494b20f32d54450dd3c4ab4b1baca062986dea616f5ce486487f4"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000003500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000003500000/models.pt",
+    "sha256": "a3f62c63f01837b5276d84fc25ce57bb2359675bf34ecea8db775e5659cb4b4b"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000004000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000004000000/manifest.json",
+    "sha256": "78dc1871910591c01db025cd19aaa7ca0489234c797ca523f780b0a6cd21b079"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000004000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000004000000/manifest.sha256",
+    "sha256": "102af909364944e8b5af5439b22a67b8f847292353c1e976a6d9e485d3556fb9"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000004000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000004000000/models.pt",
+    "sha256": "6327f3643c45cf6fdafa2823afa56954cb8ff324c05653f5ee34c0d58c65aea8"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000004500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000004500000/manifest.json",
+    "sha256": "c40671f35761017c91aabbb8d1c8419344c9a9b2bed57df7309ae7004c3352ec"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000004500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000004500000/manifest.sha256",
+    "sha256": "c3a4c741e0d5ef640d9ecd04dbbb5db1420d2d736d5797b8f584bda8a4755ff4"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000004500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000004500000/models.pt",
+    "sha256": "2a976b11fe08cbb7d9b423f6b25967bd71150fbb149066fb5643720b0be3084d"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000005000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000005000000/manifest.json",
+    "sha256": "1b7a5b35b103548da5e4a4f25f80e20a8d7af161cf6a771ce2431e566d55116f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000005000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000005000000/manifest.sha256",
+    "sha256": "0528dcb216828148b82c7bbe37f68287a464adaf4900457dfcebdd4c7b8a6249"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000005000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000005000000/models.pt",
+    "sha256": "346975c59bc4e607f01c613b72211726a31040283be86f9bb3dfa07bb09d36ab"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000005500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000005500000/manifest.json",
+    "sha256": "9b6ef7c8c2709525ae2827c9fa5df5e9062e615038ad6cb79c0f3a9054741284"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000005500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000005500000/manifest.sha256",
+    "sha256": "d04f08de05d9a4db34bea32555118d6b58d3ce5dd2a7f0ec595cba010478bee7"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000005500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000005500000/models.pt",
+    "sha256": "4819cd8faf77e9ccd1c55f4603c0c6f57e41eb38d259429b8a6d98df5eba6c7e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000006000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000006000000/manifest.json",
+    "sha256": "2af7b5d7f5ffd93c47cc878331d7c32e3530e876ab1c890621141842337a0b76"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000006000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000006000000/manifest.sha256",
+    "sha256": "ac69a7f2911b4238015a36f2490bc348dcf5354a25391816127373444961a0d1"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000006000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000006000000/models.pt",
+    "sha256": "1f4994a274e5629ba1a8f17b6227272ff88be2fe0e5260a2829975a4cfbfe084"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000006500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000006500000/manifest.json",
+    "sha256": "0533fe43831a46a8a0f4129600d31e9b4b9729f613a4ec9f1969a3ca4af9c752"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000006500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000006500000/manifest.sha256",
+    "sha256": "9f6fc273b58d8c56330405523f59e97d483431140e828d89512210626928feff"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000006500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000006500000/models.pt",
+    "sha256": "fd0edee9721d8d366921b0d6083c9a4bc249e1d62773465ee956d32701c593fa"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000007000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000007000000/manifest.json",
+    "sha256": "30ee73d48c07fb8075cda28aadfcaae522dae71ae8c6d7aad62064968e928bf2"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000007000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000007000000/manifest.sha256",
+    "sha256": "d6f0770888535a5339b64942e425c1a4e0bf8fc77f3a10d02cff7adfc5649f9f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000007000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000007000000/models.pt",
+    "sha256": "985c2e06d4b64fb895254924ce9bb32d64cf81aa9c2189fdefe0c49ad8a7806d"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000007500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000007500000/manifest.json",
+    "sha256": "d2c9b356e0be6a90fcb71b528c9f6ff7c94527533a0693fd053ad9102169403a"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000007500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000007500000/manifest.sha256",
+    "sha256": "99c5ed8e9ee1541c0b1fa1a43809baf53d688f747139119ec626f135206f3b29"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000007500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000007500000/models.pt",
+    "sha256": "5c654c51b8fa14da3ac431078bc27fa254912565e3902681e4634dde4a94347f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000008000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000008000000/manifest.json",
+    "sha256": "572e5f1c94170fdbf8601dae557d7deb585a87576f613a611c0783a2ec7f57e7"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000008000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000008000000/manifest.sha256",
+    "sha256": "dccb59e786f5d46df8eedb40f71284c8e7655115db6d5bb0cd173c03b06671cb"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000008000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000008000000/models.pt",
+    "sha256": "d6967644e4eb0f8ed88f1aee99a54a8ac85bee38883c0007bd06a60c34924b31"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000008500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000008500000/manifest.json",
+    "sha256": "bc6df1ae18eba9c948d45b98dbe538c45090552c1f3af850dc6331510c999c63"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000008500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000008500000/manifest.sha256",
+    "sha256": "3e250fd12baba26ccc57cc06ca138bcaadc08f29c6058712b871789552205ec5"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000008500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000008500000/models.pt",
+    "sha256": "0572d362b85ad51e9832b6c6832ce54f6822d17e46726277e1d2d145f269bf49"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000009000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000009000000/manifest.json",
+    "sha256": "ea676db4e9d24264f77bbf78f654f4c37f94f661b3bb048f796993eb0f1872dc"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000009000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000009000000/manifest.sha256",
+    "sha256": "f259fe0c59c89fe073ce993367cb1b9e3f7ac1fc21f2d39b49f1259043963c32"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000009000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000009000000/models.pt",
+    "sha256": "85d70e4930b4999504924bcebf7b008545ee49ed0c54e45345c85b6511227234"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000009500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000009500000/manifest.json",
+    "sha256": "43ea0fbe8c127e1f15edc1056ed8ce34cf2971962ea83eabfe4dd88c03d5b3c1"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000009500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000009500000/manifest.sha256",
+    "sha256": "b465597b517f79d7a464da34693dd112b511774f5317c94d62c26aee5a8643b0"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000009500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000009500000/models.pt",
+    "sha256": "31d767119bf220c332db4792f7ebae995941fba2d4a0f6b407d3eb36489661c3"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000010000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000010000000/manifest.json",
+    "sha256": "4bc7cd2fb73a3da82867a606c244bfcf6816fb517d8c7a97d0f771c91f7bc517"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000010000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000010000000/manifest.sha256",
+    "sha256": "1f57a403bdb824d1b7d08566f47e4739e5d11822167e8f7a74ce44bea0e2a99f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000010000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000010000000/models.pt",
+    "sha256": "d17bfc89a313c126e7888286802f9c4cf171229cc06534895eb35af31df3e18e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000010500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000010500000/manifest.json",
+    "sha256": "a172fed800b5a7980d80c69922aa8694d7b54b2d7daf72b924aaa38f0c137328"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000010500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000010500000/manifest.sha256",
+    "sha256": "fa64d7dfa612f64c59bc6bef9cbbcc1da7f23e0b51eb7c4a54c560f573bf5b25"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000010500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000010500000/models.pt",
+    "sha256": "ccf3ec9fefb8d31c0532a53f91079232fa279d451cca254919d5521133613448"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000011000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000011000000/manifest.json",
+    "sha256": "4dbcf4a70aad26e8c32a303ea6410074e1ea5a33ebcefcffaf20af1c55e4db49"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000011000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000011000000/manifest.sha256",
+    "sha256": "dc37450807161b3f036119ecbc8c246e4ac0f94843325c9515c9c2a1b58ae109"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000011000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000011000000/models.pt",
+    "sha256": "6d9031672358ceedb80446dbe7d3b724726d21f0ebb7be2068b4b0ce4e7ef460"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000011500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000011500000/manifest.json",
+    "sha256": "e41e79835f8811972bceff6cd11a88aca65521dc6d16569706ba42d1e43c36a3"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000011500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000011500000/manifest.sha256",
+    "sha256": "5792732cf8546e5609ac09fcfc8918ff0fcef7db56f34565c75a03aea8a2d842"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000011500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000011500000/models.pt",
+    "sha256": "f1233ef68d7dbb2c4a30b617efa72bd72235326872b31a6fdcc776e1e53179ba"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000012000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000012000000/manifest.json",
+    "sha256": "d57fdfd31854b9e70e2e9d0be4816ef7169a336538b00b026a429be73b8433dc"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000012000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000012000000/manifest.sha256",
+    "sha256": "82913d76b2ee38e067ea269ecb6ae20c4825be91f4d97b29cec5e74c1c60bccb"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000012000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000012000000/models.pt",
+    "sha256": "8ea8fdcb109833b1d58eb8dae7adec8c6e236bbdc8e39403d9591da0419bc5af"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000012500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000012500000/manifest.json",
+    "sha256": "04203d236a2e5e537776fcf67371b0e3cb15f5d3055255388da93a2e3461a687"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000012500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000012500000/manifest.sha256",
+    "sha256": "debf377da2cd280512d6db4a9d2bcd23877beafb83a3d53a674bb2750ad85930"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000012500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000012500000/models.pt",
+    "sha256": "0977f21d21882dc9dd4308bbccc37f8e83562e47e7fd419c634f2b627cef5ba1"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000013000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000013000000/manifest.json",
+    "sha256": "cea8061982f5a4263181b21bcd9616b6f311463b6506d090529e055de94bb425"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000013000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000013000000/manifest.sha256",
+    "sha256": "4f85611e1d69269ace22aaa2e9ea28acd9ba4ee627d59317557f0625534df812"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000013000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000013000000/models.pt",
+    "sha256": "031485064265e2d5464eabd17a1c71341d2b4008800b2f48bd0281089f17e5b4"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000013500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000013500000/manifest.json",
+    "sha256": "64a8ea6c634fb66dd5a80daed9cac3b07312827bf48ae98a552974df9514df62"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000013500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000013500000/manifest.sha256",
+    "sha256": "dcd8c915981999a9a3a7ef525896be830b37abdbe11f99eed8b14320554a18c5"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000013500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000013500000/models.pt",
+    "sha256": "fcc47c4210a863a1409398b5c44c973252b9a56bcf5e674e725296c529baf7b6"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000014000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000014000000/manifest.json",
+    "sha256": "d4f6c1ced73a4b8d24a0306f9eb6ff35bac996eaee482b21b4846377f5d826a2"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000014000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000014000000/manifest.sha256",
+    "sha256": "67e1723a9288f073163860fa87bc98262841ed015377437b6ef96225ec4ee0e6"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000014000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000014000000/models.pt",
+    "sha256": "8ef06353bfe2bd3e57b0a6451d3ca0d504fb46cfd48bb202f1232017e3e1c219"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000014500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000014500000/manifest.json",
+    "sha256": "aac58bd7660c7f8348aa46ff742064435f8d04b4e9223abe1acd26d17a7220bb"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000014500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000014500000/manifest.sha256",
+    "sha256": "44ee93588121eb2deac42375869fc4f3f68d41cb4b61d1dcc12dce1d7ea8902f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000014500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000014500000/models.pt",
+    "sha256": "8f872a14ed3c5f36293b6a984e1259fe7ae4cb2b1c4ce715d47d63101beda17c"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000015000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000015000000/manifest.json",
+    "sha256": "9ec26e018a249f1e9da252c111bf65729860b5035b97d2106428da8b8b797822"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000015000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000015000000/manifest.sha256",
+    "sha256": "7bc05da71879103fa37a94df466ea13cac173a90e64ea7eb594837f122fa19c8"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/neural/weights/000015000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural/weights/000015000000/models.pt",
+    "sha256": "28825e084274177cf861bb54e516fe086fec6b16629bdb1aa5e93efc7be31255"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/episodes.schema.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/episodes.schema.json",
+    "sha256": "c510b04269b07c8d39172f56fb8b782645a31892fec4ce76b383eff490c04f50"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/result.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/result.json",
+    "sha256": "6bb70880a98df8f1fd40b14b06da0d8fdd3977bac2269aa274d61c99a1a7ee51"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/run.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/run.json",
+    "sha256": "aca20e9f0d5c32cbe7a4003c15f77b316fe0ef6e3aad3c7da459000950ac2827"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000000500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000000500000/manifest.json",
+    "sha256": "63702331ffdc91afd024a95d9fdaec15f5600556478c0036de4540225abca2e5"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000000500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000000500000/manifest.sha256",
+    "sha256": "fb8b9a0cf283476a8d38ff48ea8554f7bbfb6583466d633504620448f20ca459"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000000500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000000500000/models.pt",
+    "sha256": "fce4bc0d56236ae00ff0a27f5013298feb89f57376b2ed3f75329ee595ea8dc3"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000001000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000001000000/manifest.json",
+    "sha256": "701264fb06ea66c1af339be63bc00fbd4c92834eb0aa1870de5af6c1d6ad1974"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000001000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000001000000/manifest.sha256",
+    "sha256": "f3a90dabbddb96bfc4f272a970786fc78b60b7a2d06a14ed5c6501f057a237c8"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000001000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000001000000/models.pt",
+    "sha256": "e8d7d6f06c98acd685736812a2099c4fad39cc38dc3c285179652a8a069a2b8a"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000001500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000001500000/manifest.json",
+    "sha256": "aa07ae2e164ee3b8466b1f85cdabadab6761b9d6624dc0484b5231b2bc855574"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000001500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000001500000/manifest.sha256",
+    "sha256": "4e152b2cf7d9b9206b74e6fdae714cbcfaffe494aae9dede31f23c5e719df631"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000001500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000001500000/models.pt",
+    "sha256": "53fb2cec3f1bc9bb699c183adc119dddcc38ab5bfa6f73746d57a2cafd243863"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000002000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000002000000/manifest.json",
+    "sha256": "81da5e331f23e248070a52ba912b4b2654e6b2850fe0153fc85ae169df858fc5"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000002000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000002000000/manifest.sha256",
+    "sha256": "480930496461df7ddf72f191ed30a73237ee9dd823e9b89887745fff9448c1d2"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000002000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000002000000/models.pt",
+    "sha256": "cdebc1555d235486e5ec363e218b400ef6496853cf97d3900106feceefa7acc1"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000002500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000002500000/manifest.json",
+    "sha256": "a6aaad53830386ca7b7fbf7903933e2aefe188d6e6428611381754c5b37a1e4b"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000002500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000002500000/manifest.sha256",
+    "sha256": "1c68b192818e2d8aae77fff64378d152edc5a02b6a87eb0b46740bb29a280b16"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000002500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000002500000/models.pt",
+    "sha256": "ea2710ac303fc5770b98f38a02a2fc0c71d203391f6af2b5977044503157d287"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000003000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000003000000/manifest.json",
+    "sha256": "d220704fa38a9c8512d0d0e099652b78faeb243e4e98eb74707cddb3702414a2"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000003000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000003000000/manifest.sha256",
+    "sha256": "f8a2ac699ced36858f6f6284b1854308c07b86725ce6515d887618464393b7c9"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000003000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000003000000/models.pt",
+    "sha256": "f408b3724350b52687bb24aa65f2c6f5441338fc14e5e4cd2747bc1a6b7203c7"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000003500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000003500000/manifest.json",
+    "sha256": "809bdf1ef0976ebafa8827117aa794842add8ca2d2f709bbd6bb45aae6532da7"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000003500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000003500000/manifest.sha256",
+    "sha256": "c8de0467b2d1d41eb3e1d6f0a0a54cb952025e8c239dbcbb1136b23b0ea461ed"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000003500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000003500000/models.pt",
+    "sha256": "495f8f32ac6af0723ef17f626c9aa74dbd9368e0e0a84204e4a464fef0fc424a"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000004000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000004000000/manifest.json",
+    "sha256": "c5e8246bf9f03f1c2bb8b248127e94aab39b812d1f4e7e5542af4f293d4f94c7"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000004000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000004000000/manifest.sha256",
+    "sha256": "43a38596bf1ae63440657bbc2db327cbb7120e2110db8e27f48d2f2b9f7d981e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000004000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000004000000/models.pt",
+    "sha256": "c2d4681d3c32e5500c0450b53392c01875fef22398001512918fb400443f70d5"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000004500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000004500000/manifest.json",
+    "sha256": "3db282ba78a82c82fd03b96798f39142ff39e8e3d03860adf8697bd0831efa3f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000004500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000004500000/manifest.sha256",
+    "sha256": "1a19605424e2fae630ba7e9e90d518e818b26f97a5b7b3846df0e5b559dd2b89"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000004500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000004500000/models.pt",
+    "sha256": "5dccf7b75443813e85a79160e63a9a20280353d5d2dff2f7068e6fd8df74de4c"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000005000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000005000000/manifest.json",
+    "sha256": "f8eefcd5a2dff790e6553863e2c4f0e3bf755e34dee1b4aba3db799cf15c80c5"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000005000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000005000000/manifest.sha256",
+    "sha256": "243a457f47a9d011dc4eb315d485087e352b26dadddae8567617f837ee893649"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000005000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000005000000/models.pt",
+    "sha256": "57a65d91602f27c88bf8360d8799e771cfdecb66546c832b8a1820cb2bf7f7b4"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000005500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000005500000/manifest.json",
+    "sha256": "d73b04f53daa6307b4bb88c0896e26465b79a621e7910daa350131405c8d6d89"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000005500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000005500000/manifest.sha256",
+    "sha256": "d1c7fbb8cd467941d70d91ffc296b771da5ac4127be2846ce762244fdf8f9dd9"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000005500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000005500000/models.pt",
+    "sha256": "e325639150ab4fc59a3bd7eb7df1160c4815d5efd38332df1957a0bc47ffa0ab"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000006000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000006000000/manifest.json",
+    "sha256": "896f02d35bf499e3ff39f664e80546493c7c8bdf746cb89101961cc210c19e80"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000006000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000006000000/manifest.sha256",
+    "sha256": "ba52c6ec8b52ec7fd7a94971d25cdf84902fec9b208cab9f69b7efe43fee6699"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000006000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000006000000/models.pt",
+    "sha256": "9f8f1ca2e73a6ad25414b43279b89fae91a73730126fa6fddb0a07dc05b7e1dd"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000006500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000006500000/manifest.json",
+    "sha256": "9faf47380ec038401f09e30863e9769fe8a48fa740b7dffefb501afac58f3a3e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000006500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000006500000/manifest.sha256",
+    "sha256": "75ba8c57c892162e7b53459297966a9d1af5ea8d4dc3c7354e0ba91ca14c031f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000006500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000006500000/models.pt",
+    "sha256": "7ebdc9da76c68fa278696c588d62ce4f1a90b0cbde33241b7658448b54edfc22"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000007000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000007000000/manifest.json",
+    "sha256": "9f078237afd830007c5d153881171eded3ed743a38dd87fef4e8aa20bebb182f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000007000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000007000000/manifest.sha256",
+    "sha256": "52ef776a520747f7c9eed1d6a34ab219d80bc49fdaf1698ce87ac83e7580f0a4"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000007000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000007000000/models.pt",
+    "sha256": "cb6f4aac0485e4fac916839149c8030034def35af00b5874e875c84688995ec0"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000007500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000007500000/manifest.json",
+    "sha256": "f351063273986d6de3b5e01aa3ee4c1e61a0a131ef494ebf1ee259b7bc5ee51a"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000007500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000007500000/manifest.sha256",
+    "sha256": "b8e4c862aaf8bb6e1d9fce618c2119ddeaad1b0f247595172f0be310262f9fbe"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000007500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000007500000/models.pt",
+    "sha256": "44f1a865fae0f0bff101505679bee1a0cf56ce37b2e4170686ed0af075e684ae"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000008000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000008000000/manifest.json",
+    "sha256": "7e922719bdf47fd628585d8c1bb8f0be95e9a24ffebbc095c9b50a908fd6841f"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000008000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000008000000/manifest.sha256",
+    "sha256": "08b25b53a6205f2a51dd2d9886610e112f9e7729a9e7c5f6166e61787f5597a7"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000008000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000008000000/models.pt",
+    "sha256": "e1b433b53164354f0ddfc047d05cf7c15ad0f3713864d5d9d731ad7a964ef56a"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000008500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000008500000/manifest.json",
+    "sha256": "5f9e4fe4db39dccd707465ff32bce566c257351c27fcfdf3ce966f627f5cda48"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000008500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000008500000/manifest.sha256",
+    "sha256": "fca45d6423d1452e4ec2386890850dc14dca633fa0b98b3fba4d5d851e4add14"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000008500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000008500000/models.pt",
+    "sha256": "4ecac9dc27b45f1de1c55eb847f7465e5a1bca692b539bd5bd2169c3ab310842"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000009000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000009000000/manifest.json",
+    "sha256": "4f208c194299d61a403724eede38e0863415a821bb6225528de3279df405e273"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000009000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000009000000/manifest.sha256",
+    "sha256": "d577f98967ba815386e9fb971d4ab5589c259b331ba28ff38e1354ff79b21f82"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000009000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000009000000/models.pt",
+    "sha256": "6102e2a9de53629c74da284ab9ddca7de132315e2b745840454c24a6636c456e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000009500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000009500000/manifest.json",
+    "sha256": "b6100ebcefd72af36703a1530689d45d4a894262042b16466af25ea0141ff4aa"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000009500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000009500000/manifest.sha256",
+    "sha256": "b9dff588f143775ca4850972e62504963592dc8b5807d0d5cb1923e8a91054c8"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000009500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000009500000/models.pt",
+    "sha256": "fa88e05aabdc5b2b10065b8230ff7a62ffffea3a1bab4fd839d5d0ff6e5061d1"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000010000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000010000000/manifest.json",
+    "sha256": "b430bd35c4be8475d5da3c6ddd2c333843dd6d30c5d6e444abf670865a8bb789"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000010000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000010000000/manifest.sha256",
+    "sha256": "8e2e123d17c3a711344cebe9a4f07e6b654313cc004ee5118bdf95f434645395"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000010000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000010000000/models.pt",
+    "sha256": "9a7cc081b405db2ab1ab7948b558857e3f6220bad7b1126f470015f1994bc4ed"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000010500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000010500000/manifest.json",
+    "sha256": "5a1782f6f6fca0100660d8160e749ce548be21f1e17806c2bee53becb3fdabb8"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000010500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000010500000/manifest.sha256",
+    "sha256": "7d6890ff05914db649d9bf41269422cda3e0d28e4636dd67bba43bc8e50de643"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000010500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000010500000/models.pt",
+    "sha256": "50ad7dbfdccb32a18b7f6460570e03f26d86cda5adfb12ff73615ba2d9e48a27"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000011000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000011000000/manifest.json",
+    "sha256": "a80d058fc96aa7af026753c1cf1e93fb0ff128be190c017dfd5106ec42c53bbd"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000011000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000011000000/manifest.sha256",
+    "sha256": "b408340b93047b4b404b4ca31cc59cf672a6548d593ed8d20bb8427b76271b51"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000011000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000011000000/models.pt",
+    "sha256": "e9c7e8351dbe35da12b56019b7f4fd3c88087e15287a2b5f733712cc292b3834"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000011500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000011500000/manifest.json",
+    "sha256": "c0f9b6f7b43c89707ae801ce4ca8b3fff97e4b3bb6b1a816974c5d9cbd40f758"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000011500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000011500000/manifest.sha256",
+    "sha256": "32ae39eaa95397d4dbdd4a8b37cfd121b28022d5d2d481d4ea408958eb4d4f17"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000011500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000011500000/models.pt",
+    "sha256": "0a085be15f9705d20f0ca65978a3d20644ae992fab5cf463c06d8e23a7a8782b"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000012000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000012000000/manifest.json",
+    "sha256": "5e8fbf9eaaf479a3d719ceba9ab3dffa895abecca18579b76863a556ca6f4782"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000012000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000012000000/manifest.sha256",
+    "sha256": "83244cd9baf3ad31d7187096cd2e48a19425f1bbbfdebbcf277abe0d89345ffa"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000012000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000012000000/models.pt",
+    "sha256": "12e720001e41ebffaabb1418bb0a2197d12bf004c568ad650915cfe4dae5a1aa"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000012500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000012500000/manifest.json",
+    "sha256": "6c1d3b533c813c3f16a841d00d86fb5cf53e0e447fd49de42fc7ea6abb40b3eb"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000012500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000012500000/manifest.sha256",
+    "sha256": "9692f6c97c3830f535a6017640e74515469fb530b4ca84855d5de1b8bed5cacf"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000012500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000012500000/models.pt",
+    "sha256": "1e1818c2b5e7b8f71287e166fc5d6ba5ea696fe3d555f8f3c06ee637127e6d71"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000013000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000013000000/manifest.json",
+    "sha256": "66842aa755bc022e0f6f04d2efdc8d85f0b01950aeaaeb6973b697db2cdf6194"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000013000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000013000000/manifest.sha256",
+    "sha256": "6b76dcfcea309f4889002a1b334ffea2ca3ae70bb37e029dbb12de7b97ac113b"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000013000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000013000000/models.pt",
+    "sha256": "c5ba328808e4b80096d5b4869744f229fbebca8481ab0254306c7ad9c5986687"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000013500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000013500000/manifest.json",
+    "sha256": "409d5b40167fabe1aa670b49abe6f4899de4d1fa8524b75fe854b6722a4e45ba"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000013500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000013500000/manifest.sha256",
+    "sha256": "9d3d955bd7316454e366c0f9bed23ef36b3d7ff362055fc54f266bebd1a01853"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000013500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000013500000/models.pt",
+    "sha256": "964fee4a26f0c5d2ec00cfeb28f3348a26bbccf054572d770a61c2089378e2d4"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000014000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000014000000/manifest.json",
+    "sha256": "455f82d5c2b457efe9c9eeae49e741168e50a1b7908e8d1913e0b27321acb668"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000014000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000014000000/manifest.sha256",
+    "sha256": "c2fd9a5d587385e5f63e715cc5e0a59b59fd8abf0f272aa282dbf0592e0efbfe"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000014000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000014000000/models.pt",
+    "sha256": "f70948aa390708f3041f60072f8fd2391f2aa4895058cdf8395810f384636cf0"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000014500000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000014500000/manifest.json",
+    "sha256": "aa753fb9430cde328f13a255bcfa1a2c635f8e8bb098be8f55e8e0b86a41f501"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000014500000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000014500000/manifest.sha256",
+    "sha256": "4b0ec02fcf047f225846404ca31f95ffdd422e1fb461ebe0990a4e0a4c063443"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000014500000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000014500000/models.pt",
+    "sha256": "38fd156d752147ef948f5d456495d0d10398272bff0d03e16ab5a8bfd509babf"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000015000000/manifest.json": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000015000000/manifest.json",
+    "sha256": "a80b5da511b09dcfcab6d24f3aae72c0e968e7ccdf3962b9f58bb7c396b68e52"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000015000000/manifest.sha256": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000015000000/manifest.sha256",
+    "sha256": "a4e125bff63505fda99bc4814051a4d494ab219ec6e191f04e964c7dfb0f984e"
+  },
+  "docs/verification/nfsp-optimized-rps-seed2/rps/trials/tabular/weights/000015000000/models.pt": {
+    "original": "runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular/weights/000015000000/models.pt",
+    "sha256": "94d7db97ba4bdc48b0131083268199f6faa9b4839b0c5743294017a4abd27819"
+  }
+}

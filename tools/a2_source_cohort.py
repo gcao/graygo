@@ -34,6 +34,29 @@ def _bridge_metadata(proof,*,current=True):
     return {'left':proof['reference_source_sha256'],'right':proof['candidate_source_sha256'],'families':families,'proof':proof}
 
 
+
+def check_selected_cpu_case(manifest,proof):
+    """Admit a case produced by the selected package under its own identity."""
+    from graygo.nfsp_training import NFSPMatrixConfig
+    from graygo.task_training import NFSPTaskConfig
+    require(proof.get('version')==task_source_bridge.VERSION and proof.get('status')=='qualified_cpu_features_A2_source_bridge'
+            and proof.get('source_compatibility_qualified') is True and proof.get('execution_authorized') is False,'qualified scoped CPU/features bridge required')
+    require(manifest['source_sha256']==proof['candidate_source_sha256'],'own-source case is not the selected CPU package')
+    config=manifest['config'];family=config['task'];matrix=family in ('asymmetric','rps')
+    require(family in proof['families'] and family in FAMILIES and config['learner'] in ('neural','tabular')
+            and type(config['seed']) is int and config['seed'] in (0,1,2) and config['device']=='cpu','case outside selected CPU family/learner/seed scope')
+    parsed=NFSPMatrixConfig(**config) if matrix else NFSPTaskConfig(**config)
+    require(parsed.formal_protocol() and parsed.q_reuse==(1 if matrix else 4),'selected-source case differs from primary recipe')
+    if not matrix:
+        require(parsed.storage=='features' and parsed.native_library is None,'native/rule-state task is outside selected CPU admission')
+        runtime=manifest.get('runtime',{})
+        require(runtime.get('device')=='cpu' and type(runtime.get('torch_threads')) is int and runtime['torch_threads']==1
+                and type(runtime.get('workers')) is int and runtime['workers']==1,'selected CPU task runtime differs')
+    require(manifest['dependencies']==proof['dependencies'],'selected CPU numerical dependencies differ')
+    return {'source_admission_applies':True,'original_source_identity_preserved':True,'original_case_plan_and_audit_required':True,
+            'a2_complete':False,'execution_authorized':False}
+
+
 def path_for(edges,source,target,family):
     todo=[(source,[])];seen=set()
     while todo:
@@ -78,7 +101,10 @@ def read_registry(path,*,repo,current=True):
         if current:_fresh_bridge(repo,proof)
         edges.append(edge)
     for family in FAMILIES:require(path_for(edges,base.learner_source_sha256,body['target_runtime_source_sha256'],family) is not None,'canonical task implementation has no compatible target runtime')
-    supported={edge['proof']['reference_source_sha256'] if edge['proof']['version']==task_source_bridge.VERSION else edge['proof']['candidate_source_sha256'] for edge in edges}
+    supported=set()
+    for edge in edges:
+        if edge['proof']['version']==task_source_bridge.VERSION:supported.update((edge['left'],edge['right']))
+        else:supported.add(edge['right'])
     for plan in plans.values():
         require(plan.learner_source_sha256 in supported,'source has no implemented primary-case admission checker')
         require(any(path_for(edges,plan.learner_source_sha256,base.learner_source_sha256,family) is not None for family in FAMILIES),'source plan has no admitted task path')
@@ -192,6 +218,8 @@ def assess_registry_files(registry,case_paths,*,repo,current=True,output=None):
                     proof=edge['proof']
                     if proof['version']==task_source_bridge.VERSION and source==proof['reference_source_sha256']:
                         task_source_bridge.check_case(manifest,proof,selected_candidate_source=proof['candidate_source_sha256']);applied=True
+                    elif proof['version']==task_source_bridge.VERSION and source==proof['candidate_source_sha256']:
+                        check_selected_cpu_case(manifest,proof);applied=True
                     elif proof['version']==terminal_batch_admission.VERSION and source==proof['candidate_source_sha256']:
                         terminal_batch_admission.check_matrix_case(manifest,proof);applied=True
                 require(applied,'original case execution/configuration has no verified admission')
