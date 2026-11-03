@@ -1,0 +1,18 @@
+{
+  "name": "read-only-delayed-R1-comparison-source-admission",
+  "new_accelerator_jobs": 0,
+  "new_control_allocation_seconds": "0",
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "outer_watchdog_seconds": 180,
+  "qualifier": "tools/delayed_r1_admission.py",
+  "qualifier_sha256": "5650a7bf16abf923d34d00eb6dce500f8c471f8615a12597704546558476ba2b",
+  "runner": "tools/nfsp_cpu_r1_comparison.py",
+  "runner_sha256": "5d969c669e5e6bef39ef9eb861fc483058ec34cdf2964ade898d9fc8a003a63a",
+  "scope": "Exactly two complete actual R1 pre/post source-pipeline comparisons over the four already independently audited original 65,536-record prefixes, plus fresh direct C1 prices and full default-source bridge. Preserve every original config/source/root/manifest. Change only declared comparison recipe from R4 to neural R1; all comparison partitions/exclusions remain identical. No new learning, primary R4 slot replacement, cross-source resume, table-control/GPU allocation, extension, pilot or study.",
+  "source_package": ".worktrees/frozen-cuda-c3b8b5f/src",
+  "source_verifier_checkout": ".worktrees/cpu-cache-admission-1b405bd",
+  "specification": "docs/experiments/delayed-r1-comparison-source-evidence.json",
+  "specification_sha256": "bbefc9809032d6e44899c95f3fd9cef6e619f7b48a3c558c0ffffe8ce2d591c0",
+  "version": 1
+}
