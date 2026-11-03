@@ -26,6 +26,14 @@ class MatrixStageFundingTests(unittest.TestCase):
                         {'neural_trial_hours':-1},{'trial_hours':True},{'neural_trial_hours':float('inf')}):
             with self.subTest(changes=changes),self.assertRaises(ValueError):stage_settings('rps',**changes)
 
+    def test_original_seed_propagates_without_changing_record_or_update_recipe(self):
+        profiles,trials=stage_settings('rps',seed=1,profile_seconds=65,tabular_trial_hours=1/3,neural_trial_hours=.5)
+        self.assertTrue(all(row['config']['seed']==1 for row in profiles))
+        self.assertTrue(all(row['seed']==1 and row['records']==15000000 and row['q_reuse']==1 for row in trials))
+        self.assertEqual([row['time_cap_seconds'] for row in trials],[1200.,1800.])
+        for seed in (-1,True):
+            with self.assertRaises(ValueError):stage_settings('rps',seed=seed)
+
     def test_complete_pre_post_including_setup_uses_original_twofold_gate(self):
         _,trials=stage_settings('rps',tabular_trial_hours=5/6,neural_trial_hours=1.)
         rows=review_funding(costs(8.),trials)

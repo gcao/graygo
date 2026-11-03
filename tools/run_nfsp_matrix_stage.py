@@ -19,17 +19,17 @@ from graygo.manifest import source_digest,write_report
 from graygo.nfsp_training import NFSPMatrixConfig,NFSPMatrixTrainer
 
 
-def stage_settings(task,*,trial_hours=1.5,tabular_trial_hours=None,neural_trial_hours=None,profile_seconds=1800):
+def stage_settings(task,*,seed=0,trial_hours=1.5,tabular_trial_hours=None,neural_trial_hours=None,profile_seconds=1800):
     ceilings={'tabular':trial_hours if tabular_trial_hours is None else tabular_trial_hours,
               'neural':trial_hours if neural_trial_hours is None else neural_trial_hours}
     for value in (profile_seconds,*ceilings.values()):
         if type(value) not in (int,float) or not math.isfinite(value) or value<=0:
             raise ValueError('explicit finite positive matrix profile/trial limits required')
-    profiles=[{'phase':phase,'config':asdict(NFSPMatrixConfig(task=task,learner=kind,records=100000,eval_every=50000,
+    profiles=[{'phase':phase,'config':asdict(NFSPMatrixConfig(task=task,learner=kind,seed=seed,records=100000,eval_every=50000,
                   reservoir_open=5000000 if phase=='pre' else 0,handoff_end=7000000 if phase=='pre' else 1000,
                   time_cap_seconds=profile_seconds))}
               for phase in ('pre','post') for kind in ('tabular','neural')]
-    trials=[asdict(NFSPMatrixConfig(task=task,learner=kind,time_cap_seconds=ceilings[kind]*3600)) for kind in ('tabular','neural')]
+    trials=[asdict(NFSPMatrixConfig(task=task,learner=kind,seed=seed,time_cap_seconds=ceilings[kind]*3600)) for kind in ('tabular','neural')]
     return profiles,trials
 
 
@@ -69,14 +69,15 @@ def measured_setup(previous,current,*,resuming):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--run-dir',required=True);p.add_argument('--task',choices=('asymmetric','rps'),required=True)
     p.add_argument('--expected-source-sha',required=True);p.add_argument('--trial-hours',type=float,default=1.5);p.add_argument('--resume',action='store_true')
+    p.add_argument('--seed',type=int,default=0)
     p.add_argument('--tabular-trial-hours',type=float);p.add_argument('--neural-trial-hours',type=float)
     p.add_argument('--profile-seconds',type=float,default=1800)
     args=p.parse_args();root=Path(args.run_dir).resolve();root.mkdir(parents=True,exist_ok=True)
     source=Path(graygo.__file__).resolve().parents[2];os.chdir(source)
     if source_digest()!=args.expected_source_sha:raise ValueError('wrong pinned matrix source')
-    profiles,trials=stage_settings(args.task,trial_hours=args.trial_hours,tabular_trial_hours=args.tabular_trial_hours,
+    profiles,trials=stage_settings(args.task,seed=args.seed,trial_hours=args.trial_hours,tabular_trial_hours=args.tabular_trial_hours,
                                   neural_trial_hours=args.neural_trial_hours,profile_seconds=args.profile_seconds)
-    plan={'format_version':1,'scope':args.task+' seed-0 first screen; other families and seeds remain required',
+    plan={'format_version':1,'scope':args.task+f' original seed {args.seed}; other required families and seeds remain explicit',
           'source_sha256':source_digest(),'source_commit':subprocess.run(['git','rev-parse','HEAD'],capture_output=True,text=True,check=True).stdout.strip(),
           'driver_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'profiles':profiles,'conditional_trials':trials,
           'profile_gate':'both pre/post complete; Q and fresh-record target work; supervised work and learned-average acting post opening; trial cap >= twice phase-weighted 15M forecast including measured setup',
