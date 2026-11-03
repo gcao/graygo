@@ -1,0 +1,16 @@
+{
+  "name": "read-only-all-original-branch-archive-native-response-diagnostic",
+  "new_accelerator_jobs": 0,
+  "new_control_allocation_seconds": "0",
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "outer_watchdog_seconds": 180,
+  "producer": "tools/branch_native_response.py",
+  "producer_sha256": "cb6bb7c74afd67ba4245674832ff0384c469a9bb1f318cf49ef9dc724b429998",
+  "scope": "Exact read-only public archive diagnosis for all three original completed branching seeds and all thirty reads, reproducing unchanged legacy metrics and independently crosschecking hidden-mixture response dynamic programming against complete pure-strategy enumeration. No grade/data edits, selection or model initialization for training.",
+  "source_package": ".worktrees/frozen-cuda-c3b8b5f/src",
+  "source_verifier_checkout": ".worktrees/cpu-cache-admission-1b405bd",
+  "specification": "docs/experiments/branch-native-response-diagnostic-spec.json",
+  "specification_sha256": "f360871a333daa97f0406cf2986ed2224161eee1d3f2cf9c807a6bd3fdc4067c",
+  "version": 1
+}
