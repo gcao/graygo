@@ -1,0 +1,56 @@
+{
+  "a2_evidence_reusable_without_other_prerequisites": false,
+  "candidate_package_path": ".worktrees/frozen-cuda-c3b8b5f/src",
+  "candidate_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "complete_enumeration_required": true,
+  "concurrent_domain_processes": 1,
+  "device": "cpu",
+  "domain_maximum_joint_edges_per_case": 1000000,
+  "domain_maximum_nodes_per_case": 100000,
+  "domain_producer": "tools/task_domain_boundary.py",
+  "domain_producer_sha256": "a941391d4436fd6ca58a222f3b8d7f928b0cb37cc8b16f4f7be544a905183871",
+  "execution_authorized": false,
+  "expected_specialized_collection_ast_sha256": "bbd60ad98c8e70e2f9038d229183744488bdfba0ded7d96045ab5997fcdca8dd",
+  "learners": [
+    "neural",
+    "tabular"
+  ],
+  "name": "complete-bounded-A2-domains-and-default-collector-source-bridge",
+  "new_accelerator_job": false,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "outer_watchdog_seconds": 1320,
+  "per_package_cases": 12,
+  "per_package_domain_ceiling_seconds": 600,
+  "possible_qualification_scope": "A2 CPU/features task source bridge only, preserving original source identities. Excludes unrestricted boards, graph execution, CUDA tasks, native rule-state storage, changed configurations, new A2 numerical passes, cohort/resource/entry authority and any trainer resume under another source.",
+  "process_time_ceiling_seconds": 1290,
+  "qualification_requirements": [
+    "Pinned old/current source inventory; only the named resolver/tactical/default-collector/new-executor changes occur in the static task dependency closure.",
+    "Live and restored task constructors use the default None pool; checked specialization reconstructs the whole original collector AST, under its valid snapshot schema.",
+    "Both actual original trained delayed-R4 archives pass the recorded exact actor/private-RNG/restore comparison.",
+    "All four recorded matched complete diagnostic update pipelines pass exact model/optimizer/actor/RNG/buffer/metric/episode comparison with only explicit timing/source/environment fields excluded.",
+    "All twelve bounded family/learner/original-seed configurations per source enumerate every reachable public state and joint legal edge; complete game, observations, adapter/codebooks and seeded common-model forwards match exactly.",
+    "Runtime/device/precision/configuration identities agree within each source comparison, and no original learning artifacts are rewritten."
+  ],
+  "reference_package_path": ".worktrees/nfsp-eligibility-ca45a53/src",
+  "reference_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "resource_category": "verification",
+  "scope": "Two bounded read-only source-domain probes plus fresh source-only default specialization and finite equality checking. Qualifies no learning, family allocation or pilot by itself.",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "source_inventory_helper_sha256": "220c9ecfbb606a85edc0bb31bf66b3853c1a056a382637de6c0e6348b9c8a433",
+  "specialization_producer": "tools/task_default_specialization.py",
+  "specialization_producer_sha256": "4e7ab1991557a4ddaa6ec25f8e7dc980c881f581de204cf48f4677825fedba42",
+  "storage": "features",
+  "tasks": [
+    "gray-pure",
+    "gray-mixed"
+  ],
+  "threads": 1,
+  "transcript_helper_sha256": "51120148aab3c7ffc36c18932e7c14ee11cc7550af77a9c11123016253e2c563",
+  "truncation_or_numeric_tolerance_allowed": false,
+  "version": 1
+}
