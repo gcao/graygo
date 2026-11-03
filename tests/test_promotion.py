@@ -79,8 +79,12 @@ class PromotionTests(unittest.TestCase):
             self.assertEqual(c.shape,(4,2));self.assertNotEqual(subject,incumbent)
             pilot=PilotPopulation.from_evidence(p,evidence);self.assertTrue(pilot.usable_for_promotion)
             with self.assertRaises(ValueError):aligned_evidence(p,evidence)
-            bad=dict(evidence);bad['0']=deepcopy(bad['0']);bad['0'].rows[0]['utility']=1.
-            with self.assertRaises(ValueError):aligned_evidence(p,bad,for_calibration=True)
+            original=evidence['0'].rows[0]['utility']
+            for changed in (-1.,0.,1.):
+                if changed==original:continue
+                bad=dict(evidence);bad['0']=deepcopy(bad['0']);bad['0'].rows[0]['utility']=changed
+                self.assertNotEqual(bad['0'].rows[0]['utility'],original)
+                with self.subTest(changed=changed),self.assertRaises(ValueError):aligned_evidence(p,bad,for_calibration=True)
 
     def test_numeric_reports_do_not_promote_without_calibration_and_readiness(self):
         with tempfile.TemporaryDirectory() as root:
