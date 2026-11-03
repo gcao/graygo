@@ -1,0 +1,48 @@
+{
+  "bridge_files_sha256": {
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/qualification/bridge.json": "e7176fe2128fc78fcf2ecc49420c35dabbadda37fba31505ce9124f1e0f3b78a",
+    "runs/a2-source-admission-584213f/admission.json": "64a473abee05c531c82f9160a5f8d769c696ecb94c9e47f7a001cb5ebebecc92"
+  },
+  "bridges": [
+    "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/qualification/bridge.json",
+    "runs/a2-source-admission-584213f/admission.json"
+  ],
+  "canonical_plan": "runs/nfsp-eligibility-R4-neural-audit/plan.json",
+  "canonical_plan_sha256": "6da00f5f19ca5860ed256893e6db78fce98b02d059fe777872ac1a13db5a4188",
+  "collector": ".worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+  "collector_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "cpu_price_receipt": "docs/verification/nfsp-delayed-cpu-prices/qualification/prices.json",
+  "cpu_price_receipt_sha256": "93f3c87dfd9f52f0bc191f2ce0fda5cbbbe1efe77637415a222f0c9f75816ecb",
+  "execution_authorized": false,
+  "existing_optimized_plan": "runs/a2-source-admission-584213f/optimized-plan.json",
+  "existing_optimized_plan_sha256": "91cb891ea2a6d092b2d1216872e536c5b6f3dba4abd01d9af01858b4db094d1a",
+  "name": "selected-cpu-A2-source-plan-registration",
+  "new_accelerator_jobs": 0,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "original_case_files_sha256": {
+    "runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-neural-0.json": "638fd853d53b83d1b6b30c8d480ce1558cdc4f801da5d65bbf893aaebe5ebdc3",
+    "runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-tabular-0.json": "eee6183934372f1620afeed5bd5c2895212ad1f2127e57fbe7cad0835394edc1",
+    "runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-neural-0.json": "eea18cc47589bfdcbcba006d4aef04c83c1740fdfd71fd48c4701f3626e76fc4",
+    "runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-tabular-0.json": "981e4ee9b4b1ce5cb293c80d60d2beda70337a1df5f7e19ad1ebf4dbf001b45a",
+    "runs/nfsp-eligibility-R4-neural-audit/case.json": "a441936e6e369fa3ddc694c09b6b045f227de2758c31fd5939e07c92a4c37190",
+    "runs/nfsp-eligibility-R4-tabular-audit/case.json": "b64366480d241db6b3a3c2b63c40a2867b0b40844cb0753e7075f559b8cc7def",
+    "runs/nfsp-optimized-asymmetric-seed2-audit-1a84068/case-asymmetric-neural-2.json": "133f308d939db1f86808a0f4733b8d72b1c2cf02702c06e0eddf9992b6ced863",
+    "runs/nfsp-optimized-asymmetric-seed2-audit-1a84068/case-asymmetric-tabular-2.json": "8e15bc11e1c3c496db80e2b76c6965aef2c8ee5e70e8e6cf0a13474b381b2e99",
+    "runs/nfsp-optimized-matrix-audit-e818fab/case-asymmetric-neural-1.json": "33c5b9a4dcefd1d3e4d47159b2524a77e3f3ebefb2f83f633ce99767c4025c45",
+    "runs/nfsp-optimized-matrix-audit-e818fab/case-asymmetric-tabular-1.json": "788a463f8e2c656a6101b6be6bb1d031c29cc90c0f8cb4fe303c13b74080caa7",
+    "runs/nfsp-optimized-matrix-audit-e818fab/case-rps-neural-1.json": "12286db742b5f168bbcad8d67bf0bc99f669bb20744af98443ed4c5826e08558",
+    "runs/nfsp-optimized-matrix-audit-e818fab/case-rps-tabular-1.json": "9a91bec4550a2a020ca9ef9bc2fab5d934b15bf29410631ec334ebd4003f9100",
+    "runs/nfsp-optimized-rps-seed2-audit-1a98f8e/case-rps-tabular-2.json": "0d6c309ca065265ad2974008af7107d88d802369e37765d6aab973460ea053a3"
+  },
+  "original_source_registry": "runs/a2-source-admission-584213f/registry.json",
+  "original_source_registry_sha256": "46bf447c2212c027327139f33a318bd5e2bb3a6fc9a2a3d52257af634f8b76a5",
+  "outer_watchdog_seconds": 180,
+  "reader": "tools/a2_source_cohort.py",
+  "reader_sha256": "7cbd1b52915883cbb2a8eb0b37633fc986fe71c06e020249e6c46dae52c2120a",
+  "root": "runs/a2-selected-cpu-registration-v1",
+  "scope": "Register the directly priced selected CPU package as an additional own-source A2 plan under the same canonical original protocol. Preserve all existing original plans, case/source/root hashes, seeds, clocks, gaps and extension rules. Freshly recheck admitted source proofs and reproduce all current existing-case numerics before any new delayed seed starts. No source rewriting, new full-study scope or production authorization.",
+  "source_package_path": ".worktrees/frozen-cuda-c3b8b5f/src",
+  "target_runtime_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "version": 1
+}
