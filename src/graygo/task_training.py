@@ -26,7 +26,7 @@ from .nfsp_collection import FrozenPolicies,EpisodeActor,JointEpisode
 from .schedules import LearnerSchedule
 from .storage import CheckpointStore,DEFAULT_RESERVE
 from .task_adapter import TaskAdapter,ADAPTER_VERSION
-from .task_evaluation import evaluate_task
+from .task_evaluation import evaluate_task,EVALUATION_VERSION
 from .tasks import BalancedCoverage
 
 HEADER_DTYPE=np.dtype([
@@ -144,6 +144,7 @@ class NFSPTaskTrainer:
                     'encoding_version':self.adapter.spec.version,'rules':None if not self.adapter.board else self.adapter.roots[0].to_dict()['rules'],
                     'rule_version':None if not self.adapter.board else self.adapter.roots[0].to_dict()['rule_version'],'baseline_version':None,
                     'shared_parameters_across_roles':True,'counter_unit':'two own-side fresh records per simultaneous round; supplemental records included',
+                    'evaluation_protocol_version':EVALUATION_VERSION,
                     'eligibility_version':2,'q_eligibility':'exclude only the passive pre-forcing root; keep own forced action and normal suffixes',
                     'record_clocks':'aggregate fresh records drive budget/epsilon/opening/ramp; eligible Q records drive Q reuse and target refresh',
                     'backend_settings':asdict(config.backend_config()),'schedule':asdict(self.schedule),
@@ -247,7 +248,7 @@ class NFSPTaskTrainer:
     def evaluate(self):
         start=time.monotonic()
         roots=evaluate_task(self.adapter,self.backend,self.schedule.epsilon(self.records),batch_size=self.config.eval_batch)
-        result={'records':self.records,'roots':roots,'average_ready':self.backend.average_ready,'counters':asdict(self.backend.counters),
+        result={'evaluation_protocol_version':EVALUATION_VERSION,'records':self.records,'roots':roots,'average_ready':self.backend.average_ready,'counters':asdict(self.backend.counters),
             'coverage':self.coverage_summary(),'epsilon':self.schedule.epsilon(self.records),'handoff_probability':self.schedule.ramp(self.records),'elapsed_seconds':self.elapsed_now()}
         self.evaluations.append(result);self.timings['evaluation']+=time.monotonic()-start
         return result
@@ -348,7 +349,12 @@ class NFSPTaskTrainer:
         avg=max((max(r['average_gaps']) for e in final for r in e['roots']),default=None)
         qgap=max((max(r['greedy_q_gaps']) for e in final for r in e['roots']),default=None)
         error=max((r['max_early_error'] for e in final for r in e['roots']),default=None)
-        credit=bool(enough and qgap<=.05 and error<=.1)
+        # Greedy Q is a best response to its native training opponent, not a
+        # deployed Nash policy on this genuinely mixed branching game.
+        native_gap=(max((max(row['gap'] for row in r['native_response']) for e in final for r in e['roots']),default=None)
+                    if self.config.task=='branching' else None)
+        credit_gap=native_gap if self.config.task=='branching' else qgap
+        credit=bool(enough and credit_gap<=.05 and error<=.1)
         if self.adapter.delayed:band='eligible_for_limited_pilot' if ready and avg<=.1 and credit else ('averaging_lag' if ready and avg<=.25 and credit else 'not_ready')
         else:band='short_game_pass' if ready and avg<=.05 else 'not_ready'
         passed=ready and (band=='eligible_for_limited_pilot' if self.adapter.delayed else band=='short_game_pass')
@@ -359,7 +365,10 @@ class NFSPTaskTrainer:
             'best_response_visits':self.best_response_visits,'acting_policy_counts':self.acting_counts,'termination_counts':self.termination_counts,'outcomes':self.outcomes,
             'counters':asdict(self.backend.counters),'reservoir_seen':self.reservoir.seen,'reservoir_size':self.reservoir.size,
             'coverage':self.coverage_summary(),'evaluations':self.evaluations,'final_five_max_average_gap':avg,'final_five_max_greedy_gap':qgap,
-            'final_five_max_early_error':error,'q_credit_passed':credit,'average_readiness':band,'formal_protocol':self.config.formal_protocol(),
+            'final_five_max_early_error':error,'q_credit_passed':credit,
+            'evaluation_protocol_version':EVALUATION_VERSION,
+            'q_credit_metric':'native_best_response_gap' if self.config.task=='branching' else 'greedy_equilibrium_gap',
+            'final_five_max_native_response_gap':native_gap,'average_readiness':band,'formal_protocol':self.config.formal_protocol(),
             'formal_case_passed':bool(passed and self.config.formal_protocol()),'a2_complete':False,'elapsed_seconds':self.elapsed_now(),
             'timings':self.timings,'loss':self.loss,'source_sha256':self.manifest['source_sha256']}
 

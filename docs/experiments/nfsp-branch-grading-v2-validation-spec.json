@@ -1,0 +1,18 @@
+{
+  "a2_complete": false,
+  "evaluation_protocol_version": "graygo/nfsp-task-evaluation/2",
+  "independent_diagnostic": "runs/branch-native-response-5d82059/diagnostic.json",
+  "independent_diagnostic_sha256": "68c9a820d038abda4b6b4d7cc9425cb31dfb964c6ec690e1101de33e32f36146",
+  "new_accelerator_jobs": 0,
+  "new_learner_source_sha256": "43c5bb772f52286cfa2e87cc81b97175a5130842d91a547373a37f4cc8b10e86",
+  "new_protocol_training_selected": false,
+  "new_training_records": 0,
+  "original_diagnostic_specification": "docs/experiments/branch-native-response-diagnostic-spec.json",
+  "original_diagnostic_specification_sha256": "f360871a333daa97f0406cf2986ed2224161eee1d3f2cf9c807a6bd3fdc4067c",
+  "protocol": "docs/experiments/nfsp-branch-grading-v2.json",
+  "protocol_sha256": "5d14f38ef893262fd9cb0703bc474e9a2cbb6975a1f7e829d882428f5031c4e6",
+  "source_admission_qualified": false,
+  "time_cap_seconds": 120,
+  "validator_sha256": "d5a8684a8d362fc420b770e8cc09ccfbaa31f312e92efc57ceab3e92cbcf3218",
+  "version": "graygo/branch-grading-v2-production-validation/1"
+}

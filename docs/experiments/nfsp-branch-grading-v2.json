@@ -1,0 +1,29 @@
+{
+  "a2_complete": false,
+  "criteria": {
+    "all_final_five_scheduled_evaluations": true,
+    "all_three_original_seeds": true,
+    "evaluation_interval": 500000,
+    "max_deployed_average_equilibrium_gap": 0.05,
+    "max_greedy_native_best_response_gap": 0.05,
+    "max_supported_native_value_error": 0.1,
+    "records_per_seed": 15000000
+  },
+  "definition_preregistered_in": "docs/experiments/branch-native-response-diagnostic-spec.json",
+  "definition_preregistered_sha256": "f360871a333daa97f0406cf2986ed2224161eee1d3f2cf9c807a6bd3fdc4067c",
+  "evaluation_protocol_version": "graygo/nfsp-task-evaluation/2",
+  "execution_authorized": false,
+  "legacy_grade_infeasibility_evidence": "docs/verification/uniform-costs-and-branch-gate",
+  "legacy_original_outcomes": "docs/verification/nfsp-branching-neural-seeds012-final",
+  "legacy_plan_migration": "None. Original case/plan/source/grade evidence remains immutable. V1 collector/plans cannot serve as V2 source admission or exit evidence.",
+  "native_opponent": "Current independently drawn episode-level epsilon-Q / average / uniform-fallback component with the exact ramp/readiness weights. Keep the component hidden; condition only on public moves. Optimize after mixing components.",
+  "new_protocol_training_selected": false,
+  "other_tasks": "Delayed-family greedy equilibrium and supported-value grades and bounded-Gray-Go deployed average grades are unchanged.",
+  "production_source_sha256": "43c5bb772f52286cfa2e87cc81b97175a5130842d91a547373a37f4cc8b10e86",
+  "purpose": "Correct an infeasible mixed-game greedy-equilibrium criterion while retaining deployed equilibrium strength and native Q-value checks.",
+  "retained_diagnostic": "All legacy greedy_q_gaps remain in evaluations and final_five_max_greedy_gap remains in results. These are equilibrium diagnostics, not branching Q-credit gates.",
+  "source_admission_qualified": false,
+  "unchanged_game": "Both original role-swapped two-round branching roots, original matrices/payoffs, public observations and complete-strategy opponent semantics.",
+  "unchanged_learning": "One-step target, reuse, optimizer, replay/reservoir eligibility, counters, epsilon clock, opening/ramp and fixed original seeds remain unchanged.",
+  "version": "graygo/nfsp-branching-grading/2"
+}

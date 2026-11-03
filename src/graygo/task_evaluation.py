@@ -5,6 +5,9 @@ from .engine import BLACK,WHITE
 from .models import epsilon_greedy_distribution,greedy_distribution,masked_log_probs
 from .public_game import markov_gaps
 from .solving import SolveBudgetExceeded
+from .native_response import branching_response
+
+EVALUATION_VERSION = 'graygo/nfsp-task-evaluation/2'
 
 
 @torch.no_grad()
@@ -111,10 +114,13 @@ def evaluate_task(adapter,backend,epsilon,*,batch_size=128):
                     root_actions.append({'player':role,'action':action,'expected':float(truth),'predicted':float(q[i,role-1,action]),'error':float(abs(float(truth)-q[i,role-1,action]))})
             avg_gaps=list(markov_gaps(game,root,policy(average,BLACK),policy(average,WHITE),value,max_nodes=adapter.config.max_nodes))
             greedy_gaps=list(markov_gaps(game,root,policy(greedy,BLACK),policy(greedy,WHITE),value,max_nodes=adapter.config.max_nodes))
+        native_response = ([branching_response(adapter,root,role,components,weights,greedy) for role in (BLACK,WHITE)]
+                           if adapter.config.task=='branching' else None)
         results.append({'root_index':root_index,'root_tag':adapter.root_tags[root_index],'value':value,
               'native_opponent_weights':weights.tolist(),
               'average_gaps':avg_gaps,'greedy_q_gaps':greedy_gaps,'root_action_values':root_actions,
               'early_values':early,'late_values':late,'max_early_error':max(r['error'] for r in early+root_actions),
               'max_late_error':max((r['error'] for r in late),default=None),
-              'root_average_policies':average[i].tolist(),'root_greedy_policies':greedy[i].tolist()})
+              'root_average_policies':average[i].tolist(),'root_greedy_policies':greedy[i].tolist(),
+              **({'native_response':native_response} if native_response is not None else {})})
     return results
