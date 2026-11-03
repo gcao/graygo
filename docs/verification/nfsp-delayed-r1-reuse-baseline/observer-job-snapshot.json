@@ -1,0 +1,99 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "3becbf6f53cc561d866b6cc178ca46f3c5a122dfbd25139c6d0ba78bd63cef36",
+  "cases": {},
+  "collector_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "commands": [
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/delayed-r1-audit-a9408ed/tools/nfsp_reuse_comparison.py",
+        "--repo",
+        "/home/gcao/proj/graygo",
+        "--allocation",
+        "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-r1-neural-seeds12-allocation.json",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-delayed-r1-neural-seeds12-audit-a9408ed/comparison-00-current.json"
+      ],
+      "label": "comparison-00-current",
+      "measured_process_seconds": 19.047369292005897,
+      "original_pid": 2810004,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/delayed-r1-audit-a9408ed/tools/nfsp_reuse_comparison.py",
+        "--repo",
+        "/home/gcao/proj/graygo",
+        "--allocation",
+        "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-r1-neural-seeds12-allocation.json",
+        "--archived",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-delayed-r1-neural-seeds12-audit-a9408ed/comparison-00-archived.json"
+      ],
+      "label": "comparison-00-archived",
+      "measured_process_seconds": 3.1755832199705765,
+      "original_pid": 2810131,
+      "returncode": 0
+    }
+  ],
+  "comparison_reader_sha256": "a773e142554abd7c6f79ca2157ed52edf96f51bcf9d49c9140f850b9c131de2f",
+  "delayed_auditor_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "driver_sha256": "6238b56cdfa6d9be7b0dfd7067e4509da7683e16511e4fe6db14dda92650a79a",
+  "driver_wall_seconds": 132.39364602300338,
+  "execution_authorized": false,
+  "latest_comparison": {
+    "archived": "/home/gcao/proj/graygo/runs/nfsp-delayed-r1-neural-seeds12-audit-a9408ed/comparison-00-archived.json",
+    "archived_sha256": "735ec36213b71d1ea7dd7c714f74480b298ace57b16c3e60f4d8eb168beee815",
+    "current": "/home/gcao/proj/graygo/runs/nfsp-delayed-r1-neural-seeds12-audit-a9408ed/comparison-00-current.json",
+    "current_archived_numerics_match": true,
+    "current_sha256": "8c981286f6fbbedc249808a3846d174de2501d7eb54d72c2d24174a2a420b3d6",
+    "groups": {
+      "R1": {
+        "all_original_seeds_q_credit_passed": false,
+        "average_bands": {
+          "R1/0": "at_most_0.10"
+        },
+        "complete": false,
+        "credit_misses": [
+          "R1/0"
+        ],
+        "credit_status": "incomplete",
+        "missing_cases": [
+          "R1/1",
+          "R1/2"
+        ]
+      },
+      "R4": {
+        "all_original_seeds_q_credit_passed": false,
+        "average_bands": {
+          "R4/0": "at_most_0.10",
+          "R4/1": "at_most_0.10",
+          "R4/2": "at_most_0.10"
+        },
+        "complete": true,
+        "credit_misses": [
+          "R4/2"
+        ],
+        "credit_status": "miss",
+        "missing_cases": []
+      }
+    },
+    "primary_A2_slots_filled": 0
+  },
+  "new_accelerator_jobs": 0,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "no_training_launch_or_resume": true,
+  "original_driver_pid": 2809980,
+  "original_worker_handles_live": {
+    "1": true,
+    "2": true
+  },
+  "primary_A2_slots_filled": 0,
+  "status": "waiting_for_two_fixed_original_R1_comparisons",
+  "terminal_missing_cases": [],
+  "version": 1,
+  "wait_seconds": 110.00305433594622
+}
