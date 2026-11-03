@@ -1,0 +1,31 @@
+{
+  "allocation_sha256": "2e5016f8c90a10a13ba9fddb1c360b8e60e666f3c28b7614a5992b6a0407a7f2",
+  "builder_sha256": "09ea494513be52f42305f58648d5f71f1f19ff3a3a85e99739e7293df05d8b3c",
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "-m",
+    "tools.nfsp_control_budget",
+    "--repo",
+    "/home/gcao/proj/graygo",
+    "--evidence",
+    "/home/gcao/proj/graygo/docs/experiments/nfsp-control-price-evidence.json",
+    "--output",
+    "/home/gcao/proj/graygo/docs/experiments/nfsp-control-completion-scope-proposal.json"
+  ],
+  "driver_sha256": "e9e92b59a5a36e1c0bb1ef32ad337e135f6c202684c399ab436cafa4b5de9a1e",
+  "execution_authorized": false,
+  "measured_builder_process_seconds": 2.0271038719220087,
+  "measured_driver_wall_seconds": 2.0285247929859906,
+  "new_accelerator_jobs": 0,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "original_builder_pid": 2773042,
+  "original_driver_pid": 2773041,
+  "owner_approved": false,
+  "projected_control_commitment_seconds": "255536.08177829580345144",
+  "proposal_sha256": "3d19ef9034ac4c6bacf56abd3f10fa96178940c1434c6644e8c9e9979f54fc28",
+  "proposed_control_ceiling_hours": "72",
+  "returncode": 0,
+  "status": "built_unselected_original_control_scope",
+  "version": 1
+}

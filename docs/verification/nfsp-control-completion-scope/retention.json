@@ -1,0 +1,22 @@
+{
+  "docs/verification/nfsp-control-completion-scope/builder.stderr": {
+    "original": "runs/nfsp-control-scope-proposal-d868386/builder.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-control-completion-scope/builder.stdout": {
+    "original": "runs/nfsp-control-scope-proposal-d868386/builder.stdout",
+    "sha256": "19a58fba43c14ed24339bdea4231cf9e1a81abf5c080e68a56135c0f4ac371b5"
+  },
+  "docs/verification/nfsp-control-completion-scope/driver.log": {
+    "original": "runs/nfsp-control-scope-proposal-d868386/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-control-completion-scope/driver.py": {
+    "original": "runs/nfsp-control-scope-proposal-d868386/driver.py",
+    "sha256": "e9e92b59a5a36e1c0bb1ef32ad337e135f6c202684c399ab436cafa4b5de9a1e"
+  },
+  "docs/verification/nfsp-control-completion-scope/job.json": {
+    "original": "runs/nfsp-control-scope-proposal-d868386/job.json",
+    "sha256": "9d8ceac7569e0d8446ac31206daf7c24707e2c45a09d7c12a8823375a8099c78"
+  }
+}
