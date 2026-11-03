@@ -1,0 +1,25 @@
+{
+  "body": {
+    "champion": {
+      "checkpoint": "/home/gcao/proj/graygo-arena/.runtime/models/graygo-old-champion-0081.pt",
+      "checkpoint_sha256": "d16daea645730e3b3a0bfd34d586d5242848aaa962584d7faadee512faa3ff96",
+      "kind": "legacy",
+      "label": "old-champion",
+      "policy_sha256": "c9f3b2306dc8a65d40ba36db9af116ca48e06745617e83e73257b96619d07183",
+      "repo": "/home/gcao/proj/graygo-old",
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "weights_sha256": "688c8898b988bd5133a14e0f374329b13039ac08b7dfcbe43f79dbc5ab8c6b1b"
+    },
+    "completed_round": 1,
+    "experimental": true,
+    "formal_training_or_promotion_grant": false,
+    "loop_contract_sha256": "e037e64f2c8c0052c7b2b841b06222d15c9343b8009a8ae3cbc0d508d298be17",
+    "loop_state_sha256": "9b233097a164b41447fb385b6270f918fb8c2fdb08fcf6dca446948bd63911c1",
+    "version": "graygo/champion-release/1"
+  },
+  "sha256": "6dd7d68c40e2d23985c0c4982cde04e05191cf43a42aaf3b7ea2e4e9771115c9"
+}

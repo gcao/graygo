@@ -1,0 +1,18 @@
+{
+  "actual_bootstrap_records": 2,
+  "all_draws_cannot_promote": true,
+  "bootstrap_controller_sha256": "35d168a9c83f2910678d61bc06f4c5916efc9873838125c6b0a571e9f3514d96",
+  "bootstrap_promoted_new_model": false,
+  "confidence_budget_spans_fixed_rounds": true,
+  "cuda_skips": 1,
+  "current_champion": "graygo-old/0081",
+  "final_controller_sha256": "25607ced4898c8b776d7564994493d577d5be5f5b8ba46ae5ccebdbf9d42d339",
+  "formal_promotion_requires_existing_project_authority": true,
+  "independent_seat_gate": true,
+  "new_long_training_run_started": false,
+  "published_manifest": "/home/gcao/proj/graygo-arena/.runtime/models/champion.json",
+  "regression_returncode": 0,
+  "regression_tests": 37,
+  "rejection_preserves_full_learner": true,
+  "version": 1
+}

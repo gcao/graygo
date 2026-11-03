@@ -1,0 +1,99 @@
+{
+  "body": {
+    "bootstrap": {
+      "checkpoint": "/home/gcao/proj/graygo-arena/.runtime/models/graygo-old-champion-0081.pt",
+      "checkpoint_sha256": "d16daea645730e3b3a0bfd34d586d5242848aaa962584d7faadee512faa3ff96",
+      "kind": "legacy",
+      "label": "old-champion",
+      "policy_sha256": "c9f3b2306dc8a65d40ba36db9af116ca48e06745617e83e73257b96619d07183",
+      "repo": "/home/gcao/proj/graygo-old",
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "weights_sha256": "688c8898b988bd5133a14e0f374329b13039ac08b7dfcbe43f79dbc5ab8c6b1b"
+    },
+    "champion": {
+      "checkpoint": "/home/gcao/proj/graygo-arena/.runtime/models/graygo-old-champion-0081.pt",
+      "checkpoint_sha256": "d16daea645730e3b3a0bfd34d586d5242848aaa962584d7faadee512faa3ff96",
+      "kind": "legacy",
+      "label": "old-champion",
+      "policy_sha256": "c9f3b2306dc8a65d40ba36db9af116ca48e06745617e83e73257b96619d07183",
+      "repo": "/home/gcao/proj/graygo-old",
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "weights_sha256": "688c8898b988bd5133a14e0f374329b13039ac08b7dfcbe43f79dbc5ab8c6b1b"
+    },
+    "completed_records": 2,
+    "contract": {
+      "execution_contract_sha256": "d8c1838cb44b8fcd214a8cde0d38d1018f31c68c1f91f883f139f14499b9aecc",
+      "gate_sha256": "e7ad423452420d6b166367a0f6b49bc398c3c3949512279d464e4e7bd357e89b",
+      "implementation_sha256": "35d168a9c83f2910678d61bc06f4c5916efc9873838125c6b0a571e9f3514d96",
+      "loop_plan": {
+        "gate_seconds": 60,
+        "history_size": 3,
+        "round_ends": [
+          2
+        ]
+      },
+      "publication": "/home/gcao/proj/graygo-arena/.runtime/models/champion.json",
+      "scope": "diagnostic",
+      "source_sha256": "1cc1500ea8c97fc7c927d9a0ddfce832f029e7969519d33868762be2b7e660c6",
+      "training_run_sha256": "72cbcbfc5302215d7331304b991a1db06f936eb118704928e304989aa190fa9e",
+      "version": "graygo/persistent-champion-loop/1"
+    },
+    "history": [],
+    "pending": null,
+    "round": 1,
+    "rounds": [
+      {
+        "buffers_flushed": false,
+        "candidate": {
+          "archive": "/home/gcao/proj/graygo/runs/champion-loop-bootstrap-v1/weights/000000000002",
+          "bundle": "/home/gcao/proj/graygo/runs/champion-loop-bootstrap-v1/league/releases/aa7888817c526e4dd04a00fdac3a9e84969948634c7aec45ce13fc87bd6a960b/policy.pt",
+          "bundle_sha256": "1fa812e8caf7e2c1433f040a4cdcf9b542be208049a76031a4fcbf9ab11b82cd",
+          "kind": "archive",
+          "label": "candidate-2",
+          "policy_sha256": "aa7888817c526e4dd04a00fdac3a9e84969948634c7aec45ce13fc87bd6a960b",
+          "records": 2,
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 200,
+            "size": 9
+          },
+          "weights_sha256": "e2983ef82d8f0db559d8dba52510843d7fec0393a6f745efa8dea6be7d423511"
+        },
+        "decision": {
+          "experimental_promotion_permitted": false,
+          "numeric_pass": false,
+          "promotion_permitted": false,
+          "reason": "average_not_ready",
+          "status": "complete"
+        },
+        "incumbent": {
+          "checkpoint": "/home/gcao/proj/graygo-arena/.runtime/models/graygo-old-champion-0081.pt",
+          "checkpoint_sha256": "d16daea645730e3b3a0bfd34d586d5242848aaa962584d7faadee512faa3ff96",
+          "kind": "legacy",
+          "label": "old-champion",
+          "policy_sha256": "c9f3b2306dc8a65d40ba36db9af116ca48e06745617e83e73257b96619d07183",
+          "repo": "/home/gcao/proj/graygo-old",
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 200,
+            "size": 9
+          },
+          "weights_sha256": "688c8898b988bd5133a14e0f374329b13039ac08b7dfcbe43f79dbc5ab8c6b1b"
+        },
+        "index": 0,
+        "learner_reinitialized": false,
+        "promoted": false,
+        "records": 2
+      }
+    ]
+  },
+  "sha256": "9b233097a164b41447fb385b6270f918fb8c2fdb08fcf6dca446948bd63911c1"
+}
