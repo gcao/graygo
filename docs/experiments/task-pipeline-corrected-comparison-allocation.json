@@ -1,0 +1,30 @@
+{
+  "a2_evidence_reusable": false,
+  "corrected_comparison_tool": "tools/task_pipeline_parity.py",
+  "corrected_comparison_tool_sha256": "cb8901bef4afb29ac54f3f063c44cb1e77bd15bc03c5093ef884ac99bc7b103e",
+  "execution_authorized": false,
+  "fixed_additional_exclusions": [
+    "result.json/evaluations/*/elapsed_seconds",
+    "trainer.pt/evaluations/*/elapsed_seconds"
+  ],
+  "launch_only_after_original_driver_and_profiles_terminal": true,
+  "name": "corrected-readonly-matched-task-pipeline-comparison",
+  "new_accelerator_job": false,
+  "new_evaluation_games": 0,
+  "new_training_records": 0,
+  "observation_sha256": "dffdba2a542163912711b9d08f13d1415c5eac27c141731274b6143dcefb40f1",
+  "original_allocation": "docs/experiments/task-pipeline-parity-allocation.json",
+  "original_allocation_sha256": "2380f7de0c7d4a43d1d99314cc6b276f5f43f56f146f015339f4a454e372a666",
+  "original_comparison_tool_sha256": "12e965328177ad3228e1783604f905eb307c5ce098bf91ce35d6bd907163484f",
+  "original_driver_pid": 2663858,
+  "original_profile_producer_sha256": "472c2937072bc2d157b40f0998bf7a90e202f0151323b056fb1cb194c6d0d725",
+  "original_run": "runs/task-pipeline-parity-d724e06",
+  "outer_watchdog_seconds": 240,
+  "process_time_ceiling_seconds": 180,
+  "resource_category": "verification",
+  "scope": "Read the same eight original completed diagnostic cases with the corrected explicit wall-clock normalization. Preserve the original strict checker and its failure; never restart training, omit a case, tolerate numerical differences or change source/configuration/learning gates.",
+  "source_compatibility_qualified": false,
+  "test_sha256": "7c7a86794bdad31870db5c6b800ac6f13b457c2197661ad7648a5e4ca3e17e1c",
+  "transcript_helper_sha256": "51120148aab3c7ffc36c18932e7c14ee11cc7550af77a9c11123016253e2c563",
+  "version": 1
+}

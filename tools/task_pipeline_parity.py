@@ -30,6 +30,13 @@ def omit_root(value, names):
     return {key: item for key, item in value.items() if key not in names}
 
 
+def omit_recorded_timings(value, root_fields):
+    result = omit_root(value, root_fields)
+    require(isinstance(result.get('evaluations'), list) and bool(result['evaluations']), 'scheduled evaluation inventory required')
+    result['evaluations'] = [omit_root(row, ('elapsed_seconds',)) for row in result['evaluations']]
+    return result
+
+
 def npz_sha(path):
     with np.load(path, allow_pickle=False) as data:
         return state_sha({name: data[name] for name in sorted(data.files)})
@@ -83,9 +90,9 @@ def compare_case(reference, candidate, *, reference_source, candidate_source, co
         require(trainer['config'] == config, 'resume configuration differs')
         require(trainer['backend']['counters'] == counters, 'resume/final learner clocks differ')
         values.append({'manifest': state_sha(omit_root(manifest, MANIFEST_ENV)),
-                       'result': state_sha(omit_root(result, ('elapsed_seconds', 'timings', 'source_sha256'))),
+                       'result': state_sha(omit_recorded_timings(result, ('elapsed_seconds', 'timings', 'source_sha256'))),
                        'public_weights': public,
-                       'trainer_state': state_sha(omit_root(trainer, ('elapsed', 'timings'))),
+                       'trainer_state': state_sha(omit_recorded_timings(trainer, ('elapsed', 'timings'))),
                        'replay': npz_sha(resume / 'replay.npz'), 'reservoir': npz_sha(resume / 'reservoir.npz'),
                        'metrics': npz_sha(resume / 'metrics.npz'), 'episode_bytes': file_sha(root / 'episodes.bin'),
                        'episode_schema': state_sha(json.loads((root / 'episodes.schema.json').read_text()))})
@@ -96,7 +103,8 @@ def compare_case(reference, candidate, *, reference_source, candidate_source, co
             'input_snapshots': before, 'records_per_source': 65536,
             'reference_source_sha256': reference_source, 'candidate_source_sha256': candidate_source,
             'timing_and_environment_exclusions': {'trainer_root': ['elapsed', 'timings'],
-                'result_root': ['elapsed_seconds', 'timings', 'source_sha256'], 'manifest_root': list(MANIFEST_ENV)},
+                'result_root': ['elapsed_seconds', 'timings', 'source_sha256'], 'manifest_root': list(MANIFEST_ENV),
+                'trainer_evaluation_rows': ['elapsed_seconds'], 'result_evaluation_rows': ['elapsed_seconds']},
             'all_other_nested_state_compared': True, 'original_learning_runs_modified': False,
             'full_15M_source_equivalence_verified': False, 'a2_evidence_reusable': False, 'execution_authorized': False}
 

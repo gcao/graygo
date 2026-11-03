@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "-m",
+    "unittest",
+    "tests.test_task_pipeline_parity",
+    "tests.test_task_actor_boundary",
+    "tests.test_task_source_diff",
+    "-v"
+  ],
+  "returncode": 0,
+  "measured_process_seconds": 1.1666781530948356,
+  "new_training_records": 0,
+  "new_evaluation_games": 0,
+  "scope": "comparison tooling tests only; no complete application suite claim"
+}

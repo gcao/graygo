@@ -1,0 +1,20 @@
+{
+  "correction": "Exclude only elapsed_seconds on scheduled evaluation rows in result.json and trainer.pt, in addition to the original named root timing/environment fields. All metric/state fields remain exact.",
+  "detected_case": "neural-R4-pre",
+  "observed_differences": [
+    {
+      "candidate": 21.416654919972643,
+      "path": "/evaluations/0/elapsed_seconds",
+      "reference": 21.46846917399671
+    },
+    {
+      "candidate": 43.84542979800608,
+      "path": "/evaluations/1/elapsed_seconds",
+      "reference": 43.57431765797082
+    }
+  ],
+  "original_comparator_sha256": "12e965328177ad3228e1783604f905eb307c5ce098bf91ce35d6bd907163484f",
+  "original_driver_pid": 2663858,
+  "original_runs_or_checker_not_mutated": true,
+  "version": 1
+}

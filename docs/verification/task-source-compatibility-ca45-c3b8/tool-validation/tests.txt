@@ -1,0 +1,22 @@
+test_input_snapshot_detects_extra_files_and_symlinks (tests.test_task_pipeline_parity.PipelineParityTests.test_input_snapshot_detects_extra_files_and_symlinks) ... ok
+test_npz_container_encoding_is_separate_from_typed_array_values (tests.test_task_pipeline_parity.PipelineParityTests.test_npz_container_encoding_is_separate_from_typed_array_values) ... ok
+test_only_named_root_clocks_are_excluded (tests.test_task_pipeline_parity.PipelineParityTests.test_only_named_root_clocks_are_excluded) ... ok
+test_optimizer_keys_and_all_parameter_bits_are_preserved (tests.test_task_pipeline_parity.PipelineParityTests.test_optimizer_keys_and_all_parameter_bits_are_preserved) ... ok
+test_equal_finite_boundary_grants_no_full_trajectory_or_reuse (tests.test_task_actor_boundary.ActorBoundaryTests.test_equal_finite_boundary_grants_no_full_trajectory_or_reuse) ... ok
+test_every_changed_semantic_digest_or_work_count_is_rejected (tests.test_task_actor_boundary.ActorBoundaryTests.test_every_changed_semantic_digest_or_work_count_is_rejected) ... ok
+test_source_archive_mutation_scope_and_partial_partitions_fail (tests.test_task_actor_boundary.ActorBoundaryTests.test_source_archive_mutation_scope_and_partial_partitions_fail) ... ok
+test_transcript_retains_immutable_labels_dataclasses_and_infinity (tests.test_task_actor_boundary.ActorBoundaryTests.test_transcript_retains_immutable_labels_dataclasses_and_infinity) ... ok
+test_typed_transcript_is_stable_and_preserves_numerical_bits (tests.test_task_actor_boundary.ActorBoundaryTests.test_typed_transcript_is_stable_and_preserves_numerical_bits) ... ok
+test_changed_member_and_external_dependency_are_recorded (tests.test_task_source_diff.SourceDiffTests.test_changed_member_and_external_dependency_are_recorded) ... ok
+test_cli_preserves_inputs_existing_output_and_rejects_in_package_output (tests.test_task_source_diff.SourceDiffTests.test_cli_preserves_inputs_existing_output_and_rejects_in_package_output) ... ok
+test_cycle_and_import_inside_function_are_followed (tests.test_task_source_diff.SourceDiffTests.test_cycle_and_import_inside_function_are_followed) ... ok
+test_dynamic_imports_stay_visible_and_local_literal_is_followed (tests.test_task_source_diff.SourceDiffTests.test_dynamic_imports_stay_visible_and_local_literal_is_followed) ... ok
+test_exact_dependency_equality_is_inventory_not_authority (tests.test_task_source_diff.SourceDiffTests.test_exact_dependency_equality_is_inventory_not_authority) ... ok
+test_pin_missing_import_and_symlink_are_rejected (tests.test_task_source_diff.SourceDiffTests.test_pin_missing_import_and_symlink_are_rejected) ... ok
+test_same_ast_with_different_bytes_stays_explicit (tests.test_task_source_diff.SourceDiffTests.test_same_ast_with_different_bytes_stays_explicit) ... ok
+test_unused_change_is_separate_but_in_package_fingerprint (tests.test_task_source_diff.SourceDiffTests.test_unused_change_is_separate_but_in_package_fingerprint) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.029s
+
+OK
