@@ -1,0 +1,17 @@
+# Development scope and cumulative stage components verified
+
+The new tools/nfsp_development_scope.py provides immutable scope selections, source/reuse-bound development stage plans and a cumulative stage limiter around the existing executor. Its CLI only reviews inputs. Formal entry validation and the production launcher remain unfinished; this component grants no training authority.
+
+An explicit owner decision binds the exact numeric resource plan, selected work, project ceiling and actual answer text/hash. A table-control decision cannot serve as a development-scope decision. Filled prices alone select nothing. A limited pilot ends at 8M; screening requires a separate selected scope and the actual registered three-seed cohort's complete pilot pass. Development seeds remain 100/101/102 and retain their unchanged 20M record/epsilon history; confirmation seeds require their own controller.
+
+The executor keeps its original cumulative H_D contract across pilot and screening. The stage limiter checks the smaller H_P ceiling against the same spent clock, including earlier sessions, and never resets parameters, records or budgets. It preserves the original generic interrupted result and separately records a stage-budget stop; storage errors retain priority. Its boundary remains between paired chunks plus safe IO. The eventual launcher must also enforce the declared complete-process watchdog.
+
+All **34 focused checks** pass: ten new scope/stage tests plus sixteen resource and eight pilot-gate checks. Real CPU diagnostic executors verify budget exhaustion across resume, exact learning/RNG/buffer parity while the limiter is inactive, no widening of the original contract, and storage-error precedence. These tests do not claim completed formal 9x9 learning or a new 9x9-shape algorithm gate.
+
+The old ledger's B_U=0 represented excluded uniform-comparison work, not a qualified price for the required matched 9x9 comparison. The [new immutable numeric draft](../../experiments/nfsp-development-numeric-plan-v2.json) marks B_U unknown, retains existing source-bound H_P/H_D/H_N values, and updates only known partial other GPU use. Its known full-study subtotal is about **1,809.458398 device-hours**, with the required uniform-board cost still missing. This subtotal is not a completed full-study ceiling.
+
+The [actual read-only CLI preview](review.json) reports a missing owner decision and a null full-study ceiling. No decision file, GPU job, training, control increase or pilot is created. Limited prefix arithmetic excludes unselected later board work while keeping its missing full-study price visible. CPU process ceilings remain distinct from device-hours.
+
+[Retention](retention.json) seals the original preview and driver. [Partial resource accounting](resource-use.json) adds its one measured CPU child, preserving all eleven active neural reservations, original control/GPU costs, and already charged R1 observer children. Control commitment remains 42,236.081778 / 43,200 CPU process seconds; known physical GPU use remains 1.0727440934 device-hours.
+
+Required integration still includes complete A2/control/comparator/fixture evidence, any strictly eligible and priced extension, fresh whole-route source/runtime pricing, complete applicable accounting, an actual numerical scope decision and the public three-seed lifecycle launcher. A2 stays incomplete and the table-control ceiling proposal remains unapproved.

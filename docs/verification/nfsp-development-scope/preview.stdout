@@ -1,0 +1,67 @@
+{
+  "a2_complete": false,
+  "execution_authorized": false,
+  "full_study_price_gaps": [
+    "B_U",
+    "B_U: selected single-GPU board comparison needs a positive independently qualified price"
+  ],
+  "known_full_study_numeric_subtotal_device_hours": "1809.458398017949666666666667",
+  "numeric_plan": {
+    "N_A2": "96",
+    "a2_components": {
+      "B_0": "0",
+      "C4": "0",
+      "CT": "0",
+      "D": "0",
+      "primary_short": "96",
+      "three_C1": "0"
+    },
+    "component_limit_violations": [],
+    "continuous_device_days_not_wall_time_promise": null,
+    "execution_authorized": false,
+    "full_study_components": {
+      "B_U": null,
+      "N_A2": "96",
+      "P_actual": "0",
+      "U_actual_unreused": "0",
+      "corrective_reserve": "0",
+      "other_unreused": "1.072744093416666666666666667",
+      "promotions": "0",
+      "scientific_probe_inference": "16",
+      "three_H_D": "114.530116239375",
+      "twelve_H_N": "1581.8555376851580"
+    },
+    "full_study_device_hours": null,
+    "known_term_device_ceiling_subtotal": "1809.458398017949666666666667",
+    "learner_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+    "missing_required_terms": [
+      "B_U"
+    ],
+    "numerical_cost_status": "uncosted",
+    "per_seed_H_D_includes_H_P": "38.176705413125",
+    "per_seed_H_P": "18.852894536612634",
+    "plan_sha256": "8f84f896318f7af26dd55c54c7336be40171bd7b7718e1bc69cf117d7ffac445",
+    "project_device_hour_ceiling": null,
+    "runtime_prices_independently_qualified": false,
+    "scope": "formula and reference inventory, not a measured complete-NFSP price; CPU seconds are separate; no PPO-price substitution, scope selection or launch",
+    "selected_reuse": 4,
+    "selected_target": "one-step",
+    "unit": "device_hours",
+    "unreferenced_numeric_terms": [],
+    "version": "graygo/nfsp-resource-ledger/1"
+  },
+  "prefix_price_gaps": [],
+  "resource_plan_sha256": "8f84f896318f7af26dd55c54c7336be40171bd7b7718e1bc69cf117d7ffac445",
+  "runtime_prices_independently_qualified": false,
+  "scope": "Immutable owner selection and numeric scope arithmetic only. Filled future full-study prices do not select that study. Fresh A2/source/runtime-price/fixture/control/accounting validation and registered three-seed lifecycle are still required before training.",
+  "scope_ceiling_device_hours": {
+    "full-study": null,
+    "limited-pilot": "153.6314277032545686666666667",
+    "limited-screening": "211.6028603327916666666666667",
+    "stop": "0"
+  },
+  "selected_scope_costed_and_within_ceiling": false,
+  "selection": null,
+  "status": "owner_decision_missing",
+  "version": "graygo/nfsp-development-scope/1"
+}

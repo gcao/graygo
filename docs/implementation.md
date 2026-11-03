@@ -258,3 +258,9 @@ Direct actual zero-checkpoint comparisons confirm each R1 seed's initial weights
 ## Actual one-step comparison baseline verified
 
 [Current and archived comparison reports](verification/nfsp-delayed-r1-reuse-baseline/README.md) now agree end to end on all four fixed actual references before the two new R1 outcomes. R1 seed zero's credit miss and R4 seed two's 14.5M value miss remain; all average bands pass separately. Observer 2809980 waits on original workers 2807653/2807654 and later audits them independently. Initial report children are booked once with explicit identities for final settlement. All eleven live neural reservations remain; primary A2 slots stay 16 present / 20 missing and the table ceiling remains unchanged.
+
+## Development scope and cumulative stage mechanisms verified
+
+[The new scope/stage components](verification/nfsp-development-scope/README.md) bind exact numeric plans and explicit owner decisions, preserve the 20M development horizon and original three seeds, and require an actual complete pilot cohort pass plus a separate scope before screening. A smaller cumulative pilot cap now composes with the existing H_D executor contract without changing application sources or frozen prices. Real CPU executors verify spent budget survives resume and an inactive limiter preserves exact learning/RNG/buffer state; storage failures retain priority. All 34 focused checks pass.
+
+The actual read-only preview selects no work. It exposes a remaining full-study cost gap: old B_U=0 excluded the matched uniform board comparison, whose actual price is still missing. The new draft uses B_U=null and a known-cost subtotal near 1,809.458398 device-hours, not a complete campaign ceiling. Source-bound H_P/H_D/H_N remain unchanged. Fresh full entry validation and production-launcher integration remain required; no A2 exit, pilot, study or control-budget increase is granted.

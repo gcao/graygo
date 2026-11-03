@@ -1,0 +1,22 @@
+{
+  "a2_complete": false,
+  "active_neural_reservations": 11,
+  "application_source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+  "application_sources_unchanged": true,
+  "focused_tests_passed": 34,
+  "full_study_still_uncosted": true,
+  "new_scope_stage_tests": 10,
+  "owner_decision_missing": true,
+  "pilot_selected": false,
+  "policy_commit": "212afa0cf5ab12e1d2fdeab7f5aee7995c3d70d9",
+  "policy_sha256": "b58f54476cebc134945ffa820161ebf5ae6e493ee19595758c0439f1688cbcfb",
+  "preview_status": "unselected_scope_preview_verified_no_launch",
+  "production_entry_and_launcher_integration_complete": false,
+  "project_scope_selected": false,
+  "real_executor_tests": [
+    "smaller cumulative cap survives resume without resetting counters or contract",
+    "inactive guard preserves exact learning/RNG/replay/reservoir state",
+    "storage failure is not masked by external budget stop"
+  ],
+  "version": 1
+}

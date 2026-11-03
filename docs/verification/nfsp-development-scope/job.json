@@ -1,0 +1,35 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "d2c6758836bf4cf38d94dba64fec2e43825390cab91994d2d020221291860ec4",
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "/home/gcao/proj/graygo/.worktrees/development-scope-212afa0/tools/nfsp_development_scope.py",
+    "--plan",
+    "/home/gcao/proj/graygo/.worktrees/development-scope-212afa0/docs/experiments/nfsp-development-numeric-plan-v2.json",
+    "--output",
+    "/home/gcao/proj/graygo/runs/nfsp-development-scope-preview-212afa0/review.json"
+  ],
+  "driver_sha256": "730afebe1d96cc7679ef16c730c64a9014c3396da1e8c1f937675768c9add699",
+  "execution_authorized": false,
+  "full_study_component_still_unpriced": true,
+  "input_files_sha256": {
+    "/home/gcao/proj/graygo/.worktrees/development-scope-212afa0/docs/experiments/nfsp-development-numeric-plan-v2.json": "11ddfb223c30a1ddcfe0c722a30c9d749965ea3eccba6b28264c17af63d7c515",
+    "/home/gcao/proj/graygo/.worktrees/development-scope-212afa0/docs/experiments/nfsp-development-scope-proposal.json": "5b031eb6ce42b024703ad4f78db581a8de47e9558d6024f25cf09d8cc4813e8b",
+    "/home/gcao/proj/graygo/.worktrees/development-scope-212afa0/tools/nfsp_development_scope.py": "b58f54476cebc134945ffa820161ebf5ae6e493ee19595758c0439f1688cbcfb"
+  },
+  "measured_driver_wall_seconds": 3.2291303330566734,
+  "measured_process_seconds": 3.2277238199021667,
+  "new_accelerator_jobs": 0,
+  "new_control_allocation_seconds": "0",
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "original_driver_pid": 2819162,
+  "original_inputs_unchanged": true,
+  "original_preview_pid": 2819163,
+  "owner_decision_provided": false,
+  "policy_sha256": "b58f54476cebc134945ffa820161ebf5ae6e493ee19595758c0439f1688cbcfb",
+  "returncode": 0,
+  "review_sha256": "ec9f84bec69823b2a1bfb51aa8ad1069b71994f41012152ec30b78a6cf2ce2da",
+  "status": "unselected_scope_preview_verified_no_launch",
+  "version": 1
+}
