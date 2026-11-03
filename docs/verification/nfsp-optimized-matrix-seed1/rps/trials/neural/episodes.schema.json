@@ -1,0 +1,87 @@
+{
+  "acting_codes": {
+    "average": 1,
+    "q": 0,
+    "uniform": 2
+  },
+  "dtype": [
+    [
+      "episode",
+      "<u8"
+    ],
+    [
+      "record",
+      "<u8"
+    ],
+    [
+      "generation",
+      "<u8"
+    ],
+    [
+      "average_ready",
+      "|b1"
+    ],
+    [
+      "best_response",
+      "|u1",
+      [
+        2
+      ]
+    ],
+    [
+      "acting",
+      "|u1",
+      [
+        2
+      ]
+    ],
+    [
+      "mode_draw",
+      "<f8",
+      [
+        2
+      ]
+    ],
+    [
+      "ramp_draw",
+      "<f8",
+      [
+        2
+      ]
+    ],
+    [
+      "ramp_probability",
+      "<f8",
+      [
+        2
+      ]
+    ],
+    [
+      "epsilon",
+      "<f8",
+      [
+        2
+      ]
+    ],
+    [
+      "actions",
+      "<u2",
+      [
+        2
+      ]
+    ],
+    [
+      "behavior_prob",
+      "<f8",
+      [
+        2
+      ]
+    ],
+    [
+      "reward_black",
+      "<f8"
+    ]
+  ],
+  "format_version": 1,
+  "itemsize": 121
+}

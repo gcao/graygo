@@ -1,0 +1,186 @@
+{
+  "acting_policy_counts": {
+    "average": 88666,
+    "q": 11334,
+    "uniform": 0
+  },
+  "average_final_five_passed": false,
+  "best_response_visits": [
+    5059,
+    5124
+  ],
+  "collection_implementation": "terminal-batch",
+  "counters": {
+    "fresh_ordinary": 100000,
+    "fresh_q": 100000,
+    "fresh_records": 100000,
+    "q_loss_targets": 96000,
+    "q_updates": 750,
+    "supervised_targets": 3993853,
+    "supervised_updates": 772,
+    "target_refreshes": 7
+  },
+  "elapsed_seconds": 3.349975275923498,
+  "episode_audit_bytes": 6050000,
+  "evaluations": [
+    {
+      "average_gaps": [
+        0.8278171788810087,
+        0.5162538699690403
+      ],
+      "average_policies": [
+        [
+          0.028894142369319677,
+          0.8567113212503283,
+          0.11439453638035196
+        ],
+        [
+          0.37564499484004127,
+          0.054050567595459245,
+          0.5703044375644996
+        ]
+      ],
+      "average_ready": true,
+      "counters": {
+        "fresh_ordinary": 50000,
+        "fresh_q": 50000,
+        "fresh_records": 50000,
+        "q_loss_targets": 45952,
+        "q_updates": 359,
+        "supervised_targets": 998591,
+        "supervised_updates": 381,
+        "target_refreshes": 3
+      },
+      "elapsed_seconds": 1.4111320289084688,
+      "epsilon": 0.09939999999999999,
+      "greedy_q_gaps": [
+        1.0,
+        1.0
+      ],
+      "greedy_q_policies": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "handoff_probability": 1.0,
+      "q_values": [
+        [
+          -0.019403450191020966,
+          0.10511356592178345,
+          -0.08084797114133835
+        ],
+        [
+          -0.056768838316202164,
+          -0.0561874583363533,
+          0.0935370922088623
+        ]
+      ],
+      "records": 50000,
+      "reservoir_seen": 5128,
+      "reservoir_size": 5128
+    },
+    {
+      "average_gaps": [
+        0.913585129523433,
+        0.7560023423775132
+      ],
+      "average_policies": [
+        [
+          0.014501351262276713,
+          0.9280864807857097,
+          0.0574121679520137
+        ],
+        [
+          0.1894723143991151,
+          0.027262671611685857,
+          0.783265013989199
+        ]
+      ],
+      "average_ready": true,
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "fresh_records": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 3993853,
+        "supervised_updates": 772,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 3.0614288969663903,
+      "epsilon": 0.0988,
+      "greedy_q_gaps": [
+        1.0,
+        1.0
+      ],
+      "greedy_q_policies": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "handoff_probability": 1.0,
+      "q_values": [
+        [
+          0.0027694518212229013,
+          0.041272178292274475,
+          -0.1420818716287613
+        ],
+        [
+          -0.1739300787448883,
+          -0.08532684296369553,
+          0.2719556391239166
+        ]
+      ],
+      "records": 100000,
+      "reservoir_seen": 10183,
+      "reservoir_size": 10183
+    }
+  ],
+  "formal_gate_passed": false,
+  "formal_protocol": false,
+  "learner": "tabular",
+  "loss_stats": {
+    "projected_targets": 0,
+    "q_loss_sum": 562.7763382196426,
+    "q_updates": 750,
+    "raw_target_max": 1.0,
+    "raw_target_min": -1.0,
+    "supervised_loss_sum": 0.0,
+    "supervised_loss_updates": 0
+  },
+  "matrix_certificate_gap": 2.220446049250313e-16,
+  "matrix_value": 0.0,
+  "per_role_records": [
+    50000,
+    50000
+  ],
+  "physical_games": 50000,
+  "records": 100000,
+  "reservoir_changes": 10183,
+  "reservoir_seen": 10183,
+  "reservoir_size": 10183,
+  "seed": 1,
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "status": "complete",
+  "task": "rps",
+  "timings": {
+    "checkpoint": 0.5888182399794459,
+    "collection": 2.0973036133218557,
+    "evaluation": 0.0006156759336590767,
+    "learning": 0.7343797363573685
+  }
+}

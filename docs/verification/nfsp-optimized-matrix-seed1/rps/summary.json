@@ -1,0 +1,3906 @@
+{
+  "a2_complete": false,
+  "remaining": "remaining task/seed gates, cost ledger and deployment stages",
+  "results": [
+    {
+      "acting_policy_counts": {
+        "average": 8101806,
+        "q": 6898194,
+        "uniform": 0
+      },
+      "average_final_five_passed": true,
+      "best_response_visits": [
+        748866,
+        748387
+      ],
+      "collection_implementation": "terminal-batch",
+      "counters": {
+        "fresh_ordinary": 15000000,
+        "fresh_q": 15000000,
+        "fresh_records": 15000000,
+        "q_loss_targets": 14995968,
+        "q_updates": 117156,
+        "supervised_targets": 14050533489,
+        "supervised_updates": 78114,
+        "target_refreshes": 1171
+      },
+      "elapsed_seconds": 414.53441319894046,
+      "episode_audit_bytes": 907500000,
+      "evaluations": [
+        {
+          "average_gaps": [
+            0.0,
+            0.0
+          ],
+          "average_policies": [
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 500000,
+            "fresh_q": 500000,
+            "fresh_records": 500000,
+            "q_loss_targets": 496000,
+            "q_updates": 3875,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 39
+          },
+          "elapsed_seconds": 10.999932902981527,
+          "epsilon": 0.09399999999999999,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              -0.3486306667327881,
+              -0.09510012716054916,
+              0.36092230677604675
+            ],
+            [
+              0.5760905742645264,
+              -0.2630946636199951,
+              -0.23995082080364227
+            ]
+          ],
+          "records": 500000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            0.0
+          ],
+          "average_policies": [
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 1000000,
+            "fresh_q": 1000000,
+            "fresh_records": 1000000,
+            "q_loss_targets": 995968,
+            "q_updates": 7781,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 78
+          },
+          "elapsed_seconds": 22.459616377949715,
+          "epsilon": 0.088,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              -0.10693132877349854,
+              0.23741480708122253,
+              -0.2980566918849945
+            ],
+            [
+              -0.27514705061912537,
+              -0.2743638753890991,
+              0.6944122910499573
+            ]
+          ],
+          "records": 1000000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            0.0
+          ],
+          "average_policies": [
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 1500000,
+            "fresh_q": 1500000,
+            "fresh_records": 1500000,
+            "q_loss_targets": 1495936,
+            "q_updates": 11687,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 117
+          },
+          "elapsed_seconds": 33.89669950096868,
+          "epsilon": 0.08199999999999999,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              0.1929217278957367,
+              -0.31689319014549255,
+              -0.07785484194755554
+            ],
+            [
+              -0.25533923506736755,
+              0.7144177556037903,
+              -0.2922675311565399
+            ]
+          ],
+          "records": 1500000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            0.0
+          ],
+          "average_policies": [
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 2000000,
+            "fresh_q": 2000000,
+            "fresh_records": 2000000,
+            "q_loss_targets": 1996032,
+            "q_updates": 15594,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 156
+          },
+          "elapsed_seconds": 45.34340246790089,
+          "epsilon": 0.076,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              -0.31214332580566406,
+              -0.07506383955478668,
+              0.1596127450466156
+            ],
+            [
+              0.7315858602523804,
+              -0.29509684443473816,
+              -0.2644282281398773
+            ]
+          ],
+          "records": 2000000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            0.0
+          ],
+          "average_policies": [
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 2500000,
+            "fresh_q": 2500000,
+            "fresh_records": 2500000,
+            "q_loss_targets": 2496000,
+            "q_updates": 19500,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 195
+          },
+          "elapsed_seconds": 56.80762789596338,
+          "epsilon": 0.07,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              -0.07129424810409546,
+              0.15666961669921875,
+              -0.3177114725112915
+            ],
+            [
+              -0.29886946082115173,
+              -0.26607292890548706,
+              0.741024374961853
+            ]
+          ],
+          "records": 2500000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            0.0
+          ],
+          "average_policies": [
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 3000000,
+            "fresh_q": 3000000,
+            "fresh_records": 3000000,
+            "q_loss_targets": 2995968,
+            "q_updates": 23406,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 234
+          },
+          "elapsed_seconds": 68.31604145199526,
+          "epsilon": 0.064,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              0.17652221024036407,
+              -0.3124390244483948,
+              -0.09946875274181366
+            ],
+            [
+              -0.2703862488269806,
+              0.7349331974983215,
+              -0.30345624685287476
+            ]
+          ],
+          "records": 3000000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            0.0
+          ],
+          "average_policies": [
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 3500000,
+            "fresh_q": 3500000,
+            "fresh_records": 3500000,
+            "q_loss_targets": 3495936,
+            "q_updates": 27312,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 273
+          },
+          "elapsed_seconds": 79.83800333691761,
+          "epsilon": 0.058,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              -0.3256400525569916,
+              -0.11358470469713211,
+              0.2307845950126648
+            ],
+            [
+              0.7118951678276062,
+              -0.3015860319137573,
+              -0.27961355447769165
+            ]
+          ],
+          "records": 3500000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            0.0
+          ],
+          "average_policies": [
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 4000000,
+            "fresh_q": 4000000,
+            "fresh_records": 4000000,
+            "q_loss_targets": 3996032,
+            "q_updates": 31219,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 312
+          },
+          "elapsed_seconds": 91.39345025992952,
+          "epsilon": 0.052,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              -0.15267211198806763,
+              0.3177558481693268,
+              -0.32360634207725525
+            ],
+            [
+              -0.29992857575416565,
+              -0.28646862506866455,
+              0.6610329151153564
+            ]
+          ],
+          "records": 4000000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            0.0
+          ],
+          "average_policies": [
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 4500000,
+            "fresh_q": 4500000,
+            "fresh_records": 4500000,
+            "q_loss_targets": 4496000,
+            "q_updates": 35125,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 351
+          },
+          "elapsed_seconds": 102.96606022992637,
+          "epsilon": 0.046,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              0.4500083923339844,
+              -0.33023154735565186,
+              -0.19398510456085205
+            ],
+            [
+              -0.30034634470939636,
+              0.5639522671699524,
+              -0.27417269349098206
+            ]
+          ],
+          "records": 4500000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            0.0
+          ],
+          "average_policies": [
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 5000000,
+            "fresh_q": 5000000,
+            "fresh_records": 5000000,
+            "q_loss_targets": 4995968,
+            "q_updates": 39031,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 390
+          },
+          "elapsed_seconds": 114.56828939996194,
+          "epsilon": 0.04,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              -0.3262978494167328,
+              -0.24602487683296204,
+              0.6350978016853333
+            ],
+            [
+              0.399840384721756,
+              -0.22485822439193726,
+              -0.31220632791519165
+            ]
+          ],
+          "records": 5000000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.6016114592658908,
+            0.9487303312004507
+          ],
+          "average_policies": [
+            [
+              0.0,
+              0.6016114592658908,
+              0.39838854073410923
+            ],
+            [
+              0.9743651656002253,
+              0.0,
+              0.025634834399774643
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 5500000,
+            "fresh_q": 5500000,
+            "fresh_records": 5500000,
+            "q_loss_targets": 5495936,
+            "q_updates": 42937,
+            "supervised_targets": 96387811,
+            "supervised_updates": 3895,
+            "target_refreshes": 429
+          },
+          "elapsed_seconds": 129.3149588078959,
+          "epsilon": 0.034,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 0.25,
+          "q_values": [
+            [
+              -0.28205183148384094,
+              0.8905883431434631,
+              -0.3986740708351135
+            ],
+            [
+              -0.09110406041145325,
+              -0.3279617130756378,
+              -0.019574474543333054
+            ]
+          ],
+          "records": 5500000,
+          "reservoir_seen": 49436,
+          "reservoir_size": 49436
+        },
+        {
+          "average_gaps": [
+            0.3833184728864392,
+            0.5124151680528425
+          ],
+          "average_policies": [
+            [
+              0.20914728053821835,
+              0.5924657534246576,
+              0.19838696603712414
+            ],
+            [
+              0.4875848319471575,
+              0.0,
+              0.5124151680528425
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 6000000,
+            "fresh_q": 6000000,
+            "fresh_records": 6000000,
+            "q_loss_targets": 5996032,
+            "q_updates": 46844,
+            "supervised_targets": 386936388,
+            "supervised_updates": 7802,
+            "target_refreshes": 468
+          },
+          "elapsed_seconds": 144.18210050289053,
+          "epsilon": 0.027999999999999997,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 0.5,
+          "q_values": [
+            [
+              0.6884147524833679,
+              -0.322126179933548,
+              -0.28745967149734497
+            ],
+            [
+              -0.42626985907554626,
+              -0.18315564095973969,
+              0.18478526175022125
+            ]
+          ],
+          "records": 6000000,
+          "reservoir_seen": 99005,
+          "reservoir_size": 99005
+        },
+        {
+          "average_gaps": [
+            0.1567677420223146,
+            0.16491171663585458
+          ],
+          "average_policies": [
+            [
+              0.3816368554931966,
+              0.39349403103592145,
+              0.22486911347088198
+            ],
+            [
+              0.3243576347024623,
+              0.2553653243308416,
+              0.42027704096669616
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 6500000,
+            "fresh_q": 6500000,
+            "fresh_records": 6500000,
+            "q_loss_targets": 6496000,
+            "q_updates": 50750,
+            "supervised_targets": 871051774,
+            "supervised_updates": 11708,
+            "target_refreshes": 507
+          },
+          "elapsed_seconds": 159.10707651590928,
+          "epsilon": 0.022,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.75,
+          "q_values": [
+            [
+              -0.09976986795663834,
+              -0.13003107905387878,
+              0.24516957998275757
+            ],
+            [
+              -0.04538901150226593,
+              0.25424835085868835,
+              -0.2519350051879883
+            ]
+          ],
+          "records": 6500000,
+          "reservoir_seen": 148956,
+          "reservoir_size": 148956
+        },
+        {
+          "average_gaps": [
+            0.10510365380936554,
+            0.16870971310197802
+          ],
+          "average_policies": [
+            [
+              0.3079711239314949,
+              0.41307477774086043,
+              0.2789540983276447
+            ],
+            [
+              0.37681888116810636,
+              0.2272357028649578,
+              0.39594541596693583
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 7000000,
+            "fresh_q": 7000000,
+            "fresh_records": 7000000,
+            "q_loss_targets": 6995968,
+            "q_updates": 54656,
+            "supervised_targets": 1550592102,
+            "supervised_updates": 15614,
+            "target_refreshes": 546
+          },
+          "elapsed_seconds": 174.05997902399395,
+          "epsilon": 0.016,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.1394997239112854,
+              0.04716608673334122,
+              -0.20828132331371307
+            ],
+            [
+              -0.17872674763202667,
+              -0.047758545726537704,
+              0.18726935982704163
+            ]
+          ],
+          "records": 7000000,
+          "reservoir_seen": 198771,
+          "reservoir_size": 198771
+        },
+        {
+          "average_gaps": [
+            0.2235601989251624,
+            0.05538378680284045
+          ],
+          "average_policies": [
+            [
+              0.4461177508622764,
+              0.3313246972006096,
+              0.222557551937114
+            ],
+            [
+              0.3009155828612463,
+              0.32185031516795665,
+              0.3772341019707971
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 7500000,
+            "fresh_q": 7500000,
+            "fresh_records": 7500000,
+            "q_loss_targets": 7495936,
+            "q_updates": 58562,
+            "supervised_targets": 2331733489,
+            "supervised_updates": 19520,
+            "target_refreshes": 585
+          },
+          "elapsed_seconds": 189.33792399591766,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.03337671607732773,
+              -0.06680864840745926,
+              0.03156961500644684
+            ],
+            [
+              -0.09382642805576324,
+              0.24316145479679108,
+              -0.14756107330322266
+            ]
+          ],
+          "records": 7500000,
+          "reservoir_seen": 248615,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.07667904286300459,
+            0.06861716478311697
+          ],
+          "average_policies": [
+            [
+              0.3716962060786806,
+              0.27581237552915744,
+              0.352491418392162
+            ],
+            [
+              0.30860237617034886,
+              0.3772195409534658,
+              0.3141780828761853
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 8000000,
+            "fresh_q": 8000000,
+            "fresh_records": 8000000,
+            "q_loss_targets": 7996032,
+            "q_updates": 62469,
+            "supervised_targets": 3113133489,
+            "supervised_updates": 23427,
+            "target_refreshes": 625
+          },
+          "elapsed_seconds": 204.46863567095716,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.09291389584541321,
+              -0.007902574725449085,
+              0.09070750325918198
+            ],
+            [
+              0.1212289035320282,
+              -0.026357315480709076,
+              -0.09293234348297119
+            ]
+          ],
+          "records": 8000000,
+          "reservoir_seen": 298430,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.033862846961552784,
+            0.0168736325764009
+          ],
+          "average_policies": [
+            [
+              0.3222125461697846,
+              0.3560753931313374,
+              0.3217120606988779
+            ],
+            [
+              0.3470034066955054,
+              0.32286681918539023,
+              0.3301297741191045
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 8500000,
+            "fresh_q": 8500000,
+            "fresh_records": 8500000,
+            "q_loss_targets": 8496000,
+            "q_updates": 66375,
+            "supervised_targets": 3894333489,
+            "supervised_updates": 27333,
+            "target_refreshes": 664
+          },
+          "elapsed_seconds": 219.55921186693013,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.027550436556339264,
+              0.010810810141265392,
+              -0.04093462601304054
+            ],
+            [
+              -0.08336733281612396,
+              -0.0002185583143727854,
+              0.08681771904230118
+            ]
+          ],
+          "records": 8500000,
+          "reservoir_seen": 348381,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.024201858910866347,
+            0.0532439104838629
+          ],
+          "average_policies": [
+            [
+              0.3540534862082421,
+              0.3108723274404458,
+              0.33507418635131214
+            ],
+            [
+              0.3134863916680826,
+              0.3667303021519455,
+              0.3197833061799718
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 9000000,
+            "fresh_q": 9000000,
+            "fresh_records": 9000000,
+            "q_loss_targets": 8995968,
+            "q_updates": 70281,
+            "supervised_targets": 4675533489,
+            "supervised_updates": 31239,
+            "target_refreshes": 703
+          },
+          "elapsed_seconds": 234.53672611399088,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.09073153883218765,
+              -0.008565831929445267,
+              0.11257994174957275
+            ],
+            [
+              0.04660559818148613,
+              -0.004978727549314499,
+              -0.06604939699172974
+            ]
+          ],
+          "records": 9000000,
+          "reservoir_seen": 397896,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.028601472134595185,
+            0.013120974586849132
+          ],
+          "average_policies": [
+            [
+              0.32297831856191483,
+              0.35157979069651,
+              0.32544189074157526
+            ],
+            [
+              0.3437815168006391,
+              0.32555794098557095,
+              0.33066054221379
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 9500000,
+            "fresh_q": 9500000,
+            "fresh_records": 9500000,
+            "q_loss_targets": 9495936,
+            "q_updates": 74187,
+            "supervised_targets": 5456733489,
+            "supervised_updates": 35145,
+            "target_refreshes": 742
+          },
+          "elapsed_seconds": 249.81941764696967,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.03967515379190445,
+              -0.015500401146709919,
+              -0.04110882058739662
+            ],
+            [
+              -0.08186398446559906,
+              -0.012733258306980133,
+              0.09746946394443512
+            ]
+          ],
+          "records": 9500000,
+          "reservoir_seen": 447689,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.026999439596509522,
+            0.026371012870733068
+          ],
+          "average_policies": [
+            [
+              0.3415859418781523,
+              0.3157073092626691,
+              0.3427067488591786
+            ],
+            [
+              0.32759413222479816,
+              0.35396514509553123,
+              0.3184407226796706
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 10000000,
+            "fresh_q": 10000000,
+            "fresh_records": 10000000,
+            "q_loss_targets": 9996032,
+            "q_updates": 78094,
+            "supervised_targets": 6238133489,
+            "supervised_updates": 39052,
+            "target_refreshes": 781
+          },
+          "elapsed_seconds": 264.92394535196945,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.08215118944644928,
+              0.007441237568855286,
+              0.09330233931541443
+            ],
+            [
+              0.07692250609397888,
+              -0.048930346965789795,
+              -0.038674309849739075
+            ]
+          ],
+          "records": 10000000,
+          "reservoir_seen": 497711,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.024493471409275047,
+            0.015331567637799193
+          ],
+          "average_policies": [
+            [
+              0.3255990794937216,
+              0.3500925509029966,
+              0.3243083696032818
+            ],
+            [
+              0.3392833941332267,
+              0.32269251911448704,
+              0.33802408675228623
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 10500000,
+            "fresh_q": 10500000,
+            "fresh_records": 10500000,
+            "q_loss_targets": 10496000,
+            "q_updates": 82000,
+            "supervised_targets": 7019333489,
+            "supervised_updates": 42958,
+            "target_refreshes": 820
+          },
+          "elapsed_seconds": 279.86683200497646,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.07220961153507233,
+              -0.03602330759167671,
+              -0.033536627888679504
+            ],
+            [
+              -0.0876937210559845,
+              -0.00829524826258421,
+              0.07207506150007248
+            ]
+          ],
+          "records": 10500000,
+          "reservoir_seen": 547736,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.021531100478468956,
+            0.014086195528382195
+          ],
+          "average_policies": [
+            [
+              0.3358591419591199,
+              0.32130487878120556,
+              0.3428359792596745
+            ],
+            [
+              0.3318847529421167,
+              0.3459709484704989,
+              0.32214429858738436
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 11000000,
+            "fresh_q": 11000000,
+            "fresh_records": 11000000,
+            "q_loss_targets": 10995968,
+            "q_updates": 85906,
+            "supervised_targets": 7800533489,
+            "supervised_updates": 46864,
+            "target_refreshes": 859
+          },
+          "elapsed_seconds": 294.7419423109386,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.0742679312825203,
+              0.014492955058813095,
+              0.048221293836832047
+            ],
+            [
+              0.0804586410522461,
+              -0.06494665890932083,
+              -0.022980106994509697
+            ]
+          ],
+          "records": 11000000,
+          "reservoir_seen": 597532,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.012682682682682689,
+            0.027072927072927078
+          ],
+          "average_policies": [
+            [
+              0.3331431431431432,
+              0.3458258258258259,
+              0.32103103103103103
+            ],
+            [
+              0.33350649350649353,
+              0.3197102897102897,
+              0.3467832167832168
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 11500000,
+            "fresh_q": 11500000,
+            "fresh_records": 11500000,
+            "q_loss_targets": 11495936,
+            "q_updates": 89812,
+            "supervised_targets": 8581733489,
+            "supervised_updates": 50770,
+            "target_refreshes": 898
+          },
+          "elapsed_seconds": 309.60270662698895,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.09240902960300446,
+              -0.07308445125818253,
+              -0.023058827966451645
+            ],
+            [
+              -0.0693797841668129,
+              0.03874920308589935,
+              0.02887677028775215
+            ]
+          ],
+          "records": 11500000,
+          "reservoir_seen": 647084,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.015128033355663761,
+            0.01546201006130793
+          ],
+          "average_policies": [
+            [
+              0.3306770119884415,
+              0.32709747732794736,
+              0.3422255106836111
+            ],
+            [
+              0.3376939002070269,
+              0.3400742096472542,
+              0.32223189014571896
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 12000000,
+            "fresh_q": 12000000,
+            "fresh_records": 12000000,
+            "q_loss_targets": 11996032,
+            "q_updates": 93719,
+            "supervised_targets": 9363133489,
+            "supervised_updates": 54677,
+            "target_refreshes": 937
+          },
+          "elapsed_seconds": 324.44627250591293,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.06476496905088425,
+              0.05052459239959717,
+              0.0009652921580709517
+            ],
+            [
+              0.08181602507829666,
+              -0.0849907398223877,
+              -0.006740676239132881
+            ]
+          ],
+          "records": 12000000,
+          "reservoir_seen": 696976,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.022116240239159313,
+            0.0097016492803777
+          ],
+          "average_policies": [
+            [
+              0.3420118579841427,
+              0.3380925242708739,
+              0.3198956177449834
+            ],
+            [
+              0.32756568616664833,
+              0.331366332276487,
+              0.3410679815568647
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 12500000,
+            "fresh_q": 12500000,
+            "fresh_records": 12500000,
+            "q_loss_targets": 12496000,
+            "q_updates": 97625,
+            "supervised_targets": 10144333489,
+            "supervised_updates": 58583,
+            "target_refreshes": 976
+          },
+          "elapsed_seconds": 339.30576754698996,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.05262705311179161,
+              -0.07925195246934891,
+              0.00818430446088314
+            ],
+            [
+              -0.02932029217481613,
+              0.08190224319696426,
+              -0.05443659424781799
+            ]
+          ],
+          "records": 12500000,
+          "reservoir_seen": 747206,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.007433532826441047,
+            0.024050924304144572
+          ],
+          "average_policies": [
+            [
+              0.3259963831466624,
+              0.33342991597310345,
+              0.3405737008802342
+            ],
+            [
+              0.34453974958213646,
+              0.3349714251398717,
+              0.3204888252779919
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 13000000,
+            "fresh_q": 13000000,
+            "fresh_records": 13000000,
+            "q_loss_targets": 12995968,
+            "q_updates": 101531,
+            "supervised_targets": 10925533489,
+            "supervised_updates": 62489,
+            "target_refreshes": 1015
+          },
+          "elapsed_seconds": 354.1081169859972,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.016950901597738266,
+              0.0912059098482132,
+              -0.06225881725549698
+            ],
+            [
+              0.02621208317577839,
+              -0.07032427936792374,
+              0.022563286125659943
+            ]
+          ],
+          "records": 13000000,
+          "reservoir_seen": 796929,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.008109756707298688,
+            0.014710441313239453
+          ],
+          "average_policies": [
+            [
+              0.3382898513044608,
+              0.33153005409837705,
+              0.33018009459716213
+            ],
+            [
+              0.32457973739212176,
+              0.3392901787053612,
+              0.33613008390251714
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 13500000,
+            "fresh_q": 13500000,
+            "fresh_records": 13500000,
+            "q_loss_targets": 13495936,
+            "q_updates": 105437,
+            "supervised_targets": 11706733489,
+            "supervised_updates": 66395,
+            "target_refreshes": 1054
+          },
+          "elapsed_seconds": 368.9630787449423,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.03099948540329933,
+              -0.054128095507621765,
+              0.06897515058517456
+            ],
+            [
+              0.003260691650211811,
+              0.06288117915391922,
+              -0.06911343336105347
+            ]
+          ],
+          "records": 13500000,
+          "reservoir_seen": 847307,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.022322053909110906,
+            0.012723129510064601
+          ],
+          "average_policies": [
+            [
+              0.3223940928101175,
+              0.3447161467192284,
+              0.33288976047065416
+            ],
+            [
+              0.3366881883782758,
+              0.3252943410558298,
+              0.33801747056589443
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 14000000,
+            "fresh_q": 14000000,
+            "fresh_records": 14000000,
+            "q_loss_targets": 13996032,
+            "q_updates": 109344,
+            "supervised_targets": 12488133489,
+            "supervised_updates": 70302,
+            "target_refreshes": 1093
+          },
+          "elapsed_seconds": 383.78140901599545,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.047130465507507324,
+              -0.009099694900214672,
+              -0.05888698250055313
+            ],
+            [
+              -0.07523290812969208,
+              -0.02639412321150303,
+              0.0946071669459343
+            ]
+          ],
+          "records": 14000000,
+          "reservoir_seen": 897191,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.012886958957837202,
+            0.008475423271433413
+          ],
+          "average_policies": [
+            [
+              0.3335601224661317,
+              0.3267764592880155,
+              0.3396634182458527
+            ],
+            [
+              0.3290123333399964,
+              0.3374877566114298,
+              0.33349991004857377
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 14500000,
+            "fresh_q": 14500000,
+            "fresh_records": 14500000,
+            "q_loss_targets": 14496000,
+            "q_updates": 113250,
+            "supervised_targets": 13269333489,
+            "supervised_updates": 74208,
+            "target_refreshes": 1132
+          },
+          "elapsed_seconds": 398.59139371092897,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.06614681333303452,
+              0.01894485391676426,
+              0.06592769175767899
+            ],
+            [
+              0.06381173431873322,
+              -0.05240728333592415,
+              -0.03405692055821419
+            ]
+          ],
+          "records": 14500000,
+          "reservoir_seen": 947029,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.005665268699890924,
+            0.02056087838310361
+          ],
+          "average_policies": [
+            [
+              0.3335401923789124,
+              0.3385848839420661,
+              0.3278749236790215
+            ],
+            [
+              0.3325806999490474,
+              0.3234292108339245,
+              0.3439900892170281
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 15000000,
+            "fresh_q": 15000000,
+            "fresh_records": 15000000,
+            "q_loss_targets": 14995968,
+            "q_updates": 117156,
+            "supervised_targets": 14050533489,
+            "supervised_updates": 78114,
+            "target_refreshes": 1171
+          },
+          "elapsed_seconds": 413.4216243989067,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.08920101076364517,
+              -0.07504048198461533,
+              -0.008216571062803268
+            ],
+            [
+              -0.05614219605922699,
+              0.036251962184906006,
+              -0.002033983590081334
+            ]
+          ],
+          "records": 15000000,
+          "reservoir_seen": 996927,
+          "reservoir_size": 200000
+        }
+      ],
+      "formal_gate_passed": true,
+      "formal_protocol": true,
+      "learner": "tabular",
+      "loss_stats": {
+        "projected_targets": 0,
+        "q_loss_sum": 80785.84105628729,
+        "q_updates": 117156,
+        "raw_target_max": 1.0,
+        "raw_target_min": -1.0,
+        "supervised_loss_sum": 0.0,
+        "supervised_loss_updates": 0
+      },
+      "matrix_certificate_gap": 2.220446049250313e-16,
+      "matrix_value": 0.0,
+      "per_role_records": [
+        7500000,
+        7500000
+      ],
+      "physical_games": 7500000,
+      "records": 15000000,
+      "reservoir_changes": 521670,
+      "reservoir_seen": 996927,
+      "reservoir_size": 200000,
+      "seed": 1,
+      "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "status": "complete",
+      "task": "rps",
+      "timings": {
+        "checkpoint": 21.841080518090166,
+        "collection": 279.68948560522404,
+        "evaluation": 0.009132320061326027,
+        "learning": 111.1790529137943
+      }
+    },
+    {
+      "acting_policy_counts": {
+        "average": 8101806,
+        "q": 6898194,
+        "uniform": 0
+      },
+      "average_final_five_passed": true,
+      "best_response_visits": [
+        748866,
+        748387
+      ],
+      "collection_implementation": "terminal-batch",
+      "counters": {
+        "fresh_ordinary": 15000000,
+        "fresh_q": 15000000,
+        "fresh_records": 15000000,
+        "q_loss_targets": 14995968,
+        "q_updates": 117156,
+        "supervised_targets": 9998592,
+        "supervised_updates": 78114,
+        "target_refreshes": 1171
+      },
+      "elapsed_seconds": 510.2028305400163,
+      "episode_audit_bytes": 907500000,
+      "evaluations": [
+        {
+          "average_gaps": [
+            0.057678634731891665,
+            0.04290211200714111
+          ],
+          "average_policies": [
+            [
+              0.37227251777596615,
+              0.31313359917995937,
+              0.3145938830440745
+            ],
+            [
+              0.3484988510608673,
+              0.3459044098854065,
+              0.3055967390537262
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 500000,
+            "fresh_q": 500000,
+            "fresh_records": 500000,
+            "q_loss_targets": 496000,
+            "q_updates": 3875,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 39
+          },
+          "elapsed_seconds": 12.532435448025353,
+          "epsilon": 0.09399999999999999,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              0.551586925983429,
+              -0.41226351261138916,
+              -0.20485161244869232
+            ],
+            [
+              -0.8995668292045593,
+              0.3401632010936737,
+              0.10648838430643082
+            ]
+          ],
+          "records": 500000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.057678634731891665,
+            0.04290211200714111
+          ],
+          "average_policies": [
+            [
+              0.37227251777596615,
+              0.31313359917995937,
+              0.3145938830440745
+            ],
+            [
+              0.3484988510608673,
+              0.3459044098854065,
+              0.3055967390537262
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 1000000,
+            "fresh_q": 1000000,
+            "fresh_records": 1000000,
+            "q_loss_targets": 995968,
+            "q_updates": 7781,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 78
+          },
+          "elapsed_seconds": 25.52605255297385,
+          "epsilon": 0.088,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              0.0030677670147269964,
+              -0.4120652973651886,
+              -0.05774149298667908
+            ],
+            [
+              -0.932654619216919,
+              0.8339740037918091,
+              -0.04454950615763664
+            ]
+          ],
+          "records": 1000000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.057678634731891665,
+            0.04290211200714111
+          ],
+          "average_policies": [
+            [
+              0.37227251777596615,
+              0.31313359917995937,
+              0.3145938830440745
+            ],
+            [
+              0.3484988510608673,
+              0.3459044098854065,
+              0.3055967390537262
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 1500000,
+            "fresh_q": 1500000,
+            "fresh_records": 1500000,
+            "q_loss_targets": 1495936,
+            "q_updates": 11687,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 117
+          },
+          "elapsed_seconds": 38.4858295309823,
+          "epsilon": 0.08199999999999999,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              0.22016674280166626,
+              -0.8864274024963379,
+              0.3650524616241455
+            ],
+            [
+              -0.917285680770874,
+              0.8292840123176575,
+              -0.12432258576154709
+            ]
+          ],
+          "records": 1500000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.057678634731891665,
+            0.04290211200714111
+          ],
+          "average_policies": [
+            [
+              0.37227251777596615,
+              0.31313359917995937,
+              0.3145938830440745
+            ],
+            [
+              0.3484988510608673,
+              0.3459044098854065,
+              0.3055967390537262
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 2000000,
+            "fresh_q": 2000000,
+            "fresh_records": 2000000,
+            "q_loss_targets": 1996032,
+            "q_updates": 15594,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 156
+          },
+          "elapsed_seconds": 51.186446296051145,
+          "epsilon": 0.076,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              0.16510511934757233,
+              -0.9232563376426697,
+              0.5609728097915649
+            ],
+            [
+              -0.9634934067726135,
+              0.6250054240226746,
+              -0.15397672355175018
+            ]
+          ],
+          "records": 2000000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.057678634731891665,
+            0.04290211200714111
+          ],
+          "average_policies": [
+            [
+              0.37227251777596615,
+              0.31313359917995937,
+              0.3145938830440745
+            ],
+            [
+              0.3484988510608673,
+              0.3459044098854065,
+              0.3055967390537262
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 2500000,
+            "fresh_q": 2500000,
+            "fresh_records": 2500000,
+            "q_loss_targets": 2496000,
+            "q_updates": 19500,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 195
+          },
+          "elapsed_seconds": 63.94456946104765,
+          "epsilon": 0.07,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              0.2775527536869049,
+              -0.7897055745124817,
+              -0.9055872559547424
+            ],
+            [
+              -0.9275078177452087,
+              0.8498583436012268,
+              -0.3050627112388611
+            ]
+          ],
+          "records": 2500000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.057678634731891665,
+            0.04290211200714111
+          ],
+          "average_policies": [
+            [
+              0.37227251777596615,
+              0.31313359917995937,
+              0.3145938830440745
+            ],
+            [
+              0.3484988510608673,
+              0.3459044098854065,
+              0.3055967390537262
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 3000000,
+            "fresh_q": 3000000,
+            "fresh_records": 3000000,
+            "q_loss_targets": 2995968,
+            "q_updates": 23406,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 234
+          },
+          "elapsed_seconds": 76.69394711696077,
+          "epsilon": 0.064,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              -0.9988194704055786,
+              -0.8426004648208618,
+              -0.035810619592666626
+            ],
+            [
+              -0.9342057108879089,
+              -0.28862616419792175,
+              0.790905237197876
+            ]
+          ],
+          "records": 3000000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.057678634731891665,
+            0.04290211200714111
+          ],
+          "average_policies": [
+            [
+              0.37227251777596615,
+              0.31313359917995937,
+              0.3145938830440745
+            ],
+            [
+              0.3484988510608673,
+              0.3459044098854065,
+              0.3055967390537262
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 3500000,
+            "fresh_q": 3500000,
+            "fresh_records": 3500000,
+            "q_loss_targets": 3495936,
+            "q_updates": 27312,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 273
+          },
+          "elapsed_seconds": 89.50874220801052,
+          "epsilon": 0.058,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              -0.8120701909065247,
+              -0.03287287428975105,
+              0.5271270871162415
+            ],
+            [
+              -0.41876310110092163,
+              -0.25908347964286804,
+              0.01633528620004654
+            ]
+          ],
+          "records": 3500000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.057678634731891665,
+            0.04290211200714111
+          ],
+          "average_policies": [
+            [
+              0.37227251777596615,
+              0.31313359917995937,
+              0.3145938830440745
+            ],
+            [
+              0.3484988510608673,
+              0.3459044098854065,
+              0.3055967390537262
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 4000000,
+            "fresh_q": 4000000,
+            "fresh_records": 4000000,
+            "q_loss_targets": 3996032,
+            "q_updates": 31219,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 312
+          },
+          "elapsed_seconds": 102.25004955998156,
+          "epsilon": 0.052,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              -0.6604577302932739,
+              -0.6914834380149841,
+              0.8521239757537842
+            ],
+            [
+              -0.5253691077232361,
+              0.5904802680015564,
+              -0.8387474417686462
+            ]
+          ],
+          "records": 4000000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.057678634731891665,
+            0.04290211200714111
+          ],
+          "average_policies": [
+            [
+              0.37227251777596615,
+              0.31313359917995937,
+              0.3145938830440745
+            ],
+            [
+              0.3484988510608673,
+              0.3459044098854065,
+              0.3055967390537262
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 4500000,
+            "fresh_q": 4500000,
+            "fresh_records": 4500000,
+            "q_loss_targets": 4496000,
+            "q_updates": 35125,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 351
+          },
+          "elapsed_seconds": 115.09100920998026,
+          "epsilon": 0.046,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              0.43973544239997864,
+              -0.9411821961402893,
+              -0.01995115354657173
+            ],
+            [
+              0.0928577184677124,
+              -0.9926985502243042,
+              0.16776013374328613
+            ]
+          ],
+          "records": 4500000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.057678634731891665,
+            0.04290211200714111
+          ],
+          "average_policies": [
+            [
+              0.37227251777596615,
+              0.31313359917995937,
+              0.3145938830440745
+            ],
+            [
+              0.3484988510608673,
+              0.3459044098854065,
+              0.3055967390537262
+            ]
+          ],
+          "average_ready": false,
+          "counters": {
+            "fresh_ordinary": 5000000,
+            "fresh_q": 5000000,
+            "fresh_records": 5000000,
+            "q_loss_targets": 4995968,
+            "q_updates": 39031,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 390
+          },
+          "elapsed_seconds": 127.8806787399808,
+          "epsilon": 0.04,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.0,
+          "q_values": [
+            [
+              -0.058351777493953705,
+              -0.6735967397689819,
+              -0.09542795270681381
+            ],
+            [
+              0.3820948004722595,
+              -0.07600098848342896,
+              -0.15359485149383545
+            ]
+          ],
+          "records": 5000000,
+          "reservoir_seen": 0,
+          "reservoir_size": 0
+        },
+        {
+          "average_gaps": [
+            0.3125571208083201,
+            0.19606193900108337
+          ],
+          "average_policies": [
+            [
+              0.43830884156091277,
+              0.43593943768649457,
+              0.1257517207525927
+            ],
+            [
+              0.23692184686660767,
+              0.43298378586769104,
+              0.3300943672657013
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 5500000,
+            "fresh_q": 5500000,
+            "fresh_records": 5500000,
+            "q_loss_targets": 5495936,
+            "q_updates": 42937,
+            "supervised_targets": 498560,
+            "supervised_updates": 3895,
+            "target_refreshes": 429
+          },
+          "elapsed_seconds": 146.39275460096542,
+          "epsilon": 0.034,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.25,
+          "q_values": [
+            [
+              -0.31672799587249756,
+              -0.27293074131011963,
+              0.7466753721237183
+            ],
+            [
+              0.0440690703690052,
+              0.2387867420911789,
+              -0.6945935487747192
+            ]
+          ],
+          "records": 5500000,
+          "reservoir_seen": 49436,
+          "reservoir_size": 49436
+        },
+        {
+          "average_gaps": [
+            0.05642428657863813,
+            0.06229883618053306
+          ],
+          "average_policies": [
+            [
+              0.34871921844963916,
+              0.3589858496793598,
+              0.29229493187100103
+            ],
+            [
+              0.33840174491410685,
+              0.3854953463523193,
+              0.2761029087335738
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 6000000,
+            "fresh_q": 6000000,
+            "fresh_records": 6000000,
+            "q_loss_targets": 5996032,
+            "q_updates": 46844,
+            "supervised_targets": 998656,
+            "supervised_updates": 7802,
+            "target_refreshes": 468
+          },
+          "elapsed_seconds": 165.01597024698276,
+          "epsilon": 0.027999999999999997,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 0.5,
+          "q_values": [
+            [
+              -0.3817092180252075,
+              0.44548463821411133,
+              0.024587562307715416
+            ],
+            [
+              0.11112133413553238,
+              -0.33588552474975586,
+              -0.020442260429263115
+            ]
+          ],
+          "records": 6000000,
+          "reservoir_seen": 99005,
+          "reservoir_size": 99005
+        },
+        {
+          "average_gaps": [
+            0.0599384605884552,
+            0.011357665061950684
+          ],
+          "average_policies": [
+            [
+              0.31892821192741394,
+              0.37886667251586914,
+              0.3022051155567169
+            ],
+            [
+              0.3306979537010193,
+              0.34205561876296997,
+              0.32724642753601074
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 6500000,
+            "fresh_q": 6500000,
+            "fresh_records": 6500000,
+            "q_loss_targets": 6496000,
+            "q_updates": 50750,
+            "supervised_targets": 1498624,
+            "supervised_updates": 11708,
+            "target_refreshes": 507
+          },
+          "elapsed_seconds": 183.80143197905272,
+          "epsilon": 0.022,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 0.75,
+          "q_values": [
+            [
+              0.17004793882369995,
+              0.0673353523015976,
+              -0.17943602800369263
+            ],
+            [
+              -0.08284130692481995,
+              0.0013532444136217237,
+              0.2319427877664566
+            ]
+          ],
+          "records": 6500000,
+          "reservoir_seen": 148956,
+          "reservoir_size": 148956
+        },
+        {
+          "average_gaps": [
+            0.0713979261280342,
+            0.009118824653695567
+          ],
+          "average_policies": [
+            [
+              0.2922454600187862,
+              0.3636433861468204,
+              0.3441111538343934
+            ],
+            [
+              0.3391011155187419,
+              0.3309165936162118,
+              0.3299822908650463
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 7000000,
+            "fresh_q": 7000000,
+            "fresh_records": 7000000,
+            "q_loss_targets": 6995968,
+            "q_updates": 54656,
+            "supervised_targets": 1998592,
+            "supervised_updates": 15614,
+            "target_refreshes": 546
+          },
+          "elapsed_seconds": 202.5820203080075,
+          "epsilon": 0.016,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.05326473340392113,
+              0.0016419648891314864,
+              -0.042548418045043945
+            ],
+            [
+              -0.08622487634420395,
+              -0.05755983293056488,
+              0.17262466251850128
+            ]
+          ],
+          "records": 7000000,
+          "reservoir_seen": 198771,
+          "reservoir_size": 198771
+        },
+        {
+          "average_gaps": [
+            0.041813908761325236,
+            0.024542299698981695
+          ],
+          "average_policies": [
+            [
+              0.3412557440621929,
+              0.30846517358824094,
+              0.3502790823495662
+            ],
+            [
+              0.3263680941133415,
+              0.3509103938123232,
+              0.3227215120743353
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 7500000,
+            "fresh_q": 7500000,
+            "fresh_records": 7500000,
+            "q_loss_targets": 7495936,
+            "q_updates": 58562,
+            "supervised_targets": 2498560,
+            "supervised_updates": 19520,
+            "target_refreshes": 585
+          },
+          "elapsed_seconds": 221.5427292069653,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.018003692850470543,
+              0.06423438340425491,
+              0.09576696902513504
+            ],
+            [
+              0.0914386734366417,
+              -0.07821495831012726,
+              -0.018831634894013405
+            ]
+          ],
+          "records": 7500000,
+          "reservoir_seen": 248615,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.015830250009618685,
+            0.026575831974993247
+          ],
+          "average_policies": [
+            [
+              0.33326867222207834,
+              0.3254505388841515,
+              0.34128078889377017
+            ],
+            [
+              0.31211922692541916,
+              0.3386950589004124,
+              0.34918571417416844
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 8000000,
+            "fresh_q": 8000000,
+            "fresh_records": 8000000,
+            "q_loss_targets": 7996032,
+            "q_updates": 62469,
+            "supervised_targets": 2998656,
+            "supervised_updates": 23427,
+            "target_refreshes": 625
+          },
+          "elapsed_seconds": 240.49704006500542,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.018732471391558647,
+              0.044738542288541794,
+              0.10538678616285324
+            ],
+            [
+              0.004843465518206358,
+              0.008582593873143196,
+              -0.03831265866756439
+            ]
+          ],
+          "records": 8000000,
+          "reservoir_seen": 298430,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.012550533565910682,
+            0.040248873248629136
+          ],
+          "average_policies": [
+            [
+              0.3448626306571144,
+              0.32282527225168184,
+              0.33231209709120374
+            ],
+            [
+              0.30707191271018464,
+              0.34732078595881377,
+              0.3456073013310016
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 8500000,
+            "fresh_q": 8500000,
+            "fresh_records": 8500000,
+            "q_loss_targets": 8496000,
+            "q_updates": 66375,
+            "supervised_targets": 3498624,
+            "supervised_updates": 27333,
+            "target_refreshes": 664
+          },
+          "elapsed_seconds": 259.4845413430594,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.06630981713533401,
+              -0.012195921503007412,
+              0.03627076372504234
+            ],
+            [
+              0.04941720515489578,
+              0.07629157602787018,
+              -0.11767837405204773
+            ]
+          ],
+          "records": 8500000,
+          "reservoir_seen": 348381,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.012717992825388491,
+            0.011765598549509093
+          ],
+          "average_policies": [
+            [
+              0.3400657081643169,
+              0.3236081495051473,
+              0.3363261423305358
+            ],
+            [
+              0.3350195685017366,
+              0.3417264615460359,
+              0.3232539699522275
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 9000000,
+            "fresh_q": 9000000,
+            "fresh_records": 9000000,
+            "q_loss_targets": 8995968,
+            "q_updates": 70281,
+            "supervised_targets": 3998592,
+            "supervised_updates": 31239,
+            "target_refreshes": 703
+          },
+          "elapsed_seconds": 278.4808172789635,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.00031498074531555176,
+              -0.021212724968791008,
+              0.021835297346115112
+            ],
+            [
+              0.14094862341880798,
+              -0.03102557361125946,
+              -0.03994414210319519
+            ]
+          ],
+          "records": 9000000,
+          "reservoir_seen": 397896,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.0072691149058146665,
+            0.014210404236054797
+          ],
+          "average_policies": [
+            [
+              0.3393615787650566,
+              0.3285459573757014,
+              0.33209246385924196
+            ],
+            [
+              0.32934525573360224,
+              0.34355565996965703,
+              0.32709908429674067
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 9500000,
+            "fresh_q": 9500000,
+            "fresh_records": 9500000,
+            "q_loss_targets": 9495936,
+            "q_updates": 74187,
+            "supervised_targets": 4498560,
+            "supervised_updates": 35145,
+            "target_refreshes": 742
+          },
+          "elapsed_seconds": 297.50994675501715,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.012812747620046139,
+              0.1076391264796257,
+              0.09053471684455872
+            ],
+            [
+              0.12569649517536163,
+              0.0035899910144507885,
+              0.01445663534104824
+            ]
+          ],
+          "records": 9500000,
+          "reservoir_seen": 447689,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.02427104115486145,
+            0.02527054993685779
+          ],
+          "average_policies": [
+            [
+              0.33709701895713806,
+              0.31931596994400024,
+              0.3435870110988617
+            ],
+            [
+              0.3471331091443831,
+              0.33100433164809157,
+              0.3218625592075253
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 10000000,
+            "fresh_q": 10000000,
+            "fresh_records": 10000000,
+            "q_loss_targets": 9996032,
+            "q_updates": 78094,
+            "supervised_targets": 4998656,
+            "supervised_updates": 39052,
+            "target_refreshes": 781
+          },
+          "elapsed_seconds": 316.62676781695336,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.04170006886124611,
+              0.07725897431373596,
+              -0.08189408481121063
+            ],
+            [
+              0.05066053569316864,
+              -0.10730749368667603,
+              0.015482871793210506
+            ]
+          ],
+          "records": 10000000,
+          "reservoir_seen": 497711,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.015632182359695435,
+            0.009220271753056564
+          ],
+          "average_policies": [
+            [
+              0.32661113142967224,
+              0.32887834310531616,
+              0.3445105254650116
+            ],
+            [
+              0.33401907479649334,
+              0.32838032672522505,
+              0.3376005984782816
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 10500000,
+            "fresh_q": 10500000,
+            "fresh_records": 10500000,
+            "q_loss_targets": 10496000,
+            "q_updates": 82000,
+            "supervised_targets": 5498624,
+            "supervised_updates": 42958,
+            "target_refreshes": 820
+          },
+          "elapsed_seconds": 335.8608115219977,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.03952975571155548,
+              -0.023854494094848633,
+              -0.13280430436134338
+            ],
+            [
+              -0.02639508992433548,
+              -0.09959926456212997,
+              -0.01689242012798786
+            ]
+          ],
+          "records": 10500000,
+          "reservoir_seen": 547736,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.012209863198391402,
+            0.00889664888381958
+          ],
+          "average_policies": [
+            [
+              0.3366733692093712,
+              0.32555838379611873,
+              0.33776824699451014
+            ],
+            [
+              0.33740538358688354,
+              0.32684898376464844,
+              0.335745632648468
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 11000000,
+            "fresh_q": 11000000,
+            "fresh_records": 11000000,
+            "q_loss_targets": 10995968,
+            "q_updates": 85906,
+            "supervised_targets": 5998592,
+            "supervised_updates": 46864,
+            "target_refreshes": 859
+          },
+          "elapsed_seconds": 355.02977041504346,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.07068701833486557,
+              0.07060327380895615,
+              -0.05136868357658386
+            ],
+            [
+              -0.05247010663151741,
+              -0.02880306914448738,
+              0.031978026032447815
+            ]
+          ],
+          "records": 11000000,
+          "reservoir_seen": 597532,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.00048246976837695854,
+            0.013049186053823603
+          ],
+          "average_policies": [
+            [
+              0.33366740741327955,
+              0.3329250614091717,
+              0.3334075311775487
+            ],
+            [
+              0.3362758360073469,
+              0.3253374889694148,
+              0.3383866750232384
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 11500000,
+            "fresh_q": 11500000,
+            "fresh_records": 11500000,
+            "q_loss_targets": 11495936,
+            "q_updates": 89812,
+            "supervised_targets": 6498560,
+            "supervised_updates": 50770,
+            "target_refreshes": 898
+          },
+          "elapsed_seconds": 374.205610584002,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.04471474513411522,
+              -0.011500812135636806,
+              -0.024604152888059616
+            ],
+            [
+              -0.09864053130149841,
+              -0.02502649649977684,
+              -0.05262257158756256
+            ]
+          ],
+          "records": 11500000,
+          "reservoir_seen": 647084,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.010382145643234253,
+            0.008136272430419922
+          ],
+          "average_policies": [
+            [
+              0.32952195405960083,
+              0.3399040997028351,
+              0.3305739462375641
+            ],
+            [
+              0.3276440501213074,
+              0.3357803225517273,
+              0.33657562732696533
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 12000000,
+            "fresh_q": 12000000,
+            "fresh_records": 12000000,
+            "q_loss_targets": 11996032,
+            "q_updates": 93719,
+            "supervised_targets": 6998656,
+            "supervised_updates": 54677,
+            "target_refreshes": 937
+          },
+          "elapsed_seconds": 393.4098019830417,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.0461367703974247,
+              -0.042648639529943466,
+              0.005494941491633654
+            ],
+            [
+              -0.07456192374229431,
+              0.04590490832924843,
+              0.020515885204076767
+            ]
+          ],
+          "records": 12000000,
+          "reservoir_seen": 696976,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.009668887237840151,
+            0.003385394609844994
+          ],
+          "average_policies": [
+            [
+              0.34020753742501364,
+              0.32925381238781287,
+              0.3305386501871735
+            ],
+            [
+              0.3332102398151016,
+              0.33170218278752667,
+              0.33508757739737166
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 12500000,
+            "fresh_q": 12500000,
+            "fresh_records": 12500000,
+            "q_loss_targets": 12496000,
+            "q_updates": 97625,
+            "supervised_targets": 7498624,
+            "supervised_updates": 58583,
+            "target_refreshes": 976
+          },
+          "elapsed_seconds": 412.66426451399457,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.09076307713985443,
+              -0.07906535267829895,
+              0.07568518072366714
+            ],
+            [
+              0.04242411255836487,
+              0.07307255268096924,
+              -0.08435080945491791
+            ]
+          ],
+          "records": 12500000,
+          "reservoir_seen": 747206,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.01241612434387207,
+            0.010079324846227478
+          ],
+          "average_policies": [
+            [
+              0.3367941975593567,
+              0.3253948390483856,
+              0.3378109633922577
+            ],
+            [
+              0.3294867473534791,
+              0.3302169639001467,
+              0.3402962887463742
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 13000000,
+            "fresh_q": 13000000,
+            "fresh_records": 13000000,
+            "q_loss_targets": 12995968,
+            "q_updates": 101531,
+            "supervised_targets": 7998592,
+            "supervised_updates": 62489,
+            "target_refreshes": 1015
+          },
+          "elapsed_seconds": 431.9546065570321,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.048918213695287704,
+              -0.027645928785204887,
+              0.08381817489862442
+            ],
+            [
+              -0.010140965692698956,
+              0.015601147897541523,
+              -0.10343848913908005
+            ]
+          ],
+          "records": 13000000,
+          "reservoir_seen": 796929,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.007256478287472667,
+            0.0077059564678085835
+          ],
+          "average_policies": [
+            [
+              0.3306091526332245,
+              0.3310671845396514,
+              0.33832366282712406
+            ],
+            [
+              0.32809891318980117,
+              0.33580486965760975,
+              0.336096217152589
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 13500000,
+            "fresh_q": 13500000,
+            "fresh_records": 13500000,
+            "q_loss_targets": 13495936,
+            "q_updates": 105437,
+            "supervised_targets": 8498560,
+            "supervised_updates": 66395,
+            "target_refreshes": 1054
+          },
+          "elapsed_seconds": 451.1913239710266,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.07137087732553482,
+              -0.04193546250462532,
+              -0.07103734463453293
+            ],
+            [
+              0.015366536565124989,
+              -0.060557544231414795,
+              -0.10739919543266296
+            ]
+          ],
+          "records": 13500000,
+          "reservoir_seen": 847307,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.003925949335098267,
+            0.0032162071232857414
+          ],
+          "average_policies": [
+            [
+              0.33420446515083313,
+              0.3309347927570343,
+              0.33486074209213257
+            ],
+            [
+              0.33221069968374667,
+              0.33228654659648377,
+              0.3355027537197695
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 14000000,
+            "fresh_q": 14000000,
+            "fresh_records": 14000000,
+            "q_loss_targets": 13996032,
+            "q_updates": 109344,
+            "supervised_targets": 8998656,
+            "supervised_updates": 70302,
+            "target_refreshes": 1093
+          },
+          "elapsed_seconds": 470.4682240600232,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              -0.06532277166843414,
+              0.06344066560268402,
+              -0.03661181405186653
+            ],
+            [
+              0.0419321209192276,
+              -0.04942183569073677,
+              0.04459633678197861
+            ]
+          ],
+          "records": 14000000,
+          "reservoir_seen": 897191,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.005240976341875536,
+            0.003758519775911573
+          ],
+          "average_policies": [
+            [
+              0.33496057972664417,
+              0.33531981688858714,
+              0.32971960338476863
+            ],
+            [
+              0.3316196402424681,
+              0.33537816001837967,
+              0.3330021997391522
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 14500000,
+            "fresh_q": 14500000,
+            "fresh_records": 14500000,
+            "q_loss_targets": 14496000,
+            "q_updates": 113250,
+            "supervised_targets": 9498624,
+            "supervised_updates": 74208,
+            "target_refreshes": 1132
+          },
+          "elapsed_seconds": 489.77990251698066,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.018705599009990692,
+              0.05708092823624611,
+              -0.05739164352416992
+            ],
+            [
+              -0.029433656483888626,
+              -0.02006319910287857,
+              0.006690328009426594
+            ]
+          ],
+          "records": 14500000,
+          "reservoir_seen": 947029,
+          "reservoir_size": 200000
+        },
+        {
+          "average_gaps": [
+            0.00579911470413208,
+            0.001861512716457625
+          ],
+          "average_policies": [
+            [
+              0.33200350403785706,
+              0.33780261874198914,
+              0.3301938772201538
+            ],
+            [
+              0.3349062602194029,
+              0.3320489922776518,
+              0.33304474750294527
+            ]
+          ],
+          "average_ready": true,
+          "counters": {
+            "fresh_ordinary": 15000000,
+            "fresh_q": 15000000,
+            "fresh_records": 15000000,
+            "q_loss_targets": 14995968,
+            "q_updates": 117156,
+            "supervised_targets": 9998592,
+            "supervised_updates": 78114,
+            "target_refreshes": 1171
+          },
+          "elapsed_seconds": 509.1027811720269,
+          "epsilon": 0.01,
+          "greedy_q_gaps": [
+            1.0,
+            1.0
+          ],
+          "greedy_q_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "handoff_probability": 1.0,
+          "q_values": [
+            [
+              0.004369111731648445,
+              -0.06547383964061737,
+              -0.07103706896305084
+            ],
+            [
+              -0.09954102337360382,
+              -0.05781823396682739,
+              0.010139058344066143
+            ]
+          ],
+          "records": 15000000,
+          "reservoir_seen": 996927,
+          "reservoir_size": 200000
+        }
+      ],
+      "formal_gate_passed": true,
+      "formal_protocol": true,
+      "learner": "neural",
+      "loss_stats": {
+        "projected_targets": 0,
+        "q_loss_sum": 72819.39942955226,
+        "q_updates": 117156,
+        "raw_target_max": 1.0,
+        "raw_target_min": -1.0,
+        "supervised_loss_sum": 84117.74100329156,
+        "supervised_loss_updates": 78114
+      },
+      "matrix_certificate_gap": 2.220446049250313e-16,
+      "matrix_value": 0.0,
+      "per_role_records": [
+        7500000,
+        7500000
+      ],
+      "physical_games": 7500000,
+      "records": 15000000,
+      "reservoir_changes": 521670,
+      "reservoir_seen": 996927,
+      "reservoir_size": 200000,
+      "seed": 1,
+      "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "status": "complete",
+      "task": "rps",
+      "timings": {
+        "checkpoint": 21.77826131589245,
+        "collection": 270.99234308465384,
+        "evaluation": 0.009501872351393104,
+        "learning": 215.5637181448983
+      }
+    }
+  ]
+}

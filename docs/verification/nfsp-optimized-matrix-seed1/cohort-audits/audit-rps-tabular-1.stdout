@@ -1,0 +1,10 @@
+{
+  "a2_complete": false,
+  "case": [
+    "rps",
+    "tabular",
+    1
+  ],
+  "case_sha256": "bcac5154be20a7cb45e3a7bd16b34a5f9eb4fb8c80ef4dc56f10b8c5c1ac16df",
+  "fresh_audit_verified": true
+}

@@ -1,0 +1,10 @@
+{
+  "a2_complete": false,
+  "case": [
+    "rps",
+    "neural",
+    1
+  ],
+  "case_sha256": "f4d03025e594100bcc7ccc7cfe8432b4cb22da117925c6c1ee8b501d3dc7757a",
+  "fresh_audit_verified": true
+}

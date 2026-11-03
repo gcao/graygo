@@ -1,0 +1,155 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "a924b5afe8238e96e66bd0e62dfd8668879eb2f032755f3d1194d8f779272560",
+  "auditor_sha256": "7a9898ba046fdb4aa638c0ddbc92ccb721b362a6b0767eb38d8723802f30f728",
+  "commands": [
+    {
+      "case": "asymmetric/profiles/pre-tabular",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-optimized-matrix-profile-audit-378afb5/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-seed1-72aa24b/asymmetric/profiles/pre-tabular",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-profile-audit-378afb5/asymmetric-profiles-pre-tabular.json"
+      ],
+      "pid": 2723604,
+      "result_sha256": "b3c4eaede5102e432c8e84edfe824ff220c4a7edd5924df20c3b9a1b5178b19d",
+      "returncode": 0,
+      "seconds": 1.7219482030486688
+    },
+    {
+      "case": "asymmetric/profiles/pre-neural",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-optimized-matrix-profile-audit-378afb5/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-seed1-72aa24b/asymmetric/profiles/pre-neural",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-profile-audit-378afb5/asymmetric-profiles-pre-neural.json"
+      ],
+      "pid": 2723651,
+      "result_sha256": "dae72465e68892ed8549b78cb783564569bf0f35d7399d9199b2de70a4d7b2c9",
+      "returncode": 0,
+      "seconds": 1.7206914969719946
+    },
+    {
+      "case": "asymmetric/profiles/post-tabular",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-optimized-matrix-profile-audit-378afb5/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-seed1-72aa24b/asymmetric/profiles/post-tabular",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-profile-audit-378afb5/asymmetric-profiles-post-tabular.json"
+      ],
+      "pid": 2723698,
+      "result_sha256": "8fc086df7b30eac3dfbc894f9ce132997782553c9ea470297e00224e01968eb7",
+      "returncode": 0,
+      "seconds": 1.7709833428962156
+    },
+    {
+      "case": "asymmetric/profiles/post-neural",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-optimized-matrix-profile-audit-378afb5/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-seed1-72aa24b/asymmetric/profiles/post-neural",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-profile-audit-378afb5/asymmetric-profiles-post-neural.json"
+      ],
+      "pid": 2723765,
+      "result_sha256": "4d680b70bc967bed3ed10fc1c99bdfd4f9955bd075b486c130c98af49daac0cb",
+      "returncode": 0,
+      "seconds": 1.7197786889737472
+    },
+    {
+      "case": "rps/profiles/pre-tabular",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-optimized-matrix-profile-audit-378afb5/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-seed1-72aa24b/rps/profiles/pre-tabular",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-profile-audit-378afb5/rps-profiles-pre-tabular.json"
+      ],
+      "pid": 2723813,
+      "result_sha256": "d1a90c78c26ccf8e91f114ecd4eea0e6de806a4fef4bafcfa0d5a40dce935384",
+      "returncode": 0,
+      "seconds": 1.7217019709059969
+    },
+    {
+      "case": "rps/profiles/pre-neural",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-optimized-matrix-profile-audit-378afb5/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-seed1-72aa24b/rps/profiles/pre-neural",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-profile-audit-378afb5/rps-profiles-pre-neural.json"
+      ],
+      "pid": 2723860,
+      "result_sha256": "37bab539ecd42e5d5abe3b8b5bb38d18cf8194d2fef6f26666cf78f82de91a78",
+      "returncode": 0,
+      "seconds": 1.7192815609741956
+    },
+    {
+      "case": "rps/profiles/post-tabular",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-optimized-matrix-profile-audit-378afb5/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-seed1-72aa24b/rps/profiles/post-tabular",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-profile-audit-378afb5/rps-profiles-post-tabular.json"
+      ],
+      "pid": 2723927,
+      "result_sha256": "169466d8f882cf35a781c5a2288e1eb37b99e299ee3e539ad9ec20d8421765ed",
+      "returncode": 0,
+      "seconds": 1.7717471779324114
+    },
+    {
+      "case": "rps/profiles/post-neural",
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-optimized-matrix-profile-audit-378afb5/tools/audit_nfsp_matrix.py",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-seed1-72aa24b/rps/profiles/post-neural",
+        "--allow-diagnostic",
+        "--time-cap-seconds",
+        "30",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-profile-audit-378afb5/rps-profiles-post-neural.json"
+      ],
+      "pid": 2723974,
+      "result_sha256": "d97e67c30dc8cee2c9dc5720d59beee216d42dc5c6efd0dcb27d9a03d3c61cd7",
+      "returncode": 0,
+      "seconds": 1.7191750060301274
+    }
+  ],
+  "current_case": null,
+  "driver_sha256": "0aa277d828b9290a0ea0067d2aea4e1dead0bd3a5d9dc06cbe58de181984b507",
+  "execution_authorized": false,
+  "measured_driver_seconds": 14.271054554032162,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "original_driver_pid": 2723598,
+  "original_profile_inputs_unchanged": true,
+  "outer_watchdog_seconds": 360,
+  "status": "verified_all_eight_profiles",
+  "tool_commit": "378afb56a0409fef7fe9effbd411940b86ed2918",
+  "version": 1
+}

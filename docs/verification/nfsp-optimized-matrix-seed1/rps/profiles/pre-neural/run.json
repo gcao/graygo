@@ -1,0 +1,198 @@
+{
+  "average_method": "masked frozen-label cross-entropy",
+  "backend_settings": {
+    "batch": 128,
+    "learning_rate": 0.0003,
+    "learning_start": 4096,
+    "max_grad_norm": 0.5,
+    "q_reuse": 1,
+    "target_every": 12800
+  },
+  "baseline_version": null,
+  "collection_implementation": "terminal-batch",
+  "command": {
+    "config": {
+      "batch": 128,
+      "capacity": 200000,
+      "device": "cpu",
+      "epsilon_decay": 7500000,
+      "eval_every": 50000,
+      "handoff_end": 7000000,
+      "hidden": 64,
+      "label_rule": "greedy",
+      "learner": "neural",
+      "learning_rate": 0.0003,
+      "learning_start": 4096,
+      "max_grad_norm": 0.5,
+      "q_reuse": 1,
+      "records": 100000,
+      "reservoir_open": 5000000,
+      "seed": 1,
+      "target_every": 12800,
+      "task": "rps",
+      "time_cap_seconds": 65.0,
+      "uniform_comparison": false
+    },
+    "operation": "nfsp-matrix"
+  },
+  "config": {
+    "batch": 128,
+    "capacity": 200000,
+    "device": "cpu",
+    "epsilon_decay": 7500000,
+    "eval_every": 50000,
+    "handoff_end": 7000000,
+    "hidden": 64,
+    "label_rule": "greedy",
+    "learner": "neural",
+    "learning_rate": 0.0003,
+    "learning_start": 4096,
+    "max_grad_norm": 0.5,
+    "q_reuse": 1,
+    "records": 100000,
+    "reservoir_open": 5000000,
+    "seed": 1,
+    "target_every": 12800,
+    "task": "rps",
+    "time_cap_seconds": 65.0,
+    "uniform_comparison": false
+  },
+  "counter_unit": "two own-side fresh records per physical one-round game",
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cpu_threads": 24,
+  "created_at": "2026-11-03T03:24:42.071513+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 119891910656,
+  "encoding_version": "graygo/nfsp-matrix-role/1",
+  "episode_sampling": "independent role modes, ramp choices and actions; policy frozen for each one-round episode",
+  "filesystem": "ext2/ext3",
+  "format_version": 1,
+  "git_commit": "f93f95ba9ac0650f6b17307ae43c55dc2212736c",
+  "git_dirty": false,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "host_memory": {
+    "available_bytes": 29643751424,
+    "swap_bytes": 12884897792,
+    "total_bytes": 33558446080
+  },
+  "hostname": "home-ai",
+  "model": {
+    "hidden": 64,
+    "learner": "neural",
+    "public_inputs": "two-role one-hot; no opponent identity"
+  },
+  "oracle_value": 0.0,
+  "payoffs": [
+    [
+      0.0,
+      -1.0,
+      1.0
+    ],
+    [
+      1.0,
+      0.0,
+      -1.0
+    ],
+    [
+      -1.0,
+      1.0,
+      0.0
+    ]
+  ],
+  "pid": 2721815,
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "q_loss": "mean squared error; online-pi expected target values; projected target",
+  "q_optimizer": {
+    "class": "Adam",
+    "defaults": {
+      "amsgrad": false,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "capturable": false,
+      "decoupled_weight_decay": false,
+      "differentiable": false,
+      "eps": 1e-08,
+      "foreach": null,
+      "fused": null,
+      "lr": 0.0003,
+      "maximize": false,
+      "weight_decay": 0
+    }
+  },
+  "rng_stream_seeds": {
+    "action_black": 104,
+    "action_white": 105,
+    "mode_black": 102,
+    "mode_white": 103,
+    "q_replay": 107,
+    "reservoir": 106,
+    "supervised": 108
+  },
+  "rule_version": null,
+  "rules": null,
+  "run_id": "8ebcf46941554e4d9b760b48baa0636d",
+  "schedule": {
+    "best_response_probability": 0.1,
+    "epsilon_decay_records": 7500000,
+    "handoff_end": 7000000,
+    "reservoir_open": 5000000
+  },
+  "seed": 1,
+  "shared_parameters_across_roles": true,
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "supervised_optimizer": {
+    "class": "Adam",
+    "defaults": {
+      "amsgrad": false,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "capturable": false,
+      "decoupled_weight_decay": false,
+      "differentiable": false,
+      "eps": 1e-08,
+      "foreach": null,
+      "fused": null,
+      "lr": 0.0003,
+      "maximize": false,
+      "weight_decay": 0
+    }
+  },
+  "target_refresh_order": "after optimizer work at exact fresh-record boundary",
+  "task_schema": "graygo/nfsp-matrix-role/1"
+}

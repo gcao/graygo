@@ -1,0 +1,79 @@
+{
+  "Retrace_selected": false,
+  "a2_complete": false,
+  "all_four_cases_complete_and_freshly_audited": true,
+  "all_original_processes_terminal": true,
+  "archived_assessment_sha256": "a99f51ac2d83e1956983a09a3f3e45c49050c313b8f6dc95cfe73398732b8e53",
+  "collection_implementation": "terminal-batch",
+  "current_archived_numerics_match": true,
+  "current_assessment_sha256": "d26a4efc6c05b689da96944c59284f19f8863fb90e38439b839f2c2ef37bc8cc",
+  "delayed_table_numeric_miss_retained": true,
+  "diagnostic_records": 800000,
+  "final_five_maxima": {
+    "asymmetric/neural/1": {
+      "formal_gate_passed": true,
+      "loop_seconds": 510.4418324409053,
+      "max_average_gap": 0.01378850810647203,
+      "original_case_sha256": "33c5b9a4dcefd1d3e4d47159b2524a77e3f3ebefb2f83f633ce99767c4025c45"
+    },
+    "asymmetric/tabular/1": {
+      "formal_gate_passed": true,
+      "loop_seconds": 413.1248555269558,
+      "max_average_gap": 0.035083341793582246,
+      "original_case_sha256": "788a463f8e2c656a6101b6be6bb1d031c29cc90c0f8cb4fe303c13b74080caa7"
+    },
+    "rps/neural/1": {
+      "formal_gate_passed": true,
+      "loop_seconds": 510.2028305400163,
+      "max_average_gap": 0.01241612434387207,
+      "original_case_sha256": "12286db742b5f168bbcad8d67bf0bc99f669bb20744af98443ed4c5826e08558"
+    },
+    "rps/tabular/1": {
+      "formal_gate_passed": true,
+      "loop_seconds": 414.53441319894046,
+      "max_average_gap": 0.024050924304144572,
+      "original_case_sha256": "9a91bec4550a2a020ca9ef9bc2fab5d934b15bf29410631ec334ebd4003f9100"
+    }
+  },
+  "formal_records": 60000000,
+  "funding_independently_recomputed_decimal": {
+    "asymmetric/neural": {
+      "cap_seconds": "1800.0",
+      "phase_weighted_15M_seconds": "581.528941454598700",
+      "twofold_margin_passed": true
+    },
+    "asymmetric/tabular": {
+      "cap_seconds": "1200.0",
+      "phase_weighted_15M_seconds": "527.9016123618930500",
+      "twofold_margin_passed": true
+    },
+    "rps/neural": {
+      "cap_seconds": "1800.0",
+      "phase_weighted_15M_seconds": "577.5475148519035100",
+      "twofold_margin_passed": true
+    },
+    "rps/tabular": {
+      "cap_seconds": "1200.0",
+      "phase_weighted_15M_seconds": "533.516460942337300",
+      "twofold_margin_passed": true
+    }
+  },
+  "missing_cases": 26,
+  "original_audit_watch_pid": 2723027,
+  "original_driver_pid": 2721738,
+  "original_profile_audit_pid": 2723598,
+  "original_source_specific_plan": "runs/a2-source-admission-584213f/optimized-plan.json",
+  "original_stage_pids": {
+    "asymmetric": 2721814,
+    "rps": 2721815
+  },
+  "other_families_selected": false,
+  "pilot_selected": false,
+  "present_cases": 10,
+  "seed": 1,
+  "seed_two_selected": false,
+  "source_registry_sha256": "46bf447c2212c027327139f33a318bd5e2bb3a6fc9a2a3d52257af634f8b76a5",
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "stability_extension_selected": false,
+  "version": 1
+}

@@ -1,0 +1,10 @@
+{
+  "a2_complete": false,
+  "case": [
+    "asymmetric",
+    "tabular",
+    1
+  ],
+  "case_sha256": "d9a658eb05ea8f4c7d0b73349a8d121b115c5fbb12f29d91f9c00cd9b26e5c27",
+  "fresh_audit_verified": true
+}
