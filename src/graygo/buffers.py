@@ -53,6 +53,23 @@ class ObservationSpec:
         return (np.packbits(x.reshape(-1).astype(np.uint8),bitorder="little"),
                 scalars,np.packbits(legal,bitorder="little"))
 
+    def pack_batch(self,observations):
+        """Pack ordinary public observations with the same scalar validation."""
+        count=len(observations)
+        if not count:
+            return (np.empty((0,self.spatial_bytes),np.uint8),np.empty((0,self.globals),np.float32),
+                    np.empty((0,self.legal_bytes),np.uint8))
+        x=np.stack([obs.spatial for obs in observations]);g=np.stack([obs.global_features for obs in observations])
+        legal=np.stack([obs.legal for obs in observations])
+        if x.shape!=(count,*self.spatial_shape) or g.shape!=(count,self.globals) or legal.shape!=(count,self.actions):
+            raise ValueError('observation dimensions disagree with buffer schema')
+        if not np.isin(x,[0,1]).all() or not np.isfinite(g).all() or legal.dtype!=np.bool_:
+            raise ValueError('binary features, finite globals, and boolean mask required')
+        with np.errstate(over='ignore'):scalars=g.astype(np.float32,copy=True)
+        if not np.isfinite(scalars).all():raise ValueError('globals overflow float32 storage')
+        return (np.packbits(x.reshape(count,-1).astype(np.uint8),axis=-1,bitorder='little'),
+                scalars,np.packbits(legal,axis=-1,bitorder='little'))
+
     @property
     def stored_globals(self):return self.globals
     @property
@@ -90,6 +107,20 @@ def _allocate(capacity,layout,max_bytes):
     total=sum(capacity*math.prod(shape)*np.dtype(dtype).itemsize for dtype,shape in layout.values())
     if total>max_bytes:raise ValueError(f"buffer requires {total} bytes, above configured {max_bytes}")
     return {name:np.zeros((capacity,*shape),dtype=dtype) for name,(dtype,shape) in layout.items()}
+
+
+def _batch_values(value,count,name,*,maximum=None,flag=False):
+    values=np.asarray(value)
+    if values.ndim==0:values=np.broadcast_to(values,(count,))
+    if values.shape!=(count,):raise ValueError('one '+name+' per replay record required')
+    if flag:
+        if values.dtype!=np.bool_:raise ValueError(name+' flags must be bool')
+    elif maximum is not None:
+        if values.dtype.kind not in ('i','u') or (values<0).any() or (values>maximum).any():
+            raise ValueError('invalid '+name)
+    elif values.dtype.kind not in ('b','i','u','f') or not np.isfinite(values).all():
+        raise ValueError('finite real '+name+' required')
+    return values
 
 
 def _save(path,metadata,arrays,size):
@@ -182,6 +213,56 @@ class ReplayBuffer:
         self.insertions+=1;self.size=min(self.size+1,self.capacity);self.cursor=self.insertions%self.capacity
         self.q_insertions+=int(value_mask);self.q_size+=int(value_mask)-overwritten_q
         return index
+
+    def add_terminal_batch(self,observations,actions,rewards,next_observations,*,behavior_prob,stream,step=0,
+                           opponent_version=0,policy_version=0,mode=0,actor_mask=True,value_mask=True,supplemental=False):
+        """Append terminal records in chronological order without sampler draws.
+
+        The fast path packs a normal ObservationSpec once and writes each live
+        ring slot once, including batches larger than capacity. Existing stream
+        tails and specialized storage use scalar `add` to preserve linkage.
+        """
+        count=len(observations)
+        if len(next_observations)!=count:raise ValueError('paired replay observation batch required')
+        if not count:return np.empty(0,dtype=np.int64)
+        if self.insertions+count>2**64-1:raise OverflowError('replay ordinal exhausted')
+        if self.q_insertions is None:raise ValueError('legacy replay has unknown historical Q eligibility; use its original source for continuation')
+        data={}
+        for name,value,maximum in (('action',actions,self.spec.actions-1),('stream',stream,2**64-1),
+                ('step',step,2**32-1),('opponent_version',opponent_version,2**64-1),
+                ('policy_version',policy_version,2**64-1),('mode',mode,1)):
+            data[name]=_batch_values(value,count,name,maximum=maximum)
+        for name,value in (('actor_mask',actor_mask),('value_mask',value_mask),('supplemental',supplemental)):
+            data[name]=_batch_values(value,count,name,flag=True)
+        if (data['supplemental']&data['actor_mask']).any():raise ValueError('supplemental coverage cannot be actor eligible')
+        data['reward']=_batch_values(rewards,count,'reward');data['behavior_prob']=_batch_values(behavior_prob,count,'behavior probability')
+        if (data['reward']<-1).any() or (data['reward']>1).any() or (data['behavior_prob']<=0).any() or (data['behavior_prob']>1).any():
+            raise ValueError('bounded reward and positive behavior probability required')
+        if (data['behavior_prob'].astype(np.float32)<=0).any():raise ValueError('behavior probability underflows float32 storage')
+        if type(self.spec) is not ObservationSpec or self._tails:
+            return np.array([self.add(obs,data['action'][i],data['reward'][i],next_observations[i],True,
+                **{key:values[i] for key,values in data.items() if key not in ('action','reward')})
+                for i,obs in enumerate(observations)],dtype=np.int64)
+        packed=self.spec.pack_batch(observations);following=self.spec.pack_batch(next_observations)
+        legal=np.unpackbits(packed[2],axis=-1,count=self.spec.actions,bitorder='little').astype(bool)
+        if not legal[np.arange(count),data['action'].astype(np.int64)].all():raise ValueError('replay source action was illegal')
+        if np.unpackbits(following[2],axis=-1,count=self.spec.actions,bitorder='little').any():
+            raise ValueError('next observation terminal mask disagrees with done')
+        indices=(self.cursor+np.arange(count,dtype=np.int64))%self.capacity
+        start=max(0,count-self.capacity);slots=indices[start:];a=self.arrays
+        if count>=self.capacity:
+            next_q_size=int(np.count_nonzero(data['value_mask'][start:]))
+        else:
+            overwritten=slots if self.size==self.capacity else slots[slots<self.size]
+            next_q_size=self.q_size+int(np.count_nonzero(data['value_mask']))-int(np.count_nonzero(a['value_mask'][overwritten]))
+        for name,array in zip(('spatial','globals','legal'),packed):a[name][slots]=array[start:]
+        for name,array in zip(('next_spatial','next_globals','next_legal'),following):a[name][slots]=array[start:]
+        for name,values in data.items():a[name][slots]=values[start:]
+        a['terminated'][slots]=True;a['ordinal'][slots]=np.arange(self.insertions+start,self.insertions+count,dtype=np.uint64)
+        a['next_index'][slots]=-1;a['next_ordinal'][slots]=0
+        self.insertions+=count;self.size=min(self.size+count,self.capacity);self.cursor=self.insertions%self.capacity
+        self.q_insertions+=int(np.count_nonzero(data['value_mask']));self.q_size=next_q_size
+        return indices
 
     def sample(self,count,rng):
         data=self.sample_sequences(count,1,rng)

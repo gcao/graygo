@@ -82,7 +82,9 @@ class NFSPMatrixConfig:
 
 
 class NFSPMatrixTrainer:
-    def __init__(self,config,run_dir,*,resume=False,reserve_bytes=DEFAULT_RESERVE):
+    def __init__(self,config,run_dir,*,resume=False,reserve_bytes=DEFAULT_RESERVE,collection='terminal-batch'):
+        if collection not in ('terminal-batch','scalar-reference'):raise ValueError('unknown matrix collection implementation')
+        self.collection_implementation=collection
         self.config=config;self.root=Path(run_dir);self.root.mkdir(parents=True,exist_ok=True)
         self.store=CheckpointStore(self.root,reserve_bytes=reserve_bytes)
         self.device=torch.device(config.device);torch.set_num_threads(1);torch.manual_seed(config.seed)
@@ -111,12 +113,14 @@ class NFSPMatrixTrainer:
                 self.manifest=json.loads(path.read_text())
                 if self.manifest['config']!=asdict(config) or self.manifest['source_sha256']!=source_digest():
                     raise ValueError('resume plan/source differs; start an explicit new lineage')
+                if self.manifest.get('collection_implementation')!=collection:raise ValueError('matrix collection implementation differs on resume')
                 self.audit=EpisodeAudit(self.root)
                 self._restore()
             else:
                 if path.exists():raise FileExistsError('run already exists; resume it instead of overwriting')
                 self.manifest=make_manifest(seed=config.seed,command={'operation':'nfsp-matrix','config':asdict(config)})
                 self.manifest.update({'config':asdict(config),'task_schema':TASK_VERSION,'encoding_version':TASK_VERSION,
+                    'collection_implementation':collection,
                     'rule_version':None,'baseline_version':None,'payoffs':self.payoffs.tolist(),'oracle_value':self.solution.value,
                     'backend_settings':asdict(config.backend_config()),'schedule':asdict(self.schedule),
                     'shared_parameters_across_roles':True,'counter_unit':'two own-side fresh records per physical one-round game',
@@ -152,8 +156,12 @@ class NFSPMatrixTrainer:
         average=masked_log_probs(logits,legal).exp()
         return q,legal,average
 
-    @torch.no_grad()
     def collect(self,count):
+        if self.collection_implementation=='scalar-reference':return self.collect_reference(count)
+        return self.collect_batched(count)
+
+    @torch.no_grad()
+    def collect_reference(self,count):
         if type(count) is not int or count<2 or count%2 or count>self.backend.counters.until_q_boundary(self.backend.config):
             raise ValueError('matrix collection must stop at a balanced update boundary')
         base=self.records;games=count//2;q,legal,average=self._tables()
@@ -206,6 +214,61 @@ class NFSPMatrixTrainer:
                 'ramp_min':min(c.ramp_probability for c in choices),'ramp_max':max(c.ramp_probability for c in choices)}
 
     @torch.no_grad()
+    def collect_batched(self,count):
+        if type(count) is not int or count<2 or count%2 or count>self.backend.counters.until_q_boundary(self.backend.config):
+            raise ValueError('matrix collection must stop at a balanced update boundary')
+        base=self.records;games=count//2;q,legal,average=self._tables()
+        choices=[]
+        for game in range(games):
+            n=base+2*game
+            choices.extend(self.schedule.choose_episode(n,self.rng[name],average_ready=self.backend.average_ready,
+                            uniform_comparison=self.config.uniform_comparison) for name in ('mode_black','mode_white'))
+        roles=torch.arange(count,device=self.device)%2
+        frozen_q=q[roles];masks=legal[roles]
+        eps=torch.tensor([c.epsilon for c in choices],device=self.device)
+        distributions=epsilon_greedy_distribution(frozen_q,masks,eps).double()
+        avg_rows=torch.tensor([c.acting_policy=='average' for c in choices],device=self.device)
+        uniform_rows=torch.tensor([c.acting_policy=='uniform' for c in choices],device=self.device)
+        distributions[avg_rows]=average[roles[avg_rows]].double()
+        distributions[uniform_rows]=masks[uniform_rows].double()/masks[uniform_rows].sum(-1,keepdim=True)
+        greedy=(greedy_distribution(frozen_q,masks)>0).cpu().numpy()
+        p=distributions.double().cpu().numpy();actions=np.empty(count,dtype=np.int64);probabilities=np.empty(count)
+        actions[::2],probabilities[::2]=draw_actions(p[::2],self.rng['action_black'])
+        actions[1::2],probabilities[1::2]=draw_actions(p[1::2],self.rng['action_white'])
+        rewards=np.repeat(self.payoffs[actions[::2],actions[1::2]],2);rewards[1::2]*=-1
+        # Versions identify both public parameter sets; mode/epsilon/ramp are retained separately.
+        generation=self.backend.counters.q_updates+self.backend.counters.supervised_updates
+        audit=np.empty(games,dtype=EPISODE_DTYPE)
+        for game in range(games):
+            pair=choices[2*game:2*game+2]
+            audit[game]=(self.episodes+game,base+2*game,generation,self.backend.average_ready,
+                         [c.best_response_mode for c in pair],[{'q':0,'average':1,'uniform':2}[c.acting_policy] for c in pair],
+                         [c.mode_draw for c in pair],[c.ramp_draw for c in pair],[c.ramp_probability for c in pair],
+                         [c.epsilon for c in pair],actions[2*game:2*game+2],probabilities[2*game:2*game+2],rewards[2*game])
+        versions=np.full(count,2*generation,dtype=np.uint64)+avg_rows.cpu().numpy().astype(np.uint64)
+        self.replay.add_terminal_batch([self.observations[i%2] for i in range(count)],actions,rewards,[self.terminal]*count,
+            behavior_prob=probabilities,stream=np.arange(2*self.episodes,2*self.episodes+count,dtype=np.uint64),
+            opponent_version=versions.reshape(-1,2)[:,::-1].reshape(-1),policy_version=versions,
+            mode=np.fromiter((int(c.best_response_mode) for c in choices),dtype=np.uint8,count=count))
+        for index,choice in enumerate(choices):
+            role=index%2;other=index+(1 if role==0 else -1);obs=self.observations[role]
+            version=2*generation+int(choice.acting_policy=='average')
+            opponent_version=2*generation+int(choices[other].acting_policy=='average')
+            self.per_role[role]+=1;self.best_response_visits[role]+=int(choice.best_response_mode);self.acting_counts[choice.acting_policy]+=1
+            if self.schedule.label_eligible(choice,base+index):
+                label=greedy[index]
+                if self.config.label_rule=='executed':
+                    label=np.zeros(self.actions,dtype=bool);label[actions[index]]=True
+                changed=self.reservoir.offer_index(obs,label,record=base+index,policy_version=version,rng=self.rng['reservoir'],best_response_mode=True)
+                if changed is not None:
+                    self.inserted_labels+=1
+                    if self.backend.exact_average:self.backend.average.observe_reservoir_change(self.reservoir,changed)
+        self.audit.append(audit)
+        self.episodes+=games
+        return {'logical_best_response':sum(c.best_response_mode for c in choices),'average_actions':int(avg_rows.sum()),
+                'ramp_min':min(c.ramp_probability for c in choices),'ramp_max':max(c.ramp_probability for c in choices)}
+
+    @torch.no_grad()
     def evaluate(self):
         started=time.monotonic();q,legal,average=self._tables()
         greedy=greedy_distribution(q,legal).double().cpu().numpy();avg=average.double().cpu().numpy()
@@ -225,6 +288,7 @@ class NFSPMatrixTrainer:
 
     def _state(self):
         return {'format_version':1,'task_schema':TASK_VERSION,'config':asdict(self.config),'backend':self.backend.state_dict(),
+                'collection_implementation':self.collection_implementation,
                 'episodes':self.episodes,'per_role':self.per_role,'best_response_visits':self.best_response_visits,
                 'acting_counts':self.acting_counts,'inserted_labels':self.inserted_labels,'evaluations':self.evaluations,'next_eval':self.next_eval,
                 'timings':self.timings,'loss_stats':self.loss_stats,'elapsed':self.elapsed_now(),
@@ -262,6 +326,7 @@ class NFSPMatrixTrainer:
         path=self.store.latest();meta=self.store.verify(path)
         if meta['metadata']['source_sha256']!=self.manifest['source_sha256']:raise ValueError('resume bundle source differs')
         state=torch.load(path/'trainer.pt',weights_only=True,map_location=self.device)
+        if state.get('collection_implementation')!=self.collection_implementation:raise ValueError('checkpoint collection implementation differs')
         if state['format_version']!=1 or state['task_schema']!=TASK_VERSION or state['config']!=asdict(self.config):raise ValueError('trainer checkpoint schema/plan differs')
         self.backend.load_state_dict(state['backend']);self.replay=ReplayBuffer.load(path/'replay.npz');self.reservoir=ReservoirBuffer.load(path/'reservoir.npz')
         if self.replay.spec!=self.spec or self.reservoir.spec!=self.spec or self.replay.capacity!=self.config.capacity or self.reservoir.capacity!=self.config.capacity or self.reservoir.opening_record!=self.config.reservoir_open:
@@ -295,6 +360,7 @@ class NFSPMatrixTrainer:
                 'reservoir_size':self.reservoir.size,'reservoir_changes':self.reservoir.revisions,'formal_protocol':self.config.formal_protocol(),
                 'average_final_five_passed':passed,'formal_gate_passed':passed and self.config.formal_protocol(),'evaluations':self.evaluations,'elapsed_seconds':self.elapsed_now(),
                 'timings':self.timings,'loss_stats':self.loss_stats,'source_sha256':self.manifest['source_sha256'],
+                'collection_implementation':self.collection_implementation,
                 'matrix_value':self.solution.value,'matrix_certificate_gap':self.solution.residual_gap}
 
     def run(self,*,until_records=None,stop_requested=lambda:False,verbose=True):
