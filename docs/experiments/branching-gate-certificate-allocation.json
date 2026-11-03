@@ -1,0 +1,15 @@
+{
+  "learner_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "name": "exact-actual-mixed-branch-greedy-gate-infeasibility-certificate",
+  "new_accelerator_jobs": 0,
+  "new_control_allocation_seconds": "0",
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "outer_watchdog_seconds": 60,
+  "producer": "tools/branching_gate_certificate.py",
+  "producer_sha256": "42c2422334954941e5ab232e98490019f0257dc3aeee5ed195249a5b0a1fea00",
+  "scope": "Read-only exact rational enumeration of all possible pure/uniform-tie public greedy behavioral strategies in the actual two-branch mixed game; verify every role-swapped terminal payoff and actual greedy primitive. Preserve every original matrix, threshold, grade and run. Diagnose specification/fixture/grade mismatch without granting an original pass or selecting corrective work.",
+  "source_package": ".worktrees/frozen-cuda-c3b8b5f/src",
+  "source_verifier_checkout": ".worktrees/cpu-cache-admission-1b405bd",
+  "version": 1
+}

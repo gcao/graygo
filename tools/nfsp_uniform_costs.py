@@ -30,6 +30,16 @@ from tools import nfsp_cost_profile as core, nfsp_graph_costs as graph, nfsp_uni
 VERSION = 'graygo/uniform-reference-cost-measurement/1'
 
 
+class ClosedReservoirSink(core._ReservoirSink):
+    """Closed local timing view over an already populated offline corpus."""
+    def __init__(self, reservoir, base, opening_record):
+        super().__init__(reservoir, base)
+        self.opening_record = opening_record
+
+    def offer_index(self, *args, **kwargs):
+        raise ValueError('closed dense timing must not insert labels into the offline corpus')
+
+
 def require(condition, message):
     if not condition:raise ValueError(message)
 
@@ -142,7 +152,7 @@ def dense_uniform(config, backend, replay, reservoir, states, *, records, check_
     from graygo.evaluation import FixedStarts
     collector = BoardCollector(config.rules, config.envs, config.seed + 1801,
         starts=FixedStarts(states, label='uniform-cost-only-complete-public-roots'))
-    sink = core._ReplaySink(replay); labels = core._ReservoirSink(reservoir, sink.base)
+    sink = core._ReplaySink(replay); labels = ClosedReservoirSink(reservoir, sink.base, config.reservoir_open)
     rng = np.random.default_rng(config.seed + 1802)
     snapshot = FrozenPolicies(backend.q, backend.average, version=4000000, average_ready=True, forward_pool=FrozenForwardPool(config.device))
     schedule = config.schedule(); original = collection.commit_many; actor_seconds = [0.]
@@ -224,6 +234,7 @@ def _profile(repo, allocation, expected_sha, root):
     with graph.GraphSetupObserver().installed() as tracker:
         measured_pipeline, observers = pipeline_measurements(config, root / 'pipeline', records=declaration['records_per_phase'],
             time_cap_seconds=declaration['process_time_ceiling_seconds'] - (time.monotonic() - started), check_budget=check)
+        write_report(root / 'pipeline-observers.json', observers)
         check(); io_root = Path(base['graph_io']['checkpoint'])
         payload = torch.load(io_root / 'cost-payload.pt', map_location='cpu', weights_only=True)
         with torch.random.fork_rng(devices=[]), torch.device('cpu'):
@@ -234,6 +245,7 @@ def _profile(repo, allocation, expected_sha, root):
         require(replay.size == reservoir.size == config.capacity, 'original compatible full buffers required')
         states = core.sample_states(replay, config.envs, np.random.default_rng(config.seed + 1901))
         actors = uniform_actors(config, backend, states, tracker, iterations=declaration['actor_iterations'], check_budget=check)
+        write_report(root / 'actors.json', actors)
         from graygo.probe_benchmark import ProbeBenchmark
         benchmark = ProbeBenchmark.from_dict(load(repo / declaration['dense_benchmark']))
         require(benchmark.family_coverage_complete and benchmark.sha256 == base['core_report']['plan']['dense_benchmark_sha256'],

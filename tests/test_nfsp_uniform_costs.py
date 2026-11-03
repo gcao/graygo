@@ -5,12 +5,35 @@ import inspect
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
+import numpy as np
+import torch
 from graygo import board_profile
 from graygo.board_runtime import BoardRuntimeConfig
+from tests import test_nfsp_cost_profile as fixtures
 from tools import nfsp_uniform_pipeline as pipeline, nfsp_uniform_costs as producer, audit_nfsp_uniform_costs as auditor
 
 
 class UniformReferenceCostsTests(unittest.TestCase):
+    def test_real_closed_dense_collection_uses_a_local_opening_view_without_mutating_offline_labels(self):
+        fixture = fixtures.CostProfileTests(methodName='runTest'); torch.set_num_threads(1)
+        replay, reservoir, _ = producer.core.materialize(fixture.source())
+        config = replace(fixture.config(), uniform_comparison=True)
+        backend, _ = producer.core.kernel_measurements(config, replay, reservoir, iterations=1, warmup=0)
+        states = [replay.spec.codec.unpack(replay.arrays['spatial'][i])[0] for i in (0, 2)]
+        before = {key: value.copy() for key, value in reservoir.arrays.items()}; seen = reservoir.seen
+        with patch.object(producer, 'FrozenForwardPool', return_value=None):
+            result = producer.dense_uniform(config, backend, replay, reservoir, states, records=8)
+        self.assertEqual(result['new_profile_records'], 8)
+        self.assertGreater(result['acting_counts']['uniform'], 0)
+        self.assertEqual(result['acting_counts']['average'], 0)
+        self.assertEqual(reservoir.opening_record, 0)
+        self.assertEqual(reservoir.seen, seen)
+        for key, value in before.items():np.testing.assert_array_equal(value, reservoir.arrays[key])
+        view = producer.ClosedReservoirSink(reservoir, 16, config.reservoir_open)
+        self.assertEqual(view.opening_record, 5000000)
+        with self.assertRaises(ValueError):view.offer_index(None)
+
     def test_real_pipeline_body_only_changes_the_declared_uniform_recipe_guard(self):
         expected = inspect.getsource(board_profile.profile_board)
         expected = expected.replace('config.handoff_end != 7_000_000 or config.uniform_comparison',
