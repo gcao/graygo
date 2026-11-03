@@ -1,0 +1,20 @@
+{
+  "audit_job_sha256": "7d45ac38e39ccf68706b21d6231d020aa30d75b72c97d91d91b0be3d31a98be8",
+  "audits": "runs/nfsp-delayed-cpu-price-audit-8650f18",
+  "case_audit_allocation": "docs/experiments/nfsp-delayed-cpu-price-audit-allocation.json",
+  "case_audit_allocation_sha256": "b745f2831b125dbbcd8c7e2b80f48c4118671738d2ab7052c77a2afaca34bfd6",
+  "execution_authorized": false,
+  "name": "prospective-cpu-delayed-price-qualification",
+  "new_accelerator_jobs": 0,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "proposal": "docs/experiments/nfsp-delayed-cpu-price-proposal.json",
+  "proposal_sha256": "88fc1de9d92d942972e1897e8164b00f5d0ea2ff0d4aad7886a92da99ee8c94d",
+  "qualification_outer_seconds": 90,
+  "qualifier": "tools/nfsp_delayed_cpu_prices.py",
+  "qualifier_sha256": "71aa562e6fad4e84e332415e9a5292623aeb11e57ec70cc337fddeb5cfb36d77",
+  "resource_category": "verification",
+  "scope": "One read-only qualification over the completed four original independently audited CPU delayed profiles, original raw twofold forecasts, exact live runtime and fresh CPU/features source bridge. All original data remain unchanged. No existing funding rewrite, formal cohort completion, control funding or project/study launch.",
+  "source_bridge": "docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/qualification/bridge.json",
+  "version": 1
+}
