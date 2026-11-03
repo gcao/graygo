@@ -1,0 +1,49 @@
+{
+  "a2_complete": false,
+  "actual_initial_q_and_average_weights_differ_between_seeds": true,
+  "actual_seed_initializations": {
+    "1": {
+      "actual_config_matches_original_seed_allocation": true,
+      "all_counters_zero": true,
+      "both_optimizer_moment_states_empty": true,
+      "no_active_episode_or_collected_roles": true,
+      "target_exactly_equals_initial_q": true
+    },
+    "2": {
+      "actual_config_matches_original_seed_allocation": true,
+      "all_counters_zero": true,
+      "both_optimizer_moment_states_empty": true,
+      "no_active_episode_or_collected_roles": true,
+      "target_exactly_equals_initial_q": true
+    }
+  },
+  "changed_weight_keys": {
+    "average": [
+      "layers.0.weight",
+      "layers.2.weight",
+      "layers.4.weight"
+    ],
+    "q": [
+      "layers.0.weight",
+      "layers.2.weight",
+      "layers.4.weight"
+    ]
+  },
+  "input_files_sha256": {
+    "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/initial-checkpoint/manifest.json": "95a5d092a19700eae5afa909c2d52f88bc0a6813f0ea1d557268469d34b9a077",
+    "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/initial-checkpoint/trainer.pt": "e3495ac94dd7171521fc699362809251a4aec805f37372ac9aec6db7fb1eda8f",
+    "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/initialization.json": "fe7068f94c084ad2480226f67ab51b87a032f5cb030809f43ce0834cc2fb8ece",
+    "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/run.json": "76b6918a12f9a73e5dd6016a941fbb92087c0083eff6e9852acdbf3c79cb6452",
+    "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/initial-checkpoint/manifest.json": "7836915ef7da878b26bd50b2dbaf3b526df2466359353ee01ccdc3fc4accb277",
+    "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/initial-checkpoint/trainer.pt": "cdeb79b15796b9540763b4007143aa879295be7a512b813c64e51878a897c653",
+    "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/initialization.json": "2df9e8fc7923b6db8936e3c534826e0222ba1a4cfe8f7c74a58d6df76b8964e6",
+    "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/run.json": "5670a44080cdb7b02f15b3378e8f1bf29dd9073d9dd1ec89b2afaf6ceacce776"
+  },
+  "new_accelerator_jobs": 0,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "scope": "Direct CPU comparison of the actual retained complete zero-record checkpoints, not a small-model proxy or a learning/convergence claim.",
+  "source_package_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "training_allocation_sha256": "c5346b84cf2cd892159b6405314ddb0f5eed3812a7ee290c80b7400ff029e8de",
+  "version": 1
+}
