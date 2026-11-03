@@ -1,0 +1,13 @@
+{
+  "auditor": "tools/audit_nfsp_uniform_costs.py",
+  "auditor_sha256": "b397100226a637d0cbe329a9ea43979b13db43cdc996771c8b527d1bf0aa9406",
+  "measurement_allocation": "docs/experiments/nfsp-uniform-board-component-supplement-allocation.json",
+  "measurement_allocation_sha256": "2daee784272abcb0fd6af6c35699a8fd660f72fa384f298cb6afc2fcbf0898e7",
+  "name": "independent-retained-phase-uniform-board-supplement-audit",
+  "new_accelerator_jobs": 0,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "outer_watchdog_seconds": 240,
+  "scope": "Fresh independent common-source qualification and retained-phase plus actual new actor/dense/cold/memory accounting. Preserve original profile roots and exact source/plan flags; qualify only the three-seed board reference component, with CPU A2 subset/full scope still separate.",
+  "version": 1
+}

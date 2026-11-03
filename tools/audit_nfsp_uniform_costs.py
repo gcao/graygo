@@ -18,7 +18,7 @@ VERSION = 'graygo/uniform-reference-cost-audit/1'
 
 def calculate(base, measurements, setup):
     """Independent 8M/three-seed equation; never import the new producer."""
-    n = 8000000; prior = base['forecast']['per_seed']['pilot']; rates = base['core_report']['rates']
+    n = 8000000; prior = base['forecast']['per_seed']['pilot']; rates = base['core_report']['rates_seconds']
     require(prior['records'] == n and prior['evaluation_games'] == 36000 and prior['evaluation_endpoints'] == 18,
             'complete fixed reference exposure/evaluation scope differs')
     require(prior['snapshot_publication_upper'] == 15626 and prior['graph_capture_upper'] == 164
@@ -97,7 +97,12 @@ def audit(repo, job_root, allocation, expected_allocation_sha, producer, pipelin
         require(plan['runtime'] == expected and plan['source_sha256'] == manifest['source_sha256'] == declaration['learner_source_sha256'],
                 'reference changed more than declared uniform fallback')
         phases = report['measurements']['pipeline']['phases']
-        pipe = load(root / 'pipeline/report.json')
+        pipeline_root = repo / declaration['retained_pipeline_root'] if declaration.get('retained_pipeline_root') else root / 'pipeline'
+        if declaration.get('retained_pipeline_root'):
+            fcntl.flock(locks.enter_context((pipeline_root / '.profile.lock').open('rb')), fcntl.LOCK_SH | fcntl.LOCK_NB)
+            require(sha(pipeline_root / 'report.json') == declaration['retained_pipeline_report_sha256']
+                    and sha(repo / declaration['retained_pipeline_observers']) == declaration['retained_pipeline_observers_sha256'], 'original reused phases changed')
+        pipe = load(pipeline_root / 'report.json')
         require(pipe == report['measurements']['pipeline'] and pipe['plan']['phases'] ==
             {'closed': expected, 'early_open_diagnostic': dict(expected, reservoir_open=0, handoff_end=2)}, 'actual diagnostic phase recipe differs')
         for name, phase in phases.items():
@@ -133,6 +138,10 @@ def audit(repo, job_root, allocation, expected_allocation_sha, producer, pipelin
         for key in ('projected_seconds_before_margin', 'per_seed_ceiling_seconds', 'H_U_device_hours_per_seed', 'B_U_board_device_hours'):
             close(forecast[key], calculated[key], key)
         inventory = dict(base_audit['input_files_sha256'])
+        if declaration.get('retained_pipeline_root'):
+            for path in pipeline_root.rglob('*'):
+                if path.is_file():inventory[str(path)] = sha(path)
+            inventory[str(repo / declaration['retained_pipeline_observers'])] = sha(repo / declaration['retained_pipeline_observers'])
         for directory in (job_root,):
             for path in directory.rglob('*'):
                 if path.is_file():inventory[str(path)] = sha(path)
@@ -142,7 +151,9 @@ def audit(repo, job_root, allocation, expected_allocation_sha, producer, pipelin
     return {'version': VERSION, 'status': 'verified_uniform_board_component_forecast', 'source_sha256': declaration['learner_source_sha256'],
         'producer_sha256': sha(producer), 'pipeline_producer_sha256': sha(pipeline_producer), 'auditor_sha256': sha(__file__),
         'input_files_sha256': inventory, 'original_inputs_unchanged': True, 'independent_calculation': calculated,
-        'new_diagnostic_records': 65792, 'physical_allocation_seconds': str(end - start),
+        'new_diagnostic_records': declaration['new_diagnostic_record_cap'],
+        'retained_diagnostic_records_reused': 65536 if declaration.get('retained_pipeline_root') else 0,
+        'physical_allocation_seconds': str(end - start),
         'B_U_board_component_qualified': True, 'A2_uniform_subset_CPU_price_qualified': False,
         'full_B_U_scope_qualified': False, 'a2_complete': False, 'execution_authorized': False,
         'scope': 'Independent source-compatible common-component reuse plus actual uniform collection/actor/cold measurements. Three 8M board-reference forecasts only; A2 comparison subset and applicable CPU budgets remain separate. No runtime theorem, learned strength, full scope or launch.'}

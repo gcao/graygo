@@ -4,6 +4,7 @@ Only compatible common update/IO/evaluation measurements are reused. Actual
 uniform pipeline, dense collection and private actor work are measured afresh.
 """
 import argparse
+from contextlib import ExitStack
 from dataclasses import replace
 import fcntl
 import gc
@@ -179,7 +180,7 @@ def reference_forecast(base, measured, setup, *, seeds=(100, 101, 102)):
     old = base['forecast']['per_seed']['pilot']; n = 8000000
     require(old['records'] == n and old['evaluation_games'] == 36000 and old['evaluation_endpoints'] == 18,
             'matched 8M/six-window reference evaluation scope differs')
-    rates = base['core_report']['rates']; copies = measured['actors']['snapshot_copy_seconds']
+    rates = base['core_report']['rates_seconds']; copies = measured['actors']['snapshot_copy_seconds']
     residual = max(r['resolver_storage_bookkeeping_seconds'] / r['records'] for r in measured['pipeline_observers'])
     dense = measured['dense']; collection = max(rates['collection_per_record'], residual, dense['resolver_storage_bookkeeping_seconds'] / dense['new_profile_records'])
     actor = max(base['actors']['steady_actor_seconds_per_record'],
@@ -232,8 +233,23 @@ def _profile(repo, allocation, expected_sha, root):
         require(manifest[key] == original_manifest[key], 'uniform/common component host or numerical dependencies differ: ' + key)
     write_report(root / 'plan.json', plan); write_report(root / 'run.json', manifest)
     with graph.GraphSetupObserver().installed() as tracker:
-        measured_pipeline, observers = pipeline_measurements(config, root / 'pipeline', records=declaration['records_per_phase'],
-            time_cap_seconds=declaration['process_time_ceiling_seconds'] - (time.monotonic() - started), check_budget=check)
+        if declaration.get('retained_pipeline_root'):
+            retained_root = repo / declaration['retained_pipeline_root']
+            retained_report = retained_root / 'report.json'; retained_observers = repo / declaration['retained_pipeline_observers']
+            require(sha(retained_report) == declaration['retained_pipeline_report_sha256']
+                    and sha(retained_observers) == declaration['retained_pipeline_observers_sha256'], 'actual retained uniform phase evidence changed')
+            measured_pipeline = load(retained_report); observers = load(retained_observers)
+            require(measured_pipeline['status'] == 'complete' and measured_pipeline['plan']['source_sha256'] == source_digest()
+                    and measured_pipeline['plan']['phases'] == {'closed': config.plan(),
+                        'early_open_diagnostic': replace(config, reservoir_open=0, handoff_end=2).plan()}, 'retained phases have another source/recipe')
+            for phase in measured_pipeline['phases'].values():
+                CheckpointStore.verify(Path(phase['checkpoint']))
+            write_report(root / 'retained-pipeline-reference.json', {'original_root': str(retained_root),
+                'original_report_sha256': sha(retained_report), 'original_observers_sha256': sha(retained_observers),
+                'actual_diagnostic_records_reused': 65536, 'new_learner_records': 0, 'original_data_modified': False})
+        else:
+            measured_pipeline, observers = pipeline_measurements(config, root / 'pipeline', records=declaration['records_per_phase'],
+                time_cap_seconds=declaration['process_time_ceiling_seconds'] - (time.monotonic() - started), check_budget=check)
         write_report(root / 'pipeline-observers.json', observers)
         check(); io_root = Path(base['graph_io']['checkpoint'])
         payload = torch.load(io_root / 'cost-payload.pt', map_location='cpu', weights_only=True)
@@ -254,11 +270,13 @@ def _profile(repo, allocation, expected_sha, root):
         dense = dense_uniform(config, backend, replay, reservoir, dense_states, records=declaration['dense_records'], check_budget=check)
         setup = tracker.report()
     measured = {'pipeline': measured_pipeline, 'pipeline_observers': observers, 'actors': actors, 'dense': dense}
+    write_report(root / 'measurements.json', measured); write_report(root / 'graph-setup.json', setup)
     forecast = reference_forecast(base, measured, setup); check()
     require(all(sha(p) == h for p, h in base_audit['input_files_sha256'].items()), 'reused original graph inputs changed')
     result = {'version': VERSION, 'status': 'complete_measurement_pending_independent_audit', 'plan': plan,
         'measurements': measured, 'graph_setup': setup, 'forecast': forecast,
-        'new_diagnostic_learner_records': 2 * declaration['records_per_phase'] + declaration['dense_records'],
+        'new_diagnostic_learner_records': (0 if declaration.get('retained_pipeline_root') else 2 * declaration['records_per_phase']) + declaration['dense_records'],
+        'retained_diagnostic_records_reused': 65536 if declaration.get('retained_pipeline_root') else 0,
         'elapsed_seconds': time.monotonic() - started, 'memory': core._memory(torch.device(config.device)),
         'a2_complete': False, 'execution_authorized': False, 'formal_learning_run': False}
     write_report(root / 'report.json', result)
@@ -270,7 +288,12 @@ def profile(repo, allocation, expected_sha, root):
     root.mkdir(parents=True)
     with (root / '.uniform-cost.lock').open('xb') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        return _profile(repo, allocation, expected_sha, root)
+        declaration = load(allocation)
+        with ExitStack() as retained:
+            if declaration.get('retained_pipeline_root'):
+                old_root = Path(repo) / declaration['retained_pipeline_root']
+                fcntl.flock(retained.enter_context((old_root / '.profile.lock').open('rb')), fcntl.LOCK_SH | fcntl.LOCK_NB)
+            return _profile(repo, allocation, expected_sha, root)
 
 
 def main():

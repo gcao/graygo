@@ -2,6 +2,7 @@ import ast
 from copy import deepcopy
 from dataclasses import replace
 import inspect
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -66,7 +67,7 @@ class UniformReferenceCostsTests(unittest.TestCase):
                  'one_restore': 1., 'public_archives': 1., 'evaluation_groups': 10.,
                  'evaluation_endpoint_metadata': 1., 'evaluation_policy_integrity': 1.,
                  'evaluation_model_loads': 1., 'cold_process_startups': 1.}
-        base = {'core_report': {'rates': {'collection_per_record': .000001}},
+        base = {'core_report': {'rates_seconds': {'collection_per_record': .000001}},
                 'actors': {'steady_actor_seconds_per_record': .000001, 'snapshot_copy_seconds': [.001]},
                 'graph_setup': {'capture_max_seconds': .1, 'weight_pack_max_seconds': .01},
                 'forecast': {'per_seed': {'pilot': {'records': 8000000, 'evaluation_games': 36000, 'evaluation_endpoints': 18,
@@ -90,6 +91,15 @@ class UniformReferenceCostsTests(unittest.TestCase):
                     'dense': {'new_profile_records': 256, 'total_seconds': .5, 'actor_seconds': .1, 'resolver_storage_bookkeeping_seconds': .4},
                     'actors': {'cases': cases, 'requests_per_sample': 32, 'snapshot_copy_seconds': [.002]}}
         return base, measured, setup
+
+    def test_actual_retained_common_report_schema_is_accepted_without_gpu_execution(self):
+        path = Path(__file__).parents[1] / 'docs/verification/nfsp-graph-costs/full-cost/report.json'
+        actual = json.loads(path.read_text())
+        _, measured, setup = self.fixtures()
+        produced = producer.reference_forecast(actual, measured, setup)
+        independent = auditor.calculate(actual, measured, setup)
+        self.assertEqual(produced['components_seconds_per_seed'], independent['components_seconds_per_seed'])
+        self.assertGreater(produced['B_U_board_device_hours'], 0)
 
     def test_independent_reference_equation_keeps_common_costs_and_larger_measured_rates(self):
         base, measured, setup = self.fixtures()
