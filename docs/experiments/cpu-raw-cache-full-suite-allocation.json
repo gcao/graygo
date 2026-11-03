@@ -1,0 +1,24 @@
+{
+  "candidate_commit": "257276e28bbceb10cdbfb715c31c7e246721bc4f",
+  "candidate_source_package_path": ".worktrees/cpu-raw-cache-comparison-257276e/src",
+  "candidate_source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "gpu_equipped_process_reservation_seconds": "900",
+  "gpu_uuid": "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2",
+  "name": "cpu-raw-forward-cache-complete-suite",
+  "new_control_training_selected": false,
+  "new_formal_a2_records": 0,
+  "outer_watchdog_seconds": 960,
+  "scope": "One complete test-suite process on the frozen candidate package and its committed tests, including existing CUDA graph/resume/memory checks. Record the complete GPU-equipped process interval once and retain every failure; no nested tests/phases counted again, no production or scientific model training. No observation-timeout restart, no control-budget extension, no source admission or study authorization.",
+  "source_admission_qualified": false,
+  "suite_process_ceiling_seconds": 900,
+  "version": 1
+}
