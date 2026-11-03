@@ -1,0 +1,170 @@
+{
+  "a2_complete": false,
+  "additional_control_reservation_seconds": "0",
+  "aggregate_neural_cpu_reservation_seconds": "45900",
+  "all_original_workers_complete": true,
+  "allocation_sha256": "ef8c7371709b642a4b85fede24331e61ca34db92994a3415d128f6ad03fe7caf",
+  "cases": {
+    "0": {
+      "actual_zero_record_initialization_retained": true,
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-branching-cpu-19b2523/tools/nfsp_cpu_branching.py",
+        "run",
+        "--repo",
+        "/home/gcao/proj/graygo",
+        "--allocation",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-branching-allocation-cd16f60/docs/experiments/nfsp-branching-neural-seeds012-allocation.json",
+        "--allocation-sha",
+        "ef8c7371709b642a4b85fede24331e61ca34db92994a3415d128f6ad03fe7caf",
+        "--seed",
+        "0"
+      ],
+      "emitted_manifest_verified": true,
+      "initialization_sha256": "2e2bb69b99a8b848d417210989aa4787b3d9eca5baf623b05586449de9efe8e4",
+      "latest_progress": {
+        "average_readiness": "not_ready",
+        "counters": {
+          "fresh_ordinary": 12000000,
+          "fresh_q": 14250000,
+          "fresh_records": 15000000,
+          "q_loss_targets": 56985600,
+          "q_updates": 111300,
+          "supervised_targets": 7995392,
+          "supervised_updates": 15616,
+          "target_refreshes": 1113
+        },
+        "elapsed_seconds": 8278.499890650972,
+        "q_credit_passed": false,
+        "records": 15000000,
+        "status": "complete"
+      },
+      "measured_process_upper_seconds": 8288.752383486019,
+      "original_cmdline_sha256": "7df2f11419b64fcf400aa06c8374a494a433098c8b3e927fc0c639a664415767",
+      "original_pid": 2798312,
+      "original_start_ticks": "56886646",
+      "returncode": 0,
+      "started_monotonic": 568866.467764787,
+      "state": {
+        "a2_complete": false,
+        "original_pid": 2798312,
+        "records": 15000000,
+        "seed": 0,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "whole_process_cap_seconds": 15300
+    },
+    "1": {
+      "actual_zero_record_initialization_retained": true,
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-branching-cpu-19b2523/tools/nfsp_cpu_branching.py",
+        "run",
+        "--repo",
+        "/home/gcao/proj/graygo",
+        "--allocation",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-branching-allocation-cd16f60/docs/experiments/nfsp-branching-neural-seeds012-allocation.json",
+        "--allocation-sha",
+        "ef8c7371709b642a4b85fede24331e61ca34db92994a3415d128f6ad03fe7caf",
+        "--seed",
+        "1"
+      ],
+      "emitted_manifest_verified": true,
+      "initialization_sha256": "aa69702de5af89db6774337f578425b8ed27f6a69a0a8aded3f73984af288174",
+      "latest_progress": {
+        "average_readiness": "not_ready",
+        "counters": {
+          "fresh_ordinary": 12000000,
+          "fresh_q": 14250000,
+          "fresh_records": 15000000,
+          "q_loss_targets": 56985600,
+          "q_updates": 111300,
+          "supervised_targets": 7994880,
+          "supervised_updates": 15615,
+          "target_refreshes": 1113
+        },
+        "elapsed_seconds": 8143.909787127981,
+        "q_credit_passed": false,
+        "records": 15000000,
+        "status": "complete"
+      },
+      "measured_process_upper_seconds": 8154.755509142997,
+      "original_cmdline_sha256": "751fd19caf54cf9b83c10ad737deec46cda06f7f66eb43b75bd587900591bc5a",
+      "original_pid": 2798313,
+      "original_start_ticks": "56886646",
+      "returncode": 0,
+      "started_monotonic": 568866.468424386,
+      "state": {
+        "a2_complete": false,
+        "original_pid": 2798313,
+        "records": 15000000,
+        "seed": 1,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "whole_process_cap_seconds": 15300
+    },
+    "2": {
+      "actual_zero_record_initialization_retained": true,
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-branching-cpu-19b2523/tools/nfsp_cpu_branching.py",
+        "run",
+        "--repo",
+        "/home/gcao/proj/graygo",
+        "--allocation",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-branching-allocation-cd16f60/docs/experiments/nfsp-branching-neural-seeds012-allocation.json",
+        "--allocation-sha",
+        "ef8c7371709b642a4b85fede24331e61ca34db92994a3415d128f6ad03fe7caf",
+        "--seed",
+        "2"
+      ],
+      "emitted_manifest_verified": true,
+      "initialization_sha256": "3626ee3f165468aaa609375ba71dfb7dae9fd1112857fe5d2b63a3686513e3bb",
+      "latest_progress": {
+        "average_readiness": "not_ready",
+        "counters": {
+          "fresh_ordinary": 12000000,
+          "fresh_q": 14250000,
+          "fresh_records": 15000000,
+          "q_loss_targets": 56985600,
+          "q_updates": 111300,
+          "supervised_targets": 7994880,
+          "supervised_updates": 15615,
+          "target_refreshes": 1113
+        },
+        "elapsed_seconds": 8242.01870095497,
+        "q_credit_passed": false,
+        "records": 15000000,
+        "status": "complete"
+      },
+      "measured_process_upper_seconds": 8252.6577067849,
+      "original_cmdline_sha256": "e896ad149552659eada80a029044a7f02ee2f0a4c8f3f90befbc0f3760940875",
+      "original_pid": 2798314,
+      "original_start_ticks": "56886646",
+      "returncode": 0,
+      "started_monotonic": 568866.469132706,
+      "state": {
+        "a2_complete": false,
+        "original_pid": 2798314,
+        "records": 15000000,
+        "seed": 2,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "whole_process_cap_seconds": 15300
+    }
+  },
+  "driver_sha256": "58d191b8d67c6ff6fe66b372dd49f355ee31ddce06156d5195d4a5c82629c1ec",
+  "driver_wall_seconds": 8288.753198735998,
+  "new_accelerator_jobs": 0,
+  "no_implicit_resume_or_observation_timeout_restart": true,
+  "original_driver_pid": 2798293,
+  "pilot_selected": false,
+  "project_scope_selected": false,
+  "runner_sha256": "d6dc434680c26c3ef5cdc03a0865849e3c0318a36b0a403b2c81c17f70c4cdbc",
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "status": "three_original_branching_workers_terminal",
+  "version": 1
+}

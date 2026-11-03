@@ -1,0 +1,10 @@
+{
+  "a2_complete": false,
+  "case": [
+    "branching",
+    "neural",
+    0
+  ],
+  "case_sha256": "fc1dcaa6811c7f2799c1b2857fc335053e981c052d7064d384907667b0aea4f4",
+  "fresh_audit_verified": true
+}

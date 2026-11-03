@@ -1,0 +1,69 @@
+{
+  "a2_complete": false,
+  "all_legacy_numeric_outcomes": "numeric_miss",
+  "all_original_processes_terminal": true,
+  "archived_assessment_sha256": "274b0dd56907c9984d752489f4ed152b7be7d5ed06b15411e10b82d23c35c797",
+  "copied_original_files": 358,
+  "corrected_protocol_selected": false,
+  "current_archived_numerics_identical": true,
+  "current_assessment_sha256": "bc436dc41323fd485d2a51dfb231df2ff95cbb00343bb6919569291a73b50bef",
+  "diagnostic_sha256": "68c9a820d038abda4b6b4d7cc9425cb31dfb964c6ec690e1101de33e32f36146",
+  "formal_public_model_bundles_copied": 90,
+  "formal_records": 45000000,
+  "impossible_greedy_equilibrium_gate_certificate": "docs/verification/uniform-costs-and-branch-gate",
+  "legacy_final_five_maxima": {
+    "0": {
+      "max_average_gap": 0.06344279817502016,
+      "max_early_error": 0.19440396122297277,
+      "max_greedy_gap": 1.1428571428571428
+    },
+    "1": {
+      "max_average_gap": 0.07908621176154954,
+      "max_early_error": 0.1982364457421773,
+      "max_greedy_gap": 1.1428571428571428
+    },
+    "2": {
+      "max_average_gap": 0.058141193598221425,
+      "max_early_error": 0.15382465830347272,
+      "max_greedy_gap": 1.1428571428571428
+    }
+  },
+  "legacy_grades_changed": false,
+  "marginal_extension_selected": false,
+  "missing_cases": 17,
+  "native_response_diagnostic_is_exploratory": true,
+  "native_response_final_five_maxima": {
+    "0": {
+      "greedy_native_best_response_gap": 0.177762166570834,
+      "legacy_greedy_equilibrium_gap_unchanged": 1.1428571428571428,
+      "max_average_equilibrium_gap_unchanged": 0.06344279817502016,
+      "max_native_value_error_unchanged": 0.19440396122297285
+    },
+    "1": {
+      "greedy_native_best_response_gap": 0.3074912792461412,
+      "legacy_greedy_equilibrium_gap_unchanged": 1.1428571428571428,
+      "max_average_equilibrium_gap_unchanged": 0.07908621176154954,
+      "max_native_value_error_unchanged": 0.19823644574217736
+    },
+    "2": {
+      "greedy_native_best_response_gap": 0.26894418049693464,
+      "legacy_greedy_equilibrium_gap_unchanged": 1.1428571428571428,
+      "max_average_equilibrium_gap_unchanged": 0.058141193598221425,
+      "max_native_value_error_unchanged": 0.15382465830347272
+    }
+  },
+  "new_accelerator_jobs": 0,
+  "new_training_records": 0,
+  "original_initial_seals_reverified": true,
+  "original_worker_pids": [
+    2798312,
+    2798313,
+    2798314
+  ],
+  "pilot_selected": false,
+  "present_cases": 19,
+  "raw_binary_files": 27,
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "status": "three_original_branching_neural_cases_complete_and_independently_audited",
+  "version": 1
+}

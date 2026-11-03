@@ -1,0 +1,6 @@
+{
+  "constructor_seconds": 1.722869744990021,
+  "known_constructor_and_loop_seconds": 8145.632656872971,
+  "loop_seconds": 8143.909787127981,
+  "scope": "Known constructor and complete loop; outer process budget also includes admission and cleanup."
+}

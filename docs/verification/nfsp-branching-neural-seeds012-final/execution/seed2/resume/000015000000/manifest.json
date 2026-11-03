@@ -1,0 +1,27 @@
+{
+  "files": {
+    "metrics.npz": {
+      "bytes": 2196,
+      "sha256": "3289eb6376548519cdba93e69c189476db8bfbf767cad3938c89272b7eca70e0"
+    },
+    "replay.npz": {
+      "bytes": 2957754,
+      "sha256": "e344c246c6fd3e569f3587a607c2bf8e0740287314f63f38bd76fe51fa2338b2"
+    },
+    "reservoir.npz": {
+      "bytes": 2650400,
+      "sha256": "eb3af837228f457f5867675632f5673dde8535778937f1bfc17d91efafaba878"
+    },
+    "trainer.pt": {
+      "bytes": 254334,
+      "sha256": "e2259c328e3dc37a4437d2858f4f9b49022bdb6e3abf623034a33f41d6c9dd57"
+    }
+  },
+  "format_version": 1,
+  "kind": "resume",
+  "metadata": {
+    "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+    "task_schema": "graygo/nfsp-multiround-adapter/1"
+  },
+  "step": 15000000
+}

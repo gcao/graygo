@@ -1,0 +1,704 @@
+{
+  "a2_complete": false,
+  "analysis_mode": "archived_snapshots",
+  "assessor_sha256": "fffe76e509c1d5bc9bb7ad76b5f9f93e66fd0a021af27a89b0b868df5c4d6fb9",
+  "canonical_original_plan_sha256": "0c5e7bdd7c792573edd1ab283737a8a7cbfb8c3f9ea9cc647052d64b6a27049c",
+  "case_provenance": {
+    "asymmetric/neural/0": {
+      "original_case_sha256": "7b744f25d037f7a3457c1698d80c9b6ac6b1b2329682ea2f2a9436310705dde0",
+      "original_plan_sha256": "0c5e7bdd7c792573edd1ab283737a8a7cbfb8c3f9ea9cc647052d64b6a27049c",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/neural",
+      "original_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "original_training_manifest_sha256": "87406c8da407362a2cce52052a63b60c56a37bb440bb734bfa49b06c8a99e34b"
+    },
+    "asymmetric/neural/1": {
+      "original_case_sha256": "a197af737d186cdb7a1f57decec98ffd786526ac68e4f219a2a31cc40385336f",
+      "original_plan_sha256": "20e3931b810f155d3e2834cf6b31915bef69f62e7bd6f3e8e06079ffedb995f1",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-seed1-72aa24b/asymmetric/trials/neural",
+      "original_source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "original_training_manifest_sha256": "cdc8eadff1563dfbf6c3ca5d542863cb41d37aa421e208098823daa0d30d7d96"
+    },
+    "asymmetric/neural/2": {
+      "original_case_sha256": "9478e155151e3d275b9e4a2533ccf188fe558799672af413fb54d3dfd97842b7",
+      "original_plan_sha256": "20e3931b810f155d3e2834cf6b31915bef69f62e7bd6f3e8e06079ffedb995f1",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-optimized-asymmetric-seed2-2301d7e/asymmetric/trials/neural",
+      "original_source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "original_training_manifest_sha256": "2d52d8afa3994ed9996973995dab9222e51fef8cf2d0ee767101e553784f515b"
+    },
+    "asymmetric/tabular/0": {
+      "original_case_sha256": "68e041587a149c85bfa0708c8b16e6d7b921cff0de7d1f295daf6fbebbaf3098",
+      "original_plan_sha256": "0c5e7bdd7c792573edd1ab283737a8a7cbfb8c3f9ea9cc647052d64b6a27049c",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/asymmetric/trials/tabular",
+      "original_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "original_training_manifest_sha256": "fed08ad2a96150ec5b8634da86dd1faea81ff64300a84cb540690ce0bc8ab1dd"
+    },
+    "asymmetric/tabular/1": {
+      "original_case_sha256": "d9a658eb05ea8f4c7d0b73349a8d121b115c5fbb12f29d91f9c00cd9b26e5c27",
+      "original_plan_sha256": "20e3931b810f155d3e2834cf6b31915bef69f62e7bd6f3e8e06079ffedb995f1",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-seed1-72aa24b/asymmetric/trials/tabular",
+      "original_source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "original_training_manifest_sha256": "72b29ddad5df8dea7e53200cfffe1e158eb88cd3f399054cbb640c010d1e4dff"
+    },
+    "asymmetric/tabular/2": {
+      "original_case_sha256": "9833b9d0286833cc8c4eb658939557d8d426d1b0f133300a2dcbc3387f3f5533",
+      "original_plan_sha256": "20e3931b810f155d3e2834cf6b31915bef69f62e7bd6f3e8e06079ffedb995f1",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-optimized-asymmetric-seed2-2301d7e/asymmetric/trials/tabular",
+      "original_source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "original_training_manifest_sha256": "e2a0c592f5e91af43bb409b4b4f9d8e410c7db9e284dc3965f805be91e3adbf9"
+    },
+    "branching/neural/1": {
+      "original_case_sha256": "d5e52d4fbaf6e66ada4ee6cb8e2ba8bb112d5df34c9d274af72db695b7fadbb4",
+      "original_plan_sha256": "a63004a159a00ea67721094ee0daf09099f51239c588054708e4de9827b42cd6",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1",
+      "original_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "original_training_manifest_sha256": "ec7af9f6a499b31ee64287c384ac0f5c505584edb14ef9fe85f3ad50c98b3288"
+    },
+    "delayed/neural/0": {
+      "original_case_sha256": "698806976f9b6dd10959474d58ad969c8a0e89f22d7acaffdf269dd2be7027cd",
+      "original_plan_sha256": "0c5e7bdd7c792573edd1ab283737a8a7cbfb8c3f9ea9cc647052d64b6a27049c",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-primary-ca45a53/neural",
+      "original_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "original_training_manifest_sha256": "b11c43dc35fa2c31867ca2c32a7f7ea373baddbe5c9432c468d99dc151a87929"
+    },
+    "delayed/neural/1": {
+      "original_case_sha256": "caf2e8b196c475e9a028a3963a145b4757863fd239135afa06323f42071ce841",
+      "original_plan_sha256": "a63004a159a00ea67721094ee0daf09099f51239c588054708e4de9827b42cd6",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-delayed-neural-seeds12-a522-v1/seed1",
+      "original_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "original_training_manifest_sha256": "76b6918a12f9a73e5dd6016a941fbb92087c0083eff6e9852acdbf3c79cb6452"
+    },
+    "delayed/neural/2": {
+      "original_case_sha256": "f7fcad1dad29536dd1870028251fef3d68cf596f73eeea55f46a63ea8847593f",
+      "original_plan_sha256": "a63004a159a00ea67721094ee0daf09099f51239c588054708e4de9827b42cd6",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-delayed-neural-seeds12-a522-v1/seed2",
+      "original_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "original_training_manifest_sha256": "5670a44080cdb7b02f15b3378e8f1bf29dd9073d9dd1ec89b2afaf6ceacce776"
+    },
+    "delayed/tabular/0": {
+      "original_case_sha256": "c146e6046052e0b1371d02ca1ef934da6b6a2f595591362cd68d405658cc0c85",
+      "original_plan_sha256": "0c5e7bdd7c792573edd1ab283737a8a7cbfb8c3f9ea9cc647052d64b6a27049c",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-primary-ca45a53/tabular",
+      "original_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "original_training_manifest_sha256": "481446fa95e06dffd03906d11a9f1917e74b7c840ca466634e931717540325fc"
+    },
+    "rps/neural/0": {
+      "original_case_sha256": "26b1f0e7cfaafe02f018c8ce3d32a36eda61292a2f6ed1ab7896a59f5d41e60b",
+      "original_plan_sha256": "0c5e7bdd7c792573edd1ab283737a8a7cbfb8c3f9ea9cc647052d64b6a27049c",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/rps/trials/neural",
+      "original_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "original_training_manifest_sha256": "e86bca51eb33c5885a53a39c8d9fe540743d6e28fab0b37fa9c66f4b7bcc9445"
+    },
+    "rps/neural/1": {
+      "original_case_sha256": "f4d03025e594100bcc7ccc7cfe8432b4cb22da117925c6c1ee8b501d3dc7757a",
+      "original_plan_sha256": "20e3931b810f155d3e2834cf6b31915bef69f62e7bd6f3e8e06079ffedb995f1",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-seed1-72aa24b/rps/trials/neural",
+      "original_source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "original_training_manifest_sha256": "c9e99d5e46bac67674bfe3ce9ab7bf96bf903d71fe270624b6dae46ce4994eae"
+    },
+    "rps/neural/2": {
+      "original_case_sha256": "858c708f390dcae56a8527814143cbcaf9bc63d8bf1d382d62e204ceb395ff26",
+      "original_plan_sha256": "20e3931b810f155d3e2834cf6b31915bef69f62e7bd6f3e8e06079ffedb995f1",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/neural",
+      "original_source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "original_training_manifest_sha256": "ae363af3990b64368a85662873977dc593c7817215c533dc96b259e694c0828e"
+    },
+    "rps/tabular/0": {
+      "original_case_sha256": "07169de939a0b58e31211807bda297d4f20fead534ee48b4932ae667ab28cd03",
+      "original_plan_sha256": "0c5e7bdd7c792573edd1ab283737a8a7cbfb8c3f9ea9cc647052d64b6a27049c",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-656fa26/rps/trials/tabular",
+      "original_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "original_training_manifest_sha256": "dd681c8cdd7f5eb9419e7807acdb8ef99ea8f0b8d2371b3b2c20db2b023c0e4f"
+    },
+    "rps/tabular/1": {
+      "original_case_sha256": "bcac5154be20a7cb45e3a7bd16b34a5f9eb4fb8c80ef4dc56f10b8c5c1ac16df",
+      "original_plan_sha256": "20e3931b810f155d3e2834cf6b31915bef69f62e7bd6f3e8e06079ffedb995f1",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-seed1-72aa24b/rps/trials/tabular",
+      "original_source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "original_training_manifest_sha256": "f9fca7e18bb135f71ce9fe4da24629e03ce19dc2e95600f0104a6b1cc469c8ca"
+    },
+    "rps/tabular/2": {
+      "original_case_sha256": "0bf38628e135870975290ad1fee4c278facb3a728efced2f59cd6b528fb04353",
+      "original_plan_sha256": "20e3931b810f155d3e2834cf6b31915bef69f62e7bd6f3e8e06079ffedb995f1",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-optimized-rps-seed2-dad979d/rps/trials/tabular",
+      "original_source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "original_training_manifest_sha256": "aca20e9f0d5c32cbe7a4003c15f77b316fe0ef6e3aad3c7da459000950ac2827"
+    }
+  },
+  "cases": {
+    "asymmetric/neural/0": {
+      "average_band": "short_game_pass",
+      "case_sha256": "7b744f25d037f7a3457c1698d80c9b6ac6b1b2329682ea2f2a9436310705dde0",
+      "final_five_maxima": {
+        "max_average_gap": 0.027429994480992925
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "asymmetric/neural/1": {
+      "average_band": "short_game_pass",
+      "case_sha256": "a197af737d186cdb7a1f57decec98ffd786526ac68e4f219a2a31cc40385336f",
+      "final_five_maxima": {
+        "max_average_gap": 0.01378850810647203
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "asymmetric/neural/2": {
+      "average_band": "short_game_pass",
+      "case_sha256": "9478e155151e3d275b9e4a2533ccf188fe558799672af413fb54d3dfd97842b7",
+      "final_five_maxima": {
+        "max_average_gap": 0.02762943670925122
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "asymmetric/tabular/0": {
+      "average_band": "short_game_pass",
+      "case_sha256": "68e041587a149c85bfa0708c8b16e6d7b921cff0de7d1f295daf6fbebbaf3098",
+      "final_five_maxima": {
+        "max_average_gap": 0.03767656191172869
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "asymmetric/tabular/1": {
+      "average_band": "short_game_pass",
+      "case_sha256": "d9a658eb05ea8f4c7d0b73349a8d121b115c5fbb12f29d91f9c00cd9b26e5c27",
+      "final_five_maxima": {
+        "max_average_gap": 0.035083341793582246
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "asymmetric/tabular/2": {
+      "average_band": "short_game_pass",
+      "case_sha256": "9833b9d0286833cc8c4eb658939557d8d426d1b0f133300a2dcbc3387f3f5533",
+      "final_five_maxima": {
+        "max_average_gap": 0.035181557500970906
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "branching/neural/1": {
+      "average_band": "short_game_miss",
+      "case_sha256": "d5e52d4fbaf6e66ada4ee6cb8e2ba8bb112d5df34c9d274af72db695b7fadbb4",
+      "final_five_maxima": {
+        "max_average_gap": 0.07908621176154954,
+        "max_early_error": 0.1982364457421773,
+        "max_greedy_gap": 1.1428571428571428
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": false,
+      "q_credit_passed": false,
+      "status": "numeric_miss",
+      "violations": [
+        {
+          "metric": "max_average_gap",
+          "records": 13000000,
+          "threshold": 0.05,
+          "value": 0.05686817168370828
+        },
+        {
+          "metric": "max_greedy_gap",
+          "records": 13000000,
+          "threshold": 0.05,
+          "value": 1.1428571428571428
+        },
+        {
+          "metric": "max_early_error",
+          "records": 13000000,
+          "threshold": 0.1,
+          "value": 0.15965524045049495
+        },
+        {
+          "metric": "max_greedy_gap",
+          "records": 13500000,
+          "threshold": 0.05,
+          "value": 1.1428571428571428
+        },
+        {
+          "metric": "max_early_error",
+          "records": 13500000,
+          "threshold": 0.1,
+          "value": 0.1790336867858805
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 14000000,
+          "threshold": 0.05,
+          "value": 0.05766429570664888
+        },
+        {
+          "metric": "max_greedy_gap",
+          "records": 14000000,
+          "threshold": 0.05,
+          "value": 0.8571428571428572
+        },
+        {
+          "metric": "max_early_error",
+          "records": 14000000,
+          "threshold": 0.1,
+          "value": 0.1474455896260793
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 14500000,
+          "threshold": 0.05,
+          "value": 0.05879160004255787
+        },
+        {
+          "metric": "max_greedy_gap",
+          "records": 14500000,
+          "threshold": 0.05,
+          "value": 1.1428571428571428
+        },
+        {
+          "metric": "max_early_error",
+          "records": 14500000,
+          "threshold": 0.1,
+          "value": 0.13424863872533221
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 15000000,
+          "threshold": 0.05,
+          "value": 0.07908621176154954
+        },
+        {
+          "metric": "max_greedy_gap",
+          "records": 15000000,
+          "threshold": 0.05,
+          "value": 1.1428571428571428
+        },
+        {
+          "metric": "max_early_error",
+          "records": 15000000,
+          "threshold": 0.1,
+          "value": 0.1982364457421773
+        }
+      ]
+    },
+    "delayed/neural/0": {
+      "average_band": "at_most_0.10",
+      "case_sha256": "698806976f9b6dd10959474d58ad969c8a0e89f22d7acaffdf269dd2be7027cd",
+      "final_five_maxima": {
+        "max_average_gap": 1.8018596925628572e-07,
+        "max_early_error": 0.012568628757958611,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": true,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "delayed/neural/1": {
+      "average_band": "at_most_0.10",
+      "case_sha256": "caf2e8b196c475e9a028a3963a145b4757863fd239135afa06323f42071ce841",
+      "final_five_maxima": {
+        "max_average_gap": 4.600343183502886e-06,
+        "max_early_error": 0.025371074676513672,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": true,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "delayed/neural/2": {
+      "average_band": "at_most_0.10",
+      "case_sha256": "f7fcad1dad29536dd1870028251fef3d68cf596f73eeea55f46a63ea8847593f",
+      "final_five_maxima": {
+        "max_average_gap": 2.1153880747082354e-06,
+        "max_early_error": 0.11698066805595464,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": false,
+      "q_credit_passed": false,
+      "status": "numeric_miss",
+      "violations": [
+        {
+          "metric": "max_early_error",
+          "records": 14500000,
+          "threshold": 0.1,
+          "value": 0.11698066805595464
+        }
+      ]
+    },
+    "delayed/tabular/0": {
+      "average_band": "above_0.25",
+      "case_sha256": "c146e6046052e0b1371d02ca1ef934da6b6a2f595591362cd68d405658cc0c85",
+      "final_five_maxima": {
+        "max_average_gap": 0.25116279069767433,
+        "max_early_error": 1.2147537438446208,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": false,
+      "q_credit_passed": false,
+      "status": "numeric_miss",
+      "violations": [
+        {
+          "metric": "max_average_gap",
+          "records": 13000000,
+          "threshold": 0.1,
+          "value": 0.25116279069767433
+        },
+        {
+          "metric": "max_early_error",
+          "records": 13000000,
+          "threshold": 0.1,
+          "value": 1.2007381000080872
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 13500000,
+          "threshold": 0.1,
+          "value": 0.2477064220183487
+        },
+        {
+          "metric": "max_early_error",
+          "records": 13500000,
+          "threshold": 0.1,
+          "value": 1.2048151710149435
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 14000000,
+          "threshold": 0.1,
+          "value": 0.24884792626728114
+        },
+        {
+          "metric": "max_early_error",
+          "records": 14000000,
+          "threshold": 0.1,
+          "value": 1.2099391951765144
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 14500000,
+          "threshold": 0.1,
+          "value": 0.23636363636363633
+        },
+        {
+          "metric": "max_early_error",
+          "records": 14500000,
+          "threshold": 0.1,
+          "value": 1.2147537438446208
+        },
+        {
+          "metric": "max_average_gap",
+          "records": 15000000,
+          "threshold": 0.1,
+          "value": 0.2222222222222221
+        },
+        {
+          "metric": "max_early_error",
+          "records": 15000000,
+          "threshold": 0.1,
+          "value": 1.2144878674100674
+        }
+      ]
+    },
+    "rps/neural/0": {
+      "average_band": "short_game_pass",
+      "case_sha256": "26b1f0e7cfaafe02f018c8ce3d32a36eda61292a2f6ed1ab7896a59f5d41e60b",
+      "final_five_maxima": {
+        "max_average_gap": 0.012268036969543594
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "rps/neural/1": {
+      "average_band": "short_game_pass",
+      "case_sha256": "f4d03025e594100bcc7ccc7cfe8432b4cb22da117925c6c1ee8b501d3dc7757a",
+      "final_five_maxima": {
+        "max_average_gap": 0.01241612434387207
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "rps/neural/2": {
+      "average_band": "short_game_pass",
+      "case_sha256": "858c708f390dcae56a8527814143cbcaf9bc63d8bf1d382d62e204ceb395ff26",
+      "final_five_maxima": {
+        "max_average_gap": 0.017983079492541576
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "rps/tabular/0": {
+      "average_band": "short_game_pass",
+      "case_sha256": "07169de939a0b58e31211807bda297d4f20fead534ee48b4932ae667ab28cd03",
+      "final_five_maxima": {
+        "max_average_gap": 0.023302270298344974
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "rps/tabular/1": {
+      "average_band": "short_game_pass",
+      "case_sha256": "bcac5154be20a7cb45e3a7bd16b34a5f9eb4fb8c80ef4dc56f10b8c5c1ac16df",
+      "final_five_maxima": {
+        "max_average_gap": 0.024050924304144572
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "rps/tabular/2": {
+      "average_band": "short_game_pass",
+      "case_sha256": "0bf38628e135870975290ad1fee4c278facb3a728efced2f59cd6b528fb04353",
+      "final_five_maxima": {
+        "max_average_gap": 0.026331892184694394
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": null,
+      "status": "numeric_pass",
+      "violations": []
+    }
+  },
+  "control_interpretation_required": true,
+  "controls": {
+    "case_misses": [
+      "delayed/tabular/0"
+    ],
+    "complete": false,
+    "missing_cases": [
+      "gray-pure/tabular/0",
+      "gray-pure/tabular/1",
+      "gray-pure/tabular/2",
+      "gray-mixed/tabular/0",
+      "gray-mixed/tabular/1",
+      "gray-mixed/tabular/2",
+      "delayed/tabular/1",
+      "delayed/tabular/2",
+      "branching/tabular/0",
+      "branching/tabular/1",
+      "branching/tabular/2"
+    ],
+    "numeric_passed": false,
+    "status": "incomplete"
+  },
+  "current_input_snapshots_verified": false,
+  "current_source_admission_inputs_verified": false,
+  "extension_authorized": false,
+  "independent_training_trajectory_verified": false,
+  "marginal_extension": {
+    "budget_reference_sha256": null,
+    "numeric_eligible": false,
+    "reason": "complete original neural cohort required",
+    "resource_authorization_verified": false,
+    "selected": false
+  },
+  "missing_cases": [
+    "gray-pure/neural/0",
+    "gray-pure/neural/1",
+    "gray-pure/neural/2",
+    "gray-pure/tabular/0",
+    "gray-pure/tabular/1",
+    "gray-pure/tabular/2",
+    "gray-mixed/neural/0",
+    "gray-mixed/neural/1",
+    "gray-mixed/neural/2",
+    "gray-mixed/tabular/0",
+    "gray-mixed/tabular/1",
+    "gray-mixed/tabular/2",
+    "delayed/tabular/1",
+    "delayed/tabular/2",
+    "branching/neural/0",
+    "branching/neural/2",
+    "branching/tabular/0",
+    "branching/tabular/1",
+    "branching/tabular/2"
+  ],
+  "neural": {
+    "case_misses": [
+      "delayed/neural/2",
+      "branching/neural/1"
+    ],
+    "complete": false,
+    "missing_cases": [
+      "gray-pure/neural/0",
+      "gray-pure/neural/1",
+      "gray-pure/neural/2",
+      "gray-mixed/neural/0",
+      "gray-mixed/neural/1",
+      "gray-mixed/neural/2",
+      "branching/neural/0",
+      "branching/neural/2"
+    ],
+    "numeric_passed": false,
+    "status": "incomplete"
+  },
+  "neural_deployment_band": "incomplete",
+  "original_case_files_sha256": {
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-audit-6e31009/case-branching-neural-1.json": "ef31b38f1d9a5f368e172a3785c9a5406a8f59bdf6e49197edde13789b208247",
+    "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-neural-0.json": "638fd853d53b83d1b6b30c8d480ce1558cdc4f801da5d65bbf893aaebe5ebdc3",
+    "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-asymmetric-tabular-0.json": "eee6183934372f1620afeed5bd5c2895212ad1f2127e57fbe7cad0835394edc1",
+    "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-neural-0.json": "eea18cc47589bfdcbcba006d4aef04c83c1740fdfd71fd48c4701f3626e76fc4",
+    "/home/gcao/proj/graygo/runs/nfsp-corrected-matrix-cohort-audit-00486de/case-rps-tabular-0.json": "981e4ee9b4b1ce5cb293c80d60d2beda70337a1df5f7e19ad1ebf4dbf001b45a",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-neural-seeds12-audit-a6a52bd/case-delayed-neural-1.json": "087a2a57ca0d52a887375a050b169f9ff79f3eb478f63a6321578a11254097d7",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-neural-seeds12-audit-a6a52bd/case-delayed-neural-2.json": "ca5ac3542970132d309ce039d3fd6008b8874080b1432d003347b6f782d26a84",
+    "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json": "a441936e6e369fa3ddc694c09b6b045f227de2758c31fd5939e07c92a4c37190",
+    "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-tabular-audit/case.json": "b64366480d241db6b3a3c2b63c40a2867b0b40844cb0753e7075f559b8cc7def",
+    "/home/gcao/proj/graygo/runs/nfsp-optimized-asymmetric-seed2-audit-1a84068/case-asymmetric-neural-2.json": "133f308d939db1f86808a0f4733b8d72b1c2cf02702c06e0eddf9992b6ced863",
+    "/home/gcao/proj/graygo/runs/nfsp-optimized-asymmetric-seed2-audit-1a84068/case-asymmetric-tabular-2.json": "8e15bc11e1c3c496db80e2b76c6965aef2c8ee5e70e8e6cf0a13474b381b2e99",
+    "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-audit-e818fab/case-asymmetric-neural-1.json": "33c5b9a4dcefd1d3e4d47159b2524a77e3f3ebefb2f83f633ce99767c4025c45",
+    "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-audit-e818fab/case-asymmetric-tabular-1.json": "788a463f8e2c656a6101b6be6bb1d031c29cc90c0f8cb4fe303c13b74080caa7",
+    "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-audit-e818fab/case-rps-neural-1.json": "12286db742b5f168bbcad8d67bf0bc99f669bb20744af98443ed4c5826e08558",
+    "/home/gcao/proj/graygo/runs/nfsp-optimized-matrix-audit-e818fab/case-rps-tabular-1.json": "9a91bec4550a2a020ca9ef9bc2fab5d934b15bf29410631ec334ebd4003f9100",
+    "/home/gcao/proj/graygo/runs/nfsp-optimized-rps-seed2-audit-1a98f8e/case-rps-neural-2.json": "347a0e7a5aba9fa267c89cba107e82b02251a5c0a8899d1f28e0d3013fb2c603",
+    "/home/gcao/proj/graygo/runs/nfsp-optimized-rps-seed2-audit-1a98f8e/case-rps-tabular-2.json": "0d6c309ca065265ad2974008af7107d88d802369e37765d6aab973460ea053a3"
+  },
+  "original_cohort_registration_verified": false,
+  "pilot_authorized": false,
+  "present_cases": 17,
+  "protocol_sha256": "e3f1dc19e5226c19065f2950db57f803d311ea4c8e1d8b7ebda80c51eac3775e",
+  "registry_sha256": "7371f09ed838b4b7e45531b49c26929ff4979a79e872ac056dc0f0bdae3c19c3",
+  "required_cases": 36,
+  "resource_scope_verified": false,
+  "scope": "numerical fixed-cohort assessment of source-bound audited case snapshots; control outcomes remain separate; original registration/trajectory, comparator/fixture checks, 9x9 smoke and filled resource/entry decision remain required",
+  "source_admission_grants_training": false,
+  "source_identities_preserved": true,
+  "target_runtime_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "version": "graygo/source-aware-a2-assessment/1",
+  "worst_delayed_average_gap": 4.600343183502886e-06
+}

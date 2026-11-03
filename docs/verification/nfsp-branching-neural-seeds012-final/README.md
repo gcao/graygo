@@ -1,0 +1,11 @@
+# Original branching neural cohort: final evidence
+
+All three original seeds completed 15M records each at the declared source and settings. Independent audits verify all scheduled public archives, original initialization, whole-process caps and source/plan/case/root identities. The final current and archived cohort assessments agree at **19 present / 17 missing**. All three branching cases miss the original numerical gates. A2 remains incomplete; no 9x9 pilot or stability extension is selected.
+
+The old greedy-Q equilibrium-gap requirement is infeasible on this mixed task: the [exact certificate](../uniform-costs-and-branch-gate) proves that even the best policies representable by its greedy tie rule exceed 0.05. Preserve that failed legacy grade as historical evidence. It cannot be interpreted as proof that a Q best response must itself be a Nash policy.
+
+The separately preregistered [read-only native-response diagnostic](native-response/diagnostic.json) mixes the hidden opponent components before maximizing and updates beliefs only from public moves. Independent complete-strategy enumeration agrees with belief recursion. It reproduces all original metrics at every one of the ninety archives. Final-five native-response gaps are 0.177762, 0.307491 and 0.268944 for seeds 0, 1 and 2; all exceed the proposed future 0.05 criterion. Average-policy gaps and native-value errors also exceed their fixed limits. This exploratory diagnostic supplies no replacement pass or source admission.
+
+[Retention](retention.json) seals copied original metadata, logs, audits, diagnostic evidence and all ninety public model bundles. [Binary inventory](raw-binary-inventory.json) seals private zero/resume state and episode payloads at their permanent original paths. The original launch seals were reverified; no trainer was resumed or replaced.
+
+[Resource settlement](resource-use.json) replaces exactly 45,900 reserved neural CPU seconds with the three measured complete original process upper intervals. It charges the nine active audit/report commands and native-response diagnostic once. The six Gray Go and two R1 neural reservations remain. Table-control commitment and known physical GPU use are unchanged; this remains a partial inventory.
