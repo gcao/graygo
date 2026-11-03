@@ -1,0 +1,6 @@
+{
+  "constructor_seconds": 0.8068510190350935,
+  "known_constructor_and_loop_seconds": 10061.287819779944,
+  "loop_seconds": 10060.480968760909,
+  "scope": "known constructor and complete cumulative trainer loop; pre-entry validation is separate and outer overhead remains unknown"
+}

@@ -1,0 +1,13 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "c5346b84cf2cd892159b6405314ddb0f5eed3812a7ee290c80b7400ff029e8de",
+  "execution_authorized_by_assessment": false,
+  "fresh_prices_and_source_inputs_verified": true,
+  "measured_preinitialization_seconds": 7.17262868990656,
+  "own_source_plan_sha256": "47a5dc2b065c7ff294ead624c4a39e2ad7d5fc7128f0f7bd01eadff9a7a11a95",
+  "price_receipt_sha256": "93f3c87dfd9f52f0bc191f2ce0fda5cbbbe1efe77637415a222f0c9f75816ecb",
+  "seed": 1,
+  "source_registry_sha256": "ad595a78afbbd31439471abccbfe1000148be93a24b86f0899753353a48156f2",
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "version": 1
+}

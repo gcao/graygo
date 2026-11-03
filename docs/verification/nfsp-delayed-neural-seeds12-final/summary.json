@@ -1,0 +1,58 @@
+{
+  "Retrace_selected": false,
+  "a2_complete": false,
+  "all_original_processes_terminal": true,
+  "archived_assessment_sha256": "95b93e7f728d1510b8ad6c63d82b2d65fffd79f792dcec9ce20645a9cf3804c2",
+  "complete_neural_cohort_still_required_for_marginal_extension": true,
+  "copied_files": 175,
+  "current_archived_numerics_identical": true,
+  "current_assessment_sha256": "f61f52a1f256d92529bcbbb0505266bdbfcf2bfe9b4b7748341a03eeed955d9c",
+  "existing_delayed_table_miss_preserved": true,
+  "final_five_maxima": {
+    "1": {
+      "max_average_gap": 4.600343183502886e-06,
+      "max_early_error": 0.025371074676513672,
+      "max_greedy_gap": 0.0
+    },
+    "2": {
+      "max_average_gap": 2.1153880747082354e-06,
+      "max_early_error": 0.11698066805595464,
+      "max_greedy_gap": 0.0
+    }
+  },
+  "formal_public_model_bundles_retained_at_original_roots": 60,
+  "formal_records": 30000000,
+  "marginal_extension": {
+    "budget_reference_sha256": null,
+    "numeric_eligible": false,
+    "reason": "complete original neural cohort required",
+    "resource_authorization_verified": false,
+    "selected": false
+  },
+  "missing_cases": 20,
+  "numeric_outcomes": {
+    "1": "numeric_pass",
+    "2": "numeric_miss"
+  },
+  "original_observer_pid": 2746867,
+  "original_parent_pid": 2745706,
+  "original_worker_pids": [
+    2745716,
+    2745717
+  ],
+  "pilot_selected": false,
+  "present_cases": 16,
+  "raw_binary_files": 78,
+  "seed2_final_read_passes_fixed_limits": true,
+  "seed2_sole_violation": [
+    {
+      "metric": "max_early_error",
+      "records": 14500000,
+      "threshold": 0.1,
+      "value": 0.11698066805595464
+    }
+  ],
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "status": "both_original_delayed_neural_cases_complete_and_independently_audited",
+  "version": 1
+}

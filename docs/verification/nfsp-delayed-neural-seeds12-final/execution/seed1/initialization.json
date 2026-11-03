@@ -1,0 +1,18 @@
+{
+  "counters": {
+    "fresh_ordinary": 0,
+    "fresh_q": 0,
+    "fresh_records": 0,
+    "q_loss_targets": 0,
+    "q_updates": 0,
+    "supervised_targets": 0,
+    "supervised_updates": 0,
+    "target_refreshes": 0
+  },
+  "original_initial_checkpoint_manifest_sha256": "95a5d092a19700eae5afa909c2d52f88bc0a6813f0ea1d557268469d34b9a077",
+  "retained_initial_checkpoint_manifest_sha256": "95a5d092a19700eae5afa909c2d52f88bc0a6813f0ea1d557268469d34b9a077",
+  "scope": "permanent copy of the actual fresh private checkpoint before any collection; not a scheduled public evaluation agent",
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "step": 0,
+  "version": 1
+}

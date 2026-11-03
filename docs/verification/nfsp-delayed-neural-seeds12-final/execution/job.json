@@ -1,0 +1,134 @@
+{
+  "a2_complete": false,
+  "additional_control_reservation_seconds": "0",
+  "allocation_sha256": "c5346b84cf2cd892159b6405314ddb0f5eed3812a7ee290c80b7400ff029e8de",
+  "cases": {
+    "1": {
+      "actual_zero_record_initialization_retained": true,
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-delayed-neural-seeds12-11a0110/tools/run_nfsp_cpu_delayed_case.py",
+        "--repo",
+        "/home/gcao/proj/graygo",
+        "--allocation",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-delayed-neural-seeds12-11a0110/docs/experiments/nfsp-delayed-neural-seeds12-allocation.json",
+        "--allocation-sha",
+        "c5346b84cf2cd892159b6405314ddb0f5eed3812a7ee290c80b7400ff029e8de",
+        "--seed",
+        "1"
+      ],
+      "emitted_manifest_verified": true,
+      "final_returncode": 0,
+      "initialization_sha256": "fe7068f94c084ad2480226f67ab51b87a032f5cb030809f43ce0834cc2fb8ece",
+      "latest_progress": {
+        "average_readiness": "not_ready",
+        "counters": {
+          "fresh_ordinary": 12000000,
+          "fresh_q": 14982500,
+          "fresh_records": 15000000,
+          "q_loss_targets": 59914240,
+          "q_updates": 117020,
+          "supervised_targets": 7995904,
+          "supervised_updates": 15617,
+          "target_refreshes": 1170
+        },
+        "elapsed_seconds": 10136.333274501027,
+        "q_credit_passed": false,
+        "records": 15000000,
+        "status": "running"
+      },
+      "measured_case_process_upper_seconds": 10147.496505019022,
+      "original_pid": 2745716,
+      "result_sha256": "ad191c0cac21f78edd17e88ff3ad6ab9b853b9f8e1964d8d5991bcbea16e0a04",
+      "returncode": 0,
+      "started_monotonic": 559496.391590027,
+      "state": {
+        "a2_complete": false,
+        "original_pid": 2745716,
+        "records": 15000000,
+        "seed": 1,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "terminal_result": {
+        "average_readiness": "eligible_for_limited_pilot",
+        "elapsed_seconds": 10136.518619843991,
+        "formal_case_passed": true,
+        "q_credit_passed": true,
+        "records": 15000000,
+        "status": "complete"
+      }
+    },
+    "2": {
+      "actual_zero_record_initialization_retained": true,
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-delayed-neural-seeds12-11a0110/tools/run_nfsp_cpu_delayed_case.py",
+        "--repo",
+        "/home/gcao/proj/graygo",
+        "--allocation",
+        "/home/gcao/proj/graygo/.worktrees/nfsp-delayed-neural-seeds12-11a0110/docs/experiments/nfsp-delayed-neural-seeds12-allocation.json",
+        "--allocation-sha",
+        "c5346b84cf2cd892159b6405314ddb0f5eed3812a7ee290c80b7400ff029e8de",
+        "--seed",
+        "2"
+      ],
+      "emitted_manifest_verified": true,
+      "final_returncode": 0,
+      "initialization_sha256": "2df9e8fc7923b6db8936e3c534826e0222ba1a4cfe8f7c74a58d6df76b8964e6",
+      "latest_progress": {
+        "average_readiness": "not_ready",
+        "counters": {
+          "fresh_ordinary": 12000000,
+          "fresh_q": 14982500,
+          "fresh_records": 15000000,
+          "q_loss_targets": 59914240,
+          "q_updates": 117020,
+          "supervised_targets": 7994368,
+          "supervised_updates": 15614,
+          "target_refreshes": 1170
+        },
+        "elapsed_seconds": 10060.35313803493,
+        "q_credit_passed": false,
+        "records": 15000000,
+        "status": "running"
+      },
+      "measured_case_process_upper_seconds": 10071.57789950294,
+      "original_pid": 2745717,
+      "result_sha256": "bc37f2e6cf4385a54fe506cc9e8d19d161991fe7a6f7c4e7dd4f92c6a9e7799b",
+      "returncode": 0,
+      "started_monotonic": 559496.392400156,
+      "state": {
+        "a2_complete": false,
+        "original_pid": 2745717,
+        "records": 15000000,
+        "seed": 2,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "terminal_result": {
+        "average_readiness": "not_ready",
+        "elapsed_seconds": 10060.480968760909,
+        "formal_case_passed": false,
+        "q_credit_passed": false,
+        "records": 15000000,
+        "status": "complete"
+      }
+    }
+  },
+  "completed_formal_cases": 2,
+  "driver_sha256": "0cce6b68b9b8967f59b7798151e24a4244cdffcb3a5aa8185feb93802c2a5678",
+  "graceful_budget_stop_headroom_seconds": 30,
+  "measured_driver_wall_seconds": 10148.031147018075,
+  "new_accelerator_jobs": 0,
+  "no_implicit_resume_or_observation_timeout_restart": true,
+  "original_driver_pid": 2745706,
+  "per_case_complete_process_ceiling_seconds": 19800,
+  "pilot_selected": false,
+  "project_scope_selected": false,
+  "runner_sha256": "5c502b03e30c4585de431a9c5883a878b5db8a354d1430366c3a2611592397fb",
+  "source_package_unchanged": true,
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "status": "original_neural_cases_terminal_unreviewed",
+  "version": 1
+}
