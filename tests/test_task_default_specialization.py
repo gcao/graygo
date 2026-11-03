@@ -1,7 +1,7 @@
 import ast
 from pathlib import Path
 import unittest
-import graygo
+import subprocess
 from tools.task_default_specialization import specialize, ast_sha, default_callers
 
 REFERENCE_AST = 'bbd60ad98c8e70e2f9038d229183744488bdfba0ded7d96045ab5997fcdca8dd'
@@ -18,7 +18,8 @@ def caller_files(extra=''):
 class DefaultSpecializationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.source=(Path(graygo.__file__).parent/'nfsp_collection.py').read_text()
+        cls.repo=Path(__file__).resolve().parents[1]
+        cls.source=subprocess.check_output(['git','show','c3b8b5fb87eba63142a17bd04f578c135fbae2d4:src/graygo/nfsp_collection.py'],cwd=cls.repo,text=True)
 
     def test_production_default_specializes_to_pinned_original_full_module_ast(self):
         tree,rules=specialize(self.source)
@@ -42,6 +43,11 @@ class DefaultSpecializationTests(unittest.TestCase):
         for changed in [self.source.replace("state.get('frozen_execution')","state.get('another_field')"),
                         self.source.replace('self.forward_pool=forward_pool','self.forward_pool=forward_pool\n        self.forward_pool=forward_pool')]:
             with self.assertRaises(ValueError):specialize(changed)
+
+    def test_unadmitted_cpu_cache_delegate_is_not_erased_by_historical_specializer(self):
+        changed=self.source.replace('if self.forward_pool is None:return model(**inputs)',
+            'if self.forward_pool is None:\n            if self._cpu_forward_cache is not None:return self._cpu_forward_cache.forward(model,**inputs)\n            return model(**inputs)')
+        with self.assertRaisesRegex(ValueError,'optional forward delegate'):specialize(changed)
 
     def test_live_and_restored_constructor_sites_are_both_checked(self):
         self.assertEqual(len(default_callers(caller_files())),2)
