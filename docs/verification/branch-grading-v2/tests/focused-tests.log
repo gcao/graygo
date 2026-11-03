@@ -1,0 +1,50 @@
+test_actual_evaluator_and_trainer_accept_exact_native_response_with_non_nash_greedy_q (test_native_response_grading.NativeResponseGradingTests.test_actual_evaluator_and_trainer_accept_exact_native_response_with_non_nash_greedy_q) ... FAIL
+test_hidden_type_is_mixed_before_maximization_and_public_branch_updates_belief (test_native_response_grading.NativeResponseGradingTests.test_hidden_type_is_mixed_before_maximization_and_public_branch_updates_belief) ... ok
+test_independent_complete_strategy_enumeration_matches_every_root_and_role (test_native_response_grading.NativeResponseGradingTests.test_independent_complete_strategy_enumeration_matches_every_root_and_role) ... ok
+test_invalid_probabilities_scope_and_exhausted_node_budget_fail_closed (test_native_response_grading.NativeResponseGradingTests.test_invalid_probabilities_scope_and_exhausted_node_budget_fail_closed) ... ERROR
+test_mid_episode_neural_resume_retains_learning_rng_and_new_evaluation (test_native_response_grading.NativeResponseGradingTests.test_mid_episode_neural_resume_retains_learning_rng_and_new_evaluation) ... FAIL
+
+======================================================================
+ERROR: test_invalid_probabilities_scope_and_exhausted_node_budget_fail_closed (test_native_response_grading.NativeResponseGradingTests.test_invalid_probabilities_scope_and_exhausted_node_budget_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcao/proj/graygo/tests/test_native_response_grading.py", line 173, in test_invalid_probabilities_scope_and_exhausted_node_budget_fail_closed
+    limited = TaskAdapter(replace(self.config(), max_nodes=1))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/task_adapter.py", line 53, in __init__
+    self.values=[solver.solve(r)[0] for r in self.roots]
+                 ^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/public_game.py", line 41, in solve
+    matrix=np.array([[self.solve(self.game.transition(state,b,w))[0] for w in white] for b in black])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/public_game.py", line 34, in solve
+    if self.nodes>=self.max_nodes:raise SolveBudgetExceeded('public-game solve budget exhausted')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+graygo.solving.SolveBudgetExceeded: public-game solve budget exhausted
+
+======================================================================
+FAIL: test_actual_evaluator_and_trainer_accept_exact_native_response_with_non_nash_greedy_q (test_native_response_grading.NativeResponseGradingTests.test_actual_evaluator_and_trainer_accept_exact_native_response_with_non_nash_greedy_q)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcao/proj/graygo/tests/test_native_response_grading.py", line 113, in test_actual_evaluator_and_trainer_accept_exact_native_response_with_non_nash_greedy_q
+    self.assertLess(result['final_five_max_native_response_gap'], 1e-7)
+AssertionError: 0.0006000000307337938 not less than 1e-07
+
+======================================================================
+FAIL: test_mid_episode_neural_resume_retains_learning_rng_and_new_evaluation (test_native_response_grading.NativeResponseGradingTests.test_mid_episode_neural_resume_retains_learning_rng_and_new_evaluation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcao/proj/graygo/tests/test_native_response_grading.py", line 151, in test_mid_episode_neural_resume_retains_learning_rng_and_new_evaluation
+    self.assertEqual(expected['evaluations'], actual['evaluations'])
+AssertionError: Lists differ: [{'re[4640 chars]': 0.0667994690593332}, {'records': 32, 'roots[4681 chars]267}] != [{'re[4640 chars]': 0.10362017701845616}, {'records': 32, 'root[4682 chars]913}]
+
+First differing element 0:
+{'rec[4599 chars]doff_probability': 1.0, 'elapsed_seconds': 0.0667994690593332}
+{'rec[4599 chars]doff_probability': 1.0, 'elapsed_seconds': 0.10362017701845616}
+
+Diff is 19290 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.684s
+
+FAILED (failures=2, errors=1)

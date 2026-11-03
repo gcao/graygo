@@ -1,0 +1,126 @@
+{
+  "a2_complete": false,
+  "additional_control_reservation_seconds": "0",
+  "aggregate_neural_cpu_reservation_seconds": "32400",
+  "all_original_workers_complete": true,
+  "allocation_sha256": "0f9a68618537df2e87f756a8fdc65882b3e95bd679f1b777bcc82ac2021de9fb",
+  "cases": {
+    "1": {
+      "actual_zero_record_initialization_retained": true,
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/delayed-r1-comparison-75ab97c/tools/nfsp_cpu_r1_comparison.py",
+        "--repo",
+        "/home/gcao/proj/graygo",
+        "--allocation",
+        "/home/gcao/proj/graygo/.worktrees/delayed-r1-allocation-c9fd0b3/docs/experiments/nfsp-delayed-r1-neural-seeds12-allocation.json",
+        "--allocation-sha",
+        "0f9a68618537df2e87f756a8fdc65882b3e95bd679f1b777bcc82ac2021de9fb",
+        "--seed",
+        "1"
+      ],
+      "emitted_manifest_verified": true,
+      "exact_expected_argv_verified": true,
+      "initialization_sha256": "0032a461bb11ea8090fe95ebffc04a828eff6192ec9c00937aeec6e9dcff5dc7",
+      "latest_progress": {
+        "average_readiness": "not_ready",
+        "counters": {
+          "fresh_ordinary": 12000000,
+          "fresh_q": 14982500,
+          "fresh_records": 15000000,
+          "q_loss_targets": 14978560,
+          "q_updates": 29255,
+          "supervised_targets": 7995904,
+          "supervised_updates": 15617,
+          "target_refreshes": 1170
+        },
+        "elapsed_seconds": 10404.46909477003,
+        "q_credit_passed": false,
+        "records": 15000000,
+        "status": "complete"
+      },
+      "measured_process_upper_seconds": 10424.915608095936,
+      "original_cmdline_sha256": "35a867b5572fa4cf35361c640920844827f1ad2aa5565aeb130327060e6006c1",
+      "original_pid": 2807653,
+      "original_start_ticks": "57043041",
+      "returncode": 0,
+      "started_monotonic": 570430.415133306,
+      "state": {
+        "a2_complete": false,
+        "cohort_role": "one-step-reuse-comparison",
+        "original_pid": 2807653,
+        "primary_A2_slots_fillable": false,
+        "records": 15000000,
+        "seed": 1,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "whole_process_cap_seconds": 16200
+    },
+    "2": {
+      "actual_zero_record_initialization_retained": true,
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/delayed-r1-comparison-75ab97c/tools/nfsp_cpu_r1_comparison.py",
+        "--repo",
+        "/home/gcao/proj/graygo",
+        "--allocation",
+        "/home/gcao/proj/graygo/.worktrees/delayed-r1-allocation-c9fd0b3/docs/experiments/nfsp-delayed-r1-neural-seeds12-allocation.json",
+        "--allocation-sha",
+        "0f9a68618537df2e87f756a8fdc65882b3e95bd679f1b777bcc82ac2021de9fb",
+        "--seed",
+        "2"
+      ],
+      "emitted_manifest_verified": true,
+      "exact_expected_argv_verified": true,
+      "initialization_sha256": "13e79b48e6d7e25a9c79c3d7c1f6debbb60d83e8a35cf30eac122667ec31eefb",
+      "latest_progress": {
+        "average_readiness": "not_ready",
+        "counters": {
+          "fresh_ordinary": 12000000,
+          "fresh_q": 14982500,
+          "fresh_records": 15000000,
+          "q_loss_targets": 14978560,
+          "q_updates": 29255,
+          "supervised_targets": 7994368,
+          "supervised_updates": 15614,
+          "target_refreshes": 1170
+        },
+        "elapsed_seconds": 10576.645122434013,
+        "q_credit_passed": false,
+        "records": 15000000,
+        "status": "complete"
+      },
+      "measured_process_upper_seconds": 10596.716479502036,
+      "original_cmdline_sha256": "d734679f4916c69b9ee5d0a41c74863e58a274ac8678f6f64e18b25897abff7c",
+      "original_pid": 2807654,
+      "original_start_ticks": "57043041",
+      "returncode": 0,
+      "started_monotonic": 570430.415931145,
+      "state": {
+        "a2_complete": false,
+        "cohort_role": "one-step-reuse-comparison",
+        "original_pid": 2807654,
+        "primary_A2_slots_fillable": false,
+        "records": 15000000,
+        "seed": 2,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "whole_process_cap_seconds": 16200
+    }
+  },
+  "cohort_role": "one-step-reuse-comparison",
+  "driver_sha256": "b721d4502fece9ef33e44cdc00908519b7011adf5c32cd759677bb4ced23dcdf",
+  "driver_wall_seconds": 10597.272078923066,
+  "new_accelerator_jobs": 0,
+  "no_implicit_resume_or_observation_timeout_restart": true,
+  "original_driver_pid": 2807652,
+  "pilot_selected": false,
+  "primary_A2_slots_fillable": false,
+  "project_scope_selected": false,
+  "runner_sha256": "5d969c669e5e6bef39ef9eb861fc483058ec34cdf2964ade898d9fc8a003a63a",
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "status": "two_original_R1_comparison_workers_terminal",
+  "version": 1
+}

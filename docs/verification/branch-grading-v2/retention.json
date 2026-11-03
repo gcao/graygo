@@ -1,0 +1,62 @@
+{
+  "docs/verification/branch-grading-v2/production/driver.log": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/branch-grading-v2-validation-9f444ad/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/branch-grading-v2/production/driver.py": {
+    "bytes": 2285,
+    "original": "/home/gcao/proj/graygo/runs/branch-grading-v2-validation-9f444ad/driver.py",
+    "sha256": "5e7392eee8b5f83704637bc211db43084a9378838cf0ef02fb9a05cbabfb34b3"
+  },
+  "docs/verification/branch-grading-v2/production/job.json": {
+    "bytes": 1344,
+    "original": "/home/gcao/proj/graygo/runs/branch-grading-v2-validation-9f444ad/job.json",
+    "sha256": "8b73c63b40301f039e1c2a46cf0c909e11430e35d79e84b47921edbb0e2b175c"
+  },
+  "docs/verification/branch-grading-v2/production/validation.json": {
+    "bytes": 61000,
+    "original": "/home/gcao/proj/graygo/runs/branch-grading-v2-validation-9f444ad/validation.json",
+    "sha256": "eca47f8adc6754c5243a4629f913c4b77f75327648ce1d1f40baca6e83aeef69"
+  },
+  "docs/verification/branch-grading-v2/production/validation.stderr": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/branch-grading-v2-validation-9f444ad/validation.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/branch-grading-v2/production/validation.stdout": {
+    "bytes": 136,
+    "original": "/home/gcao/proj/graygo/runs/branch-grading-v2-validation-9f444ad/validation.stdout",
+    "sha256": "6bc00a235c461d1304afcafa11a48dafda7f52bc07f2e307cac374d994627b41"
+  },
+  "docs/verification/branch-grading-v2/tests/compatibility-tests.json": {
+    "bytes": 409,
+    "original": "/home/gcao/proj/graygo/runs/branch-grading-v2-work/compatibility-tests.json",
+    "sha256": "8168a26c65e5872314866adcebf73b54bca75883663387aa7363865159f9eea0"
+  },
+  "docs/verification/branch-grading-v2/tests/compatibility-tests.log": {
+    "bytes": 7786,
+    "original": "/home/gcao/proj/graygo/runs/branch-grading-v2-work/compatibility-tests.log",
+    "sha256": "e6fa1df42a94926c65030fe931e7c18ca452646ceb780346391a407ee0d20b36"
+  },
+  "docs/verification/branch-grading-v2/tests/focused-tests-02.json": {
+    "bytes": 227,
+    "original": "/home/gcao/proj/graygo/runs/branch-grading-v2-work/focused-tests-02.json",
+    "sha256": "1bacf73090ca23d19f44791720224fc29eeafb94687ec6b14c8ba2c0ce040dc4"
+  },
+  "docs/verification/branch-grading-v2/tests/focused-tests-02.log": {
+    "bytes": 1187,
+    "original": "/home/gcao/proj/graygo/runs/branch-grading-v2-work/focused-tests-02.log",
+    "sha256": "8e37a9abc72ba46292d82d91a37d3414d2287f420c3fcf54d8af054dc9a6c3c4"
+  },
+  "docs/verification/branch-grading-v2/tests/focused-tests.json": {
+    "bytes": 227,
+    "original": "/home/gcao/proj/graygo/runs/branch-grading-v2-work/focused-tests.json",
+    "sha256": "b81b5d1ee1119ab416e23c0a486bada0bbb0f8d78972089d2a4a1a881390e819"
+  },
+  "docs/verification/branch-grading-v2/tests/focused-tests.log": {
+    "bytes": 4421,
+    "original": "/home/gcao/proj/graygo/runs/branch-grading-v2-work/focused-tests.log",
+    "sha256": "01487ccfba4f1eb77c2d4e1dfa0264ef783bb14fcdc0bdda9c409c50b8485bfb"
+  }
+}

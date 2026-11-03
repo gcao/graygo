@@ -1,0 +1,7 @@
+{
+  "returncode": 1,
+  "measured_process_upper_seconds": 5.660771477036178,
+  "command": "unittest discover -s tests -p test_native_response_grading.py -v",
+  "new_scientific_training_records": 0,
+  "new_accelerator_jobs": 0
+}

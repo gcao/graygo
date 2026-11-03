@@ -1,0 +1,6 @@
+{
+  "constructor_seconds": 2.0460551839787513,
+  "known_constructor_and_loop_seconds": 10578.691177617991,
+  "loop_seconds": 10576.645122434013,
+  "scope": "Known constructor and complete loop; whole-process cap includes admission and cleanup."
+}

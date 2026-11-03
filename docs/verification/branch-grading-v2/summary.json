@@ -1,0 +1,17 @@
+{
+  "a2_complete": false,
+  "affected_tests_passed": 42,
+  "all_legacy_root_metrics_reproduced": true,
+  "all_response_values_match_independent_enumeration": true,
+  "all_three_original_cases_still_numeric_misses": true,
+  "evaluation_protocol_version": "graygo/nfsp-task-evaluation/2",
+  "failed_test_fixture_attempt_retained": true,
+  "new_accelerator_jobs": 0,
+  "new_protocol_training_selected": false,
+  "new_source_sha256": "43c5bb772f52286cfa2e87cc81b97175a5130842d91a547373a37f4cc8b10e86",
+  "original_archives_checked": 90,
+  "source_admission_qualified": false,
+  "source_commit": "9f444ad3875e5a039613e86e20617638fa1c8c26",
+  "status": "all_ninety_original_archives_match_v2_production_evaluator",
+  "version": 1
+}

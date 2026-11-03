@@ -1,0 +1,83 @@
+{
+  "Retrace_selected": false,
+  "a2_complete": false,
+  "all_initial_seals_reverified": true,
+  "all_original_processes_terminal": true,
+  "both_one_step_credit_cohorts_miss": true,
+  "current_archived_numerics_identical": true,
+  "final_five_maxima": {
+    "R1/0": {
+      "max_average_gap": 1.1203536826709382e-05,
+      "max_early_error": 0.4107837944544841,
+      "max_greedy_gap": 0.0
+    },
+    "R1/1": {
+      "max_average_gap": 0.00016693754506569292,
+      "max_early_error": 0.4954941438645101,
+      "max_greedy_gap": 0.0
+    },
+    "R1/2": {
+      "max_average_gap": 8.551437666648454e-06,
+      "max_early_error": 0.1301192536468162,
+      "max_greedy_gap": 0.0
+    },
+    "R4/0": {
+      "max_average_gap": 1.8018596925628572e-07,
+      "max_early_error": 0.012568628757958611,
+      "max_greedy_gap": 0.0
+    },
+    "R4/1": {
+      "max_average_gap": 4.600343183502886e-06,
+      "max_early_error": 0.025371074676513672,
+      "max_greedy_gap": 0.0
+    },
+    "R4/2": {
+      "max_average_gap": 2.1153880747082354e-06,
+      "max_early_error": 0.11698066805595464,
+      "max_greedy_gap": 0.0
+    }
+  },
+  "formal_records": 30000000,
+  "groups": {
+    "R1": {
+      "all_original_seeds_q_credit_passed": false,
+      "average_bands": {
+        "R1/0": "at_most_0.10",
+        "R1/1": "at_most_0.10",
+        "R1/2": "at_most_0.10"
+      },
+      "complete": true,
+      "credit_misses": [
+        "R1/0",
+        "R1/1",
+        "R1/2"
+      ],
+      "credit_status": "miss",
+      "missing_cases": []
+    },
+    "R4": {
+      "all_original_seeds_q_credit_passed": false,
+      "average_bands": {
+        "R4/0": "at_most_0.10",
+        "R4/1": "at_most_0.10",
+        "R4/2": "at_most_0.10"
+      },
+      "complete": true,
+      "credit_misses": [
+        "R4/2"
+      ],
+      "credit_status": "miss",
+      "missing_cases": []
+    }
+  },
+  "marginal_extension_selected": false,
+  "original_case_flags_preserved": true,
+  "pilot_selected": false,
+  "primary_A2_slots_filled": 0,
+  "public_model_bundles_sealed_at_original_roots": 60,
+  "raw_binary_files": 78,
+  "reuse_selected": null,
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "status": "both_original_R1_neural_comparisons_complete_and_independently_audited",
+  "version": 1
+}

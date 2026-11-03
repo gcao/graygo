@@ -1,0 +1,11 @@
+{
+  "allocation_sha256": "0f9a68618537df2e87f756a8fdc65882b3e95bd679f1b777bcc82ac2021de9fb",
+  "cohort_role": "one-step-reuse-comparison",
+  "comparison_admission_sha256": "d8bdf98947ab1656f1100da95865d42ca209ca0ac9565cc04e870b127eb0b55f",
+  "fresh_source_prices_verified": true,
+  "measured_preinitialization_seconds": 14.839938253979199,
+  "primary_A2_slots_fillable": false,
+  "seed": 2,
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "version": 1
+}

@@ -1,0 +1,878 @@
+{
+  "a2_complete": false,
+  "all_native_response_values_match_independent_enumeration": true,
+  "all_original_legacy_metrics_reproduced": true,
+  "cases": {
+    "0": {
+      "evaluations": [
+        {
+          "max_average_gap": 0.1790930310906544,
+          "max_early_error": 1.46723280756063,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.3355000068582592,
+          "records": 500000
+        },
+        {
+          "max_average_gap": 0.1790930310906544,
+          "max_early_error": 0.979994980730481,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.28677599496603,
+          "records": 1000000
+        },
+        {
+          "max_average_gap": 0.1790930310906544,
+          "max_early_error": 1.0105787028832511,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.8270107439770955,
+          "records": 1500000
+        },
+        {
+          "max_average_gap": 0.1790930310906544,
+          "max_early_error": 1.0392576326982907,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.3150540077949016,
+          "records": 2000000
+        },
+        {
+          "max_average_gap": 0.1790930310906544,
+          "max_early_error": 0.7004231818518296,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.8775000035855918,
+          "records": 2500000
+        },
+        {
+          "max_average_gap": 0.1790930310906544,
+          "max_early_error": 0.9855541549009681,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.4119999954923987,
+          "records": 3000000
+        },
+        {
+          "max_average_gap": 0.1790930310906544,
+          "max_early_error": 1.3112786613004341,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.8985000044330955,
+          "records": 3500000
+        },
+        {
+          "max_average_gap": 0.1790930310906544,
+          "max_early_error": 1.1445995246162524,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.4090000015124677,
+          "records": 4000000
+        },
+        {
+          "max_average_gap": 0.1790930310906544,
+          "max_early_error": 1.369489954206078,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.419896749696615,
+          "records": 4500000
+        },
+        {
+          "max_average_gap": 0.1790930310906544,
+          "max_early_error": 1.8540794324434264,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.8913999980032443,
+          "records": 5000000
+        },
+        {
+          "max_average_gap": 0.8356586732263531,
+          "max_early_error": 0.6107322772653538,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.1851844305907844,
+          "records": 5500000
+        },
+        {
+          "max_average_gap": 0.34152859392901547,
+          "max_early_error": 0.8291972977026861,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.812338419022663,
+          "records": 6000000
+        },
+        {
+          "max_average_gap": 0.25359749882718874,
+          "max_early_error": 0.3867866000629354,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.6460445630603225,
+          "records": 6500000
+        },
+        {
+          "max_average_gap": 0.2280293217565556,
+          "max_early_error": 0.16291275518714665,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.06425089613572624,
+          "records": 7000000
+        },
+        {
+          "max_average_gap": 0.19168183627658703,
+          "max_early_error": 0.1742003656384804,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.022917017189263422,
+          "records": 7500000
+        },
+        {
+          "max_average_gap": 0.17403028359673695,
+          "max_early_error": 0.22194965773167585,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.11703804041253915,
+          "records": 8000000
+        },
+        {
+          "max_average_gap": 0.13549459788171042,
+          "max_early_error": 0.1435163346539842,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.0,
+          "records": 8500000
+        },
+        {
+          "max_average_gap": 0.1788229295768871,
+          "max_early_error": 0.10921232041081222,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.14895491139846861,
+          "records": 9000000
+        },
+        {
+          "max_average_gap": 0.0916260252738943,
+          "max_early_error": 0.07722968282293566,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.07446841047277031,
+          "records": 9500000
+        },
+        {
+          "max_average_gap": 0.07046826880021495,
+          "max_early_error": 0.15213480848360003,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.1463691070481456,
+          "records": 10000000
+        },
+        {
+          "max_average_gap": 0.0797376992385549,
+          "max_early_error": 0.12308300169910459,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.1399119507446258,
+          "records": 10500000
+        },
+        {
+          "max_average_gap": 0.0502204888210902,
+          "max_early_error": 0.13262789046472312,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.12234879569965401,
+          "records": 11000000
+        },
+        {
+          "max_average_gap": 0.061814018658229275,
+          "max_early_error": 0.1277881955582965,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.13686995012181657,
+          "records": 11500000
+        },
+        {
+          "max_average_gap": 0.0870044557317704,
+          "max_early_error": 0.11193260948427172,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.008501462105422075,
+          "records": 12000000
+        },
+        {
+          "max_average_gap": 0.0676805927389382,
+          "max_early_error": 0.11567986198229652,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.16664874987560319,
+          "records": 12500000
+        },
+        {
+          "max_average_gap": 0.04540746653910219,
+          "max_early_error": 0.16449146006413032,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.15853833722693544,
+          "records": 13000000
+        },
+        {
+          "max_average_gap": 0.04501340644700186,
+          "max_early_error": 0.12740245438937686,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.177762166570834,
+          "records": 13500000
+        },
+        {
+          "max_average_gap": 0.04050033188192456,
+          "max_early_error": 0.19440396122297285,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.1593846530034343,
+          "records": 14000000
+        },
+        {
+          "max_average_gap": 0.06344279817502016,
+          "max_early_error": 0.13010272032655634,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.11495024297292666,
+          "records": 14500000
+        },
+        {
+          "max_average_gap": 0.04870295147234319,
+          "max_early_error": 0.07654950564977234,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.1701391084666829,
+          "records": 15000000
+        }
+      ],
+      "final_five_maxima": {
+        "max_average_gap": 0.06344279817502016,
+        "max_early_error": 0.19440396122297285,
+        "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+        "max_native_response_gap": 0.177762166570834
+      },
+      "original_legacy_pass_unchanged": false,
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0",
+      "prospective_v2_numeric_passed": false
+    },
+    "1": {
+      "evaluations": [
+        {
+          "max_average_gap": 0.15987447173868297,
+          "max_early_error": 0.9289298053235187,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.3355000068582592,
+          "records": 500000
+        },
+        {
+          "max_average_gap": 0.15987447173868297,
+          "max_early_error": 1.0653295438905395,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.8459999962449074,
+          "records": 1000000
+        },
+        {
+          "max_average_gap": 0.15987447173868297,
+          "max_early_error": 1.2523604458785318,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.7803834925039035,
+          "records": 1500000
+        },
+        {
+          "max_average_gap": 0.15987447173868297,
+          "max_early_error": 1.2648538228839645,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.867000005763024,
+          "records": 2000000
+        },
+        {
+          "max_average_gap": 0.15987447173868297,
+          "max_early_error": 1.6299287605278339,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.8609187540440355,
+          "records": 2500000
+        },
+        {
+          "max_average_gap": 0.15987447173868297,
+          "max_early_error": 0.9900659525243057,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.387999994263053,
+          "records": 3000000
+        },
+        {
+          "max_average_gap": 0.15987447173868297,
+          "max_early_error": 1.3079089808958004,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.8985000044330955,
+          "records": 3500000
+        },
+        {
+          "max_average_gap": 0.15987447173868297,
+          "max_early_error": 1.278344077569249,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.3723660020820199,
+          "records": 4000000
+        },
+        {
+          "max_average_gap": 0.15987447173868297,
+          "max_early_error": 1.2744094996317512,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.9194999996935949,
+          "records": 4500000
+        },
+        {
+          "max_average_gap": 0.15987447173868297,
+          "max_early_error": 1.226788779727077,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.4299999986961485,
+          "records": 5000000
+        },
+        {
+          "max_average_gap": 0.6656823298582082,
+          "max_early_error": 0.5413586940044439,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.2318137076503386,
+          "records": 5500000
+        },
+        {
+          "max_average_gap": 0.3727413314233165,
+          "max_early_error": 0.8879899172068582,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.8641218420005288,
+          "records": 6000000
+        },
+        {
+          "max_average_gap": 0.17066301584012372,
+          "max_early_error": 0.5617972593408357,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.516651610470614,
+          "records": 6500000
+        },
+        {
+          "max_average_gap": 0.1576244364505227,
+          "max_early_error": 0.19615006685348985,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.040862250022805136,
+          "records": 7000000
+        },
+        {
+          "max_average_gap": 0.17084862105129062,
+          "max_early_error": 0.1918155912291303,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.08179372930020476,
+          "records": 7500000
+        },
+        {
+          "max_average_gap": 0.17236391473434903,
+          "max_early_error": 0.153000249843102,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.0,
+          "records": 8000000
+        },
+        {
+          "max_average_gap": 0.17937584657102595,
+          "max_early_error": 0.47574477070875865,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.0,
+          "records": 8500000
+        },
+        {
+          "max_average_gap": 0.16228559792747976,
+          "max_early_error": 0.16549155001843174,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.002534779736137166,
+          "records": 9000000
+        },
+        {
+          "max_average_gap": 0.0877952268996279,
+          "max_early_error": 0.12912293437859856,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.17260819068162297,
+          "records": 9500000
+        },
+        {
+          "max_average_gap": 0.08678468077223589,
+          "max_early_error": 0.4150989958900998,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.11024403707939212,
+          "records": 10000000
+        },
+        {
+          "max_average_gap": 0.11544876488737851,
+          "max_early_error": 0.1670484606947441,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.09593391547411223,
+          "records": 10500000
+        },
+        {
+          "max_average_gap": 0.06155562054495384,
+          "max_early_error": 0.11924680793588455,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.15445348012021917,
+          "records": 11000000
+        },
+        {
+          "max_average_gap": 0.0488991309862358,
+          "max_early_error": 0.20342468889823412,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.12519311376002584,
+          "records": 11500000
+        },
+        {
+          "max_average_gap": 0.05452083209877168,
+          "max_early_error": 0.0973636252427685,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.14690847089670495,
+          "records": 12000000
+        },
+        {
+          "max_average_gap": 0.05323262181835045,
+          "max_early_error": 0.12108058504615987,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.2169953950297993,
+          "records": 12500000
+        },
+        {
+          "max_average_gap": 0.05686817168370828,
+          "max_early_error": 0.15965524045049495,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.2121848507400136,
+          "records": 13000000
+        },
+        {
+          "max_average_gap": 0.048382450108473085,
+          "max_early_error": 0.17903368678588055,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.24671699416997592,
+          "records": 13500000
+        },
+        {
+          "max_average_gap": 0.05766429570664888,
+          "max_early_error": 0.1474455896260793,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.11831391887622889,
+          "records": 14000000
+        },
+        {
+          "max_average_gap": 0.05879160004255787,
+          "max_early_error": 0.13424863872533221,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.22949180925099716,
+          "records": 14500000
+        },
+        {
+          "max_average_gap": 0.07908621176154954,
+          "max_early_error": 0.19823644574217736,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.3074912792461412,
+          "records": 15000000
+        }
+      ],
+      "final_five_maxima": {
+        "max_average_gap": 0.07908621176154954,
+        "max_early_error": 0.19823644574217736,
+        "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+        "max_native_response_gap": 0.3074912792461412
+      },
+      "original_legacy_pass_unchanged": false,
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1",
+      "prospective_v2_numeric_passed": false
+    },
+    "2": {
+      "evaluations": [
+        {
+          "max_average_gap": 0.19470072646372039,
+          "max_early_error": 0.9377875539625602,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.3063247578213548,
+          "records": 500000
+        },
+        {
+          "max_average_gap": 0.19470072646372039,
+          "max_early_error": 0.8705836859324575,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.8459999962449074,
+          "records": 1000000
+        },
+        {
+          "max_average_gap": 0.19470072646372039,
+          "max_early_error": 1.1405539025419662,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.3564999949671326,
+          "records": 1500000
+        },
+        {
+          "max_average_gap": 0.19470072646372039,
+          "max_early_error": 1.248464185244519,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.867000005763024,
+          "records": 2000000
+        },
+        {
+          "max_average_gap": 0.19470072646372039,
+          "max_early_error": 1.6798601394620722,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.3775000035855918,
+          "records": 2500000
+        },
+        {
+          "max_average_gap": 0.19470072646372039,
+          "max_early_error": 0.9172690870831728,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.3435839921715258,
+          "records": 3000000
+        },
+        {
+          "max_average_gap": 0.19470072646372039,
+          "max_early_error": 1.5004061433922984,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.8434435067091735,
+          "records": 3500000
+        },
+        {
+          "max_average_gap": 0.19470072646372039,
+          "max_early_error": 1.3404076883332916,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.4285000011883675,
+          "records": 4000000
+        },
+        {
+          "max_average_gap": 0.19470072646372039,
+          "max_early_error": 0.9400927199435141,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.9194999996935949,
+          "records": 4500000
+        },
+        {
+          "max_average_gap": 0.19470072646372039,
+          "max_early_error": 0.9791276096642018,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 1.1710999985508619,
+          "records": 5000000
+        },
+        {
+          "max_average_gap": 0.5253271613560633,
+          "max_early_error": 0.9666469059229362,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 1.050249071798971,
+          "records": 5500000
+        },
+        {
+          "max_average_gap": 0.20961222932560886,
+          "max_early_error": 0.729187299034477,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.7778756842477975,
+          "records": 6000000
+        },
+        {
+          "max_average_gap": 0.22611338751656668,
+          "max_early_error": 0.3416885736454315,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.46514397987886696,
+          "records": 6500000
+        },
+        {
+          "max_average_gap": 0.23466871383102483,
+          "max_early_error": 0.2320827845771725,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.0,
+          "records": 7000000
+        },
+        {
+          "max_average_gap": 0.15844551533835866,
+          "max_early_error": 0.1379174293603027,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.0,
+          "records": 7500000
+        },
+        {
+          "max_average_gap": 0.2413602575324938,
+          "max_early_error": 0.13376303639752396,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.22926858855984666,
+          "records": 8000000
+        },
+        {
+          "max_average_gap": 0.14413278837527949,
+          "max_early_error": 0.07565557506061094,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.016980855774325815,
+          "records": 8500000
+        },
+        {
+          "max_average_gap": 0.1330996538911547,
+          "max_early_error": 0.13106554284940813,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.03266869173079573,
+          "records": 9000000
+        },
+        {
+          "max_average_gap": 0.08914112672579541,
+          "max_early_error": 0.16606052588025344,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.11618743402358911,
+          "records": 9500000
+        },
+        {
+          "max_average_gap": 0.0845436379247862,
+          "max_early_error": 0.15279383944050623,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.15339654254552804,
+          "records": 10000000
+        },
+        {
+          "max_average_gap": 0.06504307048661367,
+          "max_early_error": 0.12988578697454622,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.07771369950729418,
+          "records": 10500000
+        },
+        {
+          "max_average_gap": 0.06307167666299002,
+          "max_early_error": 0.16161157316154018,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.1805433262327273,
+          "records": 11000000
+        },
+        {
+          "max_average_gap": 0.09616119368444484,
+          "max_early_error": 0.12800782471351935,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.045621149113757364,
+          "records": 11500000
+        },
+        {
+          "max_average_gap": 0.05746964726155346,
+          "max_early_error": 0.14660173513901514,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.09310443567863308,
+          "records": 12000000
+        },
+        {
+          "max_average_gap": 0.04031825332365099,
+          "max_early_error": 0.2154874313608503,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.1825905356182277,
+          "records": 12500000
+        },
+        {
+          "max_average_gap": 0.04029590833071381,
+          "max_early_error": 0.11116071374497674,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.13563170434776184,
+          "records": 13000000
+        },
+        {
+          "max_average_gap": 0.03225386316082521,
+          "max_early_error": 0.15382465830347272,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.21557816453506776,
+          "records": 13500000
+        },
+        {
+          "max_average_gap": 0.058141193598221425,
+          "max_early_error": 0.12356540339992012,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.08899884222115392,
+          "records": 14000000
+        },
+        {
+          "max_average_gap": 0.04488519393629842,
+          "max_early_error": 0.14698242815392837,
+          "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+          "max_native_response_gap": 0.26894418049693464,
+          "records": 14500000
+        },
+        {
+          "max_average_gap": 0.05011924524595032,
+          "max_early_error": 0.1152786002746343,
+          "max_legacy_greedy_equilibrium_gap": 0.8571428571428572,
+          "max_native_response_gap": 0.11957176932520874,
+          "records": 15000000
+        }
+      ],
+      "final_five_maxima": {
+        "max_average_gap": 0.058141193598221425,
+        "max_early_error": 0.15382465830347272,
+        "max_legacy_greedy_equilibrium_gap": 1.1428571428571428,
+        "max_native_response_gap": 0.26894418049693464
+      },
+      "original_legacy_pass_unchanged": false,
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2",
+      "prospective_v2_numeric_passed": false
+    }
+  },
+  "evaluation_protocol_version": "graygo/nfsp-task-evaluation/2",
+  "execution_authorized": false,
+  "input_files_sha256": {
+    "/home/gcao/proj/graygo/.worktrees/branch-grading-v2-9f444ad/docs/experiments/nfsp-branch-grading-v2-validation-spec.json": "1ba07c682036c6ffc2c0fdbb8185d3ef52766f0c91c74c384c303db5b5a77d53",
+    "/home/gcao/proj/graygo/docs/experiments/branch-native-response-diagnostic-spec.json": "f360871a333daa97f0406cf2986ed2224161eee1d3f2cf9c807a6bd3fdc4067c",
+    "/home/gcao/proj/graygo/runs/branch-native-response-5d82059/diagnostic.json": "68c9a820d038abda4b6b4d7cc9425cb31dfb964c6ec690e1101de33e32f36146",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/result.json": "bd72259571ce13dc2d98cd8a5d7fcd357c161b303722208ec5d64a53389132a3",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/run.json": "a719bceb999d4f541a46d82c5adf223044119c0fc1af2eb8b18945a0df8cb121",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000000500000/manifest.json": "24f829272dcbc4fdb5ca6d866e2a3157242807987ab902b54203c855b306034b",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000000500000/models.pt": "f7af39efdeef1a399812bff8b94d700bde512a01768e1659b11dd9e6e5f74559",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000001000000/manifest.json": "8ff053935d69a78ed4335f534f492652bcd864952ed2a90e55992c8934fd1eed",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000001000000/models.pt": "4b328dd87dd378ff49cc15bc49c06251e1a9e7ef8bf26dc8c952547a97fb5339",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000001500000/manifest.json": "db2075cb915a122859467ccfa348a257df567732d645836224ba71b70dc33625",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000001500000/models.pt": "388f164e1012dd7162d2736c4952247b3b172bf426dfa22fa0195060d46bbb7f",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000002000000/manifest.json": "2e221c8a9aba6a70b1e7170f0486a6a45795e94561a8d8a755daa2a692361fc5",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000002000000/models.pt": "53cc3cbe144866f620c5c945446c8470c14e6adcea73dd15afb2d1ada5cb9d64",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000002500000/manifest.json": "037fb277f3b3fd488b8dd38867c6802847da3e4c1fc943bcdc2863450e31d2bf",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000002500000/models.pt": "adac7034212e8d3e32e617ead33ea5a1e4810b57c2343aa1c22783afb1955d1b",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000003000000/manifest.json": "b5d90e5079e6eff1e0eaf52ba559a2a1430ac83bbe613b3320b1f5e6344581a6",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000003000000/models.pt": "2b9c2755ccbcda577944068874d26e066a47197d159f1401d360a5ae73a227a2",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000003500000/manifest.json": "ce6b65b827b3c2d7a7df7c38d4a6827937b6fa25fd8fbad5810d226f9472e4c7",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000003500000/models.pt": "33f494a912bc5e72c5e311d46510968662fe0e47956bb32a5d603db94d7f2200",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000004000000/manifest.json": "2d0f135661f62e73f8cb8528c3d2ee05d4dfaa563857629ba1ce8b82b9cb814f",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000004000000/models.pt": "1580f8f948f9cf02e717b7ae5c89524aae7e1f98186d123af0057967ca62b45b",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000004500000/manifest.json": "4a060de7e36109d08976f9f29f00555a0d289bca1de4062d74c385d124f8dce0",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000004500000/models.pt": "2432c65125668fd292049bd8890a3eca1ce8b8b2d8a779e5f2784cc137f799c1",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000005000000/manifest.json": "8371b60e981943a3f8b531c74bc9322e78ee69e792d4ac5e1a2cba9a0c1ca6f2",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000005000000/models.pt": "c7add2438997ffa011322d54d7536f8879eb16e6e84c83da6c6d2a6747897f4a",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000005500000/manifest.json": "b802d9b196c8c754a83a24f2fa0b8b011404c241f1f2c4de0c0e8812405c7d22",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000005500000/models.pt": "55fb0c8b2f55efeb002190d06a31f8d7a65ec03d2e6490a1bd1c58dbfab45410",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000006000000/manifest.json": "c1049c5f2fe5fc13a05446844cbd8cac7c32268df795e1574df5ed26a1fbcc8c",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000006000000/models.pt": "67b3d5319e0a50730b08771397dfb13efbdd92f229af14590b5dc233698a3dcb",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000006500000/manifest.json": "0dd809125df78d2343eaaf1039d07022da887e3419c33a628fb3bcb97497683d",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000006500000/models.pt": "27d7e5f88bde925104180194d3d3c08a263d4fed54508e29334d934283295e5f",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000007000000/manifest.json": "6a1389de3c1537c5b9b6c3a94f74ddbf644707447ad074ebc6730282b7d0340b",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000007000000/models.pt": "ebf63091b9949a901baae85cbf0d5e3349ece9309e7d0344a3adf55b1dd898e5",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000007500000/manifest.json": "afcbf8d5581f2b286f3b838397a78b7ee86742647a5a9e9c0fdf5f2b444dbfa6",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000007500000/models.pt": "5f06cbd6f9899aa2849913948b6499fe896aea940b5252925f678afe2414655a",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000008000000/manifest.json": "64881743683ea77636277a0b702723060877fad77f772551a68774650a1c4fd9",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000008000000/models.pt": "7e99ed8780da667a4cc7bb1f724f46e17fb366097cb5e87d4a9f8c4318522bbd",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000008500000/manifest.json": "d83a7e5a8d7f04fd44059047e6268f08b07396ccb1b247cb46e8c90fad30259f",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000008500000/models.pt": "3993c72330f31d9dca3f8386c9c9759bbc501fc1705a5411bfe27004a66f5ced",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000009000000/manifest.json": "5d4d5f201647ff11b314278ecef650dbd0e824d8b7c8b715bdf1a1c57e5f322a",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000009000000/models.pt": "7bfcee6e12c2056fc64a72c8709b77984983c0d0667131aa33ee95471325a270",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000009500000/manifest.json": "5a4f5695a5b0238d341144f33257117ad142a4fe4b5b33b21d36b07b90f79d4b",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000009500000/models.pt": "960f3f15eec510af7407441b040814773c7730335be60384226cd38f63a27267",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000010000000/manifest.json": "c02b0b7ea3d28abcc5885b13802260d10a71a24507099d21173ede51f0e15233",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000010000000/models.pt": "40620bed26f015867e9ca3e6b50fad4f918004a3756aff2c2393ca23b4dd9ac3",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000010500000/manifest.json": "63420bdc78251c004c29db5c98e1ada95b70e3fb4b15a9daa9e11e26c2ca654c",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000010500000/models.pt": "0874a939f47fe897c637e59da4cdc59a90ee75eebe858c5926f40d9b7376060e",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000011000000/manifest.json": "653b2df6aebb8b53601779ac3d753b1fb731ae930f4bc6d83405aa39369fa74f",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000011000000/models.pt": "56b86dac986085986f89d1c182260d706ea99c69a92a309553ed950af1125fa0",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000011500000/manifest.json": "70906d7779f31bc5c418ae70c973b191d6f45b6a96ce2afcb8a5169c89a79ece",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000011500000/models.pt": "476a54e821608f727dee67585daa240d11b16c17ca109704c8aa3468c7155fda",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000012000000/manifest.json": "f01c7b691c8a5435280f8d9eea303872db1080ff2bf814e46124b779d08c744f",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000012000000/models.pt": "3f46808dedb53ff8a497fa2fede3907e47252405048ec99c2bb5d0e57f815e01",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000012500000/manifest.json": "feab589898ea33769481721ad2b7cffdad7bb8748ee10498c9d7cdf489a3fc87",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000012500000/models.pt": "1a7c2c941b9c123f5936bed0935a057f993c4f382b34a915033a0e91065d7d95",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000013000000/manifest.json": "6e7a0dff48d6e9ff7dade2ae30d96af5effab73599cc1242cce6030ab92241e4",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000013000000/models.pt": "43017d6a7e4e0df858e17e7beef18816923fce1b1041b156b0eeeed318a54ccf",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000013500000/manifest.json": "762d6ea2cdf4d34b8b03a376492d07780de82b01c4138b28a4c8814751b4c2c2",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000013500000/models.pt": "9408e99f104332759af474df08bf0ed1882bf836ecdc16517027072b60313c8b",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000014000000/manifest.json": "7fafee978451f2ba80337ab720579bb300fdbcd51153637fa8b2259a240e27f5",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000014000000/models.pt": "3b93ede838217a42a1b1cb14ccd208377cc6ce174c64229582fd3e47aa16ed32",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000014500000/manifest.json": "f26b8325d280ebb8b35ce56ce1de733e2e3406cfa6426bf45b9149680fdb4e22",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000014500000/models.pt": "2c377391c7ef36d07a77a0dbb362a5746b56688048363e641a0985197070a4ee",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000015000000/manifest.json": "d2c5b88fc9a4c5948b77e9248a93f134306a54f1384c3e0cd12fb6155526a62d",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/weights/000015000000/models.pt": "8a1b32e09b764745a169cfe8aa4234f8ec50fa155b89ee3125d5268a097be8fb",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/result.json": "863d8e856c6622c374d7dac01b8329c80133f40e3a615522fe754d45c704be5f",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/run.json": "ec7af9f6a499b31ee64287c384ac0f5c505584edb14ef9fe85f3ad50c98b3288",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000000500000/manifest.json": "739ff6af023fc5939be6f7d605d496bbcdca3a200a85a50689a9e3a6ddb00875",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000000500000/models.pt": "171a8b5368c7b5ec7b112d52a39634c58ac0639ba264462c1110208831909488",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000001000000/manifest.json": "6195613d5bda5be2047f3e585a1fe6cbe96b3c652877e53b064d14560db17c19",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000001000000/models.pt": "606022e5df75cf66d756a5308a36941abdb8356d24bfa404a4d38e083e7f2f5d",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000001500000/manifest.json": "7e6777b48f0f76704e3d7408f9895ce38de5ce7fd06a5098cdb6ae5e36da3063",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000001500000/models.pt": "b5bc5099dc47e612f635f4fdcc321c16f865d6108aafab8d2f65594a3af0f457",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000002000000/manifest.json": "6837a52dd164331cd8f59b3f38da8afe4a5b5c4fa7c56dfae9392e8658a6db27",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000002000000/models.pt": "67f1feab33d67e30a9351463ffee2d56970e5a984891b0311a38edcd5903be50",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000002500000/manifest.json": "a29c139ed03c6cdc22b05b9a077a300d5bcff1c17df0132747edf7ccbf3d0e7b",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000002500000/models.pt": "3c8a5cb921bed3c875ac71253ddc86a98baa4ecdde1b971a219c2bb99da70a25",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000003000000/manifest.json": "83e7c3727eab1197072614a8017a6822ca406d16e0418bfe91266e70cb8c1639",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000003000000/models.pt": "e7cc1435aa67ff7417cad9fed75053dc1ac859808d50c970ccbaacf65e39bce9",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000003500000/manifest.json": "83175e93875feab13b1c44954e8a3e5dc7743109484d560a36e1574419fc9c53",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000003500000/models.pt": "63167f47aef71f96e17e4e26bf209ba49718efe5acb07bf629d287730e63d986",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000004000000/manifest.json": "50e7c6369f2c550209825270f5aa5c7f080ee69e843280105d25629665f19abb",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000004000000/models.pt": "09a05c25680a30d5a7040fb2d2155bc5e27c1dcc26ea87c7976abaa7f6ed3c00",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000004500000/manifest.json": "1ea24b9ba826285085dbfa1ef75a9e9c5d6321ee4fefcb099b7fd4b68f912f03",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000004500000/models.pt": "2dd997ae2ae0db87c14c1fc6c779c289b7b06aadeccf64b80dbd194b6068a55f",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000005000000/manifest.json": "2154b76c8d3c0b9a9319c8447933416a1f6f26812131133beda7b444e7cac049",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000005000000/models.pt": "d1b22dc838d92a8008b4bc99a481c5b3cc1ffc179d3fd2454ae2acd610a2ca90",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000005500000/manifest.json": "442d6e299bbc1da5affd139c575afc541f1798c1e6adf0185b2e5154b3f0d921",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000005500000/models.pt": "a516bb8116ec8c30fa6b0f9b79a176010cbef0d39a881e3dc422921d0eb13cd5",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000006000000/manifest.json": "037a3a436df52bf9030642f0395303a166f603b73144098ec16bc6d55f286289",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000006000000/models.pt": "f1f9f5499ba0b3d2618ac8bcc4c689621798a01a956343e0ecd3735b52714470",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000006500000/manifest.json": "2c237b1a5aa73ac4d8a2c49988a50ed22f8d60d96757a41b0448de88582606e1",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000006500000/models.pt": "f2bf0d01e0bd40ad090f76301298e6164f6d98de2a1e6c1efeca8c605949bc72",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000007000000/manifest.json": "63ac951179fb3e56a2c2b9cf95222a12087ecefa668bc1fd79d480c43cf29601",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000007000000/models.pt": "599b2b6cf247599405a7d92a6d3f5f2ad43835d55227a8126d519cc83aaddb96",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000007500000/manifest.json": "4d12fffc6e12147d75e7b8c34aa27eb3232af041db037ce8df807ff0fc6f5dca",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000007500000/models.pt": "64d8fde133d4e9ed318cd2ce2ac002d0877fec32bb50af67ef357719201c9a49",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000008000000/manifest.json": "2ab400cb0eb9335b673a6254a0fd60af7812cb4937dd2434eed8796cf18272af",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000008000000/models.pt": "835998ac032627a0478da9fdcd85cb86777b6d6d7b86465791b78b843d9e35cd",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000008500000/manifest.json": "578dfef71c42bd501547d4c7993f3d4039d2be78bfc8e26c309334032c1afa08",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000008500000/models.pt": "7518dd0464f5d37cb9e1efac2db3997b3182315ea64b939b103f7423ba25def4",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000009000000/manifest.json": "db6b93294a53902572d8d45e6888f18b67c750c51a534e43c03941aff27756b5",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000009000000/models.pt": "0c245daf08081b99e54e17650f5426519c25ece223ba3fbd0a328973fd3ab848",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000009500000/manifest.json": "85e0362b08cb944b508935c12cf8dc678eb9e177e203c3d922f9899d0da44fc5",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000009500000/models.pt": "b11d277eee4ae19f81f6374b5b0bbd17171a7f40f409c257360eccbe46cd33c2",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000010000000/manifest.json": "cd48d4de203efe690a94d402559e4b9eb7e3cf341e31988e7fa7775320009539",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000010000000/models.pt": "350af10626935ff80561c6a0fdce9dcd7a35ee6707ca9880ebfae3298b50e8de",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000010500000/manifest.json": "d5b5bc959f5772504b4d9f653462ebbdd6b145b30597bec45172c3656de9fe96",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000010500000/models.pt": "1bea79371ac9d32628215ca260dbfbaaa8cddc208c5d4632edb9a53418a679cf",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000011000000/manifest.json": "d1f19dbd8547d17e4dcbc6d078717f21b0a8a570165dfed7210dd773d7ff6187",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000011000000/models.pt": "7e89d66ed3d52bc78df60f3429130a6dba652db4e7eb5d91375ed61a20bb060b",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000011500000/manifest.json": "17e834b20c52a49891fb735205de18315c3aa4771a75323013850821f756a5f6",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000011500000/models.pt": "5a0c8af9a3ce100f49b50e226332b0f2a46e317c902b7a97fa3b7c1af74423d5",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000012000000/manifest.json": "96a07de7b7a650daa1749d74f3184b7d685f908531501bc4a8dc27c7b4385965",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000012000000/models.pt": "883eacd95affb4a462cb7ea8a08d44e0f561bb6061ac8df3ba338269cf5f26e9",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000012500000/manifest.json": "ce41b61ed830c93dd3bf0e70d644650080194a3d7e3b933adf8911f6b134d685",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000012500000/models.pt": "73efa1d97eaa73f9a814285d0e5abe1e7cf37b4493f9f8ee29f582429ff40ef5",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000013000000/manifest.json": "ef0f5ceb1131701da3df5fd68e9cd4ad445150968b2991189c6b3622cc57d919",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000013000000/models.pt": "259fe6e21cd02af664d5e040db1738581e1664a4717b09ae0f8d4c8124c7d9e2",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000013500000/manifest.json": "611e5e306a113c93a028b08a54992dd55d8425333aaead1d870c2e0b2c057ae4",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000013500000/models.pt": "54af92c1614f3bb7da4fd8935a396a4ed1bf0f9f50706f14c08577e52172eaf9",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000014000000/manifest.json": "441b7c90a3119d1c2f3ba13e07e507532a349f0d6aa0748ad0fd664e454571bd",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000014000000/models.pt": "65e90446d6a2c03af84a3a4471f816a412555a9c8b105d8cd04d9ac5c7299d0f",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000014500000/manifest.json": "e76823ffac63ebd8a80faba161ffd85ccf2682d050bf335e24222df414f6673f",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000014500000/models.pt": "b060155509f9da41a11c03d91d096fce40c84460623a46d9823f2ae9110c8347",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000015000000/manifest.json": "34c726cddd11286810b56f1b6f7080783cbd43e3bb04db1f85cc80022c6cbe31",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/weights/000015000000/models.pt": "432a2737826b3e0b788efeb699d2d25d9c12d5e11814a18e3ba6af5f98fb9603",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/result.json": "d2d638615b4bcbe3e81f42ed8bedbea4a65e3a6114f2151ef12f96a366f77b29",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/run.json": "6664d864a310e6aafec5e8cc401bb6fa8414feaf18cc9ef7967520a2573561cf",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000000500000/manifest.json": "dba6d9ea8a49f1c3f9048e7f2cc19742358c8d63a9b346c15453fb33907b8976",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000000500000/models.pt": "5716bf4495618004617a0a61633ff57943065db567f8ae7e654f05e96c45cbf7",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000001000000/manifest.json": "07d88eaa89626a52a62d50926c4d970427f920e1b372e6c2730f5208cb98887d",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000001000000/models.pt": "9ed12a400e9413417228622bcb6c17fa996773c07206225cd2bbe9470cdbe62a",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000001500000/manifest.json": "a886e9b794f9b5cfe7902204b5ee61b28b461e7698575e17361bea6bcf65bca6",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000001500000/models.pt": "d3fb8b5e2c2dae3a7e96dc0153545e9fcd005943c31db34669f1ccfefeaa7690",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000002000000/manifest.json": "ee12dbf52e07e033f27c0514f207852b90521ffb5f070cf7d82ec8e466c1289a",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000002000000/models.pt": "c695b7470f1f040d2c48f134d684eba65458cdf7d9335f2f694392dae76f0741",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000002500000/manifest.json": "552e9623b452c16b934dff3d76c637fb344a2b2efefcb358b861d26002d561a4",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000002500000/models.pt": "88285d3bce1a4d04270ef7ab6163df82276a803a78b833166de17d31abb30c17",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000003000000/manifest.json": "a61c6664151773dabd40ab0eafbf605c381aca5f2259432029b1ee7e5955036c",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000003000000/models.pt": "61ffa9de83b2e7e36fb9a83b81c5cc5dcb0d6a8a1830aa093db5b8ea40254b01",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000003500000/manifest.json": "7ae957a016b6f631c68211fe4b23cf2769965a08618dfa728787c76da6df2dc6",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000003500000/models.pt": "0c8e95cf64115420be9d7e4e18c7d65ffeaa12e428e46e32a3609c0996bb7cc8",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000004000000/manifest.json": "60f5a3229ddc43a00d6ae253fa70dbbbb26885885ae066710bd7b535f724272c",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000004000000/models.pt": "a134ae162851958063dc934d1d337c06f83d46c3d9f76ca27f134552f3e2d160",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000004500000/manifest.json": "ae2dfa7def2e7e9ecd3bdf2ec427e258017a2bf71c59dd29624f9afb8e233a8b",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000004500000/models.pt": "8154800ab086eed41eac71f8d2ead746223240dcca35d32f8ae2f14daf9c0260",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000005000000/manifest.json": "8311e8ec3aedb42e72ebeaca368c35ac8006d4eefcb3b00658af7a8c6ccf6395",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000005000000/models.pt": "9723af67052bf6f6f0c03522dd315cb97e91e10cfa1eaa80f96443193ca965a2",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000005500000/manifest.json": "6c6d17d1377c61186d78a853e3a1bcc5dcdc5671ad963a0f3f18c59d18da58f9",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000005500000/models.pt": "f8d325bc91f0ab831922e131e300a5f356bc7455687ef82964a69e9404f7476e",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000006000000/manifest.json": "b929676e921f7aca716f7d74289fcc81d7d38693f773b16388b89025e367188d",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000006000000/models.pt": "9e72773676a03e1f65d6d266d93d52b15f844689f273e15c497bb6391742d753",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000006500000/manifest.json": "d68ec468c204317b19c542e853fe0c7559c985fb5268bf61bbd0541f3d5c063b",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000006500000/models.pt": "6b1a1764e03b040c60394e784b951b1215d05cd24d6b2c48509b15a17a65912c",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000007000000/manifest.json": "e8c168c09ede0b4c5523d57350868e6f03adcc3860e68720d529c009d38c4a3f",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000007000000/models.pt": "185885346887e93c9e45f9327efe3f4175d3737c1f454d161fca921684fa1077",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000007500000/manifest.json": "dbd266bae4115927122b329f76332d5f440af8cf30869c45837935323214ab21",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000007500000/models.pt": "62bbf1fc42413ade7790741975331f3916aca7c0ff573e78c521dd5448018b27",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000008000000/manifest.json": "818d4b143fa9a6ce2c25c55add9cc632ba869d1104daa8299207c158687f11b0",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000008000000/models.pt": "52993112c0879a43c427781cc1cd660c78a710e0c1abe659f5b4b2f2ecd272a3",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000008500000/manifest.json": "d0ef0562f936d6006b0c9080a0f784f93d8f408f5b85691494bb9dd323f25190",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000008500000/models.pt": "f9570a164a62d46fac72bdd7962213ba11ae47f0ad2e905c947ba891baf69b89",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000009000000/manifest.json": "962e44c189122452fbf6dcf339e6987554e94f099c64c9ff5a957ddf0bb4195f",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000009000000/models.pt": "b757b66fb322b7dca97b8e33aed22cc3ed286180204a7f8f74543acb52050b81",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000009500000/manifest.json": "85b2da52bd7e07c3013d7d36972f115bcfacfcdaf44e600839dd5c1205719e76",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000009500000/models.pt": "ac3a6a350a2fa86beaf8d6dd64cc2cbad31eccd58ef4a47bf0675f72280103d2",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000010000000/manifest.json": "3e3b019557b658ea89a7c7107df8d383384b5aa9fbc87ad23fb010e5379c9f99",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000010000000/models.pt": "19a007c154211d4406872b775ffe0953b4e1b1048111951f5717c163a41eb18e",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000010500000/manifest.json": "840cf0474177f27c147e496437ee818c182d518b097d12ce14af59106a9cef51",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000010500000/models.pt": "4e38aef2d9586b66c6427a11f63cff1ef6a49b16e89a5587051cbda6f97f5f8c",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000011000000/manifest.json": "131e6803eae633e44c85e7043e02c8b1feebd01a6e980658d1750b297313968e",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000011000000/models.pt": "acec5e7ad5b7ac6874efe53bd348b005c14f0f8a96e257af6842da32783058c9",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000011500000/manifest.json": "aea4615d38ab74309bf8c64e4937fa03df42b25c21e6370b0b07b288928620b1",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000011500000/models.pt": "33900a919d7d425fc6e08791ae211708b4ebf77ae0f8803fd065b51947d9dbee",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000012000000/manifest.json": "83b563e6e498663d19b1c14ae228225ddc6e1d39c591155a44e711a8bc809cc2",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000012000000/models.pt": "bcbccc2ff1fc23091f12b08e7ca593c9ed60d3070f5b61bd11ef90c3a91de7fc",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000012500000/manifest.json": "728921a4c5a951f86e4fdadd0854caa3f2fb18fc4d3f8f713b6c7502ee0e0139",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000012500000/models.pt": "cd3506edc48d9feb46d3076b28f440d110bb3e19cc28dd610d163f50e795b584",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000013000000/manifest.json": "f19ffcfe26c043f5d253ab4334d09d312dcc268bb76175b37c92284da91d5ced",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000013000000/models.pt": "b216f7ee55e461e65d4928c0badb8a03297cad0fd7ae9ce5381e2c9e7acdb18a",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000013500000/manifest.json": "6c022e74a75bcb5896f795765a541c979da875d3967cd2827129b75683fb34f7",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000013500000/models.pt": "da9e6e54b5902f59783d6ac2bcc27d5374c30f6bebb7c6fc24a59452f5f24eb4",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000014000000/manifest.json": "e502d272d7fc1e26f21353afdcc6e01a33aca7395e22f4039e000e6d68740c64",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000014000000/models.pt": "3872a5274a1d0db492914c418d3e8935bd80189b1d73fce726819e492250ecb9",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000014500000/manifest.json": "9b421752d5c6333c681de8ed98204564cc1dfe64eedb4ab80c15b4e6790fbc28",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000014500000/models.pt": "069d92bf2e8815b5279da328c96ab0a51df4d377de9b2741016818533bab1f65",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000015000000/manifest.json": "fbb81d1fb990682b60d794198539eee31eb7760097423372abbe2804e7999a93",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/weights/000015000000/models.pt": "16bac3e17e7f63442dd44a0bb5a7c23a05ac2c4cbc7f1a4655f8eb80bca96252"
+  },
+  "new_learner_source_sha256": "43c5bb772f52286cfa2e87cc81b97175a5130842d91a547373a37f4cc8b10e86",
+  "new_protocol_training_selected": false,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "original_grades_or_files_modified": false,
+  "scope": "Read-only compatibility of the explicit v2 production evaluator with frozen independent evidence. No old plan conversion, new training grant, source admission, control waiver or pilot.",
+  "source_admission_qualified": false,
+  "status": "all_ninety_original_archives_match_v2_production_evaluator",
+  "version": "graygo/branch-grading-v2-production-validation/1"
+}

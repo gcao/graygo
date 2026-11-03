@@ -1,0 +1,29 @@
+{
+  "a2_complete": false,
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "/home/gcao/proj/graygo/.worktrees/branch-grading-v2-9f444ad/tools/validate_branch_grading_v2.py",
+    "--repo",
+    "/home/gcao/proj/graygo",
+    "--specification",
+    "/home/gcao/proj/graygo/.worktrees/branch-grading-v2-9f444ad/docs/experiments/nfsp-branch-grading-v2-validation-spec.json",
+    "--expected-specification-sha",
+    "1ba07c682036c6ffc2c0fdbb8185d3ef52766f0c91c74c384c303db5b5a77d53",
+    "--output",
+    "/home/gcao/proj/graygo/runs/branch-grading-v2-validation-9f444ad/validation.json"
+  ],
+  "driver_sha256": "5e7392eee8b5f83704637bc211db43084a9378838cf0ef02fb9a05cbabfb34b3",
+  "measured_process_seconds": 3.6752212409628555,
+  "new_accelerator_jobs": 0,
+  "new_protocol_training_selected": false,
+  "new_training_records": 0,
+  "original_cmdline_sha256": "bd6409f64b956ced58ffea39334c4743cc3764b99462f8f363737866f7b4929b",
+  "original_driver_pid": 2861659,
+  "original_start_ticks": "58131295",
+  "original_validation_pid": 2861660,
+  "returncode": 0,
+  "specification_sha256": "1ba07c682036c6ffc2c0fdbb8185d3ef52766f0c91c74c384c303db5b5a77d53",
+  "status": "verified_all_ninety_archives_against_v2_production_evaluator",
+  "validation_sha256": "eca47f8adc6754c5243a4629f913c4b77f75327648ce1d1f40baca6e83aeef69",
+  "version": 1
+}

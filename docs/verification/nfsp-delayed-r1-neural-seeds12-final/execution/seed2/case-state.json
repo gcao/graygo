@@ -1,0 +1,10 @@
+{
+  "a2_complete": false,
+  "cohort_role": "one-step-reuse-comparison",
+  "original_pid": 2807654,
+  "primary_A2_slots_fillable": false,
+  "records": 15000000,
+  "seed": 2,
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "status": "complete"
+}

@@ -1,0 +1,303 @@
+{
+  "Retrace_selected": false,
+  "a2_complete": false,
+  "analysis_mode": "current_inputs",
+  "both_one_step_credit_cohorts_miss": true,
+  "case_provenance": {
+    "R1/0": {
+      "case_body_sha256": "83f18d69ef179d7a915f6667508bfbe38378ca3d6a25badd1d92b9d7f39c9d9c",
+      "original_plan_sha256": "d56fc9e6956d240723be58b401d20aaabddaffa898ac53e031920e1113ef6086",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-eligibility-correction-R1-ca45a53/neural",
+      "original_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "original_training_manifest_sha256": "f268271d7627ef6ec94395a59a1779d73c86e61be6c32b3fa42ef35de29cc389"
+    },
+    "R1/1": {
+      "case_body_sha256": "ad035bdf52dcbc773205c7ac0df9da95d49297eb9df4eff3ec37bfb189df74fd",
+      "original_plan_sha256": "a63004a159a00ea67721094ee0daf09099f51239c588054708e4de9827b42cd6",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-delayed-r1-neural-seeds12-a522-v1/seed1",
+      "original_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "original_training_manifest_sha256": "8692f94411d4c74ad58e6006da215354bf3ccd586bee4c78b036e56fe833f8ec"
+    },
+    "R1/2": {
+      "case_body_sha256": "af0d84dd68918dda33b452d964c9cf94bfce6b4b7f4de54c63a49359880aecba",
+      "original_plan_sha256": "a63004a159a00ea67721094ee0daf09099f51239c588054708e4de9827b42cd6",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-delayed-r1-neural-seeds12-a522-v1/seed2",
+      "original_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "original_training_manifest_sha256": "f8b9918684c8250e1b33165f45c95c2da50cf896ffca73d8fba61d7dd1c9ef40"
+    },
+    "R4/0": {
+      "case_body_sha256": "698806976f9b6dd10959474d58ad969c8a0e89f22d7acaffdf269dd2be7027cd",
+      "original_plan_sha256": "0c5e7bdd7c792573edd1ab283737a8a7cbfb8c3f9ea9cc647052d64b6a27049c",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-primary-ca45a53/neural",
+      "original_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "original_training_manifest_sha256": "b11c43dc35fa2c31867ca2c32a7f7ea373baddbe5c9432c468d99dc151a87929"
+    },
+    "R4/1": {
+      "case_body_sha256": "caf2e8b196c475e9a028a3963a145b4757863fd239135afa06323f42071ce841",
+      "original_plan_sha256": "a63004a159a00ea67721094ee0daf09099f51239c588054708e4de9827b42cd6",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-delayed-neural-seeds12-a522-v1/seed1",
+      "original_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "original_training_manifest_sha256": "76b6918a12f9a73e5dd6016a941fbb92087c0083eff6e9852acdbf3c79cb6452"
+    },
+    "R4/2": {
+      "case_body_sha256": "f7fcad1dad29536dd1870028251fef3d68cf596f73eeea55f46a63ea8847593f",
+      "original_plan_sha256": "a63004a159a00ea67721094ee0daf09099f51239c588054708e4de9827b42cd6",
+      "original_root": "/home/gcao/proj/graygo/runs/nfsp-delayed-neural-seeds12-a522-v1/seed2",
+      "original_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "original_training_manifest_sha256": "5670a44080cdb7b02f15b3378e8f1bf29dd9073d9dd1ec89b2afaf6ceacce776"
+    }
+  },
+  "cases": {
+    "R1/0": {
+      "average_band": "at_most_0.10",
+      "case_sha256": "83f18d69ef179d7a915f6667508bfbe38378ca3d6a25badd1d92b9d7f39c9d9c",
+      "final_five_maxima": {
+        "max_average_gap": 1.1203536826709382e-05,
+        "max_early_error": 0.4107837944544841,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": false,
+      "q_credit_passed": false,
+      "status": "numeric_miss",
+      "violations": [
+        {
+          "metric": "max_early_error",
+          "records": 13000000,
+          "threshold": 0.1,
+          "value": 0.4107837944544841
+        },
+        {
+          "metric": "max_early_error",
+          "records": 13500000,
+          "threshold": 0.1,
+          "value": 0.3215837612982163
+        },
+        {
+          "metric": "max_early_error",
+          "records": 14000000,
+          "threshold": 0.1,
+          "value": 0.21017307043075562
+        },
+        {
+          "metric": "max_early_error",
+          "records": 14500000,
+          "threshold": 0.1,
+          "value": 0.16633897485924964
+        },
+        {
+          "metric": "max_early_error",
+          "records": 15000000,
+          "threshold": 0.1,
+          "value": 0.12061371892547246
+        }
+      ]
+    },
+    "R1/1": {
+      "average_band": "at_most_0.10",
+      "case_sha256": "ad035bdf52dcbc773205c7ac0df9da95d49297eb9df4eff3ec37bfb189df74fd",
+      "final_five_maxima": {
+        "max_average_gap": 0.00016693754506569292,
+        "max_early_error": 0.4954941438645101,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": false,
+      "q_credit_passed": false,
+      "status": "numeric_miss",
+      "violations": [
+        {
+          "metric": "max_early_error",
+          "records": 14000000,
+          "threshold": 0.1,
+          "value": 0.13331391393648484
+        },
+        {
+          "metric": "max_early_error",
+          "records": 14500000,
+          "threshold": 0.1,
+          "value": 0.14696749408160015
+        },
+        {
+          "metric": "max_early_error",
+          "records": 15000000,
+          "threshold": 0.1,
+          "value": 0.4954941438645101
+        }
+      ]
+    },
+    "R1/2": {
+      "average_band": "at_most_0.10",
+      "case_sha256": "af0d84dd68918dda33b452d964c9cf94bfce6b4b7f4de54c63a49359880aecba",
+      "final_five_maxima": {
+        "max_average_gap": 8.551437666648454e-06,
+        "max_early_error": 0.1301192536468162,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": false,
+      "q_credit_passed": false,
+      "status": "numeric_miss",
+      "violations": [
+        {
+          "metric": "max_early_error",
+          "records": 13000000,
+          "threshold": 0.1,
+          "value": 0.10763537432096193
+        },
+        {
+          "metric": "max_early_error",
+          "records": 14500000,
+          "threshold": 0.1,
+          "value": 0.1301192536468162
+        }
+      ]
+    },
+    "R4/0": {
+      "average_band": "at_most_0.10",
+      "case_sha256": "698806976f9b6dd10959474d58ad969c8a0e89f22d7acaffdf269dd2be7027cd",
+      "final_five_maxima": {
+        "max_average_gap": 1.8018596925628572e-07,
+        "max_early_error": 0.012568628757958611,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": true,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "R4/1": {
+      "average_band": "at_most_0.10",
+      "case_sha256": "caf2e8b196c475e9a028a3963a145b4757863fd239135afa06323f42071ce841",
+      "final_five_maxima": {
+        "max_average_gap": 4.600343183502886e-06,
+        "max_early_error": 0.025371074676513672,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": true,
+      "q_credit_passed": true,
+      "status": "numeric_pass",
+      "violations": []
+    },
+    "R4/2": {
+      "average_band": "at_most_0.10",
+      "case_sha256": "f7fcad1dad29536dd1870028251fef3d68cf596f73eeea55f46a63ea8847593f",
+      "final_five_maxima": {
+        "max_average_gap": 2.1153880747082354e-06,
+        "max_early_error": 0.11698066805595464,
+        "max_greedy_gap": 0.0
+      },
+      "final_records": [
+        13000000,
+        13500000,
+        14000000,
+        14500000,
+        15000000
+      ],
+      "numeric_passed": false,
+      "q_credit_passed": false,
+      "status": "numeric_miss",
+      "violations": [
+        {
+          "metric": "max_early_error",
+          "records": 14500000,
+          "threshold": 0.1,
+          "value": 0.11698066805595464
+        }
+      ]
+    }
+  },
+  "current_input_snapshots_verified": true,
+  "current_source_prices_verified": true,
+  "groups": {
+    "R1": {
+      "all_original_seeds_q_credit_passed": false,
+      "average_bands": {
+        "R1/0": "at_most_0.10",
+        "R1/1": "at_most_0.10",
+        "R1/2": "at_most_0.10"
+      },
+      "complete": true,
+      "credit_misses": [
+        "R1/0",
+        "R1/1",
+        "R1/2"
+      ],
+      "credit_status": "miss",
+      "missing_cases": []
+    },
+    "R4": {
+      "all_original_seeds_q_credit_passed": false,
+      "average_bands": {
+        "R4/0": "at_most_0.10",
+        "R4/1": "at_most_0.10",
+        "R4/2": "at_most_0.10"
+      },
+      "complete": true,
+      "credit_misses": [
+        "R4/2"
+      ],
+      "credit_status": "miss",
+      "missing_cases": []
+    }
+  },
+  "input_files_sha256": {
+    "/home/gcao/proj/graygo/docs/experiments/nfsp-delayed-r1-neural-seeds12-allocation.json": "0f9a68618537df2e87f756a8fdc65882b3e95bd679f1b777bcc82ac2021de9fb",
+    "/home/gcao/proj/graygo/docs/verification/nfsp-eligibility-R1-neural/case.json": "87e7a5f2c05a14ef0a7a0677f7bc6fba91413c05423d2a5a31346fc292e42a54",
+    "/home/gcao/proj/graygo/docs/verification/nfsp-eligibility-R1-neural/cohort-plan.json": "a5ed30ce4a252fea1ccea29131920fcadf1f1e8ea08440db9ca1931e23b304de",
+    "/home/gcao/proj/graygo/runs/a2-selected-cpu-registration-own-cases-v2/selected-plan.json": "47a5dc2b065c7ff294ead624c4a39e2ad7d5fc7128f0f7bd01eadff9a7a11a95",
+    "/home/gcao/proj/graygo/runs/delayed-r1-comparison-admission-75ab97c/admission.json": "d8bdf98947ab1656f1100da95865d42ca209ca0ac9565cc04e870b127eb0b55f",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-neural-seeds12-audit-a6a52bd/case-delayed-neural-1.json": "087a2a57ca0d52a887375a050b169f9ff79f3eb478f63a6321578a11254097d7",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-neural-seeds12-audit-a6a52bd/case-delayed-neural-2.json": "ca5ac3542970132d309ce039d3fd6008b8874080b1432d003347b6f782d26a84",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-r1-neural-seeds12-audit-a9408ed/case-delayed-R1-neural-1.json": "d53f4433fb19f4f7c909dbf0c4be2f8a5ea7c4b5c53ff01544bfd632a8cf065d",
+    "/home/gcao/proj/graygo/runs/nfsp-delayed-r1-neural-seeds12-audit-a9408ed/case-delayed-R1-neural-2.json": "f2eb2e7801d26f3d3fb05ce08c226f80f3be0a4c19da3b430fcbfe0cdb6686f5",
+    "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/case.json": "a441936e6e369fa3ddc694c09b6b045f227de2758c31fd5939e07c92a4c37190",
+    "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json": "6da00f5f19ca5860ed256893e6db78fce98b02d059fe777872ac1a13db5a4188"
+  },
+  "marginal_extension_selected": false,
+  "original_primary_recipe_flags": {
+    "R1/0": true,
+    "R1/1": false,
+    "R1/2": false,
+    "R4/0": true,
+    "R4/1": true,
+    "R4/2": true
+  },
+  "pilot_authorized": false,
+  "primary_A2_slots_filled": 0,
+  "reuse_selected": false,
+  "scope": "Numerical full-budget original R1/R4 delayed comparison only. Exact fixed five-read gates and original primary flags remain intact. Q/greedy credit is separate from averaging bands. Meaningful-branch/averaging/cohort/control/fixture checks, conditional-extension rules and separate measured resource/route decisions remain required; no automatic target or pilot selection.",
+  "version": "graygo/delayed-reuse-comparison/1"
+}

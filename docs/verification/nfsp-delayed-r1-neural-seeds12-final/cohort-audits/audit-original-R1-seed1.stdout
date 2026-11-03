@@ -1,0 +1,10 @@
+{
+  "a2_complete": false,
+  "case": [
+    "delayed",
+    "neural",
+    1
+  ],
+  "case_sha256": "ad035bdf52dcbc773205c7ac0df9da95d49297eb9df4eff3ec37bfb189df74fd",
+  "fresh_audit_verified": true
+}

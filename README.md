@@ -4,6 +4,8 @@ Simultaneous Go on a 9×9 torus. Both players secretly choose a placement or pas
 
 The authoritative [design](docs/design.md) includes rules, the neural-network architecture, training gates, and review history. [Implementation status](docs/implementation.md) tracks the full project against it.
 
+The [latest checked status](docs/implementation.md) retains 19/36 primary A2 cases and their misses; six original bounded Gray Go neural runs are still live. The [branching evaluator correction](docs/protocols/nfsp-branch-grading-v2.md) passes 42 affected tests and reproduces independent results at all 90 original checkpoints. The [complete delayed reuse comparison](docs/verification/nfsp-delayed-r1-neural-seeds12-final/README.md) finds neither one-step cohort passes every seed. Remaining target, control, source and entry gates are open; no 9×9 learning pilot is selected.
+
 ## Setup
 
 Python 3.12 is the tested interpreter. From the repository:
