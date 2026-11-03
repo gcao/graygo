@@ -8,7 +8,7 @@ import unittest
 import torch
 import numpy as np
 from test_nfsp_batch_costs import synthetic_report
-from tools.nfsp_graph_costs import VERSION,GraphSetupObserver,actor_measurements,forecast,graph_io
+from tools.nfsp_graph_costs import VERSION,GraphSetupObserver,actor_measurements,forecast,graph_io,file_digest,verify_code_bindings
 from tools.audit_nfsp_graph_costs import recalculate,timing
 from graygo.board_runtime import BoardRuntimeConfig,configure_runtime
 from graygo.engine import State,resolve_reference
@@ -41,6 +41,13 @@ def fixture():
 
 
 class GraphCostArithmeticTests(unittest.TestCase):
+    def test_real_cli_file_bindings_accept_module_strings_and_path_objects(self):
+        from tools import nfsp_batch_costs as components
+        from graygo.manifest import source_digest
+        path=Path(components.__file__)
+        self.assertEqual(file_digest(path),file_digest(str(path)))
+        verify_code_bindings(source_digest(),file_digest(path))
+        with self.assertRaises(ValueError):verify_code_bindings(source_digest(),'0'*64)
     def test_cold_work_is_explicit_and_bounded_not_per_steady_action(self):
         r=fixture();result=recalculate(r);pilot=r['forecast']['per_seed']['pilot']
         self.assertEqual(pilot['snapshot_publication_upper'],15626)

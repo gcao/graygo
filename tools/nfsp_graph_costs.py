@@ -39,6 +39,15 @@ def require(condition,message):
     if not condition:raise ValueError(message)
 
 
+def file_digest(path):
+    return digest(Path(path))
+
+
+def verify_code_bindings(expected_source,expected_components):
+    require(source_digest()==expected_source and file_digest(core.__file__)==CORE_SHA and file_digest(batch.__file__)==expected_components,
+            'exact package/core/components required')
+
+
 class GraphSetupObserver:
     """Observe source metrics; never replace a model computation or counter."""
     def __init__(self):self.events=[];self.keys=WeakKeyDictionary();self.pools={};self.next_key=0
@@ -157,7 +166,7 @@ def main():
     parser.add_argument('--reuse',type=int,choices=(1,4),required=True);parser.add_argument('--time-cap-seconds',type=int,required=True)
     args=parser.parse_args();import os,fcntl,graygo
     root=Path(args.run_dir).resolve();paths={key:Path(getattr(args,key)).resolve() for key in ('buffer_checkpoint','benchmark','catalog','native_library')}
-    require(source_digest()==args.expected_source_sha and digest(core.__file__)==CORE_SHA and digest(batch.__file__)==args.expected_components_sha,'exact package/core/components required')
+    verify_code_bindings(args.expected_source_sha,args.expected_components_sha)
     require(0<args.time_cap_seconds<=3600,'bounded original time allocation required')
     os.chdir(Path(graygo.__file__).resolve().parents[2]);root.mkdir(parents=True,exist_ok=True);require(not (root/'plan.json').exists(),'profile exists; inspect original handle')
     started=time.monotonic()
@@ -168,9 +177,9 @@ def main():
         config=BoardRuntimeConfig(device='cuda',q_reuse=args.reuse,native_library=str(paths['native_library']),cuda_graphs=True)
         configure_runtime('cuda',True);torch.set_num_threads(1)
         benchmark=ProbeBenchmark.from_dict(json.loads(paths['benchmark'].read_text()));catalog=ExposureCatalog.from_dict(json.loads(paths['catalog'].read_text()))
-        plan={'version':VERSION,'source_sha256':source_digest(),'tool_sha256':digest(__file__),'core_producer_sha256':CORE_SHA,'components_sha256':digest(batch.__file__),
+        plan={'version':VERSION,'source_sha256':source_digest(),'tool_sha256':file_digest(__file__),'core_producer_sha256':CORE_SHA,'components_sha256':file_digest(batch.__file__),
             'runtime':config.plan(),'inference_batch_size':32,'pair_batch_size':16,'time_ceiling_seconds':args.time_cap_seconds,'margin':2.,
-            'input_files_sha256':{str(p):digest(p) for p in [paths['buffer_checkpoint']/'manifest.json',paths['benchmark'],paths['catalog'],paths['native_library']]},
+            'input_files_sha256':{str(p):file_digest(p) for p in [paths['buffer_checkpoint']/'manifest.json',paths['benchmark'],paths['catalog'],paths['native_library']]},
             'core_protocol':'selected graph runtime pipeline plus eager reference standalone actor/IO; explicitly replaced by selected stages',
             'graph_io_factories':'FrozenPolicies selected execution descriptor and FrozenNeuralPolicy(cuda_graphs=True); original sealed IO body unchanged',
             'scope':'complete measured graph candidate only; no A2, pilot, confirmation or project budget selection'}
@@ -194,13 +203,13 @@ def main():
         for _ in range(3):
             check()
             def load_model():
-                digest(public);data=torch.load(public,map_location='cpu',weights_only=True)
+                file_digest(public);data=torch.load(public,map_location='cpu',weights_only=True)
                 with torch.random.fork_rng(devices=[]),torch.device('cpu'):model=PolicyNet().to('cuda')
                 model.load_state_dict(data['average']);return FrozenNeuralPolicy(model,inference_batch_size=32,cuda_graphs=True)
             _,seconds=core.timed(torch.device('cuda'),load_model);loads.append(seconds)
         setup=tracker.report();f=forecast(c,e,actors,io,setup,cold_seconds=cold['seconds'],model_load_seconds=max(loads));check()
-        require(source_digest()==plan['source_sha256'] and all(digest(p)==h for p,h in plan['input_files_sha256'].items()),'source/input changed')
-        result={'version':VERSION,'status':'complete','plan':plan,'core_report':c,'core_report_sha256':digest(root/'core/report.json'),
+        require(source_digest()==plan['source_sha256'] and all(file_digest(p)==h for p,h in plan['input_files_sha256'].items()),'source/input changed')
+        result={'version':VERSION,'status':'complete','plan':plan,'core_report':c,'core_report_sha256':file_digest(root/'core/report.json'),
             'actors':actors,'graph_io':io,'evaluation':e,'graph_setup':setup,'cold_start':cold,'selected_model_load_seconds':loads,'forecast':f,
             'fresh_learner_profile_records':c['fresh_profile_records'],'evaluation_physical_games':e['physical_games'],'evaluation_physical_rounds':e['physical_rounds'],
             'elapsed_seconds':time.monotonic()-started,'memory':core._memory(torch.device('cuda')),

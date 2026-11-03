@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/gcao/proj/graygo/.worktrees/nfsp-graph-cost-53ed845/tools/nfsp_graph_costs.py", line 212, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/nfsp-graph-cost-53ed845/tools/nfsp_graph_costs.py", line 160, in main
+    require(source_digest()==args.expected_source_sha and digest(core.__file__)==CORE_SHA and digest(batch.__file__)==args.expected_components_sha,'exact package/core/components required')
+                                                          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/frozen-cuda-c3b8b5f/src/graygo/storage.py", line 28, in digest
+    with path.open("rb") as source:
+         ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'open'
