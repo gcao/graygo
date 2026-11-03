@@ -10,7 +10,7 @@ import os
 from pathlib import Path
 from tools.a2_cohort import (NFSPA2Plan,checked_case,canonical,digest,fingerprint,require,
     slots,label,thresholds,FAMILIES,SEEDS,LEARNERS,ASSESS_VERSION,input_snapshot,read_lock)
-from tools import task_source_bridge,terminal_batch_admission
+from tools import task_source_bridge,terminal_batch_admission,cpu_cache_admission
 
 REGISTRY_VERSION='graygo/a2-source-registry/1'
 ASSESSMENT_VERSION='graygo/source-aware-a2-assessment/1'
@@ -27,6 +27,9 @@ def _bridge_metadata(proof,*,current=True):
     elif proof.get('version')==terminal_batch_admission.VERSION:
         require(proof['status']=='qualified_cpu_matrix_terminal_batch' and proof['collection_implementation']=='terminal-batch','terminal collector not admitted')
         families=set(proof['families']);require(families=={'asymmetric','rps'},'terminal admission expanded its task scope');verifier=Path(terminal_batch_admission.__file__)
+    elif proof.get('version')==cpu_cache_admission.VERSION:
+        require(proof['status']=='qualified_cpu_3x3_raw_cache' and proof['source_compatibility_qualified'] is True and proof['device']=='cpu' and proof['storage']=='features','CPU raw cache not admitted')
+        families=set(proof['families']);require(families=={'gray-pure','gray-mixed'},'raw-cache admission expanded its task scope');verifier=Path(cpu_cache_admission.__file__)
     else:raise ValueError('unknown source admission verifier/version')
     require(families and families<=set(FAMILIES) and fingerprint(proof['reference_source_sha256']) and fingerprint(proof['candidate_source_sha256']),'invalid admitted source edge')
     if current:require(proof['verifier_sha256']==digest(verifier),'use the receipt-bound verifier implementation')
@@ -76,6 +79,8 @@ def _fresh_bridge(repo,proof):
         fresh=task_source_bridge.qualify(repo,Path(repo)/'runs/task-source-bridge-446a058',
             Path(repo)/'.worktrees/task-source-bridge-446a058/docs/experiments/task-source-bridge-domain-allocation.json',
             expected_allocation_sha='11b97d2adeb8e68ce78142c210a83f2f8f85c50975665b7126dc05be48082b32')
+    elif proof['version']==cpu_cache_admission.VERSION:
+        e=proof['evidence'];fresh=cpu_cache_admission.qualify(e['repo'],e['reference'],e['candidate'],e['comparison_root'],e['audit_root'],e['suite_root'],expected_reference=proof['reference_source_sha256'],expected_candidate=proof['candidate_source_sha256'])
     else:
         e=proof['evidence'];fresh=terminal_batch_admission.qualify(e['reference'],e['candidate'],e['comparison'],e['audits'],e['suite'],
             expected_reference=proof['reference_source_sha256'],expected_candidate=proof['candidate_source_sha256'])
@@ -220,6 +225,8 @@ def assess_registry_files(registry,case_paths,*,repo,current=True,output=None):
                         task_source_bridge.check_case(manifest,proof,selected_candidate_source=proof['candidate_source_sha256']);applied=True
                     elif proof['version']==task_source_bridge.VERSION and source==proof['candidate_source_sha256']:
                         check_selected_cpu_case(manifest,proof);applied=True
+                    elif proof['version']==cpu_cache_admission.VERSION and source==proof['candidate_source_sha256']:
+                        cpu_cache_admission.check_case(manifest,proof);applied=True
                     elif proof['version']==terminal_batch_admission.VERSION and source==proof['candidate_source_sha256']:
                         terminal_batch_admission.check_matrix_case(manifest,proof);applied=True
                 require(applied,'original case execution/configuration has no verified admission')

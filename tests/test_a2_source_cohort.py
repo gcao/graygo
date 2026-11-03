@@ -10,7 +10,7 @@ import unittest
 from tests import test_a2_cohort as legacy_fixtures
 from tools.a2_cohort import NFSPA2Plan,assess,canonical,FAMILIES
 from tools.a2_source_cohort import (assess_sources,protocol_key,path_for,read_registry,assess_registry_files,REGISTRY_VERSION,check_selected_cpu_case)
-from tools import task_source_bridge,terminal_batch_admission
+from tools import task_source_bridge,terminal_batch_admission,cpu_cache_admission
 from tools import a2_source_cohort
 from graygo.task_training import NFSPTaskConfig
 from graygo.nfsp_training import NFSPMatrixConfig
@@ -107,6 +107,12 @@ class SourceAwareGradingTests(unittest.TestCase):
             with self.assertRaises(ValueError):check_selected_cpu_case(changed,proof)
         changed=deepcopy(manifest);changed['dependencies']={'torch':'other'}
         with self.assertRaises(ValueError):check_selected_cpu_case(changed,proof)
+
+    def test_raw_cache_metadata_cannot_expand_beyond_its_admitted_cpu_families(self):
+        proof={'version':cpu_cache_admission.VERSION,'status':'qualified_cpu_3x3_raw_cache','source_compatibility_qualified':True,'device':'cpu','storage':'features','families':['gray-pure','gray-mixed'],'reference_source_sha256':'a'*64,'candidate_source_sha256':'b'*64,'verifier_sha256':'f'*64,'execution_authorized':False}
+        edge=a2_source_cohort._bridge_metadata(proof,current=False);self.assertEqual(edge['families'],{'gray-pure','gray-mixed'})
+        for field,value in [('device','cuda'),('storage','rule-state'),('families',['gray-pure','gray-mixed','delayed']),('execution_authorized',True),('source_compatibility_qualified',False)]:
+            with self.assertRaises(ValueError,msg=field):a2_source_cohort._bridge_metadata(proof|{field:value},current=False)
 
     def test_archived_registry_can_reanalyze_without_claiming_current_inputs(self):
         with tempfile.TemporaryDirectory() as tmp:
