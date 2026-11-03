@@ -1,0 +1,174 @@
+{
+  "acting_policy_counts": {
+    "average": 88499,
+    "q": 11501,
+    "uniform": 0
+  },
+  "average_final_five_passed": false,
+  "best_response_visits": [
+    5124,
+    5112
+  ],
+  "collection_implementation": "terminal-batch",
+  "counters": {
+    "fresh_ordinary": 100000,
+    "fresh_q": 100000,
+    "fresh_records": 100000,
+    "q_loss_targets": 96000,
+    "q_updates": 750,
+    "supervised_targets": 98688,
+    "supervised_updates": 771,
+    "target_refreshes": 7
+  },
+  "elapsed_seconds": 3.933100393973291,
+  "episode_audit_bytes": 6050000,
+  "evaluations": [
+    {
+      "average_gaps": [
+        0.8407484444177464,
+        0.7262058454971712
+      ],
+      "average_policies": [
+        [
+          0.008197206362555423,
+          0.9918027936374446
+        ],
+        [
+          0.7916743513200142,
+          0.2083256486799858
+        ]
+      ],
+      "average_ready": true,
+      "counters": {
+        "fresh_ordinary": 50000,
+        "fresh_q": 50000,
+        "fresh_records": 50000,
+        "q_loss_targets": 45952,
+        "q_updates": 359,
+        "supervised_targets": 48640,
+        "supervised_updates": 380,
+        "target_refreshes": 3
+      },
+      "elapsed_seconds": 1.730306348996237,
+      "epsilon": 0.09939999999999999,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "greedy_q_policies": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "handoff_probability": 1.0,
+      "q_values": [
+        [
+          -0.35021474957466125,
+          -0.20171479880809784
+        ],
+        [
+          0.8130733966827393,
+          -0.30284085869789124
+        ]
+      ],
+      "records": 50000,
+      "reservoir_seen": 5068,
+      "reservoir_size": 5068
+    },
+    {
+      "average_gaps": [
+        0.01345106107848032,
+        0.9705715724463961
+      ],
+      "average_policies": [
+        [
+          0.4375388026237488,
+          0.5624611973762512
+        ],
+        [
+          0.9138572147946267,
+          0.08614278520537327
+        ]
+      ],
+      "average_ready": true,
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "fresh_records": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 98688,
+        "supervised_updates": 771,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 3.67830901092384,
+      "epsilon": 0.0988,
+      "greedy_q_gaps": [
+        0.8571428571428572,
+        1.1428571428571428
+      ],
+      "greedy_q_policies": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "handoff_probability": 1.0,
+      "q_values": [
+        [
+          0.33953845500946045,
+          -0.5099157094955444
+        ],
+        [
+          0.6310664415359497,
+          -0.31529101729393005
+        ]
+      ],
+      "records": 100000,
+      "reservoir_seen": 10236,
+      "reservoir_size": 10236
+    }
+  ],
+  "formal_gate_passed": false,
+  "formal_protocol": false,
+  "learner": "neural",
+  "loss_stats": {
+    "projected_targets": 0,
+    "q_loss_sum": 360.2167784869671,
+    "q_updates": 750,
+    "raw_target_max": 1.0,
+    "raw_target_min": -1.0,
+    "supervised_loss_sum": 298.4418474584818,
+    "supervised_loss_updates": 771
+  },
+  "matrix_certificate_gap": 0.0,
+  "matrix_value": -0.14285714285714285,
+  "per_role_records": [
+    50000,
+    50000
+  ],
+  "physical_games": 50000,
+  "records": 100000,
+  "reservoir_changes": 10236,
+  "reservoir_seen": 10236,
+  "reservoir_size": 10236,
+  "seed": 2,
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "status": "complete",
+  "task": "asymmetric",
+  "timings": {
+    "checkpoint": 0.46576722292229533,
+    "collection": 1.9155370355583727,
+    "evaluation": 0.0006106059299781919,
+    "learning": 1.5796606360236183
+  }
+}

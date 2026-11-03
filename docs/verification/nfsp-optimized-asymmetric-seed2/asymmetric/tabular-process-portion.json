@@ -1,0 +1,6 @@
+{
+  "loop_seconds": 403.5649128590012,
+  "scope": "known constructor and trainer-loop intervals; excludes outer import/driver and final-report/return overhead",
+  "seconds_including_setup": 403.6893853630172,
+  "setup_seconds": 0.12447250401601195
+}

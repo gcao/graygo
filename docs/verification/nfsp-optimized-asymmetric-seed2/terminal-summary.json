@@ -1,0 +1,54 @@
+{
+  "Retrace_selected": false,
+  "a2_complete": false,
+  "additional_seed_or_family_selected": false,
+  "all_original_processes_terminal": true,
+  "archived_assessment_sha256": "ec6338f30c92c1d67ec35243a9f2a8ab652eb436f4cc1da6cb3849551af146f2",
+  "both_cases_complete_and_freshly_audited": true,
+  "collection_implementation": "terminal-batch",
+  "current_archived_numerics_match": true,
+  "current_assessment_sha256": "517af67fbe4be52402f0d25bc2afb35d00e6d3477c0e976c002705b2d1d8b739",
+  "delayed_table_numeric_miss_retained": true,
+  "diagnostic_records": 400000,
+  "final_five_maxima": {
+    "asymmetric/neural/2": {
+      "formal_gate_passed": true,
+      "loop_seconds": 501.7294265970122,
+      "max_average_gap": 0.02762943670925122,
+      "original_case_sha256": "133f308d939db1f86808a0f4733b8d72b1c2cf02702c06e0eddf9992b6ced863"
+    },
+    "asymmetric/tabular/2": {
+      "formal_gate_passed": true,
+      "loop_seconds": 403.5649128590012,
+      "max_average_gap": 0.035181557500970906,
+      "original_case_sha256": "8e15bc11e1c3c496db80e2b76c6965aef2c8ee5e70e8e6cf0a13474b381b2e99"
+    }
+  },
+  "formal_records": 30000000,
+  "four_profiles_freshly_audited": true,
+  "funding_independently_recomputed_decimal": {
+    "neural": {
+      "cap_seconds": "1800.0",
+      "phase_weighted_15M_seconds": "553.454495331970950",
+      "twofold_margin_passed": true
+    },
+    "tabular": {
+      "cap_seconds": "1200.0",
+      "phase_weighted_15M_seconds": "503.7020001444034300",
+      "twofold_margin_passed": true
+    }
+  },
+  "missing_cases": 24,
+  "original_audit_watch_pid": 2730111,
+  "original_driver_pid": 2729529,
+  "original_source_specific_plan": "runs/a2-source-admission-584213f/optimized-plan.json",
+  "original_stage_pid": 2729561,
+  "pilot_selected": false,
+  "present_cases": 12,
+  "seed": 2,
+  "source_registry_sha256": "46bf447c2212c027327139f33a318bd5e2bb3a6fc9a2a3d52257af634f8b76a5",
+  "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+  "stability_extension_selected": false,
+  "task": "asymmetric",
+  "version": 1
+}

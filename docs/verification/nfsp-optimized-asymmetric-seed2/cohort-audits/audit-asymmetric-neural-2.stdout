@@ -1,0 +1,10 @@
+{
+  "a2_complete": false,
+  "case": [
+    "asymmetric",
+    "neural",
+    2
+  ],
+  "case_sha256": "9478e155151e3d275b9e4a2533ccf188fe558799672af413fb54d3dfd97842b7",
+  "fresh_audit_verified": true
+}

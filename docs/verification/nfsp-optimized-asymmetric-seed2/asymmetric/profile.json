@@ -1,0 +1,262 @@
+{
+  "plan": {
+    "aggregate_profile_ceiling_seconds": 260.0,
+    "aggregate_trial_ceiling_seconds": 3000.0,
+    "conditional_trials": [
+      {
+        "batch": 128,
+        "capacity": 200000,
+        "device": "cpu",
+        "epsilon_decay": 7500000,
+        "eval_every": 500000,
+        "handoff_end": 7000000,
+        "hidden": 64,
+        "label_rule": "greedy",
+        "learner": "tabular",
+        "learning_rate": 0.0003,
+        "learning_start": 4096,
+        "max_grad_norm": 0.5,
+        "q_reuse": 1,
+        "records": 15000000,
+        "reservoir_open": 5000000,
+        "seed": 2,
+        "target_every": 12800,
+        "task": "asymmetric",
+        "time_cap_seconds": 1200.0,
+        "uniform_comparison": false
+      },
+      {
+        "batch": 128,
+        "capacity": 200000,
+        "device": "cpu",
+        "epsilon_decay": 7500000,
+        "eval_every": 500000,
+        "handoff_end": 7000000,
+        "hidden": 64,
+        "label_rule": "greedy",
+        "learner": "neural",
+        "learning_rate": 0.0003,
+        "learning_start": 4096,
+        "max_grad_norm": 0.5,
+        "q_reuse": 1,
+        "records": 15000000,
+        "reservoir_open": 5000000,
+        "seed": 2,
+        "target_every": 12800,
+        "task": "asymmetric",
+        "time_cap_seconds": 1800.0,
+        "uniform_comparison": false
+      }
+    ],
+    "driver_sha256": "42bdade275671e76a99fbc8d156b6d51ae684216f9b3d170bb44ef0d84fbd59d",
+    "format_version": 1,
+    "profile_gate": "both pre/post complete; Q and fresh-record target work; supervised work and learned-average acting post opening; trial cap >= twice phase-weighted 15M forecast including measured setup",
+    "profiles": [
+      {
+        "config": {
+          "batch": 128,
+          "capacity": 200000,
+          "device": "cpu",
+          "epsilon_decay": 7500000,
+          "eval_every": 50000,
+          "handoff_end": 7000000,
+          "hidden": 64,
+          "label_rule": "greedy",
+          "learner": "tabular",
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "q_reuse": 1,
+          "records": 100000,
+          "reservoir_open": 5000000,
+          "seed": 2,
+          "target_every": 12800,
+          "task": "asymmetric",
+          "time_cap_seconds": 65.0,
+          "uniform_comparison": false
+        },
+        "phase": "pre"
+      },
+      {
+        "config": {
+          "batch": 128,
+          "capacity": 200000,
+          "device": "cpu",
+          "epsilon_decay": 7500000,
+          "eval_every": 50000,
+          "handoff_end": 7000000,
+          "hidden": 64,
+          "label_rule": "greedy",
+          "learner": "neural",
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "q_reuse": 1,
+          "records": 100000,
+          "reservoir_open": 5000000,
+          "seed": 2,
+          "target_every": 12800,
+          "task": "asymmetric",
+          "time_cap_seconds": 65.0,
+          "uniform_comparison": false
+        },
+        "phase": "pre"
+      },
+      {
+        "config": {
+          "batch": 128,
+          "capacity": 200000,
+          "device": "cpu",
+          "epsilon_decay": 7500000,
+          "eval_every": 50000,
+          "handoff_end": 1000,
+          "hidden": 64,
+          "label_rule": "greedy",
+          "learner": "tabular",
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "q_reuse": 1,
+          "records": 100000,
+          "reservoir_open": 0,
+          "seed": 2,
+          "target_every": 12800,
+          "task": "asymmetric",
+          "time_cap_seconds": 65.0,
+          "uniform_comparison": false
+        },
+        "phase": "post"
+      },
+      {
+        "config": {
+          "batch": 128,
+          "capacity": 200000,
+          "device": "cpu",
+          "epsilon_decay": 7500000,
+          "eval_every": 50000,
+          "handoff_end": 1000,
+          "hidden": 64,
+          "label_rule": "greedy",
+          "learner": "neural",
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "q_reuse": 1,
+          "records": 100000,
+          "reservoir_open": 0,
+          "seed": 2,
+          "target_every": 12800,
+          "task": "asymmetric",
+          "time_cap_seconds": 65.0,
+          "uniform_comparison": false
+        },
+        "phase": "post"
+      }
+    ],
+    "scope": "asymmetric original seed 2; other required families and seeds remain explicit",
+    "source_commit": "f93f95ba9ac0650f6b17307ae43c55dc2212736c",
+    "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546"
+  },
+  "results": [
+    {
+      "acting_policy_counts": {
+        "average": 0,
+        "q": 100000,
+        "uniform": 0
+      },
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "fresh_records": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 2.6838928300421685,
+      "learner": "tabular",
+      "phase": "pre",
+      "records": 100000,
+      "seconds_including_setup": 3.4123977690469474,
+      "setup_seconds": 0.7285049390047789,
+      "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "status": "complete"
+    },
+    {
+      "acting_policy_counts": {
+        "average": 0,
+        "q": 100000,
+        "uniform": 0
+      },
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "fresh_records": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 2.8060633449349552,
+      "learner": "neural",
+      "phase": "pre",
+      "records": 100000,
+      "seconds_including_setup": 2.935296786832623,
+      "setup_seconds": 0.12923344189766794,
+      "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "status": "complete"
+    },
+    {
+      "acting_policy_counts": {
+        "average": 88499,
+        "q": 11501,
+        "uniform": 0
+      },
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "fresh_records": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 3983793,
+        "supervised_updates": 771,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 3.2020817819284275,
+      "learner": "tabular",
+      "phase": "post",
+      "records": 100000,
+      "seconds_including_setup": 3.3308211169205606,
+      "setup_seconds": 0.12873933499213308,
+      "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "status": "complete"
+    },
+    {
+      "acting_policy_counts": {
+        "average": 88499,
+        "q": 11501,
+        "uniform": 0
+      },
+      "counters": {
+        "fresh_ordinary": 100000,
+        "fresh_q": 100000,
+        "fresh_records": 100000,
+        "q_loss_targets": 96000,
+        "q_updates": 750,
+        "supervised_targets": 98688,
+        "supervised_updates": 771,
+        "target_refreshes": 7
+      },
+      "elapsed_seconds": 3.933100393973291,
+      "learner": "neural",
+      "phase": "post",
+      "records": 100000,
+      "seconds_including_setup": 4.066896559903398,
+      "setup_seconds": 0.13379616593010724,
+      "source_sha256": "d2743ee50b4a5f28395670e545898ac324f0d68bf4d8d89147b7da1317d49546",
+      "status": "complete"
+    }
+  ]
+}
