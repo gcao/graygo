@@ -1,0 +1,68 @@
+{
+  "auditors": [
+    [
+      "bounded",
+      "36ba58de321d53958dd304492e87c605b81c11cfbd7b0c859a0dedf8f7048a11"
+    ],
+    [
+      "delayed",
+      "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02"
+    ],
+    [
+      "matrix",
+      "7a9898ba046fdb4aa638c0ddbc92ccb721b362a6b0767eb38d8723802f30f728"
+    ]
+  ],
+  "collector_sha256": "e1ca1c1c69bf1effa9b14eaf18f41f12ebc4117677c0f5504671b8c17bda7b98",
+  "epsilon_decay": 7500000,
+  "evaluation_interval": 500000,
+  "extension": {
+    "budget_reference_sha256": null,
+    "endpoint": 17000000,
+    "last_evaluation_must_pass": true,
+    "maximum_additional_records": 2000000,
+    "maximum_failing_families": 1,
+    "maximum_failing_seeds": 1,
+    "maximum_relative_miss": 1.2,
+    "paired_seeds": [
+      0,
+      1,
+      2
+    ]
+  },
+  "families": [
+    "asymmetric",
+    "rps",
+    "gray-pure",
+    "gray-mixed",
+    "delayed",
+    "branching"
+  ],
+  "final_evaluations": 5,
+  "handoff_end": 7000000,
+  "learner_source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+  "learners": [
+    "neural",
+    "tabular"
+  ],
+  "matrix_reuse": 1,
+  "multiround_reuse": 4,
+  "name": "same-protocol-CPU-raw-cache-gray-A2",
+  "records": 15000000,
+  "reservoir_open": 5000000,
+  "scope": "fixed numerical case requirements; this plan allocates no case/control/extension/board work and grants no A2 exit",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "target": "one-step",
+  "target_every": 12800,
+  "thresholds": {
+    "delayed_average_gap": 0.1,
+    "greedy_credit_gap": 0.05,
+    "short_average_gap": 0.05,
+    "supported_value_error": 0.1
+  },
+  "version": "graygo/nfsp-a2-cohort-plan/1"
+}

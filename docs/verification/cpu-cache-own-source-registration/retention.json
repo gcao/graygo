@@ -1,0 +1,74 @@
+{
+  "docs/verification/cpu-cache-own-source-registration/candidate-plan.json": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/candidate-plan.json",
+    "sha256": "55d0dc4bc9b5c8eb332154eb163014036795fe623ba75fcdce158eca75047642"
+  },
+  "docs/verification/cpu-cache-own-source-registration/driver.log": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-cache-own-source-registration/driver.py": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/driver.py",
+    "sha256": "d0d29e20d9401c1c5985004e39a75f53d8c2a38a6b9aa4ad049e974d7de54244"
+  },
+  "docs/verification/cpu-cache-own-source-registration/job.json": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/job.json",
+    "sha256": "d8fc726881c66c11959098f443e0feee94a19bc4492c6f2626abc2fbbb1902ae"
+  },
+  "docs/verification/cpu-cache-own-source-registration/new-archived.json": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/new-archived.json",
+    "sha256": "f00160200dd36c99c318276ae630d6c50ba4c389f7e0bd8c978dab00d88b46d1"
+  },
+  "docs/verification/cpu-cache-own-source-registration/new-archived.stderr": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/new-archived.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-cache-own-source-registration/new-archived.stdout": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/new-archived.stdout",
+    "sha256": "1f04ca5d3b2566dde5cd2c3b9945eb3b4de05a87a878be96e93ece41cf847f4f"
+  },
+  "docs/verification/cpu-cache-own-source-registration/new-current.json": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/new-current.json",
+    "sha256": "65d3a7349640d443f86a7fc6e2e299bd1260a6dacc07ac38f538eb27b1976dad"
+  },
+  "docs/verification/cpu-cache-own-source-registration/new-current.stderr": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/new-current.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-cache-own-source-registration/new-current.stdout": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/new-current.stdout",
+    "sha256": "1f04ca5d3b2566dde5cd2c3b9945eb3b4de05a87a878be96e93ece41cf847f4f"
+  },
+  "docs/verification/cpu-cache-own-source-registration/old-current.json": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/old-current.json",
+    "sha256": "a2f668c17cbe5d68f154a07410ed68c113e64f83fcce6e9388560268cd71c3e9"
+  },
+  "docs/verification/cpu-cache-own-source-registration/old-current.stderr": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/old-current.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-cache-own-source-registration/old-current.stdout": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/old-current.stdout",
+    "sha256": "1f04ca5d3b2566dde5cd2c3b9945eb3b4de05a87a878be96e93ece41cf847f4f"
+  },
+  "docs/verification/cpu-cache-own-source-registration/plan.stderr": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/plan.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-cache-own-source-registration/plan.stdout": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/plan.stdout",
+    "sha256": "4352e60cabfc5700abba3445394c62fa2356ae29975b77174b1b3840a3a76015"
+  },
+  "docs/verification/cpu-cache-own-source-registration/register.stderr": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/register.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-cache-own-source-registration/register.stdout": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/register.stdout",
+    "sha256": "afabe425d27e64ecf25c63312383d6c91013f7318547ac4318f7d71f63c1f638"
+  },
+  "docs/verification/cpu-cache-own-source-registration/registry.json": {
+    "original": "/home/gcao/proj/graygo/runs/cpu-cache-own-source-registration-v1/registry.json",
+    "sha256": "9eaf57118223392ad1693b3709bb1c2cb713cb1b83c6129769fddbb01233835e"
+  }
+}

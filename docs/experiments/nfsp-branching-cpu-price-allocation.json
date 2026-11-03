@@ -1,0 +1,19 @@
+{
+  "evidence": "docs/experiments/nfsp-control-price-evidence.json",
+  "evidence_sha256": "c5ca4d6dc96c665a58d5e983b6b29062ceadada0bf21bd83d884e75dce23f573",
+  "learner_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "name": "branching-neural-CPU-runtime-price-qualification",
+  "new_accelerator_jobs": 0,
+  "new_control_allocation_seconds": "0",
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "outer_watchdog_seconds": 180,
+  "proposal": "docs/experiments/nfsp-control-completion-scope-proposal.json",
+  "proposal_sha256": "3d19ef9034ac4c6bacf56abd3f10fa96178940c1434c6644e8c9e9979f54fc28",
+  "runner": "tools/nfsp_cpu_branching.py",
+  "runner_sha256": "d6dc434680c26c3ef5cdc03a0865849e3c0318a36b0a403b2c81c17f70c4cdbc",
+  "scope": "Fresh read-only recomputation of the existing complete audited price corpus, selecting only its source-bound CPU branching neural price. Preserve the unselected owner-unapproved table-control proposal exactly. No training, control-budget increase, CUDA/native/9x9 price, A2 exit or project entry.",
+  "source_package": ".worktrees/frozen-cuda-c3b8b5f/src",
+  "source_verifier_checkout": ".worktrees/cpu-cache-admission-1b405bd",
+  "version": 1
+}
