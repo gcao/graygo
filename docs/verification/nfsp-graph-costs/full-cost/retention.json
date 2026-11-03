@@ -1,0 +1,156 @@
+{
+  "copied_files": {
+    "docs/verification/nfsp-graph-costs/full-cost/audit.json": {
+      "original": "runs/nfsp-graph-cost-audit-bbfd5e4/result/audit.json",
+      "sha256": "18ab40db8797c079268101e03f398ee32ad18000ab6da3e3173787722d435594"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/full-io/weights/000000500256/manifest.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/full-io/weights/000000500256/manifest.json",
+      "sha256": "c0d1d4ed04b6fa63fee3d0ce7baade5b3b9b605a6a5990f6092f5c4cc24290f0"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/full-io/weights/000000500256/manifest.sha256": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/full-io/weights/000000500256/manifest.sha256",
+      "sha256": "ee69d353453a82df3b38cab56861d80b1e82e91ccda2f2ab5e641a2578842bdc"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/pipeline/closed/checkpoints/resume/000000032768/manifest.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/pipeline/closed/checkpoints/resume/000000032768/manifest.json",
+      "sha256": "641665e603006045155ffd4a6a0c7e4e92a6520667931e99f6009ed82b942e86"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/pipeline/closed/checkpoints/resume/000000032768/manifest.sha256": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/pipeline/closed/checkpoints/resume/000000032768/manifest.sha256",
+      "sha256": "f15003e60aa063de4dba00b065c94a27e8c155c38e65aaff97bee2f56a9eb5a8"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/pipeline/closed/checkpoints/resume/latest.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/pipeline/closed/checkpoints/resume/latest.json",
+      "sha256": "2b7da8bb4c68244da88a421ecc10ba965662bc106334c59feca56cdd4da3b06a"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/pipeline/closed/evaluation.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/pipeline/closed/evaluation.json",
+      "sha256": "ec6a2762dfccf92c026dfa001e10c073fd9ba7df8ae40669f7e15ad6c9f1991c"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/pipeline/early_open_diagnostic/checkpoints/resume/000000032768/manifest.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/pipeline/early_open_diagnostic/checkpoints/resume/000000032768/manifest.json",
+      "sha256": "1e10f4ba9c7d134fb1222d90d30fbad79dbe4b2c054081e3436bd2d78222809d"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/pipeline/early_open_diagnostic/checkpoints/resume/000000032768/manifest.sha256": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/pipeline/early_open_diagnostic/checkpoints/resume/000000032768/manifest.sha256",
+      "sha256": "d031327d38e08d9017b9a47ef1edc7812afc4305e4c6b662335d180ceef526c9"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/pipeline/early_open_diagnostic/checkpoints/resume/latest.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/pipeline/early_open_diagnostic/checkpoints/resume/latest.json",
+      "sha256": "f3e4ffe85f1e8f9dfafca9f393324c7e7cac10192db1317be26a3beb6849f78d"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/pipeline/early_open_diagnostic/evaluation.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/pipeline/early_open_diagnostic/evaluation.json",
+      "sha256": "8b6fabb4dd8e92b4681797fc59c7ae0c850a00df21dc9c8a1f8bd2e3a6af7917"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/pipeline/plan.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/pipeline/plan.json",
+      "sha256": "67d619762efc1fd8a1a77bc3c94b00f8d4946443697349bb426cb4e68dc5d7d3"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/pipeline/progress.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/pipeline/progress.json",
+      "sha256": "184486e172fdb9e6c74f81b2a70ebb5fd80c2c69b76aefed322c5e7d0d8485d4"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/pipeline/report.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/pipeline/report.json",
+      "sha256": "184486e172fdb9e6c74f81b2a70ebb5fd80c2c69b76aefed322c5e7d0d8485d4"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/pipeline/run.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/pipeline/run.json",
+      "sha256": "d16910c2b48d034dd71f4fd6703ff90c8d6df3352317fcbad1cc230e320c76e1"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/plan.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/plan.json",
+      "sha256": "0a217cf81bc8e128fbe012749e8a6d16d21b455c93297d785ae660731211a5dd"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/report.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/report.json",
+      "sha256": "6595aca0fe0fed3e5c53e4372b65e93c88825ce7ebfdefb0c9d79a2affa2009e"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/core/run.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/core/run.json",
+      "sha256": "eb9859f5e3e95a0e60fa64c9f5ce8de79a2eba2968d493be9cd5a57ed2d34e7e"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/driver.py": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/driver.py",
+      "sha256": "961b46cb73982a5464de49e98b9bc5661d5641ceeee1df160c908d4f22756f6d"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/evaluation/endpoint/evidence.sqlite": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/evaluation/endpoint/evidence.sqlite",
+      "sha256": "618f5ccbff96ef0ce68889f0b2c185d2c6b0ab966386fda7ff08671a9f1dd9f2"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/evaluation/endpoint/plan.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/evaluation/endpoint/plan.json",
+      "sha256": "2382b8b17b4e9350ca5f0561cbef17c9a4ca3f28a18d82474bf2d0e98b1172e6"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/evaluation/endpoint/progress.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/evaluation/endpoint/progress.json",
+      "sha256": "8696408b7bbe39d25e12cc508e8c47316c29476ac3f6d3fab8511797027d73cb"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/evaluation/science/evidence.sqlite": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/evaluation/science/evidence.sqlite",
+      "sha256": "1a28f570cfcca226423ad38ff3e3ea5199d720a3c984d0b7387fa3647e823111"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/evaluation/science/plan.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/evaluation/science/plan.json",
+      "sha256": "4fcd53b5d5c4f73359eb3659ee7a59aee9ae66bc979297eac662eb379f474a5c"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/evaluation/science/progress.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/evaluation/science/progress.json",
+      "sha256": "3d40530990ee0e9feac65a664806dfbd01631500f4239e2ac2ff3710f2a6e835"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/evaluation/science/run.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/evaluation/science/run.json",
+      "sha256": "83f604c2cc44d0c95172feac33599a8c4369f033214290e6b2d24159762546c5"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/graph-io/weights/000000500256/manifest.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/graph-io/weights/000000500256/manifest.json",
+      "sha256": "5ffa01cbf01fca637d9928d549bb329d3b36b76f2f9bb42ed9536d21a15bcf08"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/graph-io/weights/000000500256/manifest.sha256": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/graph-io/weights/000000500256/manifest.sha256",
+      "sha256": "bbc8ee31211484ffae70c061c2ff9ea4d61699b446110a9156859d88d382c95f"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/independent-audit/driver.py": {
+      "original": "runs/nfsp-graph-cost-audit-bbfd5e4/driver.py",
+      "sha256": "5d7e8413a708553a189561d30f4f247ef5e20f59773ded664c7db4f4b4c59954"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/independent-audit/job.json": {
+      "original": "runs/nfsp-graph-cost-audit-bbfd5e4/job.json",
+      "sha256": "73ebeb6dd7ab8b01d4eb7d358f2b27e1aaf23ddce9f52633b1c89b9de79e8679"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/independent-audit/stderr.log": {
+      "original": "runs/nfsp-graph-cost-audit-bbfd5e4/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/job.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/job.json",
+      "sha256": "f0a642bf1b1bfb135f717a179753209d9716af45aa34c4e28d1a0b7b73b98d6f"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/memory.jsonl": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/memory.jsonl",
+      "sha256": "7b5baf02df5da604022f2d0071817c6ffbca172b8ffe070e969f9588d80d4597"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/plan.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/plan.json",
+      "sha256": "38aacaba76b1e934591c018e9f677725760f182290a1a143c359899468248374"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/report.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/report.json",
+      "sha256": "523d364d0f579492bf16b561b458dc4fac9baff52eb8f4bfd2fe34f7fa7a1f93"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/run.json": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/run.json",
+      "sha256": "563dfc395fe287794a3c9baa18aa8a33154fcec486374e7b1ae6bd64d116f5c8"
+    },
+    "docs/verification/nfsp-graph-costs/full-cost/stderr.log": {
+      "original": "runs/nfsp-graph-cost-bbfd5e4/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "heavy_profile_payloads_are_deployable": false,
+  "heavy_profile_payloads_retained_under": "runs/nfsp-graph-cost-bbfd5e4",
+  "scope": "Checksummed portable reports, input seals, complete scored SQLite evidence, original drivers and independent audit. Heavy diagnostic tensors/buffers remain in the original ignored run; no learning authority is inherited.",
+  "version": 1
+}

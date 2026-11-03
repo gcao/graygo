@@ -1,0 +1,145 @@
+{
+  "baseline_version": "graygo/baselines/1",
+  "command": {
+    "profile": {
+      "a2_complete": false,
+      "budget_boundary": "checked between collector chunks and complete color pairs; atomic IO may overrun",
+      "evaluation": {
+        "color_pairs_per_match": 1,
+        "opponents": [
+          "random",
+          "tactical"
+        ],
+        "representations": [
+          "greedy_q",
+          "average"
+        ],
+        "strength_claim": false
+      },
+      "formal_learning_run": false,
+      "phases": {
+        "closed": {
+          "augmentation": true,
+          "batch": 512,
+          "blocks": 8,
+          "capacity": 500000,
+          "cuda_graphs": true,
+          "deterministic": true,
+          "device": "cuda",
+          "envs": 16,
+          "handoff_end": 7000000,
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "native_library": "/home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so",
+          "norm_groups": 8,
+          "q_reuse": 4,
+          "reservoir_open": 5000000,
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 200,
+            "size": 9
+          },
+          "seed": 17,
+          "target_every": 12800,
+          "uniform_comparison": false,
+          "width": 64
+        },
+        "early_open_diagnostic": {
+          "augmentation": true,
+          "batch": 512,
+          "blocks": 8,
+          "capacity": 500000,
+          "cuda_graphs": true,
+          "deterministic": true,
+          "device": "cuda",
+          "envs": 16,
+          "handoff_end": 2,
+          "learning_rate": 0.0003,
+          "learning_start": 4096,
+          "max_grad_norm": 0.5,
+          "native_library": "/home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so",
+          "norm_groups": 8,
+          "q_reuse": 4,
+          "reservoir_open": 0,
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 200,
+            "size": 9
+          },
+          "seed": 17,
+          "target_every": 12800,
+          "uniform_comparison": false,
+          "width": 64
+        }
+      },
+      "promotion_permitted": false,
+      "records_per_phase": 32768,
+      "runtime_version": "graygo/board-nfsp-runtime/1",
+      "scope": "bounded untrained pipeline measurement; early opening is diagnostic only",
+      "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "total_record_cap": 65536,
+      "total_time_ceiling_seconds": 1793.7204236958642,
+      "version": "graygo/board-hardware-profile/1"
+    }
+  },
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cpu_threads": 24,
+  "created_at": "2026-11-03T00:02:25.214847+00:00",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.11.0"
+  },
+  "design_sha256": "252cc02689b4a1694b66f4a20f8145cc71ad336892e5b750a0d481bda260f61b",
+  "disk_free_bytes": 125071384576,
+  "encoding_version": "graygo/encoding/1",
+  "filesystem": "ext2/ext3",
+  "format_version": 1,
+  "git_commit": "c3b8b5fb87eba63142a17bd04f578c135fbae2d4",
+  "git_dirty": false,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 580.126.16",
+  "host_memory": {
+    "available_bytes": 30026137600,
+    "swap_bytes": 12884897792,
+    "total_bytes": 33558446080
+  },
+  "hostname": "home-ai",
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "rule_version": "graygo/1",
+  "rules": {
+    "collision": "gray",
+    "max_rounds": 200,
+    "size": 9
+  },
+  "run_id": "77dfaa1a8d2c41d29f207d6afc49baed",
+  "seed": 17,
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df"
+}

@@ -1,0 +1,90 @@
+{
+  "evaluation_version": "graygo/paired-evaluation/2",
+  "execution": {
+    "budget_boundary": "between complete groups; final group and IO may overrun",
+    "maximum_physical_games_per_group": 32,
+    "pair_batch_size": 16,
+    "version": "graygo/frozen-pair-execution/1"
+  },
+  "incumbent": null,
+  "incumbent_sha256": null,
+  "opening_distribution": {
+    "kind": "official-empty",
+    "version": 1
+  },
+  "opening_semantics": "declared new episode roots; continuation-prefix mixtures require strategies.py",
+  "opening_sha256": "982a363d689223c4cddab3156812568128fe56eca7dc7fc6d302a8a323e4f45f",
+  "opponent": {
+    "kind": "tactical",
+    "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+    "version": "graygo/baselines/1"
+  },
+  "opponent_sha256": "19c2824bce54d022163cc0cf021dec4b0cdd6ed49198c0ac5ed6e4c2a8a6405d",
+  "plan": {
+    "calibration_sha256": null,
+    "comparison": "utility",
+    "confidence_sha256": "d696bde7f0cf69b70e50aac4367c20e13ab90439d7a63a04843e6905a7dce292",
+    "decision_protocol_sha256": null,
+    "endpoint": "utility",
+    "label": "cost-only-full-endpoint",
+    "looks": [
+      500,
+      2000
+    ],
+    "pair_batch_size": 16,
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "seed": 17,
+    "subject_label": "benchmark-weights"
+  },
+  "rule_version": "graygo/1",
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "subject": {
+    "encoding_version": "graygo/encoding/1",
+    "frozen_execution": {
+      "backend": "shared-static-weight-cuda-graph",
+      "batch_range": [
+        1,
+        32
+      ],
+      "board_size": 9,
+      "checkpoint_cache": "reconstructed; never serialized",
+      "eligible_models": [
+        "QNet",
+        "PolicyNet"
+      ],
+      "max_templates": 64,
+      "model_shape": [
+        64,
+        8,
+        8
+      ],
+      "other_shapes": "eager forward; reported separately",
+      "outside_capture": [
+        "legality",
+        "private RNG",
+        "optimizer"
+      ],
+      "parameter_alignment_bytes": 256,
+      "version": "graygo/shared-frozen-cuda-forward/1",
+      "warmup_forwards": 3
+    },
+    "inference": {
+      "batch_size": 32,
+      "device": "cuda:0",
+      "padding": "zero spatial/globals and pass-only mask; never sampled",
+      "placement": "SHA-256 encoded public observation to fixed row; collisions use separate forwards",
+      "version": "graygo/fixed-evaluation-inference/1"
+    },
+    "kind": "average",
+    "model_class": "PolicyNet",
+    "origin": null,
+    "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+    "weights_sha256": "f4aaaac88aa2fd98d042d2f42019b1c983832d403febcb143c797b81e2adf8b5"
+  },
+  "subject_sha256": "3119b82fcb8597d296e6770ccd606f1ec72bd7cc8bfe89b2c31f890ef3cb75a4",
+  "unit": "agents exchange colors on the same complete opening; within-pair dependence retained; no trajectory deduplication"
+}

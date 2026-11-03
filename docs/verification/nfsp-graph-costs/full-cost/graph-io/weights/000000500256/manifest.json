@@ -1,0 +1,23 @@
+{
+  "files": {
+    "cost-payload.pt": {
+      "bytes": 99299813,
+      "sha256": "469b69cc46e2ebb1ebcc5cc7cd9769907d5f42838892a79cfb91de20cfd17b49"
+    },
+    "replay.npz": {
+      "bytes": 13456778,
+      "sha256": "6f1d6595c2a735a7b7af68cd987a70f8c51ff0c66c21f789a367a661fa6c9ae2"
+    },
+    "reservoir.npz": {
+      "bytes": 6717406,
+      "sha256": "cafc64ce968a2b6867b3906e81868968ee998abc873e2d3644a19bd9ea5f4e6c"
+    }
+  },
+  "format_version": 1,
+  "kind": "weights",
+  "metadata": {
+    "profile_only": true,
+    "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df"
+  },
+  "step": 500256
+}

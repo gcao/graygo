@@ -1,0 +1,145 @@
+{
+  "pairs": [
+    {
+      "opponent": "random",
+      "pair": {
+        "improvement": null,
+        "incumbent": [],
+        "incumbent_utility": null,
+        "root_sha256": "e90f0ddb3977ce9e492757dfbc378369d485bfd206a4d6f40d2ecc1e05d45f2d",
+        "subject": [
+          {
+            "black_score_units": 148,
+            "black_utility": -1.0,
+            "opponent_component": null,
+            "rounds": 200,
+            "subject_component": null,
+            "subject_utility": -1.0,
+            "termination": "round_limit",
+            "trajectory_sha256": "25118e2cf7be0ea562c80996a73a2acadfb560757d5bf16557feb579ae9f1652",
+            "white_score_units": 176
+          },
+          {
+            "black_score_units": 168,
+            "black_utility": 1.0,
+            "opponent_component": null,
+            "rounds": 200,
+            "subject_component": null,
+            "subject_utility": -1.0,
+            "termination": "round_limit",
+            "trajectory_sha256": "3d3a63807535cd679d5e61d122dcc29bddd33127f83791321a107c73d279dd62",
+            "white_score_units": 156
+          }
+        ],
+        "utility": -1.0
+      },
+      "representation": "greedy_q"
+    },
+    {
+      "opponent": "tactical",
+      "pair": {
+        "improvement": null,
+        "incumbent": [],
+        "incumbent_utility": null,
+        "root_sha256": "e90f0ddb3977ce9e492757dfbc378369d485bfd206a4d6f40d2ecc1e05d45f2d",
+        "subject": [
+          {
+            "black_score_units": 0,
+            "black_utility": -1.0,
+            "opponent_component": null,
+            "rounds": 84,
+            "subject_component": null,
+            "subject_utility": -1.0,
+            "termination": "mutual_pass",
+            "trajectory_sha256": "d7bbcd24635de627ef3a25e76930181e4b7e4534c795bdd3e202e3b391a53cec",
+            "white_score_units": 324
+          },
+          {
+            "black_score_units": 324,
+            "black_utility": 1.0,
+            "opponent_component": null,
+            "rounds": 84,
+            "subject_component": null,
+            "subject_utility": -1.0,
+            "termination": "mutual_pass",
+            "trajectory_sha256": "bf2824fe71c5dee3c83b095233505f285f6aa54c8bd08facb16332603521e152",
+            "white_score_units": 0
+          }
+        ],
+        "utility": -1.0
+      },
+      "representation": "greedy_q"
+    },
+    {
+      "opponent": "random",
+      "pair": {
+        "improvement": null,
+        "incumbent": [],
+        "incumbent_utility": null,
+        "root_sha256": "e90f0ddb3977ce9e492757dfbc378369d485bfd206a4d6f40d2ecc1e05d45f2d",
+        "subject": [
+          {
+            "black_score_units": 0,
+            "black_utility": -1.0,
+            "opponent_component": null,
+            "rounds": 91,
+            "subject_component": null,
+            "subject_utility": -1.0,
+            "termination": "mutual_pass",
+            "trajectory_sha256": "22efef5ef898b99e6b840e267dd23de5a3eaf6fc5e4689e999fb8ae7f9f97f30",
+            "white_score_units": 324
+          },
+          {
+            "black_score_units": 324,
+            "black_utility": 1.0,
+            "opponent_component": null,
+            "rounds": 93,
+            "subject_component": null,
+            "subject_utility": -1.0,
+            "termination": "mutual_pass",
+            "trajectory_sha256": "a8577716bed9b554266281e41fb7d7fe56902950b1a932f4d94d722bead1762b",
+            "white_score_units": 0
+          }
+        ],
+        "utility": -1.0
+      },
+      "representation": "average"
+    },
+    {
+      "opponent": "tactical",
+      "pair": {
+        "improvement": null,
+        "incumbent": [],
+        "incumbent_utility": null,
+        "root_sha256": "e90f0ddb3977ce9e492757dfbc378369d485bfd206a4d6f40d2ecc1e05d45f2d",
+        "subject": [
+          {
+            "black_score_units": 0,
+            "black_utility": -1.0,
+            "opponent_component": null,
+            "rounds": 80,
+            "subject_component": null,
+            "subject_utility": -1.0,
+            "termination": "mutual_pass",
+            "trajectory_sha256": "3c8f4d49c3f6fcf11dcc3dab6f44919322d7c013cdbe286496e975eeb6fab3c1",
+            "white_score_units": 324
+          },
+          {
+            "black_score_units": 324,
+            "black_utility": 1.0,
+            "opponent_component": null,
+            "rounds": 70,
+            "subject_component": null,
+            "subject_utility": -1.0,
+            "termination": "mutual_pass",
+            "trajectory_sha256": "e7bc2a50b5f36251d230b8aaafb7f3ed0c15c96714a3e5f3a0b11a4fa35b25a7",
+            "white_score_units": 0
+          }
+        ],
+        "utility": -1.0
+      },
+      "representation": "average"
+    }
+  ],
+  "scope": "timing diagnostic; no confidence or strength decision"
+}

@@ -1,0 +1,33 @@
+{
+  "H_D": "38.176705413125",
+  "H_N": "131.8212948070965",
+  "H_P": "18.852894536612634",
+  "a2_complete": false,
+  "component_limit_violations": [],
+  "cuda_graphs": true,
+  "empirical_accounting_verified": true,
+  "execution_authorized": false,
+  "full_campaign_total_device_hours": null,
+  "inference_batch_size": 32,
+  "known_design_formula_subtotal_device_hours": "1808.932489609671888888888889",
+  "known_subtotal_using_measured_science_device_hours": "1807.855756052299792888888889",
+  "measured_component_limits_satisfied": true,
+  "missing_device_terms": [
+    "C1",
+    "C4"
+  ],
+  "pair_batch_size": 16,
+  "pilot_component_limit_device_hours": "24",
+  "pilot_headroom_device_hours": "5.147105463387366",
+  "price_audit_sha256": "18ab40db8797c079268101e03f398ee32ad18000ab6da3e3173787722d435594",
+  "project_ceiling_declared": false,
+  "science_and_probe_device_hours": "14.923266442627904",
+  "science_component_limit_device_hours": "16",
+  "science_headroom_device_hours": "1.076733557372096",
+  "scope": "The source-bound empirical pilot/science forecasts satisfy their unchanged initial components. Missing A2 prices/cohorts, compatibility and project scope remain required; the numerical pass is not a launch grant or runtime theorem.",
+  "selected_reuse": 4,
+  "selected_scope_qualified": false,
+  "selected_target": "one-step",
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "version": 1
+}

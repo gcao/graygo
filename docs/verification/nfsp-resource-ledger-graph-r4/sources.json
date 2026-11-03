@@ -1,0 +1,58 @@
+{
+  "new_leaves": [
+    {
+      "identity": "83861342eebb930e7bdcf6254d29909bcf9f0e3955bcb19db60bd8f188fcb650",
+      "kind": "matched-eager-graph-CLI-diagnostic",
+      "receipt": "docs/verification/frozen-cuda-forward/cli/resource-interval.json",
+      "receipt_sha256": "9557dab34c6089648fc9f5610f0cad492c7e013a273514c3b3ab866348ef7896"
+    },
+    {
+      "evidence": "docs/verification/nfsp-graph-costs/failed-preflight/job.json",
+      "evidence_sha256": "74694d2bd584c1226634f562000f7a5190d248e170c17a710520837ec1af2676",
+      "identity": "6b3073235613b454c00e1d61fe785b87ba2f21882f7dceec88ffbe5a62a00f17",
+      "kind": "failed-original-graph-preflight",
+      "receipt": "docs/verification/nfsp-graph-costs/failed-preflight/job.json",
+      "receipt_sha256": "74694d2bd584c1226634f562000f7a5190d248e170c17a710520837ec1af2676"
+    },
+    {
+      "evidence": "docs/verification/nfsp-graph-costs/full-cost/audit.json",
+      "evidence_sha256": "18ab40db8797c079268101e03f398ee32ad18000ab6da3e3173787722d435594",
+      "identity": "1f974e9567779926ebd61c1480b4d25a5194125063ca3c9ca7086ff99e51fca9",
+      "kind": "complete-selected-graph-cost-profile",
+      "receipt": "docs/verification/nfsp-graph-costs/full-cost/job.json",
+      "receipt_sha256": "f0a642bf1b1bfb135f717a179753209d9716af45aa34c4e28d1a0b7b73b98d6f"
+    },
+    {
+      "evidence": "docs/verification/nfsp-eligibility-R4-neural/case.json",
+      "evidence_sha256": "a441936e6e369fa3ddc694c09b6b045f227de2758c31fd5939e07c92a4c37190",
+      "identity": "64e934f2ce2b710ced3bf69042fb1b1d1525cf943ffecd03ae134015cd7a5863",
+      "kind": "original-corrected-R4-neural-loop",
+      "receipt": "docs/verification/nfsp-eligibility-R4-neural/result.json",
+      "receipt_sha256": "292a31b0a44af3a0c24a3b085dd1390479c9d9ead17529348522eacdd85e8a19"
+    },
+    {
+      "evidence": "docs/verification/nfsp-eligibility-R4-neural/job.json",
+      "evidence_sha256": "43f760b6b959813c2bd899b53459720739b66e953b2d4cc67791302e1f6981ce",
+      "identity": "6744beb0410beae0b3d6af674ca92c2333756536e6e860ec1200e97e93023abb",
+      "kind": "independent-terminal-R4-neural-audit",
+      "receipt": "docs/verification/nfsp-eligibility-R4-neural/job.json",
+      "receipt_sha256": "43f760b6b959813c2bd899b53459720739b66e953b2d4cc67791302e1f6981ce"
+    },
+    {
+      "evidence": "docs/verification/nfsp-graph-costs/full-cost/independent-audit/job.json",
+      "evidence_sha256": "73ebeb6dd7ab8b01d4eb7d358f2b27e1aaf23ddce9f52633b1c89b9de79e8679",
+      "identity": "a5b85a3d271c6de81930f1587581041deddef3c95685b4f855d47b100dccc555",
+      "kind": "independent-selected-graph-cost-audit",
+      "receipt": "docs/verification/nfsp-graph-costs/full-cost/independent-audit/job.json",
+      "receipt_sha256": "73ebeb6dd7ab8b01d4eb7d358f2b27e1aaf23ddce9f52633b1c89b9de79e8679"
+    }
+  ],
+  "original_control_settlement_and_unknown_overhead_reserve_unchanged": true,
+  "parent_and_nested_profile_intervals_not_added": true,
+  "price_audit_path": "docs/verification/nfsp-graph-costs/full-cost/audit.json",
+  "price_audit_sha256": "18ab40db8797c079268101e03f398ee32ad18000ab6da3e3173787722d435594",
+  "prior_inventory_path": "docs/verification/nfsp-resource-ledger-prepared-r4/usage.json",
+  "prior_inventory_sha256": "0f7fbc69b29e7290e057a0d505aa3d7707f9ce8799736ff7301f630c4c9d0b42",
+  "scope": "Preserve all previous declared leaves; add disjoint original neural loop/audits and complete physical diagnostic/profile intervals. This is still an incomplete subset of project consumption.",
+  "version": 1
+}

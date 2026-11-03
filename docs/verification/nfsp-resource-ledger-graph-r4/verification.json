@@ -1,0 +1,18 @@
+{
+  "application_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "archive_source_checksums_verified": 37,
+  "calculator_recomputed_from_saved_plan_and_usage": true,
+  "execution_authorized": false,
+  "full_application_suite_remains": 430,
+  "full_suite_not_rerun_for_artifact_only_update": true,
+  "independent_audit_sha256": "18ab40db8797c079268101e03f398ee32ad18000ab6da3e3173787722d435594",
+  "measurements": 39,
+  "new_model_or_runtime_changes": false,
+  "prior_33_leaves_preserved_exactly": true,
+  "readonly_sqlite_integrity": {
+    "docs/verification/nfsp-graph-costs/full-cost/evaluation/endpoint/evidence.sqlite": "ok",
+    "docs/verification/nfsp-graph-costs/full-cost/evaluation/science/evidence.sqlite": "ok"
+  },
+  "resource_tool_sha256": "a22d5e2559a02b9f46e4f0ca3668f94443bdced43f41f477a77249ae47daf1d0",
+  "version": 1
+}
