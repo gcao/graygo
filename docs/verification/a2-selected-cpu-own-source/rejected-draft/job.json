@@ -1,0 +1,66 @@
+{
+  "allocation_sha256": "5886491c34effc187c0e1aabd7baf8e965296777058b1b3205dc4642dacec3d5",
+  "commands": [
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/a2_cohort.py",
+        "plan",
+        "--name",
+        "same-protocol-selected-CPU-A2",
+        "--learner-source-sha",
+        "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "--reuse",
+        "4",
+        "--output",
+        "/home/gcao/proj/graygo/runs/a2-selected-cpu-registration-v1/selected-plan.json"
+      ],
+      "label": "plan",
+      "pid": 2740856,
+      "returncode": 0,
+      "seconds": 0.12120683200191706
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "-m",
+        "tools.a2_source_cohort",
+        "register",
+        "--name",
+        "original-optimized-and-selected-CPU-primary-A2",
+        "--canonical-plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--repo",
+        "/home/gcao/proj/graygo",
+        "--target-runtime-source",
+        "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "--output",
+        "/home/gcao/proj/graygo/runs/a2-selected-cpu-registration-v1/registry.json",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/nfsp-eligibility-R4-neural-audit/plan.json",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/a2-source-admission-584213f/optimized-plan.json",
+        "--plan",
+        "/home/gcao/proj/graygo/runs/a2-selected-cpu-registration-v1/selected-plan.json",
+        "--bridge",
+        "/home/gcao/proj/graygo/docs/verification/task-source-compatibility-ca45-c3b8/source-bridge/qualification/bridge.json",
+        "--bridge",
+        "/home/gcao/proj/graygo/runs/a2-source-admission-584213f/admission.json"
+      ],
+      "label": "register",
+      "pid": 2740857,
+      "returncode": 1,
+      "seconds": 5.173546421923675
+    }
+  ],
+  "driver_sha256": "8a8afb308c9049054202027b6f8acb8c1f13d33a148133277082deacb82a3170",
+  "error": "AssertionError('register')",
+  "execution_authorized": false,
+  "measured_driver_seconds": 5.358703908044845,
+  "new_accelerator_jobs": 0,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "original_driver_pid": 2740855,
+  "status": "failed",
+  "version": 1
+}

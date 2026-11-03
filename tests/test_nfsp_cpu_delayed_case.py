@@ -2,8 +2,9 @@ from copy import deepcopy
 from pathlib import Path
 import tempfile
 import unittest
-from graygo.task_training import NFSPTaskConfig
-from tools.run_nfsp_cpu_delayed_case import case_settings,fresh_case_directory
+import torch
+from graygo.task_training import NFSPTaskConfig,NFSPTaskTrainer
+from tools.run_nfsp_cpu_delayed_case import case_settings,fresh_case_directory,retain_initialization
 from tools.nfsp_delayed_cpu_prices import VERSION
 
 
@@ -12,7 +13,7 @@ class FundedDelayedCaseTests(unittest.TestCase):
         identity={k:{} for k in ['hostname','cpu','python','platform','dependencies','runtime']}
         price={'q_reuse':4,'device_hours':'0','cpu_process_ceiling_seconds':'19800','raw_budget_sha256':'a'*64}
         proof={'version':VERSION,'status':'qualified_prospective_cpu_delayed_prices','target_runtime_source_sha256':'b'*64,'prices':{'C4':price},'runtime_identity':identity}
-        allocation={'seeds':[1,2],'task':'delayed','learner':'neural','target':'one-step','q_reuse':4,'additional_control_reservation_seconds':'0','new_accelerator_jobs':0,'learner_source_sha256':'b'*64,'case_roots':{'1':'runs/seed1','2':'runs/seed2'},'case_configs':{str(s):NFSPTaskConfig(time_cap_seconds=19800,seed=s,q_reuse=4,budget_profile_sha256='a'*64).plan() for s in (1,2)}}
+        allocation={'seeds':[1,2],'task':'delayed','learner':'neural','target':'one-step','q_reuse':4,'additional_control_reservation_seconds':'0','per_case_process_ceiling_seconds':19800,'new_accelerator_jobs':0,'learner_source_sha256':'b'*64,'case_roots':{'1':'runs/seed1','2':'runs/seed2'},'case_configs':{str(s):NFSPTaskConfig(time_cap_seconds=19800,seed=s,q_reuse=4,budget_profile_sha256='a'*64).plan() for s in (1,2)}}
         return allocation,proof,identity
 
     def test_only_original_remaining_seeds_receive_the_complete_qualified_recipe(self):
@@ -25,7 +26,7 @@ class FundedDelayedCaseTests(unittest.TestCase):
 
     def test_source_recipe_seed_alias_or_unfunded_resource_change_is_rejected(self):
         allocation,proof,identity=self.fixture()
-        for field,value in [('task','branching'),('learner','tabular'),('q_reuse',1),('target','retrace'),('additional_control_reservation_seconds','30'),('new_accelerator_jobs',1),('learner_source_sha256','c'*64)]:
+        for field,value in [('per_case_process_ceiling_seconds',20100),('task','branching'),('learner','tabular'),('q_reuse',1),('target','retrace'),('additional_control_reservation_seconds','30'),('new_accelerator_jobs',1),('learner_source_sha256','c'*64)]:
             changed=deepcopy(allocation);changed[field]=value
             with self.assertRaises(ValueError,msg=field):case_settings(changed,1,proof,identity)
         for field,value in [('seed',2),('device','cuda'),('records',10000000),('reservoir_open',0),('time_cap_seconds',18000)]:
@@ -43,6 +44,16 @@ class FundedDelayedCaseTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 with fresh_case_directory(root):self.fail('existing original case admitted')
             self.assertEqual(marker.read_text(),'original data')
+
+    def test_actual_initial_checkpoint_is_retained_without_consuming_rng_or_records(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            identities=[]
+            for seed in (1,2):
+                root=Path(temporary)/str(seed);config=NFSPTaskConfig(time_cap_seconds=30,purpose='profile',records=2,eval_every=2,capacity=4096,horizons=(2,),equivalent_actions=2,hidden=4,seed=seed,q_reuse=4)
+                trainer=NFSPTaskTrainer(config,root,reserve_bytes=0);torch_before=torch.get_rng_state().clone();private_before=deepcopy({k:r.bit_generator.state for k,r in trainer.rng.items()})
+                result=retain_initialization(trainer,root);self.assertEqual(result['step'],0);self.assertEqual(trainer.records,0);self.assertEqual(result['original_initial_checkpoint_manifest_sha256'],result['retained_initial_checkpoint_manifest_sha256']);self.assertTrue(torch.equal(torch_before,torch.get_rng_state()));self.assertEqual(private_before,{k:r.bit_generator.state for k,r in trainer.rng.items()});self.assertEqual(trainer.store.verify(root/'initial-checkpoint')['step'],0)
+                identities.append(torch.cat([p.detach().flatten() for p in trainer.backend.q.parameters()]))
+            self.assertFalse(torch.equal(*identities))
 
     def test_fresh_case_lease_excludes_a_second_writer(self):
         with tempfile.TemporaryDirectory() as tmp:

@@ -6,6 +6,8 @@ import json
 import os
 from pathlib import Path
 import signal
+import shutil
+from dataclasses import asdict
 import time
 from graygo.manifest import source_digest,write_report
 from graygo.storage import digest
@@ -23,6 +25,7 @@ def case_settings(allocation,seed,proof,identity):
     require(all(not Path(p).is_absolute() and Path(p).parts and Path(p).parts[0]=='runs' and '..' not in Path(p).parts for p in allocation['case_roots'].values()),'case roots must stay inside project runs')
     require(allocation['additional_control_reservation_seconds']=='0' and allocation['new_accelerator_jobs']==0,'CPU neural allocation cannot spend controls or accelerator time')
     require(allocation['learner_source_sha256']==proof['target_runtime_source_sha256'],'allocated source is not priced')
+    require(type(allocation['per_case_process_ceiling_seconds']) is int and str(allocation['per_case_process_ceiling_seconds'])==proof['prices']['C4']['cpu_process_ceiling_seconds'],'complete process ceiling must match its qualified CPU price')
     config=NFSPTaskConfig(**allocation['case_configs'][str(seed)])
     require(config.seed==seed,'requested original seed differs from case config')
     preview=dict(identity,source_sha256=allocation['learner_source_sha256'],config=config.plan());check_case(preview,proof,'C4')
@@ -39,6 +42,16 @@ def fresh_case_directory(root):
         yield root
 
 
+def retain_initialization(trainer,root):
+    original=trainer.store.latest();manifest=trainer.store.verify(original)
+    require(manifest['step']==0 and trainer.records==0 and trainer.replay.insertions==0 and trainer.reservoir.seen==0,'fresh zero-record initialization required')
+    target=Path(root)/'initial-checkpoint';shutil.copytree(original,target);retained=trainer.store.verify(target)
+    require(retained==manifest and digest(target/'manifest.json')==digest(original/'manifest.json'),'retained initialization differs')
+    result={'version':1,'step':0,'source_sha256':source_digest(),'original_initial_checkpoint_manifest_sha256':digest(original/'manifest.json'),'retained_initial_checkpoint_manifest_sha256':digest(target/'manifest.json'),'counters':asdict(trainer.backend.counters),'scope':'permanent copy of the actual fresh private checkpoint before any collection; not a scheduled public evaluation agent'}
+    write_report(Path(root)/'initialization.json',result);return result
+
+
+
 def main(argv=None):
     parser=argparse.ArgumentParser();parser.add_argument('--repo',required=True);parser.add_argument('--allocation',required=True);parser.add_argument('--allocation-sha',required=True);parser.add_argument('--seed',type=int,required=True);args=parser.parse_args(argv)
     repo=Path(args.repo).resolve();allocation_path=Path(args.allocation).resolve();allocation=json.loads(allocation_path.read_text())
@@ -46,7 +59,7 @@ def main(argv=None):
     require(source_digest()==allocation['learner_source_sha256'] and digest(Path(__file__))==allocation['runner_sha256'],'wrong frozen learner or runner')
     require(args.seed in allocation['seeds'],'seed not selected')
     root=repo/allocation['case_roots'][str(args.seed)];stopped=[]
-    for name in (signal.SIGTERM,signal.SIGINT):signal.signal(name,lambda s,f:stopped.append(s))
+    for name in (signal.SIGTERM,signal.SIGINT,signal.SIGUSR1):signal.signal(name,lambda s,f:stopped.append('budget_limited' if s==signal.SIGUSR1 else 'interrupted'))
     with fresh_case_directory(root):
         admitted=time.monotonic();price_path=repo/allocation['cpu_price_receipt'];registry_path=repo/allocation['source_registry'];plan_path=repo/allocation['own_source_plan']
         require(digest(price_path)==allocation['cpu_price_receipt_sha256'] and digest(registry_path)==allocation['source_registry_sha256'] and digest(plan_path)==allocation['own_source_plan_sha256'],'price/source registration changed')
@@ -60,8 +73,9 @@ def main(argv=None):
         root.mkdir();write_report(root/'admission.json',{'version':1,'allocation_sha256':args.allocation_sha,'source_sha256':source_digest(),'seed':args.seed,'price_receipt_sha256':digest(price_path),'source_registry_sha256':digest(registry_path),'own_source_plan_sha256':digest(plan_path),'measured_preinitialization_seconds':time.monotonic()-admitted,'fresh_prices_and_source_inputs_verified':True,'a2_complete':False,'execution_authorized_by_assessment':False})
         setup=time.monotonic();trainer=NFSPTaskTrainer(config,root);setup_seconds=time.monotonic()-setup
         check_case(trainer.manifest,proof,'C4');check_selected_cpu_case(trainer.manifest,bridge)
-        write_report(root/'case-state.json',{'status':'running','seed':args.seed,'source_sha256':source_digest(),'config':config.plan(),'original_pid':os.getpid(),'initial_checkpoint_step':trainer.store.verify(trainer.store.latest())['step'],'constructor_seconds':setup_seconds})
-        result=trainer.run(stop_requested=lambda:'interrupted' if stopped else False)
+        initialized=retain_initialization(trainer,root)
+        write_report(root/'case-state.json',{'status':'running','seed':args.seed,'source_sha256':source_digest(),'config':config.plan(),'original_pid':os.getpid(),'initial_checkpoint_step':initialized['step'],'retained_initial_checkpoint_manifest_sha256':initialized['retained_initial_checkpoint_manifest_sha256'],'constructor_seconds':setup_seconds})
+        result=trainer.run(stop_requested=lambda:stopped[0] if stopped else False)
         write_report(root/'process-portion.json',{'constructor_seconds':setup_seconds,'loop_seconds':result['elapsed_seconds'],'known_constructor_and_loop_seconds':setup_seconds+result['elapsed_seconds'],'scope':'known constructor and complete cumulative trainer loop; pre-entry validation is separate and outer overhead remains unknown'})
         write_report(root/'case-state.json',{'status':result['status'],'seed':args.seed,'records':result['records'],'source_sha256':source_digest(),'original_pid':os.getpid(),'a2_complete':False})
         print(json.dumps({'status':result['status'],'records':result['records'],'seed':args.seed,'a2_complete':False}),flush=True)

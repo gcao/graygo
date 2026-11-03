@@ -1,0 +1,110 @@
+{
+  "docs/verification/a2-selected-cpu-own-source/registered/driver.log": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/driver.py": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/driver.py",
+    "sha256": "12e579f667f4134b853bed6e9e8362581d334fe108103e7bfdb40468764a6600"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/job.json": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/job.json",
+    "sha256": "d39cf73ae0bb81c12d697c273783e1d90064566870877d6f160bc189e105804b"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/new-archived.json": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/new-archived.json",
+    "sha256": "5836aef37ddea4ab38c8d396e720b893d6a23daf91473ee774d9843162f28de9"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/new-archived.stderr": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/new-archived.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/new-archived.stdout": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/new-archived.stdout",
+    "sha256": "1f04ca5d3b2566dde5cd2c3b9945eb3b4de05a87a878be96e93ece41cf847f4f"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/new-current.json": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/new-current.json",
+    "sha256": "9a86c6906fbb737fac68aac65e0a5d0d69c9b58a4d381fb64dfd6a5a50b1836e"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/new-current.stderr": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/new-current.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/new-current.stdout": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/new-current.stdout",
+    "sha256": "1f04ca5d3b2566dde5cd2c3b9945eb3b4de05a87a878be96e93ece41cf847f4f"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/old-current.json": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/old-current.json",
+    "sha256": "64f66693d3003af14580ca15e8068e5f74749459205bcb5d6874811783a2695c"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/old-current.stderr": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/old-current.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/old-current.stdout": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/old-current.stdout",
+    "sha256": "1f04ca5d3b2566dde5cd2c3b9945eb3b4de05a87a878be96e93ece41cf847f4f"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/plan.stderr": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/plan.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/plan.stdout": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/plan.stdout",
+    "sha256": "b516050fd12ff2f59ae9b5b530dc069d15696115e7f765c03fc34b27ac64eabc"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/register.stderr": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/register.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/register.stdout": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/register.stdout",
+    "sha256": "afabe425d27e64ecf25c63312383d6c91013f7318547ac4318f7d71f63c1f638"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/registry.json": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/registry.json",
+    "sha256": "ad595a78afbbd31439471abccbfe1000148be93a24b86f0899753353a48156f2"
+  },
+  "docs/verification/a2-selected-cpu-own-source/registered/selected-plan.json": {
+    "original": "runs/a2-selected-cpu-registration-own-cases-v2/selected-plan.json",
+    "sha256": "47a5dc2b065c7ff294ead624c4a39e2ad7d5fc7128f0f7bd01eadff9a7a11a95"
+  },
+  "docs/verification/a2-selected-cpu-own-source/rejected-draft/driver.log": {
+    "original": "runs/a2-selected-cpu-registration-v1/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-selected-cpu-own-source/rejected-draft/driver.py": {
+    "original": "runs/a2-selected-cpu-registration-v1/driver.py",
+    "sha256": "8a8afb308c9049054202027b6f8acb8c1f13d33a148133277082deacb82a3170"
+  },
+  "docs/verification/a2-selected-cpu-own-source/rejected-draft/job.json": {
+    "original": "runs/a2-selected-cpu-registration-v1/job.json",
+    "sha256": "d071b1ac0ed9f56e34c32f52663530d8e236e23d3f7700f417de86d43d9c0045"
+  },
+  "docs/verification/a2-selected-cpu-own-source/rejected-draft/plan.stderr": {
+    "original": "runs/a2-selected-cpu-registration-v1/plan.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-selected-cpu-own-source/rejected-draft/plan.stdout": {
+    "original": "runs/a2-selected-cpu-registration-v1/plan.stdout",
+    "sha256": "b516050fd12ff2f59ae9b5b530dc069d15696115e7f765c03fc34b27ac64eabc"
+  },
+  "docs/verification/a2-selected-cpu-own-source/rejected-draft/register.stderr": {
+    "original": "runs/a2-selected-cpu-registration-v1/register.stderr",
+    "sha256": "6ea753ab85a2f74063962b54963c12a5f46a36d0957a4ab64fe2fd7f463395af"
+  },
+  "docs/verification/a2-selected-cpu-own-source/rejected-draft/register.stdout": {
+    "original": "runs/a2-selected-cpu-registration-v1/register.stdout",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-selected-cpu-own-source/rejected-draft/registry.json": {
+    "original": "runs/a2-selected-cpu-registration-v1/registry.json",
+    "sha256": "c8e5883ffbbb7016ba7924bc49638578cd225219fa404db31a72b12058ac6e34"
+  },
+  "docs/verification/a2-selected-cpu-own-source/rejected-draft/selected-plan.json": {
+    "original": "runs/a2-selected-cpu-registration-v1/selected-plan.json",
+    "sha256": "47a5dc2b065c7ff294ead624c4a39e2ad7d5fc7128f0f7bd01eadff9a7a11a95"
+  }
+}
