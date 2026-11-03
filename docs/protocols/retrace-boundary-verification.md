@@ -1,0 +1,15 @@
+# Independent Retrace boundary verification
+
+A bounded observer records actual production update boundaries chosen by fresh-Q count, plus the first supervised boundary. It calls the original target/update functions once, copies their detached outputs and records raw replay/reservoir stores, pre/post networks and optimizers, sampler RNGs, counters and refreshes. No training history is resumed or replaced.
+
+The independent verifier never calls the production target, replay sampler, reservoir sampler, cadence advance or optimizer-update helpers. It reconstructs sampled sequences and supervised examples directly from the captured packed stores and saved RNG states, then checks their fields exactly. It verifies legal masks, conditional behavior probabilities, trajectory boundaries, actual rewards and continuing/terminal successors.
+
+Target arithmetic uses independently constructed outward float32 intervals. Each arithmetic operation is enclosed with adjacent representable bounds; reduction bounds include the standard gamma-n accumulation error for any summation tree. This permits actual floating-point rounding without fitting a tolerance to observed discrepancies. Every captured raw target must be a float32 value within its derived interval, and the loss label must equal its exact projection. Scientific value/gap thresholds are unchanged.
+
+Given those verified labels, the verifier independently replays clipped-gradient Adam steps and requires exact Q and average-policy parameters and optimizer tensors. It also reconstructs sampler RNG advancement, effective trace totals and opponent generation ages, Q/supervised loss counts, and refresh-after-update order. Q loss counts starts only, independently of context length.
+
+Scope is explicit: CPU, float32, pinned numerical libraries, one thread, neural unaugmented task/features storage. Shared model definitions and the separately tested observation codec define the input representation. The verifier establishes the captured boundaries; it does not reconstruct uncaptured updates or complete game/actor history, admit a source, price a full run, or authorize an A2 exit.
+
+Regression coverage includes actual compact/CNN task boundaries, observation-on/off parity, forbidden production helper calls during verification, resealed target/weight/counter/sample mutations, and incomplete/failed journals. A literal source check recovers the prior application after removing only the optional detached observation additions. Every other application file remains byte-identical; previous runtime prices and source admissions are not transferred.
+
+The [predeclared production-shaped prefix experiment](../experiments/retrace-boundary-prefix-allocation.json) compares observed and unobserved 32,768-record pre/post-opening runs. It retains the 50/100/200 horizons, 40 actions, hidden64, batch512, R4, lambda0.95/32 rounds and 12,800-fresh-Q refresh. The early-open diagnostic schedule exercises averaging without requiring millions of setup records. These are implementation/profile prefixes, not the full three-seed/15M target comparison.

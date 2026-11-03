@@ -152,16 +152,19 @@ def retrace_targets(online, target, batch, epsilon, *, trace_lambda=.95, target_
     continuation_overlap[:, 0] = 0
     details = {'trace_mass': mass.cpu().double().numpy(),
                'sequence_records': lengths.cpu().numpy(),
+               'raw_targets': raw.cpu().double().numpy(),
                'start_overlap': overlap[start_indices].cpu().double().numpy(),
                'continuation_overlap_sum': continuation_overlap.sum(1).cpu().double().numpy()}
     return projected, stats, details
 
 
 def update_retrace_q(online, target, optimizer, data, *, device, epsilon, trace_lambda=.95,
-                     target_batch=512, max_grad_norm=.5, diagnostics=None, trace_observer=None):
+                     target_batch=512, max_grad_norm=.5, diagnostics=None, trace_observer=None, target_observer=None):
     batch = SequenceBatch.from_replay(data, device)
     labels, stats, details = retrace_targets(online, target, batch, epsilon,
         trace_lambda=trace_lambda, target_batch=target_batch)
+    if target_observer is not None:
+        target_observer(labels.detach(), stats, details)
     if trace_observer is not None:
         trace_observer(details)
     return apply_q_update(online, optimizer, batch.starts, labels, stats,
