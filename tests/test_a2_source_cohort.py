@@ -2,17 +2,20 @@
 from copy import deepcopy
 from pathlib import Path
 import json
+import ast
+import inspect
 import tempfile
 import unittest
-from tests.test_a2_cohort import A2ProtocolTests
+from tests import test_a2_cohort as legacy_fixtures
 from tools.a2_cohort import NFSPA2Plan,assess,canonical,FAMILIES
 from tools.a2_source_cohort import (assess_sources,protocol_key,path_for,read_registry,assess_registry_files,REGISTRY_VERSION)
 from tools import task_source_bridge,terminal_batch_admission
+from tools import a2_source_cohort
 
 
 class SourceAwareGradingTests(unittest.TestCase):
     def setUp(self):
-        self.fixture=A2ProtocolTests();self.a=self.fixture.plan();self.b=NFSPA2Plan('fast','c'*64,self.a.collector_sha256,dict(self.a.auditors),self.a.multiround_reuse)
+        self.fixture=legacy_fixtures.A2ProtocolTests();self.a=self.fixture.plan();self.b=NFSPA2Plan('fast','c'*64,self.a.collector_sha256,dict(self.a.auditors),self.a.multiround_reuse)
         self.plans={p.sha256:p for p in (self.a,self.b)};self.allowed={self.a.learner_source_sha256:set(FAMILIES),self.b.learner_source_sha256:{'asymmetric','rps'}}
 
     def test_same_source_all_legacy_numerical_fields_and_inputs_are_unchanged(self):
@@ -20,6 +23,13 @@ class SourceAwareGradingTests(unittest.TestCase):
         for key,value in old.items():
             if key not in ('version','plan_sha256','learner_source_sha256'):self.assertEqual(new[key],value,key)
         self.assertEqual(cases,before);self.assertFalse(new['a2_complete']);self.assertTrue(new['source_identities_preserved'])
+
+    def test_aggregation_code_differs_only_in_receiving_checked_original_cases(self):
+        expected=ast.parse(inspect.getsource(assess)).body[0];actual=ast.parse(inspect.getsource(a2_source_cohort._aggregate_verified)).body[0]
+        expected.name='_aggregate_verified';expected.args.args[1].arg='verified'
+        loop=next(n for n in expected.body if isinstance(n,ast.For));self.assertEqual(ast.unparse(loop.body[0].value),'checked_case(plan, wrapper)')
+        loop.body.pop(0);loop.target=ast.Tuple(elts=[ast.Name(id=n,ctx=ast.Store()) for n in ('key','body','summary')],ctx=ast.Store());loop.iter=ast.Name(id='verified',ctx=ast.Load())
+        self.assertEqual(ast.dump(expected,include_attributes=False),ast.dump(actual,include_attributes=False))
 
     def mixed(self):
         cases=self.fixture.cases(self.a)

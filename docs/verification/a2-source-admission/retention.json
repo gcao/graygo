@@ -1,0 +1,74 @@
+{
+  "docs/verification/a2-source-admission/admission.json": {
+    "original": "runs/a2-source-admission-584213f/admission.json",
+    "sha256": "64a473abee05c531c82f9160a5f8d769c696ecb94c9e47f7a001cb5ebebecc92"
+  },
+  "docs/verification/a2-source-admission/admission.stderr": {
+    "original": "runs/a2-source-admission-584213f/admission.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-source-admission/admission.stdout": {
+    "original": "runs/a2-source-admission-584213f/admission.stdout",
+    "sha256": "a33fb33f65b368cbed07007664e7e493a1d89a55edf8d9d2dbf9132a5bb71c47"
+  },
+  "docs/verification/a2-source-admission/archived.json": {
+    "original": "runs/a2-source-admission-584213f/archived.json",
+    "sha256": "1d036421e449765c8e408bc36cf2f5a0c6caa939c2cbf0246f22a800d9c35def"
+  },
+  "docs/verification/a2-source-admission/archived.stderr": {
+    "original": "runs/a2-source-admission-584213f/archived.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-source-admission/archived.stdout": {
+    "original": "runs/a2-source-admission-584213f/archived.stdout",
+    "sha256": "1f04ca5d3b2566dde5cd2c3b9945eb3b4de05a87a878be96e93ece41cf847f4f"
+  },
+  "docs/verification/a2-source-admission/current.json": {
+    "original": "runs/a2-source-admission-584213f/current.json",
+    "sha256": "8e3dd0bb520d890ebc232b5374b40d363766f4f8428ef25708301aacce6771cf"
+  },
+  "docs/verification/a2-source-admission/current.stderr": {
+    "original": "runs/a2-source-admission-584213f/current.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-source-admission/current.stdout": {
+    "original": "runs/a2-source-admission-584213f/current.stdout",
+    "sha256": "1f04ca5d3b2566dde5cd2c3b9945eb3b4de05a87a878be96e93ece41cf847f4f"
+  },
+  "docs/verification/a2-source-admission/driver.log": {
+    "original": "runs/a2-source-admission-584213f/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-source-admission/driver.py": {
+    "original": "runs/a2-source-admission-584213f/driver.py",
+    "sha256": "cae76fac5ca29bafbc2b92ad298ae69490fdd5129068bd389f2455c44532dfec"
+  },
+  "docs/verification/a2-source-admission/job.json": {
+    "original": "runs/a2-source-admission-584213f/job.json",
+    "sha256": "251db8c1bbe1b774fe96168e243e5cf0e2e412d2eebcd2685f75bb0ad0e05e9c"
+  },
+  "docs/verification/a2-source-admission/optimized-plan.json": {
+    "original": "runs/a2-source-admission-584213f/optimized-plan.json",
+    "sha256": "91cb891ea2a6d092b2d1216872e536c5b6f3dba4abd01d9af01858b4db094d1a"
+  },
+  "docs/verification/a2-source-admission/plan.stderr": {
+    "original": "runs/a2-source-admission-584213f/plan.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-source-admission/plan.stdout": {
+    "original": "runs/a2-source-admission-584213f/plan.stdout",
+    "sha256": "dc487c5f0a86606f0450cf61fed090019859765b60181bb0c8266f52b97c6c6d"
+  },
+  "docs/verification/a2-source-admission/registry.json": {
+    "original": "runs/a2-source-admission-584213f/registry.json",
+    "sha256": "46bf447c2212c027327139f33a318bd5e2bb3a6fc9a2a3d52257af634f8b76a5"
+  },
+  "docs/verification/a2-source-admission/registry.stderr": {
+    "original": "runs/a2-source-admission-584213f/registry.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/a2-source-admission/registry.stdout": {
+    "original": "runs/a2-source-admission-584213f/registry.stdout",
+    "sha256": "afabe425d27e64ecf25c63312383d6c91013f7318547ac4318f7d71f63c1f638"
+  }
+}

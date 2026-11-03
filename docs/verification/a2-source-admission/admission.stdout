@@ -1,0 +1,6 @@
+{
+  "status": "qualified_cpu_matrix_terminal_batch",
+  "exact_pipeline_pairs": 12,
+  "qualification_seconds": 1.0506885829381645,
+  "a2_complete": false
+}
