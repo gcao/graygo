@@ -1,0 +1,33 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "1c450af55bc17616795f5522a633eaa619a06308770ebd11b60f49ebd3b2c6a8",
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "/home/gcao/proj/graygo/.worktrees/nfsp-branching-cpu-19b2523/tools/nfsp_cpu_branching.py",
+    "qualify",
+    "--repo",
+    "/home/gcao/proj/graygo",
+    "--proposal",
+    "/home/gcao/proj/graygo/docs/experiments/nfsp-control-completion-scope-proposal.json",
+    "--evidence",
+    "/home/gcao/proj/graygo/docs/experiments/nfsp-control-price-evidence.json",
+    "--output",
+    "/home/gcao/proj/graygo/runs/nfsp-branching-cpu-price-19b2523/prices.json"
+  ],
+  "control_scope_approved": false,
+  "cpu_process_ceiling_seconds": "15300",
+  "driver_sha256": "499d2515e630bf3aa4d691820f5ebf3c2bf741339635f465d1f416eca603620f",
+  "execution_authorized": false,
+  "measured_driver_wall_seconds": 2.068583581945859,
+  "measured_process_seconds": 2.067487233900465,
+  "new_accelerator_jobs": 0,
+  "new_control_allocation_seconds": "0",
+  "new_training_records": 0,
+  "original_driver_pid": 2797675,
+  "original_qualification_pid": 2797676,
+  "price_receipt_sha256": "29416e70a03feae64e95c3f63566833c68dc5efb3eae0b6d0b8d94de223f4762",
+  "returncode": 0,
+  "runner_sha256": "d6dc434680c26c3ef5cdc03a0865849e3c0318a36b0a403b2c81c17f70c4cdbc",
+  "status": "qualified_cpu_branching_neural_price",
+  "version": 1
+}

@@ -1,0 +1,26 @@
+{
+  "docs/verification/nfsp-branching-cpu-prices/driver.log": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-cpu-price-19b2523/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-branching-cpu-prices/driver.py": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-cpu-price-19b2523/driver.py",
+    "sha256": "499d2515e630bf3aa4d691820f5ebf3c2bf741339635f465d1f416eca603620f"
+  },
+  "docs/verification/nfsp-branching-cpu-prices/job.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-cpu-price-19b2523/job.json",
+    "sha256": "924d5ac3966339136c0a645c81d82a14bf3cbed1bf77f45e2201060dd401750e"
+  },
+  "docs/verification/nfsp-branching-cpu-prices/prices.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-cpu-price-19b2523/prices.json",
+    "sha256": "29416e70a03feae64e95c3f63566833c68dc5efb3eae0b6d0b8d94de223f4762"
+  },
+  "docs/verification/nfsp-branching-cpu-prices/qualification.stderr": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-cpu-price-19b2523/qualification.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-branching-cpu-prices/qualification.stdout": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-cpu-price-19b2523/qualification.stdout",
+    "sha256": "277889c80abbe5f350a762e722cb28fb50b3795d667332cc61cbca4f02aa40ff"
+  }
+}
