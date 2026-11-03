@@ -1,0 +1,26 @@
+{
+  "a2_complete": false,
+  "campaign_created": false,
+  "case_complete_process_cap_sum_seconds": "213300",
+  "case_count": 13,
+  "controller_allowance_seconds": "900",
+  "default_control_ceiling_seconds": "43200",
+  "focused_tests_passed": 16,
+  "formal_record_cap": 195000000,
+  "new_actual_control_reservations": "0",
+  "owner_approval_received": false,
+  "pilot_selected": false,
+  "primary_R4_cases": 11,
+  "projected_control_commitment_seconds": "256436.08177829580345144",
+  "proposed_selected_control_ceiling_seconds": "259200",
+  "runner_commit": "ec2e2b905cb05462c6ff856e179bfdda5c48c1cf",
+  "runner_sha256": "ae602b84e87fd2c67d3f2d1c0c7865bc2b705eaac6d7c3001e369989568e1b72",
+  "scope": "Prepared implementation and read-only evidence only; no real control has started or obtained a numerical pass.",
+  "separate_R1_comparisons": 2,
+  "source_context_previews": [
+    "a522",
+    "db9"
+  ],
+  "source_previews_identical": true,
+  "version": 1
+}

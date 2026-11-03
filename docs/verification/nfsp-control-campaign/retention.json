@@ -1,0 +1,38 @@
+{
+  "docs/verification/nfsp-control-campaign/a522-preview.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-control-runner-previews-v1/ec2e2b9/a522-preview.json",
+    "sha256": "988513e10063bb1e8b94d0f353a8458ad5f58952c61b33eefc141ccd4ce50ebb"
+  },
+  "docs/verification/nfsp-control-campaign/a522.stderr": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-control-runner-previews-v1/ec2e2b9/a522.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-control-campaign/a522.stdout": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-control-runner-previews-v1/ec2e2b9/a522.stdout",
+    "sha256": "988513e10063bb1e8b94d0f353a8458ad5f58952c61b33eefc141ccd4ce50ebb"
+  },
+  "docs/verification/nfsp-control-campaign/db9-preview.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-control-runner-previews-v1/ec2e2b9/db9-preview.json",
+    "sha256": "988513e10063bb1e8b94d0f353a8458ad5f58952c61b33eefc141ccd4ce50ebb"
+  },
+  "docs/verification/nfsp-control-campaign/db9.stderr": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-control-runner-previews-v1/ec2e2b9/db9.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-control-campaign/db9.stdout": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-control-runner-previews-v1/ec2e2b9/db9.stdout",
+    "sha256": "988513e10063bb1e8b94d0f353a8458ad5f58952c61b33eefc141ccd4ce50ebb"
+  },
+  "docs/verification/nfsp-control-campaign/driver.log": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-control-runner-previews-v1/ec2e2b9/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-control-campaign/driver.py": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-control-runner-previews-v1/ec2e2b9/driver.py",
+    "sha256": "36387ab1ff7091998af5ce5a2ae2daf7dbc9526ae7b3b43ef5d85d4596245858"
+  },
+  "docs/verification/nfsp-control-campaign/job.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-control-runner-previews-v1/ec2e2b9/job.json",
+    "sha256": "04520b0354fe583e4d59ed72fa376d819f3b17522738e877c2d83e8aea691512"
+  }
+}

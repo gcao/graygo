@@ -1,0 +1,70 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "c3d6f7117a4505a0f022ec6df401aefa69304bb8365ee9438b2d6d6d8fe36976",
+  "commands": [
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/control-campaign-ec2e2b9/tools/nfsp_control_campaign.py",
+        "preview",
+        "--repo",
+        "/home/gcao/proj/graygo",
+        "--allocation",
+        "/home/gcao/proj/graygo/.worktrees/control-campaign-ec2e2b9/docs/experiments/nfsp-control-campaign-allocation.json",
+        "--allocation-sha",
+        "ebdbaef58ab9f5847027bb8cdfd3a4b0a4fa44ec6c0d7b95e22ddf1aa0185c5e",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-control-runner-previews-v1/ec2e2b9/a522-preview.json"
+      ],
+      "measured_process_seconds": 12.111641436000355,
+      "original_pid": 2834525,
+      "returncode": 0,
+      "source_context": "a522"
+    },
+    {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/control-campaign-ec2e2b9/tools/nfsp_control_campaign.py",
+        "preview",
+        "--repo",
+        "/home/gcao/proj/graygo",
+        "--allocation",
+        "/home/gcao/proj/graygo/.worktrees/control-campaign-ec2e2b9/docs/experiments/nfsp-control-campaign-allocation.json",
+        "--allocation-sha",
+        "ebdbaef58ab9f5847027bb8cdfd3a4b0a4fa44ec6c0d7b95e22ddf1aa0185c5e",
+        "--output",
+        "/home/gcao/proj/graygo/runs/nfsp-control-runner-previews-v1/ec2e2b9/db9-preview.json"
+      ],
+      "measured_process_seconds": 11.856186705990694,
+      "original_pid": 2834569,
+      "returncode": 0,
+      "source_context": "db9"
+    }
+  ],
+  "driver_sha256": "36387ab1ff7091998af5ce5a2ae2daf7dbc9526ae7b3b43ef5d85d4596245858",
+  "execution_authorized": false,
+  "global_campaign_registry_absent": true,
+  "measured_child_process_seconds": 23.96782814199105,
+  "measured_driver_wall_seconds": 23.988354159984738,
+  "new_accelerator_jobs": 0,
+  "new_control_reservation_seconds": "0",
+  "new_training_records": 0,
+  "original_case_roots_absent": true,
+  "original_driver_pid": 2834524,
+  "owner_decision_provided": false,
+  "runner_sha256": "ae602b84e87fd2c67d3f2d1c0c7865bc2b705eaac6d7c3001e369989568e1b72",
+  "source_contexts": {
+    "a522": {
+      "case_count": 13,
+      "output_sha256": "988513e10063bb1e8b94d0f353a8458ad5f58952c61b33eefc141ccd4ce50ebb",
+      "status": "owner_approval_missing"
+    },
+    "db9": {
+      "case_count": 13,
+      "output_sha256": "988513e10063bb1e8b94d0f353a8458ad5f58952c61b33eefc141ccd4ce50ebb",
+      "status": "owner_approval_missing"
+    }
+  },
+  "status": "both_source_previews_verified_no_control_or_campaign_created",
+  "version": 1
+}

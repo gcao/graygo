@@ -1,0 +1,23 @@
+{
+  "approved": false,
+  "case_ids": [
+    "primary/branching/tabular/0/R4",
+    "primary/branching/tabular/1/R4",
+    "primary/branching/tabular/2/R4",
+    "primary/gray-pure/tabular/0/R4",
+    "primary/gray-pure/tabular/1/R4",
+    "primary/gray-pure/tabular/2/R4",
+    "primary/gray-mixed/tabular/0/R4",
+    "primary/gray-mixed/tabular/1/R4",
+    "primary/gray-mixed/tabular/2/R4",
+    "comparison/delayed/tabular/1/R1",
+    "comparison/delayed/tabular/2/R1",
+    "primary/delayed/tabular/1/R4",
+    "primary/delayed/tabular/2/R4"
+  ],
+  "control_ceiling_seconds": "259200",
+  "decision_record": "EXAMPLE ONLY: no owner approval has been received. Replace this record only with an actual explicit matching owner answer.",
+  "decision_record_sha256": "82ea186acbde31c612b0fb5f204d75162fdbe70fd7adc4b7eda44f772c0de8c5",
+  "proposal_sha256": "5608899c5bc17149c18c7e405274b6cffeec960f76ec3a4a0d8c794997c17204",
+  "version": "graygo/control-completion-owner-decision/1"
+}

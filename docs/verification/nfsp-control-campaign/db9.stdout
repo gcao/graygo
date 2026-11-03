@@ -1,0 +1,17 @@
+{
+  "a2_complete": false,
+  "case_count": 13,
+  "case_process_reservation_seconds": "213300",
+  "comparison_case_count": 2,
+  "controller_reserve_seconds": "900",
+  "default_control_ceiling_seconds": "43200",
+  "execution_authorized": false,
+  "owner_approved": false,
+  "primary_case_count": 11,
+  "projected_control_commitment_seconds": "256436.08177829580345144",
+  "scope": "Read-only exact thirteen-case preview. The default remains twelve aggregate CPU process-hours; an explicit proposal-bound owner decision is required before campaign initialization. No case or source is replaced, and the two R1 comparisons stay outside primary R4 slots.",
+  "selected_control_ceiling_seconds": "43200",
+  "status": "owner_approval_missing",
+  "version": "graygo/fixed-control-campaign/1",
+  "within_selected_ceiling": false
+}
