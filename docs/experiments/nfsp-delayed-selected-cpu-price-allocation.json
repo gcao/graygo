@@ -1,0 +1,40 @@
+{
+  "aggregate_diagnostic_record_cap": 262144,
+  "audit_case_outer_seconds": 180,
+  "auditor": ".worktrees/a2-cohort-30f8d91/tools/audit_nfsp_delayed.py",
+  "auditor_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "device": "cpu",
+  "execution_authorized": false,
+  "learner": "neural",
+  "learner_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "name": "selected-package-direct-cpu-delayed-price-profiles",
+  "native_library": null,
+  "new_accelerator_jobs": 0,
+  "new_tabular_control_records": 0,
+  "outer_watchdog_seconds": 2100,
+  "phases": [
+    "pre",
+    "post"
+  ],
+  "price_rule": "For each reuse, independently verify both original and direct selected-package pre/post complete pipeline forecasts. Keep the twofold margin and take the larger 900-second-rounded CPU ceiling. Zero device-hours applies only to the strictly bound CPU/features package/runtime/primary recipe; no formal trial is selected.",
+  "profile_case_loop_cap_seconds": 300,
+  "profile_driver_outer_seconds": 1260,
+  "records_per_profile": 65536,
+  "reference_proposal": "docs/experiments/nfsp-delayed-cpu-price-proposal.json",
+  "reference_proposal_sha256": "88fc1de9d92d942972e1897e8164b00f5d0ea2ff0d4aad7886a92da99ee8c94d",
+  "reuses": [
+    1,
+    4
+  ],
+  "runner": ".worktrees/frozen-cuda-c3b8b5f/tools/profile_nfsp_tasks.py",
+  "runner_sha256": "472c2937072bc2d157b40f0998bf7a90e202f0151323b056fb1cb194c6d0d725",
+  "scope": "Exactly four direct selected-package complete neural CPU diagnostics and their fresh independent read-only audits. No formal A2 slots, source/case relabeling, remaining seed launch, tabular controls, native/CUDA variant or project/study scope. This supplies missing runtime-cost evidence; the functional source bridge alone is insufficient.",
+  "seed": 0,
+  "source_package_path": ".worktrees/frozen-cuda-c3b8b5f/src",
+  "storage": "features",
+  "supersedes_unexecuted_qualification_allocation": "docs/experiments/nfsp-delayed-cpu-price-qualification-allocation.json",
+  "task": "delayed",
+  "torch_threads": 1,
+  "version": 1,
+  "workers": 1
+}
