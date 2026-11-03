@@ -1,0 +1,548 @@
+{
+  "a2_complete": false,
+  "additional_control_reservation_seconds": "960",
+  "allocation_sha256": "696165e9c5699b7af5270d310b5819c95c27295cdc65a1c0b242da62ebab14c7",
+  "complete_groups": 6,
+  "diagnostic_records": 393216,
+  "driver_sha256": "48e29880ba069cbb99d182ef1d9502139677aab2f781f72191d265cbffb1e7ae",
+  "groups": {
+    "branching/neural": {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/frozen-cuda-c3b8b5f/tools/profile_nfsp_tasks.py",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural",
+        "--expected-source-sha",
+        "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "--records",
+        "32768",
+        "--device",
+        "cpu",
+        "--storage",
+        "features",
+        "--case-minutes",
+        "5.0",
+        "--task",
+        "branching",
+        "--learners",
+        "neural",
+        "--reuses",
+        "4"
+      ],
+      "completed_profiles": [
+        {
+          "acting_policy_counts": {
+            "average": 0,
+            "q": 32768,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 26216,
+            "fresh_q": 31130,
+            "fresh_records": 32768,
+            "q_loss_targets": 108544,
+            "q_updates": 212,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 2
+          },
+          "learner": "neural",
+          "phase": "pre",
+          "q_reuse": 4,
+          "records": 32768,
+          "seconds_including_setup": 17.974039498949423,
+          "status": "complete"
+        },
+        {
+          "acting_policy_counts": {
+            "average": 23716,
+            "q": 9052,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 26216,
+            "fresh_q": 31130,
+            "fresh_records": 32768,
+            "q_loss_targets": 108544,
+            "q_updates": 212,
+            "supervised_targets": 21504,
+            "supervised_updates": 42,
+            "target_refreshes": 2
+          },
+          "learner": "neural",
+          "phase": "post",
+          "q_reuse": 4,
+          "records": 32768,
+          "seconds_including_setup": 15.68062156601809,
+          "status": "complete"
+        }
+      ],
+      "emitted_plan_verified": true,
+      "final_returncode": 0,
+      "measured_process_upper_seconds": 36.27259822899941,
+      "original_pid": 2751206,
+      "profile_complete": true,
+      "returncode": 0,
+      "started_monotonic": 560606.325514321,
+      "state": {
+        "completed_cases": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 33.91930605203379,
+        "pid": 2751206,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "whole_process_cap_seconds": 660
+    },
+    "branching/tabular": {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/frozen-cuda-c3b8b5f/tools/profile_nfsp_tasks.py",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular",
+        "--expected-source-sha",
+        "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "--records",
+        "32768",
+        "--device",
+        "cpu",
+        "--storage",
+        "features",
+        "--case-minutes",
+        "2.1666666666666665",
+        "--task",
+        "branching",
+        "--learners",
+        "tabular",
+        "--reuses",
+        "4"
+      ],
+      "completed_profiles": [
+        {
+          "acting_policy_counts": {
+            "average": 0,
+            "q": 32768,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 26216,
+            "fresh_q": 31130,
+            "fresh_records": 32768,
+            "q_loss_targets": 108544,
+            "q_updates": 212,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 2
+          },
+          "learner": "tabular",
+          "phase": "pre",
+          "q_reuse": 4,
+          "records": 32768,
+          "seconds_including_setup": 17.22962398896925,
+          "status": "complete"
+        },
+        {
+          "acting_policy_counts": {
+            "average": 23716,
+            "q": 9052,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 26216,
+            "fresh_q": 31130,
+            "fresh_records": 32768,
+            "q_loss_targets": 108544,
+            "q_updates": 212,
+            "supervised_targets": 66128,
+            "supervised_updates": 42,
+            "target_refreshes": 2
+          },
+          "learner": "tabular",
+          "phase": "post",
+          "q_reuse": 4,
+          "records": 32768,
+          "seconds_including_setup": 14.980364792048931,
+          "status": "complete"
+        }
+      ],
+      "emitted_plan_verified": true,
+      "final_returncode": 0,
+      "measured_process_upper_seconds": 34.759852688992396,
+      "original_pid": 2751207,
+      "profile_complete": true,
+      "returncode": 0,
+      "started_monotonic": 560606.326262414,
+      "state": {
+        "completed_cases": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 32.468634477001615,
+        "pid": 2751207,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "whole_process_cap_seconds": 320
+    },
+    "gray-mixed/neural": {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/frozen-cuda-c3b8b5f/tools/profile_nfsp_tasks.py",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural",
+        "--expected-source-sha",
+        "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "--records",
+        "32768",
+        "--device",
+        "cpu",
+        "--storage",
+        "features",
+        "--case-minutes",
+        "5.0",
+        "--task",
+        "gray-mixed",
+        "--learners",
+        "neural",
+        "--reuses",
+        "4"
+      ],
+      "completed_profiles": [
+        {
+          "acting_policy_counts": {
+            "average": 0,
+            "q": 32768,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 32768,
+            "fresh_q": 32768,
+            "fresh_records": 32768,
+            "q_loss_targets": 116736,
+            "q_updates": 228,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 2
+          },
+          "learner": "neural",
+          "phase": "pre",
+          "q_reuse": 4,
+          "records": 32768,
+          "seconds_including_setup": 189.63286603498273,
+          "status": "complete"
+        },
+        {
+          "acting_policy_counts": {
+            "average": 24392,
+            "q": 8376,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 32768,
+            "fresh_q": 32768,
+            "fresh_records": 32768,
+            "q_loss_targets": 116736,
+            "q_updates": 228,
+            "supervised_targets": 27648,
+            "supervised_updates": 54,
+            "target_refreshes": 2
+          },
+          "learner": "neural",
+          "phase": "post",
+          "q_reuse": 4,
+          "records": 32768,
+          "seconds_including_setup": 204.01526265405118,
+          "status": "complete"
+        }
+      ],
+      "emitted_plan_verified": true,
+      "final_returncode": 0,
+      "measured_process_upper_seconds": 396.0855904970085,
+      "original_pid": 2751208,
+      "profile_complete": true,
+      "returncode": 0,
+      "started_monotonic": 560606.326858112,
+      "state": {
+        "completed_cases": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 393.97972623002715,
+        "pid": 2751208,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "whole_process_cap_seconds": 660
+    },
+    "gray-mixed/tabular": {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/frozen-cuda-c3b8b5f/tools/profile_nfsp_tasks.py",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular",
+        "--expected-source-sha",
+        "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "--records",
+        "32768",
+        "--device",
+        "cpu",
+        "--storage",
+        "features",
+        "--case-minutes",
+        "2.1666666666666665",
+        "--task",
+        "gray-mixed",
+        "--learners",
+        "tabular",
+        "--reuses",
+        "4"
+      ],
+      "completed_profiles": [
+        {
+          "acting_policy_counts": {
+            "average": 0,
+            "q": 32768,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 32768,
+            "fresh_q": 32768,
+            "fresh_records": 32768,
+            "q_loss_targets": 116736,
+            "q_updates": 228,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 2
+          },
+          "learner": "tabular",
+          "phase": "pre",
+          "q_reuse": 4,
+          "records": 32768,
+          "seconds_including_setup": 19.14321153401397,
+          "status": "complete"
+        },
+        {
+          "acting_policy_counts": {
+            "average": 24392,
+            "q": 8376,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 32768,
+            "fresh_q": 32768,
+            "fresh_records": 32768,
+            "q_loss_targets": 116736,
+            "q_updates": 228,
+            "supervised_targets": 104142,
+            "supervised_updates": 54,
+            "target_refreshes": 2
+          },
+          "learner": "tabular",
+          "phase": "post",
+          "q_reuse": 4,
+          "records": 32768,
+          "seconds_including_setup": 16.509189045988023,
+          "status": "complete"
+        }
+      ],
+      "emitted_plan_verified": true,
+      "final_returncode": 0,
+      "measured_process_upper_seconds": 38.031714271055534,
+      "original_pid": 2751209,
+      "profile_complete": true,
+      "returncode": 0,
+      "started_monotonic": 560606.327441087,
+      "state": {
+        "completed_cases": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 35.94711362395901,
+        "pid": 2751209,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "whole_process_cap_seconds": 320
+    },
+    "gray-pure/neural": {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/frozen-cuda-c3b8b5f/tools/profile_nfsp_tasks.py",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural",
+        "--expected-source-sha",
+        "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "--records",
+        "32768",
+        "--device",
+        "cpu",
+        "--storage",
+        "features",
+        "--case-minutes",
+        "5.0",
+        "--task",
+        "gray-pure",
+        "--learners",
+        "neural",
+        "--reuses",
+        "4"
+      ],
+      "completed_profiles": [
+        {
+          "acting_policy_counts": {
+            "average": 0,
+            "q": 32768,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 32768,
+            "fresh_q": 32768,
+            "fresh_records": 32768,
+            "q_loss_targets": 116736,
+            "q_updates": 228,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 2
+          },
+          "learner": "neural",
+          "phase": "pre",
+          "q_reuse": 4,
+          "records": 32768,
+          "seconds_including_setup": 168.75671094399877,
+          "status": "complete"
+        },
+        {
+          "acting_policy_counts": {
+            "average": 24421,
+            "q": 8347,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 32768,
+            "fresh_q": 32768,
+            "fresh_records": 32768,
+            "q_loss_targets": 116736,
+            "q_updates": 228,
+            "supervised_targets": 27648,
+            "supervised_updates": 54,
+            "target_refreshes": 2
+          },
+          "learner": "neural",
+          "phase": "post",
+          "q_reuse": 4,
+          "records": 32768,
+          "seconds_including_setup": 184.57346724905074,
+          "status": "complete"
+        }
+      ],
+      "emitted_plan_verified": true,
+      "final_returncode": 0,
+      "measured_process_upper_seconds": 355.7662324750563,
+      "original_pid": 2751210,
+      "profile_complete": true,
+      "returncode": 0,
+      "started_monotonic": 560606.327981952,
+      "state": {
+        "completed_cases": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 353.66893587098457,
+        "pid": 2751210,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "whole_process_cap_seconds": 660
+    },
+    "gray-pure/tabular": {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/frozen-cuda-c3b8b5f/tools/profile_nfsp_tasks.py",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular",
+        "--expected-source-sha",
+        "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "--records",
+        "32768",
+        "--device",
+        "cpu",
+        "--storage",
+        "features",
+        "--case-minutes",
+        "2.1666666666666665",
+        "--task",
+        "gray-pure",
+        "--learners",
+        "tabular",
+        "--reuses",
+        "4"
+      ],
+      "completed_profiles": [
+        {
+          "acting_policy_counts": {
+            "average": 0,
+            "q": 32768,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 32768,
+            "fresh_q": 32768,
+            "fresh_records": 32768,
+            "q_loss_targets": 116736,
+            "q_updates": 228,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 2
+          },
+          "learner": "tabular",
+          "phase": "pre",
+          "q_reuse": 4,
+          "records": 32768,
+          "seconds_including_setup": 19.428711769985966,
+          "status": "complete"
+        },
+        {
+          "acting_policy_counts": {
+            "average": 24421,
+            "q": 8347,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 32768,
+            "fresh_q": 32768,
+            "fresh_records": 32768,
+            "q_loss_targets": 116736,
+            "q_updates": 228,
+            "supervised_targets": 103373,
+            "supervised_updates": 54,
+            "target_refreshes": 2
+          },
+          "learner": "tabular",
+          "phase": "post",
+          "q_reuse": 4,
+          "records": 32768,
+          "seconds_including_setup": 16.661159613984637,
+          "status": "complete"
+        }
+      ],
+      "emitted_plan_verified": true,
+      "final_returncode": 0,
+      "measured_process_upper_seconds": 38.53372604993638,
+      "original_pid": 2751211,
+      "profile_complete": true,
+      "returncode": 0,
+      "started_monotonic": 560606.328663381,
+      "state": {
+        "completed_cases": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 36.32998895691708,
+        "pid": 2751211,
+        "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+        "status": "complete"
+      },
+      "whole_process_cap_seconds": 320
+    }
+  },
+  "measured_driver_wall_seconds": 396.1063476019772,
+  "new_accelerator_jobs": 0,
+  "new_formal_a2_records": 0,
+  "no_observation_timeout_restart": true,
+  "original_driver_pid": 2751203,
+  "project_scope_selected": false,
+  "source_package_unchanged": true,
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "status": "original_profile_groups_terminal_unreviewed",
+  "version": 1
+}

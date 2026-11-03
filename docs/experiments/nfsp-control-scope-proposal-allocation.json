@@ -1,0 +1,17 @@
+{
+  "builder": "tools/nfsp_control_budget.py",
+  "builder_sha256": "09ea494513be52f42305f58648d5f71f1f19ff3a3a85e99739e7293df05d8b3c",
+  "evidence": "docs/experiments/nfsp-control-price-evidence.json",
+  "evidence_sha256": "c5ca4d6dc96c665a58d5e983b6b29062ceadada0bf21bd83d884e75dce23f573",
+  "name": "read-only-complete-control-scope-proposal",
+  "new_accelerator_jobs": 0,
+  "new_control_allocation_selected": false,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "outer_watchdog_seconds": 180,
+  "output": "docs/experiments/nfsp-control-completion-scope-proposal.json",
+  "owner_approved": false,
+  "scope": "One read-only proposal builds directly from all verified original CPU profiles, unchanged independent audit producers/allocations, exact live hardware/dependencies and retained current control use. Keep GPU failures visible and exclude the unqualified variant. Independently recompute twofold complete-process CPU ceilings and enumerate eleven missing primary plus two R1 comparison controls at fixed original seeds/recipes. The default twelve-hour control ceiling remains unchanged; a larger scope requires a separate explicit owner decision bound to the immutable proposal. No full case, target/threshold change, optional work or production/study scope is selected.",
+  "source_package_path": ".worktrees/frozen-cuda-c3b8b5f/src",
+  "version": 1
+}

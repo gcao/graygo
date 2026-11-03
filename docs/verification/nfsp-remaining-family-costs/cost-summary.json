@@ -1,0 +1,97 @@
+{
+  "a2_complete": false,
+  "cpu_diagnostic_records": 393216,
+  "cpu_profiles_independently_verified": 12,
+  "cuda_diagnostic_records": 131072,
+  "cuda_profiles_independently_verified": 0,
+  "cuda_unqualified_timing_only": [
+    {
+      "audit_verified": false,
+      "phase_weighted_15M_seconds": 62080.29567476459,
+      "raw_proposed_time_ceiling_seconds": 124200,
+      "reason": "Unchanged independent CPU policy-table evaluator rejects evaluation/16384/0/average_gaps/0; numerical thresholds remain unchanged. Timing is not GPU case admission.",
+      "task": "gray-pure"
+    },
+    {
+      "audit_verified": false,
+      "phase_weighted_15M_seconds": 62585.43784726456,
+      "raw_proposed_time_ceiling_seconds": 126000,
+      "reason": "Unchanged independent CPU policy-table evaluator rejects evaluation/16384/0/average_gaps/0; numerical thresholds remain unchanged. Timing is not GPU case admission.",
+      "task": "gray-mixed"
+    }
+  ],
+  "cuda_variant_admitted": false,
+  "full_family_or_project_scope_selected": false,
+  "legacy_control_profiles_independently_verified": 4,
+  "new_formal_a2_records": 0,
+  "original_inputs_unchanged": true,
+  "prices": [
+    {
+      "independently_recomputed_15M_seconds": "7527.966710050293426513671875",
+      "learner": "neural",
+      "limits": "partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast",
+      "proposed_cpu_process_ceiling_seconds": 15300,
+      "raw_budget": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/budgets/neural-R4.json",
+      "raw_budget_sha256": "0b775699dcbcc21a08fdccb03e3877732cba2b0fe7f4f0c29f17f3fc9a228c3f",
+      "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "task": "branching",
+      "twofold_margin": true
+    },
+    {
+      "independently_recomputed_15M_seconds": "7200.67650956224243164062500",
+      "learner": "tabular",
+      "limits": "partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast",
+      "proposed_cpu_process_ceiling_seconds": 15300,
+      "raw_budget": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/budgets/tabular-R4.json",
+      "raw_budget_sha256": "2baf9d67ffa2eb5d79ba6bea8c1d7eb0c87ef8b9f15fc5cefdbb7740a48cb6d1",
+      "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "task": "branching",
+      "twofold_margin": true
+    },
+    {
+      "independently_recomputed_15M_seconds": "82077.58261750797271728515625",
+      "learner": "neural",
+      "limits": "partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast",
+      "proposed_cpu_process_ceiling_seconds": 164700,
+      "raw_budget": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/budgets/neural-R4.json",
+      "raw_budget_sha256": "5907c485c8036da26772efc34a5c6d006edc2bfa4e457b660786772493f570e7",
+      "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "task": "gray-pure",
+      "twofold_margin": true
+    },
+    {
+      "independently_recomputed_15M_seconds": "8049.168548271978759765625000",
+      "learner": "tabular",
+      "limits": "partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast",
+      "proposed_cpu_process_ceiling_seconds": 16200,
+      "raw_budget": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/budgets/tabular-R4.json",
+      "raw_budget_sha256": "ecafcb77800a1f73091d0adad3beb249e9827bdd6769f85cd022c19e22d06fc4",
+      "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "task": "gray-pure",
+      "twofold_margin": true
+    },
+    {
+      "independently_recomputed_15M_seconds": "91196.19618882523956298828125",
+      "learner": "neural",
+      "limits": "partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast",
+      "proposed_cpu_process_ceiling_seconds": 182700,
+      "raw_budget": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/budgets/neural-R4.json",
+      "raw_budget_sha256": "541cd25d4bee400f0c8931a281a03ba167aa9da72ee3ba0f17cfa55992eef39e",
+      "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "task": "gray-mixed",
+      "twofold_margin": true
+    },
+    {
+      "independently_recomputed_15M_seconds": "7959.22693267669921875000000",
+      "learner": "tabular",
+      "limits": "partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast",
+      "proposed_cpu_process_ceiling_seconds": 16200,
+      "raw_budget": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/budgets/tabular-R4.json",
+      "raw_budget_sha256": "7c75ae3d66eced2f1280a83a4fa51b2cd5cb30fdfc3f822766e7d616e9165883",
+      "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "task": "gray-mixed",
+      "twofold_margin": true
+    }
+  ],
+  "version": 1
+}

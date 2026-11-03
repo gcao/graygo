@@ -1,0 +1,88 @@
+{
+  "aggregate_profile_ceiling_seconds": 600.0,
+  "cases": [
+    {
+      "config": {
+        "batch": 512,
+        "blocks": 8,
+        "budget_profile_sha256": null,
+        "capacity": 500000,
+        "device": "cpu",
+        "epsilon_decay": 7500000,
+        "equivalent_actions": 40,
+        "eval_batch": 128,
+        "eval_every": 16384,
+        "handoff_end": 7000000,
+        "hidden": 64,
+        "horizons": [
+          50,
+          100,
+          200
+        ],
+        "learner": "neural",
+        "learning_rate": 0.0003,
+        "learning_start": 4096,
+        "max_grad_norm": 0.5,
+        "max_nodes": 100000,
+        "native_library": null,
+        "norm_groups": 8,
+        "purpose": "profile",
+        "q_reuse": 4,
+        "records": 32768,
+        "reservoir_open": 5000000,
+        "seed": 0,
+        "storage": "features",
+        "target_every": 12800,
+        "task": "gray-pure",
+        "time_cap_seconds": 300.0,
+        "uniform_comparison": false,
+        "width": 64
+      },
+      "phase": "pre"
+    },
+    {
+      "config": {
+        "batch": 512,
+        "blocks": 8,
+        "budget_profile_sha256": null,
+        "capacity": 500000,
+        "device": "cpu",
+        "epsilon_decay": 7500000,
+        "equivalent_actions": 40,
+        "eval_batch": 128,
+        "eval_every": 16384,
+        "handoff_end": 1000,
+        "hidden": 64,
+        "horizons": [
+          50,
+          100,
+          200
+        ],
+        "learner": "neural",
+        "learning_rate": 0.0003,
+        "learning_start": 4096,
+        "max_grad_norm": 0.5,
+        "max_nodes": 100000,
+        "native_library": null,
+        "norm_groups": 8,
+        "purpose": "profile",
+        "q_reuse": 4,
+        "records": 32768,
+        "reservoir_open": 0,
+        "seed": 0,
+        "storage": "features",
+        "target_every": 12800,
+        "task": "gray-pure",
+        "time_cap_seconds": 300.0,
+        "uniform_comparison": false,
+        "width": 64
+      },
+      "phase": "post"
+    }
+  ],
+  "driver_sha256": "472c2937072bc2d157b40f0998bf7a90e202f0151323b056fb1cb194c6d0d725",
+  "format_version": 1,
+  "scope": "complete one-step solved-task pipeline; no 9x9/other-target pricing",
+  "source_commit": "c3b8b5fb87eba63142a17bd04f578c135fbae2d4",
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df"
+}

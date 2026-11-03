@@ -1,0 +1,345 @@
+{
+  "complete_pipeline": true,
+  "device": "cpu",
+  "format_version": 1,
+  "learner": "tabular",
+  "limits": "partial buffers; scaled startup/evaluation/checkpoint overhead; no 9x9 or Retrace forecast",
+  "margin": 2.0,
+  "native_library_sha256": null,
+  "phase_weighted_15M_seconds": 7959.2269326767,
+  "phases": [
+    "pre",
+    "post"
+  ],
+  "profile_cases": [
+    {
+      "acting_policy_counts": {
+        "average": 0,
+        "q": 32768,
+        "uniform": 0
+      },
+      "case": "tabular-R4-pre",
+      "counters": {
+        "fresh_ordinary": 32768,
+        "fresh_q": 32768,
+        "fresh_records": 32768,
+        "q_loss_targets": 116736,
+        "q_updates": 228,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 2
+      },
+      "coverage": {
+        "excluded_q_records": 0,
+        "overlap_counts": [
+          [
+            [
+              75646,
+              29419,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              8506,
+              3165,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                58782.82260845858,
+                42209.7048309762,
+                47693.3378943596,
+                411839369.0
+              ],
+              [
+                15476.142002599872,
+                13349.304026324302,
+                15778.458180770278,
+                559970042.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                6513.203283374005,
+                4629.409258700907,
+                5343.941178369336,
+                46396689.0
+              ],
+              [
+                1692.5114612058305,
+                1458.411135676317,
+                1694.1383096575737,
+                60558748.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 32768,
+        "root_episodes": [
+          [
+            8192,
+            0
+          ]
+        ],
+        "sampled_start_targets": 116736,
+        "visit_records": 32768
+      },
+      "formal_protocol": false,
+      "fresh_records_per_second": 1711.729504831375,
+      "learner": "tabular",
+      "logical_replay_bytes": 42500000,
+      "logical_reservoir_bytes": 13500000,
+      "phase": "pre",
+      "q_reuse": 4,
+      "records": 32768,
+      "replay_size": 32768,
+      "reservoir_size": 0,
+      "seconds_including_setup": 19.14321153401397,
+      "status": "complete",
+      "timings": {
+        "checkpoint": 0.44723248202353716,
+        "collection": 16.432959622121416,
+        "evaluation": 0.12883046898059547,
+        "learning": 1.0432572731515393,
+        "setup": 0.9967637170339003
+      }
+    },
+    {
+      "acting_policy_counts": {
+        "average": 24392,
+        "q": 8376,
+        "uniform": 0
+      },
+      "case": "tabular-R4-post",
+      "counters": {
+        "fresh_ordinary": 32768,
+        "fresh_q": 32768,
+        "fresh_records": 32768,
+        "q_loss_targets": 116736,
+        "q_updates": 228,
+        "supervised_targets": 104142,
+        "supervised_updates": 54,
+        "target_refreshes": 2
+      },
+      "coverage": {
+        "excluded_q_records": 0,
+        "overlap_counts": [
+          [
+            [
+              75646,
+              29419,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              8506,
+              3165,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                52690.20047806718,
+                36694.58790149819,
+                35386.328214250505,
+                411839369.0
+              ],
+              [
+                15100.885663861294,
+                12967.298950265162,
+                12649.763124917634,
+                559970042.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                6814.578331950038,
+                4876.234872771427,
+                5313.461595021188,
+                46396689.0
+              ],
+              [
+                1737.818372568512,
+                1477.3536222893745,
+                1686.0687401285395,
+                60558748.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 32768,
+        "root_episodes": [
+          [
+            8192,
+            0
+          ]
+        ],
+        "sampled_start_targets": 116736,
+        "visit_records": 32768
+      },
+      "formal_protocol": false,
+      "fresh_records_per_second": 1984.8340162997351,
+      "learner": "tabular",
+      "logical_replay_bytes": 42500000,
+      "logical_reservoir_bytes": 13500000,
+      "phase": "post",
+      "q_reuse": 4,
+      "records": 32768,
+      "replay_size": 32768,
+      "reservoir_size": 3298,
+      "seconds_including_setup": 16.509189045988023,
+      "status": "complete",
+      "timings": {
+        "checkpoint": 0.39811918896157295,
+        "collection": 14.754750840831548,
+        "evaluation": 0.13099718582816422,
+        "learning": 1.0122726712143049,
+        "setup": 0.09243610803969204
+      }
+    }
+  ],
+  "profile_plan_sha256": "a68d153b408fe5c3d8280181dc445029585d4c89e60c02d1e17539943a2b676b",
+  "proposed_time_ceiling_seconds": 16200,
+  "q_reuse": 4,
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "storage": "features",
+  "target": "one-step",
+  "task": "gray-mixed"
+}

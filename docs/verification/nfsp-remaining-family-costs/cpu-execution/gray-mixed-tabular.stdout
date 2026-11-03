@@ -1,0 +1,2 @@
+{"case": "tabular-R4-pre", "status": "complete", "records": 32768, "seconds_including_setup": 19.14321153401397, "fresh_records_per_second": 1711.729504831375}
+{"case": "tabular-R4-post", "status": "complete", "records": 32768, "seconds_including_setup": 16.509189045988023, "fresh_records_per_second": 1984.8340162997351}

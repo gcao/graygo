@@ -1,0 +1,312 @@
+{
+  "a2_complete": false,
+  "accepted_reservoir_changes": 0,
+  "active_episode_steps": 0,
+  "active_frozen_commitments_reconstructed": 0,
+  "active_frozen_greedy_labels_verified": 0,
+  "active_private_rng_draws_reconstructed": 0,
+  "archive_manifests_sha256": {
+    "16384": "188f107b99df14cb06f3d05c73d570d645970e1e9debe8f9e032083cadad44dc",
+    "32768": "507e4b61d4acf85e2cd3c73f562321c60fc10d0ba2dab49d2740f68c520d2607"
+  },
+  "audit_semantics": "graygo/independent-bounded-task-audit/1",
+  "audit_watchdog_seconds": 180,
+  "auditor_sha256": "36ba58de321d53958dd304492e87c605b81c11cfbd7b0c859a0dedf8f7048a11",
+  "average_readiness": "not_ready",
+  "checkpoint_manifest_sha256": "ad842b4c57914228757ab5aefb92e9dd1e435e5631138e9631f50e114d833103",
+  "completed_original_log_hashes_reconstructed": false,
+  "eligibility_version": 2,
+  "eligible_labels": 0,
+  "episode_audit_sha256": "1f7d445000c38a83548026708bf8c3ea307e021f1ba029d43f3ec9a6f2698ad5",
+  "exact_game_certificate": {
+    "matrix_semantics": "complete simultaneous legal-action matrices with exact solved continuation values; every nonterminal public state has equal rational primal/dual security bounds",
+    "root_state_indices": [
+      0,
+      1
+    ],
+    "states": [
+      {
+        "black_actions": [
+          0,
+          1
+        ],
+        "column_strategy": [
+          "1"
+        ],
+        "continuation_matrix": [
+          [
+            "-1/7"
+          ],
+          [
+            "-7/22"
+          ]
+        ],
+        "row_strategy": [
+          "1",
+          "0"
+        ],
+        "security_lower": "-1/7",
+        "security_upper": "-1/7",
+        "state": {
+          "black": -1,
+          "branch": -1,
+          "controller": 1,
+          "depth": 0,
+          "white": -1
+        },
+        "state_index": 0,
+        "value": "-1/7",
+        "white_actions": [
+          0
+        ]
+      },
+      {
+        "black_actions": [
+          0
+        ],
+        "column_strategy": [
+          "1",
+          "0"
+        ],
+        "continuation_matrix": [
+          [
+            "1/7",
+            "7/22"
+          ]
+        ],
+        "row_strategy": [
+          "1"
+        ],
+        "security_lower": "1/7",
+        "security_upper": "1/7",
+        "state": {
+          "black": -1,
+          "branch": -1,
+          "controller": 2,
+          "depth": 0,
+          "white": -1
+        },
+        "state_index": 1,
+        "value": "1/7",
+        "white_actions": [
+          0,
+          1
+        ]
+      },
+      {
+        "black_actions": [
+          0,
+          1
+        ],
+        "column_strategy": [
+          "3/7",
+          "4/7"
+        ],
+        "continuation_matrix": [
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "-1",
+            "1/2"
+          ]
+        ],
+        "row_strategy": [
+          "3/7",
+          "4/7"
+        ],
+        "security_lower": "-1/7",
+        "security_upper": "-1/7",
+        "state": {
+          "black": -1,
+          "branch": 0,
+          "controller": 1,
+          "depth": 1,
+          "white": -1
+        },
+        "state_index": 2,
+        "value": "-1/7",
+        "white_actions": [
+          0,
+          1
+        ]
+      },
+      {
+        "black_actions": [
+          0,
+          1
+        ],
+        "column_strategy": [
+          "3/7",
+          "4/7"
+        ],
+        "continuation_matrix": [
+          [
+            "-1",
+            "1"
+          ],
+          [
+            "1",
+            "-1/2"
+          ]
+        ],
+        "row_strategy": [
+          "3/7",
+          "4/7"
+        ],
+        "security_lower": "1/7",
+        "security_upper": "1/7",
+        "state": {
+          "black": -1,
+          "branch": 0,
+          "controller": 2,
+          "depth": 1,
+          "white": -1
+        },
+        "state_index": 3,
+        "value": "1/7",
+        "white_actions": [
+          0,
+          1
+        ]
+      },
+      {
+        "black_actions": [
+          0,
+          1
+        ],
+        "column_strategy": [
+          "5/11",
+          "6/11"
+        ],
+        "continuation_matrix": [
+          [
+            "1/2",
+            "-1"
+          ],
+          [
+            "-1",
+            "1/4"
+          ]
+        ],
+        "row_strategy": [
+          "5/11",
+          "6/11"
+        ],
+        "security_lower": "-7/22",
+        "security_upper": "-7/22",
+        "state": {
+          "black": -1,
+          "branch": 1,
+          "controller": 1,
+          "depth": 1,
+          "white": -1
+        },
+        "state_index": 4,
+        "value": "-7/22",
+        "white_actions": [
+          0,
+          1
+        ]
+      },
+      {
+        "black_actions": [
+          0,
+          1
+        ],
+        "column_strategy": [
+          "5/11",
+          "6/11"
+        ],
+        "continuation_matrix": [
+          [
+            "-1/2",
+            "1"
+          ],
+          [
+            "1",
+            "-1/4"
+          ]
+        ],
+        "row_strategy": [
+          "5/11",
+          "6/11"
+        ],
+        "security_lower": "7/22",
+        "security_upper": "7/22",
+        "state": {
+          "black": -1,
+          "branch": 1,
+          "controller": 2,
+          "depth": 1,
+          "white": -1
+        },
+        "state_index": 5,
+        "value": "7/22",
+        "white_actions": [
+          0,
+          1
+        ]
+      }
+    ],
+    "version": "graygo/rational-bounded-game-dp/1"
+  },
+  "exact_game_certificate_sha256": "181da61be3de19cfbd37b11c2d11631a370dae9f25d530e1ae90bccc612fe9c7",
+  "excluded_passive_root_records": 1638,
+  "formal_case_passed": false,
+  "formal_protocol": false,
+  "format_version": 1,
+  "learner": "tabular",
+  "measured_audit_entry_wall_seconds": 5.08452114101965,
+  "ordinary_records": 26216,
+  "physical_complete_games": 8192,
+  "published_tabular_exact_mean_states": 0,
+  "published_tabular_exact_root_mean_states": 0,
+  "published_tabular_mean_interval_checked": false,
+  "published_tabular_mean_verified": false,
+  "published_tabular_uncertain_mean_states": 0,
+  "published_tabular_uncertain_tokens": [],
+  "q_credit_passed": false,
+  "q_eligible_records": 31130,
+  "q_loss_targets": 108544,
+  "q_updates": 212,
+  "rational_root_values": [
+    "-1/7",
+    "1/7"
+  ],
+  "rational_value_states_solved": 22,
+  "records": 32768,
+  "result_sha256": "493f5d36cb4725357053192164ec95d2dbedc4c62700836b62a687818ac5a1e0",
+  "retained_complete_action_paths_reconstructed": 8192,
+  "retained_executed_records_checked": 32768,
+  "retained_joint_transition_records_checked": 32768,
+  "retained_label_records_checked": 0,
+  "retained_unpaired_transition_records_checked": 0,
+  "scheduled_evaluations": [
+    {
+      "average_ready": false,
+      "max_average_gap": 0.16964285714285715,
+      "max_early_error": 0.384194950128132,
+      "max_greedy_gap": 0.8571428571428572,
+      "records": 16384
+    },
+    {
+      "average_ready": false,
+      "max_average_gap": 0.16964285714285715,
+      "max_early_error": 0.8699743987169466,
+      "max_greedy_gap": 1.1428571428571428,
+      "records": 32768
+    }
+  ],
+  "scope": "independent rational game values, complete-strategy fixed-policy responses and prefix-conditioned native values; exact header/RNG/eligibility/Algorithm-R clocks and retained legal joint transitions. Discarded historical actions/targets and original float64 trajectory hashes are not reconstructed; unresolved tabular publication tails retain stated interval bounds",
+  "seed": 0,
+  "shared_helper_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "supervised_updates": 0,
+  "target_refreshes": 2,
+  "task": "branching",
+  "training_manifest_sha256": "5d70e9654757e812ad31c2daf43edb9c33190ff54bbf2e12a4ca4a948732a821",
+  "unresolved_published_labels": 0,
+  "verified": true
+}

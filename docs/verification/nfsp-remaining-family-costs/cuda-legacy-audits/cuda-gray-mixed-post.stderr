@@ -1,0 +1,42 @@
+Traceback (most recent call last):
+  File "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/audit_nfsp_delayed.py", line 29, in close
+    np.testing.assert_allclose(actual, expected, rtol=0, atol=atol)
+  File "/home/gcao/proj/graygo/.venv/lib/python3.12/site-packages/numpy/testing/_private/utils.py", line 1780, in assert_allclose
+    assert_array_compare(compare, actual, desired, err_msg=str(err_msg),
+  File "/home/gcao/proj/graygo/.venv/lib/python3.12/site-packages/numpy/testing/_private/utils.py", line 988, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=0, atol=1e-12
+
+Mismatched elements: 1 / 1 (100%)
+Max absolute difference among violations: 1.03798781e-07
+Max relative difference among violations: 2.70535912e-07
+ ACTUAL: array(0.383678)
+ DESIRED: array(0.383678)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/audit_nfsp_bounded.py", line 564, in <module>
+    result=audit(root,require_formal=not args.allow_diagnostic,budget_profile=args.budget_profile);signal.alarm(0)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/audit_nfsp_bounded.py", line 546, in audit
+    try:result=_audit(root,require_formal,budget_profile)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/audit_nfsp_bounded.py", line 503, in _audit
+    compare_tree(evaluation['roots'],oracle,f'evaluation/{step}')
+  File "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/audit_nfsp_delayed.py", line 130, in compare_tree
+    for i, value in enumerate(expected):compare_tree(actual[i], value, path + '/' + str(i))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/audit_nfsp_delayed.py", line 127, in compare_tree
+    for key in expected:compare_tree(actual[key], expected[key], path + '/' + key)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/audit_nfsp_delayed.py", line 130, in compare_tree
+    for i, value in enumerate(expected):compare_tree(actual[i], value, path + '/' + str(i))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/audit_nfsp_delayed.py", line 131, in compare_tree
+    elif isinstance(expected, float):close(actual, expected, path + ' numerical result differs')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/a2-cohort-30f8d91/tools/audit_nfsp_delayed.py", line 31, in close
+    raise ValueError(message) from exc
+ValueError: evaluation/16384/0/average_gaps/0 numerical result differs

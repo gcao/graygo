@@ -1,0 +1,13 @@
+{
+  "cpu_audit_allocation": "docs/experiments/nfsp-remaining-family-profile-audit-allocation.json",
+  "cpu_audit_allocation_sha256": "f49ac3d88bfa06452d6a8ea6c485925b7b3b8780c7dceb84a7c9f75483dfed38",
+  "cpu_audit_root": "runs/nfsp-remaining-family-profile-audit-4ec9eb4",
+  "cpu_profile_root": "runs/nfsp-remaining-family-cpu-profiles-v1",
+  "current_usage": "docs/verification/nfsp-remaining-family-costs/resource-use.json",
+  "legacy_audit_allocation": "docs/experiments/nfsp-cuda-and-legacy-control-profile-audit-allocation.json",
+  "legacy_audit_allocation_sha256": "95d37f6e01f83b4e707fbf907cbf87a2c29ec0b4c22f1b531ff7b213b4d4112c",
+  "legacy_audit_root": "runs/nfsp-cuda-legacy-profile-audit-a003824",
+  "legacy_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "selected_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "version": 1
+}

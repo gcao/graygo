@@ -1,0 +1,242 @@
+{
+  "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-post/weights/000000016384/models.pt": {
+    "bytes": 5058831,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "0b3c584de9fce53203924e5c2dee751e314d4460ab8736121e343d067a41a519"
+  },
+  "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-post/weights/000000032768/models.pt": {
+    "bytes": 5058831,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "f1073021ada21935379218e4227b1c5207e25fdab7c82f6f96a5ad20bb53a57b"
+  },
+  "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-pre/weights/000000016384/models.pt": {
+    "bytes": 5058831,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "e4a00f7213c1cceef5a6fc9aa8044b697f16b86cbbe542809ae3de3dd32333ea"
+  },
+  "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-pre/weights/000000032768/models.pt": {
+    "bytes": 5058831,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "0274a3cfdc596cc05d7594e1034490e0d2958be9df68f7590ed048bfb13793aa"
+  },
+  "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-post/weights/000000016384/models.pt": {
+    "bytes": 5058831,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "d8bf81fd245e1ffc25cbac37a4a49d8c76ecb1f2f378cf836940a4f2b4e82b26"
+  },
+  "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-post/weights/000000032768/models.pt": {
+    "bytes": 5058831,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "18b45fb84500d573d7b0c30c56033f04fd3c92bf24b5006300ee6c52cbf7be49"
+  },
+  "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-pre/weights/000000016384/models.pt": {
+    "bytes": 5058831,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "bacc70b6af52655191e9e054785b28f3fa62a306ce814564f0c2eb59d8177ef1"
+  },
+  "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-pre/weights/000000032768/models.pt": {
+    "bytes": 5058831,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "23dbbfcc1197d6e6bb3e1d29e3fd873d813b63a4169fda583de600321feb046a"
+  },
+  "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-post/weights/000000032768/models.pt": {
+    "bytes": 1340901,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "984f8f4094ccb3a8ec044939b155f461cc7b7ce6023182366c1d6e523e1089c2"
+  },
+  "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-post/weights/000000065536/models.pt": {
+    "bytes": 1340901,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "81705d36ff3a752fc4786d5d698b6176f5e834d81b17dae2bb3fec7582cdd5f3"
+  },
+  "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-pre/weights/000000032768/models.pt": {
+    "bytes": 1340901,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "b039aba866540ab041ae3bfd3cfaa4d846838ecb8fcdcfe9c2f76b2294934131"
+  },
+  "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-pre/weights/000000065536/models.pt": {
+    "bytes": 1340901,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "f2c22609155032bb69e3963e98e7d52976e3d8ba1d68eb53e454db0e8b26bf9d"
+  },
+  "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-post/weights/000000032768/models.pt": {
+    "bytes": 1340901,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "66933d8f92ea00569cb6bdd7195cabb90bcfab91c8e141b67c9cd5f277f901c4"
+  },
+  "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-post/weights/000000065536/models.pt": {
+    "bytes": 1340901,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "0d8be4ee4ced9893a25db379ff8b72733dc5e2fa3edb6025e509121456467367"
+  },
+  "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-pre/weights/000000032768/models.pt": {
+    "bytes": 1340901,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "ecfa289737f03b0fb47095f267aa131108daf1efb1dde5ad2f0aabf7549139a2"
+  },
+  "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-pre/weights/000000065536/models.pt": {
+    "bytes": 1340901,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "45ae46773adcbc7b23ef3c57643b52e845d5f251186a066580712345a001b424"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-post/weights/000000016384/models.pt": {
+    "bytes": 46527,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "9845cca547f8df56430f196cca10008d3bc7b00de9a989a3239c8af9078f98d6"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-post/weights/000000032768/models.pt": {
+    "bytes": 46527,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "679a6cd58b8e98f53c51311ed68d4d9631dc05b7aa594021aa0d595bd4b8feea"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-pre/weights/000000016384/models.pt": {
+    "bytes": 46527,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "1c3ac65431b9920ea209eb560161ac3bf37ff8fd3bef11188b45c8ad243952d8"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-pre/weights/000000032768/models.pt": {
+    "bytes": 46527,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "cf9a28cce4ba7c6f6727e5e5d1c15a7f51b610a049ded792d48acf1d45048c73"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-post/weights/000000016384/models.pt": {
+    "bytes": 2917,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "e934ffe758475deed9a848e1e5d64122681d238d356c1bbdbea06fb20d9d4afd"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-post/weights/000000032768/models.pt": {
+    "bytes": 2917,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "25adb4cf89d2f245ad1fcd64b0f139ea94155aa918281d3923bb45351896438c"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-pre/weights/000000016384/models.pt": {
+    "bytes": 2917,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "35eba3eb9c74903b572f3517bfe7f41eaf5f0ee6a72bc94caa93ac62f2240729"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-pre/weights/000000032768/models.pt": {
+    "bytes": 2917,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "d50eb94197d051ec6cf65f924438f119dee60372cde8140ce79e4579b348478e"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-post/weights/000000016384/models.pt": {
+    "bytes": 5056719,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "7c9f9bb99d7bc9ab22d77098a3a62dd441c65c0b406dffb304a2084ee23a4273"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-post/weights/000000032768/models.pt": {
+    "bytes": 5056719,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "1a84c7f874280966847f7e5441be931250440b10b6f9caba8e4db3cf03037093"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-pre/weights/000000016384/models.pt": {
+    "bytes": 5056719,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "0f9453a501d5286c5918a0aa37768254d77371588e010e774ff5d848047dfcde"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-pre/weights/000000032768/models.pt": {
+    "bytes": 5056719,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "bda6a05d8eab86ea1de90a2f219991f656b5487f385b9e360df7f0d934f67454"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-post/weights/000000016384/models.pt": {
+    "bytes": 5029,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "7304dc6e682c3132b55b341707a4d04a94e51c70ec15a6e09fb71bbbca379708"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-post/weights/000000032768/models.pt": {
+    "bytes": 5029,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "f987f9524ba332ae63a766a59ab5ea1228f52da708f1ce7966a12118c80f6fe0"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-pre/weights/000000016384/models.pt": {
+    "bytes": 5093,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "55b91051d97b299e6569dbeec99b2b35abde2b991708d0cf178ec606519ef6d0"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-pre/weights/000000032768/models.pt": {
+    "bytes": 5093,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "4e5de669fa7fb20e52e2e3649b152f5501251c259a90d0e367c6600265f27512"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-post/weights/000000016384/models.pt": {
+    "bytes": 5056719,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "07b3f5e689cb3cc0095eb45e93fdb99b18f30a098facf6f422e31d2321b22db7"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-post/weights/000000032768/models.pt": {
+    "bytes": 5056719,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "ee0047362c11ba1e54c908c635fc6a1fc97770c963153b497a2948d4c5ceb88f"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-pre/weights/000000016384/models.pt": {
+    "bytes": 5056719,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "723d49a642a176d4f4d85f347589511d4802e76d53368c4635b22ac574cd9a8b"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-pre/weights/000000032768/models.pt": {
+    "bytes": 5056719,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "cdb542601f8228ff88ed0cded20a82cf9d3a836f31804bebfc38c034d359cc4d"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-post/weights/000000016384/models.pt": {
+    "bytes": 2853,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "1dec994d22adc7c4e95ec537ba12ead284041068a4a12578fb6b7ba2aeb909a5"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-post/weights/000000032768/models.pt": {
+    "bytes": 2853,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "0da5b619628603bc9e86aa76d13bce66d4fde9a276913ec38615892394eaa79a"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-pre/weights/000000016384/models.pt": {
+    "bytes": 2853,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "59b89d09720ae3fc44759e3b0752414af66bfbb4b15e0d70645425d689f8f900"
+  },
+  "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-pre/weights/000000032768/models.pt": {
+    "bytes": 2853,
+    "copied_into_git": false,
+    "permanent_original_archive": true,
+    "sha256": "6ecdfe9bfd8af4a3ec00e0e58e02e42e7d053815a9655b4de8af7c70b6781d70"
+  }
+}

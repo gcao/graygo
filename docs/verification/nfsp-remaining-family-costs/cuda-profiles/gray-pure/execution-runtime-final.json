@@ -1,0 +1,36 @@
+{
+  "initial_runtime": {
+    "allocation_sha256": "a9f20d4cb233e9d0185834260e6b09391019ec080ca9934b88b82a6d18ede916",
+    "cuda_runtime": "13.0",
+    "cudnn_version": 91900,
+    "eager_frozen_actors": true,
+    "gpu_capability": [
+      8,
+      6
+    ],
+    "gpu_memory_bytes": 12489195520,
+    "gpu_name": "NVIDIA GeForce RTX 3080 Ti",
+    "gpu_query": "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2, NVIDIA GeForce RTX 3080 Ti, 580.126.16",
+    "native_library": null,
+    "new_formal_a2_records": 0,
+    "profiler_sha256": "472c2937072bc2d157b40f0998bf7a90e202f0151323b056fb1cb194c6d0d725",
+    "settings": {
+      "cublas_workspace": ":4096:8",
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "cudnn_tf32": false,
+      "deterministic_algorithms": true,
+      "device": "cuda:0",
+      "matmul_tf32": false,
+      "torch_threads": 1
+    },
+    "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+    "torch": "2.11.0+cu130",
+    "version": 1,
+    "wrapper_sha256": "86c8e422e3ec00f1da8b82776d6799eb55e11aa30cb73d6405c57b28a6deec54"
+  },
+  "measured_profile_entry_seconds": 273.4123345139669,
+  "peak_allocated_bytes": 206430208,
+  "peak_reserved_bytes": 228589568,
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df"
+}

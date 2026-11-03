@@ -1,0 +1,1074 @@
+{
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/branching-neural-post.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/branching-neural-post.json",
+    "sha256": "c19a4f5d3a92d0efb2d2e7e48b29f34135a67da5f553910137225b979f5e7137"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/branching-neural-post.stderr": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/branching-neural-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/branching-neural-post.stdout": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/branching-neural-post.stdout",
+    "sha256": "8194c981d15c19acb44f50e19e6e0b1258a41f7e7b95a905e18f9e0c8686d0d3"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/branching-neural-pre.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/branching-neural-pre.json",
+    "sha256": "4166c9846c6218c48e3e6951f995429fc9b4a35f25554613c5c7c354c61d74a6"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/branching-neural-pre.stderr": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/branching-neural-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/branching-neural-pre.stdout": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/branching-neural-pre.stdout",
+    "sha256": "8194c981d15c19acb44f50e19e6e0b1258a41f7e7b95a905e18f9e0c8686d0d3"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/branching-tabular-post.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/branching-tabular-post.json",
+    "sha256": "239468c9fea81350621717df248e41f7eb543d69a735b41e27f255f924196e1f"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/branching-tabular-post.stderr": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/branching-tabular-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/branching-tabular-post.stdout": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/branching-tabular-post.stdout",
+    "sha256": "75ec451ea7e30bba609c3bd9f8185700af967d231a2bdd119e2f6e228cbc1ad0"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/branching-tabular-pre.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/branching-tabular-pre.json",
+    "sha256": "422afc21d536c9bb22574478824b6e5f138924260d1d3717866df4ce4a435a1b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/branching-tabular-pre.stderr": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/branching-tabular-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/branching-tabular-pre.stdout": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/branching-tabular-pre.stdout",
+    "sha256": "75ec451ea7e30bba609c3bd9f8185700af967d231a2bdd119e2f6e228cbc1ad0"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/driver.log": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/driver.py": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/driver.py",
+    "sha256": "cbee65ab41769c9bb9478aec4e2ffc9d5eb302228329b7f26466ecc6a75edb25"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-mixed-neural-post.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-mixed-neural-post.json",
+    "sha256": "d273619269eab91ae1aeb0302f705347bd54a2ad1332cb8ca9cd8aa1b08c5066"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-mixed-neural-post.stderr": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-mixed-neural-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-mixed-neural-post.stdout": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-mixed-neural-post.stdout",
+    "sha256": "5bab437ed46625d4a7c7c2791ddb2ec4aa4070a0bf303350a09df04c34bfe382"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-mixed-neural-pre.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-mixed-neural-pre.json",
+    "sha256": "9bf5379567c3281a000d587d901d282c927d93b416a0e73e7ceda1f9fd7fa481"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-mixed-neural-pre.stderr": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-mixed-neural-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-mixed-neural-pre.stdout": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-mixed-neural-pre.stdout",
+    "sha256": "5bab437ed46625d4a7c7c2791ddb2ec4aa4070a0bf303350a09df04c34bfe382"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-mixed-tabular-post.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-mixed-tabular-post.json",
+    "sha256": "1e80fc987117e69ca1e8682067d765d2eee6bb89282a5f5dc8f9e4e2985caeaf"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-mixed-tabular-post.stderr": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-mixed-tabular-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-mixed-tabular-post.stdout": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-mixed-tabular-post.stdout",
+    "sha256": "c00572c717d846a32a75aaa7a345bf6fb7e4dd609b29afddbfd122368433b2d2"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-mixed-tabular-pre.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-mixed-tabular-pre.json",
+    "sha256": "11a523c26dcc45c04a83b0135abf43d25f9a9bcb1bc30530f5a4a5a7b4afc028"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-mixed-tabular-pre.stderr": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-mixed-tabular-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-mixed-tabular-pre.stdout": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-mixed-tabular-pre.stdout",
+    "sha256": "c00572c717d846a32a75aaa7a345bf6fb7e4dd609b29afddbfd122368433b2d2"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-pure-neural-post.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-pure-neural-post.json",
+    "sha256": "2376c03e9ea8594fc701206031335723bc6d464d95cf17fe3c96c2145c6d0bde"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-pure-neural-post.stderr": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-pure-neural-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-pure-neural-post.stdout": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-pure-neural-post.stdout",
+    "sha256": "8f876c9442a74d312bcd99eb0662127ff791fc9607f831a731090bfad351cd31"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-pure-neural-pre.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-pure-neural-pre.json",
+    "sha256": "27108bed4efc225d2c13c7f4e4bb95d1e6b4eabd31355e8741df93c645d3694b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-pure-neural-pre.stderr": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-pure-neural-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-pure-neural-pre.stdout": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-pure-neural-pre.stdout",
+    "sha256": "8f876c9442a74d312bcd99eb0662127ff791fc9607f831a731090bfad351cd31"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-pure-tabular-post.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-pure-tabular-post.json",
+    "sha256": "f67632ad0133d36ef049fbaf3a42fabceb84e068fd85e4a5a004877265f39d62"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-pure-tabular-post.stderr": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-pure-tabular-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-pure-tabular-post.stdout": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-pure-tabular-post.stdout",
+    "sha256": "2f09b5eb47b2f771b1dd7ffeea093b511dff63b56aebc725ed617ed40a096376"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-pure-tabular-pre.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-pure-tabular-pre.json",
+    "sha256": "6e368651bac7caa8924a1e9a60b6ac7e8197da7abd86d2adb37b653daeb3f9d4"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-pure-tabular-pre.stderr": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-pure-tabular-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/gray-pure-tabular-pre.stdout": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/gray-pure-tabular-pre.stdout",
+    "sha256": "2f09b5eb47b2f771b1dd7ffeea093b511dff63b56aebc725ed617ed40a096376"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-audits/job.json": {
+    "original": "runs/nfsp-remaining-family-profile-audit-4ec9eb4/job.json",
+    "sha256": "4d655fb26dff323fa69fe74b30a8409e14fb8b88aeb66d1a5b397e76b8336b7a"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/branching-neural.stderr": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/branching-neural.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/branching-neural.stdout": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/branching-neural.stdout",
+    "sha256": "967cae8de47d86ed7777d0dd18aec1f0506d184da29316f9e8fb0d4411dc4d95"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/branching-tabular.stderr": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/branching-tabular.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/branching-tabular.stdout": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/branching-tabular.stdout",
+    "sha256": "2ad24158ab7e476d12b64396cfea69b8d7a7499918e10dc0d5e25507fee61d45"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/driver.log": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/driver.py": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/driver.py",
+    "sha256": "48e29880ba069cbb99d182ef1d9502139677aab2f781f72191d265cbffb1e7ae"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/gray-mixed-neural.stderr": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/gray-mixed-neural.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/gray-mixed-neural.stdout": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/gray-mixed-neural.stdout",
+    "sha256": "c71b6acdb12ef6b46cc054060d9986147575183dbb13c6d9f4b17869cdb43895"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/gray-mixed-tabular.stderr": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/gray-mixed-tabular.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/gray-mixed-tabular.stdout": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/gray-mixed-tabular.stdout",
+    "sha256": "41f41ed394d7900944c1fc81cc383247334b81a24e36449904f710decca6d8ba"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/gray-pure-neural.stderr": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/gray-pure-neural.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/gray-pure-neural.stdout": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/gray-pure-neural.stdout",
+    "sha256": "14677acd7b4c2a58bd6e151a09dbe84f9e1eeb231b882081e06484407f702322"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/gray-pure-tabular.stderr": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/gray-pure-tabular.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/gray-pure-tabular.stdout": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/gray-pure-tabular.stdout",
+    "sha256": "bac3ae606988f65784f82f2b03787633742d08ca6fc8601cd5fd59a5fc7902d1"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-execution/job.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/job.json",
+    "sha256": "ca4d18b456e515751caa6a901d123182ca5c338e63d80ed6ce9fa0f36b51b0a8"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/budgets/neural-R4.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/budgets/neural-R4.json",
+    "sha256": "0b775699dcbcc21a08fdccb03e3877732cba2b0fe7f4f0c29f17f3fc9a228c3f"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-post/episodes.schema.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-post/result.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-post/result.json",
+    "sha256": "a2fa182eb9cc9a330438b91a75154795f1ed8c0fc3aaf32e74479320514ca321"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-post/run.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-post/run.json",
+    "sha256": "b2f1d724ab1ad98266e48a96fadfca907e1a87a436a63135a28f394aa03b981b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-post/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-post/weights/000000016384/manifest.json",
+    "sha256": "95d1289309f83a5e23bfb83661122ebf78d6f82396d148a01699d08a7ef902f9"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-post/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-post/weights/000000016384/manifest.sha256",
+    "sha256": "4a2cfe5538ed5613c9b46f95e2f1872fcc13971583eb1f91441eaf1a77e15b39"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-post/weights/000000032768/manifest.json",
+    "sha256": "e83e392a6a97b6da45f6d7a636edd0acbbba3dadddd0fe390600f8e9d05754b5"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "48da4070e6e88afd099112002b49225c2637c50b5875d9c2e988b6bb978a6aba"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-pre/episodes.schema.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-pre/result.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-pre/result.json",
+    "sha256": "b0e6033f4524efca32f8e5c42d3ed769d7cd14f8ac6a82e368d0f351103bdad8"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-pre/run.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-pre/run.json",
+    "sha256": "da0e1d7f597fd9e8fe4e07d0bbd513e4f879d17c212ef40b567e713a12b7ccc7"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-pre/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-pre/weights/000000016384/manifest.json",
+    "sha256": "c237f21c10a8b829c16cfbd5fe99afa975c886adf274cefaacde581ed1e0a02e"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-pre/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-pre/weights/000000016384/manifest.sha256",
+    "sha256": "0eff13c20857b957b7a08fdc21021eca520c6f8bed29fe64eeae21d8ea1516a9"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "163d98dd1b8f40567b9bdafc31b68bb180ff587df5eea6d9882c658ea8bbd649"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/neural-R4-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/neural-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "fbe28f820e20d71f6a775d91ce5c105c52cad675ca31ae48d09c5e2368bc85dd"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/plan.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/plan.json",
+    "sha256": "4bab596a777bb60323b5406811301f45c4e21f8abeef82b8a45a33cb0af0f0d9"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/profile.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/profile.json",
+    "sha256": "e72baa1e30b411fdd09bf08ed73ffcf40ddfdd1723139c50f50f001baa02880f"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/neural/state.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/neural/state.json",
+    "sha256": "a2c409e5f43f7fe66f7add98c0a659a977b11b1b84b713edadce2aac32170699"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/budgets/tabular-R4.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/budgets/tabular-R4.json",
+    "sha256": "2baf9d67ffa2eb5d79ba6bea8c1d7eb0c87ef8b9f15fc5cefdbb7740a48cb6d1"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/plan.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/plan.json",
+    "sha256": "e42ec007887693661bba4b827a93d1dee86e34530949c78a8e9baff1b11088db"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/profile.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/profile.json",
+    "sha256": "46f1bb4c6a7de9178b3712891d534f9fdbb7c22fad114d789e9f4c4e8647294a"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/state.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/state.json",
+    "sha256": "183e849fac3ec5e58084e7af86ed8cb0e1d064a2e81e7067e0b64d2afcd8eb69"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-post/episodes.schema.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-post/result.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-post/result.json",
+    "sha256": "a389378c5a87e6145d172b9783fd274cde1371a4a8177ebebd527d1b636f7c20"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-post/run.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-post/run.json",
+    "sha256": "25ee532dc9a8e9d13fc154445c9c00f91b8151ab9fe5081be5ed65edc4324199"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-post/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-post/weights/000000016384/manifest.json",
+    "sha256": "807d1cf24168ea7c3616425ba1c32fa8486b2c2db87d2a217050932a4ebfbfa2"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-post/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-post/weights/000000016384/manifest.sha256",
+    "sha256": "4475bf9623be5f66d88bee2eeaf277d250914b472f194f045535be76c5c2318e"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-post/weights/000000032768/manifest.json",
+    "sha256": "22bb02c2a6eb8ef23701a7d40c9e40943e6873405dc32105cd32b9afb01aeeba"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "42e849ae9ab80bc8d7df77a1f0d57cd68571124911820c7fab1e2e9f1b116db6"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-pre/episodes.schema.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-pre/result.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-pre/result.json",
+    "sha256": "493f5d36cb4725357053192164ec95d2dbedc4c62700836b62a687818ac5a1e0"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-pre/run.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-pre/run.json",
+    "sha256": "5d70e9654757e812ad31c2daf43edb9c33190ff54bbf2e12a4ca4a948732a821"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-pre/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-pre/weights/000000016384/manifest.json",
+    "sha256": "188f107b99df14cb06f3d05c73d570d645970e1e9debe8f9e032083cadad44dc"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-pre/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-pre/weights/000000016384/manifest.sha256",
+    "sha256": "c45b55cf9ba19e5014632448e223b7896a15693a825405d0b2358cbc993fce5e"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "507e4b61d4acf85e2cd3c73f562321c60fc10d0ba2dab49d2740f68c520d2607"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/branching/tabular/tabular-R4-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/branching/tabular/tabular-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "c5ece3a3843b9248f19f477a6002f42c3f207389e4ad00a6e8bf5d312615e079"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/budgets/neural-R4.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/budgets/neural-R4.json",
+    "sha256": "541cd25d4bee400f0c8931a281a03ba167aa9da72ee3ba0f17cfa55992eef39e"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-post/episodes.schema.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-post/result.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-post/result.json",
+    "sha256": "bc377c43aa78451960ca6396d9e799147cb9e65bf6bdbe0017f42fbdbbc71e6d"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-post/run.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-post/run.json",
+    "sha256": "e6d36b91db5f65850636f20866af073c9cbedcb0cd084eebefeb9c8d31899081"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-post/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-post/weights/000000016384/manifest.json",
+    "sha256": "cae9231e9910b7c085e41b3545534572fa2127fb772a05c620344736d5da12a3"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-post/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-post/weights/000000016384/manifest.sha256",
+    "sha256": "449e83d1c23bc1357e7da5cf55ebb4f271b9eb2d02770f03b84a0e6f6ecee95c"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-post/weights/000000032768/manifest.json",
+    "sha256": "7cc62335d284b0afe71ad59269c527a590140c61ddc00c9e3accf40b35bc2ea6"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "87605d15dbeb93d5d5fc06bc6bb77b3aa2332b9714f6953d37ba9a1608eded3e"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-pre/episodes.schema.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-pre/result.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-pre/result.json",
+    "sha256": "bb9883f35412ebc8baa4bc698cdf198339a46d3b734f661b48ae649d516d9b39"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-pre/run.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-pre/run.json",
+    "sha256": "566826bfe9825909f19f8833f87cb80b21415555b80dda2ef6214b1bc82d1d1a"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-pre/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-pre/weights/000000016384/manifest.json",
+    "sha256": "7179c44d85d6667664c925438024256a566e666747206d6c318400fbacb3bc8f"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-pre/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-pre/weights/000000016384/manifest.sha256",
+    "sha256": "bff5da692856db9792278a5958208432122782f87f4217bb3559824949f9b1f0"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "2203d88a74834af1b5de850554c9b2371ba99013f7add883aa5a5fdbfc47796e"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/neural-R4-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "36c5b035b0d63b28fac162e649cc0b8c3fdc01b0e1c29ee072e0906793c3b74b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/plan.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/plan.json",
+    "sha256": "bd46d9b69f68002fd9e0d085f946dfb6c0b9ddbfe48247b932054012b4dca866"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/profile.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/profile.json",
+    "sha256": "0d1a41a9b12afa41a99e89dd2a7596f7d3d6f5dc5a7d66e7dd0cb25549c06c35"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/neural/state.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/state.json",
+    "sha256": "512f0868f0fe71df607ee426e10144b08524334af3f37158a81ccac503c5193a"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/budgets/tabular-R4.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/budgets/tabular-R4.json",
+    "sha256": "7c75ae3d66eced2f1280a83a4fa51b2cd5cb30fdfc3f822766e7d616e9165883"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/plan.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/plan.json",
+    "sha256": "a68d153b408fe5c3d8280181dc445029585d4c89e60c02d1e17539943a2b676b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/profile.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/profile.json",
+    "sha256": "b0f28a0d0b24f2ce982b83a0ab8720a3c999b048581f89664f0943f71c842703"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/state.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/state.json",
+    "sha256": "99da4be107240cd696aa33c010d8718301bd1a0fb4aecab94dbed2b17b39a632"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-post/episodes.schema.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-post/result.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-post/result.json",
+    "sha256": "10e57b51da0c931dee13af3c54a44d1d04d5a264fe132af9b12dfeae6c7beb0f"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-post/run.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-post/run.json",
+    "sha256": "c45882e715d8dd072888c2e0c80f2f814d57c735a4ce99a9e8cedcf7aca32824"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-post/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-post/weights/000000016384/manifest.json",
+    "sha256": "a19ec4a31623fb5f59e17278cd9253876b4a39442591969f42bf050770db45ba"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-post/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-post/weights/000000016384/manifest.sha256",
+    "sha256": "5c4cee581e002868109ab7e17043e7a585deed99a2fe4777c3ba083cb883ba99"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-post/weights/000000032768/manifest.json",
+    "sha256": "7b06923ad8fe4cf786b4c712fbb9604fdaaf2db349969f5d69e1ee8dca28f01d"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "44922a2e57eac46587ae11a4b1510610a36c10fd33b4f6622283bc258598bf67"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-pre/episodes.schema.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-pre/result.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-pre/result.json",
+    "sha256": "fa90fad1f151feae7a970641c6e3bb60209fff7d758fcf5a91463b4f8fff874a"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-pre/run.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-pre/run.json",
+    "sha256": "36af7881c0649ad75fc64571ab9c3fa06b8ad73a771270bcc6275a3f0f0f45d3"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-pre/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-pre/weights/000000016384/manifest.json",
+    "sha256": "854b709569c9459e3e11b904c592723e58f60f66897853ef4d3c989b385d3535"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-pre/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-pre/weights/000000016384/manifest.sha256",
+    "sha256": "34db2ef66582fb3b54442cfeac58e083d0ce8cefee3a5eee7e71b26da1747c65"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "bfc2bc5aaa3314a7efe85cce187de11d478c1a6d3eaae0ee239e952eda108b41"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-mixed/tabular/tabular-R4-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/tabular/tabular-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "5be854ed09ce215dec41456b05ae85857e6ad16053073583f5ea577deeed49b1"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/budgets/neural-R4.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/budgets/neural-R4.json",
+    "sha256": "5907c485c8036da26772efc34a5c6d006edc2bfa4e457b660786772493f570e7"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-post/episodes.schema.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-post/result.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-post/result.json",
+    "sha256": "43553d0b500714e2f57a41ff0f3b8a7c023c230db3fa4c4a26522bc1b30dcb7b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-post/run.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-post/run.json",
+    "sha256": "4f704b939143617ed374305514b8912cae4d4180c60e1634767bb505ce271316"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-post/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-post/weights/000000016384/manifest.json",
+    "sha256": "7792d2e283ea3fe255f9fec7a1b3eb28e20db66564aef51b48562fd6848a9e0b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-post/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-post/weights/000000016384/manifest.sha256",
+    "sha256": "e96ce2b72678b1b4a05d8dec2a4619332d99a91c909f596bce105ac97e12ceda"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-post/weights/000000032768/manifest.json",
+    "sha256": "3cbf3f7a609016d2a098614d5c9d29dc3e774b99a1438cf738f5f674196c9302"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "495adee425e8fab07f00732a10173cd700c96b32d8e4504c440ebfddb8088ef2"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-pre/episodes.schema.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-pre/result.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-pre/result.json",
+    "sha256": "1d9a16b48978fbefa7502a3391270bfee823770afa50aaa73449108a97505600"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-pre/run.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-pre/run.json",
+    "sha256": "4d2bee613c9cb5cd9a87c72178d65882212a00ae112f12da25771aff6e6f3a2e"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-pre/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-pre/weights/000000016384/manifest.json",
+    "sha256": "b28177c0fc31cbc86bf5fd7fbfdd63de47a5b547c2ba38721d62276f4991440c"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-pre/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-pre/weights/000000016384/manifest.sha256",
+    "sha256": "c1e1cd9522186ee8eef890cc26022be6b2fe250e858aee158b46420238f1c9fd"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "2bcca1082887c9e26ea6680a0ae6537b1e2acf665fffa5e6b87c71eb1157d549"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/neural-R4-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "a34a662db43245894c37d2e27d4aec0234d34900f917b485f1be4e9de8b3b64b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/plan.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/plan.json",
+    "sha256": "4de6fa52bdd96715bbb1b968a37d92a1ff529512d27d33ac52664f61569e5d6b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/profile.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/profile.json",
+    "sha256": "5d07c82a928f59673d8c679e8e1d90003d2d0a39cea1a88507e03f2fdddf5576"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/neural/state.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/state.json",
+    "sha256": "7df61ede7b79a19d241ea08e6bad24850384488def3cdcb82a37fb6694faf412"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/budgets/tabular-R4.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/budgets/tabular-R4.json",
+    "sha256": "ecafcb77800a1f73091d0adad3beb249e9827bdd6769f85cd022c19e22d06fc4"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/plan.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/plan.json",
+    "sha256": "10c1f0ca7d7b33aef8ecd249571737709fcb04efe0d47a1b59622524e236d6d6"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/profile.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/profile.json",
+    "sha256": "9abb9e40463d01c3307b5b2ab75fc0bedc4d69d7613803f12525fa54be8be28f"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/state.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/state.json",
+    "sha256": "80b425c5080e78555f97b599b431fa86be6442c793dd3143c046070e41be66ae"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-post/episodes.schema.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-post/result.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-post/result.json",
+    "sha256": "4aa2e7bae8bdb40c3f818fa4d6d7767e79f0ed776d2c7f54c8d1ef30f614eedd"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-post/run.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-post/run.json",
+    "sha256": "51d775ebd5ae3b95175a9f771be576f96a86cf84c7bc91c5f95471a8ff4642fa"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-post/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-post/weights/000000016384/manifest.json",
+    "sha256": "5f303ae8bc43aa6a0de3a2cd1a12777913785f78d3f8676bc0c42fe98f44ad14"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-post/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-post/weights/000000016384/manifest.sha256",
+    "sha256": "eb576a7afa233320151c4a2d19d79f41304c3dee174bb0a6dc1f22c6a77edfc0"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-post/weights/000000032768/manifest.json",
+    "sha256": "3fd6509154034c35a60f2a5169c7ebb31775f242110149fe84f18fed15592f0f"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "c750d967a2c299cb694ce0debdcd6b66c96a39e50adbdce4886003b668ddced7"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-pre/episodes.schema.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-pre/result.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-pre/result.json",
+    "sha256": "79b8b97a79e79b7968d27a4f0f7ee0596d171df1dfcae52e66f0cf332ea087d9"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-pre/run.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-pre/run.json",
+    "sha256": "b6983fd828ea9aa8e261649967e0e12a1575890f9e3ff1b1b18f6663fe57ee19"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-pre/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-pre/weights/000000016384/manifest.json",
+    "sha256": "922fcf8687028d38667183f5e56e1de75181492b5459adffb0940ff1ff115901"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-pre/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-pre/weights/000000016384/manifest.sha256",
+    "sha256": "305dd0e631a21db9d947615503e7a57bc2da31561be2bc612d69fba50e1ab0aa"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "d84ac5330e4d23e37a6e0ad674712c41d2940cebc7d5fbc39aa43be2e14a6185"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cpu-profiles/gray-pure/tabular/tabular-R4-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/tabular/tabular-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "eee2156046a49d455ee50cf50699c39349cc5f6e466f11c18f7da6858b7d5b3b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-execution/driver.log": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-execution/driver.py": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/driver.py",
+    "sha256": "ac1407d7ca3544204d5f6b560db0091374e659725d8579a441f0be9af5b4449b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-execution/gray-mixed.stderr": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/gray-mixed.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-execution/gray-mixed.stdout": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/gray-mixed.stdout",
+    "sha256": "372528d66b8a618d73da25077c08d627225b82cb7251150e2729fed5ce19e27f"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-execution/gray-pure.stderr": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/gray-pure.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-execution/gray-pure.stdout": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/gray-pure.stdout",
+    "sha256": "6d5f13939f12b5bb9b5591e2dfe2b92856f75e996baf1688dfe3085ef32373fd"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-execution/job.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/job.json",
+    "sha256": "39f909add1a14d2364d4955306f1f3c29d9bf13741ac5dd6e0c336703e263379"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/cuda-gray-mixed-post.stderr": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/cuda-gray-mixed-post.stderr",
+    "sha256": "add57cb614fee4b876eb7422488a081b0cd0189bdc33ad1fd6074c8d881598d6"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/cuda-gray-mixed-post.stdout": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/cuda-gray-mixed-post.stdout",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/cuda-gray-mixed-pre.stderr": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/cuda-gray-mixed-pre.stderr",
+    "sha256": "4301b88d234504e0993016dd3ed0d2b4075cf1f2e3a8b02b12269315a7f950b4"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/cuda-gray-mixed-pre.stdout": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/cuda-gray-mixed-pre.stdout",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/cuda-gray-pure-post.stderr": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/cuda-gray-pure-post.stderr",
+    "sha256": "7e585881b6133ded089be4d48e9a78081834a9b181da9271366b0a90619ee2f3"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/cuda-gray-pure-post.stdout": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/cuda-gray-pure-post.stdout",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/cuda-gray-pure-pre.stderr": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/cuda-gray-pure-pre.stderr",
+    "sha256": "8d1cd9a8287a96558bfbb0cd7d20255cca77965ded1e28831502c4e27fd11387"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/cuda-gray-pure-pre.stdout": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/cuda-gray-pure-pre.stdout",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/driver.log": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/driver.py": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/driver.py",
+    "sha256": "dc48123da680dd31ae6bfb19e9eb52170bed671d450d6cc22d5bb26bd27eb18f"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/job.json": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/job.json",
+    "sha256": "9bd04cb0535a794224968618a6c42d89d6652face42e0c6ec8ab259513b0406f"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/legacy-delayed-table-R1-post.json": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/legacy-delayed-table-R1-post.json",
+    "sha256": "a7dd11c551b1b619b5c46e86b3e99f8b5c9f1a119e3fa3d0b2f7d1cda0c8ff19"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/legacy-delayed-table-R1-post.stderr": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/legacy-delayed-table-R1-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/legacy-delayed-table-R1-post.stdout": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/legacy-delayed-table-R1-post.stdout",
+    "sha256": "a9e1ca54be856dbe04e4d0f39c9feac9f0754b09f9ef4a114cd216c815729a1c"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/legacy-delayed-table-R1-pre.json": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/legacy-delayed-table-R1-pre.json",
+    "sha256": "3372029a0b73da6375c754f43ec7458899119497307ab0aff20e127c1e726a9c"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/legacy-delayed-table-R1-pre.stderr": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/legacy-delayed-table-R1-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/legacy-delayed-table-R1-pre.stdout": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/legacy-delayed-table-R1-pre.stdout",
+    "sha256": "a9e1ca54be856dbe04e4d0f39c9feac9f0754b09f9ef4a114cd216c815729a1c"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/legacy-delayed-table-R4-post.json": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/legacy-delayed-table-R4-post.json",
+    "sha256": "1af66224b60de6aca8f8765bb03c2fab174016b33ca8272f1c5965f7b70ffea2"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/legacy-delayed-table-R4-post.stderr": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/legacy-delayed-table-R4-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/legacy-delayed-table-R4-post.stdout": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/legacy-delayed-table-R4-post.stdout",
+    "sha256": "a9e1ca54be856dbe04e4d0f39c9feac9f0754b09f9ef4a114cd216c815729a1c"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/legacy-delayed-table-R4-pre.json": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/legacy-delayed-table-R4-pre.json",
+    "sha256": "c03567a093f5af4b5e04620fefa101e8d348e394d8f5392be79b46e668f192aa"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/legacy-delayed-table-R4-pre.stderr": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/legacy-delayed-table-R4-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-legacy-audits/legacy-delayed-table-R4-pre.stdout": {
+    "original": "runs/nfsp-cuda-legacy-profile-audit-a003824/legacy-delayed-table-R4-pre.stdout",
+    "sha256": "a9e1ca54be856dbe04e4d0f39c9feac9f0754b09f9ef4a114cd216c815729a1c"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/budgets/neural-R4.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/budgets/neural-R4.json",
+    "sha256": "9edc21a5ac1e9cfba8b4bda4bc21ef8d602f6981cdc0ac4cccec1814ff809e09"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/execution-runtime-final.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/execution-runtime-final.json",
+    "sha256": "56cdc3978244c04437f04684671e3d9fa4df3c4d061fffaff05d7dd1eb8e0178"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/execution-runtime.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/execution-runtime.json",
+    "sha256": "591d7d7da4c38c6104ce5a6d758f06971e7bc7e968a95d95a609444d272dcc44"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-post/episodes.schema.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-post/result.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-post/result.json",
+    "sha256": "d5edcbd061e158ef5104c887cf9ddb8949e31337b223bf2c9789d52c7ededeb9"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-post/run.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-post/run.json",
+    "sha256": "62347249de5bf5f05f6ec353439b7bd81eb3585333ecbfae6f12f14346ec90dc"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-post/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-post/weights/000000016384/manifest.json",
+    "sha256": "35db2c314b6b4f743ec3da3806d0a24f55df79084aade65f708b0f8aa9096009"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-post/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-post/weights/000000016384/manifest.sha256",
+    "sha256": "093e936202364871d5e5817d55151452a57a5b499e62d31a2b4fa78f0f2f18b2"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-post/weights/000000032768/manifest.json",
+    "sha256": "12d37316c31a9accbf01410fdd12843957acf559d5b79c928cc43543ce82ed8b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "97927d6387aeab6f0182caaeeaa81bc24f9d49a5623dd8c3885b6eeba523bde1"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-pre/episodes.schema.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-pre/result.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-pre/result.json",
+    "sha256": "1e84c5115fc9e15f2a6bebb9c03eb2bb9179819b5bc8d265b528b22fba8b2362"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-pre/run.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-pre/run.json",
+    "sha256": "4d5113c2771370be0b6ef78adff6ded64c19b4bed2d0135a190edacc58225a72"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-pre/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-pre/weights/000000016384/manifest.json",
+    "sha256": "10b43e8aa1ae546a2e4357dbad670f4921b5481b71895b3d7368bd4ed26d881f"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-pre/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-pre/weights/000000016384/manifest.sha256",
+    "sha256": "c95bddac0a9c3850f201e6fbd76b047afb0eb05bc59a60e9f9c1d0ef5ae195de"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "6bcee9deb6fb3618baec56cdec50f9e7374846627fea021256cb8cf7ab3628f8"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/neural-R4-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/neural-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "ca5de5d647cd8588ab97bfb92b50419561a4c180457c89fcec6aa7dfe762aa55"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/plan.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/plan.json",
+    "sha256": "33aa751495ff2953d424aacfd32f9c9bbc3e3563a2e218789d5f5846ab7285e4"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/profile.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/profile.json",
+    "sha256": "2cb3bdcbced298c29eaac4e68aa95e950137ad286307a87e99bfcb2d3f23e0d8"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-mixed/state.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-mixed/state.json",
+    "sha256": "29be70340ec403b14fcc547b3217db493ef3ff0e3de707c751c9ca50e311a81a"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/budgets/neural-R4.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/budgets/neural-R4.json",
+    "sha256": "24e1802147b0fb091716cb274ec9794055ba9b2053e16294805823e0e2a01e83"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/execution-runtime-final.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/execution-runtime-final.json",
+    "sha256": "56190323faa8f182ba111e0db7f4b8b8f09c03cb823b83576aba09f27b907f90"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/execution-runtime.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/execution-runtime.json",
+    "sha256": "591d7d7da4c38c6104ce5a6d758f06971e7bc7e968a95d95a609444d272dcc44"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-post/episodes.schema.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-post/result.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-post/result.json",
+    "sha256": "8833ce1909f08dad4c1fe31dd3b3bc77b5f026a9bb03c4e202bb125679c2cee4"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-post/run.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-post/run.json",
+    "sha256": "e72fd8dc2101f024c07846c871d4aaf729a73af9253a274c78a4de53e59fa6f1"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-post/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-post/weights/000000016384/manifest.json",
+    "sha256": "9ea80254c10aa1815718a0101957909b407fd0f45d5ad6160d3a958ee2ea032e"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-post/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-post/weights/000000016384/manifest.sha256",
+    "sha256": "0de3b5084a7f812683081440d552fecfe8a05c2ecc556a1ec7e7a7ab45bc18ee"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-post/weights/000000032768/manifest.json",
+    "sha256": "41d2d975bcc3de867b48813cdcc59fbf4d40d0dfe054acb1fd35015609f19cc5"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "d2b71d2f7c500918f57e2f2d622da6c598f990e7ba6512ed616a7a88f343ca08"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-pre/episodes.schema.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-pre/result.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-pre/result.json",
+    "sha256": "519d0ec927543810a5f0eeeaa13e14ec5631a6844eb722842769baffec5bf9aa"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-pre/run.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-pre/run.json",
+    "sha256": "de75b03e285fa8b9f72d86cad1fa4ec1f2ed892f21f5c7d36d45120905de4081"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-pre/weights/000000016384/manifest.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-pre/weights/000000016384/manifest.json",
+    "sha256": "4d753a8c03154b5e69f2adf66b45814dc47ffdad08a99be3f5ccc61f68c14f82"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-pre/weights/000000016384/manifest.sha256": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-pre/weights/000000016384/manifest.sha256",
+    "sha256": "0169e3e2cbdafc6aeb4dd9348e2b7ca6b92fae4c4a538897e11429c3f41b8f3d"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "43bd7fef57689ec04e636dd42960d780ffb1db2c86c4e89605737cc6c9e7c3ce"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/neural-R4-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/neural-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "fbc0f12a52c791e5829afe75517b71d83822f1ceef3c4f06a230fe7a1c303a37"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/plan.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/plan.json",
+    "sha256": "0d117701b856d69159142c2f250f217a1ef213f85f37c6206db77c2f358c77c1"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/profile.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/profile.json",
+    "sha256": "975b06f81a54910dd47c2db465bafd9c431b5c61a6fc215d3392ae7406cf5602"
+  },
+  "docs/verification/nfsp-remaining-family-costs/cuda-profiles/gray-pure/state.json": {
+    "original": "runs/nfsp-bounded-cuda-price-profiles-v1/profiles/gray-pure/state.json",
+    "sha256": "77e4772a0c135636616cf6ad336ba97abacf91dc0dca51bd50b38115a10db36c"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/budgets/tabular-R1.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/budgets/tabular-R1.json",
+    "sha256": "a149482e1b5c5afdd8ed99631fd351b0813c955026cfd9ca4642d8296cc04130"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/plan.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/plan.json",
+    "sha256": "0d21f7ba993067cea283697de3efb0c6073cb693777289392c2e738df8d675dc"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/profile.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/profile.json",
+    "sha256": "4e6dfd61e012885c6eac6177c7568d746b3ad314df3e395a0b05626b61d02d77"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/state.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/state.json",
+    "sha256": "4a4229af706b8e34b1a24e04a885378d80bd014348337cc33aba4cd11409d2aa"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-post/episodes.schema.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-post/result.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-post/result.json",
+    "sha256": "a6c4658bf5718e4b7d3b4f26fb0ffc69b61451d567ad8be8675be1b42006c45b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-post/run.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-post/run.json",
+    "sha256": "5e280ac401e949587979d0982b11566ea81972861a2bd9949a65a6ed044acaa1"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-post/weights/000000032768/manifest.json",
+    "sha256": "ccb49e06bb7b97701e4b299251a295d53b1bfd91681127b138210fa064d9e89e"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-post/weights/000000032768/manifest.sha256",
+    "sha256": "0d2c0c4f1ee21823916fd4101755845d0f7ec9eaa6f4a5b3fa8f8def07426b41"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-post/weights/000000065536/manifest.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-post/weights/000000065536/manifest.json",
+    "sha256": "1aae565900000be76642e5decc5c4f1cd116b480888c10be74a00e52cffced33"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-post/weights/000000065536/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-post/weights/000000065536/manifest.sha256",
+    "sha256": "c7c64d597455e2a3cca02d8a0c4e6dc8d2300c50e05f94363d84e62094ab62a4"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-pre/episodes.schema.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-pre/result.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-pre/result.json",
+    "sha256": "37cbdaa330af9cbc3e76d11751a03c12cdde97360a6069a8c453a71920976435"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-pre/run.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-pre/run.json",
+    "sha256": "616d282a9ae6ce2f0378cf80121b90b77cd7f6d0c9671763507d0598c2445e71"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-pre/weights/000000032768/manifest.json",
+    "sha256": "52a7158f39d1120800aca52dd8c84aeae90244610ffca5f823a001b98848a178"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-pre/weights/000000032768/manifest.sha256",
+    "sha256": "5428b74e99ba6ec3c7c035a2209b21a1731772931e8ff8e2c8b6f1a9905d216a"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-pre/weights/000000065536/manifest.json": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-pre/weights/000000065536/manifest.json",
+    "sha256": "be228432124afc0c8176fe8da4f77b382b80c50de566af5328afce7301d57ca5"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R1/tabular-R1-pre/weights/000000065536/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R1-profiles-ca45a53/tabular-R1-pre/weights/000000065536/manifest.sha256",
+    "sha256": "8f966861a387c3a483450a4e54f30cc5e75d12cce1b49de12bc0a42217cd12c7"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/budgets/tabular-R4.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/budgets/tabular-R4.json",
+    "sha256": "9dd8beb818bce19053ac0c7a83e45177dea0f2b2564c91826ac2b1637f3b410c"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/plan.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/plan.json",
+    "sha256": "a20dec02cea6eb45d28deb01b968718cf163f28f4ee6a9020a4b1c714a22e46a"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/profile.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/profile.json",
+    "sha256": "cbb7a73d7a03b289f4d31b8b2695dc16e9d8a7711d60b94dffb592ee525f3a8f"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/state.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/state.json",
+    "sha256": "a267035bbb5974ee54a11e2ae50a2f60082e00c6d535bc4a3ddefd4c88ffbca8"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-post/episodes.schema.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-post/result.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-post/result.json",
+    "sha256": "0d28b507ba91fe702ddd6830fc6b37f55ab993b6ccc86e08f3f09d4b0aaa551b"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-post/run.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-post/run.json",
+    "sha256": "b41dbe87415f06b32f50d885d2b1e900510c8a9c44c292192c225ff18d2127f9"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-post/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-post/weights/000000032768/manifest.json",
+    "sha256": "40022bc523e2fb9b79970a2bd6f8a2c86b46ac8093183fe69faee6634c75dd52"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-post/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "afb7fdad540dc393e80bb036e4081ca75f60fbf2b9b64c1f6c5c3bb8373e0453"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-post/weights/000000065536/manifest.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-post/weights/000000065536/manifest.json",
+    "sha256": "21068607f1418f7a803866540fca56c2366eb94db7c2e864c8889818d8bbbfdb"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-post/weights/000000065536/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-post/weights/000000065536/manifest.sha256",
+    "sha256": "a593afbacbf5a5f6032d0c6e25691304a2d00418e6829a3ac2f281db3dd43a0a"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-pre/episodes.schema.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-pre/result.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-pre/result.json",
+    "sha256": "579dedd7c3c16cd593818f8dfeea413ed01fca3395eff0f86d3d4f1ed354083a"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-pre/run.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-pre/run.json",
+    "sha256": "b411a26a0c92d271eb5058981262b8d636f9fa73ef80c82e2d8ed1c19688e8f4"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-pre/weights/000000032768/manifest.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "38e8bb8203c26e06b8da1884fe1f4e6e55f92c2663678ffdbf76a23554406d02"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-pre/weights/000000032768/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "05ea704b7e1bb166a737538105b5877917081c67a549003cf18ae5d2defa10f5"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-pre/weights/000000065536/manifest.json": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-pre/weights/000000065536/manifest.json",
+    "sha256": "f4ac4b9d597a5b522396acae9fd3645e4049ff3df66542e8338617e7cbedc7a5"
+  },
+  "docs/verification/nfsp-remaining-family-costs/legacy-delayed-control-profiles/R4/tabular-R4-pre/weights/000000065536/manifest.sha256": {
+    "original": "runs/nfsp-eligibility-R4-profiles-ca45a53/tabular-R4-pre/weights/000000065536/manifest.sha256",
+    "sha256": "ad5c49c8a8dcdbb292dc2eb32beae149ab830404145d429091b10fd25cc03fb8"
+  }
+}

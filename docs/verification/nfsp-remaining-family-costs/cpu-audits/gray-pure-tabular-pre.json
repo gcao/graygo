@@ -1,0 +1,286 @@
+{
+  "a2_complete": false,
+  "accepted_reservoir_changes": 0,
+  "active_episode_steps": 0,
+  "active_frozen_commitments_reconstructed": 0,
+  "active_frozen_greedy_labels_verified": 0,
+  "active_private_rng_draws_reconstructed": 0,
+  "archive_manifests_sha256": {
+    "16384": "922fcf8687028d38667183f5e56e1de75181492b5459adffb0940ff1ff115901",
+    "32768": "d84ac5330e4d23e37a6e0ad674712c41d2940cebc7d5fbc39aa43be2e14a6185"
+  },
+  "audit_semantics": "graygo/independent-bounded-task-audit/1",
+  "audit_watchdog_seconds": 180,
+  "auditor_sha256": "36ba58de321d53958dd304492e87c605b81c11cfbd7b0c859a0dedf8f7048a11",
+  "average_readiness": "not_ready",
+  "checkpoint_manifest_sha256": "52a7f43d6586e67b11b755b0eee8b840b5b7a63ccb06698515af663af7020cb8",
+  "completed_original_log_hashes_reconstructed": false,
+  "eligibility_version": 2,
+  "eligible_labels": 0,
+  "episode_audit_sha256": "645459798661cc1f06c39241a77bde988472c1354fede0a0098020b7cbc85a58",
+  "exact_game_certificate": {
+    "matrix_semantics": "complete simultaneous legal-action matrices with exact solved continuation values; every nonterminal public state has equal rational primal/dual security bounds",
+    "root_state_indices": [
+      0
+    ],
+    "states": [
+      {
+        "black_actions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "column_strategy": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "continuation_matrix": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "0"
+          ]
+        ],
+        "row_strategy": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "security_lower": "0",
+        "security_upper": "0",
+        "state": {
+          "board": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forbidden_black": [],
+          "forbidden_white": [],
+          "history": [],
+          "pass_streak": 0,
+          "rounds_played": 0,
+          "rule_version": "graygo/1",
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 1,
+            "size": 3
+          }
+        },
+        "state_index": 0,
+        "value": "0",
+        "white_actions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    ],
+    "version": "graygo/rational-bounded-game-dp/1"
+  },
+  "exact_game_certificate_sha256": "00898933f754cbbadf1ab3a69715c47b3c15e91c23b72de35a880e8c4a05eb64",
+  "excluded_passive_root_records": 0,
+  "formal_case_passed": false,
+  "formal_protocol": false,
+  "format_version": 1,
+  "learner": "tabular",
+  "measured_audit_entry_wall_seconds": 8.981667048064992,
+  "ordinary_records": 32768,
+  "physical_complete_games": 16384,
+  "published_tabular_exact_mean_states": 0,
+  "published_tabular_exact_root_mean_states": 0,
+  "published_tabular_mean_interval_checked": false,
+  "published_tabular_mean_verified": false,
+  "published_tabular_uncertain_mean_states": 0,
+  "published_tabular_uncertain_tokens": [],
+  "q_credit_passed": false,
+  "q_eligible_records": 32768,
+  "q_loss_targets": 116736,
+  "q_updates": 228,
+  "rational_root_values": [
+    "0"
+  ],
+  "rational_value_states_solved": 101,
+  "records": 32768,
+  "result_sha256": "79b8b97a79e79b7968d27a4f0f7ee0596d171df1dfcae52e66f0cf332ea087d9",
+  "retained_complete_action_paths_reconstructed": 16384,
+  "retained_executed_records_checked": 32768,
+  "retained_joint_transition_records_checked": 32768,
+  "retained_label_records_checked": 0,
+  "retained_unpaired_transition_records_checked": 0,
+  "scheduled_evaluations": [
+    {
+      "average_ready": false,
+      "max_average_gap": 0.1,
+      "max_early_error": 0.9675212762134485,
+      "max_greedy_gap": 0.0,
+      "records": 16384
+    },
+    {
+      "average_ready": false,
+      "max_average_gap": 0.1,
+      "max_early_error": 0.9478411442132699,
+      "max_greedy_gap": 0.0,
+      "records": 32768
+    }
+  ],
+  "scope": "independent rational game values, complete-strategy fixed-policy responses and prefix-conditioned native values; exact header/RNG/eligibility/Algorithm-R clocks and retained legal joint transitions. Discarded historical actions/targets and original float64 trajectory hashes are not reconstructed; unresolved tabular publication tails retain stated interval bounds",
+  "seed": 0,
+  "shared_helper_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "supervised_updates": 0,
+  "target_refreshes": 2,
+  "task": "gray-pure",
+  "training_manifest_sha256": "b6983fd828ea9aa8e261649967e0e12a1575890f9e3ff1b1b18f6663fe57ee19",
+  "unresolved_published_labels": 0,
+  "verified": true
+}
