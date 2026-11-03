@@ -1,0 +1,482 @@
+{
+  "docs/verification/cpu-raw-cache/admission/admission.json": {
+    "bytes": 21889,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-admission-1b405bd/admission.json",
+    "sha256": "603add2790eba6af8ec39de3f1be9c4ed881aad484f93385c95e27313e714d71"
+  },
+  "docs/verification/cpu-raw-cache/admission/driver.log": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-admission-1b405bd/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/admission/driver.py": {
+    "bytes": 2951,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-admission-1b405bd/driver.py",
+    "sha256": "cea9271fd68bdecee74e1b0e7b17aab7b21b8d20a762781c26a412430c3bd624"
+  },
+  "docs/verification/cpu-raw-cache/admission/job.json": {
+    "bytes": 2172,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-admission-1b405bd/job.json",
+    "sha256": "4185d6c3bc4e41bd9b72b342bf193df6be38a8ea42e0a2e0c2f61ffb90f4fe15"
+  },
+  "docs/verification/cpu-raw-cache/admission/qualification.stderr": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-admission-1b405bd/qualification.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/admission/qualification.stdout": {
+    "bytes": 71,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-admission-1b405bd/qualification.stdout",
+    "sha256": "ec589cac29267add3ed1da773c0fe98a7ccea45ff1006efd66389036344640dd"
+  },
+  "docs/verification/cpu-raw-cache/comparison/comparison.json": {
+    "bytes": 31008,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/comparison.json",
+    "sha256": "b212d3a1f47e5edba1bab1ae2e4dfcc1e78a4dfef2e80635f34fbe1894d61012"
+  },
+  "docs/verification/cpu-raw-cache/comparison/comparison.stderr": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/comparison.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/comparison/comparison.stdout": {
+    "bytes": 67,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/comparison.stdout",
+    "sha256": "e5ac5eb793931e8c1ff63aadb08408a52b0816690537f7e0674b3563d90da8e3"
+  },
+  "docs/verification/cpu-raw-cache/comparison/driver.log": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/comparison/driver.py": {
+    "bytes": 6371,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/driver.py",
+    "sha256": "6107e3979b4a251054f92b2295689e3468a18b08a854f2fab6bc953d5111eadf"
+  },
+  "docs/verification/cpu-raw-cache/comparison/gray-mixed.stderr": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/gray-mixed.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/comparison/gray-mixed.stdout": {
+    "bytes": 323,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/gray-mixed.stdout",
+    "sha256": "ee1f81af9bedadaf1c8f595d3f70a380a13416282dd57311a0d17611d15d12d8"
+  },
+  "docs/verification/cpu-raw-cache/comparison/gray-pure.stderr": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/gray-pure.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/comparison/gray-pure.stdout": {
+    "bytes": 321,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/gray-pure.stdout",
+    "sha256": "cee2a7051b1bb9f28eb9408fb1710e65e874e76e80e48ce4fd4d8b28d80a484f"
+  },
+  "docs/verification/cpu-raw-cache/comparison/job.json": {
+    "bytes": 6381,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/job.json",
+    "sha256": "6464510bc1c7f8ab4eee068faf49697e3124712548fb63cc86d5b0a469d249a5"
+  },
+  "docs/verification/cpu-raw-cache/comparison/outer-cap-supervisor.json": {
+    "bytes": 585,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/outer-cap-supervisor.json",
+    "sha256": "b3d9cd0c32fecd71311e544cf337a143800759dd5111a8c973398aee26eb0be9"
+  },
+  "docs/verification/cpu-raw-cache/comparison/outer-cap-supervisor.log": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/outer-cap-supervisor.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/comparison/outer-cap-supervisor.py": {
+    "bytes": 2147,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/outer-cap-supervisor.py",
+    "sha256": "91ec5690241106208d0b929ba254261316ce346f2de70776aa71b5646f7f7191"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/budgets/neural-R4.json": {
+    "bytes": 7746,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/budgets/neural-R4.json",
+    "sha256": "cd0b28842dd2530c04a77fe0dbbdf5701a0d9e0a9cfc5ad1f2807029dcd398f7"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-post/episodes.schema.json": {
+    "bytes": 1140,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-post/progress.json": {
+    "bytes": 24645,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/progress.json",
+    "sha256": "df71f97515834a5a63c81a7f95564ae462040627f888ef8bd09a333af65e59f3"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-post/result.json": {
+    "bytes": 24645,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/result.json",
+    "sha256": "2e043b56a2aff217b21648fe7022889ffc120478693fa49f66abc64c54c5879c"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-post/resume/000000032768/manifest.json": {
+    "bytes": 779,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/resume/000000032768/manifest.json",
+    "sha256": "3b5db007d510cce0a7e27c6789490bf5da732155954a1a26dba87d3a76d49e66"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-post/resume/000000032768/manifest.sha256": {
+    "bytes": 65,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/resume/000000032768/manifest.sha256",
+    "sha256": "db8e4655244ebfceaeb8b1fe4a3697cf4e9d54ab5ff74f859a54e4f7d88376a5"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-post/resume/latest.json": {
+    "bytes": 124,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/resume/latest.json",
+    "sha256": "555f4bba57c35450a2dac8995242941614ea78d40c160725a9015a0df363bb3a"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-post/run.json": {
+    "bytes": 17728,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/run.json",
+    "sha256": "2690689177596392563d96e45a9774080d50940c0b04e9bf6fea1f65a4cf6afb"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-post/weights/000000016384/manifest.json": {
+    "bytes": 378,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/weights/000000016384/manifest.json",
+    "sha256": "b6b032ff921e016011dcca6895932b13d7cd460473681cd104bae865b17a1b87"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-post/weights/000000016384/manifest.sha256": {
+    "bytes": 65,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/weights/000000016384/manifest.sha256",
+    "sha256": "e4f539e127642d6d12ab015c29c23f7e2e7b39e4432a4d5f7e27503a355b52a6"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-post/weights/000000032768/manifest.json": {
+    "bytes": 378,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/weights/000000032768/manifest.json",
+    "sha256": "4a12eba08145879de800b4c2b6a552b681bb3bd6ec58212f41d4f11bba758962"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-post/weights/000000032768/manifest.sha256": {
+    "bytes": 65,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "b2921bfbf118c4a6f0b74a99cfb6356499a27b7076af7e96f430a961fe88cff4"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-pre/episodes.schema.json": {
+    "bytes": 1140,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-pre/progress.json": {
+    "bytes": 24486,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/progress.json",
+    "sha256": "256c50c1aebdcb8dcb9b7d270250f827e4b66bc5579f76745a1621865d89f545"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-pre/result.json": {
+    "bytes": 24487,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/result.json",
+    "sha256": "1bb4341eea3023c0cd00d686d1dcf205a1e1a7cab17d66fa51c5854eb09988da"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-pre/resume/000000032768/manifest.json": {
+    "bytes": 778,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/resume/000000032768/manifest.json",
+    "sha256": "651c6a3645299afe5b0adb33f751548e345d28dccd1297c88182120c263a19f4"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-pre/resume/000000032768/manifest.sha256": {
+    "bytes": 65,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/resume/000000032768/manifest.sha256",
+    "sha256": "8bd475e5578a0d16b7564f079b3be4bcf063629da583c0e12842ddd42d922c79"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-pre/resume/latest.json": {
+    "bytes": 124,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/resume/latest.json",
+    "sha256": "5f5fa4d6f72a1d823ba62c0f24e8d89d21abde6472974d758972e0b80cf23204"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-pre/run.json": {
+    "bytes": 17755,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/run.json",
+    "sha256": "a5de88997a95630124b004f7f292144cd0a7789640200999f12a37996eacc674"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-pre/weights/000000016384/manifest.json": {
+    "bytes": 378,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/weights/000000016384/manifest.json",
+    "sha256": "596f40a52dce78e9d6cc711479bed56660efa6e3437508665374367dba39ed57"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-pre/weights/000000016384/manifest.sha256": {
+    "bytes": 65,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/weights/000000016384/manifest.sha256",
+    "sha256": "f2f36485afa6c3af33a5c602b305092ad685c863806fb279d599c42738170014"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-pre/weights/000000032768/manifest.json": {
+    "bytes": 378,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "a8de66fec4bf602fbeb2842d80bfc2c0923f82b884960185b8d17e0d8bf80943"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/neural-R4-pre/weights/000000032768/manifest.sha256": {
+    "bytes": 65,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "0f0925f21b679f9f6a810abddfb28484e8498a5a7e2f045aa9a7d11d9450770f"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/plan.json": {
+    "bytes": 2354,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/plan.json",
+    "sha256": "8873bd42eb34be903c913785b7c11e3a4d4271f89d8a6612719e8c6a14131ef9"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/profile.json": {
+    "bytes": 9625,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/profile.json",
+    "sha256": "748ea5e0245da7a602cfdfe6a40a1d24769f59af645407ee394afe5dc3b88a44"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-mixed/state.json": {
+    "bytes": 234,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/state.json",
+    "sha256": "63ea6d75c32fd236f0ef9e9963570661b26f68b281d13f3c962da18bcb38e247"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/budgets/neural-R4.json": {
+    "bytes": 7743,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/budgets/neural-R4.json",
+    "sha256": "0ea3164d327c75c31c361744c1d09445b097259a7d6b738d32210b170749594e"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-post/episodes.schema.json": {
+    "bytes": 1140,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-post/progress.json": {
+    "bytes": 23510,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/progress.json",
+    "sha256": "93c8efba83fcaab9ab4c5b193f978c81d6c8b10968e7728cfa85ffdbd385cf10"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-post/result.json": {
+    "bytes": 23511,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/result.json",
+    "sha256": "de55d941e3c5d1a51c6d6a8a9f5f29f2c53751fe4ccd59d2796ded143cd5d1b5"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-post/resume/000000032768/manifest.json": {
+    "bytes": 778,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/resume/000000032768/manifest.json",
+    "sha256": "2c21eea8e982df0bc044bba353ec88fb965c25961e594f9a5018594fac82200b"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-post/resume/000000032768/manifest.sha256": {
+    "bytes": 65,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/resume/000000032768/manifest.sha256",
+    "sha256": "9f5dfecdc9747aaabd5dbabcbcfb8781c76c2a4384622717b3112de9a4fff2e6"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-post/resume/latest.json": {
+    "bytes": 124,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/resume/latest.json",
+    "sha256": "bdb73a526592c1c7ebfbe8aecb0708758604601b95a53c27c96597dd3496167d"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-post/run.json": {
+    "bytes": 7695,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/run.json",
+    "sha256": "2d4de2610233d5ef60077c4be6257de0491279c9be200a4382b9dfbd0f638ebb"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-post/weights/000000016384/manifest.json": {
+    "bytes": 378,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/weights/000000016384/manifest.json",
+    "sha256": "41222e80a71c8811beaf316fd2c0bc4cda3a7cc363a91f49fe87408d76ee1d97"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-post/weights/000000016384/manifest.sha256": {
+    "bytes": 65,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/weights/000000016384/manifest.sha256",
+    "sha256": "94375829646580ac782f836cf92a415f3bf96cb2e7da5cb8ce5348d2a110d831"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-post/weights/000000032768/manifest.json": {
+    "bytes": 378,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/weights/000000032768/manifest.json",
+    "sha256": "a00b4dacecd413febf3f33c6ce544ce02b584eb2389ce2a982e3be4dbe4a1f86"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-post/weights/000000032768/manifest.sha256": {
+    "bytes": 65,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/weights/000000032768/manifest.sha256",
+    "sha256": "b0f03dd68183810ae2d2176521ebdca351be3653468c2049d1996682910c7493"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-pre/episodes.schema.json": {
+    "bytes": 1140,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/episodes.schema.json",
+    "sha256": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-pre/progress.json": {
+    "bytes": 23208,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/progress.json",
+    "sha256": "f8fde982fbae9cad3d94ffd1c0dcc720f12f79bc639250807e030ccdfdcf3832"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-pre/result.json": {
+    "bytes": 23208,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/result.json",
+    "sha256": "757e270a566970ce52a8abb61904c13cedf3eeca363246a2903d2fad9726eada"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-pre/resume/000000032768/manifest.json": {
+    "bytes": 778,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/resume/000000032768/manifest.json",
+    "sha256": "b3c09495899927680ef255d231b1cbf37e82e9646403011a8cabbfad0bdf4bbd"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-pre/resume/000000032768/manifest.sha256": {
+    "bytes": 65,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/resume/000000032768/manifest.sha256",
+    "sha256": "33af8a188d49db0ab60f84641562efcaab10bae469a06fa3a30c2dabc8494d92"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-pre/resume/latest.json": {
+    "bytes": 124,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/resume/latest.json",
+    "sha256": "00369f93c79af9513b33ea66e09ad3de1bf0656f7abec3e601693078b74dd6ad"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-pre/run.json": {
+    "bytes": 7722,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/run.json",
+    "sha256": "3d7d68add1dcbe24bb6be273a43e68315ffc2775a8ab99dc6aaca402cd1519fb"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-pre/weights/000000016384/manifest.json": {
+    "bytes": 378,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/weights/000000016384/manifest.json",
+    "sha256": "8afff3d8d53962100e85f625e2de58db6a39929e5ba971bf33ba91ae6fb027d3"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-pre/weights/000000016384/manifest.sha256": {
+    "bytes": 65,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/weights/000000016384/manifest.sha256",
+    "sha256": "831cbb8258c1ae714f865c219634005bea9af3dc45047869c683688708b72071"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-pre/weights/000000032768/manifest.json": {
+    "bytes": 378,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/weights/000000032768/manifest.json",
+    "sha256": "688c9e161384e44079293f9e711d07c86bda8f958e717af17d11efd1e78266ba"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/neural-R4-pre/weights/000000032768/manifest.sha256": {
+    "bytes": 65,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/weights/000000032768/manifest.sha256",
+    "sha256": "044267b2ace6c017f4965e8253ecd74484a467047f2bd3b6abf8ee87be3ada23"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/plan.json": {
+    "bytes": 2352,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/plan.json",
+    "sha256": "92ee6ae59e57d8f9e443631661937a8c45c8e3631fb7a200bef3780ef6d9b88e"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/profile.json": {
+    "bytes": 9621,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/profile.json",
+    "sha256": "18b7360f21769a1152b6b0e840bca570d8283e7beee12cf658f773f720408577"
+  },
+  "docs/verification/cpu-raw-cache/comparison/profiles/gray-pure/state.json": {
+    "bytes": 234,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/state.json",
+    "sha256": "3642c90277db3b14a121cdd55fe12af7bd5f3fc203215c15dfd7f0ba8bfaee4c"
+  },
+  "docs/verification/cpu-raw-cache/failed-suite/driver.log": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-full-suite-257276e/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/failed-suite/driver.py": {
+    "bytes": 3425,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-full-suite-257276e/driver.py",
+    "sha256": "01cd49b02137aa5dc422a79cea7cef2e15ac91d6dfe06fc3617d0918c2552d09"
+  },
+  "docs/verification/cpu-raw-cache/failed-suite/job.json": {
+    "bytes": 1299,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-full-suite-257276e/job.json",
+    "sha256": "b84702a16b9c2107aa67c571ed34d36f74660f701fbb787c3fe4d2e81fed10ce"
+  },
+  "docs/verification/cpu-raw-cache/failed-suite/suite.stderr": {
+    "bytes": 95250,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-full-suite-257276e/suite.stderr",
+    "sha256": "3bab9ff2009b1f2c8b59de5c3d6912c795a033fc1d07de4b45487a9917432e0c"
+  },
+  "docs/verification/cpu-raw-cache/failed-suite/suite.stdout": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-full-suite-257276e/suite.stdout",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/driver.log": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/driver.py": {
+    "bytes": 5707,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/driver.py",
+    "sha256": "1c61c0cc18f3dfdaf815eda2c8a2fd7cf750d964602a60887e95d4db002c8ebc"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/gray-mixed-post.json": {
+    "bytes": 25199,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/gray-mixed-post.json",
+    "sha256": "a08f0fc07b225882830f7eb6f920e72e322c875c198cedd94cda353249636d17"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/gray-mixed-post.stderr": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/gray-mixed-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/gray-mixed-post.stdout": {
+    "bytes": 109,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/gray-mixed-post.stdout",
+    "sha256": "5bab437ed46625d4a7c7c2791ddb2ec4aa4070a0bf303350a09df04c34bfe382"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/gray-mixed-pre.json": {
+    "bytes": 25190,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/gray-mixed-pre.json",
+    "sha256": "c9bcdfabab878459e4ef5f316fc8fcfe23b51115b4df961eb1bab7e270597a06"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/gray-mixed-pre.stderr": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/gray-mixed-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/gray-mixed-pre.stdout": {
+    "bytes": 109,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/gray-mixed-pre.stdout",
+    "sha256": "5bab437ed46625d4a7c7c2791ddb2ec4aa4070a0bf303350a09df04c34bfe382"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/gray-pure-post.json": {
+    "bytes": 7033,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/gray-pure-post.json",
+    "sha256": "7822e1b2f66405557cfc018162fb02d826ef85a37ce44870d63d1748924d60d0"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/gray-pure-post.stderr": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/gray-pure-post.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/gray-pure-post.stdout": {
+    "bytes": 108,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/gray-pure-post.stdout",
+    "sha256": "8f876c9442a74d312bcd99eb0662127ff791fc9607f831a731090bfad351cd31"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/gray-pure-pre.json": {
+    "bytes": 7024,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/gray-pure-pre.json",
+    "sha256": "245060ca04b088fdf3d40e19efebf98f6d74086eff40935b853981e8fcdf930c"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/gray-pure-pre.stderr": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/gray-pure-pre.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/gray-pure-pre.stdout": {
+    "bytes": 108,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/gray-pure-pre.stdout",
+    "sha256": "8f876c9442a74d312bcd99eb0662127ff791fc9607f831a731090bfad351cd31"
+  },
+  "docs/verification/cpu-raw-cache/independent-audits/job.json": {
+    "bytes": 19990,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-prefix-audit-b2a8561/job.json",
+    "sha256": "a85c8ba7c7a72792fcfa60cf96d5e8f0b52db9c17d1c547e11968d64045ca7ac"
+  },
+  "docs/verification/cpu-raw-cache/passing-suite/driver.log": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-fixed-suite-1f7c432/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/cpu-raw-cache/passing-suite/driver.py": {
+    "bytes": 3428,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-fixed-suite-1f7c432/driver.py",
+    "sha256": "cfce71831ca65ae72a64883c2749ec7e4d45f6c0cf167f95167a586ce65851a2"
+  },
+  "docs/verification/cpu-raw-cache/passing-suite/job.json": {
+    "bytes": 1300,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-fixed-suite-1f7c432/job.json",
+    "sha256": "2474fa0793c7807791e81034d7e0f63a2d0f96acd09914d5d3902a83e5974da6"
+  },
+  "docs/verification/cpu-raw-cache/passing-suite/suite.stderr": {
+    "bytes": 92134,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-fixed-suite-1f7c432/suite.stderr",
+    "sha256": "94e74f3bfab4ddcf15cf892901f3e8b15ac936fa49d475de159bf0c07a786ce2"
+  },
+  "docs/verification/cpu-raw-cache/passing-suite/suite.stdout": {
+    "bytes": 0,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-fixed-suite-1f7c432/suite.stdout",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

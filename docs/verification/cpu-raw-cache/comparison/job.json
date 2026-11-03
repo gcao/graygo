@@ -1,0 +1,194 @@
+{
+  "additional_control_reservation_seconds": "0",
+  "allocation_sha256": "d593971e0bb310842a498a78a8b7801d3a936ef3cc1bb013bd6a38d6d481ab0e",
+  "candidate_source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+  "comparison_command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "-m",
+    "tools.cpu_cache_pipeline",
+    "--reference",
+    "/home/gcao/proj/graygo/runs/nfsp-remaining-family-cpu-profiles-v1/profiles",
+    "--candidate",
+    "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles",
+    "--allocation",
+    "/home/gcao/proj/graygo/.worktrees/cpu-raw-cache-comparison-257276e/docs/experiments/cpu-raw-cache-pipeline-allocation.json",
+    "--output",
+    "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/comparison.json"
+  ],
+  "comparison_returncode": 0,
+  "comparison_sha256": "b212d3a1f47e5edba1bab1ae2e4dfcc1e78a4dfef2e80635f34fbe1894d61012",
+  "driver_sha256": "6107e3979b4a251054f92b2295689e3468a18b08a854f2fab6bc953d5111eadf",
+  "execution_authorized": false,
+  "groups": {
+    "gray-mixed": {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/cpu-raw-cache-comparison-257276e/tools/profile_nfsp_tasks.py",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed",
+        "--expected-source-sha",
+        "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+        "--records",
+        "32768",
+        "--device",
+        "cpu",
+        "--case-minutes",
+        "5",
+        "--task",
+        "gray-mixed",
+        "--learners",
+        "neural",
+        "--reuses",
+        "4"
+      ],
+      "completed_profiles": [
+        {
+          "acting_policy_counts": {
+            "average": 0,
+            "q": 32768,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 32768,
+            "fresh_q": 32768,
+            "fresh_records": 32768,
+            "q_loss_targets": 116736,
+            "q_updates": 228,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 2
+          },
+          "phase": "pre",
+          "records": 32768,
+          "seconds_including_setup": 134.12467085197568,
+          "status": "complete"
+        },
+        {
+          "acting_policy_counts": {
+            "average": 24392,
+            "q": 8376,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 32768,
+            "fresh_q": 32768,
+            "fresh_records": 32768,
+            "q_loss_targets": 116736,
+            "q_updates": 228,
+            "supervised_targets": 27648,
+            "supervised_updates": 54,
+            "target_refreshes": 2
+          },
+          "phase": "post",
+          "records": 32768,
+          "seconds_including_setup": 148.40443746000528,
+          "status": "complete"
+        }
+      ],
+      "emitted_plan_verified": true,
+      "measured_process_upper_seconds": 284.6362013600301,
+      "original_pid": 2779577,
+      "returncode": 0,
+      "started_monotonic": 566585.262967324,
+      "state": {
+        "completed_cases": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 282.85686401999556,
+        "pid": 2779577,
+        "source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+        "status": "complete"
+      }
+    },
+    "gray-pure": {
+      "command": [
+        "/home/gcao/proj/graygo/.venv/bin/python",
+        "/home/gcao/proj/graygo/.worktrees/cpu-raw-cache-comparison-257276e/tools/profile_nfsp_tasks.py",
+        "--run-dir",
+        "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure",
+        "--expected-source-sha",
+        "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+        "--records",
+        "32768",
+        "--device",
+        "cpu",
+        "--case-minutes",
+        "5",
+        "--task",
+        "gray-pure",
+        "--learners",
+        "neural",
+        "--reuses",
+        "4"
+      ],
+      "completed_profiles": [
+        {
+          "acting_policy_counts": {
+            "average": 0,
+            "q": 32768,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 32768,
+            "fresh_q": 32768,
+            "fresh_records": 32768,
+            "q_loss_targets": 116736,
+            "q_updates": 228,
+            "supervised_targets": 0,
+            "supervised_updates": 0,
+            "target_refreshes": 2
+          },
+          "phase": "pre",
+          "records": 32768,
+          "seconds_including_setup": 110.4915287339827,
+          "status": "complete"
+        },
+        {
+          "acting_policy_counts": {
+            "average": 24421,
+            "q": 8347,
+            "uniform": 0
+          },
+          "counters": {
+            "fresh_ordinary": 32768,
+            "fresh_q": 32768,
+            "fresh_records": 32768,
+            "q_loss_targets": 116736,
+            "q_updates": 228,
+            "supervised_targets": 27648,
+            "supervised_updates": 54,
+            "target_refreshes": 2
+          },
+          "phase": "post",
+          "records": 32768,
+          "seconds_including_setup": 125.94526646996383,
+          "status": "complete"
+        }
+      ],
+      "emitted_plan_verified": true,
+      "measured_process_upper_seconds": 238.7286538030021,
+      "original_pid": 2779576,
+      "returncode": 0,
+      "started_monotonic": 566585.262258192,
+      "state": {
+        "completed_cases": 2,
+        "current_case": null,
+        "elapsed_this_process_seconds": 236.76930831605569,
+        "pid": 2779576,
+        "source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+        "status": "complete"
+      }
+    }
+  },
+  "measured_comparison_process_seconds": 2.4776708850404248,
+  "measured_driver_wall_seconds": 287.6022758160252,
+  "new_accelerator_jobs": 0,
+  "new_candidate_diagnostic_records": 131072,
+  "new_formal_A2_records": 0,
+  "no_observation_timeout_restart": true,
+  "original_comparison_pid": 2781208,
+  "original_driver_pid": 2779568,
+  "reference_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "source_compatibility_qualified": false,
+  "status": "four_actual_cache_pipelines_exactly_equal",
+  "version": 1
+}

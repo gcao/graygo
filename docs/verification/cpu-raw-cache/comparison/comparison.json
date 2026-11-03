@@ -1,0 +1,544 @@
+{
+  "aggregate_records_compared": 262144,
+  "comparisons": {
+    "gray-mixed/post": {
+      "a2_evidence_reusable": false,
+      "all_other_nested_state_compared": true,
+      "candidate_source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+      "config": {
+        "batch": 512,
+        "blocks": 8,
+        "budget_profile_sha256": null,
+        "capacity": 500000,
+        "device": "cpu",
+        "epsilon_decay": 7500000,
+        "equivalent_actions": 40,
+        "eval_batch": 128,
+        "eval_every": 16384,
+        "handoff_end": 1000,
+        "hidden": 64,
+        "horizons": [
+          50,
+          100,
+          200
+        ],
+        "learner": "neural",
+        "learning_rate": 0.0003,
+        "learning_start": 4096,
+        "max_grad_norm": 0.5,
+        "max_nodes": 100000,
+        "native_library": null,
+        "norm_groups": 8,
+        "purpose": "profile",
+        "q_reuse": 4,
+        "records": 32768,
+        "reservoir_open": 0,
+        "seed": 0,
+        "storage": "features",
+        "target_every": 12800,
+        "task": "gray-mixed",
+        "time_cap_seconds": 300.0,
+        "uniform_comparison": false,
+        "width": 64
+      },
+      "equal_partitions": {
+        "episode_bytes": "56619a24518571ecaa863c6fed9d2977d20500a66c37e782c3ff8a306df9ebd7",
+        "episode_schema": "2623338b09e1033bc9cb8911c85e00cedc10f73569cc17cf4b153aceb747a1af",
+        "manifest": "28fbe6f2f759eb498fe46d1c01bf227d14ab724f1d84afbf0133eb6d98293605",
+        "metrics": "2e7f8eb891dcbcd8e8d30d6777ab8032cbb83447d26a597919dfd47ce34138d0",
+        "public_weights": {
+          "000000016384": "ddf8093352967d32b53687dc589d8e45b59ab1c2c2ec4225eb7250dd20ede06b",
+          "000000032768": "fc629567c4c87d63f4a40c53802c3fb040ae35993cc081a52027b5072df4de0c"
+        },
+        "replay": "ac158ea124b31a48e1ca4521f46b68f1d118a61926a9e373e755e46d6f6e901b",
+        "reservoir": "f23fd38f48ad330e3bf49cda196ac2f9b9e92ca87ac987da97b63dfecf775dee",
+        "result": "e0eb81d9d6e44edac6932b6928eb4f932965864ced539fd05ae823c54b70a76c",
+        "trainer_state": "cac944df093a5a48e683a4bc88b890dd72ff9db63e9380a6d85bab66b3646445"
+      },
+      "execution_authorized": false,
+      "full_15M_source_equivalence_verified": false,
+      "input_snapshots": {
+        "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "56619a24518571ecaa863c6fed9d2977d20500a66c37e782c3ff8a306df9ebd7",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "df71f97515834a5a63c81a7f95564ae462040627f888ef8bd09a333af65e59f3",
+          "result.json": "2e043b56a2aff217b21648fe7022889ffc120478693fa49f66abc64c54c5879c",
+          "resume/000000032768/manifest.json": "3b5db007d510cce0a7e27c6789490bf5da732155954a1a26dba87d3a76d49e66",
+          "resume/000000032768/manifest.sha256": "db8e4655244ebfceaeb8b1fe4a3697cf4e9d54ab5ff74f859a54e4f7d88376a5",
+          "resume/000000032768/metrics.npz": "f68dcb9479942d1d79b0eda53f52a0960604d801074a0e9ee53669ab80ee4259",
+          "resume/000000032768/replay.npz": "a3c4e41904ba90ce85b03c4cff982bb15de3baef8c61f4913b651d34c338d910",
+          "resume/000000032768/reservoir.npz": "24de6d0822236ad2858f6cd35147d5357172d0f7a87003ffbe0404b647f6819f",
+          "resume/000000032768/trainer.pt": "103104e2f185046516fd9f68f67591d79b00feb0f240ef99362b1a682dad8560",
+          "resume/latest.json": "555f4bba57c35450a2dac8995242941614ea78d40c160725a9015a0df363bb3a",
+          "run.json": "2690689177596392563d96e45a9774080d50940c0b04e9bf6fea1f65a4cf6afb",
+          "weights/000000016384/manifest.json": "b6b032ff921e016011dcca6895932b13d7cd460473681cd104bae865b17a1b87",
+          "weights/000000016384/manifest.sha256": "e4f539e127642d6d12ab015c29c23f7e2e7b39e4432a4d5f7e27503a355b52a6",
+          "weights/000000016384/models.pt": "7c9f9bb99d7bc9ab22d77098a3a62dd441c65c0b406dffb304a2084ee23a4273",
+          "weights/000000032768/manifest.json": "4a12eba08145879de800b4c2b6a552b681bb3bd6ec58212f41d4f11bba758962",
+          "weights/000000032768/manifest.sha256": "b2921bfbf118c4a6f0b74a99cfb6356499a27b7076af7e96f430a961fe88cff4",
+          "weights/000000032768/models.pt": "1a84c7f874280966847f7e5441be931250440b10b6f9caba8e4db3cf03037093"
+        },
+        "/home/gcao/proj/graygo/runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-post": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "56619a24518571ecaa863c6fed9d2977d20500a66c37e782c3ff8a306df9ebd7",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "0d0ba8af2a0f8dec48a744de434dd18b64bf2fd084925efdaa473b21885a97c4",
+          "result.json": "bc377c43aa78451960ca6396d9e799147cb9e65bf6bdbe0017f42fbdbbc71e6d",
+          "resume/000000032768/manifest.json": "ca9d61db1bc0d63133f26c4c4450b107b67a4c6a129c00cde48378fa5c13e4c0",
+          "resume/000000032768/manifest.sha256": "871465d1b7d770b96e63f67ee954cc5d313c95ad79ab9b9c556fb9a0e243acc4",
+          "resume/000000032768/metrics.npz": "f68dcb9479942d1d79b0eda53f52a0960604d801074a0e9ee53669ab80ee4259",
+          "resume/000000032768/replay.npz": "a3c4e41904ba90ce85b03c4cff982bb15de3baef8c61f4913b651d34c338d910",
+          "resume/000000032768/reservoir.npz": "24de6d0822236ad2858f6cd35147d5357172d0f7a87003ffbe0404b647f6819f",
+          "resume/000000032768/trainer.pt": "2440c2b60ca7b714bd2d61d9d986aef4166541f68e4ab6c652bf8cf3678cdb6c",
+          "resume/latest.json": "0fe31178a1e10b0e5b9e385bdb8f64b5b08bfe84e2fbf20e0c888e219337c9dc",
+          "run.json": "e6d36b91db5f65850636f20866af073c9cbedcb0cd084eebefeb9c8d31899081",
+          "weights/000000016384/manifest.json": "cae9231e9910b7c085e41b3545534572fa2127fb772a05c620344736d5da12a3",
+          "weights/000000016384/manifest.sha256": "449e83d1c23bc1357e7da5cf55ebb4f271b9eb2d02770f03b84a0e6f6ecee95c",
+          "weights/000000016384/models.pt": "7c9f9bb99d7bc9ab22d77098a3a62dd441c65c0b406dffb304a2084ee23a4273",
+          "weights/000000032768/manifest.json": "7cc62335d284b0afe71ad59269c527a590140c61ddc00c9e3accf40b35bc2ea6",
+          "weights/000000032768/manifest.sha256": "87605d15dbeb93d5d5fc06bc6bb77b3aa2332b9714f6953d37ba9a1608eded3e",
+          "weights/000000032768/models.pt": "1a84c7f874280966847f7e5441be931250440b10b6f9caba8e4db3cf03037093"
+        }
+      },
+      "original_learning_runs_modified": false,
+      "records_per_source": 32768,
+      "reference_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "status": "finite_complete_pipeline_parity_verified",
+      "timing_and_environment_exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory"
+        ],
+        "result_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "source_sha256"
+        ],
+        "trainer_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings"
+        ]
+      }
+    },
+    "gray-mixed/pre": {
+      "a2_evidence_reusable": false,
+      "all_other_nested_state_compared": true,
+      "candidate_source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+      "config": {
+        "batch": 512,
+        "blocks": 8,
+        "budget_profile_sha256": null,
+        "capacity": 500000,
+        "device": "cpu",
+        "epsilon_decay": 7500000,
+        "equivalent_actions": 40,
+        "eval_batch": 128,
+        "eval_every": 16384,
+        "handoff_end": 7000000,
+        "hidden": 64,
+        "horizons": [
+          50,
+          100,
+          200
+        ],
+        "learner": "neural",
+        "learning_rate": 0.0003,
+        "learning_start": 4096,
+        "max_grad_norm": 0.5,
+        "max_nodes": 100000,
+        "native_library": null,
+        "norm_groups": 8,
+        "purpose": "profile",
+        "q_reuse": 4,
+        "records": 32768,
+        "reservoir_open": 5000000,
+        "seed": 0,
+        "storage": "features",
+        "target_every": 12800,
+        "task": "gray-mixed",
+        "time_cap_seconds": 300.0,
+        "uniform_comparison": false,
+        "width": 64
+      },
+      "equal_partitions": {
+        "episode_bytes": "55fb53e8844137836b791044d9efdd14aa32d501d41921b46df7496566685d46",
+        "episode_schema": "2623338b09e1033bc9cb8911c85e00cedc10f73569cc17cf4b153aceb747a1af",
+        "manifest": "0cfa51951a77a5205907f2eaccce2ddfe5fca7b64f6041a7ea579c2a564effaf",
+        "metrics": "68648f317fdec2f763852cb7d826d1b56ed5294f79d106a7ebe39de26319ba53",
+        "public_weights": {
+          "000000016384": "d42bab3ea28df583936c4e6ba2cd4f0852f96b50b2aa5e44efe324e9f2beea00",
+          "000000032768": "078daecfacaa1edde2de38dc2183bfec86a75b81141dae2361d50c06fb5fb7de"
+        },
+        "replay": "37985dbe1e0239c12df2b2fae23c59af4898b8a0c09e35003233668054407581",
+        "reservoir": "82cb867ced985283994cfdf5fbc8cb8543eaa3e326884360ba37d2bb274d531e",
+        "result": "ccb142715a7a1cb7dd97c321baecadc2f0b9771018a8a3a329efe0f719570dd6",
+        "trainer_state": "3c0c4f326c29cd8de88131534ba64e5c5d93172bb15493829cbe6b7f2fd0751c"
+      },
+      "execution_authorized": false,
+      "full_15M_source_equivalence_verified": false,
+      "input_snapshots": {
+        "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "55fb53e8844137836b791044d9efdd14aa32d501d41921b46df7496566685d46",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "256c50c1aebdcb8dcb9b7d270250f827e4b66bc5579f76745a1621865d89f545",
+          "result.json": "1bb4341eea3023c0cd00d686d1dcf205a1e1a7cab17d66fa51c5854eb09988da",
+          "resume/000000032768/manifest.json": "651c6a3645299afe5b0adb33f751548e345d28dccd1297c88182120c263a19f4",
+          "resume/000000032768/manifest.sha256": "8bd475e5578a0d16b7564f079b3be4bcf063629da583c0e12842ddd42d922c79",
+          "resume/000000032768/metrics.npz": "4e720b3a3b52becad8a7d6000a88d209b97c0b8bf42eb418ed00e9b5dd4cea19",
+          "resume/000000032768/replay.npz": "2d10ac75d2579138f12f9ff7697ddd1eefe9c34ca7e69b27e54afe3ac24a43d8",
+          "resume/000000032768/reservoir.npz": "5374f9eadf7150c0fdaf7e0b37ce18d0edd8e2c6db32e26742e4c3a555b67195",
+          "resume/000000032768/trainer.pt": "a0d2603ffde10c7428d175bac9d78e7a7e72b4fd2c9a66e604e803dd496e1056",
+          "resume/latest.json": "5f5fa4d6f72a1d823ba62c0f24e8d89d21abde6472974d758972e0b80cf23204",
+          "run.json": "a5de88997a95630124b004f7f292144cd0a7789640200999f12a37996eacc674",
+          "weights/000000016384/manifest.json": "596f40a52dce78e9d6cc711479bed56660efa6e3437508665374367dba39ed57",
+          "weights/000000016384/manifest.sha256": "f2f36485afa6c3af33a5c602b305092ad685c863806fb279d599c42738170014",
+          "weights/000000016384/models.pt": "0f9453a501d5286c5918a0aa37768254d77371588e010e774ff5d848047dfcde",
+          "weights/000000032768/manifest.json": "a8de66fec4bf602fbeb2842d80bfc2c0923f82b884960185b8d17e0d8bf80943",
+          "weights/000000032768/manifest.sha256": "0f0925f21b679f9f6a810abddfb28484e8498a5a7e2f045aa9a7d11d9450770f",
+          "weights/000000032768/models.pt": "bda6a05d8eab86ea1de90a2f219991f656b5487f385b9e360df7f0d934f67454"
+        },
+        "/home/gcao/proj/graygo/runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-mixed/neural/neural-R4-pre": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "55fb53e8844137836b791044d9efdd14aa32d501d41921b46df7496566685d46",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "3ba53438e43ca2de3a4dd5f67fcbd9d1e9d13afce35f0b10268c37e939e6f09b",
+          "result.json": "bb9883f35412ebc8baa4bc698cdf198339a46d3b734f661b48ae649d516d9b39",
+          "resume/000000032768/manifest.json": "e01df41c4e46a1b483173617c7aad240806d3614d04ca245df7dff8ee1de88cc",
+          "resume/000000032768/manifest.sha256": "f59d3c3f13e0c2571fe498b32eb0cdb6997545a527e44eb70de3f4e0dd5614cc",
+          "resume/000000032768/metrics.npz": "4e720b3a3b52becad8a7d6000a88d209b97c0b8bf42eb418ed00e9b5dd4cea19",
+          "resume/000000032768/replay.npz": "2d10ac75d2579138f12f9ff7697ddd1eefe9c34ca7e69b27e54afe3ac24a43d8",
+          "resume/000000032768/reservoir.npz": "5374f9eadf7150c0fdaf7e0b37ce18d0edd8e2c6db32e26742e4c3a555b67195",
+          "resume/000000032768/trainer.pt": "8c0eeb1efcbddfaddca8c127b049861635e68c504c5baeb825ed2cd52c2cee99",
+          "resume/latest.json": "97df2c2e63ee516b3b3cf64577a784aa67161c9a2b3a2df63752af31c3bcb1b0",
+          "run.json": "566826bfe9825909f19f8833f87cb80b21415555b80dda2ef6214b1bc82d1d1a",
+          "weights/000000016384/manifest.json": "7179c44d85d6667664c925438024256a566e666747206d6c318400fbacb3bc8f",
+          "weights/000000016384/manifest.sha256": "bff5da692856db9792278a5958208432122782f87f4217bb3559824949f9b1f0",
+          "weights/000000016384/models.pt": "0f9453a501d5286c5918a0aa37768254d77371588e010e774ff5d848047dfcde",
+          "weights/000000032768/manifest.json": "2203d88a74834af1b5de850554c9b2371ba99013f7add883aa5a5fdbfc47796e",
+          "weights/000000032768/manifest.sha256": "36c5b035b0d63b28fac162e649cc0b8c3fdc01b0e1c29ee072e0906793c3b74b",
+          "weights/000000032768/models.pt": "bda6a05d8eab86ea1de90a2f219991f656b5487f385b9e360df7f0d934f67454"
+        }
+      },
+      "original_learning_runs_modified": false,
+      "records_per_source": 32768,
+      "reference_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "status": "finite_complete_pipeline_parity_verified",
+      "timing_and_environment_exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory"
+        ],
+        "result_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "source_sha256"
+        ],
+        "trainer_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings"
+        ]
+      }
+    },
+    "gray-pure/post": {
+      "a2_evidence_reusable": false,
+      "all_other_nested_state_compared": true,
+      "candidate_source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+      "config": {
+        "batch": 512,
+        "blocks": 8,
+        "budget_profile_sha256": null,
+        "capacity": 500000,
+        "device": "cpu",
+        "epsilon_decay": 7500000,
+        "equivalent_actions": 40,
+        "eval_batch": 128,
+        "eval_every": 16384,
+        "handoff_end": 1000,
+        "hidden": 64,
+        "horizons": [
+          50,
+          100,
+          200
+        ],
+        "learner": "neural",
+        "learning_rate": 0.0003,
+        "learning_start": 4096,
+        "max_grad_norm": 0.5,
+        "max_nodes": 100000,
+        "native_library": null,
+        "norm_groups": 8,
+        "purpose": "profile",
+        "q_reuse": 4,
+        "records": 32768,
+        "reservoir_open": 0,
+        "seed": 0,
+        "storage": "features",
+        "target_every": 12800,
+        "task": "gray-pure",
+        "time_cap_seconds": 300.0,
+        "uniform_comparison": false,
+        "width": 64
+      },
+      "equal_partitions": {
+        "episode_bytes": "6fe3155f30d14dcf89d046f9ad9921d9f2d368ca304ca1c0a0ef2847177af691",
+        "episode_schema": "2623338b09e1033bc9cb8911c85e00cedc10f73569cc17cf4b153aceb747a1af",
+        "manifest": "8a5abf2211ed1411fbd3462b321b990477534c65d181251486a58ed30abe18f6",
+        "metrics": "645e915d48cb30dcc1fd798a62b4cc24091524bb28213b381e541e59bea67a69",
+        "public_weights": {
+          "000000016384": "747338c2b1f932b34334ff4f9ec8e11886a3c50432d2045b3257925e21898e42",
+          "000000032768": "cfc363f947e7d864445c86b9157290a14fc179493251ee4eb5a9e548cd1d4e95"
+        },
+        "replay": "1cd5e912117edff1b36124f7c90e3f735875e8cefc8446fb3adb9c15886cb91d",
+        "reservoir": "126cce7c075810dd2112f44c962e78aa6134d85e77be5adaf1440822963699c9",
+        "result": "3b59837a477d7f9fc1b02430fe15e6f15df891451a46f5038c7986b72b29b613",
+        "trainer_state": "791155ae381e97fa160620640ac931daa76bf42c9290ffc01f6f83d26f66f304"
+      },
+      "execution_authorized": false,
+      "full_15M_source_equivalence_verified": false,
+      "input_snapshots": {
+        "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "6fe3155f30d14dcf89d046f9ad9921d9f2d368ca304ca1c0a0ef2847177af691",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "93c8efba83fcaab9ab4c5b193f978c81d6c8b10968e7728cfa85ffdbd385cf10",
+          "result.json": "de55d941e3c5d1a51c6d6a8a9f5f29f2c53751fe4ccd59d2796ded143cd5d1b5",
+          "resume/000000032768/manifest.json": "2c21eea8e982df0bc044bba353ec88fb965c25961e594f9a5018594fac82200b",
+          "resume/000000032768/manifest.sha256": "9f5dfecdc9747aaabd5dbabcbcfb8781c76c2a4384622717b3112de9a4fff2e6",
+          "resume/000000032768/metrics.npz": "50b6d81a4e1fcd714ab3dba1eb733b5b97f501c44ad3050dc8ee362208d6596e",
+          "resume/000000032768/replay.npz": "7f4490b3154256b4a96c35b8f33f2d99015de571f5f1a3de6a9ed95a63db0c0c",
+          "resume/000000032768/reservoir.npz": "390de3c72948af37243a8ab2d79f77e29b1fa0594cb12c44119297db570823c2",
+          "resume/000000032768/trainer.pt": "2171cb4ee03348e29d0d22617a03229e197d00f66173405b32d5135af3220814",
+          "resume/latest.json": "bdb73a526592c1c7ebfbe8aecb0708758604601b95a53c27c96597dd3496167d",
+          "run.json": "2d4de2610233d5ef60077c4be6257de0491279c9be200a4382b9dfbd0f638ebb",
+          "weights/000000016384/manifest.json": "41222e80a71c8811beaf316fd2c0bc4cda3a7cc363a91f49fe87408d76ee1d97",
+          "weights/000000016384/manifest.sha256": "94375829646580ac782f836cf92a415f3bf96cb2e7da5cb8ce5348d2a110d831",
+          "weights/000000016384/models.pt": "07b3f5e689cb3cc0095eb45e93fdb99b18f30a098facf6f422e31d2321b22db7",
+          "weights/000000032768/manifest.json": "a00b4dacecd413febf3f33c6ce544ce02b584eb2389ce2a982e3be4dbe4a1f86",
+          "weights/000000032768/manifest.sha256": "b0f03dd68183810ae2d2176521ebdca351be3653468c2049d1996682910c7493",
+          "weights/000000032768/models.pt": "ee0047362c11ba1e54c908c635fc6a1fc97770c963153b497a2948d4c5ceb88f"
+        },
+        "/home/gcao/proj/graygo/runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-post": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "6fe3155f30d14dcf89d046f9ad9921d9f2d368ca304ca1c0a0ef2847177af691",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "ffbbc01cb5d0e2d0eeb40a5758864f5159e1efe164a6c9c74fd9ebaad24ba9ba",
+          "result.json": "43553d0b500714e2f57a41ff0f3b8a7c023c230db3fa4c4a26522bc1b30dcb7b",
+          "resume/000000032768/manifest.json": "339940d252eaa09128b3bbd2cfab6f452a07736a638bc9e5d05f1afd3602297b",
+          "resume/000000032768/manifest.sha256": "996b466515c24b0d605054bb4d443b933fb69b9e5ea8782bc5fbda2520b1bf2b",
+          "resume/000000032768/metrics.npz": "50b6d81a4e1fcd714ab3dba1eb733b5b97f501c44ad3050dc8ee362208d6596e",
+          "resume/000000032768/replay.npz": "7f4490b3154256b4a96c35b8f33f2d99015de571f5f1a3de6a9ed95a63db0c0c",
+          "resume/000000032768/reservoir.npz": "390de3c72948af37243a8ab2d79f77e29b1fa0594cb12c44119297db570823c2",
+          "resume/000000032768/trainer.pt": "a175f6020ebdcef8a3c8fc74814124361d6def3f403b140b95a4eb8679c346ae",
+          "resume/latest.json": "acd837827e2efb27626533f0c4c72e4fe0d89f188ea1e733e9ad157c9dd40814",
+          "run.json": "4f704b939143617ed374305514b8912cae4d4180c60e1634767bb505ce271316",
+          "weights/000000016384/manifest.json": "7792d2e283ea3fe255f9fec7a1b3eb28e20db66564aef51b48562fd6848a9e0b",
+          "weights/000000016384/manifest.sha256": "e96ce2b72678b1b4a05d8dec2a4619332d99a91c909f596bce105ac97e12ceda",
+          "weights/000000016384/models.pt": "07b3f5e689cb3cc0095eb45e93fdb99b18f30a098facf6f422e31d2321b22db7",
+          "weights/000000032768/manifest.json": "3cbf3f7a609016d2a098614d5c9d29dc3e774b99a1438cf738f5f674196c9302",
+          "weights/000000032768/manifest.sha256": "495adee425e8fab07f00732a10173cd700c96b32d8e4504c440ebfddb8088ef2",
+          "weights/000000032768/models.pt": "ee0047362c11ba1e54c908c635fc6a1fc97770c963153b497a2948d4c5ceb88f"
+        }
+      },
+      "original_learning_runs_modified": false,
+      "records_per_source": 32768,
+      "reference_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "status": "finite_complete_pipeline_parity_verified",
+      "timing_and_environment_exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory"
+        ],
+        "result_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "source_sha256"
+        ],
+        "trainer_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings"
+        ]
+      }
+    },
+    "gray-pure/pre": {
+      "a2_evidence_reusable": false,
+      "all_other_nested_state_compared": true,
+      "candidate_source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+      "config": {
+        "batch": 512,
+        "blocks": 8,
+        "budget_profile_sha256": null,
+        "capacity": 500000,
+        "device": "cpu",
+        "epsilon_decay": 7500000,
+        "equivalent_actions": 40,
+        "eval_batch": 128,
+        "eval_every": 16384,
+        "handoff_end": 7000000,
+        "hidden": 64,
+        "horizons": [
+          50,
+          100,
+          200
+        ],
+        "learner": "neural",
+        "learning_rate": 0.0003,
+        "learning_start": 4096,
+        "max_grad_norm": 0.5,
+        "max_nodes": 100000,
+        "native_library": null,
+        "norm_groups": 8,
+        "purpose": "profile",
+        "q_reuse": 4,
+        "records": 32768,
+        "reservoir_open": 5000000,
+        "seed": 0,
+        "storage": "features",
+        "target_every": 12800,
+        "task": "gray-pure",
+        "time_cap_seconds": 300.0,
+        "uniform_comparison": false,
+        "width": 64
+      },
+      "equal_partitions": {
+        "episode_bytes": "8633198be541cb767a21d2d13c7eea053323f38c7810c2e060d1f7c839407166",
+        "episode_schema": "2623338b09e1033bc9cb8911c85e00cedc10f73569cc17cf4b153aceb747a1af",
+        "manifest": "b620181b178f04250b73ecbd56fc2c8de8de5f74780ecb53761ca4849127dccf",
+        "metrics": "29189a923f86c39bd901d5eeace64289f5dad4bbf931fe2b51cadfd0ab0fe7b4",
+        "public_weights": {
+          "000000016384": "c046ee92568c363550fd1b911e324693a6ff0a51f8766a738c2f28d3d8decdc4",
+          "000000032768": "abd7c97eb8c117d33542875ca983241dde42c6338e9bdcb92fdff6fff818b7ed"
+        },
+        "replay": "5eb8571795a8c8a69015f95a4bf9ef14a8c31bbf0c1feecc5961964807b55872",
+        "reservoir": "82cb867ced985283994cfdf5fbc8cb8543eaa3e326884360ba37d2bb274d531e",
+        "result": "56ab454194e3fdbe6dcd4423465ac33f0963abddd5802b462093d40f2dbbde72",
+        "trainer_state": "18f8332ff2ff1d82fc08d58f34c8b01ec62ebd3a7e657ef574cadc8f53187628"
+      },
+      "execution_authorized": false,
+      "full_15M_source_equivalence_verified": false,
+      "input_snapshots": {
+        "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "8633198be541cb767a21d2d13c7eea053323f38c7810c2e060d1f7c839407166",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "f8fde982fbae9cad3d94ffd1c0dcc720f12f79bc639250807e030ccdfdcf3832",
+          "result.json": "757e270a566970ce52a8abb61904c13cedf3eeca363246a2903d2fad9726eada",
+          "resume/000000032768/manifest.json": "b3c09495899927680ef255d231b1cbf37e82e9646403011a8cabbfad0bdf4bbd",
+          "resume/000000032768/manifest.sha256": "33af8a188d49db0ab60f84641562efcaab10bae469a06fa3a30c2dabc8494d92",
+          "resume/000000032768/metrics.npz": "00d0d1c09e507888d926497c077a18e030b730004ce404a78fdf54696ae1c670",
+          "resume/000000032768/replay.npz": "40e022401bd6d67a6506b1a0ba17b0349ca0b0fd164d3207f6a6441ab579e235",
+          "resume/000000032768/reservoir.npz": "5374f9eadf7150c0fdaf7e0b37ce18d0edd8e2c6db32e26742e4c3a555b67195",
+          "resume/000000032768/trainer.pt": "c03501dd75eb751e309e6aba938db2010864c7eeb14a0537c43969fbd96dfe5d",
+          "resume/latest.json": "00369f93c79af9513b33ea66e09ad3de1bf0656f7abec3e601693078b74dd6ad",
+          "run.json": "3d7d68add1dcbe24bb6be273a43e68315ffc2775a8ab99dc6aaca402cd1519fb",
+          "weights/000000016384/manifest.json": "8afff3d8d53962100e85f625e2de58db6a39929e5ba971bf33ba91ae6fb027d3",
+          "weights/000000016384/manifest.sha256": "831cbb8258c1ae714f865c219634005bea9af3dc45047869c683688708b72071",
+          "weights/000000016384/models.pt": "723d49a642a176d4f4d85f347589511d4802e76d53368c4635b22ac574cd9a8b",
+          "weights/000000032768/manifest.json": "688c9e161384e44079293f9e711d07c86bda8f958e717af17d11efd1e78266ba",
+          "weights/000000032768/manifest.sha256": "044267b2ace6c017f4965e8253ecd74484a467047f2bd3b6abf8ee87be3ada23",
+          "weights/000000032768/models.pt": "cdb542601f8228ff88ed0cded20a82cf9d3a836f31804bebfc38c034d359cc4d"
+        },
+        "/home/gcao/proj/graygo/runs/nfsp-remaining-family-cpu-profiles-v1/profiles/gray-pure/neural/neural-R4-pre": {
+          ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          ".trainer.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "episodes.bin": "8633198be541cb767a21d2d13c7eea053323f38c7810c2e060d1f7c839407166",
+          "episodes.schema.json": "6cb258f5382c20937c0300f15b3338c90a84431cb87ea550beb98905aa83b966",
+          "progress.json": "1bcc47e6ace569b177243421e5c879376a3ed72e83c1086f12b14fae23106f84",
+          "result.json": "1d9a16b48978fbefa7502a3391270bfee823770afa50aaa73449108a97505600",
+          "resume/000000032768/manifest.json": "954d81d3519fe2600aa10b331999e196a11cd1ee92b04a9acad134d0f325f165",
+          "resume/000000032768/manifest.sha256": "7e824074276e8c27064c465426978db5ba79cf47851660916ac59d4f12f174b2",
+          "resume/000000032768/metrics.npz": "00d0d1c09e507888d926497c077a18e030b730004ce404a78fdf54696ae1c670",
+          "resume/000000032768/replay.npz": "40e022401bd6d67a6506b1a0ba17b0349ca0b0fd164d3207f6a6441ab579e235",
+          "resume/000000032768/reservoir.npz": "5374f9eadf7150c0fdaf7e0b37ce18d0edd8e2c6db32e26742e4c3a555b67195",
+          "resume/000000032768/trainer.pt": "dc5913c1942d8f2b1760377de411a280ae5c62d158e093eaa8bc3d9f6cadbc10",
+          "resume/latest.json": "ea12deb86e16f43c30d904d2e1911e2df2909ac75e19e770eac03671afd145f1",
+          "run.json": "4d2bee613c9cb5cd9a87c72178d65882212a00ae112f12da25771aff6e6f3a2e",
+          "weights/000000016384/manifest.json": "b28177c0fc31cbc86bf5fd7fbfdd63de47a5b547c2ba38721d62276f4991440c",
+          "weights/000000016384/manifest.sha256": "c1e1cd9522186ee8eef890cc26022be6b2fe250e858aee158b46420238f1c9fd",
+          "weights/000000016384/models.pt": "723d49a642a176d4f4d85f347589511d4802e76d53368c4635b22ac574cd9a8b",
+          "weights/000000032768/manifest.json": "2bcca1082887c9e26ea6680a0ae6537b1e2acf665fffa5e6b87c71eb1157d549",
+          "weights/000000032768/manifest.sha256": "a34a662db43245894c37d2e27d4aec0234d34900f917b485f1be4e9de8b3b64b",
+          "weights/000000032768/models.pt": "cdb542601f8228ff88ed0cded20a82cf9d3a836f31804bebfc38c034d359cc4d"
+        }
+      },
+      "original_learning_runs_modified": false,
+      "records_per_source": 32768,
+      "reference_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "status": "finite_complete_pipeline_parity_verified",
+      "timing_and_environment_exclusions": {
+        "manifest_root": [
+          "created_at",
+          "run_id",
+          "pid",
+          "source_sha256",
+          "git_commit",
+          "disk_free_bytes",
+          "host_memory"
+        ],
+        "result_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "result_root": [
+          "elapsed_seconds",
+          "timings",
+          "source_sha256"
+        ],
+        "trainer_evaluation_rows": [
+          "elapsed_seconds"
+        ],
+        "trainer_root": [
+          "elapsed",
+          "timings"
+        ]
+      }
+    }
+  },
+  "execution_authorized": false,
+  "new_candidate_diagnostic_records": 131072,
+  "new_formal_A2_records": 0,
+  "scope": "Full model/target/average/optimizer/private RNG/replay/reservoir/metrics/archive/episode equality over original matched production prefixes, excluding only the preserved named timing/environment fields. No full 15M learning or source admission is claimed.",
+  "source_compatibility_qualified": false,
+  "status": "four_actual_raw_cache_pipelines_verified",
+  "version": "graygo/cpu-raw-cache-pipeline/1"
+}

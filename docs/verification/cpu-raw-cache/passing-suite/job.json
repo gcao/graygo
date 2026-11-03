@@ -1,0 +1,33 @@
+{
+  "allocation_sha256": "2c812e3bd5ddb24b3a035990de668d60d40410f3a793f4c244933a2fafa34f81",
+  "candidate_commit": "1f7c432b092bf7860a4f030b21d5f403f4adc811",
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "driver_sha256": "cfce71831ca65ae72a64883c2749ec7e4d45f6c0cf167f95167a586ce65851a2",
+  "execution_authorized": false,
+  "gpu_allocation_end_unix_seconds": "1793688541.7898035",
+  "gpu_allocation_start_unix_seconds": "1793688199.7778893",
+  "gpu_equipped_interval_seconds": "342.0119142",
+  "gpu_uuid": "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2",
+  "measured_driver_wall_seconds": 342.1755882540019,
+  "measured_suite_process_seconds": 342.01184100296814,
+  "new_formal_a2_records": 0,
+  "original_driver_pid": 2788167,
+  "original_suite_pid": 2788178,
+  "reported_test_seconds": 339.396,
+  "reported_tests": 536,
+  "returncode": 0,
+  "source_admission_qualified": false,
+  "source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+  "status": "complete_suite_passed",
+  "suite_stderr_sha256": "94e74f3bfab4ddcf15cf892901f3e8b15ac936fa49d475de159bf0c07a786ce2",
+  "suite_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "version": 1
+}

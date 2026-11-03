@@ -1,0 +1,1274 @@
+{
+  "a2_complete": false,
+  "accepted_reservoir_changes": 3298,
+  "active_episode_steps": 0,
+  "active_frozen_commitments_reconstructed": 0,
+  "active_frozen_greedy_labels_verified": 0,
+  "active_private_rng_draws_reconstructed": 0,
+  "archive_manifests_sha256": {
+    "16384": "b6b032ff921e016011dcca6895932b13d7cd460473681cd104bae865b17a1b87",
+    "32768": "4a12eba08145879de800b4c2b6a552b681bb3bd6ec58212f41d4f11bba758962"
+  },
+  "audit_semantics": "graygo/independent-bounded-task-audit/1",
+  "audit_watchdog_seconds": 180,
+  "auditor_sha256": "36ba58de321d53958dd304492e87c605b81c11cfbd7b0c859a0dedf8f7048a11",
+  "average_readiness": "not_ready",
+  "checkpoint_manifest_sha256": "3b5db007d510cce0a7e27c6789490bf5da732155954a1a26dba87d3a76d49e66",
+  "completed_original_log_hashes_reconstructed": false,
+  "eligibility_version": 2,
+  "eligible_labels": 3298,
+  "episode_audit_sha256": "56619a24518571ecaa863c6fed9d2977d20500a66c37e782c3ff8a306df9ebd7",
+  "exact_game_certificate": {
+    "matrix_semantics": "complete simultaneous legal-action matrices with exact solved continuation values; every nonterminal public state has equal rational primal/dual security bounds",
+    "root_state_indices": [
+      4
+    ],
+    "states": [
+      {
+        "black_actions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "column_strategy": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "continuation_matrix": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "0"
+          ]
+        ],
+        "row_strategy": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "security_lower": "0",
+        "security_upper": "0",
+        "state": {
+          "board": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forbidden_black": [],
+          "forbidden_white": [],
+          "history": [
+            {
+              "before": [
+                0,
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 3
+            },
+            {
+              "before": [
+                0,
+                1,
+                1,
+                2,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 0,
+              "white": 8
+            }
+          ],
+          "pass_streak": 0,
+          "rounds_played": 5,
+          "rule_version": "graygo/1",
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 6,
+            "size": 3
+          }
+        },
+        "state_index": 0,
+        "value": "0",
+        "white_actions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "black_actions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "column_strategy": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "continuation_matrix": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "-1",
+            "0"
+          ]
+        ],
+        "row_strategy": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "security_lower": "0",
+        "security_upper": "0",
+        "state": {
+          "board": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forbidden_black": [],
+          "forbidden_white": [],
+          "history": [
+            {
+              "before": [
+                0,
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 3
+            },
+            {
+              "before": [
+                0,
+                1,
+                1,
+                2,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 8,
+              "white": 0
+            }
+          ],
+          "pass_streak": 0,
+          "rounds_played": 5,
+          "rule_version": "graygo/1",
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 6,
+            "size": 3
+          }
+        },
+        "state_index": 1,
+        "value": "0",
+        "white_actions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "black_actions": [
+          8,
+          9
+        ],
+        "column_strategy": [
+          "1",
+          "0"
+        ],
+        "continuation_matrix": [
+          [
+            "-1",
+            "0"
+          ],
+          [
+            "-1",
+            "-1"
+          ]
+        ],
+        "row_strategy": [
+          "1",
+          "0"
+        ],
+        "security_lower": "-1",
+        "security_upper": "-1",
+        "state": {
+          "board": [
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            1,
+            2,
+            0
+          ],
+          "forbidden_black": [
+            0
+          ],
+          "forbidden_white": [
+            0
+          ],
+          "history": [
+            {
+              "before": [
+                0,
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 3
+            },
+            {
+              "before": [
+                0,
+                1,
+                1,
+                2,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 0,
+              "white": 0
+            }
+          ],
+          "pass_streak": 0,
+          "rounds_played": 5,
+          "rule_version": "graygo/1",
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 6,
+            "size": 3
+          }
+        },
+        "state_index": 2,
+        "value": "-1",
+        "white_actions": [
+          8,
+          9
+        ]
+      },
+      {
+        "black_actions": [
+          0,
+          9
+        ],
+        "column_strategy": [
+          "1",
+          "0"
+        ],
+        "continuation_matrix": [
+          [
+            "-1",
+            "0"
+          ],
+          [
+            "-1",
+            "-1"
+          ]
+        ],
+        "row_strategy": [
+          "1",
+          "0"
+        ],
+        "security_lower": "-1",
+        "security_upper": "-1",
+        "state": {
+          "board": [
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            1,
+            2,
+            0
+          ],
+          "forbidden_black": [
+            8
+          ],
+          "forbidden_white": [
+            8
+          ],
+          "history": [
+            {
+              "before": [
+                0,
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 3
+            },
+            {
+              "before": [
+                0,
+                1,
+                1,
+                2,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 8,
+              "white": 8
+            }
+          ],
+          "pass_streak": 0,
+          "rounds_played": 5,
+          "rule_version": "graygo/1",
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 6,
+            "size": 3
+          }
+        },
+        "state_index": 3,
+        "value": "-1",
+        "white_actions": [
+          0,
+          9
+        ]
+      },
+      {
+        "black_actions": [
+          0,
+          8,
+          9
+        ],
+        "column_strategy": [
+          "1/4",
+          "1/4",
+          "1/2"
+        ],
+        "continuation_matrix": [
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1/2"
+          ]
+        ],
+        "row_strategy": [
+          "1/4",
+          "1/4",
+          "1/2"
+        ],
+        "security_lower": "-1/4",
+        "security_upper": "-1/4",
+        "state": {
+          "board": [
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            1,
+            2,
+            0
+          ],
+          "forbidden_black": [],
+          "forbidden_white": [],
+          "history": [
+            {
+              "before": [
+                0,
+                1,
+                0,
+                0,
+                2,
+                0,
+                1,
+                2,
+                0
+              ],
+              "black": 2,
+              "white": 5
+            },
+            {
+              "before": [
+                0,
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 3
+            }
+          ],
+          "pass_streak": 0,
+          "rounds_played": 4,
+          "rule_version": "graygo/1",
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 6,
+            "size": 3
+          }
+        },
+        "state_index": 4,
+        "value": "-1/4",
+        "white_actions": [
+          0,
+          8,
+          9
+        ]
+      },
+      {
+        "black_actions": [
+          0,
+          8,
+          9
+        ],
+        "column_strategy": [
+          "1/2",
+          "1/2",
+          "0"
+        ],
+        "continuation_matrix": [
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ],
+          [
+            "-1",
+            "-1",
+            "-1"
+          ]
+        ],
+        "row_strategy": [
+          "1/2",
+          "1/2",
+          "0"
+        ],
+        "security_lower": "-1/2",
+        "security_upper": "-1/2",
+        "state": {
+          "board": [
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            1,
+            2,
+            0
+          ],
+          "forbidden_black": [],
+          "forbidden_white": [],
+          "history": [
+            {
+              "before": [
+                0,
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 3
+            },
+            {
+              "before": [
+                0,
+                1,
+                1,
+                2,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 9
+            }
+          ],
+          "pass_streak": 1,
+          "rounds_played": 5,
+          "rule_version": "graygo/1",
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 6,
+            "size": 3
+          }
+        },
+        "state_index": 5,
+        "value": "-1/2",
+        "white_actions": [
+          0,
+          8,
+          9
+        ]
+      },
+      {
+        "black_actions": [
+          0,
+          9
+        ],
+        "column_strategy": [
+          "1",
+          "0"
+        ],
+        "continuation_matrix": [
+          [
+            "0",
+            "1"
+          ],
+          [
+            "-1",
+            "0"
+          ]
+        ],
+        "row_strategy": [
+          "1",
+          "0"
+        ],
+        "security_lower": "0",
+        "security_upper": "0",
+        "state": {
+          "board": [
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            1,
+            2,
+            1
+          ],
+          "forbidden_black": [],
+          "forbidden_white": [],
+          "history": [
+            {
+              "before": [
+                0,
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 3
+            },
+            {
+              "before": [
+                0,
+                1,
+                1,
+                2,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 8,
+              "white": 9
+            }
+          ],
+          "pass_streak": 0,
+          "rounds_played": 5,
+          "rule_version": "graygo/1",
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 6,
+            "size": 3
+          }
+        },
+        "state_index": 6,
+        "value": "0",
+        "white_actions": [
+          0,
+          9
+        ]
+      },
+      {
+        "black_actions": [
+          0,
+          9
+        ],
+        "column_strategy": [
+          "1",
+          "0"
+        ],
+        "continuation_matrix": [
+          [
+            "0",
+            "1"
+          ],
+          [
+            "-1",
+            "-1"
+          ]
+        ],
+        "row_strategy": [
+          "1",
+          "0"
+        ],
+        "security_lower": "0",
+        "security_upper": "0",
+        "state": {
+          "board": [
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2
+          ],
+          "forbidden_black": [],
+          "forbidden_white": [],
+          "history": [
+            {
+              "before": [
+                0,
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 3
+            },
+            {
+              "before": [
+                0,
+                1,
+                1,
+                2,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 8
+            }
+          ],
+          "pass_streak": 0,
+          "rounds_played": 5,
+          "rule_version": "graygo/1",
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 6,
+            "size": 3
+          }
+        },
+        "state_index": 7,
+        "value": "0",
+        "white_actions": [
+          0,
+          9
+        ]
+      },
+      {
+        "black_actions": [
+          8,
+          9
+        ],
+        "column_strategy": [
+          "1",
+          "0"
+        ],
+        "continuation_matrix": [
+          [
+            "0",
+            "1"
+          ],
+          [
+            "-1",
+            "0"
+          ]
+        ],
+        "row_strategy": [
+          "1",
+          "0"
+        ],
+        "security_lower": "0",
+        "security_upper": "0",
+        "state": {
+          "board": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            2,
+            1,
+            2,
+            0
+          ],
+          "forbidden_black": [],
+          "forbidden_white": [],
+          "history": [
+            {
+              "before": [
+                0,
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 3
+            },
+            {
+              "before": [
+                0,
+                1,
+                1,
+                2,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 0,
+              "white": 9
+            }
+          ],
+          "pass_streak": 0,
+          "rounds_played": 5,
+          "rule_version": "graygo/1",
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 6,
+            "size": 3
+          }
+        },
+        "state_index": 8,
+        "value": "0",
+        "white_actions": [
+          8,
+          9
+        ]
+      },
+      {
+        "black_actions": [
+          8,
+          9
+        ],
+        "column_strategy": [
+          "1",
+          "0"
+        ],
+        "continuation_matrix": [
+          [
+            "0",
+            "1"
+          ],
+          [
+            "-1",
+            "-1"
+          ]
+        ],
+        "row_strategy": [
+          "1",
+          "0"
+        ],
+        "security_lower": "0",
+        "security_upper": "0",
+        "state": {
+          "board": [
+            2,
+            1,
+            1,
+            2,
+            2,
+            2,
+            1,
+            2,
+            0
+          ],
+          "forbidden_black": [],
+          "forbidden_white": [],
+          "history": [
+            {
+              "before": [
+                0,
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 3
+            },
+            {
+              "before": [
+                0,
+                1,
+                1,
+                2,
+                2,
+                2,
+                1,
+                2,
+                0
+              ],
+              "black": 9,
+              "white": 0
+            }
+          ],
+          "pass_streak": 0,
+          "rounds_played": 5,
+          "rule_version": "graygo/1",
+          "rules": {
+            "collision": "gray",
+            "max_rounds": 6,
+            "size": 3
+          }
+        },
+        "state_index": 9,
+        "value": "0",
+        "white_actions": [
+          8,
+          9
+        ]
+      }
+    ],
+    "version": "graygo/rational-bounded-game-dp/1"
+  },
+  "exact_game_certificate_sha256": "7b345eb17cd0ff6734e1b60852e58e17068c8de09832fb55bd25f5fa93464c8d",
+  "excluded_passive_root_records": 0,
+  "formal_case_passed": false,
+  "formal_protocol": false,
+  "format_version": 1,
+  "learner": "neural",
+  "measured_audit_entry_wall_seconds": 8.398746667080559,
+  "ordinary_records": 32768,
+  "physical_complete_games": 8192,
+  "published_tabular_exact_mean_states": 0,
+  "published_tabular_exact_root_mean_states": 0,
+  "published_tabular_mean_interval_checked": false,
+  "published_tabular_mean_verified": false,
+  "published_tabular_uncertain_mean_states": 0,
+  "published_tabular_uncertain_tokens": [],
+  "q_credit_passed": false,
+  "q_eligible_records": 32768,
+  "q_loss_targets": 116736,
+  "q_updates": 228,
+  "rational_root_values": [
+    "-1/4"
+  ],
+  "rational_value_states_solved": 243,
+  "records": 32768,
+  "result_sha256": "2e043b56a2aff217b21648fe7022889ffc120478693fa49f66abc64c54c5879c",
+  "retained_complete_action_paths_reconstructed": 8192,
+  "retained_executed_records_checked": 32768,
+  "retained_joint_transition_records_checked": 32768,
+  "retained_label_records_checked": 3298,
+  "retained_unpaired_transition_records_checked": 0,
+  "scheduled_evaluations": [
+    {
+      "average_ready": true,
+      "max_average_gap": 0.3125074692790195,
+      "max_early_error": 0.5136459029576714,
+      "max_greedy_gap": 0.75,
+      "records": 16384
+    },
+    {
+      "average_ready": true,
+      "max_average_gap": 0.5362724786051272,
+      "max_early_error": 0.3703987052197889,
+      "max_greedy_gap": 0.75,
+      "records": 32768
+    }
+  ],
+  "scope": "independent rational game values, complete-strategy fixed-policy responses and prefix-conditioned native values; exact header/RNG/eligibility/Algorithm-R clocks and retained legal joint transitions. Discarded historical actions/targets and original float64 trajectory hashes are not reconstructed; unresolved tabular publication tails retain stated interval bounds",
+  "seed": 0,
+  "shared_helper_sha256": "db369fafa117c0ee649fc00ddfa9d359efe4665203a227721cdc89980ddd4d02",
+  "source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+  "supervised_updates": 54,
+  "target_refreshes": 2,
+  "task": "gray-mixed",
+  "training_manifest_sha256": "2690689177596392563d96e45a9774080d50940c0b04e9bf6fea1f65a4cf6afb",
+  "unresolved_published_labels": 0,
+  "verified": true
+}

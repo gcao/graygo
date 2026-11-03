@@ -1,0 +1,2 @@
+{"case": "neural-R4-pre", "status": "complete", "records": 32768, "seconds_including_setup": 134.12467085197568, "fresh_records_per_second": 244.31001240751468}
+{"case": "neural-R4-post", "status": "complete", "records": 32768, "seconds_including_setup": 148.40443746000528, "fresh_records_per_second": 220.80202291006907}

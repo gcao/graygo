@@ -1,0 +1,19 @@
+{
+  "new_control_or_gpu_allocation": false,
+  "no_training_restart": true,
+  "observed_elapsed_from_parent_start_seconds": 287.7062367630424,
+  "original_parent": {
+    "children": {
+      "gray-mixed": 2779577,
+      "gray-pure": 2779576
+    },
+    "cmdline_sha256": "65691efc838a36cb34740b9a420b1fa1c78aa5d8f9199cf020ae66686202e828",
+    "original_loaded_alarm_seconds": 960,
+    "outer_cap_seconds": 780,
+    "pid": 2779568,
+    "start_ticks": "56658474"
+  },
+  "original_supervisor_pid": 2780584,
+  "status": "original_parent_terminal_under_declared_supervision",
+  "version": 1
+}

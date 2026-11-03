@@ -1,0 +1,142 @@
+{
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/episodes.bin": {
+    "bytes": 1179648,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/episodes.bin",
+    "sha256": "56619a24518571ecaa863c6fed9d2977d20500a66c37e782c3ff8a306df9ebd7"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/resume/000000032768/metrics.npz": {
+    "bytes": 2180,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/resume/000000032768/metrics.npz",
+    "sha256": "f68dcb9479942d1d79b0eda53f52a0960604d801074a0e9ee53669ab80ee4259"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/resume/000000032768/replay.npz": {
+    "bytes": 303698,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/resume/000000032768/replay.npz",
+    "sha256": "a3c4e41904ba90ce85b03c4cff982bb15de3baef8c61f4913b651d34c338d910"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/resume/000000032768/reservoir.npz": {
+    "bytes": 14271,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/resume/000000032768/reservoir.npz",
+    "sha256": "24de6d0822236ad2858f6cd35147d5357172d0f7a87003ffbe0404b647f6819f"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/resume/000000032768/trainer.pt": {
+    "bytes": 17733413,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/resume/000000032768/trainer.pt",
+    "sha256": "103104e2f185046516fd9f68f67591d79b00feb0f240ef99362b1a682dad8560"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/weights/000000016384/models.pt": {
+    "bytes": 5056719,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/weights/000000016384/models.pt",
+    "sha256": "7c9f9bb99d7bc9ab22d77098a3a62dd441c65c0b406dffb304a2084ee23a4273"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/weights/000000032768/models.pt": {
+    "bytes": 5056719,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-post/weights/000000032768/models.pt",
+    "sha256": "1a84c7f874280966847f7e5441be931250440b10b6f9caba8e4db3cf03037093"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/episodes.bin": {
+    "bytes": 1179648,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/episodes.bin",
+    "sha256": "55fb53e8844137836b791044d9efdd14aa32d501d41921b46df7496566685d46"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/resume/000000032768/metrics.npz": {
+    "bytes": 2166,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/resume/000000032768/metrics.npz",
+    "sha256": "4e720b3a3b52becad8a7d6000a88d209b97c0b8bf42eb418ed00e9b5dd4cea19"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/resume/000000032768/replay.npz": {
+    "bytes": 252640,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/resume/000000032768/replay.npz",
+    "sha256": "2d10ac75d2579138f12f9ff7697ddd1eefe9c34ca7e69b27e54afe3ac24a43d8"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/resume/000000032768/reservoir.npz": {
+    "bytes": 1564,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/resume/000000032768/reservoir.npz",
+    "sha256": "5374f9eadf7150c0fdaf7e0b37ce18d0edd8e2c6db32e26742e4c3a555b67195"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/resume/000000032768/trainer.pt": {
+    "bytes": 12666925,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/resume/000000032768/trainer.pt",
+    "sha256": "a0d2603ffde10c7428d175bac9d78e7a7e72b4fd2c9a66e604e803dd496e1056"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/weights/000000016384/models.pt": {
+    "bytes": 5056719,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/weights/000000016384/models.pt",
+    "sha256": "0f9453a501d5286c5918a0aa37768254d77371588e010e774ff5d848047dfcde"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/weights/000000032768/models.pt": {
+    "bytes": 5056719,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-mixed/neural-R4-pre/weights/000000032768/models.pt",
+    "sha256": "bda6a05d8eab86ea1de90a2f219991f656b5487f385b9e360df7f0d934f67454"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/episodes.bin": {
+    "bytes": 2359296,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/episodes.bin",
+    "sha256": "6fe3155f30d14dcf89d046f9ad9921d9f2d368ca304ca1c0a0ef2847177af691"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/resume/000000032768/metrics.npz": {
+    "bytes": 1601,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/resume/000000032768/metrics.npz",
+    "sha256": "50b6d81a4e1fcd714ab3dba1eb733b5b97f501c44ad3050dc8ee362208d6596e"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/resume/000000032768/replay.npz": {
+    "bytes": 208280,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/resume/000000032768/replay.npz",
+    "sha256": "7f4490b3154256b4a96c35b8f33f2d99015de571f5f1a3de6a9ed95a63db0c0c"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/resume/000000032768/reservoir.npz": {
+    "bytes": 8198,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/resume/000000032768/reservoir.npz",
+    "sha256": "390de3c72948af37243a8ab2d79f77e29b1fa0594cb12c44119297db570823c2"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/resume/000000032768/trainer.pt": {
+    "bytes": 17732901,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/resume/000000032768/trainer.pt",
+    "sha256": "2171cb4ee03348e29d0d22617a03229e197d00f66173405b32d5135af3220814"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/weights/000000016384/models.pt": {
+    "bytes": 5056719,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/weights/000000016384/models.pt",
+    "sha256": "07b3f5e689cb3cc0095eb45e93fdb99b18f30a098facf6f422e31d2321b22db7"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/weights/000000032768/models.pt": {
+    "bytes": 5056719,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-post/weights/000000032768/models.pt",
+    "sha256": "ee0047362c11ba1e54c908c635fc6a1fc97770c963153b497a2948d4c5ceb88f"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/episodes.bin": {
+    "bytes": 2359296,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/episodes.bin",
+    "sha256": "8633198be541cb767a21d2d13c7eea053323f38c7810c2e060d1f7c839407166"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/resume/000000032768/metrics.npz": {
+    "bytes": 1614,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/resume/000000032768/metrics.npz",
+    "sha256": "00d0d1c09e507888d926497c077a18e030b730004ce404a78fdf54696ae1c670"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/resume/000000032768/replay.npz": {
+    "bytes": 178241,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/resume/000000032768/replay.npz",
+    "sha256": "40e022401bd6d67a6506b1a0ba17b0349ca0b0fd164d3207f6a6441ab579e235"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/resume/000000032768/reservoir.npz": {
+    "bytes": 1564,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/resume/000000032768/reservoir.npz",
+    "sha256": "5374f9eadf7150c0fdaf7e0b37ce18d0edd8e2c6db32e26742e4c3a555b67195"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/resume/000000032768/trainer.pt": {
+    "bytes": 12666349,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/resume/000000032768/trainer.pt",
+    "sha256": "c03501dd75eb751e309e6aba938db2010864c7eeb14a0537c43969fbd96dfe5d"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/weights/000000016384/models.pt": {
+    "bytes": 5056719,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/weights/000000016384/models.pt",
+    "sha256": "723d49a642a176d4f4d85f347589511d4802e76d53368c4635b22ac574cd9a8b"
+  },
+  "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/weights/000000032768/models.pt": {
+    "bytes": 5056719,
+    "original": "/home/gcao/proj/graygo/runs/cpu-raw-cache-comparison-v1/profiles/gray-pure/neural-R4-pre/weights/000000032768/models.pt",
+    "sha256": "cdb542601f8228ff88ed0cded20a82cf9d3a836f31804bebfc38c034d359cc4d"
+  }
+}
