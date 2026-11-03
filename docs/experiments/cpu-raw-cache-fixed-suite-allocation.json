@@ -1,0 +1,28 @@
+{
+  "candidate_commit": "1f7c432b092bf7860a4f030b21d5f403f4adc811",
+  "candidate_source_package_path": ".worktrees/cpu-cache-suite-fixture-1f7c432/src",
+  "candidate_source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "gpu_equipped_process_reservation_seconds": "900",
+  "gpu_uuid": "GPU-446c23a3-a50d-fb18-6e54-d0b290eb78c2",
+  "historical_fixture_file": "tests/test_task_default_specialization.py",
+  "historical_fixture_sha256": "f5eaca8d143bff81d7ca99d70004941bc287d973f95de5f004522a593ac7d021",
+  "name": "cpu-raw-cache-suite-historical-fixture-correction",
+  "new_control_training_selected": false,
+  "new_formal_a2_records": 0,
+  "outer_watchdog_seconds": 960,
+  "prior_failed_suite": "runs/cpu-raw-cache-full-suite-257276e",
+  "prior_failed_suite_job_sha256": "b84702a16b9c2107aa67c571ed34d36f74660f701fbb787c3fe4d2e81fed10ce",
+  "scope": "One complete suite on the exact same a714ee0 application package, after a test-only correction pins the older certification fixture to its actual immutable c3b8b5f source. The original verifier is unchanged and a new regression requires it to reject the cache delegate. Preserve the original 533-test/two-error log and its GPU interval. No learner/profile restart, new formal case, control-budget change or admission/study grant.",
+  "source_admission_qualified": false,
+  "suite_process_ceiling_seconds": 900,
+  "version": 1
+}
