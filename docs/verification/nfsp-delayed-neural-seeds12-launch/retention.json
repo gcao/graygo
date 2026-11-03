@@ -1,0 +1,86 @@
+{
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/audit-driver.py": {
+    "original": "runs/nfsp-delayed-neural-seeds12-audit-a6a52bd/driver.py",
+    "sha256": "8666be0927cd724355c1c828784dde94384e5e1717e8c7492b7a775f8bb246fe"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/driver.py": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/driver.py",
+    "sha256": "0cce6b68b9b8967f59b7798151e24a4244cdffcb3a5aa8185feb93802c2a5678"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/neural-budget.json": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/neural-budget.json",
+    "sha256": "86faeeacb07c29b85e948f41340630780ad288af200c03f5b6f7b0e08b8ea220"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/admission.json": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed1/admission.json",
+    "sha256": "d6434bcd8240c8ddb6b47d91763aac5719f861a91475040436565cf4b99733b9"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/initial-checkpoint/manifest.json": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed1/initial-checkpoint/manifest.json",
+    "sha256": "95a5d092a19700eae5afa909c2d52f88bc0a6813f0ea1d557268469d34b9a077"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/initial-checkpoint/manifest.sha256": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed1/initial-checkpoint/manifest.sha256",
+    "sha256": "34c8c1c241376d839700c3e71162a979a30af7212ce68ee44927faad4fbf4a8e"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/initial-checkpoint/metrics.npz": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed1/initial-checkpoint/metrics.npz",
+    "sha256": "43556f3631058d3c9421b3c93a19b4dcc396b41c8e94b1c5a524532534a49bbd"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/initial-checkpoint/replay.npz": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed1/initial-checkpoint/replay.npz",
+    "sha256": "bfafa86df8ef9b5c9f56b6935fe76f51e3a4a0ee1dac319fa55aa0adf692c44e"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/initial-checkpoint/reservoir.npz": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed1/initial-checkpoint/reservoir.npz",
+    "sha256": "1ef2f1a194c45ac9a346e45b2bd083452dddc78b4b898532e2e2d61a9259196c"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/initial-checkpoint/trainer.pt": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed1/initial-checkpoint/trainer.pt",
+    "sha256": "e3495ac94dd7171521fc699362809251a4aec805f37372ac9aec6db7fb1eda8f"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/initialization.json": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed1/initialization.json",
+    "sha256": "fe7068f94c084ad2480226f67ab51b87a032f5cb030809f43ce0834cc2fb8ece"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed1/run.json": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed1/run.json",
+    "sha256": "76b6918a12f9a73e5dd6016a941fbb92087c0083eff6e9852acdbf3c79cb6452"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/admission.json": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed2/admission.json",
+    "sha256": "f08c91033442887114a9fcbd3410069236d9e3a37f1f34f3d962f7d28d3fa4b8"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/initial-checkpoint/manifest.json": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed2/initial-checkpoint/manifest.json",
+    "sha256": "7836915ef7da878b26bd50b2dbaf3b526df2466359353ee01ccdc3fc4accb277"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/initial-checkpoint/manifest.sha256": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed2/initial-checkpoint/manifest.sha256",
+    "sha256": "cb133402624c6cb85646ba57b43c80cd8e8ca9f4af74498ff6cb1397f930cad5"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/initial-checkpoint/metrics.npz": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed2/initial-checkpoint/metrics.npz",
+    "sha256": "43556f3631058d3c9421b3c93a19b4dcc396b41c8e94b1c5a524532534a49bbd"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/initial-checkpoint/replay.npz": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed2/initial-checkpoint/replay.npz",
+    "sha256": "bfafa86df8ef9b5c9f56b6935fe76f51e3a4a0ee1dac319fa55aa0adf692c44e"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/initial-checkpoint/reservoir.npz": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed2/initial-checkpoint/reservoir.npz",
+    "sha256": "1ef2f1a194c45ac9a346e45b2bd083452dddc78b4b898532e2e2d61a9259196c"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/initial-checkpoint/trainer.pt": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed2/initial-checkpoint/trainer.pt",
+    "sha256": "cdeb79b15796b9540763b4007143aa879295be7a512b813c64e51878a897c653"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/initialization.json": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed2/initialization.json",
+    "sha256": "2df9e8fc7923b6db8936e3c534826e0222ba1a4cfe8f7c74a58d6df76b8964e6"
+  },
+  "docs/verification/nfsp-delayed-neural-seeds12-launch/seed2/run.json": {
+    "original": "runs/nfsp-delayed-neural-seeds12-a522-v1/seed2/run.json",
+    "sha256": "5670a44080cdb7b02f15b3378e8f1bf29dd9073d9dd1ec89b2afaf6ceacce776"
+  }
+}

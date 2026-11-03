@@ -1,0 +1,38 @@
+{
+  "a2_complete": false,
+  "audit_allocation_sha256": "08d60b99dbeacf94c1fd05b36971bbe4e9628c98bf423cde3a5de01e1c2f6ab5",
+  "captured_unix_seconds": 1793680661.3045075,
+  "cases": {
+    "1": {
+      "cmdline_sha256": "7f64e98ce1a09fbb2dc77bf69f9aed4b9a2e89393756a908050e84e59c69d46a",
+      "initialization_sha256": "fe7068f94c084ad2480226f67ab51b87a032f5cb030809f43ce0834cc2fb8ece",
+      "learner_package_git_commit": "c3b8b5fb87eba63142a17bd04f578c135fbae2d4",
+      "live_handle_verified_at_launch_snapshot": true,
+      "orchestration_git_commit": "11a011047c512744412b676632b886f06fabd44b",
+      "original_pid": 2745716,
+      "retained_zero_checkpoint_manifest_sha256": "95a5d092a19700eae5afa909c2d52f88bc0a6813f0ea1d557268469d34b9a077",
+      "run_manifest_sha256": "76b6918a12f9a73e5dd6016a941fbb92087c0083eff6e9852acdbf3c79cb6452",
+      "source_package_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "start_ticks": "55949639"
+    },
+    "2": {
+      "cmdline_sha256": "79343c4167a4ff965433b3f393a6365527a75fd9e154dba8d9a524a029d5d926",
+      "initialization_sha256": "2df9e8fc7923b6db8936e3c534826e0222ba1a4cfe8f7c74a58d6df76b8964e6",
+      "learner_package_git_commit": "c3b8b5fb87eba63142a17bd04f578c135fbae2d4",
+      "live_handle_verified_at_launch_snapshot": true,
+      "orchestration_git_commit": "11a011047c512744412b676632b886f06fabd44b",
+      "original_pid": 2745717,
+      "retained_zero_checkpoint_manifest_sha256": "7836915ef7da878b26bd50b2dbaf3b526df2466359353ee01ccdc3fc4accb277",
+      "run_manifest_sha256": "5670a44080cdb7b02f15b3378e8f1bf29dd9073d9dd1ec89b2afaf6ceacce776",
+      "source_package_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "start_ticks": "55949639"
+    }
+  },
+  "new_a2_completed_cases_claimed": 0,
+  "original_audit_driver_pid": 2746867,
+  "original_parent_pid": 2745706,
+  "project_scope_selected": false,
+  "source_context": "Original run.json git_commit records the orchestration checkout (11a0110). Its source_sha256 records the actual imported learner package (a522fe2 from c3b8b5f). Both immutable code identities are retained explicitly; original manifests are unchanged.",
+  "training_allocation_sha256": "c5346b84cf2cd892159b6405314ddb0f5eed3812a7ee290c80b7400ff029e8de",
+  "version": 1
+}

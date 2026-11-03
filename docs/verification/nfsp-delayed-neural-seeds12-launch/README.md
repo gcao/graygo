@@ -1,0 +1,11 @@
+# Remaining original delayed neural seeds launched
+
+Exactly original seeds **1 and 2** run the full primary delayed R4 recipe on the directly priced package `a522fe2...`. Each has a 15M fresh-record cap and a **19,800-second complete child-process ceiling**, including admission/constructor/cleanup. The parent requests a graceful budget stop thirty seconds before the deadline and retains a hard-stop backstop. No table controls or accelerator jobs are added.
+
+Original parent **2745706** owns workers **2745716 / 2745717**. Independent watcher **2746867** binds their exact original /proc identities, configs, own-source plan, price/budget files and initialization seals. It waits for each original worker to end and release its writer lock before auditing; it never starts/resumes a learner. Its pinned collector then records current/archived source-aware assessments with all fourteen prior cases unchanged. No in-progress checkpoint counts as a completed A2 case.
+
+[Retention](retention.json) binds both actual **zero-record private checkpoints**, complete original manifests/admission receipts and immutable driver/budget files. These initial checkpoints were copied before any collection, are separate from scheduled public evaluation agents, and survive rolling checkpoint pruning. The two seeded models and initialization seals are distinct. The tested retention step advances neither Torch/private RNG nor record counters. All 53 combined runner/admission/gate/price/resource checks pass.
+
+[Provenance](provenance.json) preserves both code contexts explicitly: run.json’s git_commit is orchestration checkout `11a0110`, while its source_sha256 identifies the imported learner package from `c3b8b5f`. The exact source package and orchestration code are both frozen. Original manifests are not rewritten.
+
+The [source registration and reservation ledger](../a2-selected-cpu-own-source/README.md) keeps 39,600 CPU process-seconds reserved for these two cases. Control commitment remains 42,124.756485 / 43,200 seconds. Primary A2 is still fourteen present / twenty-two missing until full case completion and independent audits. Existing delayed-table miss, original seeds, schedules, final-five gates and source identities remain unchanged. R1 comparisons, additional families/controls, extensions, pilot, project/study and production scope are not selected here.
