@@ -1,0 +1,17 @@
+{
+  "learner_source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+  "name": "bounded-gray-neural-CPU-runtime-price-qualification",
+  "new_accelerator_jobs": 0,
+  "new_control_allocation_seconds": "0",
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "outer_watchdog_seconds": 180,
+  "scope": "One fresh read-only qualification of two complete CPU neural Gray Go task runtime prices. Revalidate exact source admission and registry, independent actual profile bindings, complete pre/post model/learning/averaging work, current numerical/host identity and original twofold margin. No full training selection or A2 exit, control-budget change, native/CUDA/9x9 prices, pilot or study.",
+  "source_package": ".worktrees/cpu-raw-cache-comparison-257276e/src",
+  "source_verifier_checkout": ".worktrees/cpu-cache-admission-1b405bd",
+  "specification": "docs/experiments/nfsp-gray-cpu-price-evidence.json",
+  "specification_sha256": "4ba05ede05bc9b3f0b6fe02daa6acf9b25d0ae395c1adf1016c1cc346c6ca803",
+  "verifier": "tools/nfsp_cpu_gray.py",
+  "verifier_sha256": "292a8b1897da27f63a06180389a341322d8a4709c49e181a705170668b20ba38",
+  "version": 1
+}

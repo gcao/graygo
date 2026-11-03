@@ -1,0 +1,18 @@
+{
+  "learner": "neural",
+  "learner_source_sha256": "a714ee02568f8ced9cb39111f5e3a1fd0f3e14477eaacb66f784ee79c2cd4c63",
+  "own_source_plan": "runs/cpu-cache-own-source-registration-v1/candidate-plan.json",
+  "own_source_plan_sha256": "55d0dc4bc9b5c8eb332154eb163014036795fe623ba75fcdce158eca75047642",
+  "q_reuse": 4,
+  "scope": "Matched actual full-model CPU/features primary R4 neural pre/post profiles for both bounded Gray Go families, original seeds 0/1/2, independent prefix audits, exact cache source admission and own-source registry. Direct candidate timings only; no price transfer from another source, device, task, or reduced model.",
+  "source_admission": "runs/cpu-raw-cache-admission-1b405bd/admission.json",
+  "source_admission_sha256": "603add2790eba6af8ec39de3f1be9c4ed881aad484f93385c95e27313e714d71",
+  "source_package": ".worktrees/cpu-raw-cache-comparison-257276e/src",
+  "source_registry": "runs/cpu-cache-own-source-registration-v1/registry.json",
+  "source_registry_sha256": "9eaf57118223392ad1693b3709bb1c2cb713cb1b83c6129769fddbb01233835e",
+  "tasks": [
+    "gray-pure",
+    "gray-mixed"
+  ],
+  "version": 1
+}
