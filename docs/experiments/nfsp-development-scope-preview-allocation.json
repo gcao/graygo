@@ -1,0 +1,18 @@
+{
+  "name": "read-only-unselected-development-scope-preview",
+  "new_accelerator_jobs": 0,
+  "new_control_allocation_seconds": "0",
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "outer_watchdog_seconds": 60,
+  "policy": "tools/nfsp_development_scope.py",
+  "policy_sha256": "b58f54476cebc134945ffa820161ebf5ae6e493ee19595758c0439f1688cbcfb",
+  "proposal": "docs/experiments/nfsp-development-scope-proposal.json",
+  "proposal_sha256": "5b031eb6ce42b024703ad4f78db581a8de47e9558d6024f25cf09d8cc4813e8b",
+  "resource_plan": "docs/experiments/nfsp-development-numeric-plan-v2.json",
+  "resource_plan_sha256": "11ddfb223c30a1ddcfe0c722a30c9d749965ea3eccba6b28264c17af63d7c515",
+  "scope": "One read-only CLI review of the immutable unselected numeric development proposal, with no owner-decision argument. Verify it reports missing decision and an unpriced full-study uniform component; no training entry, actual runtime price qualification or scope selection.",
+  "source_package": ".worktrees/frozen-cuda-c3b8b5f/src",
+  "source_verifier_checkout": ".worktrees/cpu-cache-admission-1b405bd",
+  "version": 1
+}

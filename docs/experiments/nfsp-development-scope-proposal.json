@@ -1,0 +1,108 @@
+{
+  "confirmation_horizon_records": 80000000,
+  "confirmation_seeds": [
+    200,
+    201,
+    202
+  ],
+  "development_horizon_records": 20000000,
+  "development_seeds": [
+    100,
+    101,
+    102
+  ],
+  "full_production_entry_implemented": false,
+  "known_partial_other_device_hours": "1.072744093416666666666666667",
+  "owner_approved": false,
+  "pilot_endpoint_records": 8000000,
+  "previous_plan": "docs/verification/nfsp-delayed-cpu-prices/plan.json",
+  "previous_plan_file_sha256": "7a01db25248f221b27238bae9ed95082aeceeb573d66562b9cb1d2c19cbf38eb",
+  "read_only_numeric_preview": {
+    "a2_complete": false,
+    "execution_authorized": false,
+    "full_study_price_gaps": [
+      "B_U",
+      "B_U: selected single-GPU board comparison needs a positive independently qualified price"
+    ],
+    "known_full_study_numeric_subtotal_device_hours": "1809.458398017949666666666667",
+    "numeric_plan": {
+      "N_A2": "96",
+      "a2_components": {
+        "B_0": "0",
+        "C4": "0",
+        "CT": "0",
+        "D": "0",
+        "primary_short": "96",
+        "three_C1": "0"
+      },
+      "component_limit_violations": [],
+      "continuous_device_days_not_wall_time_promise": null,
+      "execution_authorized": false,
+      "full_study_components": {
+        "B_U": null,
+        "N_A2": "96",
+        "P_actual": "0",
+        "U_actual_unreused": "0",
+        "corrective_reserve": "0",
+        "other_unreused": "1.072744093416666666666666667",
+        "promotions": "0",
+        "scientific_probe_inference": "16",
+        "three_H_D": "114.530116239375",
+        "twelve_H_N": "1581.8555376851580"
+      },
+      "full_study_device_hours": null,
+      "known_term_device_ceiling_subtotal": "1809.458398017949666666666667",
+      "learner_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "missing_required_terms": [
+        "B_U"
+      ],
+      "numerical_cost_status": "uncosted",
+      "per_seed_H_D_includes_H_P": "38.176705413125",
+      "per_seed_H_P": "18.852894536612634",
+      "plan_sha256": "8f84f896318f7af26dd55c54c7336be40171bd7b7718e1bc69cf117d7ffac445",
+      "project_device_hour_ceiling": null,
+      "runtime_prices_independently_qualified": false,
+      "scope": "formula and reference inventory, not a measured complete-NFSP price; CPU seconds are separate; no PPO-price substitution, scope selection or launch",
+      "selected_reuse": 4,
+      "selected_target": "one-step",
+      "unit": "device_hours",
+      "unreferenced_numeric_terms": [],
+      "version": "graygo/nfsp-resource-ledger/1"
+    },
+    "prefix_price_gaps": [],
+    "resource_plan_sha256": "8f84f896318f7af26dd55c54c7336be40171bd7b7718e1bc69cf117d7ffac445",
+    "runtime_prices_independently_qualified": false,
+    "scope": "Immutable owner selection and numeric scope arithmetic only. Filled future full-study prices do not select that study. Fresh A2/source/runtime-price/fixture/control/accounting validation and registered three-seed lifecycle are still required before training.",
+    "scope_ceiling_device_hours": {
+      "full-study": null,
+      "limited-pilot": "153.6314277032545686666666667",
+      "limited-screening": "211.6028603327916666666666667",
+      "stop": "0"
+    },
+    "selected_scope_costed_and_within_ceiling": false,
+    "selection": null,
+    "status": "owner_decision_missing",
+    "version": "graygo/nfsp-development-scope/1"
+  },
+  "remaining_entry_requirements": [
+    "complete original A2 cohorts and explicit control interpretation",
+    "finish original one-step and other declared comparator/fixture checks",
+    "apply a conditional extension only if the complete cohort qualifies and it is separately priced",
+    "fresh whole-route runtime/source/pricing and resource-accounting validation",
+    "actual scope-specific owner decision",
+    "wire the verified entry and cohort lifecycle to the public production launcher"
+  ],
+  "resource_plan": "docs/experiments/nfsp-development-numeric-plan-v2.json",
+  "resource_plan_file_sha256": "11ddfb223c30a1ddcfe0c722a30c9d749965ea3eccba6b28264c17af63d7c515",
+  "resource_plan_sha256": "8f84f896318f7af26dd55c54c7336be40171bd7b7718e1bc69cf117d7ffac445",
+  "retired_zero_uniform_exclusion_reference_sha256": "19b80d7dcbcf3184424b724d045a77be648e4e8782a08afba784020db1a15f20",
+  "scope": "Unselected numeric development-scope proposal and stage-mechanics preview. Existing source-bound H_P/H_D/H_N terms remain unchanged. Update only known partial unreused GPU use; mark the unpriced matched uniform board comparison unknown instead of treating a zero exclusion as a free full-study component. No budget, control-ceiling, A2, pilot or study grant.",
+  "scope_policy": "tools/nfsp_development_scope.py",
+  "scope_policy_sha256": "b58f54476cebc134945ffa820161ebf5ae6e493ee19595758c0439f1688cbcfb",
+  "selected": false,
+  "unpriced_required_full_study_component": "B_U: actual matched uniform-preopening board comparison requires its own price and explicit scope",
+  "usage_inventory": "docs/verification/nfsp-delayed-r1-reuse-baseline/resource-use.json",
+  "usage_inventory_file_sha256": "36ca12d5f64a076250c406d6b4c2e62796963349e9c553e18d7a62673ab21e85",
+  "version": "graygo/nfsp-development-scope-proposal/1",
+  "whole_history_consumption_verified": false
+}
