@@ -1,0 +1,91 @@
+{
+  "a2_evidence_reusable": false,
+  "comparisons": {
+    "neural": {
+      "a2_evidence_reusable": false,
+      "archive_manifest_sha256": "9cd386076ac9956aab8c195716780852b5447909015f22b32f37452597bcc832",
+      "candidate_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "compared_fields": [
+        "config",
+        "archive_source_sha256",
+        "archive_manifest_sha256",
+        "model_sha256",
+        "adapter_sha256",
+        "observations_sha256",
+        "snapshot_sha256",
+        "raw_outputs_sha256",
+        "scalar_commits_sha256",
+        "batched_commits_sha256",
+        "forced_commits_sha256",
+        "restored_continuations_sha256",
+        "private_rng_sha256",
+        "counts",
+        "runtime",
+        "torch_rng_sha256",
+        "numpy_global_rng_sha256"
+      ],
+      "complete_training_trajectory_verified": false,
+      "counts_per_package": {
+        "batched_commits": 204,
+        "forced_commits": 36,
+        "observations": 2788,
+        "raw_forwards": 5576,
+        "restored_continuations": 150,
+        "scalar_commits": 69700
+      },
+      "execution_authorized": false,
+      "learner": "neural",
+      "reference_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "scope": "Exact finite trained-weight actor outputs, labels, private draws, batching and restore boundary only; no old/current learning trajectory, rule-engine or complete A2/project-entry qualification.",
+      "source_compatibility_qualified": false,
+      "status": "finite_actor_boundary_verified",
+      "task": "delayed",
+      "version": "graygo/task-actor-boundary/1"
+    },
+    "tabular": {
+      "a2_evidence_reusable": false,
+      "archive_manifest_sha256": "6f624c4651a96289e2d2128fdb2c7f20b9613635b0d996702b0b3e96ff5e48dd",
+      "candidate_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+      "compared_fields": [
+        "config",
+        "archive_source_sha256",
+        "archive_manifest_sha256",
+        "model_sha256",
+        "adapter_sha256",
+        "observations_sha256",
+        "snapshot_sha256",
+        "raw_outputs_sha256",
+        "scalar_commits_sha256",
+        "batched_commits_sha256",
+        "forced_commits_sha256",
+        "restored_continuations_sha256",
+        "private_rng_sha256",
+        "counts",
+        "runtime",
+        "torch_rng_sha256",
+        "numpy_global_rng_sha256"
+      ],
+      "complete_training_trajectory_verified": false,
+      "counts_per_package": {
+        "batched_commits": 204,
+        "forced_commits": 36,
+        "observations": 2788,
+        "raw_forwards": 5576,
+        "restored_continuations": 150,
+        "scalar_commits": 69700
+      },
+      "execution_authorized": false,
+      "learner": "tabular",
+      "reference_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+      "scope": "Exact finite trained-weight actor outputs, labels, private draws, batching and restore boundary only; no old/current learning trajectory, rule-engine or complete A2/project-entry qualification.",
+      "source_compatibility_qualified": false,
+      "status": "finite_actor_boundary_verified",
+      "task": "delayed",
+      "version": "graygo/task-actor-boundary/1"
+    }
+  },
+  "execution_authorized": false,
+  "source_compatibility_qualified": false,
+  "status": "both_finite_actor_boundaries_verified",
+  "version": 1
+}

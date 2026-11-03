@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "learner": "neural",
+  "counts": {
+    "observations": 2788,
+    "raw_forwards": 5576,
+    "scalar_commits": 69700,
+    "batched_commits": 204,
+    "forced_commits": 36,
+    "restored_continuations": 150
+  },
+  "elapsed_seconds": 28.40659701405093
+}

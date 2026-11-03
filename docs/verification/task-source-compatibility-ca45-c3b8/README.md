@@ -25,3 +25,5 @@ The comparison also lists changed files outside the static task-import closure. 
 ```
 
 An existing output is preserved. Both source trees are checked again after analysis, and output inside either compared package is rejected.
+
+The [trained default-actor boundary](actor-boundary/README.md) now passes exact old/current checks for both full original 15M archives, all 2,788 observations and explicit private sampling/restore partitions. Full learner-update/buffer trajectory checks remain separate; a newly declared bounded matched pipeline diagnostic will test those next.

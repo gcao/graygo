@@ -1,0 +1,18 @@
+{
+  "measurement": {
+    "category": "verification",
+    "covered_scopes": [
+      "2b8c87b2bbe6f1d1e4b1d8946a437713a371d927eaaa9f59ac00e2220eeaf3c9"
+    ],
+    "device_ids": [],
+    "evidence_sha256": "d07410db25ef63559e8dbb4a6244a308c906ae60626a0943b7e2c9ceb9627b43",
+    "identity": "9c6113f35ef2715315f1a10b344930490ecfd756314fdad659c7b843a2397b20",
+    "interval_end": null,
+    "interval_start": null,
+    "seconds": "119.57110065803863",
+    "state": "actual",
+    "unit": "cpu_process_seconds"
+  },
+  "scope": "One whole sequential CPU verification interval; child intervals are nested and not added again. No new training records or games.",
+  "version": 1
+}

@@ -1,0 +1,70 @@
+{
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/comparison.json": {
+    "original": "runs/task-actor-boundary-53aa73c/comparison.json",
+    "sha256": "5150063f5d63389252d13b95f6ba960f26c7307fbaf9fb477bff0c2959a6dbe1"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/driver.log": {
+    "original": "runs/task-actor-boundary-53aa73c/driver.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/driver.py": {
+    "original": "runs/task-actor-boundary-53aa73c/driver.py",
+    "sha256": "837179b7621b6f4928ca59b1a355f4ce511d4917385e7245155e557cf8a1633c"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/job.json": {
+    "original": "runs/task-actor-boundary-53aa73c/job.json",
+    "sha256": "d07410db25ef63559e8dbb4a6244a308c906ae60626a0943b7e2c9ceb9627b43"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/neural-candidate.json": {
+    "original": "runs/task-actor-boundary-53aa73c/neural-candidate.json",
+    "sha256": "e6bc7b749576d65a31b6e5ea8a12f0784b51b0ef7cc01a2379060ec16ac0de65"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/neural-candidate.stderr": {
+    "original": "runs/task-actor-boundary-53aa73c/neural-candidate.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/neural-candidate.stdout": {
+    "original": "runs/task-actor-boundary-53aa73c/neural-candidate.stdout",
+    "sha256": "d5c56bbf8a702ca58550030f023ffd1127db774500c16916c16b705b56a9210d"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/neural-reference.json": {
+    "original": "runs/task-actor-boundary-53aa73c/neural-reference.json",
+    "sha256": "722dc5ada53612e1a3c634fd5f1032e4355b44988f4df14715cb15f749b0f2bd"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/neural-reference.stderr": {
+    "original": "runs/task-actor-boundary-53aa73c/neural-reference.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/neural-reference.stdout": {
+    "original": "runs/task-actor-boundary-53aa73c/neural-reference.stdout",
+    "sha256": "3e92c211bdd601e0bf16ea0b98bb561c7afee7ae8a2600f780046047502397eb"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/original-input-snapshot.json": {
+    "original": "runs/task-actor-boundary-53aa73c/original-input-snapshot.json",
+    "sha256": "8b76cf275c32c048f6fb3658e2d68f5aa970914f52b10ec1dd504445ba1dad27"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/tabular-candidate.json": {
+    "original": "runs/task-actor-boundary-53aa73c/tabular-candidate.json",
+    "sha256": "b13860c03b5930d58c3e75797ef45b018d0d18fcbb9cb5a8cc8f3f281461c61f"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/tabular-candidate.stderr": {
+    "original": "runs/task-actor-boundary-53aa73c/tabular-candidate.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/tabular-candidate.stdout": {
+    "original": "runs/task-actor-boundary-53aa73c/tabular-candidate.stdout",
+    "sha256": "cec894f0617d237e664317348efc291398c45805e74f1013b635d4d2cfdca2af"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/tabular-reference.json": {
+    "original": "runs/task-actor-boundary-53aa73c/tabular-reference.json",
+    "sha256": "f83a8308f3d85ee6e72f647d56215302ef9af62650e25deb82e18d6055e1ff5e"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/tabular-reference.stderr": {
+    "original": "runs/task-actor-boundary-53aa73c/tabular-reference.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/verification/task-source-compatibility-ca45-c3b8/actor-boundary/tabular-reference.stdout": {
+    "original": "runs/task-actor-boundary-53aa73c/tabular-reference.stdout",
+    "sha256": "63ee60fc3f55d3348e4ae294b5707bd28edc1a103eb4effd5948d6ca0304d6cb"
+  }
+}
