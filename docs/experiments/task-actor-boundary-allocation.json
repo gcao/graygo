@@ -1,0 +1,54 @@
+{
+  "a2_evidence_reusable": false,
+  "actor_clocks": [
+    0,
+    5000000,
+    6000000,
+    7000000,
+    15000000
+  ],
+  "actor_variants": [
+    "best-response-labels-disabled",
+    "best-response-labels-by-opening",
+    "average-mode-Q-fallback",
+    "learned-average",
+    "uniform-fallback"
+  ],
+  "batched_commitments_per_probe": 204,
+  "candidate_package_path": ".worktrees/frozen-cuda-c3b8b5f/src",
+  "candidate_source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "concurrent_child_processes": 1,
+  "execution_authorized": false,
+  "forced_commitments_per_probe": 36,
+  "maximum_child_processes": 4,
+  "name": "original-trained-R4-default-actor-source-boundary",
+  "new_accelerator_job": false,
+  "new_evaluation_games": 0,
+  "new_training_records": 0,
+  "outer_watchdog_seconds": 1260,
+  "per_probe_time_ceiling_seconds": 270,
+  "process_time_ceiling_seconds": 1200,
+  "producer_path": "tools/task_actor_boundary.py",
+  "producer_sha256": "51120148aab3c7ffc36c18932e7c14ee11cc7550af77a9c11123016253e2c563",
+  "reference_package_path": ".worktrees/nfsp-eligibility-ca45a53/src",
+  "reference_source_sha256": "db9db2eb532d0a2782486a486743701a0a1914277616ff5d5c0406f3b6501873",
+  "resource_category": "verification",
+  "restored_continuations_per_probe": 150,
+  "scalar_commits_per_observation": 25,
+  "scope": "Finite exact CPU actor-interface probes using both original full trained archives under the pinned old/current packages. No trainer resume, optimizer step, new records/games, original-history replay, complete source-compatibility qualification or project-entry grant.",
+  "test_sha256": "b9dfb4dfd5ec058f27923c128df83df7f87ac6efc80b2f2dd2c3c90832d7eb0e",
+  "tooling_commit_binding": "freeze the clean commit containing this allocation before original launch; record exact commit and driver/file hashes",
+  "trained_archives": {
+    "neural": {
+      "manifest_sha256": "9cd386076ac9956aab8c195716780852b5447909015f22b32f37452597bcc832",
+      "models_sha256": "cae0bb7c17e8e1439d22e054e18da4032f6882d24dd8165fc1c84773aa6853fd",
+      "path": "runs/nfsp-eligibility-R4-primary-ca45a53/neural/weights/000015000000"
+    },
+    "tabular": {
+      "manifest_sha256": "6f624c4651a96289e2d2128fdb2c7f20b9613635b0d996702b0b3e96ff5e48dd",
+      "models_sha256": "a63583629117697b88a6fe66b02bbf5501d4bfa5d23745d52ce6a038920a4dca",
+      "path": "runs/nfsp-eligibility-R4-primary-ca45a53/tabular/weights/000015000000"
+    }
+  },
+  "version": 1
+}
