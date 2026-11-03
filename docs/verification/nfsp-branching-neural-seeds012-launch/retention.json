@@ -1,0 +1,114 @@
+{
+  "docs/verification/nfsp-branching-neural-seeds012-launch/driver.py": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/driver.py",
+    "sha256": "58d191b8d67c6ff6fe66b372dd49f355ee31ddce06156d5195d4a5c82629c1ec"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed0/admission.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/admission.json",
+    "sha256": "fe6f4da5b8086809338cb0932f87d5fc5fe9e09ac29651b66616bba4a1b2396c"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed0/initial-checkpoint/manifest.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/initial-checkpoint/manifest.json",
+    "sha256": "1f93642ac6075ce9807e002a1674bb89555b29d7ff0897e187514475565f0b6b"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed0/initial-checkpoint/manifest.sha256": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/initial-checkpoint/manifest.sha256",
+    "sha256": "73e1727bbe09256099ea528e32c70cff0bac54a2cb1f55972aa19547d88bb2cc"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed0/initial-checkpoint/metrics.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/initial-checkpoint/metrics.npz",
+    "sha256": "2e39a8339a66f9daf0b62b3f16a36f5c0aa8a52374db7ebb08cb6efe6be47729"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed0/initial-checkpoint/replay.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/initial-checkpoint/replay.npz",
+    "sha256": "68e763b3822d9019b14828298071758d0aea1b11cbfea37424ec3ea10c3dae1e"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed0/initial-checkpoint/reservoir.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/initial-checkpoint/reservoir.npz",
+    "sha256": "f5fc574b865e64d6f48d020a13d36badbb542dfce34d3c98d277c9c561bc977f"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed0/initial-checkpoint/trainer.pt": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/initial-checkpoint/trainer.pt",
+    "sha256": "c7c677854feb5dd75a9871d1b1de5c865c1b9551474247f295e0b447d844297d"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed0/initialization.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/initialization.json",
+    "sha256": "2e2bb69b99a8b848d417210989aa4787b3d9eca5baf623b05586449de9efe8e4"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed0/run.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed0/run.json",
+    "sha256": "a719bceb999d4f541a46d82c5adf223044119c0fc1af2eb8b18945a0df8cb121"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed1/admission.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/admission.json",
+    "sha256": "fdfe42fdecb2d5b69ae9443a9bb905f43f45b5c43831147007cac09749a6abc8"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed1/initial-checkpoint/manifest.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/initial-checkpoint/manifest.json",
+    "sha256": "b5856dd7e0b9fb9c8daef67e5d0d8e396b1ecf019c39d40c456a75764ccdb76c"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed1/initial-checkpoint/manifest.sha256": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/initial-checkpoint/manifest.sha256",
+    "sha256": "47d79b06c678bf4f6eedb9d41208189d6222f16c2b59e213cbd84ad2c6d706bf"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed1/initial-checkpoint/metrics.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/initial-checkpoint/metrics.npz",
+    "sha256": "2e39a8339a66f9daf0b62b3f16a36f5c0aa8a52374db7ebb08cb6efe6be47729"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed1/initial-checkpoint/replay.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/initial-checkpoint/replay.npz",
+    "sha256": "68e763b3822d9019b14828298071758d0aea1b11cbfea37424ec3ea10c3dae1e"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed1/initial-checkpoint/reservoir.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/initial-checkpoint/reservoir.npz",
+    "sha256": "f5fc574b865e64d6f48d020a13d36badbb542dfce34d3c98d277c9c561bc977f"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed1/initial-checkpoint/trainer.pt": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/initial-checkpoint/trainer.pt",
+    "sha256": "a6866fe57eef6f2df89f33f2ae78f06ef84b234b9f05b11a89ac4f84f25379b5"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed1/initialization.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/initialization.json",
+    "sha256": "aa69702de5af89db6774337f578425b8ed27f6a69a0a8aded3f73984af288174"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed1/run.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed1/run.json",
+    "sha256": "ec7af9f6a499b31ee64287c384ac0f5c505584edb14ef9fe85f3ad50c98b3288"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed2/admission.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/admission.json",
+    "sha256": "b60aae70e500ea572b4b4822303ec374fad65bc13f9f4dfde7abdd85b44d2b66"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed2/initial-checkpoint/manifest.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/initial-checkpoint/manifest.json",
+    "sha256": "bba70c40b582f89e7de216b00436af3059fe451ef956b58c2f9568297c88a2cb"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed2/initial-checkpoint/manifest.sha256": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/initial-checkpoint/manifest.sha256",
+    "sha256": "07d80af793393fe95e3ba5f4d1f49021c66f006d26258fc48507ba14adce2f53"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed2/initial-checkpoint/metrics.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/initial-checkpoint/metrics.npz",
+    "sha256": "2e39a8339a66f9daf0b62b3f16a36f5c0aa8a52374db7ebb08cb6efe6be47729"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed2/initial-checkpoint/replay.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/initial-checkpoint/replay.npz",
+    "sha256": "68e763b3822d9019b14828298071758d0aea1b11cbfea37424ec3ea10c3dae1e"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed2/initial-checkpoint/reservoir.npz": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/initial-checkpoint/reservoir.npz",
+    "sha256": "f5fc574b865e64d6f48d020a13d36badbb542dfce34d3c98d277c9c561bc977f"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed2/initial-checkpoint/trainer.pt": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/initial-checkpoint/trainer.pt",
+    "sha256": "339d1f3bc0734cfcf91cb0e562ac31a485d8cf941bb2afe3a782e24b70b0813e"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed2/initialization.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/initialization.json",
+    "sha256": "3626ee3f165468aaa609375ba71dfb7dae9fd1112857fe5d2b63a3686513e3bb"
+  },
+  "docs/verification/nfsp-branching-neural-seeds012-launch/seed2/run.json": {
+    "original": "/home/gcao/proj/graygo/runs/nfsp-branching-neural-seeds012-a522-v1/seed2/run.json",
+    "sha256": "6664d864a310e6aafec5e8cc401bb6fa8414feaf18cc9ef7967520a2573561cf"
+  }
+}
