@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/home/gcao/proj/graygo/.worktrees/uniform-cost-f657453/tools/nfsp_uniform_costs.py", line 270, in <module>
+    if __name__ == '__main__':main()
+                              ^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/uniform-cost-f657453/tools/nfsp_uniform_costs.py", line 267, in main
+    args = parser.parse_args(); profile(args.repo, args.allocation, args.expected_allocation_sha, args.run_dir)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/uniform-cost-f657453/tools/nfsp_uniform_costs.py", line 261, in profile
+    return _profile(repo, allocation, expected_sha, root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/uniform-cost-f657453/tools/nfsp_uniform_costs.py", line 242, in _profile
+    dense = dense_uniform(config, backend, replay, reservoir, dense_states, records=declaration['dense_records'], check_budget=check)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/uniform-cost-f657453/tools/nfsp_uniform_costs.py", line 155, in dense_uniform
+    collector.collect(min(2 * config.envs, records - collector.records), snapshot, sink, labels, rng, schedule, uniform_comparison=True)
+  File "/home/gcao/proj/graygo/.worktrees/frozen-cuda-c3b8b5f/src/graygo/board_collection.py", line 60, in collect
+    event=episode.step(replay,reservoir,label_rng,schedule,record=base+2*k,opening_enabled=opening_enabled,precommitted=committed)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/frozen-cuda-c3b8b5f/src/graygo/nfsp_collection.py", line 148, in step
+    raise ValueError('reservoir storage and acting schedule disagree on opening')
+ValueError: reservoir storage and acting schedule disagree on opening

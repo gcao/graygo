@@ -1,0 +1,20 @@
+{
+  "a2_complete": false,
+  "branch_controller_gap_floor": "3/28",
+  "branch_opponent_gap_floor": "1/7",
+  "branching_greedy_equilibrium_gate_feasible": false,
+  "case_count_qualified_for_pilot": 0,
+  "execution_authorized": false,
+  "focused_uniform_and_certificate_tests": 11,
+  "full_uniform_scope_qualified": false,
+  "legacy_branch_greedy_gap_limit": "1/20",
+  "new_profile_records_all_attempts": 131328,
+  "new_supplement_collector_records": 256,
+  "original_grades_matrices_or_thresholds_modified": false,
+  "physical_gpu_device_hours_known_partial": "1.151105905972222222222222222",
+  "retained_actual_phase_records_reused_in_supplement": 65536,
+  "uniform_A2_subset_CPU_price_qualified": false,
+  "uniform_board_component_device_hours": 169.22436712571186,
+  "uniform_reference_selected": false,
+  "version": 1
+}

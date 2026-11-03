@@ -1,0 +1,20 @@
+[
+  {
+    "actor_seconds": 13.239872195990756,
+    "collection_seconds": 21.963598319445737,
+    "phase": "closed",
+    "records": 32768,
+    "resolver_storage_bookkeeping_seconds": 7.9963392578065395,
+    "snapshot_copies": 57,
+    "snapshot_copy_seconds": 0.727386865648441
+  },
+  {
+    "actor_seconds": 25.958454041508958,
+    "collection_seconds": 35.30006259330548,
+    "phase": "early_open_diagnostic",
+    "records": 32768,
+    "resolver_storage_bookkeeping_seconds": 8.244459974230267,
+    "snapshot_copies": 58,
+    "snapshot_copy_seconds": 1.0971485775662586
+  }
+]

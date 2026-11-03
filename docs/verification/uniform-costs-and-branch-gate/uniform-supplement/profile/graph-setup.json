@@ -1,0 +1,266 @@
+{
+  "capture_max_seconds": 0.4436257769120857,
+  "events": [
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0014609990175813437
+    },
+    {
+      "batch": 1,
+      "kind": "capture",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.4436257769120857
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0009062349563464522
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0008866889402270317
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0008429859299212694
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0007828129455447197
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.000806157011538744
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0007720619905740023
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0013368059881031513
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0008251330582424998
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0008267760276794434
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.000789936981163919
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.00084908795543015
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0008061469998210669
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0008066280279308558
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0008392790332436562
+    },
+    {
+      "batch": 1,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 0,
+      "seconds": 0.0017462159739807248
+    },
+    {
+      "batch": 3,
+      "kind": "weight_pack",
+      "model": "QNet",
+      "pool": 1,
+      "seconds": 0.0010028970427811146
+    },
+    {
+      "batch": 3,
+      "kind": "capture",
+      "model": "QNet",
+      "pool": 1,
+      "seconds": 0.047612228081561625
+    },
+    {
+      "batch": 5,
+      "kind": "capture",
+      "model": "QNet",
+      "pool": 1,
+      "seconds": 0.047419184003956616
+    },
+    {
+      "batch": 4,
+      "kind": "capture",
+      "model": "QNet",
+      "pool": 1,
+      "seconds": 0.0368245099671185
+    },
+    {
+      "batch": 1,
+      "kind": "capture",
+      "model": "QNet",
+      "pool": 1,
+      "seconds": 0.0250523790018633
+    }
+  ],
+  "execution": {
+    "backend": "shared-static-weight-cuda-graph",
+    "batch_range": [
+      1,
+      32
+    ],
+    "board_size": 9,
+    "checkpoint_cache": "reconstructed; never serialized",
+    "eligible_models": [
+      "QNet",
+      "PolicyNet"
+    ],
+    "max_templates": 64,
+    "model_shape": [
+      64,
+      8,
+      8
+    ],
+    "other_shapes": "eager forward; reported separately",
+    "outside_capture": [
+      "legality",
+      "private RNG",
+      "optimizer"
+    ],
+    "parameter_alignment_bytes": 256,
+    "version": "graygo/shared-frozen-cuda-forward/1",
+    "warmup_forwards": 3
+  },
+  "pools": {
+    "0": {
+      "capture_seconds": 0.4436257769120857,
+      "captures": 1,
+      "eager_fallbacks": 0,
+      "execution": {
+        "backend": "shared-static-weight-cuda-graph",
+        "batch_range": [
+          1,
+          32
+        ],
+        "board_size": 9,
+        "checkpoint_cache": "reconstructed; never serialized",
+        "eligible_models": [
+          "QNet",
+          "PolicyNet"
+        ],
+        "max_templates": 64,
+        "model_shape": [
+          64,
+          8,
+          8
+        ],
+        "other_shapes": "eager forward; reported separately",
+        "outside_capture": [
+          "legality",
+          "private RNG",
+          "optimizer"
+        ],
+        "parameter_alignment_bytes": 256,
+        "version": "graygo/shared-frozen-cuda-forward/1",
+        "warmup_forwards": 3
+      },
+      "replays": 64,
+      "resident_templates": 1,
+      "resident_weight_packs": 16,
+      "weight_pack_seconds": 0.01528395083732903,
+      "weight_packs": 16
+    },
+    "1": {
+      "capture_seconds": 0.15690830105450004,
+      "captures": 4,
+      "eager_fallbacks": 0,
+      "execution": {
+        "backend": "shared-static-weight-cuda-graph",
+        "batch_range": [
+          1,
+          32
+        ],
+        "board_size": 9,
+        "checkpoint_cache": "reconstructed; never serialized",
+        "eligible_models": [
+          "QNet",
+          "PolicyNet"
+        ],
+        "max_templates": 64,
+        "model_shape": [
+          64,
+          8,
+          8
+        ],
+        "other_shapes": "eager forward; reported separately",
+        "outside_capture": [
+          "legality",
+          "private RNG",
+          "optimizer"
+        ],
+        "parameter_alignment_bytes": 256,
+        "version": "graygo/shared-frozen-cuda-forward/1",
+        "warmup_forwards": 3
+      },
+      "replays": 7,
+      "resident_templates": 4,
+      "resident_weight_packs": 1,
+      "weight_pack_seconds": 0.0010028970427811146,
+      "weight_packs": 1
+    }
+  },
+  "weight_pack_max_seconds": 0.0017462159739807248
+}

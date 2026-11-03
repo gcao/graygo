@@ -1,0 +1,138 @@
+{
+  "cases": {
+    "distinct_q_uniform": [
+      {
+        "graph_event_span": [
+          116,
+          133
+        ],
+        "graph_setup_seconds": 0.07914611545857042,
+        "raw_seconds": 0.1347709340043366,
+        "steady_seconds": 0.055624818545766175
+      },
+      {
+        "graph_event_span": [
+          133,
+          133
+        ],
+        "graph_setup_seconds": 0.0,
+        "raw_seconds": 0.05107156094163656,
+        "steady_seconds": 0.05107156094163656
+      },
+      {
+        "graph_event_span": [
+          133,
+          133
+        ],
+        "graph_setup_seconds": 0.0,
+        "raw_seconds": 0.04910155909601599,
+        "steady_seconds": 0.04910155909601599
+      },
+      {
+        "graph_event_span": [
+          133,
+          133
+        ],
+        "graph_setup_seconds": 0.0,
+        "raw_seconds": 0.0488955311011523,
+        "steady_seconds": 0.0488955311011523
+      }
+    ],
+    "shared_uniform": [
+      {
+        "graph_event_span": [
+          116,
+          116
+        ],
+        "graph_setup_seconds": 0.0,
+        "raw_seconds": 0.006851739017292857,
+        "steady_seconds": 0.006851739017292857
+      },
+      {
+        "graph_event_span": [
+          116,
+          116
+        ],
+        "graph_setup_seconds": 0.0,
+        "raw_seconds": 0.005595952970907092,
+        "steady_seconds": 0.005595952970907092
+      },
+      {
+        "graph_event_span": [
+          116,
+          116
+        ],
+        "graph_setup_seconds": 0.0,
+        "raw_seconds": 0.005368614918552339,
+        "steady_seconds": 0.005368614918552339
+      },
+      {
+        "graph_event_span": [
+          116,
+          116
+        ],
+        "graph_setup_seconds": 0.0,
+        "raw_seconds": 0.00533352792263031,
+        "steady_seconds": 0.00533352792263031
+      }
+    ]
+  },
+  "pool_stats": {
+    "capture_seconds": 0.0642884720582515,
+    "captures": 1,
+    "eager_fallbacks": 0,
+    "execution": {
+      "backend": "shared-static-weight-cuda-graph",
+      "batch_range": [
+        1,
+        32
+      ],
+      "board_size": 9,
+      "checkpoint_cache": "reconstructed; never serialized",
+      "eligible_models": [
+        "QNet",
+        "PolicyNet"
+      ],
+      "max_templates": 64,
+      "model_shape": [
+        64,
+        8,
+        8
+      ],
+      "other_shapes": "eager forward; reported separately",
+      "outside_capture": [
+        "legality",
+        "private RNG",
+        "optimizer"
+      ],
+      "parameter_alignment_bytes": 256,
+      "version": "graygo/shared-frozen-cuda-forward/1",
+      "warmup_forwards": 3
+    },
+    "replays": 64,
+    "resident_templates": 1,
+    "resident_weight_packs": 16,
+    "weight_pack_seconds": 0.01485764340031892,
+    "weight_packs": 16
+  },
+  "requests_per_sample": 32,
+  "scope": "actual uniform and mixed-Q/uniform private commitments; no NFSP fresh clock fabricated",
+  "snapshot_copy_seconds": [
+    0.012227547937072814,
+    0.01055266207549721,
+    0.01050452096387744,
+    0.010611933073960245,
+    0.010852926992811263,
+    0.013773950980976224,
+    0.010770702036097646,
+    0.010553073021583259,
+    0.01087479805573821,
+    0.013740608002990484,
+    0.011227814015001059,
+    0.010623594978824258,
+    0.011095074005424976,
+    0.013350333087146282,
+    0.01039516506716609,
+    0.011071007931604981
+  ]
+}

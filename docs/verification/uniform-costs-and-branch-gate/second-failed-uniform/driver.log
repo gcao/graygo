@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/gcao/proj/graygo/runs/nfsp-uniform-board-cost-210a960/driver.py", line 31, in <module>
+    assert job["returncode"]==0
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError

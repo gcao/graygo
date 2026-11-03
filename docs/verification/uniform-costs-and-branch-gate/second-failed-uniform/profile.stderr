@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/home/gcao/proj/graygo/.worktrees/uniform-cost-210a960/tools/nfsp_uniform_costs.py", line 282, in <module>
+    if __name__ == '__main__':main()
+                              ^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/uniform-cost-210a960/tools/nfsp_uniform_costs.py", line 279, in main
+    args = parser.parse_args(); profile(args.repo, args.allocation, args.expected_allocation_sha, args.run_dir)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/uniform-cost-210a960/tools/nfsp_uniform_costs.py", line 273, in profile
+    return _profile(repo, allocation, expected_sha, root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/uniform-cost-210a960/tools/nfsp_uniform_costs.py", line 257, in _profile
+    forecast = reference_forecast(base, measured, setup); check()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/.worktrees/uniform-cost-210a960/tools/nfsp_uniform_costs.py", line 182, in reference_forecast
+    rates = base['core_report']['rates']; copies = measured['actors']['snapshot_copy_seconds']
+            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'rates'

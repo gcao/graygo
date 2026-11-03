@@ -1,0 +1,8 @@
+{
+  "actual_diagnostic_records_reused": 65536,
+  "new_learner_records": 0,
+  "original_data_modified": false,
+  "original_observers_sha256": "db8384cb43060676d497d7db9164ffde1a19bfee8826d65d580c4b22af337941",
+  "original_report_sha256": "350c78600209d79f6969e28123413810d4f8e3491250aa5cdc456adebf0960ab",
+  "original_root": "/home/gcao/proj/graygo/runs/nfsp-uniform-board-cost-210a960/profile/pipeline"
+}

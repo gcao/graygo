@@ -1,0 +1,53 @@
+{
+  "actor_iterations": 4,
+  "allocation_sha256": "99b6d8caf3ad4302a2182e591e7f5ec51ee8dda3b1a230ed90ca81104ec16d05",
+  "base_audit_sha256": "18ab40db8797c079268101e03f398ee32ad18000ab6da3e3173787722d435594",
+  "base_root": "/home/gcao/proj/graygo/runs/nfsp-graph-cost-bbfd5e4",
+  "dense_records": 256,
+  "new_formal_A2_records": 0,
+  "pipeline_producer_sha256": "caa259cf8986d2f617b68adf8cbef728a60785d6ea08816e8e48490317d7655a",
+  "producer_sha256": "e70b9bd86a3b9a5623b70b5e6ade65e2e4cc06c7993efb8cc0888a89cd4fca9d",
+  "production_learning_selected": false,
+  "records_per_phase": 32768,
+  "runtime": {
+    "augmentation": true,
+    "batch": 512,
+    "blocks": 8,
+    "capacity": 500000,
+    "cuda_graphs": true,
+    "deterministic": true,
+    "device": "cuda",
+    "envs": 16,
+    "handoff_end": 7000000,
+    "learning_rate": 0.0003,
+    "learning_start": 4096,
+    "max_grad_norm": 0.5,
+    "native_library": "/home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so",
+    "norm_groups": 8,
+    "q_reuse": 4,
+    "reservoir_open": 5000000,
+    "rules": {
+      "collision": "gray",
+      "max_rounds": 200,
+      "size": 9
+    },
+    "seed": 17,
+    "target_every": 12800,
+    "uniform_comparison": true,
+    "width": 64
+  },
+  "scope": "bounded hardware diagnostics and compatible-component envelope only",
+  "settings": {
+    "cublas_workspace": ":4096:8",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "cudnn_tf32": true,
+    "deterministic_algorithms": true,
+    "device": "cuda",
+    "matmul_tf32": false,
+    "torch_threads": 1
+  },
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "time_ceiling_seconds": 900,
+  "version": "graygo/uniform-reference-cost-measurement/1"
+}

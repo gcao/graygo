@@ -1,0 +1,377 @@
+{
+  "a2_complete": false,
+  "actual_branch_matrices": [
+    [
+      [
+        "1",
+        "-1"
+      ],
+      [
+        "-1",
+        "1/2"
+      ]
+    ],
+    [
+      [
+        "1/2",
+        "-1"
+      ],
+      [
+        "-1",
+        "1/4"
+      ]
+    ]
+  ],
+  "actual_greedy_primitive_orderings_verified": true,
+  "all_actual_role_swapped_payoffs_verified": true,
+  "best_possible_worst_role_gap": "1/7",
+  "branch_equilibria": [
+    {
+      "controller_action0_probability": "3/7",
+      "controller_value": "-1/7",
+      "opponent_action0_probability": "3/7"
+    },
+    {
+      "controller_action0_probability": "5/11",
+      "controller_value": "-7/22",
+      "opponent_action0_probability": "5/11"
+    }
+  ],
+  "complete_game_controller_value": "-1/7",
+  "controller_behavioral_strategies_enumerated": 27,
+  "controller_enumeration": [
+    {
+      "gap": "6/7",
+      "strategy": [
+        "0",
+        "0",
+        "0"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "13/56",
+      "strategy": [
+        "0",
+        "0",
+        "1/2"
+      ],
+      "worst_value": "-3/8"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "0",
+        "0",
+        "1"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "0",
+        "1/2",
+        "0"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "13/56",
+      "strategy": [
+        "0",
+        "1/2",
+        "1/2"
+      ],
+      "worst_value": "-3/8"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "0",
+        "1/2",
+        "1"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "0",
+        "1",
+        "0"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "13/56",
+      "strategy": [
+        "0",
+        "1",
+        "1/2"
+      ],
+      "worst_value": "-3/8"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "0",
+        "1",
+        "1"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "1/2",
+        "0",
+        "0"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "61/112",
+      "strategy": [
+        "1/2",
+        "0",
+        "1/2"
+      ],
+      "worst_value": "-11/16"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "1/2",
+        "0",
+        "1"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "27/56",
+      "strategy": [
+        "1/2",
+        "1/2",
+        "0"
+      ],
+      "worst_value": "-5/8"
+    },
+    {
+      "gap": "19/112",
+      "strategy": [
+        "1/2",
+        "1/2",
+        "1/2"
+      ],
+      "worst_value": "-5/16"
+    },
+    {
+      "gap": "27/56",
+      "strategy": [
+        "1/2",
+        "1/2",
+        "1"
+      ],
+      "worst_value": "-5/8"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "1/2",
+        "1",
+        "0"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "61/112",
+      "strategy": [
+        "1/2",
+        "1",
+        "1/2"
+      ],
+      "worst_value": "-11/16"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "1/2",
+        "1",
+        "1"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "1",
+        "0",
+        "0"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "1",
+        "0",
+        "1/2"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "1",
+        "0",
+        "1"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "3/28",
+      "strategy": [
+        "1",
+        "1/2",
+        "0"
+      ],
+      "worst_value": "-1/4"
+    },
+    {
+      "gap": "3/28",
+      "strategy": [
+        "1",
+        "1/2",
+        "1/2"
+      ],
+      "worst_value": "-1/4"
+    },
+    {
+      "gap": "3/28",
+      "strategy": [
+        "1",
+        "1/2",
+        "1"
+      ],
+      "worst_value": "-1/4"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "1",
+        "1",
+        "0"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "1",
+        "1",
+        "1/2"
+      ],
+      "worst_value": "-1"
+    },
+    {
+      "gap": "6/7",
+      "strategy": [
+        "1",
+        "1",
+        "1"
+      ],
+      "worst_value": "-1"
+    }
+  ],
+  "controller_minimum_complete_strategy_gap": "3/28",
+  "execution_authorized": false,
+  "greedy_implementation_sha256": "15f31e6b3d5f83645e14370613b8e59b31f5e0432eaeea42daa9b3520a29a35a",
+  "greedy_support_action0_probabilities": [
+    "0",
+    "1/2",
+    "1"
+  ],
+  "legacy_greedy_equilibrium_gate_feasible": false,
+  "legacy_greedy_gap_threshold": "1/20",
+  "opponent_behavioral_strategies_enumerated": 9,
+  "opponent_enumeration": [
+    {
+      "gap": "9/14",
+      "opponent_best_value": "1/2",
+      "strategy": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "gap": "9/14",
+      "opponent_best_value": "1/2",
+      "strategy": [
+        "0",
+        "1/2"
+      ]
+    },
+    {
+      "gap": "9/14",
+      "opponent_best_value": "1/2",
+      "strategy": [
+        "0",
+        "1"
+      ]
+    },
+    {
+      "gap": "11/28",
+      "opponent_best_value": "1/4",
+      "strategy": [
+        "1/2",
+        "0"
+      ]
+    },
+    {
+      "gap": "1/7",
+      "opponent_best_value": "0",
+      "strategy": [
+        "1/2",
+        "1/2"
+      ]
+    },
+    {
+      "gap": "9/14",
+      "opponent_best_value": "1/2",
+      "strategy": [
+        "1/2",
+        "1"
+      ]
+    },
+    {
+      "gap": "8/7",
+      "opponent_best_value": "1",
+      "strategy": [
+        "1",
+        "0"
+      ]
+    },
+    {
+      "gap": "8/7",
+      "opponent_best_value": "1",
+      "strategy": [
+        "1",
+        "1/2"
+      ]
+    },
+    {
+      "gap": "8/7",
+      "opponent_best_value": "1",
+      "strategy": [
+        "1",
+        "1"
+      ]
+    }
+  ],
+  "opponent_minimum_complete_strategy_gap": "1/7",
+  "original_data_or_grades_modified": false,
+  "scope": "Exact rational finite certificate for the implemented genuinely mixed branching game. A two-action argmax policy is pure or uniformly tied; enumerate every such public behavioral strategy with independent choices at root and both later branches. This relaxed strategy set includes every shared-network greedy policy. Even exact ties cannot meet 0.05 equilibrium gap. NFSP deployed-average and native-Q value requirements remain separate, and existing value/average misses remain unchanged. Any corrected evaluation/fixture protocol needs explicit versioning; this certificate grants no pass.",
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "version": "graygo/mixed-branch-greedy-gate-certificate/1"
+}

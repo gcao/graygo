@@ -1,0 +1,81 @@
+{
+  "a2_complete": false,
+  "budget_boundary": "checked between collector chunks and complete color pairs; atomic IO may overrun",
+  "evaluation": {
+    "color_pairs_per_match": 1,
+    "opponents": [
+      "random",
+      "tactical"
+    ],
+    "representations": [
+      "greedy_q",
+      "average"
+    ],
+    "strength_claim": false
+  },
+  "formal_learning_run": false,
+  "phases": {
+    "closed": {
+      "augmentation": true,
+      "batch": 512,
+      "blocks": 8,
+      "capacity": 500000,
+      "cuda_graphs": true,
+      "deterministic": true,
+      "device": "cuda",
+      "envs": 16,
+      "handoff_end": 7000000,
+      "learning_rate": 0.0003,
+      "learning_start": 4096,
+      "max_grad_norm": 0.5,
+      "native_library": "/home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so",
+      "norm_groups": 8,
+      "q_reuse": 4,
+      "reservoir_open": 5000000,
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "seed": 17,
+      "target_every": 12800,
+      "uniform_comparison": true,
+      "width": 64
+    },
+    "early_open_diagnostic": {
+      "augmentation": true,
+      "batch": 512,
+      "blocks": 8,
+      "capacity": 500000,
+      "cuda_graphs": true,
+      "deterministic": true,
+      "device": "cuda",
+      "envs": 16,
+      "handoff_end": 2,
+      "learning_rate": 0.0003,
+      "learning_start": 4096,
+      "max_grad_norm": 0.5,
+      "native_library": "/home/gcao/proj/graygo/artifacts/native/acfca79ab9de20d01dbb/libgraygo_rule_decode.so",
+      "norm_groups": 8,
+      "q_reuse": 4,
+      "reservoir_open": 0,
+      "rules": {
+        "collision": "gray",
+        "max_rounds": 200,
+        "size": 9
+      },
+      "seed": 17,
+      "target_every": 12800,
+      "uniform_comparison": true,
+      "width": 64
+    }
+  },
+  "promotion_permitted": false,
+  "records_per_phase": 32768,
+  "runtime_version": "graygo/board-nfsp-runtime/1",
+  "scope": "bounded untrained pipeline measurement; early opening is diagnostic only",
+  "source_sha256": "a522fe224ccf6db1c528d3fea1c896869038b29e48dbda9e00174ca8116a24df",
+  "total_record_cap": 65536,
+  "total_time_ceiling_seconds": 898.4894378100289,
+  "version": "graygo/uniform-board-hardware-profile/1"
+}

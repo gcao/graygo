@@ -1,0 +1,20 @@
+{
+  "a2_complete": false,
+  "allocation_sha256": "4c3506091a1e32e8e54362aeefce3dc2ee0471d59e449af29714ada4111d6a54",
+  "certificate_sha256": "cb673e454d7f3424ef94c306ceabb95f52a56d2bb7aa6c251d27b9133280e201",
+  "command": [
+    "/home/gcao/proj/graygo/.venv/bin/python",
+    "/home/gcao/proj/graygo/.worktrees/uniform-cost-210a960/tools/branching_gate_certificate.py",
+    "--output",
+    "/home/gcao/proj/graygo/runs/branching-gate-certificate-210a960/certificate.json"
+  ],
+  "measured_process_seconds": 2.9240610380657017,
+  "new_accelerator_jobs": 0,
+  "new_scored_evaluation_games": 0,
+  "new_training_records": 0,
+  "original_pid": 2847710,
+  "producer_sha256": "42c2422334954941e5ab232e98490019f0257dc3aeee5ed195249a5b0a1fea00",
+  "returncode": 0,
+  "status": "exact_actual_branch_gate_infeasibility_verified",
+  "version": 1
+}
