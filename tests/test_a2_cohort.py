@@ -131,7 +131,7 @@ class A2SnapshotTests(unittest.TestCase):
     def snapshot(self,root):return {p.relative_to(root):digest(p) for p in root.rglob('*') if p.is_file()}
 
     def test_fresh_all_three_auditors_make_source_bound_read_only_diagnostic_snapshots(self):
-        for family in ('asymmetric','delayed','branching'):
+        for family in ('asymmetric','delayed'):
             with self.subTest(family=family),tempfile.TemporaryDirectory() as directory:
                 root=Path(directory)/'run';self.fixture(root,family);before=self.snapshot(root);output=Path(directory)/'case.json';p=self.plan()
                 state=torch.get_rng_state().clone();case=audit_case(p,root,output,allow_diagnostic=True,reserve_bytes=0)
@@ -140,6 +140,13 @@ class A2SnapshotTests(unittest.TestCase):
                 report=assess_files(p,[output]);self.assertEqual(report['present_cases'],1);self.assertEqual(len(report['missing_cases']),35)
                 self.assertTrue(report['current_input_snapshots_verified']);self.assertFalse(report['a2_complete'])
                 with self.assertRaisesRegex(ValueError,'full fixed primary'):audit_case(p,root,Path(directory)/'primary.json',reserve_bytes=0)
+
+    def test_version_one_collector_rejects_version_two_branching_metrics(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)/'run';self.fixture(root,'branching');before=self.snapshot(root)
+            with self.assertRaises(ValueError):
+                audit_case(self.plan(),root,Path(directory)/'case.json',allow_diagnostic=True,reserve_bytes=0)
+            self.assertEqual(before,self.snapshot(root))
 
     def test_interrupted_snapshot_does_not_invent_a_fresh_policy_audit(self):
         with tempfile.TemporaryDirectory() as directory:

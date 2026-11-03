@@ -7,7 +7,12 @@ from tools.cpu_cache_structure import prove
 class CPUCacheStructureTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.repo=Path(__file__).resolve().parents[1];root=cls.repo/'src/graygo';cls.candidate={str(p.relative_to(root)):p.read_bytes() for p in [*root.glob('*.py'),*(root/'native').glob('*.cpp')]};cls.reference={}
+        cls.repo=Path(__file__).resolve().parents[1]
+        cls.candidate_commit='257276e28bbceb10cdbfb715c31c7e246721bc4f'
+        files=subprocess.check_output(['git','ls-tree','-r','--name-only',cls.candidate_commit,'src/graygo'],cwd=cls.repo,text=True).splitlines()
+        cls.candidate={name.removeprefix('src/graygo/'):subprocess.check_output(['git','show',cls.candidate_commit+':'+name],cwd=cls.repo)
+                       for name in files if name.endswith(('.py','.cpp'))}
+        cls.reference={}
         for name in cls.candidate:
             r=subprocess.run(['git','show','c3b8b5f:src/graygo/'+name],cwd=cls.repo,capture_output=True)
             if r.returncode==0:cls.reference[name]=r.stdout

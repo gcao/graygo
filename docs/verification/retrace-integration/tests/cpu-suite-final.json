@@ -1,0 +1,12 @@
+{
+  "returncode": 0,
+  "time_cap_reached": false,
+  "original_pid": 2875398,
+  "source_sha256": "0c17414be725a31e86bd77c5aefde67287982820d0337daf92dae5d80d250d9c",
+  "source_unchanged": true,
+  "measured_process_upper_seconds": 380.19865967391524,
+  "command": "unittest discover -s tests -v",
+  "new_scientific_training_records": 0,
+  "new_accelerator_jobs": 0,
+  "CUDA_VISIBLE_DEVICES": ""
+}

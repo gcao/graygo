@@ -1,0 +1,7 @@
+{
+  "returncode": 1,
+  "measured_process_upper_seconds": 5.180436959024519,
+  "command": "unittest discover -s tests -p test_sequence_targets.py -v",
+  "new_scientific_training_records": 0,
+  "new_accelerator_jobs": 0
+}

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "children": {
+    "old": {
+      "returncode": 0,
+      "original_pid": 2867766,
+      "measured_process_upper_seconds": 8.788415827904828
+    },
+    "new": {
+      "returncode": 0,
+      "original_pid": 2867767,
+      "measured_process_upper_seconds": 8.787735698977485
+    }
+  },
+  "fixture_sha256": "2c5c22a6da5b99ef5fd60a2f509ae0aebe29d5bbcb7d3730792fc1d1e51d77c2",
+  "new_accelerator_jobs": 0,
+  "source_admission_qualified": false,
+  "scientific_training_selected": false
+}

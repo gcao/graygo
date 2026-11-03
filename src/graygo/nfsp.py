@@ -1,9 +1,9 @@
-"""Shared one-step NFSP learning backend for compact tasks and board adapters.
+"""Shared NFSP learning backend for compact tasks and board adapters.
 
 Collectors own frozen episode actors and exact marginal behavior probabilities.
 This backend owns online/target Q, independent supervised policy, optimizer work
 and fresh-record cadence. There is no opponent identity input and no PPO critic.
-Retrace is deliberately not selected before the one-step reuse comparison.
+One-step remains the default; Retrace is an explicitly configured comparison.
 """
 from copy import deepcopy
 from dataclasses import asdict, dataclass
@@ -20,6 +20,10 @@ class NFSPConfig:
     target_every: int = 12800
     learning_rate: float = 3e-4
     max_grad_norm: float = .5
+    q_target: str = 'one-step'
+    trace_length: int = 32
+    trace_lambda: float = .95
+    target_batch: int = 512
 
     def __post_init__(self):
         if any(type(n) is not int or n < 1 for n in (self.batch,self.learning_start,self.target_every)):
@@ -27,7 +31,13 @@ class NFSPConfig:
         if self.learning_start % self.batch or self.target_every % self.batch:
             raise ValueError('learning start and refresh must align to fresh-record update boundaries')
         if type(self.q_reuse) is not int or self.q_reuse not in (1,4):
-            raise ValueError('one-step comparison supports declared reuse 1 or 4')
+            raise ValueError('NFSP supports declared reuse 1 or 4')
+        if self.q_target not in ('one-step','retrace'):
+            raise ValueError('explicit one-step or Retrace target required')
+        if type(self.trace_length) is not int or not 1<=self.trace_length<=32 or type(self.target_batch) is not int or self.target_batch<1:
+            raise ValueError('one to 32 context rounds and positive target forward batch required')
+        if not math.isfinite(self.trace_lambda) or not 0<=self.trace_lambda<=1:
+            raise ValueError('finite trace lambda in [0,1] required')
         if not all(math.isfinite(x) and x > 0 for x in (self.learning_rate,self.max_grad_norm)):
             raise ValueError('finite positive optimizer settings required')
 
@@ -113,6 +123,10 @@ bootstraps even if no following record was retained; true termination never does
 
 def update_q(online,target,optimizer,batch,*,epsilon,max_grad_norm=.5,diagnostics=None):
     labels,stats=one_step_targets(online,target,batch,epsilon)
+    return apply_q_update(online,optimizer,batch,labels,stats,max_grad_norm=max_grad_norm,diagnostics=diagnostics)
+
+
+def apply_q_update(online,optimizer,batch,labels,stats,*,max_grad_norm=.5,diagnostics=None):
     predictions=online(**batch.inputs)
     _bounded(predictions,batch.legal)
     if diagnostics is not None:diagnostics(predictions.detach(),batch)
@@ -195,6 +209,8 @@ class NFSPBackend:
         self.exact_average=bool(getattr(self.average,'exact_reservoir_average',False))
         self.average_optimizer=None if self.exact_average else torch.optim.Adam(self.average.parameters(),lr=config.learning_rate)
         self.counters=NFSPCadence()
+        from .sequence_targets import TraceDiagnostics
+        self.trace=TraceDiagnostics() if config.q_target=='retrace' else None
 
     @property
     def average_ready(self):return self.counters.supervised_updates>0
@@ -213,12 +229,23 @@ class NFSPBackend:
         report={'q':[],'supervised':None,'target_refreshed':False}
         if q_due:
             for _ in range(self.config.q_reuse):
-                data=replay.sample_q(self.config.batch,rng)
+                data=(replay.sample_q(self.config.batch,rng) if self.config.q_target=='one-step' else
+                      replay.sample_sequences(self.config.batch,self.config.trace_length,rng,q_only=True))
                 if q_transform is not None:data=q_transform(data)
-                if sample_observer is not None:sample_observer(data)
-                batch=OneStepBatch.from_replay(data,self.device)
-                callback=None if q_observer is None else lambda prediction,b: q_observer(data,prediction,b,epsilon)
-                report['q'].append(update_q(self.q,self.target,self.q_optimizer,batch,epsilon=epsilon,max_grad_norm=self.config.max_grad_norm,diagnostics=callback))
+                starts=data if self.config.q_target=='one-step' else {name:array[:,0] for name,array in data.items()}
+                if sample_observer is not None:sample_observer(starts)
+                batch=OneStepBatch.from_replay(starts,self.device)
+                callback=None if q_observer is None else lambda prediction,b: q_observer(starts,prediction,b,epsilon)
+                if self.config.q_target=='one-step':
+                    q_report=update_q(self.q,self.target,self.q_optimizer,batch,epsilon=epsilon,max_grad_norm=self.config.max_grad_norm,diagnostics=callback)
+                else:
+                    from .sequence_targets import update_retrace_q
+                    trace_callback=lambda details: self.trace.observe(starts,details,self.counters.fresh_records,
+                        self.counters.q_updates+self.counters.supervised_updates)
+                    q_report=update_retrace_q(self.q,self.target,self.q_optimizer,data,device=self.device,epsilon=epsilon,
+                        trace_lambda=self.config.trace_lambda,target_batch=self.config.target_batch,
+                        max_grad_norm=self.config.max_grad_norm,diagnostics=callback,trace_observer=trace_callback)
+                report['q'].append(q_report)
                 self.counters.q_updates+=1;self.counters.q_loss_targets+=self.config.batch
         if sl_due and reservoir.size>=self.config.batch:
             if self.exact_average:
@@ -237,7 +264,8 @@ class NFSPBackend:
     def state_dict(self):
         return {'clock_version':2,'config':asdict(self.config),'q':self.q.state_dict(),'target':self.target.state_dict(),
                 'average':self.average.state_dict(),'q_optimizer':self.q_optimizer.state_dict(),
-                'average_optimizer':None if self.average_optimizer is None else self.average_optimizer.state_dict(),'counters':asdict(self.counters)}
+                'average_optimizer':None if self.average_optimizer is None else self.average_optimizer.state_dict(),'counters':asdict(self.counters),
+                **({'trace_diagnostics':self.trace.state_dict()} if self.trace is not None else {})}
 
     def load_state_dict(self,state):
         if state.get('clock_version')!=2:raise ValueError('NFSP clock/eligibility version differs; use the original source for historical continuation')
@@ -255,5 +283,7 @@ class NFSPBackend:
         if self.average_optimizer is None:
             if state['average_optimizer'] is not None:raise ValueError('exact-average control cannot restore a neural optimizer')
         else:self.average_optimizer.load_state_dict(state['average_optimizer'])
+        if self.trace is not None:self.trace.load_state_dict(state['trace_diagnostics'],counters.q_loss_targets)
+        elif 'trace_diagnostics' in state:raise ValueError('one-step state cannot contain sequence diagnostics')
         self.counters=counters
         self.target.eval().requires_grad_(False)

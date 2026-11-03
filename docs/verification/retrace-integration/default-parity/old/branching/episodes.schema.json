@@ -1,0 +1,104 @@
+{
+  "acting_codes": {
+    "average": 1,
+    "q": 0,
+    "uniform": 2
+  },
+  "dtype": [
+    [
+      "episode",
+      "<u8"
+    ],
+    [
+      "start_record",
+      "<u8"
+    ],
+    [
+      "steps",
+      "<u4"
+    ],
+    [
+      "root",
+      "<u2"
+    ],
+    [
+      "generation",
+      "<u8"
+    ],
+    [
+      "supplemental",
+      "|b1"
+    ],
+    [
+      "forced_role",
+      "|u1"
+    ],
+    [
+      "forced_action",
+      "<u2"
+    ],
+    [
+      "average_ready",
+      "|b1"
+    ],
+    [
+      "best_response",
+      "|u1",
+      [
+        2
+      ]
+    ],
+    [
+      "acting",
+      "|u1",
+      [
+        2
+      ]
+    ],
+    [
+      "mode_draw",
+      "<f8",
+      [
+        2
+      ]
+    ],
+    [
+      "ramp_draw",
+      "<f8",
+      [
+        2
+      ]
+    ],
+    [
+      "ramp_probability",
+      "<f8",
+      [
+        2
+      ]
+    ],
+    [
+      "epsilon",
+      "<f8",
+      [
+        2
+      ]
+    ],
+    [
+      "reward_black",
+      "<f8"
+    ],
+    [
+      "termination",
+      "|u1"
+    ],
+    [
+      "trajectory_sha256",
+      "|u1",
+      [
+        32
+      ]
+    ]
+  ],
+  "format_version": 1,
+  "itemsize": 144
+}

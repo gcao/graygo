@@ -1,0 +1,8 @@
+{
+  "final_package_sha256": "1e1799b27239089d49f32e96a3616b5eb29127a7afaf1a5ff73e48ecf69c0a5d",
+  "pre_guard_full_suite_package_sha256": "0c17414be725a31e86bd77c5aefde67287982820d0337daf92dae5d80d250d9c",
+  "pre_guard_module_generated_reconstruction": true,
+  "reconstruction_package_hash_matches_actual_full_suite": true,
+  "scope": "Only the explicit formal one-step/Retrace recipe predicates and Retrace result recognition field differ. The final guarded source passes all 47 affected tests and exact default pipeline state comparison. The earlier full 620-test suite is bound to its actual pre-guard source, not silently relabeled.",
+  "version": 1
+}

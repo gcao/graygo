@@ -123,11 +123,16 @@ def profile_buffers(args):
                      iterations=args.iterations,batch=args.batch,seed=args.seed,storage=args.storage,native_library=args.native_library)
 
 
+def _q_target_settings(args):
+    return {name:getattr(args,name,default) for name,default in
+            (('q_target','one-step'),('trace_length',32),('trace_lambda',.95),('target_batch',512))}
+
+
 def profile_board(args):
     from .board_profile import profile_board as benchmark
     from .board_runtime import BoardRuntimeConfig
     config=BoardRuntimeConfig(rules=_rules(args),envs=args.envs,seed=args.seed,device=args.device,
-                              q_reuse=args.q_reuse,native_library=args.native_library,cuda_graphs=args.cuda_graphs)
+                              q_reuse=args.q_reuse,native_library=args.native_library,cuda_graphs=args.cuda_graphs,**_q_target_settings(args))
     return benchmark(config,args.run_dir,records=args.records,time_cap_seconds=args.time_cap_hours*3600,
                      stop_requested=_signal_flag())
 
@@ -143,7 +148,7 @@ def run_board_diagnostic(args,*,prior_setup_seconds=0.):
     if args.until_records is not None and (args.until_records<0 or args.until_records%2 or args.until_records>args.records):
         raise ValueError('paired operational endpoint within the unchanged diagnostic horizon required')
     config=BoardRuntimeConfig(seed=args.seed,envs=args.envs,device=args.device,q_reuse=args.q_reuse,
-        native_library=args.native_library,reservoir_open=args.reservoir_open,handoff_end=args.handoff_end,cuda_graphs=args.cuda_graphs)
+        native_library=args.native_library,reservoir_open=args.reservoir_open,handoff_end=args.handoff_end,cuda_graphs=args.cuda_graphs,**_q_target_settings(args))
     points=tuple(sorted({0,args.records,*[n for n in (4096,args.reservoir_open,args.handoff_end) if n<=args.records]}))
     journal=BoardJournalPlan('diagnostic',args.records,points,args.evaluation_seed)
     execution=BoardExecutionPlan(args.time_cap_hours*3600,args.checkpoint_every,args.heartbeat_seconds)
@@ -436,13 +441,18 @@ def train_nfsp_task(args):
         from .native_decode import file_sha256
         actual_native=None if args.native_library is None else file_sha256(args.native_library)
         if budget.get("native_library_sha256")!=actual_native:raise ValueError("budget profile uses a different decoder binary")
+        target_settings=_q_target_settings(args)
+        if budget.get('q_target',budget.get('target','one-step'))!=target_settings['q_target']:
+            raise ValueError('budget profile uses a different Q target')
+        if target_settings['q_target']=='retrace' and any(budget.get(k)!=target_settings[k] for k in ('trace_length','trace_lambda','target_batch')):
+            raise ValueError('Retrace budget profile must bind its context, lambda and target forward batch')
         budget_hash=hashlib.sha256(profile).hexdigest()
     config=NFSPTaskConfig(time_cap_seconds=args.time_cap_hours*3600,task=args.task,learner=args.learner,seed=args.seed,
         records=args.records,eval_every=args.eval_every,device=args.device,q_reuse=args.q_reuse,
         reservoir_open=args.reservoir_open,handoff_end=args.handoff_end,uniform_comparison=args.uniform_comparison,
         horizons=tuple(args.horizons),equivalent_actions=args.equivalent_actions,hidden=args.hidden,
         width=args.width,blocks=args.blocks,norm_groups=args.norm_groups,eval_batch=args.eval_batch,
-        capacity=args.capacity,purpose=args.purpose,budget_profile_sha256=budget_hash,storage=args.storage,native_library=args.native_library)
+        capacity=args.capacity,purpose=args.purpose,budget_profile_sha256=budget_hash,storage=args.storage,native_library=args.native_library,**_q_target_settings(args))
     stopped=[];previous={}
     for name in (signal.SIGINT,signal.SIGTERM):previous[name]=signal.signal(name,lambda signum,frame:stopped.append(signum))
     try:return NFSPTaskTrainer(config,args.run_dir,resume=args.resume).run(stop_requested=lambda:bool(stopped))
@@ -662,6 +672,11 @@ def main(argv=None):
                 p.add_argument("--eval-every",type=int,default=102400)
                 p.add_argument("--resume",action="store_true")
         else:p.add_argument("--opponent",choices=AGENTS,default="tactical")
+        if name in ('train-nfsp-task','profile-board','run-board-diagnostic'):
+            p.add_argument('--q-target',choices=('one-step','retrace'),default='one-step')
+            p.add_argument('--trace-length',type=int,default=32)
+            p.add_argument('--trace-lambda',type=float,default=.95)
+            p.add_argument('--target-batch',type=int,default=512)
     args=parser.parse_args(argv)
     if any(getattr(args,name,1)<1 for name in ("games","rounds","batch","batches")):
         parser.error("games and rounds must be positive")

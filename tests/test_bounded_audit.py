@@ -15,7 +15,7 @@ from graygo.storage import CheckpointStore,digest
 from graygo.task_training import NFSPTaskConfig,NFSPTaskTrainer
 from graygo.task_adapter import TaskAdapter
 
-AUDITOR=Path(__file__).resolve().parents[1]/'tools/audit_nfsp_bounded.py'
+AUDITOR=Path(__file__).resolve().parents[1]/'tools/audit_nfsp_bounded_v2.py'
 MODULE=runpy.run_path(str(AUDITOR))
 AUDIT=MODULE['audit']
 
@@ -100,6 +100,20 @@ class BoundedAuditTests(unittest.TestCase):
         # The two fixed-component white values are .05 and .20.
         self.assertAlmostEqual(expected,float(Fraction(1,8)),places=12)
         self.assertGreater(abs(expected-(.1*.05+.9*.20)),.01)
+
+    def test_resealed_wrong_native_response_fails_independent_complete_strategy_enumeration(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);self.fixture(root)
+            def mutate(path):
+                state=torch.load(path/'trainer.pt',weights_only=True,map_location='cpu')
+                state['evaluations'][0]['roots'][0]['native_response'][0]['best_response_value']+=.1
+                torch.save(state,path/'trainer.pt')
+            self.reseal(root,mutate)
+            result=json.loads((root/'result.json').read_text())
+            result['evaluations'][0]['roots'][0]['native_response'][0]['best_response_value']+=.1
+            (root/'result.json').write_text(json.dumps(result))
+            with self.assertRaisesRegex(ValueError,'numerical result differs'):
+                AUDIT(root,require_formal=False)
 
     def test_validly_resealed_wrong_native_value_fails_independent_math(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -1,0 +1,80 @@
+{
+  "a2_complete": false,
+  "archived_comparison": "docs/verification/nfsp-delayed-r1-neural-seeds12-final/cohort-audits/comparison-02-archived.json",
+  "archived_comparison_sha256": "9d15f418cca829b2acb5fe4ba03ad9e1f32027fb13dca4bb46e4367ed51a6e05",
+  "complete_Retrace_price_qualified": false,
+  "conditional_target": "retrace",
+  "current_comparison": "docs/verification/nfsp-delayed-r1-neural-seeds12-final/cohort-audits/comparison-02-current.json",
+  "current_comparison_sha256": "d40f3155877690589b2da678365eb5a34c7535de44e9b99ce64edcee200a99cb",
+  "fixed_comparison_requirements": [
+    "same original three seeds and 15M aggregate-record caps",
+    "same 12800 fresh-Q-record target refresh, opening/ramp and original epsilon clock",
+    "current online legal epsilon-greedy target policy and frozen Q-bar values",
+    "true terminal handling, complete-strategy branching checks and independent off-policy fixtures",
+    "Q loss counts only sequence starts; account context forwards and wall time separately",
+    "new source-specific complete pre/post phase profiling and independent numerical audit",
+    "retain all old one-step outcomes and controls without cohort/source/grade relabeling"
+  ],
+  "full_training_allocation_selected": false,
+  "maximum_sequence_rounds": 32,
+  "new_accelerator_jobs": 0,
+  "new_source_admission_qualified": false,
+  "new_table_control_allocation_seconds": 0,
+  "one_step_C1_complete_process_cap_seconds": 16200,
+  "one_step_C4_complete_process_cap_seconds": 19800,
+  "one_step_groups": {
+    "R1": {
+      "all_original_seeds_q_credit_passed": false,
+      "average_bands": {
+        "R1/0": "at_most_0.10",
+        "R1/1": "at_most_0.10",
+        "R1/2": "at_most_0.10"
+      },
+      "complete": true,
+      "credit_misses": [
+        "R1/0",
+        "R1/1",
+        "R1/2"
+      ],
+      "credit_status": "miss",
+      "missing_cases": []
+    },
+    "R4": {
+      "all_original_seeds_q_credit_passed": false,
+      "average_bands": {
+        "R4/0": "at_most_0.10",
+        "R4/1": "at_most_0.10",
+        "R4/2": "at_most_0.10"
+      },
+      "complete": true,
+      "credit_misses": [
+        "R4/2"
+      ],
+      "credit_status": "miss",
+      "missing_cases": []
+    }
+  },
+  "one_step_prerequisite": "Both complete original three-seed delayed credit cohorts miss the fixed final-five supported-value gate.",
+  "one_step_qualified_price_reference": "docs/verification/nfsp-delayed-cpu-prices/qualification/prices.json",
+  "one_step_qualified_price_reference_sha256": "93f3c87dfd9f52f0bc191f2ce0fda5cbbbe1efe77637415a222f0c9f75816ecb",
+  "one_step_value_errors": {
+    "R1/0": 0.4107837944544841,
+    "R1/1": 0.4954941438645101,
+    "R1/2": 0.1301192536468162,
+    "R4/0": 0.012568628757958611,
+    "R4/1": 0.025371074676513672,
+    "R4/2": 0.11698066805595464
+  },
+  "pilot_selected": false,
+  "rationale": "R4 passed two original seeds with worst supported value errors 0.012569/0.025371/0.116981, versus R1 misses at 0.410784/0.495494/0.130119. The separately qualified one-step C4 cap is about 22 percent above C1. Prefer the observed stronger propagation for one conditional target comparison; this neither predicts Retrace success nor transfers the old price to sequence work.",
+  "records_per_seed": 15000000,
+  "scope": "Record the single reuse choice required by design B2 and implement its candidate. Full runs await fresh source/price/evidence and resource checks; no target-by-reuse grid or one-step-price substitution.",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "selected_reuse": 4,
+  "trace_lambda": 0.95,
+  "version": "graygo/conditional-retrace-reuse-choice/1"
+}

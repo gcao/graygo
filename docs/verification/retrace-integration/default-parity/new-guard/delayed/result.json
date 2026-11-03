@@ -1,0 +1,2638 @@
+{
+  "a2_complete": false,
+  "acting_policy_counts": {
+    "average": 0,
+    "q": 80,
+    "uniform": 0
+  },
+  "active_episode_steps": 0,
+  "average_readiness": "not_ready",
+  "best_response_visits": [
+    0,
+    0
+  ],
+  "completed_episodes": 8,
+  "counters": {
+    "fresh_ordinary": 60,
+    "fresh_q": 78,
+    "fresh_records": 80,
+    "q_loss_targets": 304,
+    "q_updates": 76,
+    "supervised_targets": 0,
+    "supervised_updates": 0,
+    "target_refreshes": 9
+  },
+  "coverage": {
+    "excluded_q_records": 2,
+    "overlap_counts": [
+      [
+        [
+          254,
+          0,
+          0
+        ],
+        [
+          50,
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    ],
+    "overlap_sums": [
+      [
+        [
+          [
+            254.0,
+            249.61145901679993,
+            244.36333376169205,
+            4962.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            49.01687500439584,
+            48.509375309571624,
+            48.41999900341034,
+            957.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ]
+    ],
+    "q_eligible_records": 78,
+    "root_episodes": [
+      [
+        0,
+        0
+      ],
+      [
+        6,
+        2
+      ]
+    ],
+    "sampled_start_targets": 304,
+    "visit_records": 80
+  },
+  "elapsed_seconds": 1.1220544289099053,
+  "evaluation_protocol_version": "graygo/nfsp-task-evaluation/2",
+  "evaluations": [
+    {
+      "average_ready": false,
+      "counters": {
+        "fresh_ordinary": 16,
+        "fresh_q": 16,
+        "fresh_records": 16,
+        "q_loss_targets": 64,
+        "q_updates": 16,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 2
+      },
+      "coverage": {
+        "excluded_q_records": 0,
+        "overlap_counts": [
+          [
+            [
+              64,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                64.0,
+                61.719832718372345,
+                61.08083325624466,
+                339.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 16,
+        "root_episodes": [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "sampled_start_targets": 64,
+        "visit_records": 16
+      },
+      "elapsed_seconds": 0.0780491839395836,
+      "epsilon": 0.064,
+      "evaluation_protocol_version": "graygo/nfsp-task-evaluation/2",
+      "handoff_probability": 1.0,
+      "records": 16,
+      "roots": [
+        {
+          "average_gaps": [
+            1.2315386533737183,
+            0.0
+          ],
+          "early_values": [
+            {
+              "error": 0.6610028444835737,
+              "expected": 0.9359999967217445,
+              "player": 1,
+              "predicted": 0.2749971522381708,
+              "state_index": 0
+            },
+            {
+              "error": 1.2203937543034553,
+              "expected": -0.9359999967217445,
+              "player": 2,
+              "predicted": 0.2843937575817108,
+              "state_index": 0
+            },
+            {
+              "error": 0.7297560802072753,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2702439197927246,
+              "state_index": 1
+            },
+            {
+              "error": 1.2691032894683776,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.2691032894683777,
+              "state_index": 1
+            },
+            {
+              "error": 0.7375799273398344,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.26242007266016565,
+              "state_index": 3
+            },
+            {
+              "error": 1.27823992977606,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.27823992977606005,
+              "state_index": 3
+            },
+            {
+              "error": 1.261858075246704,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2618580752467039,
+              "state_index": 2
+            },
+            {
+              "error": 0.7141252029551952,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.28587479704480473,
+              "state_index": 2
+            },
+            {
+              "error": 1.2659721523366654,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2659721523366653,
+              "state_index": 4
+            },
+            {
+              "error": 0.7436159842538561,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2563840157461439,
+              "state_index": 4
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 0.7312357198959685,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2687642801040316,
+              "state_index": 7
+            },
+            {
+              "error": 1.2663622649750217,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.26636226497502163,
+              "state_index": 7
+            },
+            {
+              "error": 1.25771491649429,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.25771491649429,
+              "state_index": 8
+            },
+            {
+              "error": 0.7231812975992125,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.27681870240078754,
+              "state_index": 8
+            }
+          ],
+          "max_early_error": 1.27823992977606,
+          "max_late_error": 1.2663622649750217,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 0.7185850143432617,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2814149856567383
+            },
+            {
+              "action": 1,
+              "error": 1.080857701599598,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.08085770159959793
+            },
+            {
+              "action": 0,
+              "error": 1.2203937543034553,
+              "expected": -0.9359999967217445,
+              "player": 2,
+              "predicted": 0.2843937575817108
+            }
+          ],
+          "root_average_policies": [
+            [
+              0.38423067331314087,
+              0.6157693266868591,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 0,
+          "root_tag": "h5/controller1",
+          "value": 1.0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            1.2228728168346639
+          ],
+          "early_values": [
+            {
+              "error": 1.2296851945519447,
+              "expected": -0.9359999967217445,
+              "player": 1,
+              "predicted": 0.2936851978302002,
+              "state_index": 9
+            },
+            {
+              "error": 0.6662829135953114,
+              "expected": 0.9359999967217445,
+              "player": 2,
+              "predicted": 0.26971708312643305,
+              "state_index": 9
+            },
+            {
+              "error": 1.265388905152088,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2653889051520879,
+              "state_index": 10
+            },
+            {
+              "error": 0.7402402459520596,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2597597540479404,
+              "state_index": 10
+            },
+            {
+              "error": 1.2612707922713713,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.26127079227137123,
+              "state_index": 12
+            },
+            {
+              "error": 0.7249686210735952,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.27503137892640483,
+              "state_index": 12
+            },
+            {
+              "error": 0.7365596433232208,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.26344035667677923,
+              "state_index": 11
+            },
+            {
+              "error": 1.2785202440625327,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.2785202440625328,
+              "state_index": 11
+            },
+            {
+              "error": 0.7357963861378358,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.26420361386216423,
+              "state_index": 13
+            },
+            {
+              "error": 1.278200458865045,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.27820045886504496,
+              "state_index": 13
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 1.2681631651934393,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2681631651934393,
+              "state_index": 16
+            },
+            {
+              "error": 0.7196732328533202,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2803267671466798,
+              "state_index": 16
+            },
+            {
+              "error": 0.7262561246336141,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.27374387536638584,
+              "state_index": 17
+            },
+            {
+              "error": 1.2653283664628108,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.26532836646281077,
+              "state_index": 17
+            }
+          ],
+          "max_early_error": 1.2785202440625327,
+          "max_late_error": 1.2681631651934393,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 1.2296851945519447,
+              "expected": -0.9359999967217445,
+              "player": 1,
+              "predicted": 0.2936851978302002
+            },
+            {
+              "action": 0,
+              "error": 0.7238853871822357,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2761146128177643
+            },
+            {
+              "action": 1,
+              "error": 1.076191820204258,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.07619182020425797
+            }
+          ],
+          "root_average_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.38856359158266807,
+              0.6114364084173319,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 1,
+          "root_tag": "h5/controller2",
+          "value": -1.0
+        }
+      ]
+    },
+    {
+      "average_ready": false,
+      "counters": {
+        "fresh_ordinary": 22,
+        "fresh_q": 31,
+        "fresh_records": 32,
+        "q_loss_targets": 112,
+        "q_updates": 28,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 3
+      },
+      "coverage": {
+        "excluded_q_records": 1,
+        "overlap_counts": [
+          [
+            [
+              104,
+              0,
+              0
+            ],
+            [
+              8,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                104.0,
+                100.60899943113327,
+                98.987499833107,
+                875.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                7.021874999627471,
+                6.859708404168487,
+                7.743333160877228,
+                21.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 31,
+        "root_episodes": [
+          [
+            0,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "sampled_start_targets": 112,
+        "visit_records": 32
+      },
+      "elapsed_seconds": 0.2801494199084118,
+      "epsilon": 0.027999999999999997,
+      "evaluation_protocol_version": "graygo/nfsp-task-evaluation/2",
+      "handoff_probability": 1.0,
+      "records": 32,
+      "roots": [
+        {
+          "average_gaps": [
+            1.2315386533737183,
+            0.0
+          ],
+          "early_values": [
+            {
+              "error": 0.6965226008576921,
+              "expected": 0.9719999991878867,
+              "player": 1,
+              "predicted": 0.2754773983301946,
+              "state_index": 0
+            },
+            {
+              "error": 1.2539518736824393,
+              "expected": -0.9719999991878867,
+              "player": 2,
+              "predicted": 0.2819518744945526,
+              "state_index": 0
+            },
+            {
+              "error": 0.7256745581869353,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.27432544181306473,
+              "state_index": 1
+            },
+            {
+              "error": 1.2737115710930706,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.27371157109307065,
+              "state_index": 1
+            },
+            {
+              "error": 0.7333475701942491,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2666524298057508,
+              "state_index": 3
+            },
+            {
+              "error": 1.2826254425591352,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.28262544255913524,
+              "state_index": 3
+            },
+            {
+              "error": 1.2659518156216996,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.26595181562169956,
+              "state_index": 2
+            },
+            {
+              "error": 0.7099950996102956,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2900049003897044,
+              "state_index": 2
+            },
+            {
+              "error": 1.2704971271515553,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2704971271515554,
+              "state_index": 4
+            },
+            {
+              "error": 0.7391498987105314,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2608501012894686,
+              "state_index": 4
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 0.7269062535308362,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2730937464691639,
+              "state_index": 7
+            },
+            {
+              "error": 1.2711216592152799,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.27112165921527986,
+              "state_index": 7
+            },
+            {
+              "error": 1.2623478987486343,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2623478987486343,
+              "state_index": 8
+            },
+            {
+              "error": 0.7185755944105483,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2814244055894517,
+              "state_index": 8
+            }
+          ],
+          "max_early_error": 1.2826254425591352,
+          "max_late_error": 1.2711216592152799,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 0.7217559218406677,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2782440781593323
+            },
+            {
+              "action": 1,
+              "error": 1.080624096095562,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.08062409609556198
+            },
+            {
+              "action": 0,
+              "error": 1.2539518736824393,
+              "expected": -0.9719999991878867,
+              "player": 2,
+              "predicted": 0.2819518744945526
+            }
+          ],
+          "root_average_policies": [
+            [
+              0.38423067331314087,
+              0.6157693266868591,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 0,
+          "root_tag": "h5/controller1",
+          "value": 1.0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            1.2228728168346639
+          ],
+          "early_values": [
+            {
+              "error": 1.2623558007702231,
+              "expected": -0.9719999991878867,
+              "player": 1,
+              "predicted": 0.2903558015823364,
+              "state_index": 9
+            },
+            {
+              "error": 0.701463159082381,
+              "expected": 0.9719999991878867,
+              "player": 2,
+              "predicted": 0.27053684010550577,
+              "state_index": 9
+            },
+            {
+              "error": 1.2698459681134904,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2698459681134904,
+              "state_index": 10
+            },
+            {
+              "error": 0.7356860944063873,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2643139055936127,
+              "state_index": 10
+            },
+            {
+              "error": 1.2659841000305032,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2659841000305032,
+              "state_index": 12
+            },
+            {
+              "error": 0.7201670920104432,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.27983290798955684,
+              "state_index": 12
+            },
+            {
+              "error": 0.7324510398741164,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.26754896012588353,
+              "state_index": 11
+            },
+            {
+              "error": 1.2827208548730624,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.28272085487306253,
+              "state_index": 11
+            },
+            {
+              "error": 0.7311072105206362,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2688927894793638,
+              "state_index": 13
+            },
+            {
+              "error": 1.2824766105260743,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.2824766105260743,
+              "state_index": 13
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 1.2711732779204032,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.27117327792040324,
+              "state_index": 16
+            },
+            {
+              "error": 0.7148720793581715,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.28512792064182846,
+              "state_index": 16
+            },
+            {
+              "error": 0.7215631026773657,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2784368973226343,
+              "state_index": 17
+            },
+            {
+              "error": 1.2694638088705108,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.26946380887051086,
+              "state_index": 17
+            }
+          ],
+          "max_early_error": 1.2827208548730624,
+          "max_late_error": 1.2711732779204032,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 1.2623558007702231,
+              "expected": -0.9719999991878867,
+              "player": 1,
+              "predicted": 0.2903558015823364
+            },
+            {
+              "action": 0,
+              "error": 0.726704329252243,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.27329567074775696
+            },
+            {
+              "action": 1,
+              "error": 1.0762363448739052,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.07623634487390518
+            }
+          ],
+          "root_average_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.38856359158266807,
+              0.6114364084173319,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 1,
+          "root_tag": "h5/controller2",
+          "value": -1.0
+        }
+      ]
+    },
+    {
+      "average_ready": false,
+      "counters": {
+        "fresh_ordinary": 38,
+        "fresh_q": 47,
+        "fresh_records": 48,
+        "q_loss_targets": 176,
+        "q_updates": 44,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 5
+      },
+      "coverage": {
+        "excluded_q_records": 1,
+        "overlap_counts": [
+          [
+            [
+              152,
+              0,
+              0
+            ],
+            [
+              24,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                152.0,
+                148.2214584350586,
+                145.21958327293396,
+                1865.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                23.02187499962747,
+                22.6810418125242,
+                23.156666100025177,
+                236.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 47,
+        "root_episodes": [
+          [
+            0,
+            0
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "sampled_start_targets": 176,
+        "visit_records": 48
+      },
+      "elapsed_seconds": 0.5062423929339275,
+      "epsilon": 0.01,
+      "evaluation_protocol_version": "graygo/nfsp-task-evaluation/2",
+      "handoff_probability": 1.0,
+      "records": 48,
+      "roots": [
+        {
+          "average_gaps": [
+            1.2315386533737183,
+            0.0
+          ],
+          "early_values": [
+            {
+              "error": 0.7168910512904545,
+              "expected": 0.9900000002700835,
+              "player": 1,
+              "predicted": 0.27310894897962895,
+              "state_index": 0
+            },
+            {
+              "error": 1.268430044921115,
+              "expected": -0.9900000002700835,
+              "player": 2,
+              "predicted": 0.2784300446510315,
+              "state_index": 0
+            },
+            {
+              "error": 0.7264515808814099,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.27354841911859007,
+              "state_index": 1
+            },
+            {
+              "error": 1.2739095947302022,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.2739095947302021,
+              "state_index": 1
+            },
+            {
+              "error": 0.7338827536347171,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2661172463652829,
+              "state_index": 3
+            },
+            {
+              "error": 1.282099413067693,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.28209941306769315,
+              "state_index": 3
+            },
+            {
+              "error": 1.265584628870824,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.26558462887082385,
+              "state_index": 2
+            },
+            {
+              "error": 0.710923533771893,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.289076466228107,
+              "state_index": 2
+            },
+            {
+              "error": 1.2706062179214686,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.27060621792146855,
+              "state_index": 4
+            },
+            {
+              "error": 0.7394986393145848,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2605013606854152,
+              "state_index": 4
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 0.7272895367039498,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.27271046329605014,
+              "state_index": 7
+            },
+            {
+              "error": 1.271420634677694,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.271420634677694,
+              "state_index": 7
+            },
+            {
+              "error": 1.2623670240896634,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2623670240896634,
+              "state_index": 8
+            },
+            {
+              "error": 0.718619863474766,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.281380136525234,
+              "state_index": 8
+            }
+          ],
+          "max_early_error": 1.282099413067693,
+          "max_late_error": 1.271420634677694,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 0.7259217500686646,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.27407824993133545
+            },
+            {
+              "action": 1,
+              "error": 1.0802180543541908,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.08021805435419083
+            },
+            {
+              "action": 0,
+              "error": 1.268430044921115,
+              "expected": -0.9900000002700835,
+              "player": 2,
+              "predicted": 0.2784300446510315
+            }
+          ],
+          "root_average_policies": [
+            [
+              0.38423067331314087,
+              0.6157693266868591,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 0,
+          "root_tag": "h5/controller1",
+          "value": 1.0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            1.2228728168346639
+          ],
+          "early_values": [
+            {
+              "error": 1.2761757579166442,
+              "expected": -0.9900000002700835,
+              "player": 1,
+              "predicted": 0.28617575764656067,
+              "state_index": 9
+            },
+            {
+              "error": 0.7215057485382637,
+              "expected": 0.9900000002700835,
+              "player": 2,
+              "predicted": 0.2684942517318198,
+              "state_index": 9
+            },
+            {
+              "error": 1.2698606419967609,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.26986064199676085,
+              "state_index": 10
+            },
+            {
+              "error": 0.7352320330930288,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.26476796690697124,
+              "state_index": 10
+            },
+            {
+              "error": 1.2661513225145475,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.26615132251454754,
+              "state_index": 12
+            },
+            {
+              "error": 0.7199828967048607,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.28001710329513924,
+              "state_index": 12
+            },
+            {
+              "error": 0.7334310660603347,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.26656893393966535,
+              "state_index": 11
+            },
+            {
+              "error": 1.2816797205712378,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.2816797205712378,
+              "state_index": 11
+            },
+            {
+              "error": 0.7305973365498544,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2694026634501456,
+              "state_index": 13
+            },
+            {
+              "error": 1.2817277397370315,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.28172773973703147,
+              "state_index": 13
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 1.2698570377038914,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2698570377038913,
+              "state_index": 16
+            },
+            {
+              "error": 0.7148013535732332,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2851986464267668,
+              "state_index": 16
+            },
+            {
+              "error": 0.7208676415029972,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2791323584970028,
+              "state_index": 17
+            },
+            {
+              "error": 1.2683299992389614,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.2683299992389615,
+              "state_index": 17
+            }
+          ],
+          "max_early_error": 1.2817277397370315,
+          "max_late_error": 1.2698570377038914,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 1.2761757579166442,
+              "expected": -0.9900000002700835,
+              "player": 1,
+              "predicted": 0.28617575764656067
+            },
+            {
+              "action": 0,
+              "error": 0.7305388748645782,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.26946112513542175
+            },
+            {
+              "action": 1,
+              "error": 1.076086439192295,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.07608643919229507
+            }
+          ],
+          "root_average_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.38856359158266807,
+              0.6114364084173319,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 1,
+          "root_tag": "h5/controller2",
+          "value": -1.0
+        }
+      ]
+    },
+    {
+      "average_ready": false,
+      "counters": {
+        "fresh_ordinary": 50,
+        "fresh_q": 62,
+        "fresh_records": 64,
+        "q_loss_targets": 240,
+        "q_updates": 60,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 7
+      },
+      "coverage": {
+        "excluded_q_records": 2,
+        "overlap_counts": [
+          [
+            [
+              204,
+              0,
+              0
+            ],
+            [
+              36,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                204.0,
+                199.89979207515717,
+                195.48791682720184,
+                3276.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                35.02187499962747,
+                34.601041888818145,
+                34.71666580438614,
+                586.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 62,
+        "root_episodes": [
+          [
+            0,
+            0
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "sampled_start_targets": 240,
+        "visit_records": 64
+      },
+      "elapsed_seconds": 0.7456064019352198,
+      "epsilon": 0.01,
+      "evaluation_protocol_version": "graygo/nfsp-task-evaluation/2",
+      "handoff_probability": 1.0,
+      "records": 64,
+      "roots": [
+        {
+          "average_gaps": [
+            1.2315386533737183,
+            0.0
+          ],
+          "early_values": [
+            {
+              "error": 0.7176451767440674,
+              "expected": 0.9900000002700835,
+              "player": 1,
+              "predicted": 0.27235482352601614,
+              "state_index": 0
+            },
+            {
+              "error": 1.2679415550548583,
+              "expected": -0.9900000002700835,
+              "player": 2,
+              "predicted": 0.2779415547847748,
+              "state_index": 0
+            },
+            {
+              "error": 0.7274466236524519,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2725533763475481,
+              "state_index": 1
+            },
+            {
+              "error": 1.2736615961697861,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.27366159616978625,
+              "state_index": 1
+            },
+            {
+              "error": 0.734785554914879,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.26521444508512104,
+              "state_index": 3
+            },
+            {
+              "error": 1.281306758364689,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.2813067583646892,
+              "state_index": 3
+            },
+            {
+              "error": 1.2649348371136144,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2649348371136144,
+              "state_index": 2
+            },
+            {
+              "error": 0.7119711125238752,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2880288874761247,
+              "state_index": 2
+            },
+            {
+              "error": 1.2700729165382667,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.27007291653826676,
+              "state_index": 4
+            },
+            {
+              "error": 0.7403946653099396,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2596053346900604,
+              "state_index": 4
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 0.7281489245685612,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2718510754314388,
+              "state_index": 7
+            },
+            {
+              "error": 1.2710609333621854,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.27106093336218545,
+              "state_index": 7
+            },
+            {
+              "error": 1.261682238371001,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.26168223837100096,
+              "state_index": 8
+            },
+            {
+              "error": 0.7191979198747316,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.28080208012526836,
+              "state_index": 8
+            }
+          ],
+          "max_early_error": 1.281306758364689,
+          "max_late_error": 1.2710609333621854,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 0.726678878068924,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.27332112193107605
+            },
+            {
+              "action": 1,
+              "error": 1.080061435699463,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.08006143569946289
+            },
+            {
+              "action": 0,
+              "error": 1.2679415550548583,
+              "expected": -0.9900000002700835,
+              "player": 2,
+              "predicted": 0.2779415547847748
+            }
+          ],
+          "root_average_policies": [
+            [
+              0.38423067331314087,
+              0.6157693266868591,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 0,
+          "root_tag": "h5/controller1",
+          "value": 1.0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            1.2228728168346639
+          ],
+          "early_values": [
+            {
+              "error": 1.2756123152095824,
+              "expected": -0.9900000002700835,
+              "player": 1,
+              "predicted": 0.2856123149394989,
+              "state_index": 9
+            },
+            {
+              "error": 0.7222850166839063,
+              "expected": 0.9900000002700835,
+              "player": 2,
+              "predicted": 0.2677149835861772,
+              "state_index": 9
+            },
+            {
+              "error": 1.269412234863395,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.26941223486339483,
+              "state_index": 10
+            },
+            {
+              "error": 0.7348087886812359,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2651912113187641,
+              "state_index": 10
+            },
+            {
+              "error": 1.2661367334830604,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.26613673348306044,
+              "state_index": 12
+            },
+            {
+              "error": 0.7200272020045291,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.27997279799547087,
+              "state_index": 12
+            },
+            {
+              "error": 0.7345743071379355,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2654256928620645,
+              "state_index": 11
+            },
+            {
+              "error": 1.2807315408097273,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.28073154080972734,
+              "state_index": 11
+            },
+            {
+              "error": 0.7306566628160527,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2693433371839473,
+              "state_index": 13
+            },
+            {
+              "error": 1.2808138763811747,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.28081387638117467,
+              "state_index": 13
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 1.268323216379448,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.26832321637944795,
+              "state_index": 16
+            },
+            {
+              "error": 0.714837165211021,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2851628347889789,
+              "state_index": 16
+            },
+            {
+              "error": 0.7206718532337066,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2793281467662933,
+              "state_index": 17
+            },
+            {
+              "error": 1.266938328684148,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.2669383286841481,
+              "state_index": 17
+            }
+          ],
+          "max_early_error": 1.2808138763811747,
+          "max_late_error": 1.268323216379448,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 1.2756123152095824,
+              "expected": -0.9900000002700835,
+              "player": 1,
+              "predicted": 0.2856123149394989
+            },
+            {
+              "action": 0,
+              "error": 0.7313211560249329,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.26867884397506714
+            },
+            {
+              "action": 1,
+              "error": 1.0759067609906197,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.07590676099061966
+            }
+          ],
+          "root_average_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.38856359158266807,
+              0.6114364084173319,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 1,
+          "root_tag": "h5/controller2",
+          "value": -1.0
+        }
+      ]
+    },
+    {
+      "average_ready": false,
+      "counters": {
+        "fresh_ordinary": 60,
+        "fresh_q": 78,
+        "fresh_records": 80,
+        "q_loss_targets": 304,
+        "q_updates": 76,
+        "supervised_targets": 0,
+        "supervised_updates": 0,
+        "target_refreshes": 9
+      },
+      "coverage": {
+        "excluded_q_records": 2,
+        "overlap_counts": [
+          [
+            [
+              254,
+              0,
+              0
+            ],
+            [
+              50,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        ],
+        "overlap_sums": [
+          [
+            [
+              [
+                254.0,
+                249.61145901679993,
+                244.36333376169205,
+                4962.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                49.01687500439584,
+                48.509375309571624,
+                48.41999900341034,
+                957.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          ]
+        ],
+        "q_eligible_records": 78,
+        "root_episodes": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            2
+          ]
+        ],
+        "sampled_start_targets": 304,
+        "visit_records": 80
+      },
+      "elapsed_seconds": 0.9541157039348036,
+      "epsilon": 0.01,
+      "evaluation_protocol_version": "graygo/nfsp-task-evaluation/2",
+      "handoff_probability": 1.0,
+      "records": 80,
+      "roots": [
+        {
+          "average_gaps": [
+            1.2315386533737183,
+            0.0
+          ],
+          "early_values": [
+            {
+              "error": 0.7170053401420549,
+              "expected": 0.9900000002700835,
+              "player": 1,
+              "predicted": 0.2729946601280286,
+              "state_index": 0
+            },
+            {
+              "error": 1.2689900901634246,
+              "expected": -0.9900000002700835,
+              "player": 2,
+              "predicted": 0.27899008989334106,
+              "state_index": 0
+            },
+            {
+              "error": 0.7269936460597944,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.27300635394020556,
+              "state_index": 1
+            },
+            {
+              "error": 1.2748793273574308,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.27487932735743087,
+              "state_index": 1
+            },
+            {
+              "error": 0.734133958974774,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.26586604102522604,
+              "state_index": 3
+            },
+            {
+              "error": 1.282171869442418,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.2821718694424181,
+              "state_index": 3
+            },
+            {
+              "error": 1.2657758489903863,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.26577584899038637,
+              "state_index": 2
+            },
+            {
+              "error": 0.7114594535623973,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.2885405464376027,
+              "state_index": 2
+            },
+            {
+              "error": 1.2710020648595248,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2710020648595248,
+              "state_index": 4
+            },
+            {
+              "error": 0.7398923664631823,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.26010763353681765,
+              "state_index": 4
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 0.7274884349697417,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2725115650302583,
+              "state_index": 7
+            },
+            {
+              "error": 1.272093954673057,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.2720939546730571,
+              "state_index": 7
+            },
+            {
+              "error": 1.2623822023130846,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.2623822023130845,
+              "state_index": 8
+            },
+            {
+              "error": 0.7182657145802591,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.28173428541974094,
+              "state_index": 8
+            }
+          ],
+          "max_early_error": 1.282171869442418,
+          "max_late_error": 1.272093954673057,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 0.7260353565216064,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.27396464347839355
+            },
+            {
+              "action": 1,
+              "error": 1.0799679681658745,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.07996796816587448
+            },
+            {
+              "action": 0,
+              "error": 1.2689900901634246,
+              "expected": -0.9900000002700835,
+              "player": 2,
+              "predicted": 0.27899008989334106
+            }
+          ],
+          "root_average_policies": [
+            [
+              0.38423067331314087,
+              0.6157693266868591,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 0,
+          "root_tag": "h5/controller1",
+          "value": 1.0
+        },
+        {
+          "average_gaps": [
+            0.0,
+            1.2228728168346639
+          ],
+          "early_values": [
+            {
+              "error": 1.2764605787117034,
+              "expected": -0.9900000002700835,
+              "player": 1,
+              "predicted": 0.2864605784416199,
+              "state_index": 9
+            },
+            {
+              "error": 0.7215838303993851,
+              "expected": 0.9900000002700835,
+              "player": 2,
+              "predicted": 0.26841616987069833,
+              "state_index": 9
+            },
+            {
+              "error": 1.2703866147157166,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.27038661471571657,
+              "state_index": 10
+            },
+            {
+              "error": 0.7328695693704561,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.26713043062954384,
+              "state_index": 10
+            },
+            {
+              "error": 1.2674479811049395,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.26744798110493956,
+              "state_index": 12
+            },
+            {
+              "error": 0.7184892426276599,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.28151075737234016,
+              "state_index": 12
+            },
+            {
+              "error": 0.7340209509027962,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2659790490972038,
+              "state_index": 11
+            },
+            {
+              "error": 1.2815918100531498,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.28159181005314976,
+              "state_index": 11
+            },
+            {
+              "error": 0.7295035921875037,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2704964078124963,
+              "state_index": 13
+            },
+            {
+              "error": 1.281380852625332,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.281380852625332,
+              "state_index": 13
+            }
+          ],
+          "greedy_q_gaps": [
+            0.0,
+            0.0
+          ],
+          "late_values": [
+            {
+              "error": 1.268515043845454,
+              "expected": -1.0,
+              "player": 1,
+              "predicted": 0.26851504384545394,
+              "state_index": 16
+            },
+            {
+              "error": 0.713136818021024,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.286863181978976,
+              "state_index": 16
+            },
+            {
+              "error": 0.7191690896296834,
+              "expected": 1.0,
+              "player": 1,
+              "predicted": 0.2808309103703166,
+              "state_index": 17
+            },
+            {
+              "error": 1.2668651551412493,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.2668651551412493,
+              "state_index": 17
+            }
+          ],
+          "max_early_error": 1.2815918100531498,
+          "max_late_error": 1.268515043845454,
+          "native_opponent_weights": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "root_action_values": [
+            {
+              "action": 0,
+              "error": 1.2764605787117034,
+              "expected": -0.9900000002700835,
+              "player": 1,
+              "predicted": 0.2864605784416199
+            },
+            {
+              "action": 0,
+              "error": 0.7306163311004639,
+              "expected": 1.0,
+              "player": 2,
+              "predicted": 0.26938366889953613
+            },
+            {
+              "action": 1,
+              "error": 1.0758838579058647,
+              "expected": -1.0,
+              "player": 2,
+              "predicted": 0.07588385790586472
+            }
+          ],
+          "root_average_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.38856359158266807,
+              0.6114364084173319,
+              0.0
+            ]
+          ],
+          "root_greedy_policies": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "root_index": 1,
+          "root_tag": "h5/controller2",
+          "value": -1.0
+        }
+      ]
+    }
+  ],
+  "excluded_q_records": 2,
+  "final_five_max_average_gap": 1.2315386533737183,
+  "final_five_max_early_error": 1.2827208548730624,
+  "final_five_max_greedy_gap": 0.0,
+  "final_five_max_native_response_gap": null,
+  "formal_case_passed": false,
+  "formal_protocol": false,
+  "learner": "neural",
+  "loss": {
+    "projected_targets": 0,
+    "q_loss_sum": 12.394570535856474,
+    "q_updates": 76,
+    "raw_max": 1.0,
+    "raw_min": -1.0,
+    "supervised_loss_sum": 0.0,
+    "supervised_updates": 0
+  },
+  "outcomes": [
+    1,
+    7,
+    0
+  ],
+  "per_role_q_records": [
+    38,
+    40
+  ],
+  "per_role_records": [
+    40,
+    40
+  ],
+  "q_credit_metric": "greedy_equilibrium_gap",
+  "q_credit_passed": false,
+  "records": 80,
+  "reservoir_seen": 0,
+  "reservoir_size": 0,
+  "seed": 0,
+  "source_sha256": "1e1799b27239089d49f32e96a3616b5eb29127a7afaf1a5ff73e48ecf69c0a5d",
+  "status": "complete",
+  "task": "delayed",
+  "termination_counts": {
+    "horizon": 8,
+    "mutual_pass": 0,
+    "round_limit": 0
+  },
+  "timings": {
+    "checkpoint": 0.8528339619515464,
+    "collection": 0.07142264943104237,
+    "evaluation": 0.0052231691079214215,
+    "learning": 0.19737122661899775,
+    "setup": 1.044046483002603
+  }
+}

@@ -1,4 +1,4 @@
-"""Resumable one-step NFSP training on solved multiround tasks and Gray Go.
+"""Resumable NFSP training on solved multiround tasks and Gray Go.
 
 Both roles contribute actual own-action records. Frozen episode actors survive
 update/evaluation/chunk boundaries; budget exhaustion never terminates a game.
@@ -69,6 +69,10 @@ class NFSPTaskConfig:
     budget_profile_sha256: str|None=None
     storage: str='features'
     native_library: str|None=None
+    q_target: str='one-step'
+    trace_length: int=32
+    trace_lambda: float=.95
+    target_batch: int=512
 
     def __post_init__(self):
         object.__setattr__(self,'horizons',tuple(self.horizons))
@@ -96,10 +100,19 @@ class NFSPTaskConfig:
             raise ValueError('invalid budget-profile SHA-256')
         if self.reservoir_open%2 or self.handoff_end%2:raise ValueError('opening/handoff must preserve paired record boundaries')
 
-    def backend_config(self):return NFSPConfig(self.batch,self.learning_start,self.q_reuse,self.target_every,self.learning_rate,self.max_grad_norm)
+    def backend_config(self):return NFSPConfig(self.batch,self.learning_start,self.q_reuse,self.target_every,self.learning_rate,self.max_grad_norm,
+        self.q_target,self.trace_length,self.trace_lambda,self.target_batch)
     def schedule(self):return LearnerSchedule(self.epsilon_decay,self.reservoir_open,self.handoff_end)
     def plan(self):return json.loads(json.dumps(asdict(self)))
     def formal_protocol(self):
+        # V1 collectors use this predicate for a plan explicitly named one-step.
+        return self.q_target=='one-step' and self._formal_recipe()
+
+    def formal_retrace_protocol(self):
+        # Recognition is separate from source/auditor/resource admission.
+        return self.q_target=='retrace' and self.trace_length==32 and self.trace_lambda==.95 and self._formal_recipe()
+
+    def _formal_recipe(self):
         return (self.purpose=='a2' and bool(self.budget_profile_sha256) and self.task!='delayed-forced' and self.records==15_000_000
             and self.eval_every==500_000 and self.batch==512 and self.learning_start==4096 and self.capacity==500_000
             and self.target_every==12800 and self.learning_rate==3e-4 and self.max_grad_norm==.5
@@ -152,7 +165,8 @@ class NFSPTaskTrainer:
                     'q_optimizer':{'class':'Adam','defaults':dict(self.backend.q_optimizer.defaults)},
                     'supervised_optimizer':None if self.backend.average_optimizer is None else {'class':'Adam','defaults':dict(self.backend.average_optimizer.defaults)},
                     'average_method':'exact reservoir conditional label mean' if self.backend.exact_average else 'masked frozen-label cross-entropy',
-                    'q_loss':'mean squared error against projected expected one-step targets',
+                    'q_loss':'mean squared error against projected '+('expected one-step' if config.q_target=='one-step' else 'truncated Retrace')+' targets',
+                    'sequence_context':'same player/episode/frozen opponent; context is not additional loss starts',
                     'runtime':{'workers':1,'torch_threads':torch.get_num_threads(),'device':str(self.device),
                         'deterministic_algorithms':torch.are_deterministic_algorithms_enabled(),'cudnn_benchmark':torch.backends.cudnn.benchmark,
                         'cudnn_deterministic':torch.backends.cudnn.deterministic},
@@ -370,7 +384,8 @@ class NFSPTaskTrainer:
             'q_credit_metric':'native_best_response_gap' if self.config.task=='branching' else 'greedy_equilibrium_gap',
             'final_five_max_native_response_gap':native_gap,'average_readiness':band,'formal_protocol':self.config.formal_protocol(),
             'formal_case_passed':bool(passed and self.config.formal_protocol()),'a2_complete':False,'elapsed_seconds':self.elapsed_now(),
-            'timings':self.timings,'loss':self.loss,'source_sha256':self.manifest['source_sha256']}
+            'timings':self.timings,'loss':self.loss,'source_sha256':self.manifest['source_sha256'],
+            **({'trace_diagnostics':self.backend.trace.report(),'formal_retrace_protocol':self.config.formal_retrace_protocol()} if self.backend.trace is not None else {})}
 
     def run(self,*,until_records=None,stop_requested=lambda:False,verbose=True):
         stop=self.config.records if until_records is None else until_records

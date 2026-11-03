@@ -1,0 +1,131 @@
+{
+  "cases": [
+    "delayed",
+    "branching",
+    "gray-mixed",
+    "board"
+  ],
+  "comparison_counts": {
+    "arrays": 126,
+    "byte_payloads": 3,
+    "scalars": 4457,
+    "tensors": 416
+  },
+  "complete_pipeline_price_qualified": false,
+  "ignored_nondeterministic_wall_clock_fields": [
+    "old/delayed/state/timings",
+    "old/delayed/state/elapsed",
+    "old/delayed/state/evaluations/0/elapsed_seconds",
+    "old/delayed/state/evaluations/1/elapsed_seconds",
+    "old/delayed/state/evaluations/2/elapsed_seconds",
+    "old/delayed/state/evaluations/3/elapsed_seconds",
+    "old/delayed/state/evaluations/4/elapsed_seconds",
+    "old/branching/state/timings",
+    "old/branching/state/elapsed",
+    "old/branching/state/evaluations/0/elapsed_seconds",
+    "old/branching/state/evaluations/1/elapsed_seconds",
+    "old/branching/state/evaluations/2/elapsed_seconds",
+    "old/branching/state/evaluations/3/elapsed_seconds",
+    "old/branching/state/evaluations/4/elapsed_seconds",
+    "old/gray-mixed/state/timings",
+    "old/gray-mixed/state/elapsed",
+    "old/gray-mixed/state/evaluations/0/elapsed_seconds",
+    "old/gray-mixed/state/evaluations/1/elapsed_seconds",
+    "old/board/state/timings",
+    "new/delayed/state/timings",
+    "new/delayed/state/elapsed",
+    "new/delayed/state/evaluations/0/elapsed_seconds",
+    "new/delayed/state/evaluations/1/elapsed_seconds",
+    "new/delayed/state/evaluations/2/elapsed_seconds",
+    "new/delayed/state/evaluations/3/elapsed_seconds",
+    "new/delayed/state/evaluations/4/elapsed_seconds",
+    "new/branching/state/timings",
+    "new/branching/state/elapsed",
+    "new/branching/state/evaluations/0/elapsed_seconds",
+    "new/branching/state/evaluations/1/elapsed_seconds",
+    "new/branching/state/evaluations/2/elapsed_seconds",
+    "new/branching/state/evaluations/3/elapsed_seconds",
+    "new/branching/state/evaluations/4/elapsed_seconds",
+    "new/gray-mixed/state/timings",
+    "new/gray-mixed/state/elapsed",
+    "new/gray-mixed/state/evaluations/0/elapsed_seconds",
+    "new/gray-mixed/state/evaluations/1/elapsed_seconds",
+    "new/board/state/timings"
+  ],
+  "new_accelerator_jobs": 0,
+  "new_scientific_training_records": 0,
+  "preserved_checks": "all model/target/average weights, optimizer states, RNGs, replay/reservoir arrays, task metrics, complete episode bytes, counters and exact evaluations",
+  "raw_payloads": {
+    "new": {
+      "bytes": 695011,
+      "sha256": "36a01248d68177dcc05f5dfe808621e90fc469e1527b1bc3e0c8388fddb56013"
+    },
+    "old": {
+      "bytes": 694371,
+      "sha256": "db886301773594d9eaf85d20abc8cffd4aa4495a995dcc28a0161e6a27f0f2fc"
+    }
+  },
+  "removed_new_inactive_configuration_fields": [
+    "new/delayed/state/config/q_target",
+    "new/delayed/state/config/trace_length",
+    "new/delayed/state/config/trace_lambda",
+    "new/delayed/state/config/target_batch",
+    "new/delayed/state/backend/config/q_target",
+    "new/delayed/state/backend/config/trace_length",
+    "new/delayed/state/backend/config/trace_lambda",
+    "new/delayed/state/backend/config/target_batch",
+    "new/branching/state/config/q_target",
+    "new/branching/state/config/trace_length",
+    "new/branching/state/config/trace_lambda",
+    "new/branching/state/config/target_batch",
+    "new/branching/state/backend/config/q_target",
+    "new/branching/state/backend/config/trace_length",
+    "new/branching/state/backend/config/trace_lambda",
+    "new/branching/state/backend/config/target_batch",
+    "new/gray-mixed/state/config/q_target",
+    "new/gray-mixed/state/config/trace_length",
+    "new/gray-mixed/state/config/trace_lambda",
+    "new/gray-mixed/state/config/target_batch",
+    "new/gray-mixed/state/backend/config/q_target",
+    "new/gray-mixed/state/backend/config/trace_length",
+    "new/gray-mixed/state/backend/config/trace_lambda",
+    "new/gray-mixed/state/backend/config/target_batch",
+    "new/board/state/config/q_target",
+    "new/board/state/config/trace_length",
+    "new/board/state/config/trace_lambda",
+    "new/board/state/config/target_batch",
+    "new/board/state/backend/config/q_target",
+    "new/board/state/backend/config/trace_length",
+    "new/board/state/backend/config/trace_lambda",
+    "new/board/state/backend/config/target_batch"
+  ],
+  "source_admission_qualified": false,
+  "sources": {
+    "new": {
+      "actual_diagnostic_records": 256,
+      "all_default_one_step": true,
+      "cases": [
+        "delayed",
+        "branching",
+        "gray-mixed",
+        "board"
+      ],
+      "scientific_records": 0,
+      "source_sha256": "0c17414be725a31e86bd77c5aefde67287982820d0337daf92dae5d80d250d9c"
+    },
+    "old": {
+      "actual_diagnostic_records": 256,
+      "all_default_one_step": true,
+      "cases": [
+        "delayed",
+        "branching",
+        "gray-mixed",
+        "board"
+      ],
+      "scientific_records": 0,
+      "source_sha256": "43c5bb772f52286cfa2e87cc81b97175a5130842d91a547373a37f4cc8b10e86"
+    }
+  },
+  "status": "four_default_one_step_pipelines_mutable_state_bit_exact",
+  "version": 1
+}

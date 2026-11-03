@@ -1,0 +1,105 @@
+test_augmented_board_runtime_exact_resume_with_sequence_diagnostics (test_sequence_targets.SequenceRuntimeTests.test_augmented_board_runtime_exact_resume_with_sequence_diagnostics) ... ERROR
+test_real_full_shape_board_loss_has_finite_gradients_and_bounded_sequence_forwards (test_sequence_targets.SequenceRuntimeTests.test_real_full_shape_board_loss_has_finite_gradients_and_bounded_sequence_forwards) ... ok
+test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse (test_sequence_targets.SequenceRuntimeTests.test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse) ... 
+  test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse (test_sequence_targets.SequenceRuntimeTests.test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse) (task='delayed') ... ERROR
+  test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse (test_sequence_targets.SequenceRuntimeTests.test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse) (task='branching') ... ERROR
+test_loss_updates_only_starts_not_sequence_context (test_sequence_targets.SequenceTargetTests.test_loss_updates_only_starts_not_sequence_context) ... /home/gcao/proj/graygo/tests/test_sequence_targets.py:140: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  self.assertNotEqual(float(online.values[0, 0]), float(before[0, 0]))
+ok
+test_malformed_sequences_cannot_cross_boundaries_or_enter_ineligible_starts (test_sequence_targets.SequenceTargetTests.test_malformed_sequences_cannot_cross_boundaries_or_enter_ineligible_starts) ... ok
+test_off_policy_indexing_matches_independent_fraction_calculation_and_ignores_c_at_start (test_sequence_targets.SequenceTargetTests.test_off_policy_indexing_matches_independent_fraction_calculation_and_ignores_c_at_start) ... ok
+test_on_policy_telescoping_and_projection_apply_only_to_loss_target (test_sequence_targets.SequenceTargetTests.test_on_policy_telescoping_and_projection_apply_only_to_loss_target) ... ok
+test_one_step_reduction_terminal_padding_and_continuing_boundary_bootstrap (test_sequence_targets.SequenceTargetTests.test_one_step_reduction_terminal_padding_and_continuing_boundary_bootstrap) ... ok
+test_real_meaningful_branch_replay_with_low_overlap_differs_from_uncorrected_return (test_sequence_targets.SequenceTargetTests.test_real_meaningful_branch_replay_with_low_overlap_differs_from_uncorrected_return) ... ok
+
+======================================================================
+ERROR: test_augmented_board_runtime_exact_resume_with_sequence_diagnostics (test_sequence_targets.SequenceRuntimeTests.test_augmented_board_runtime_exact_resume_with_sequence_diagnostics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcao/proj/graygo/tests/test_sequence_targets.py", line 238, in test_augmented_board_runtime_exact_resume_with_sequence_diagnostics
+    full=BoardNFSPRuntime(config); expected=full.run_profile(64,time_cap_seconds=120)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/board_runtime.py", line 132, in run_profile
+    self.advance(count)
+  File "/home/gcao/proj/graygo/src/graygo/board_runtime.py", line 115, in advance
+    stats=self.backend.learn_after_fresh(count,count,self.replay,self.reservoir,self.rng['q_replay'],epsilon=self.schedule.epsilon(self.records+count),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/nfsp.py", line 245, in learn_after_fresh
+    q_report=update_retrace_q(self.q,self.target,self.q_optimizer,data,device=self.device,epsilon=epsilon,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/sequence_targets.py", line 162, in update_retrace_q
+    trace_observer(details)
+  File "/home/gcao/proj/graygo/src/graygo/nfsp.py", line 243, in <lambda>
+    trace_callback=lambda details: self.trace.observe(starts,details,self.counters.fresh_records,
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/sequence_targets.py", line 177, in observe
+    raise ValueError('trace diagnostics contain future records or opponent versions')
+ValueError: trace diagnostics contain future records or opponent versions
+
+======================================================================
+ERROR: test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse (test_sequence_targets.SequenceRuntimeTests.test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse) (task='delayed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcao/proj/graygo/tests/test_sequence_targets.py", line 210, in test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse
+    expected = full.run(verbose=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/task_training.py", line 394, in run
+    self.store.ensure_space();self.collect_round()
+                              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/task_training.py", line 232, in collect_round
+    event=episode.step(self.replay,self.reservoir,self.rng['reservoir'],self.schedule,record=self.records,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/nfsp_collection.py", line 188, in step
+    if on_record is not None:on_record(role=role,record=record+index,ordinary=int(not self.supplemental),q_eligible=int(q_eligible))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/task_training.py", line 222, in learned_record
+    stats=self.backend.learn_after_fresh(1,ordinary,self.replay,self.reservoir,self.rng['q_replay'],
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/nfsp.py", line 245, in learn_after_fresh
+    q_report=update_retrace_q(self.q,self.target,self.q_optimizer,data,device=self.device,epsilon=epsilon,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/sequence_targets.py", line 162, in update_retrace_q
+    trace_observer(details)
+  File "/home/gcao/proj/graygo/src/graygo/nfsp.py", line 243, in <lambda>
+    trace_callback=lambda details: self.trace.observe(starts,details,self.counters.fresh_records,
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/sequence_targets.py", line 177, in observe
+    raise ValueError('trace diagnostics contain future records or opponent versions')
+ValueError: trace diagnostics contain future records or opponent versions
+
+======================================================================
+ERROR: test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse (test_sequence_targets.SequenceRuntimeTests.test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse) (task='branching')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gcao/proj/graygo/tests/test_sequence_targets.py", line 210, in test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse
+    expected = full.run(verbose=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/task_training.py", line 394, in run
+    self.store.ensure_space();self.collect_round()
+                              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/task_training.py", line 232, in collect_round
+    event=episode.step(self.replay,self.reservoir,self.rng['reservoir'],self.schedule,record=self.records,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/nfsp_collection.py", line 188, in step
+    if on_record is not None:on_record(role=role,record=record+index,ordinary=int(not self.supplemental),q_eligible=int(q_eligible))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/task_training.py", line 222, in learned_record
+    stats=self.backend.learn_after_fresh(1,ordinary,self.replay,self.reservoir,self.rng['q_replay'],
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/nfsp.py", line 245, in learn_after_fresh
+    q_report=update_retrace_q(self.q,self.target,self.q_optimizer,data,device=self.device,epsilon=epsilon,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/sequence_targets.py", line 162, in update_retrace_q
+    trace_observer(details)
+  File "/home/gcao/proj/graygo/src/graygo/nfsp.py", line 243, in <lambda>
+    trace_callback=lambda details: self.trace.observe(starts,details,self.counters.fresh_records,
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gcao/proj/graygo/src/graygo/sequence_targets.py", line 177, in observe
+    raise ValueError('trace diagnostics contain future records or opponent versions')
+ValueError: trace diagnostics contain future records or opponent versions
+
+----------------------------------------------------------------------
+Ran 9 tests in 2.440s
+
+FAILED (errors=3)

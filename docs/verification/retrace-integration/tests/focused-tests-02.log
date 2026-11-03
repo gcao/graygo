@@ -1,0 +1,18 @@
+test_augmented_board_runtime_exact_resume_with_sequence_diagnostics (test_sequence_targets.SequenceRuntimeTests.test_augmented_board_runtime_exact_resume_with_sequence_diagnostics) ... ok
+test_real_full_shape_board_loss_has_finite_gradients_and_bounded_sequence_forwards (test_sequence_targets.SequenceRuntimeTests.test_real_full_shape_board_loss_has_finite_gradients_and_bounded_sequence_forwards) ... ok
+test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse (test_sequence_targets.SequenceRuntimeTests.test_task_exact_mid_episode_resume_and_context_does_not_increase_reuse) ... ok
+test_loss_updates_only_starts_not_sequence_context (test_sequence_targets.SequenceTargetTests.test_loss_updates_only_starts_not_sequence_context) ... /home/gcao/proj/graygo/tests/test_sequence_targets.py:140: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  self.assertNotEqual(float(online.values[0, 0]), float(before[0, 0]))
+ok
+test_malformed_sequences_cannot_cross_boundaries_or_enter_ineligible_starts (test_sequence_targets.SequenceTargetTests.test_malformed_sequences_cannot_cross_boundaries_or_enter_ineligible_starts) ... ok
+test_off_policy_indexing_matches_independent_fraction_calculation_and_ignores_c_at_start (test_sequence_targets.SequenceTargetTests.test_off_policy_indexing_matches_independent_fraction_calculation_and_ignores_c_at_start) ... ok
+test_on_policy_telescoping_and_projection_apply_only_to_loss_target (test_sequence_targets.SequenceTargetTests.test_on_policy_telescoping_and_projection_apply_only_to_loss_target) ... ok
+test_one_step_reduction_terminal_padding_and_continuing_boundary_bootstrap (test_sequence_targets.SequenceTargetTests.test_one_step_reduction_terminal_padding_and_continuing_boundary_bootstrap) ... ok
+test_real_meaningful_branch_replay_with_low_overlap_differs_from_uncorrected_return (test_sequence_targets.SequenceTargetTests.test_real_meaningful_branch_replay_with_low_overlap_differs_from_uncorrected_return) ... ok
+test_staleness_decodes_the_frozen_actor_policy_bit (test_sequence_targets.SequenceTargetTests.test_staleness_decodes_the_frozen_actor_policy_bit) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 7.976s
+
+OK

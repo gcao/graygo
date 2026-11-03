@@ -1,0 +1,12 @@
+{
+  "source_sha256": "43c5bb772f52286cfa2e87cc81b97175a5130842d91a547373a37f4cc8b10e86",
+  "actual_diagnostic_records": 256,
+  "scientific_records": 0,
+  "cases": [
+    "delayed",
+    "branching",
+    "gray-mixed",
+    "board"
+  ],
+  "all_default_one_step": true
+}

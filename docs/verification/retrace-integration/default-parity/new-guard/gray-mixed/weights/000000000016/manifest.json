@@ -1,0 +1,15 @@
+{
+  "files": {
+    "models.pt": {
+      "bytes": 64107,
+      "sha256": "8e7826b2b74e1716db1e8d30fed4f38a015c82cadd70ffdbbaedffe49959f30f"
+    }
+  },
+  "format_version": 1,
+  "kind": "weights",
+  "metadata": {
+    "source_sha256": "1e1799b27239089d49f32e96a3616b5eb29127a7afaf1a5ff73e48ecf69c0a5d",
+    "task_schema": "graygo/nfsp-multiround-adapter/1"
+  },
+  "step": 16
+}

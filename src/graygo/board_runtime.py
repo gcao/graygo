@@ -65,6 +65,10 @@ class BoardRuntimeConfig:
     handoff_end: int=7_000_000
     uniform_comparison: bool=False
     cuda_graphs: bool=False
+    q_target: str='one-step'
+    trace_length: int=32
+    trace_lambda: float=.95
+    target_batch: int=512
 
     def __post_init__(self):
         if not isinstance(self.rules,Rules) or type(self.envs) is not int or self.envs<1 or type(self.seed) is not int or self.seed<0:raise ValueError('board rules, env count and seed required')
@@ -74,7 +78,8 @@ class BoardRuntimeConfig:
         if any(type(v) is not bool for v in (self.augmentation,self.deterministic,self.uniform_comparison,self.cuda_graphs)):raise ValueError('explicit runtime flags required')
         if self.cuda_graphs and (torch.device(self.device).type!='cuda' or not self.deterministic):raise ValueError('frozen CUDA graph runtime requires deterministic CUDA')
         if self.native_library is not None:object.__setattr__(self,'native_library',str(Path(self.native_library).expanduser().resolve()))
-    def backend_config(self):return NFSPConfig(self.batch,self.learning_start,self.q_reuse,self.target_every,self.learning_rate,self.max_grad_norm)
+    def backend_config(self):return NFSPConfig(self.batch,self.learning_start,self.q_reuse,self.target_every,self.learning_rate,self.max_grad_norm,
+        self.q_target,self.trace_length,self.trace_lambda,self.target_batch)
     def model_config(self):return ModelConfig(self.width,self.blocks,self.norm_groups)
     def schedule(self):return LearnerSchedule(40_000_000,self.reservoir_open,self.handoff_end)
     def plan(self):return json.loads(json.dumps(asdict(self)))
@@ -128,6 +133,7 @@ class BoardNFSPRuntime:
         return {'status':status,'records':self.records,'per_role_records':self.collector.metrics['per_role_records'],
             'frozen_forward_stats':None if self.forward_pool is None else self.forward_pool.stats(),
             'counters':asdict(self.backend.counters),'metrics':deepcopy(self.collector.metrics),'timings':dict(self.timings),'loss':dict(self.loss),
+            **({'trace_diagnostics':self.backend.trace.report()} if self.backend.trace is not None else {}),
             'elapsed_seconds':time.monotonic()-started,'formal_learning_run':False,'a2_complete':False,'promotion_permitted':False,
             'scope':'bounded real pipeline hardware exercise; untrained game lengths/modes are not full-campaign estimates'}
 
