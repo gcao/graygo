@@ -11,6 +11,7 @@ import torch
 from .engine import BLACK,WHITE
 from .encoding import encode
 from .models import greedy_distribution,epsilon_greedy_distribution,masked_log_probs
+from .cpu_frozen_forward import CPU3x3ForwardCache,supports_model
 from .schedules import EpisodeChoice
 from .sampling import draw_actions
 from .strategies import GrayGoGame
@@ -38,11 +39,14 @@ class FrozenPolicies:
         self.device=next(iter(q_devices))
         if forward_pool is not None and forward_pool.device!=self.device:raise ValueError('snapshot forward pool device differs')
         self.forward_pool=forward_pool
+        self._cpu_forward_cache=CPU3x3ForwardCache() if forward_pool is None and self.device.type=='cpu' and supports_model(self.q) and supports_model(self.average) else None
 
     def forward(self,kind,**inputs):
         if kind not in ('q','average'):raise ValueError('unknown frozen forward policy')
         model=self.q if kind=='q' else self.average
-        if self.forward_pool is None:return model(**inputs)
+        if self.forward_pool is None:
+            if self._cpu_forward_cache is not None:return self._cpu_forward_cache.forward(model,**inputs)
+            return model(**inputs)
         return self.forward_pool.forward(model,inputs['spatial'],inputs['globals'])
 
     def state_dict(self):
@@ -60,6 +64,7 @@ class FrozenPolicies:
         self.q.load_state_dict(state['q']);self.average.load_state_dict(state['average'])
         if self.forward_pool is not None:
             self.forward_pool.invalidate(self.q);self.forward_pool.invalidate(self.average)
+        if self._cpu_forward_cache is not None:self._cpu_forward_cache.invalidate()
 
 
 @dataclass(frozen=True)
