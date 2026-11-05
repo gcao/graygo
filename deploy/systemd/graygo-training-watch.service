@@ -1,0 +1,7 @@
+[Unit]
+Description=Append the latest Gray Go training status
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/proj/graygo
+ExecStart=%h/proj/graygo/.venv/bin/python %h/proj/graygo/tools/log_training_status.py

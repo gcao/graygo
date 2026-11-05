@@ -168,3 +168,30 @@ Restored episode actors and newly started episodes share one canonical frozen
 snapshot per policy version. The source-compatibility verifier admits the exact
 cache-recovery insertion for older checkpoints; it still rejects other learner
 or model changes. Failed handoff attempts are charged before another stage.
+
+## Hourly status log
+
+The independent user timer graygo-training-watch.timer runs
+tools/log_training_status.py at the top of every hour. It reads the latest loop
+receipt, execution/league metadata and screening summaries, then appends to
+runs/training-watch.log. Entries explicitly distinguish running, stopped and
+missing-supervisor states. Stopped/budget-finished runs continue to produce an
+hourly status entry.
+
+The logger uses standard-library JSON readers and does not import a training
+runtime. Its lifetime is independent of the bounded run-local watcher. The
+installed user timer is persistent across SSH logout on ai, where user lingering
+is already enabled. The source unit files are in deploy/systemd/.
+
+Tail the stable append-only log:
+
+~~~sh
+ssh ai 'tail -F ~/proj/graygo/runs/training-watch.log'
+~~~
+
+Inspect the schedule or request an immediate status entry:
+
+~~~sh
+systemctl --user list-timers graygo-training-watch.timer
+systemctl --user start graygo-training-watch.service
+~~~
