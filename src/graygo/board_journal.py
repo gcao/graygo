@@ -34,13 +34,15 @@ class BoardJournalPlan:
 
     def __post_init__(self):
         object.__setattr__(self,'milestones',tuple(self.milestones))
-        if self.scope not in ('diagnostic','development','confirmation') or type(self.records) is not int or self.records<2 or self.records%2:
+        if self.scope not in ('diagnostic','practice','development','confirmation') or type(self.records) is not int or self.records<2 or self.records%2:
             raise ValueError('declared scope and even record cap required')
         if not self.milestones or self.milestones!=tuple(sorted(set(self.milestones))) or any(type(n) is not int or n<0 or n%2 or n>self.records for n in self.milestones) or self.milestones[-1]!=self.records:
             raise ValueError('fixed increasing paired milestones including the endpoint required')
         if type(self.evaluation_seed) is not int or self.evaluation_seed<0:raise ValueError('independent evaluation seed required')
         if self.scope=='diagnostic':
             if self.records>65536:raise ValueError('diagnostic journal cannot allocate a production campaign')
+        elif self.scope=='practice':
+            if self.records>5000000:raise ValueError('practice is a bounded Q-learning prefix through the fixed reservoir opening')
         else:
             cap=20000000 if self.scope=='development' else 80000000
             if self.records!=cap or not set((*PRE,*POST,cap)).issubset(self.milestones):raise ValueError('fixed development/confirmation archive windows and record horizon required')
@@ -62,7 +64,9 @@ class BoardMilestoneJournal:
         if type(reserve_bytes) is not int or reserve_bytes<0:raise ValueError('nonnegative journal reserve required')
         c=runtime.config
         if c.reservoir_open<=plan.records and c.reservoir_open not in plan.milestones:raise ValueError('the fixed opening must itself be an archived boundary')
-        if plan.scope!='diagnostic':
+        if plan.scope=='practice' and (c.reservoir_open,c.handoff_end)!=(5000000,7000000):
+            raise ValueError('practice preserves the primary averaging schedule')
+        if plan.scope in ('development','confirmation'):
             cohort=DEVELOPMENT_SEEDS if plan.scope=='development' else CONFIRMATION_SEEDS
             if c.seed not in cohort or c.rules.size!=9 or c.rules.max_rounds!=200 or (plan.scope=='development' and c.rules.collision!='gray') or (c.width,c.blocks,c.norm_groups)!=(64,8,8) or (c.batch,c.learning_start,c.capacity,c.target_every)!=(512,4096,500000,12800):raise ValueError('formal journal requires the declared board/cohort/learner configuration')
             if (c.learning_rate,c.max_grad_norm)!=(3e-4,.5):raise ValueError('formal optimizer protocol differs')

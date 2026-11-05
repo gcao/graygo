@@ -12,7 +12,8 @@ from graygo.confidence import canonical_sha
 from graygo.engine import Rules
 from graygo.evaluation import BaselinePolicy,FrozenNeuralPolicy
 from tools.champion_gate import GatePlan,IndependentGate
-from tools.champion_loop import ChampionLoop,LoopPlan
+from tools.champion_loop import ChampionLoop,LoopPlan,parse_args
+from tools.champion_screen import IndependentScreen,ScreenPlan
 
 
 class FixtureGate:
@@ -52,6 +53,11 @@ def exact(a,b):
 
 
 class ChampionGateTests(unittest.TestCase):
+    def test_obviously_losing_first_look_stops_without_a_larger_match(self):
+        plan=GatePlan(4,(500,2000))
+        result=plan.numeric(0,-np.ones(250),{'random':-np.ones(250)},{'random':np.ones(250)},500)
+        self.assertTrue(result['stop_for_futility']);self.assertFalse(result['numeric_pass'])
+
     def test_old_48_percent_and_all_draw_promotions_are_rejected(self):
         plan=GatePlan(2,(2000,));n=1000
         for head in (np.zeros(n),np.full(n,-.03)):
@@ -72,6 +78,87 @@ class ChampionGateTests(unittest.TestCase):
 
 class ChampionLoopTests(unittest.TestCase):
     def setUp(self):torch.set_num_threads(1)
+
+    def test_evaluation_quota_survives_resume_and_does_not_block_learning(self):
+        with tempfile.TemporaryDirectory() as directory:
+            gate=FixtureGate()
+            plan=LoopPlan((128,256),continue_after_evaluation_budget=True)
+            with execute(directory) as learner:
+                learner.journal.diagnostic_opening('pass')
+                original=gate.evaluate
+                def slow_gate(*args,**kwargs):
+                    decision=original(*args,**kwargs)
+                    learner.base_observed+=15. # Simulated completed atomic evaluation work.
+                    return decision
+                gate.evaluate=slow_gate
+                with ChampionLoop(learner,plan,gate) as loop:
+                    loop.run(until_round=1)
+                    self.assertGreaterEqual(loop.state['evaluation_seconds'],15.)
+            gate=FixtureGate()
+            with execute(directory,True) as learner:
+                with ChampionLoop(learner,plan,gate,resume=True) as loop:
+                    result=loop.run()
+                    self.assertEqual(result['learner_records'],256)
+                    self.assertEqual(gate.calls,[])
+                    self.assertEqual(loop.state['rounds'][-1]['decision']['reason'],'evaluation_budget_exhausted')
+                    self.assertFalse(any(r['promoted'] for r in loop.state['rounds']))
+
+    def test_short_gate_budget_can_reject_and_continue_training(self):
+        class ShortGate(FixtureGate):
+            def evaluate(self,*args,**kwargs):
+                super().evaluate(*args,**kwargs)
+                return {'status':'budget_limited','numeric_pass':False,'promotion_permitted':False}
+        with tempfile.TemporaryDirectory() as directory:
+            gate=ShortGate()
+            with execute(directory) as learner:
+                learner.journal.diagnostic_opening('pass')
+                with ChampionLoop(learner,LoopPlan((128,256),continue_after_evaluation_budget=True),gate) as loop:
+                    self.assertEqual(loop.run()['learner_records'],256)
+                    self.assertEqual(len(gate.calls),2)
+                    self.assertTrue(all(r['decision']['reason']=='evaluation_budget_exhausted' for r in loop.state['rounds']))
+
+    def test_inflight_evaluation_is_charged_on_recovery(self):
+        with tempfile.TemporaryDirectory() as directory:
+            plan=LoopPlan((128,256))
+            with execute(directory) as learner:
+                learner.journal.diagnostic_opening('pass')
+                with ChampionLoop(learner,plan,FixtureGate()) as loop:
+                    loop.run(until_round=1)
+                    loop.state['evaluation_inflight']=learner._spent();loop._save()
+                    learner.base_observed+=15.
+            gate=FixtureGate()
+            with execute(directory,True) as learner:
+                with ChampionLoop(learner,plan,gate,resume=True) as loop:
+                    self.assertIsNone(loop.state['evaluation_inflight'])
+                    self.assertGreaterEqual(loop.state['evaluation_seconds'],15.)
+                    loop.run();self.assertEqual(gate.calls,[])
+
+    def test_real_q_screen_works_before_average_initialization_without_mutating_training(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with execute(directory) as learner:
+                expected=deepcopy(learner.runtime.state_dict())
+                screen=IndependentScreen(ScreenPlan(4,30),reserve_bytes=0)
+                result=screen.evaluate(learner.root/'weights/000000000000',average_ready=False,
+                    root=learner.root/'screen',time_cap_seconds=30)
+                self.assertEqual(result['status'],'complete')
+                self.assertEqual(result['heads']['average']['status'],'uninitialized')
+                self.assertFalse(result['average_eligible']);self.assertFalse(result['promotion_permitted'])
+                for report in result['heads']['greedy_q']['opponents'].values():self.assertEqual(report['games'],4)
+                exact(normalized(expected),normalized(learner.runtime.state_dict()))
+
+    def test_cli_preserves_primary_schedule_and_requires_explicit_early_diagnostic(self):
+        base=['--run-dir','unused','--time-cap-seconds','60']
+        args=parse_args(base+['--practice'])
+        self.assertEqual((args.records,args.reservoir_open,args.handoff_end),(5000000,5000000,7000000))
+        with self.assertRaisesRegex(ValueError,'early-opening-diagnostic'):
+            parse_args(base+['--diagnostic','--reservoir-open','0','--handoff-end','1000'])
+        with self.assertRaisesRegex(ValueError,'early-opening-diagnostic'):
+            parse_args(base+['--practice','--early-opening-diagnostic','--reservoir-open','0','--handoff-end','1000'])
+        args=parse_args(base+['--diagnostic','--early-opening-diagnostic','--reservoir-open','0','--handoff-end','1000'])
+        self.assertEqual(args.reservoir_open,0)
+        with self.assertRaisesRegex(ValueError,'one hour'):parse_args(['--run-dir','unused','--practice','--time-cap-seconds','7200'])
+        with self.assertRaisesRegex(ValueError,'opening'):
+            BoardJournalPlan('practice',5000002,(0,5000002))
 
     def test_rejected_candidates_preserve_the_entire_persistent_learner(self):
         with tempfile.TemporaryDirectory() as directory:

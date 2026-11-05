@@ -52,6 +52,11 @@ class GatePlan:
                   'no_historical_regression':all(v['delta']['lower']>=self.regression for v in opponents.values()),
                   'absolute_floor':all(v['utility']['lower']>=self.floor for v in opponents.values())}
         return {'numeric_pass':all(criteria.values()),'criteria':criteria,'head':head_bound,'aggregate':aggregate,
+                # Rejection-only futility checks cannot authorize a promotion.
+                'stop_for_futility':(head_bound['mean']+head_bound['radius']<=0
+                    or aggregate['mean']+aggregate['radius']<self.improvement
+                    or any(v['delta']['mean']+v['delta']['radius']<self.regression
+                        or v['utility']['mean']+v['utility']['radius']<self.floor for v in opponents.values())),
                 'head_win_score':{'mean':(head_bound['mean']+1)/2,'lower':(head_bound['lower']+1)/2},
                 'opponents':opponents,'family_sha256':family.sha256,'loop_family_alpha':self.alpha,
                 'alpha_per_round':self.alpha/self.rounds}
@@ -97,7 +102,7 @@ class IndependentGate:
             decision=self.plan.numeric(round_index,[sum(float(np.sign(g['subject_utility'])) for g in r['subject'])/2 for r in rows['head']],
                 {k:[r['utility'] for r in rows[k]] for k in labels},
                 {k:[r['incumbent_utility'] for r in rows[k]] for k in labels},games)
-            if decision['numeric_pass']:break
+            if decision['numeric_pass'] or decision['stop_for_futility']:break
         decision.update(status='complete',candidate_sha256=candidate.sha256,champion_sha256=champion.sha256,
             evidence={k:FrozenEvaluationEvidence.load(run.root).sha256 for k,run in runs.items()},
             promotion_permitted=False,experimental_promotion_permitted=decision['numeric_pass'])

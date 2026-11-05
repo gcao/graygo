@@ -9,6 +9,7 @@ import argparse
 import fcntl
 import io
 import json
+import math
 import os
 from pathlib import Path
 import shutil
@@ -24,6 +25,7 @@ from graygo.manifest import source_digest,write_report
 from graygo.models import ModelConfig,PolicyNet
 from graygo.storage import CheckpointStore,DEFAULT_RESERVE,digest as _digest,DiskBudgetError
 from tools.champion_gate import GatePlan,IndependentGate
+from tools.champion_screen import IndependentScreen,ScreenPlan
 from tools.legacy_policy import LegacyPolicy
 from tools.nfsp_resources import require
 from tools.task_pipeline_parity import state_sha
@@ -39,6 +41,8 @@ class LoopPlan:
     round_ends:tuple
     history_size:int=3
     gate_seconds:float=600.
+    evaluation_fraction:float=.1
+    continue_after_evaluation_budget:bool=False
 
     def __post_init__(self):
         object.__setattr__(self,'round_ends',tuple(self.round_ends))
@@ -46,6 +50,9 @@ class LoopPlan:
                 and all(type(n) is int and n>0 and n%2==0 for n in self.round_ends),'fixed increasing even training endpoints required')
         require(type(self.history_size) is int and 0<=self.history_size<=8,'bounded historical pool required')
         require(isinstance(self.gate_seconds,(int,float)) and 0<self.gate_seconds<=3600,'explicit bounded per-round gate time required')
+        require(type(self.evaluation_fraction) in (int,float) and math.isfinite(self.evaluation_fraction)
+                and 0<=self.evaluation_fraction<=.1,'evaluation may reserve at most ten percent of the run ceiling')
+        require(type(self.continue_after_evaluation_budget) is bool,'explicit evaluation exhaustion policy required')
 
 
 def load(path):return json.loads(Path(path).read_text())
@@ -95,18 +102,19 @@ def bundle_descriptor(bundle,rules):
 
 
 class ChampionLoop:
-    def __init__(self,executor,plan,gate,*,initial_champion=None,resume=False,entry_verifier=None,publish_manifest=None):
+    def __init__(self,executor,plan,gate,*,initial_champion=None,resume=False,entry_verifier=None,publish_manifest=None,screen=None):
         require(executor.active,'hold the persistent learner executor lock')
         require(plan.round_ends[-1]==executor.journal_plan.records and set(plan.round_ends)<=set(executor.journal_plan.milestones),'each fixed loop endpoint must be permanently archived')
         require(gate.plan.rounds==len(plan.round_ends),'loop and confidence-round inventory differ')
-        self.executor=executor;self.plan=plan;self.gate=gate;self.root=executor.root/'league'
+        self.executor=executor;self.plan=plan;self.gate=gate;self.screen=screen;self.root=executor.root/'league'
         self.root.mkdir(exist_ok=True);self.reserve=executor.reserve
         self.publication=Path(publish_manifest).resolve() if publish_manifest else self.root/'champion.json'
         self.publication_lock=None
-        self.diagnostic=executor.journal_plan.scope=='diagnostic'
+        self.diagnostic=executor.journal_plan.scope in ('diagnostic','practice')
         self.contract={'version':VERSION,'source_sha256':source_digest(),'implementation_sha256':digest(__file__),
             'training_run_sha256':executor.journal.run_sha256,'execution_contract_sha256':canonical_sha(executor.contract),
-            'loop_plan':asdict(plan),'gate_sha256':gate.sha256,'scope':executor.journal_plan.scope,'publication':str(self.publication)}
+            'loop_plan':asdict(plan),'gate_sha256':gate.sha256,'screen_sha256':None if screen is None else screen.sha256,
+            'scope':executor.journal_plan.scope,'publication':str(self.publication)}
         self.contract=json.loads(json.dumps(self.contract))
         self.lock=(self.root/'.loop.lock').open('a+b');fcntl.flock(self.lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         try:
@@ -143,8 +151,11 @@ class ChampionLoop:
                     require(old['body']['champion']['policy_sha256']==initial_champion['policy_sha256'],'new run may not replace a different current champion')
                     require(not self.diagnostic or old['body']['experimental'],'diagnostic loop cannot overwrite a formal release')
                 self.state={'contract':self.contract,'bootstrap':deepcopy(initial_champion),'completed_records':0,'round':0,'champion':initial_champion,
-                    'history':[],'rounds':[],'pending':None}
+                    'history':[],'rounds':[],'pending':None,'evaluation_seconds':0.,'evaluation_inflight':None}
                 self._save()
+            # Charge an interrupted evaluation conservatively against the same
+            # quota, using the executor's durable recovery clock, never a reset.
+            if self.state['evaluation_inflight'] is not None:self._finish_evaluation()
             policy(self.state['champion']).assert_frozen()
             self._publish()
         except BaseException:
@@ -199,6 +210,49 @@ class ChampionLoop:
             result['historical-'+str(i)]=policy(descriptor)
         return result
 
+    def _evaluation_remaining(self):
+        spent=self.state['evaluation_seconds']
+        if self.state['evaluation_inflight'] is not None:
+            spent+=max(0.,self.executor._spent()-self.state['evaluation_inflight'])
+        return max(0.,min(self.executor.plan.time_ceiling_seconds-self.executor._spent(),
+            self.plan.evaluation_fraction*self.executor.plan.time_ceiling_seconds-spent))
+
+    def _finish_evaluation(self):
+        self.state['evaluation_seconds']+=max(0.,self.executor._spent()-self.state['evaluation_inflight'])
+        self.state['evaluation_inflight']=None;self._save()
+
+    def _evaluate(self,archive,candidate,pending,stop_requested):
+        rejected={'status':'complete','numeric_pass':False,'promotion_permitted':False,
+                  'experimental_promotion_permitted':False}
+        if self._evaluation_remaining()<=0:return dict(rejected,reason='evaluation_budget_exhausted')
+        self.state['evaluation_inflight']=self.executor._spent();self._save()
+        try:
+            average_ready=self.executor.runtime.backend.average_ready
+            if self.screen is not None:
+                pending['status']='screening';self._save()
+                pending['screen']=self.screen.evaluate(archive,average_ready=average_ready,
+                    root=self.root/'screens'/f'{pending["index"]:04d}',time_cap_seconds=self._evaluation_remaining(),
+                    stop_requested=lambda:stop_requested() or self._evaluation_remaining()<=0)
+                self._save()
+                if stop_requested():return dict(rejected,status='interrupted')
+                if not average_ready:return dict(rejected,reason='average_not_ready')
+                if not pending['screen']['average_eligible']:return dict(rejected,reason='screen_not_cleared')
+            elif not average_ready:return dict(rejected,reason='average_not_ready')
+            if candidate['weights_sha256']==pending['champion']['weights_sha256']:
+                return dict(rejected,reason='unchanged_average_weights')
+            remaining=self._evaluation_remaining()
+            if remaining<=0:return dict(rejected,reason='evaluation_budget_exhausted')
+            pending['status']='evaluating';pending['candidate']=candidate;self._save()
+            decision=self.gate.evaluate(policy(candidate),policy(pending['champion']),self._pool(pending['history']),
+                self.root/'evaluations'/f'{pending["index"]:04d}',round_index=pending['index'],
+                time_cap_seconds=min(remaining,self.plan.gate_seconds),
+                stop_requested=lambda:stop_requested() or self._evaluation_remaining()<=0)
+            if (decision['status'] in ('budget_limited','interrupted') and not stop_requested()
+                    and self.plan.continue_after_evaluation_budget):
+                return dict(rejected,reason='evaluation_budget_exhausted',evaluation_status=decision['status'])
+            return decision
+        finally:self._finish_evaluation()
+
     def run(self,*,until_round=None,stop_requested=lambda:False):
         limit=len(self.plan.round_ends) if until_round is None else until_round
         require(type(limit) is int and self.state['round']<=limit<=len(self.plan.round_ends),'original bounded round endpoint required')
@@ -218,51 +272,57 @@ class ChampionLoop:
                 status=trained['status'];break
             archive=self.executor.root/'weights'/f'{target:012d}'
             candidate=self._export(self._candidate(archive,'candidate-'+str(target)))
-            incumbent=policy(pending['champion']);subject=policy(candidate)
-            average_ready=self.executor.runtime.backend.average_ready
-            if not average_ready:
-                decision={'status':'complete','numeric_pass':False,'promotion_permitted':False,
-                    'experimental_promotion_permitted':False,'reason':'average_not_ready'}
-            elif candidate['weights_sha256']==pending['champion']['weights_sha256']:
-                decision={'status':'complete','numeric_pass':False,'promotion_permitted':False,
-                    'experimental_promotion_permitted':False,'reason':'unchanged_average_weights'}
-            else:
-                remaining=self.executor.plan.time_ceiling_seconds-self.executor._spent()
-                if remaining<=0:status='budget_limited';break
-                pending['status']='evaluating';pending['candidate']=candidate;self._save()
-                decision=self.gate.evaluate(subject,incumbent,self._pool(pending['history']),self.root/'evaluations'/f'{index:04d}',
-                    round_index=index,time_cap_seconds=min(remaining,self.plan.gate_seconds),stop_requested=stop_requested)
-                if decision['status']!='complete':status=decision['status'];break
+            decision=self._evaluate(archive,candidate,pending,stop_requested)
+            if decision['status']!='complete':status=decision['status'];break
             promoted=bool(decision.get('experimental_promotion_permitted') if self.diagnostic else decision.get('promotion_permitted'))
             if promoted:
                 self.state['history'].append(pending['champion']);self.state['champion']=candidate
             self.state['rounds'].append({'index':index,'records':target,'candidate':candidate,'incumbent':pending['champion'],
-                'decision':decision,'promoted':promoted,'learner_reinitialized':False,'buffers_flushed':False})
+                'decision':decision,'screen':pending.get('screen'),'promoted':promoted,'learner_reinitialized':False,'buffers_flushed':False})
             self.state.update(round=index+1,completed_records=target,pending=None)
             self._save();self._publish()
         return {'version':VERSION,'status':status,'rounds':self.state['round'],'learner_records':self.executor.runtime.records,
+                'evaluation_seconds':self.state['evaluation_seconds'],
+                'evaluation_ceiling_seconds':self.plan.evaluation_fraction*self.executor.plan.time_ceiling_seconds,
                 'champion':deepcopy(self.state['champion']),'experimental':self.diagnostic,
                 'champion_manifest':str(self.publication),'training_state_preserved':True,
                 'a2_complete':False,'formal_scope_approved':False}
 
 
-def main():
+def parse_args(argv=None):
     parser=argparse.ArgumentParser()
-    parser.add_argument('--run-dir',required=True);parser.add_argument('--diagnostic',action='store_true')
-    parser.add_argument('--records',type=int,default=32768);parser.add_argument('--block-records',type=int,default=8192)
+    parser.add_argument('--run-dir',required=True)
+    mode=parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument('--diagnostic',action='store_true');mode.add_argument('--practice',action='store_true')
+    parser.add_argument('--records',type=int);parser.add_argument('--block-records',type=int,default=65536)
     parser.add_argument('--time-cap-seconds',type=float,required=True);parser.add_argument('--gate-seconds',type=float,default=60)
+    parser.add_argument('--screen-games',type=int,default=20);parser.add_argument('--screen-seconds',type=float,default=30)
+    parser.add_argument('--evaluation-fraction',type=float,default=.1)
     parser.add_argument('--gate-looks',type=int,nargs='+',default=[500,2000]);parser.add_argument('--device',default='cpu')
     parser.add_argument('--seed',type=int,default=17);parser.add_argument('--resume',action='store_true')
     parser.add_argument('--reservoir-open',type=int,default=5000000);parser.add_argument('--handoff-end',type=int,default=7000000)
+    parser.add_argument('--early-opening-diagnostic',action='store_true')
     parser.add_argument('--incumbent-bundle');parser.add_argument('--old-repo');parser.add_argument('--old-checkpoint')
     parser.add_argument('--incumbent-release');parser.add_argument('--publish-manifest')
-    args=parser.parse_args()
-    require(args.diagnostic and 0<args.records<=65536,'public command is a bounded diagnostic; formal entry needs its verified controller')
-    require(args.block_records>0 and args.block_records%2==0 and args.records%args.block_records==0,'fixed paired block inventory required')
+    args=parser.parse_args(argv)
+    if args.records is None:args.records=5000000 if args.practice else 32768
+    cap=5000000 if args.practice else 65536
+    require(type(args.records) is int and 0<args.records<=cap and args.records%2==0,'bounded even diagnostic/practice record horizon required')
+    require(math.isfinite(args.time_cap_seconds) and 0<args.time_cap_seconds<=3600,'explicit run budget of at most one hour required')
+    require(args.block_records>0 and args.block_records%2==0,'fixed paired block inventory required')
+    if (args.reservoir_open,args.handoff_end)!=(5000000,7000000):
+        require(args.diagnostic and args.early_opening_diagnostic,'changed averaging schedule requires --diagnostic --early-opening-diagnostic')
+    ScreenPlan(args.screen_games,args.screen_seconds)
+    LoopPlan((args.records,),gate_seconds=args.gate_seconds,evaluation_fraction=args.evaluation_fraction)
+    return args
+
+
+def main():
+    args=parse_args()
     cfg=BoardRuntimeConfig(seed=args.seed,device=args.device,q_reuse=4,reservoir_open=args.reservoir_open,handoff_end=args.handoff_end)
-    ends=tuple(range(args.block_records,args.records+1,args.block_records))
-    milestones=tuple(sorted({0,*ends,*[n for n in (args.reservoir_open,args.handoff_end) if 0<=n<=args.records]}))
-    journal=BoardJournalPlan('diagnostic',args.records,milestones)
+    ends=tuple(sorted({*range(args.block_records,args.records+1,args.block_records),args.records}))
+    milestones=tuple(sorted({0,*ends,*[n for n in (4500000,4750000,args.reservoir_open,args.handoff_end) if 0<=n<=args.records]}))
+    journal=BoardJournalPlan('practice' if args.practice else 'diagnostic',args.records,milestones)
     execution=BoardExecutionPlan(args.time_cap_seconds,checkpoint_every=args.block_records)
     gate=IndependentGate(GatePlan(len(ends),tuple(args.gate_looks)),reserve_bytes=DEFAULT_RESERVE)
     initial=None
@@ -278,7 +338,9 @@ def main():
     for kind in (signal.SIGTERM,signal.SIGINT):signal.signal(kind,lambda number,frame:stopped.append(number))
     with BoardExecutor(args.run_dir,cfg,journal,execution,resume=args.resume) as executor:
         if cfg.reservoir_open==0 and not executor.journal.decision_path.exists():executor.journal.diagnostic_opening('pass')
-        with ChampionLoop(executor,LoopPlan(ends,gate_seconds=args.gate_seconds),gate,initial_champion=initial,resume=args.resume,publish_manifest=args.publish_manifest) as loop:
+        screen=IndependentScreen(ScreenPlan(args.screen_games,args.screen_seconds))
+        plan=LoopPlan(ends,gate_seconds=args.gate_seconds,evaluation_fraction=args.evaluation_fraction,continue_after_evaluation_budget=True)
+        with ChampionLoop(executor,plan,gate,initial_champion=initial,resume=args.resume,publish_manifest=args.publish_manifest,screen=screen) as loop:
             print(json.dumps(loop.run(stop_requested=lambda:bool(stopped)),sort_keys=True))
 
 

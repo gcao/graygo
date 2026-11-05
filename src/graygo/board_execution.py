@@ -85,8 +85,8 @@ class BoardExecutor:
             raise ValueError('executor requires a permanent initialized model at record zero')
         if type(prior_setup_seconds) not in (int, float) or not math.isfinite(prior_setup_seconds) or prior_setup_seconds < 0:
             raise ValueError('nonnegative measured pre-entry setup time required')
-        if journal_plan.scope == 'diagnostic' and execution_plan.time_ceiling_seconds > 3600:
-            raise ValueError('diagnostic execution cannot allocate more than one cumulative hour')
+        if journal_plan.scope in ('diagnostic', 'practice') and execution_plan.time_ceiling_seconds > 3600:
+            raise ValueError('diagnostic/practice execution cannot allocate more than one cumulative hour')
         self.root = Path(root).resolve()
         self.config, self.journal_plan, self.plan = config, journal_plan, execution_plan
         self.starts = starts or EmptyStarts()

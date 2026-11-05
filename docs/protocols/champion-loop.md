@@ -1,25 +1,132 @@
-# Persistent learner and champion releases
+# Persistent learning and champion releases
 
-The controller in tools/champion_loop.py adopts the old generation/train/gate/export cycle while preserving NFSP's persistent Q, target and average networks, Adam state, replay, averaging reservoir, record clocks, active frozen episode actors and private RNGs. Candidate rejection and promotion affect only frozen release metadata; they never reload the learner from a champion or flush its buffers.
+The controller in tools/champion_loop.py retains Q, target and average networks,
+optimizers, replay, reservoir, episode actors, private RNGs and cumulative record
+clocks. Rejecting or promoting a release never rolls back this learner or clears
+buffers. An imported old champion is an evaluation reference, not a warm start.
 
-A fixed list of record endpoints is declared before training. The existing BoardExecutor owns locking, cumulative time, safe checkpoints, opening barriers and storage reserves. At each endpoint the controller exports an immutable average-policy candidate. Uninitialized or identical average weights are not evaluated as new improvements.
+## Learning and evaluation budgets
 
-The gate in tools/champion_gate.py uses the existing independent-seat, paired-color evaluator. It requires a lower confidence bound on head-to-head win/draw score above 50%, aggregate gain against a frozen pool, and no unacceptable historical/baseline regressions. All-draw and sub-50% results fail. Alpha is divided across the fixed rounds, endpoints and planned looks; it is a finite-loop guarantee, not a lifetime guarantee across arbitrary new runs.
+The loop reserves at most 10% of its cumulative wall-clock ceiling for screening
+and promotion evaluation together. This charge survives checkpoint resume and
+unclean evaluation recovery. Each screen/gate also has its own time ceiling.
+Evaluation finishes complete color pairs, so one in-flight pair and safe IO can
+overrun a soft allocation. Long experiments require an outer hard watchdog.
 
-The pool contains random, tactical and retained historical champions. Incumbent and historical identities are frozen before the training block. Evaluation inputs contain only the same immutable pre-turn state; each actor has private action draws. The deployed raw policy is evaluated, not a shared joint-MCTS controller. Existing completed later looks cannot be hidden, and interrupted evaluations resume without replaying training.
+The public command rejects an incompletely evaluated candidate without promotion
+and continues learning. It does not keep retrying the same candidate until the
+entire training budget has gone. The API can still request resumable pending
+evaluations through continue_after_evaluation_budget=False.
 
-Loop state and champion publication are checksummed atomic JSON. Policy payloads are immutable and verified against their archived weights. The champion pointer is published only after the loop state commits, so recovery can repair a lagging pointer. A single-publisher lease and contract identity prevent a stale resumed run from reverting another loop's champion. Private learner checkpoints remain owned by BoardExecutor.
+The full gate retains independent actors, fixed looks, confidence allocation,
+historical/baseline regression checks and atomic publication. A rejection-only
+futility check stops a clearly unpromising first look before the larger look.
+Futility and screening never authorize promotion.
 
-Diagnostic mode may publish a clearly experimental local champion after numerical criteria pass. Formal mode additionally requires verified project entry and the existing calibrated protected-promotion authorizer; a numerical gate result alone cannot issue an A2, training or formal promotion grant. The public CLI remains bounded to 65,536 records and one cumulative hour. The full project scope and original learning/scientific gates remain unchanged.
+## Q and average-policy diagnostics
 
-Example bounded diagnostic command (not launched automatically):
+tools/champion_screen.py evaluates frozen greedy Q and initialized average
+policies separately against random and tactical opponents. Defaults are 20 games
+per matchup, paired across colors, with a 30-second total screen ceiling. Reports
+include wins/draws/losses, utility, game lengths/endings and empty-board pass
+probability. An uninitialized average policy is reported explicitly and skipped.
+Screening does not mutate learner parameters, buffers or RNG state.
+
+An initialized average must have positive sample mean utility against both
+baselines to proceed to an expensive champion gate. This is a cheap rejection
+filter with a small fixed sample, not a confidence or deployment-readiness claim.
+Only an average policy can be released; Q diagnostics cannot promote Q.
+
+## Preserve the learning schedule
+
+Normal runs keep the designed reservoir opening at 5M records and the 5M–7M
+episode handoff. Epsilon retains its fixed 40M clock. A short run should report Q
+progress while the average network remains uninitialized, rather than force an
+average network to imitate an immature Q policy.
+
+Two bounded public modes are available:
+
+* --diagnostic: at most 65,536 records and one cumulative hour. A changed opening
+  requires the additional explicit --early-opening-diagnostic flag.
+* --practice: a nonformal Q-learning prefix of at most 5M records and one
+  cumulative hour, with the primary opening/handoff unchanged. It stops at or
+  before opening, with no reservoir labels or average-policy promotion. This
+  permits useful bounded learning without calling a short diagnostic a completed
+  NFSP campaign. It does not issue A2, cohort, formal training or promotion grants.
+
+Formal development/confirmation configuration, readiness decisions and calibrated
+promotion authority remain separate. Neither public mode bypasses those gates.
+
+Example standalone prefix (not launched merely by reading this document):
 
 ~~~sh
-PYTHONPATH=src:. .venv/bin/python -m tools.champion_loop --diagnostic --run-dir runs/league-diagnostic --records 65536 --block-records 16384 --time-cap-seconds 3600 --gate-seconds 600 --gate-looks 500 2000 --device cuda --reservoir-open 0 --handoff-end 1000 --incumbent-release /home/gcao/proj/graygo-arena/.runtime/models/champion.json --publish-manifest /home/gcao/proj/graygo-arena/.runtime/models/champion.json
+PYTHONPATH=src:. .venv/bin/python -m tools.champion_loop \
+  --practice --run-dir runs/q-prefix --records 5000000 \
+  --block-records 262144 --time-cap-seconds 3600 --device cuda \
+  --incumbent-release /home/gcao/proj/graygo-arena/.runtime/models/champion.json
 ~~~
 
-The early opening in this example is an explicit diagnostic variation. It is not the primary 5M/7M protocol. A new fixed run can inherit the current release as its evaluation incumbent without inheriting or resetting that model's training state. Resume uses the original run directory, configuration, source and round plan.
+Publication defaults to the run directory. The arena pointer changes only when
+explicitly selected and a candidate clears its full release requirements.
 
-A two-record bootstrap smoke test initialized the arena pointer to a frozen copy of graygo-old champion_iter_0081.pt. No Q/supervised optimizer update or new promotion was claimed. Its exact pre-fsync-hardening controller source is retained in runs/champion-loop-bootstrap-v1/implementation. Longer training has not been started.
+## Matched wall-clock comparison
 
-Regression tests compare complete real learner state/buffers/trajectories across rejection, promotion fixtures, round resume and interrupted gates; they also check confidence rejection, historical regression, atomic publication and stale-publisher rejection.
+tools/training_comparison.py separates preparation from launch. Preparation
+freezes the actual legacy libraries/native extensions and an evaluation-only
+champion checkpoint, hashes the implementation and writes a plan. It does not
+start training, modify graygo-old, or invoke its run.py/notifications.
+
+A one-hour total plan gives each fresh learner 1,620 seconds (27 minutes) and
+reserves 360 seconds for common evaluation. The new arm uses the primary
+averaging schedule and Q reuse R=4. Its internal evaluation allowance is zero
+because evaluation is shared at the end. The legacy arm uses its policy, value
+and auxiliary losses, 900 search visits, two games per collection chunk, and
+persistent optimizer/replay. Small chunks make completed work durable within a
+short budget. These choices are recorded rather than presented as an identical
+reproduction of the old long campaign.
+
+Both arm ceilings include process initialization, collection, fitting, exports
+and checkpoint IO. The comparison uses process-group watchdogs around each arm
+and the overall experiment, including native search that ignores a soft stop.
+An exclusive launch receipt prevents a repeated command from buying another
+allocation. A killed native chunk can lose its in-flight samples; the last
+completed checkpoint remains available. The legacy arm stores private replay in
+resume.pt and separately publishes strict-loadable weights in latest.pt.
+
+Common evaluation uses the current authoritative engine, private action draws,
+raw neural policies and fixed color pairs. It compares new Q, an average policy
+if initialized, the freshly trained legacy policy and the existing champion
+reference. It also includes a direct new-Q versus fresh-legacy matchup. No arena
+publication occurs. Partial evaluations, actual work/update counts and failed
+arms are retained.
+
+The old trainer keeps its native training rules and larger architecture. Thus
+this is a practical stack comparison under matched wall-clock ceilings, not a
+controlled experiment isolating the learner algorithm. One seed, short training,
+different game lengths and shared-machine load further limit conclusions.
+
+~~~sh
+PYTHONPATH=src:. .venv/bin/python -m tools.training_comparison --prepare \
+  --run-dir runs/training-comparison-1h \
+  --old-repo /home/gcao/proj/graygo-old \
+  --reference-checkpoint /home/gcao/proj/graygo-arena/.runtime/models/graygo-old-champion-0081.pt \
+  --total-seconds 3600 --device cuda
+
+# Explicitly launch the prepared allocation:
+PYTHONPATH=src:. .venv/bin/python -m tools.training_comparison --run \
+  --run-dir runs/training-comparison-1h
+~~~
+
+## Retained first diagnostic
+
+The November 3 one-hour diagnostic retained a 16,384-record learner with 100 Q
+updates and 26 supervised updates. Collection/learning took approximately 59
+seconds; evaluation consumed most of the run. The candidate was not promoted.
+Its zero-opening/1,000-record handoff was a diagnostic override, not the primary
+schedule. That run is immutable; the revised controller does not reset its cap,
+reinterpret its evidence or overwrite its release.
+
+Tests cover learner preservation on rejection/promotion, resume, evaluation
+quota recovery, continued learning after evaluation exhaustion, independent Q
+screens before average initialization, fixed schedule validation, native-process
+deadline enforcement, source snapshots and existing publication guarantees.
