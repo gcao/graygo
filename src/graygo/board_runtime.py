@@ -155,9 +155,15 @@ class BoardNFSPRuntime:
         path=store.save(self.records,writer,metadata=metadata,estimated_peak_bytes=peak)
         self.timings['checkpoint']+=time.perf_counter()-start;return path
 
-    def restore(self,path):
+    def restore(self,path,*,compatible_source_sha256=None):
         meta=CheckpointStore.verify(path)
-        if meta['metadata']['source_sha256']!=source_digest() or meta['metadata']['native_schema']!=self.spec.to_dict():raise ValueError('runtime source/decoder identity changed')
+        # Explicit handoffs can admit a separately verified compatible source.
+        # Ordinary checkpoint resume retains its strict exact-source check.
+        sources={source_digest()}
+        if compatible_source_sha256 is not None:
+            if not isinstance(compatible_source_sha256,str) or len(compatible_source_sha256)!=64 or any(c not in '0123456789abcdef' for c in compatible_source_sha256):raise ValueError('explicit compatible source fingerprint required')
+            sources.add(compatible_source_sha256)
+        if meta['metadata']['source_sha256'] not in sources or meta['metadata']['native_schema']!=self.spec.to_dict():raise ValueError('runtime source/decoder identity changed')
         # Load storage on CPU, then let each model/optimizer restore its own
         # device layout. Mapping the entire bundle to CUDA moves Adam's CPU
         # step counters and changes the otherwise identical runtime state.

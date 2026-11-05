@@ -44,7 +44,7 @@ episode handoff. Epsilon retains its fixed 40M clock. A short run should report 
 progress while the average network remains uninitialized, rather than force an
 average network to imitate an immature Q policy.
 
-Two bounded public modes are available:
+Three bounded public modes are available:
 
 * --diagnostic: at most 65,536 records and one cumulative hour. A changed opening
   requires the additional explicit --early-opening-diagnostic flag.
@@ -53,6 +53,14 @@ Two bounded public modes are available:
   before opening, with no reservoir labels or average-policy promotion. This
   permits useful bounded learning without calling a short diagnostic a completed
   NFSP campaign. It does not issue A2, cohort, formal training or promotion grants.
+* --loop: a bounded experimental learning/release loop through at most 20M records
+  and one cumulative hour per explicitly allocated stage. It retains the fixed
+  5M opening and 5M–7M handoff and can therefore train the average policy and
+  promote it. Like the fixed-opening confirmation recipe, opening is not filtered
+  by the per-seed development window. This mode makes no A2/cohort/confirmation
+  claim. Existing formal development-window and confirmation controls remain
+  unchanged. Only initialized averages clearing screening and the independent
+  promotion gate can update the selected arena manifest.
 
 Formal development/confirmation configuration, readiness decisions and calibrated
 promotion authority remain separate. Neither public mode bypasses those gates.
@@ -130,3 +138,28 @@ Tests cover learner preservation on rejection/promotion, resume, evaluation
 quota recovery, continued learning after evaluation exhaustion, independent Q
 screens before average initialization, fixed schedule validation, native-process
 deadline enforcement, source snapshots and existing publication guarantees.
+
+## Switching a running allocation to the learning loop
+
+Stop the comparison learner gracefully before switching, so its latest full
+checkpoint and execution clock are closed. tools/learning_loop.py prepares a
+single-use parent handoff and launches the enabled loop with the unspent budget.
+The parent checkpoint, journal and source remain immutable. The child manifest
+records its parent checkpoint seal, source compatibility proof, inherited record
+clock, previously used seconds and remaining allocation.
+
+The handoff restores the complete model/target/optimizer state, replay, reservoir,
+active frozen episode actors, collector and private RNGs. Exploration and target
+refresh clocks continue from their cumulative counters. A source upgrade is
+admitted only when numerical source files match and the runtime's state-loading
+body is identical; controller/scope changes and the explicit source-admission
+guard are recorded separately. Ordinary resume still requires an exact source
+match. Cross-version handoffs with an initialized average are rejected because
+their old deployed-policy archive identities require separate reconciliation.
+
+The parent execution lock stays held while the child runs. A single-use parent
+reservation and launch receipt prevent multiple children from spending the same
+remaining allocation. A process-group watchdog stops the stage at its ceiling.
+The arena manifest is explicitly selected; successful candidates affect new
+games through the existing atomic publisher. No promotion happens during Q-only
+warmup before average-policy initialization.

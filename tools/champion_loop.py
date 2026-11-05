@@ -110,7 +110,7 @@ class ChampionLoop:
         self.root.mkdir(exist_ok=True);self.reserve=executor.reserve
         self.publication=Path(publish_manifest).resolve() if publish_manifest else self.root/'champion.json'
         self.publication_lock=None
-        self.diagnostic=executor.journal_plan.scope in ('diagnostic','practice')
+        self.diagnostic=executor.journal_plan.scope in ('diagnostic','practice','loop')
         self.contract={'version':VERSION,'source_sha256':source_digest(),'implementation_sha256':digest(__file__),
             'training_run_sha256':executor.journal.run_sha256,'execution_contract_sha256':canonical_sha(executor.contract),
             'loop_plan':asdict(plan),'gate_sha256':gate.sha256,'screen_sha256':None if screen is None else screen.sha256,
@@ -293,7 +293,7 @@ def parse_args(argv=None):
     parser=argparse.ArgumentParser()
     parser.add_argument('--run-dir',required=True)
     mode=parser.add_mutually_exclusive_group(required=True)
-    mode.add_argument('--diagnostic',action='store_true');mode.add_argument('--practice',action='store_true')
+    mode.add_argument('--diagnostic',action='store_true');mode.add_argument('--practice',action='store_true');mode.add_argument('--loop',action='store_true')
     parser.add_argument('--records',type=int);parser.add_argument('--block-records',type=int,default=65536)
     parser.add_argument('--time-cap-seconds',type=float,required=True);parser.add_argument('--gate-seconds',type=float,default=60)
     parser.add_argument('--screen-games',type=int,default=20);parser.add_argument('--screen-seconds',type=float,default=30)
@@ -305,8 +305,8 @@ def parse_args(argv=None):
     parser.add_argument('--incumbent-bundle');parser.add_argument('--old-repo');parser.add_argument('--old-checkpoint')
     parser.add_argument('--incumbent-release');parser.add_argument('--publish-manifest')
     args=parser.parse_args(argv)
-    if args.records is None:args.records=5000000 if args.practice else 32768
-    cap=5000000 if args.practice else 65536
+    if args.records is None:args.records=20000000 if args.loop else 5000000 if args.practice else 32768
+    cap=20000000 if args.loop else 5000000 if args.practice else 65536
     require(type(args.records) is int and 0<args.records<=cap and args.records%2==0,'bounded even diagnostic/practice record horizon required')
     require(math.isfinite(args.time_cap_seconds) and 0<args.time_cap_seconds<=3600,'explicit run budget of at most one hour required')
     require(args.block_records>0 and args.block_records%2==0,'fixed paired block inventory required')
@@ -322,7 +322,7 @@ def main():
     cfg=BoardRuntimeConfig(seed=args.seed,device=args.device,q_reuse=4,reservoir_open=args.reservoir_open,handoff_end=args.handoff_end)
     ends=tuple(sorted({*range(args.block_records,args.records+1,args.block_records),args.records}))
     milestones=tuple(sorted({0,*ends,*[n for n in (4500000,4750000,args.reservoir_open,args.handoff_end) if 0<=n<=args.records]}))
-    journal=BoardJournalPlan('practice' if args.practice else 'diagnostic',args.records,milestones)
+    journal=BoardJournalPlan('loop' if args.loop else 'practice' if args.practice else 'diagnostic',args.records,milestones)
     execution=BoardExecutionPlan(args.time_cap_seconds,checkpoint_every=args.block_records)
     gate=IndependentGate(GatePlan(len(ends),tuple(args.gate_looks)),reserve_bytes=DEFAULT_RESERVE)
     initial=None

@@ -34,7 +34,7 @@ class BoardJournalPlan:
 
     def __post_init__(self):
         object.__setattr__(self,'milestones',tuple(self.milestones))
-        if self.scope not in ('diagnostic','practice','development','confirmation') or type(self.records) is not int or self.records<2 or self.records%2:
+        if self.scope not in ('diagnostic','practice','loop','development','confirmation') or type(self.records) is not int or self.records<2 or self.records%2:
             raise ValueError('declared scope and even record cap required')
         if not self.milestones or self.milestones!=tuple(sorted(set(self.milestones))) or any(type(n) is not int or n<0 or n%2 or n>self.records for n in self.milestones) or self.milestones[-1]!=self.records:
             raise ValueError('fixed increasing paired milestones including the endpoint required')
@@ -43,6 +43,8 @@ class BoardJournalPlan:
             if self.records>65536:raise ValueError('diagnostic journal cannot allocate a production campaign')
         elif self.scope=='practice':
             if self.records>5000000:raise ValueError('practice is a bounded Q-learning prefix through the fixed reservoir opening')
+        elif self.scope=='loop':
+            if self.records>20000000:raise ValueError('experimental loop is bounded to twenty million cumulative records')
         else:
             cap=20000000 if self.scope=='development' else 80000000
             if self.records!=cap or not set((*PRE,*POST,cap)).issubset(self.milestones):raise ValueError('fixed development/confirmation archive windows and record horizon required')
@@ -59,13 +61,13 @@ def _equal(a,b):
 
 
 class BoardMilestoneJournal:
-    def __init__(self,root,runtime,plan,*,resume=False,reserve_bytes=DEFAULT_RESERVE):
+    def __init__(self,root,runtime,plan,*,resume=False,reserve_bytes=DEFAULT_RESERVE,initialization=None):
         self.root=Path(root).resolve();self.runtime=runtime;self.plan=plan;self.reserve=reserve_bytes
         if type(reserve_bytes) is not int or reserve_bytes<0:raise ValueError('nonnegative journal reserve required')
         c=runtime.config
         if c.reservoir_open<=plan.records and c.reservoir_open not in plan.milestones:raise ValueError('the fixed opening must itself be an archived boundary')
-        if plan.scope=='practice' and (c.reservoir_open,c.handoff_end)!=(5000000,7000000):
-            raise ValueError('practice preserves the primary averaging schedule')
+        if plan.scope in ('practice','loop') and (c.reservoir_open,c.handoff_end)!=(5000000,7000000):
+            raise ValueError('practice/loop preserves the primary averaging schedule')
         if plan.scope in ('development','confirmation'):
             cohort=DEVELOPMENT_SEEDS if plan.scope=='development' else CONFIRMATION_SEEDS
             if c.seed not in cohort or c.rules.size!=9 or c.rules.max_rounds!=200 or (plan.scope=='development' and c.rules.collision!='gray') or (c.width,c.blocks,c.norm_groups)!=(64,8,8) or (c.batch,c.learning_start,c.capacity,c.target_every)!=(512,4096,500000,12800):raise ValueError('formal journal requires the declared board/cohort/learner configuration')
@@ -81,12 +83,14 @@ class BoardMilestoneJournal:
         if resume:
             self.manifest=json.loads(path.read_text())
             if self.manifest['config']!=config or self.manifest['source_sha256']!=source_digest() or self.manifest['training_starts']!=runtime.collector.starts.identity:raise ValueError('journal source/config/start distribution changed')
+            if self.manifest.get('initialization')!=initialization:raise ValueError('journal parent initialization changed')
         else:
             if path.exists():raise FileExistsError('board run manifest exists; use its original controller/resume')
             if runtime.records or runtime.replay.insertions or runtime.reservoir.seen:raise ValueError('new run manifest requires a fresh initialized runtime')
             self.manifest=make_manifest(seed=c.seed,command={'board_journal':plan.to_dict(),'runtime':c.plan()},rules=asdict(c.rules))
             self.manifest.update(config=config,training_starts=runtime.collector.starts.identity,
                 scope_approval_verified=False,approval_scope='journal declaration only; project A2/resource controller must authorize actual training')
+            if initialization is not None:self.manifest['initialization']=initialization
             write_report(path,self.manifest,reserve_bytes=reserve_bytes)
         self.run_sha256=digest(path);self.archived={};self.opening_sha256=None
 
@@ -163,7 +167,7 @@ class BoardMilestoneJournal:
 
     def label_insertion_allowed(self):
         if self.records<self.opening:return False
-        if self.plan.scope=='confirmation':return True
+        if self.plan.scope in ('confirmation','loop'):return True
         body=self._sync_decision();return bool(body and body['status']=='pass')
 
     def before_advance(self,count):
@@ -253,7 +257,7 @@ class BoardMilestoneJournal:
             if int(record) not in self.plan.milestones or int(record)>self.records:raise ValueError('checkpoint contains future/undeclared milestone evidence')
             archive=self._archive_path(int(record));self.store.verify(archive)
             if digest(archive/'manifest.json')!=checksum:raise ValueError('permanent archived evidence changed')
-        if self.plan.scope!='confirmation' and self.records>self.opening and self.opening_sha256 is None:raise ValueError('post-opening checkpoint has no recorded opening authorization')
+        if self.plan.scope not in ('confirmation','loop') and self.records>self.opening and self.opening_sha256 is None:raise ValueError('post-opening checkpoint has no recorded opening authorization')
         self._sync_decision();return path
 
 

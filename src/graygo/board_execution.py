@@ -78,15 +78,18 @@ class BoardExecutor:
     """
     def __init__(self, root, config, journal_plan, execution_plan, *, starts=None,
                  resume=False, reserve_bytes=DEFAULT_RESERVE, monotonic=time.monotonic,
-                 wall_time=time.time, prior_setup_seconds=0.):
+                 wall_time=time.time, prior_setup_seconds=0.,initialization=None):
         if type(reserve_bytes) is not int or reserve_bytes < 0:
             raise ValueError('nonnegative execution disk reserve required')
         if 0 not in journal_plan.milestones:
             raise ValueError('executor requires a permanent initialized model at record zero')
         if type(prior_setup_seconds) not in (int, float) or not math.isfinite(prior_setup_seconds) or prior_setup_seconds < 0:
             raise ValueError('nonnegative measured pre-entry setup time required')
-        if journal_plan.scope in ('diagnostic', 'practice') and execution_plan.time_ceiling_seconds > 3600:
-            raise ValueError('diagnostic/practice execution cannot allocate more than one cumulative hour')
+        if journal_plan.scope in ('diagnostic', 'practice', 'loop') and execution_plan.time_ceiling_seconds > 3600:
+            raise ValueError('diagnostic/practice/loop execution cannot allocate more than one cumulative hour')
+        if initialization is not None and journal_plan.scope!='loop':
+            raise ValueError('parent initialization is only available for an explicit experimental loop')
+        self.initialization=None if initialization is None else json.loads(json.dumps(initialization,allow_nan=False))
         self.root = Path(root).resolve()
         self.config, self.journal_plan, self.plan = config, journal_plan, execution_plan
         self.starts = starts or EmptyStarts()
@@ -186,6 +189,7 @@ class BoardExecutor:
                              'native_schema': RuleStateSpec(self.config.rules, self.config.native_library).to_dict(),
                              'numerical_runtime': _runtime_identity(self.config), 'reserve_bytes': self.reserve,
                              'authority': 'execution mechanics only; no A2/resource/cohort grant'}
+            if self.initialization is not None:self.contract['initialization']=self.initialization
             if self.clock_path.exists():
                 if not self.resume:
                     raise FileExistsError('executor already exists; inspect its live process and resume explicitly')
@@ -216,7 +220,7 @@ class BoardExecutor:
             if self.clock['training_run_sha256'] is not None and not manifest_exists:
                 raise ValueError('initialized training manifest is missing; cannot create a replacement')
             self.journal = BoardMilestoneJournal(self.root, self.runtime, self.journal_plan,
-                                                resume=manifest_exists, reserve_bytes=self.reserve)
+                                                resume=manifest_exists, reserve_bytes=self.reserve,initialization=self.initialization)
             if self.clock['training_run_sha256'] not in (None, self.journal.run_sha256):
                 raise ValueError('execution clock belongs to another initialized training run')
             self.clock['training_run_sha256'] = self.journal.run_sha256
