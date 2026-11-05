@@ -34,6 +34,24 @@ def exact(a,b):
 class LearningLoopTests(unittest.TestCase):
     def setUp(self):torch.set_num_threads(1)
 
+    def test_resume_can_mix_restored_and_new_episodes_before_the_next_optimizer_update(self):
+        cfg=BoardRuntimeConfig(rules=Rules(3,5),envs=2,capacity=256,batch=8,learning_start=8,
+                              target_every=16,width=8,blocks=1,norm_groups=2)
+        journal=BoardJournalPlan('loop',32,(0,2,32));execution=BoardExecutionPlan(120)
+        with tempfile.TemporaryDirectory() as directory:
+            base=Path(directory)
+            with BoardExecutor(base/'full',cfg,journal,execution,reserve_bytes=0) as learner:
+                learner.run(2);learner.run()
+                expected=deepcopy(learner.runtime.state_dict())
+            with BoardExecutor(base/'resumed',cfg,journal,execution,reserve_bytes=0) as learner:
+                learner.run(2)
+                self.assertIsNotNone(learner.runtime.collector.active[0])
+                self.assertIsNone(learner.runtime.collector.active[1])
+                self.assertEqual(learner.runtime.backend.counters.q_updates,0)
+            with BoardExecutor(base/'resumed',cfg,journal,execution,reserve_bytes=0,resume=True) as learner:
+                learner.run()
+                exact(normalized(expected),normalized(learner.runtime.state_dict()))
+
     def test_handoff_preserves_the_complete_learner_and_continues_publishing(self):
         checkout=Path(__file__).resolve().parents[1]
         with tempfile.TemporaryDirectory() as directory:

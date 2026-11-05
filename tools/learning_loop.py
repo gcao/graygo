@@ -51,6 +51,14 @@ def compatible_sources(parent,current):
         restores=[]
         for tree in trees:
             cls=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='BoardNFSPRuntime')
+            snapshot=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='_snapshot')
+            recovery=ast.parse('''if self.snapshot is None:
+    self.snapshot=next((actor.snapshot for episode in self.collector.active if episode is not None
+                       for actor in episode.actors.values() if actor.snapshot.version==version),None)
+''').body[0]
+            # Admit this exact cache-identity repair, never another model update
+            # or a changed action distribution under the same version.
+            snapshot.body=[node for node in snapshot.body if ast.dump(node)!=ast.dump(recovery)]
             method=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='restore')
             # The only loader change may precede the unchanged state loading.
             start=next(i for i,n in enumerate(method.body) if isinstance(n,ast.Assign)
@@ -60,7 +68,7 @@ def compatible_sources(parent,current):
         if restores[0]!=restores[1] or ast.dump(trees[0])!=ast.dump(trees[1]):
             raise ValueError('runtime training or state restoration changed')
     return {'parent_source_sha256':tree_digest(parent),'current_source_sha256':tree_digest(current),
-            'rule':'identical numerical code; only controller scopes and the explicit source-admission guard may differ'}
+            'rule':'identical numerical code; controller/source-admission and exact restored-snapshot canonicalization may differ'}
 
 
 def parent_lock(root):

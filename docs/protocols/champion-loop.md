@@ -163,3 +163,8 @@ remaining allocation. A process-group watchdog stops the stage at its ceiling.
 The arena manifest is explicitly selected; successful candidates affect new
 games through the existing atomic publisher. No promotion happens during Q-only
 warmup before average-policy initialization.
+
+Restored episode actors and newly started episodes share one canonical frozen
+snapshot per policy version. The source-compatibility verifier admits the exact
+cache-recovery insertion for older checkpoints; it still rejects other learner
+or model changes. Failed handoff attempts are charged before another stage.

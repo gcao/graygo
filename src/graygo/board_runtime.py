@@ -102,6 +102,11 @@ class BoardNFSPRuntime:
     def records(self):return self.backend.counters.fresh_records
     def _snapshot(self):
         version=self.backend.counters.q_updates+self.backend.counters.supervised_updates
+        if self.snapshot is None:
+            # Restored active episodes already own the canonical frozen object
+            # for this version. New episodes must share it for batched commits.
+            self.snapshot=next((actor.snapshot for episode in self.collector.active if episode is not None
+                                for actor in episode.actors.values() if actor.snapshot.version==version),None)
         if self.snapshot is None or self.snapshot.version!=version:self.snapshot=FrozenPolicies(self.backend.q,self.backend.average,version=version,average_ready=self.backend.average_ready,forward_pool=self.forward_pool)
         return self.snapshot
 
