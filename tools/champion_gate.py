@@ -29,8 +29,10 @@ class GatePlan:
     def __post_init__(self):
         object.__setattr__(self,'looks',tuple(self.looks))
         require(type(self.rounds) is int and self.rounds>0,'fixed finite round inventory required')
+        require(type(self.seed) is int and self.seed>=0,'nonnegative gate seed required')
         require(self.looks and tuple(sorted(set(self.looks)))==self.looks and all(type(n) is int and n>=4 and n%2==0 for n in self.looks),'fixed increasing paired looks required')
-        require((self.alpha,self.improvement,self.regression,self.floor)==(.05,.03,-.15,-.10),'fixed promotion tolerances required')
+        require(isinstance(self.alpha,(int,float)) and 0<self.alpha<=.05,'positive promotion alpha at most .05 required')
+        require((self.improvement,self.regression,self.floor)==(.03,-.15,-.10),'fixed promotion tolerances required')
     def identity(self):return asdict(self)
 
     def family(self,round_index,labels):

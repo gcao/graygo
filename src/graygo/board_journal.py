@@ -44,7 +44,7 @@ class BoardJournalPlan:
         elif self.scope=='practice':
             if self.records>5000000:raise ValueError('practice is a bounded Q-learning prefix through the fixed reservoir opening')
         elif self.scope=='loop':
-            if self.records>20000000:raise ValueError('experimental loop is bounded to twenty million cumulative records')
+            pass # Sustained runs advance through successive fixed archive segments.
         else:
             cap=20000000 if self.scope=='development' else 80000000
             if self.records!=cap or not set((*PRE,*POST,cap)).issubset(self.milestones):raise ValueError('fixed development/confirmation archive windows and record horizon required')

@@ -214,8 +214,12 @@ class ChampionLoop:
         spent=self.state['evaluation_seconds']
         if self.state['evaluation_inflight'] is not None:
             spent+=max(0.,self.executor._spent()-self.state['evaluation_inflight'])
-        return max(0.,min(self.executor.plan.time_ceiling_seconds-self.executor._spent(),
-            self.plan.evaluation_fraction*self.executor.plan.time_ceiling_seconds-spent))
+        ceiling=self.executor.plan.time_ceiling_seconds
+        if ceiling is None:
+            # Earn evaluation time as real execution time accrues. There is no
+            # infinite allowance that could crowd out sustained learning.
+            return max(0.,self.plan.evaluation_fraction*self.executor._spent()-spent)
+        return max(0.,min(ceiling-self.executor._spent(),self.plan.evaluation_fraction*ceiling-spent))
 
     def _finish_evaluation(self):
         self.state['evaluation_seconds']+=max(0.,self.executor._spent()-self.state['evaluation_inflight'])
@@ -283,8 +287,10 @@ class ChampionLoop:
             self._save();self._publish()
         return {'version':VERSION,'status':status,'rounds':self.state['round'],'learner_records':self.executor.runtime.records,
                 'evaluation_seconds':self.state['evaluation_seconds'],
-                'evaluation_ceiling_seconds':self.plan.evaluation_fraction*self.executor.plan.time_ceiling_seconds,
+                'evaluation_ceiling_seconds':None if self.executor.plan.time_ceiling_seconds is None
+                    else self.plan.evaluation_fraction*self.executor.plan.time_ceiling_seconds,
                 'champion':deepcopy(self.state['champion']),'experimental':self.diagnostic,
+                'promotions':self.state.get('prior_promotions',0)+sum(r['promoted'] for r in self.state['rounds']),
                 'champion_manifest':str(self.publication),'training_state_preserved':True,
                 'a2_complete':False,'formal_scope_approved':False}
 

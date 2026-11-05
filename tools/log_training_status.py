@@ -39,10 +39,11 @@ def summary(project):
         return ['state=IDLE', 'status=no_training_run']
     root = Path(receipt['run_dir'])
     status = read(root / 'status.json')
-    clock = read(root / 'learner/execution.json').get('body', {}).get('clock', {})
+    execution = read(root / 'learner/execution.json').get('body', {})
+    clock = execution.get('clock', {})
     league = read(root / 'learner/league/state.json').get('body', {})
     watch = read(root / 'watch.json')
-    running = alive(receipt.get('supervisor_pid'), root)
+    running = alive(receipt.get('supervisor_pid'), Path(receipt.get('process_root',root)))
     run_status = status.get('status', 'unknown')
     if run_status in ('running', 'prepared'):
         state = 'RUNNING' if running else 'SUPERVISOR_EXITED'
@@ -54,6 +55,8 @@ def summary(project):
     checkpoint = watch.get('checkpoint') or {}
     if checkpoint.get('records') != records:
         checkpoint = {}
+    progress=execution.get('progress') or {}
+    if progress:checkpoint=progress
     counters = checkpoint.get('counters') or status.get('counters') or {}
     if not counters and isinstance(records, int):
         weights = root / 'learner/weights' / f'{records:012d}' / 'manifest.json'
@@ -61,6 +64,10 @@ def summary(project):
     fields = [f'state={state} status={run_status} phase={phase}', f'run={root.name}',
               f'checkpoint_records={count(records)}',
               f"Q_updates={count(counters.get('q_updates'))} avg_updates={count(counters.get('supervised_updates'))}"]
+    if receipt.get('unlimited'):fields.append('time_limit=none')
+    if progress:fields.append(f"live_records={count(progress.get('records'))}")
+    if records==0 and receipt.get('parent_records',0)>0:
+        fields.append(f"restoring_from={count(receipt['parent_records'])}")
     if running and pending.get('target') is not None:
         fields.append(f"next_target={count(pending['target'])}")
     if checkpoint.get('mean_q_loss') is not None:
@@ -85,7 +92,7 @@ def summary(project):
                 if result.get('games', 0):
                     fields.append(f"{name}_vs_{opponent}={result['wins']}W/{result['draws']}D/{result['losses']}L"
                                   f" score={result['win_score']:.1%} n={result['games']}")
-    promotions = sum(r['promoted'] for r in league.get('rounds', []))
+    promotions = league.get('prior_promotions',0)+sum(r['promoted'] for r in league.get('rounds', []))
     published = read(receipt.get('publication', root / 'learner/league/champion.json'))
     champion = published.get('body', {}).get('champion', {}).get('label', '?')
     fields.append(f'promotions={promotions} champion={champion}')

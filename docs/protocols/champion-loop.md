@@ -1,5 +1,51 @@
 # Persistent learning and champion releases
 
+## Continuous training (current operation)
+
+The owner removed the training budget limit on November 5. The managed
+continuous-training runner supersedes the earlier one-hour allocation. It has no
+wall-clock or total-record stopping limit. It carries the complete saved learner
+forward through successive 20M-record archive segments; 20M, 40M and later
+boundaries trigger automatic continuation.
+
+The user service graygo-learning-loop.service runs a pinned source checkout,
+continues across SSH logout/reboots, and restarts from durable checkpoints on
+unexpected process failure. SIGTERM stops cleanly. Storage/numerical integrity
+guards remain active. A storage-limited result stops for intervention instead of
+restarting repeatedly.
+
+Q, target, optimizer, replay, reservoir, active episode actors and RNG state are
+preserved. The 5M opening, 5M–7M handoff, 40M epsilon clock and fresh-record target
+refresh never restart at a segment boundary. Only the execution clock and archive
+controller gain unlimited operation. Historical elapsed and evaluation time also
+carry forward.
+
+Evaluation earns at most ten percent of cumulative elapsed execution time, with
+complete-pair/IO overruns retained. This is a finite allowance that grows as
+training proceeds. Full candidate gates can use up to one hour when earned, so a
+long gate can finish without consuming the entire learning process. Gate
+thresholds remain unchanged. New segments get distinct evaluation seeds and a
+summable alpha allocation .05/((i+1)*(i+2)); their total across the continuous
+campaign is at most .05. Existing formal scientific/cohort grants are separate.
+
+The hourly status timer reads live JSON heartbeat counters and continues logging
+to runs/training-watch.log. Its RUNNING/STOPPED status follows the continuous
+controller, and each entry distinguishes live records from durable checkpoint
+records.
+
+Operator commands on ai:
+
+~~~sh
+systemctl --user status graygo-learning-loop.service
+systemctl --user stop graygo-learning-loop.service
+systemctl --user start graygo-learning-loop.service
+tail -F ~/proj/graygo/runs/training-watch.log
+~~~
+
+Service configuration is in deploy/systemd/graygo-learning-loop.service.
+runs/continuous-training.env selects the pinned entrypoint, campaign directory
+and PYTHONPATH; it contains paths only.
+
 The controller in tools/champion_loop.py retains Q, target and average networks,
 optimizers, replay, reservoir, episode actors, private RNGs and cumulative record
 clocks. Rejecting or promoting a release never rolls back this learner or clears

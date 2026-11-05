@@ -97,7 +97,7 @@ class LearningLoopTests(unittest.TestCase):
         self.assertEqual((args.records,args.reservoir_open,args.handoff_end),(20000000,5000000,7000000))
         with self.assertRaisesRegex(ValueError,'early-opening-diagnostic'):
             parse_args(['--loop','--run-dir','unused','--time-cap-seconds','120','--reservoir-open','0','--handoff-end','1000'])
-        with self.assertRaisesRegex(ValueError,'twenty million'):BoardJournalPlan('loop',20000002,(0,20000002))
+        self.assertEqual(BoardJournalPlan('loop',20000002,(0,20000002)).records,20000002)
 
     def test_bad_source_admission_is_rejected_by_ordinary_restore(self):
         with tempfile.TemporaryDirectory() as directory:

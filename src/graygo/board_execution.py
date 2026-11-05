@@ -1,7 +1,7 @@
-"""Locked, cumulatively budgeted execution around the board milestone journal.
+"""Locked, cumulatively measured execution around the board milestone journal.
 
 This is the execution mechanism, not the project A2/resource/cohort authority.
-The public CLI exposes only bounded diagnostics. A formal scope controller must
+Diagnostic commands are bounded; explicit learning loops can run continuously. A formal scope controller must
 verify its evidence and restrict the endpoint before using this component.
 """
 from copy import deepcopy
@@ -28,13 +28,14 @@ EXECUTION_VERSION = 'graygo/board-execution/1'
 
 @dataclass(frozen=True)
 class BoardExecutionPlan:
-    time_ceiling_seconds: float
+    time_ceiling_seconds: float | None
     checkpoint_every: int = 102400
     heartbeat_seconds: float = 30.
     checkpoint_headroom_bytes: int = 1024**3
 
     def __post_init__(self):
-        for value in (self.time_ceiling_seconds, self.heartbeat_seconds):
+        for value in ((self.heartbeat_seconds,) if self.time_ceiling_seconds is None
+                      else (self.time_ceiling_seconds,self.heartbeat_seconds)):
             if type(value) not in (int, float) or not math.isfinite(value) or value <= 0:
                 raise ValueError('finite positive cumulative time/heartbeat limits required')
         if self.heartbeat_seconds > 60:
@@ -85,8 +86,10 @@ class BoardExecutor:
             raise ValueError('executor requires a permanent initialized model at record zero')
         if type(prior_setup_seconds) not in (int, float) or not math.isfinite(prior_setup_seconds) or prior_setup_seconds < 0:
             raise ValueError('nonnegative measured pre-entry setup time required')
-        if journal_plan.scope in ('diagnostic', 'practice', 'loop') and execution_plan.time_ceiling_seconds > 3600:
-            raise ValueError('diagnostic/practice/loop execution cannot allocate more than one cumulative hour')
+        if execution_plan.time_ceiling_seconds is None and journal_plan.scope!='loop':
+            raise ValueError('unlimited execution requires an explicit experimental loop')
+        if journal_plan.scope in ('diagnostic', 'practice') and execution_plan.time_ceiling_seconds > 3600:
+            raise ValueError('diagnostic/practice execution cannot allocate more than one cumulative hour')
         if initialization is not None and journal_plan.scope!='loop':
             raise ValueError('parent initialization is only available for an explicit experimental loop')
         self.initialization=None if initialization is None else json.loads(json.dumps(initialization,allow_nan=False))
@@ -107,6 +110,14 @@ class BoardExecutor:
 
     def _write_clock(self):
         body = {'version': EXECUTION_VERSION, 'contract': self.contract, 'clock': self.clock}
+        if self.runtime is not None:
+            metrics=self.runtime.collector.metrics;hist=metrics['episode_lengths'];games=sum(hist)
+            loss=self.runtime.loss;q=loss['q_updates'];sl=loss['supervised_updates']
+            body['progress']={'records':self.runtime.records,'counters':asdict(self.runtime.backend.counters),
+                'completed_games':games,'mean_game_rounds':sum(i*n for i,n in enumerate(hist))/games if games else None,
+                'endings':metrics['endings'],'outcomes_black_white_draw':metrics['outcomes'],
+                'mean_q_loss':loss['q_loss_sum']/q if q else None,
+                'mean_supervised_loss':loss['supervised_loss_sum']/sl if sl else None}
         write_report(self.clock_path, {'body': body, 'sha256': canonical_sha(body)}, reserve_bytes=self.reserve)
         # Persist the rename as well as the report's fsynced payload.
         descriptor = os.open(self.root, os.O_RDONLY | os.O_DIRECTORY)
@@ -203,12 +214,15 @@ class BoardExecutor:
                               'unclean_recoveries': 0, 'status': 'initializing'}
             previous = self.clock['inflight_since']
             if previous is not None:
-                remaining = max(0., self.plan.time_ceiling_seconds - self.clock['observed_seconds']
-                                - self.clock['recovery_charge_seconds'] - self.prior_setup_seconds)
                 # An unclean interval includes offline time conservatively. Clock
                 # reversal cannot purchase a fresh remaining allocation.
                 gap = session_wall - self.prior_setup_seconds - previous
-                self.clock['recovery_charge_seconds'] += min(remaining, gap) if gap >= 0 else remaining
+                if self.plan.time_ceiling_seconds is None:
+                    self.clock['recovery_charge_seconds']+=max(0.,gap)
+                else:
+                    remaining=max(0.,self.plan.time_ceiling_seconds-self.clock['observed_seconds']
+                                  -self.clock['recovery_charge_seconds']-self.prior_setup_seconds)
+                    self.clock['recovery_charge_seconds']+=min(remaining,gap) if gap>=0 else remaining
                 self.clock['unclean_recoveries'] += 1
             self.base_observed = self.clock['observed_seconds'] + self.prior_setup_seconds
             self.clock['sessions'] += 1
@@ -315,7 +329,7 @@ class BoardExecutor:
                 if stop_requested():
                     status = 'interrupted'
                     break
-                if self._spent() >= self.plan.time_ceiling_seconds:
+                if self.plan.time_ceiling_seconds is not None and self._spent() >= self.plan.time_ceiling_seconds:
                     status = 'budget_limited'
                     break
                 # The next full checkpoint's frozen headroom is checked before

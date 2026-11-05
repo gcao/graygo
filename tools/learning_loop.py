@@ -1,4 +1,4 @@
-"""Explicit, budget-preserving handoff into an experimental champion loop.
+"""Explicit, state-preserving handoff into an experimental champion loop.
 
 The parent remains immutable. Numerical implementation, configuration, complete
 learner state and cumulative exploration clocks are preserved across the handoff.
@@ -76,8 +76,10 @@ def parent_lock(root):
     return lock
 
 
-def prepare(root,parent,parent_checkout,publication,*,total_seconds=3600,records=20000000,block=262144,reserve_bytes=DEFAULT_RESERVE):
-    if type(total_seconds) not in (int,float) or not math.isfinite(total_seconds) or not 60<=total_seconds<=3600:
+def prepare(root,parent,parent_checkout,publication,*,total_seconds=3600,records=20000000,block=262144,
+            reserve_bytes=DEFAULT_RESERVE,gate_alpha=.05,gate_seed=73):
+    unlimited=total_seconds is None
+    if not unlimited and (type(total_seconds) not in (int,float) or not math.isfinite(total_seconds) or not 60<=total_seconds<=3600):
         raise ValueError('explicit total allocation of at most one hour required')
     if type(block) is not int or block<2 or block%2:raise ValueError('paired loop block required')
     root,parent=Path(root).resolve(),Path(parent).resolve();checkout=Path(__file__).resolve().parents[1]
@@ -96,11 +98,14 @@ def prepare(root,parent,parent_checkout,publication,*,total_seconds=3600,records
         if source!=source_digest() and data['backend']['counters']['supervised_updates']:
             raise ValueError('cross-version handoff is limited to pre-average learning; old deployed archives must remain valid')
         parent_manifest=json.loads((parent/'run.json').read_text())
-        prior=parent_manifest.get('initialization',{}).get('prior_used_seconds',0.)
+        parent_init=parent_manifest.get('initialization',{})
+        prior=0. if parent_init.get('clock_includes_parent') else parent_init.get('prior_used_seconds',0.)
         prior=math.ceil(prior+clock['observed_seconds']+clock['recovery_charge_seconds']+10.)
-        remaining=total_seconds-prior
-        if remaining<30:raise ValueError('insufficient unspent allocation for a new loop stage')
-        if not seal['step']<records<=20000000 or records%2:raise ValueError('bounded loop horizon must extend the parent record clock')
+        remaining=None if unlimited else total_seconds-prior
+        if remaining is not None and remaining<30:raise ValueError('insufficient unspent allocation for a new loop stage')
+        if type(records) is not int or records%2 or not seal['step']<records or (not unlimited and records>20000000):
+            raise ValueError('loop archive segment must extend the parent record clock')
+        GatePlan(1,alpha=gate_alpha,seed=gate_seed)
         published=json.loads(Path(publication).read_text())
         if published['sha256']!=canonical_sha(published['body']):raise ValueError('published champion checksum differs')
         old=json.loads((parent/'league/state.json').read_text())
@@ -111,9 +116,13 @@ def prepare(root,parent,parent_checkout,publication,*,total_seconds=3600,records
             'parent_checkpoint':str(checkpoint),'parent_manifest_sha256':digest(checkpoint/'manifest.json'),
             'parent_clock_sha256':clock_wrapper['sha256'],'records':seal['step'],'compatibility':compatible,
             'prior_used_seconds':prior,'total_allocation_seconds':total_seconds}
+        if unlimited:initialization['clock_includes_parent']=True
         body={'version':'graygo/learning-loop-handoff/1','initialization':initialization,'runtime':data['config'],
             'remaining_seconds':remaining,'records':records,'block':block,'publication':str(Path(publication).resolve()),
             'initial_champion':published['body']['champion'],'history':old['body']['history'],
+            'parent_evaluation_seconds':old['body']['evaluation_seconds'],
+            'prior_promotions':old['body'].get('prior_promotions',0)+sum(r['promoted'] for r in old['body']['rounds']),
+            'gate_alpha':gate_alpha,'gate_seed':gate_seed,
             'checkout':str(checkout),'source_sha256':source_digest(),
             'tools':{name:digest(Path(__file__).with_name(name)) for name in
                      ('learning_loop.py','champion_loop.py','champion_gate.py','champion_screen.py','legacy_policy.py','training_comparison.py')},
@@ -138,10 +147,12 @@ def initialize(executor,loop,body):
     elif executor.runtime.records<init['records']:raise ValueError('child rolled back behind its imported parent')
     if loop.state['completed_records']<init['records']:
         loop.state['completed_records']=init['records'];loop.state['history']=deepcopy(body['history'])
+        loop.state['evaluation_seconds']=body.get('parent_evaluation_seconds',0.)
+        loop.state['prior_promotions']=body.get('prior_promotions',0)
         loop._save();loop._publish()
 
 
-def worker(root):
+def worker(root,*,stop_state=None,reserve_bytes=DEFAULT_RESERVE):
     root=Path(root).resolve();wrapper=json.loads((root/'plan.json').read_text());body=wrapper['body']
     if wrapper['sha256']!=canonical_sha(body) or body['source_sha256']!=source_digest():raise ValueError('loop plan/source changed')
     for name,sha in body['tools'].items():
@@ -157,22 +168,26 @@ def worker(root):
         milestones=tuple(sorted({0,start,*ends,*[n for n in (4500000,4750000,5000000,7000000) if n<=body['records']]}))
         journal=BoardJournalPlan('loop',body['records'],milestones)
         execution=BoardExecutionPlan(body['remaining_seconds'],checkpoint_every=body['block'])
-        stopped=[]
+        stopped=[] if stop_state is None else stop_state
         for kind in (signal.SIGTERM,signal.SIGINT):signal.signal(kind,lambda *unused:stopped.append(True))
         resume=(root/'learner/execution.json').exists()
         write_report(root/'status.json',{'status':'running','parent_records':start,'publication':body['publication'],
                                       'remaining_allocation_seconds':body['remaining_seconds'],'phase':'learning; average starts at 5M',
-                                      'loop_enabled':True,'gatekeeping_enabled':True,'automatic_publication_enabled':True})
-        with BoardExecutor(root/'learner',cfg,journal,execution,resume=resume,initialization=init) as executor:
-            gate=IndependentGate(GatePlan(len(ends)))
-            plan=LoopPlan(ends,gate_seconds=min(360.,body['remaining_seconds']*.1),continue_after_evaluation_budget=True)
+                                      'unlimited':body['remaining_seconds'] is None,
+                                      'loop_enabled':True,'gatekeeping_enabled':True,'automatic_publication_enabled':True},reserve_bytes=reserve_bytes)
+        inherited=init['prior_used_seconds'] if body['remaining_seconds'] is None and not resume else 0.
+        with BoardExecutor(root/'learner',cfg,journal,execution,resume=resume,initialization=init,
+                           prior_setup_seconds=inherited,reserve_bytes=reserve_bytes) as executor:
+            gate=IndependentGate(GatePlan(len(ends),alpha=body.get('gate_alpha',.05),seed=body.get('gate_seed',73)),reserve_bytes=reserve_bytes)
+            gate_seconds=3600. if body['remaining_seconds'] is None else min(360.,body['remaining_seconds']*.1)
+            plan=LoopPlan(ends,gate_seconds=gate_seconds,continue_after_evaluation_budget=True)
             with ChampionLoop(executor,plan,gate,initial_champion=body['initial_champion'],resume=resume,
-                publish_manifest=body['publication'],screen=IndependentScreen(ScreenPlan())) as loop:
+                publish_manifest=body['publication'],screen=IndependentScreen(ScreenPlan(),reserve_bytes=reserve_bytes)) as loop:
                 initialize(executor,loop,body)
                 result=loop.run(stop_requested=lambda:bool(stopped))
                 result.update(parent_records=start,total_records=executor.runtime.records,
                     counters=vars(executor.runtime.backend.counters),loop_enabled=True)
-                write_report(root/'status.json',result)
+                write_report(root/'status.json',result,reserve_bytes=reserve_bytes)
                 return result
 
 
@@ -182,10 +197,12 @@ def main():
     mode.add_argument('--worker',action='store_true',help=argparse.SUPPRESS)
     parser.add_argument('--run-dir',required=True);parser.add_argument('--parent-run');parser.add_argument('--parent-checkout')
     parser.add_argument('--publish-manifest');parser.add_argument('--total-seconds',type=float,default=3600)
+    parser.add_argument('--unlimited',action='store_true')
     args=parser.parse_args()
     if args.prepare:
         if None in (args.parent_run,args.parent_checkout,args.publish_manifest):parser.error('parent run, frozen source and publication are required')
-        result=prepare(args.run_dir,args.parent_run,args.parent_checkout,args.publish_manifest,total_seconds=args.total_seconds)
+        result=prepare(args.run_dir,args.parent_run,args.parent_checkout,args.publish_manifest,
+                       total_seconds=None if args.unlimited else args.total_seconds)
     elif args.worker:result=worker(args.run_dir)
     else:
         root=Path(args.run_dir).resolve();wrapper=json.loads((root/'plan.json').read_text());body=wrapper['body']
@@ -193,6 +210,8 @@ def main():
         with (root/'launch.json').open('x') as stream:json.dump({'started_at':time.time(),'remaining_seconds':body['remaining_seconds']},stream)
         def terminate(*unused):raise SystemExit('loop launcher stopped')
         for kind in (signal.SIGTERM,signal.SIGINT):signal.signal(kind,terminate)
+        if body['remaining_seconds'] is None:
+            print(json.dumps(worker(root),sort_keys=True));return
         result=run_limited([sys.executable,'-u','-m','tools.learning_loop','--worker','--run-dir',str(root)],
                            cwd=body['checkout'],log=root/'worker.log',seconds=body['remaining_seconds'])
         write_report(root/'supervision.json',result)

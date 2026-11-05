@@ -1,0 +1,17 @@
+[Unit]
+Description=Continuous Gray Go learning and champion promotion
+StartLimitIntervalSec=15min
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=%h/proj/graygo
+EnvironmentFile=%h/proj/graygo/runs/continuous-training.env
+ExecStart=%h/proj/graygo/.venv/bin/python ${GRAYGO_ENTRYPOINT} --run --run-dir ${GRAYGO_CAMPAIGN}
+Restart=on-failure
+RestartSec=60s
+RuntimeMaxSec=infinity
+TimeoutStopSec=180s
+
+[Install]
+WantedBy=default.target
