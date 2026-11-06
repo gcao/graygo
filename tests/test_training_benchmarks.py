@@ -47,10 +47,11 @@ class BenchmarkLogTests(unittest.TestCase):
             root = Path(directory)
             league = root/'learner/league'
             report = {'games': 4, 'wins': 3, 'draws': 0, 'losses': 1, 'win_score': .75,
-                      'opponent_label': 'champion-100'}
+                      'opponent_label': 'champion-100','opponent_sha256':'known-100'}
+            write(league/'state.json',{'body':{'history':[{'policy_sha256':'known-50','label':'champion-50'}]}})
             path = league/'screens/0001/champion-first-v2/screen.json'
             write(path, {'candidate_records': 200, 'status': 'complete', 'completed_at':'2026-11-06T00:00:00Z', 'heads': {'average': {
-                'opponents': {'champion': report, 'historical-0': dict(report, opponent_label='champion-50')}}}})
+                'opponents': {'champion': report, 'historical-0': dict(report, opponent_label='historical-0',opponent_sha256='known-50')}}}})
             actual = latest_benchmark([root])
             self.assertEqual(actual['records'], 200)
             fields = ' | '.join(benchmark_fields({}, root, 400))

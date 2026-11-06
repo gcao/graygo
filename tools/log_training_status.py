@@ -58,6 +58,7 @@ def summary(project):
         state = 'FINISHING' if running else 'STOPPED'
     pending = league.get('pending') or {}
     phase = pending.get('status', 'starting') if running else 'idle'
+    if running and clock.get('status') == 'initializing':phase='restoring_checkpoint'
     records = (clock.get('last_checkpoint') or {}).get('records', status.get('total_records'))
     checkpoint = watch.get('checkpoint') or {}
     if checkpoint.get('records') != records:

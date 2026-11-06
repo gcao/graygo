@@ -44,6 +44,8 @@ def latest_benchmark(roots):
         folder = root / 'learner/league'
         league = read(folder / 'state.json').get('body', {})
         ends = league.get('contract', {}).get('loop_plan', {}).get('round_ends', [])
+        known = [*league.get('history', []), league.get('bootstrap', {}), league.get('champion', {})]
+        labels = {descriptor.get('policy_sha256'): descriptor.get('label', '?') for descriptor in known if descriptor.get('policy_sha256')}
         screens = list((folder / 'screens').glob('*/champion-first-v2/screen.json'))
         for path in screens:
             screen = read(path)
@@ -52,12 +54,10 @@ def latest_benchmark(roots):
                 continue
             candidates.append({'records': screen.get('candidate_records') or 0,
                 'at': path.stat().st_mtime, 'source': 'screen', 'status': screen.get('status', 'unknown') if screen.get('completed_at') else 'in_progress',
-                'opponents': {name: row for name, row in opponents.items()
+                'opponents': {name: dict(row, opponent_label=labels.get(row.get('opponent_sha256'),row.get('opponent_label','?'))) for name, row in opponents.items()
                               if name == 'champion' or name.startswith('historical-')}})
         pending = league.get('pending')
         rounds = [*league.get('rounds', []), *([pending] if pending else [])]
-        known = [*league.get('history', []), league.get('bootstrap', {}), league.get('champion', {})]
-        labels = {descriptor.get('policy_sha256'): descriptor.get('label', '?') for descriptor in known}
         for row in rounds:
             index = row.get('index')
             if not isinstance(index, int):
