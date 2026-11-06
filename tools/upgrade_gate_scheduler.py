@@ -19,7 +19,7 @@ def wrapped(path):
     return value
 
 
-def apply(campaign,*,reserve_bytes=DEFAULT_RESERVE,evaluation_schedule=False):
+def apply(campaign,*,reserve_bytes=DEFAULT_RESERVE,evaluation_schedule=False,adaptive_schedule=False):
     campaign=Path(campaign).resolve();checkout=Path(__file__).resolve().parents[1];locks=[]
     def write(path,value):write_report(path,value,reserve_bytes=reserve_bytes)
     try:
@@ -43,6 +43,7 @@ def apply(campaign,*,reserve_bytes=DEFAULT_RESERVE,evaluation_schedule=False):
         if league['body']['contract']['implementation_sha256']!=plan['body']['tools']['champion_loop.py']:
             raise ValueError('recorded scheduler identities differ')
         allowed={'champion_loop.py','champion_screen.py'} if evaluation_schedule else {'champion_loop.py'}
+        if adaptive_schedule:allowed.update(('learning_loop.py','adaptive_gate_schedule.py'))
         for name,sha in plan['body']['tools'].items():
             if digest(Path(plan['body']['checkout'])/'tools'/name)!=sha:raise ValueError('original source changed')
             if name not in allowed and digest(checkout/'tools'/name)!=sha:
@@ -58,6 +59,15 @@ def apply(campaign,*,reserve_bytes=DEFAULT_RESERVE,evaluation_schedule=False):
         for name,value in originals.items():write(archive/name,value)
         old_implementation=league['body']['contract']['implementation_sha256']
         implementation=digest(checkout/'tools/champion_loop.py')
+        if adaptive_schedule:
+            from tools import adaptive_gate_schedule as adaptive
+            if plan['body']['remaining_seconds'] is not None:
+                raise ValueError('adaptive scheduling requires an unlimited campaign')
+            plan['body']['adaptive_gate_schedule']=True
+            league['body']['contract']['loop_plan']['adaptive_schedule']=True
+            league['body']['contract']['adaptive_scheduler']=adaptive.contract()
+            learning_seconds=max(0.,clock['observed_seconds']+clock['recovery_charge_seconds']-league['body']['evaluation_seconds'])
+            league['body'].setdefault('adaptive_scheduler',adaptive.initial_state(learning_seconds))
         if evaluation_schedule:
             from tools.champion_screen import IndependentScreen
             league['body']['contract']['screen_sha256']=IndependentScreen().sha256
@@ -95,6 +105,7 @@ def apply(campaign,*,reserve_bytes=DEFAULT_RESERVE,evaluation_schedule=False):
                  'numeric_promotion_policy_changed':False,'evaluation_evidence_changed':False,
                  'checkpoint_or_optimizer_changed':False,'checkout':str(checkout),
                  'evaluation_schedule_changed':evaluation_schedule,
+                 'adaptive_schedule_enabled':adaptive_schedule,
                  'opponents':'champion-and-frozen-model-history' if evaluation_schedule else 'unchanged'}
         write(archive/'receipt.json',receipt)
         return receipt
@@ -104,8 +115,10 @@ def apply(campaign,*,reserve_bytes=DEFAULT_RESERVE,evaluation_schedule=False):
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--campaign',required=True)
-    parser.add_argument('--evaluation-schedule',action='store_true');args=parser.parse_args()
-    print(json.dumps(apply(args.campaign,evaluation_schedule=args.evaluation_schedule),sort_keys=True))
+    parser.add_argument('--evaluation-schedule',action='store_true')
+    parser.add_argument('--adaptive-schedule',action='store_true');args=parser.parse_args()
+    print(json.dumps(apply(args.campaign,evaluation_schedule=args.evaluation_schedule,
+        adaptive_schedule=args.adaptive_schedule),sort_keys=True))
 
 
 if __name__=='__main__':main()

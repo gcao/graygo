@@ -101,6 +101,11 @@ class ContinuousTrainingTests(unittest.TestCase):
                 plan=json.loads((stage/'plan.json').read_text())['body']
                 self.assertIsNone(plan['remaining_seconds'])
                 self.assertEqual(plan['gate_alpha'],stage_alpha(index))
+                self.assertTrue(plan['adaptive_gate_schedule'])
+                state_path=stage/'learner/league/state.json'
+                adaptive=json.loads(state_path.read_text())['body']['adaptive_scheduler']
+                if index==0:first_adaptive=adaptive
+                else:self.assertEqual(adaptive,first_adaptive)
             with BoardExecutor(base/'plain',config(),BoardJournalPlan('loop',32,(0,8,16,24,32)),
                                BoardExecutionPlan(None),reserve_bytes=0) as executor:
                 executor.run()

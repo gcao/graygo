@@ -43,15 +43,14 @@ refresh never restart at a segment boundary. Only the execution clock and archiv
 controller gain unlimited operation. Historical elapsed and evaluation time also
 carry forward.
 
-Evaluation normally earns ten percent of cumulative elapsed execution time.
-A screened candidate in an unlimited run may borrow time to complete its finite
-promotion gate. Each evaluation session is at most one hour; an incomplete
-session resumes the same frozen candidate and saved evidence. Training waits
-for that gate's decision. Every second is charged, and subsequent candidates wait
-while continued learning repays any evaluation debt. Bounded diagnostic
-allocations retain their original hard ceilings. Gate thresholds remain unchanged. New segments get distinct evaluation seeds and a
-summable alpha allocation .05/((i+1)*(i+2)); their total across the continuous
-campaign is at most .05. Existing formal scientific/cohort grants are separate.
+Unlimited campaigns use the adaptive evaluation schedule below. Evaluation time
+remains recorded, but cumulative evaluation debt no longer blocks a full gate.
+A started gate retains its frozen candidate and evidence through finite one-hour
+sessions until a decision is reached. Bounded diagnostics retain their original
+hard time ceilings and evaluation allowance. Gate thresholds are unchanged.
+New segments retain their distinct evaluation seeds and summable alpha allocation
+.05/((i+1)*(i+2)); the continuous campaign total is at most .05. Existing formal
+scientific/cohort grants remain separate.
 
 The hourly status timer reads live JSON heartbeat counters and continues logging
 to runs/training-watch.log. Its RUNNING/STOPPED status follows the continuous
@@ -76,7 +75,7 @@ optimizers, replay, reservoir, episode actors, private RNGs and cumulative recor
 clocks. Rejecting or promoting a release never rolls back this learner or clears
 buffers. An imported old champion is an evaluation reference, not a warm start.
 
-## Learning and evaluation budgets
+## Bounded diagnostic evaluation budgets
 
 The loop reserves at most 10% of its cumulative wall-clock ceiling for screening
 and promotion evaluation together. This charge survives checkpoint resume and
@@ -94,6 +93,38 @@ historical-model regression checks and atomic publication. A rejection-only
 futility check stops a clearly unpromising first look before the larger look.
 Futility and screening never authorize promotion.
 
+## Adaptive gate scheduling (owner approved November 6)
+
+Unlimited campaigns adapt the amount of training between evaluation attempts.
+They no longer require the cumulative ten-percent evaluation account to catch up.
+The schedule counts learning/execution seconds with all recorded evaluation time
+excluded, so a long gate does not consume the subsequent training interval.
+
+- A complete screen with at least 70% win score against the champion and stable
+  historical results can trigger a full gate at the next checkpoint. The interval
+  shortens toward a minimum of 30 minutes. Historical stability requires at least
+  45% score and no drop greater than 15 percentage points against the same saved
+  model since its previous screen. These are screening heuristics only.
+- Modest improvement gets 30–60 minutes of training before another check. Two
+  flat/losing screens lengthen the interval, doubling up to four hours. Progress
+  checks remain at most one hour of training apart. An eligible modestly winning
+  candidate cannot have its full gate deferred beyond four hours of training.
+- Completed unsuccessful gates lengthen the training interval. The same strong
+  screen score does not repeatedly override that wait; a new meaningful gain can.
+  After promotion the new champion becomes the reference and the first check is
+  scheduled after 30 minutes of training.
+- Incomplete gates always resume the same frozen candidate and saved color pairs.
+  The heuristic cannot promote a model, change gate thresholds, add statistical
+  looks, or reuse an already spent confidence slot. Skipped checkpoint candidates
+  remain skipped; their evaluations are not retried until a favorable sample.
+
+Schedule state and its implementation identity are persisted and carried through
+restarts and archive segments. tools/upgrade_gate_scheduler.py --adaptive-schedule
+admits only the scheduling tools, verifies unchanged numerical source, archives
+operational metadata and preserves checkpoint payloads, models and started gates.
+The hourly log exposes gate_schedule, interval, signal, screen_due_in and
+gate_timer_in. A strong screen may trigger a gate before that ordinary timer.
+
 ## Model-only evaluation (owner approved November 6)
 
 The active learning/release loop no longer schedules random or tactical bots.
@@ -106,10 +137,8 @@ per opponent and a 120-second total screen ceiling. Q reports its opening pass
 probability without playing separate diagnostic matches. Before average-policy
 initialization no strength matchups are run. A positive sample mean against the
 champion is a rejection-only filter; historical matchups are descriptive here.
-A screen cannot promote a model. During evaluation debt, a bounded model-only
-screen is permitted at the first checkpoint after an hour so progress remains
-visible. Its time is charged to the same evaluation ledger, and it cannot start
-a new expensive gate until credit is positive again. Started gates still finish.
+A screen cannot promote a model. Unlimited runs use the adaptive schedule above;
+its screen and gate costs remain in the evaluation ledger for observability.
 Full gates retain their confidence bounds,
 head-to-head requirement, positive pool-gain rule, regression checks and absolute
 floors. Their pool now contains historical models only, with the frozen
@@ -227,7 +256,7 @@ reinterpret its evidence or overwrite its release.
 
 Tests cover learner preservation on rejection/promotion, resume, evaluation
 quota recovery, continued learning after evaluation exhaustion, independent Q
-screens before average initialization, fixed schedule validation, native-process
+diagnostics before average initialization, fixed schedule validation, native-process
 deadline enforcement, source snapshots and existing publication guarantees.
 
 ## Switching a running allocation to the learning loop
@@ -288,7 +317,11 @@ systemctl --user start graygo-training-watch.service
 ~~~
 
 
-## Completing an eligible candidate's gate
+## Historical gate-completion fix
+
+The guarantees about frozen candidates and retained evidence still apply. The
+current unlimited scheduler uses adaptive timing above; the cumulative debt
+behavior described below records the earlier scheduler.
 
 The initial sustained scheduler incorrectly applied its earned time allowance as
 a hard cancellation inside every full gate. It then rejected the incomplete

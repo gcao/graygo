@@ -29,6 +29,7 @@ from tools.champion_screen import IndependentScreen,ScreenPlan
 from tools.legacy_policy import LegacyPolicy
 from tools.nfsp_resources import require
 from tools.task_pipeline_parity import state_sha
+from tools import adaptive_gate_schedule as adaptive
 
 def digest(path):return _digest(Path(path))
 
@@ -43,6 +44,7 @@ class LoopPlan:
     gate_seconds:float=600.
     evaluation_fraction:float=.1
     continue_after_evaluation_budget:bool=False
+    adaptive_schedule:bool=False
 
     def __post_init__(self):
         object.__setattr__(self,'round_ends',tuple(self.round_ends))
@@ -53,6 +55,7 @@ class LoopPlan:
         require(type(self.evaluation_fraction) in (int,float) and math.isfinite(self.evaluation_fraction)
                 and 0<=self.evaluation_fraction<=.1,'evaluation may reserve at most ten percent of the run ceiling')
         require(type(self.continue_after_evaluation_budget) is bool,'explicit evaluation exhaustion policy required')
+        require(type(self.adaptive_schedule) is bool,'explicit adaptive schedule required')
 
 
 def load(path):return json.loads(Path(path).read_text())
@@ -107,6 +110,8 @@ class ChampionLoop:
         require(plan.round_ends[-1]==executor.journal_plan.records and set(plan.round_ends)<=set(executor.journal_plan.milestones),'each fixed loop endpoint must be permanently archived')
         require(gate.plan.rounds==len(plan.round_ends),'loop and confidence-round inventory differ')
         self.executor=executor;self.plan=plan;self.gate=gate;self.screen=screen;self.root=executor.root/'league'
+        require(not plan.adaptive_schedule or (executor.plan.time_ceiling_seconds is None and screen is not None),
+                'adaptive evaluation requires unlimited learning and a model screen')
         self.root.mkdir(exist_ok=True);self.reserve=executor.reserve
         self.publication=Path(publish_manifest).resolve() if publish_manifest else self.root/'champion.json'
         self.publication_lock=None
@@ -115,6 +120,7 @@ class ChampionLoop:
             'training_run_sha256':executor.journal.run_sha256,'execution_contract_sha256':canonical_sha(executor.contract),
             'loop_plan':asdict(plan),'gate_sha256':gate.sha256,'screen_sha256':None if screen is None else screen.sha256,
             'scope':executor.journal_plan.scope,'publication':str(self.publication)}
+        if plan.adaptive_schedule:self.contract['adaptive_scheduler']=adaptive.contract()
         self.contract=json.loads(json.dumps(self.contract))
         self.lock=(self.root/'.loop.lock').open('a+b');fcntl.flock(self.lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         try:
@@ -131,6 +137,7 @@ class ChampionLoop:
             if resume:
                 wrapper=load(path);require(wrapper['sha256']==canonical_sha(wrapper['body']),'loop state checksum differs')
                 self.state=wrapper['body'];require(self.state['contract']==self.contract,'loop source/plans changed on resume')
+                require(not plan.adaptive_schedule or 'adaptive_scheduler' in self.state,'adaptive scheduler state is missing')
                 require(executor.runtime.records>=self.state['completed_records'],'learner rolled back behind committed loop state')
                 if initial_champion is not None:require(initial_champion['policy_sha256']==self.state['bootstrap']['policy_sha256'],'bootstrap changed on resume')
                 if self.publication.exists():
@@ -152,6 +159,7 @@ class ChampionLoop:
                     require(not self.diagnostic or old['body']['experimental'],'diagnostic loop cannot overwrite a formal release')
                 self.state={'contract':self.contract,'bootstrap':deepcopy(initial_champion),'completed_records':0,'round':0,'champion':initial_champion,
                     'history':[],'rounds':[],'pending':None,'evaluation_seconds':0.,'evaluation_inflight':None}
+                if plan.adaptive_schedule:self.state['adaptive_scheduler']=adaptive.initial_state(self._learning_seconds())
                 self._save()
             # Charge an interrupted evaluation conservatively against the same
             # quota, using the executor's durable recovery clock, never a reset.
@@ -228,7 +236,52 @@ class ChampionLoop:
         self.state['evaluation_seconds']+=max(0.,self.executor._spent()-self.state['evaluation_inflight'])
         self.state['evaluation_inflight']=None;self._save()
 
+    def _learning_seconds(self):
+        observed=self.executor._spent()
+        evaluating=0. if self.state['evaluation_inflight'] is None else max(0.,observed-self.state['evaluation_inflight'])
+        return max(0.,observed-self.state['evaluation_seconds']-evaluating)
+
+    def _evaluate_adaptive(self,archive,candidate,pending,stop_requested):
+        rejected={'status':'complete','numeric_pass':False,'promotion_permitted':False,
+                  'experimental_promotion_permitted':False}
+        resuming=pending['status']=='evaluating' and 'candidate' in pending
+        if resuming:
+            require(pending['candidate']['policy_sha256']==candidate['policy_sha256'],'pending gate candidate changed')
+        else:
+            if not self.executor.runtime.backend.average_ready:return dict(rejected,reason='average_not_ready')
+            if not adaptive.screen_due(self.state['adaptive_scheduler'],self._learning_seconds()):
+                return dict(rejected,reason='adaptive_training_interval')
+            if candidate['weights_sha256']==pending['champion']['weights_sha256']:
+                return dict(rejected,reason='unchanged_average_weights')
+        self.state['evaluation_inflight']=self.executor._spent();self._save()
+        try:
+            if not resuming:
+                pending['status']='screening';self._save()
+                pending['screen']=self.screen.evaluate(archive,average_ready=True,
+                    root=self.root/'screens'/f'{pending["index"]:04d}',time_cap_seconds=self.screen.plan.seconds,
+                    reference_opponents={'champion':policy(pending['champion']),**self._pool(pending['history'])},
+                    round_index=pending['index'],candidate_records=pending['target'],stop_requested=stop_requested)
+                if stop_requested():return dict(rejected,status='interrupted')
+                schedule,action=adaptive.observe_screen(self.state['adaptive_scheduler'],pending['screen'],
+                    self._learning_seconds(),pending['champion']['policy_sha256'])
+                self.state['adaptive_scheduler']=schedule;pending['schedule_action']=action;self._save()
+                if not action['run_gate']:return dict(rejected,reason=action['reason'],schedule=action)
+            pending['status']='evaluating';pending['candidate']=candidate;self._save()
+            decision=self.gate.evaluate(policy(candidate),policy(pending['champion']),self._pool(pending['history']),
+                self.root/'evaluations'/f'{pending["index"]:04d}',round_index=pending['index'],
+                time_cap_seconds=self.plan.gate_seconds,stop_requested=stop_requested)
+            if decision['status']=='budget_limited' and not stop_requested():
+                return dict(rejected,status='gate_pending',reason='resume_same_frozen_candidate')
+            if decision['status']=='complete':
+                promoted=bool(decision.get('experimental_promotion_permitted') if self.diagnostic else decision.get('promotion_permitted'))
+                self.state['adaptive_scheduler']=adaptive.observe_gate(self.state['adaptive_scheduler'],decision,
+                    self._learning_seconds(),pending['champion']['policy_sha256'],promoted=promoted)
+                self._save()
+            return decision
+        finally:self._finish_evaluation()
+
     def _evaluate(self,archive,candidate,pending,stop_requested):
+        if self.plan.adaptive_schedule:return self._evaluate_adaptive(archive,candidate,pending,stop_requested)
         rejected={'status':'complete','numeric_pass':False,'promotion_permitted':False,
                   'experimental_promotion_permitted':False}
         unlimited=self.executor.plan.time_ceiling_seconds is None

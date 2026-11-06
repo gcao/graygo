@@ -6,6 +6,7 @@ import tempfile
 import unittest
 from tools.training_benchmarks import benchmark_fields, latest_benchmark
 from tools.log_training_status import summary
+from tools.adaptive_gate_schedule import initial_state
 
 
 def write(path, value):
@@ -72,6 +73,19 @@ class BenchmarkLogTests(unittest.TestCase):
             self.assertIn('promotions=1 champion=champion-100', text)
             self.assertIn('benchmark=not_measured_against_learned_opponents', text)
             self.assertNotIn('average_vs_random', text)
+
+    def test_hourly_log_exposes_adaptive_timer_without_charging_evaluation_as_training(self):
+        with tempfile.TemporaryDirectory() as directory:
+            project=Path(directory);root=project/'run'
+            write(project/'runs/latest-training-loop.json',{'run_dir':str(root),'unlimited':True})
+            write(root/'status.json',{'status':'running'})
+            write(root/'learner/execution.json',{'body':{'clock':{'observed_seconds':10000.,'recovery_charge_seconds':0.}}})
+            write(root/'learner/league/state.json',{'body':{'evaluation_seconds':2000.,
+                'adaptive_scheduler':initial_state(8000.)}})
+            text=' | '.join(summary(project))
+            self.assertIn('gate_schedule=adaptive interval=60m',text)
+            self.assertIn('screen_due_in=0m gate_timer_in=60m',text)
+            self.assertIn('trigger=strong_screen_or_timer',text)
 
 
 if __name__ == '__main__':

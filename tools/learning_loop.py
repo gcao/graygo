@@ -121,11 +121,13 @@ def prepare(root,parent,parent_checkout,publication,*,total_seconds=3600,records
             'remaining_seconds':remaining,'records':records,'block':block,'publication':str(Path(publication).resolve()),
             'initial_champion':published['body']['champion'],'history':old['body']['history'],
             'parent_evaluation_seconds':old['body']['evaluation_seconds'],
+            'adaptive_gate_schedule':unlimited,
+            'parent_adaptive_scheduler':deepcopy(old['body'].get('adaptive_scheduler')),
             'prior_promotions':old['body'].get('prior_promotions',0)+sum(r['promoted'] for r in old['body']['rounds']),
             'gate_alpha':gate_alpha,'gate_seed':gate_seed,
             'checkout':str(checkout),'source_sha256':source_digest(),
             'tools':{name:digest(Path(__file__).with_name(name)) for name in
-                     ('learning_loop.py','champion_loop.py','champion_gate.py','champion_screen.py','legacy_policy.py','training_comparison.py')},
+                     ('learning_loop.py','champion_loop.py','champion_gate.py','champion_screen.py','legacy_policy.py','training_comparison.py','adaptive_gate_schedule.py')},
             'formal_training_or_promotion_grant':False,'experimental':True}
         root.mkdir(parents=True,exist_ok=False)
         write_report(root/'plan.json',{'body':body,'sha256':canonical_sha(body)},reserve_bytes=reserve_bytes)
@@ -149,6 +151,10 @@ def initialize(executor,loop,body):
         loop.state['completed_records']=init['records'];loop.state['history']=deepcopy(body['history'])
         loop.state['evaluation_seconds']=body.get('parent_evaluation_seconds',0.)
         loop.state['prior_promotions']=body.get('prior_promotions',0)
+        if loop.plan.adaptive_schedule:
+            from tools import adaptive_gate_schedule as adaptive
+            loop.state['adaptive_scheduler']=(deepcopy(body['parent_adaptive_scheduler'])
+                if body.get('parent_adaptive_scheduler') is not None else adaptive.initial_state(loop._learning_seconds()))
         loop._save();loop._publish()
 
 
@@ -180,7 +186,8 @@ def worker(root,*,stop_state=None,reserve_bytes=DEFAULT_RESERVE):
                            prior_setup_seconds=inherited,reserve_bytes=reserve_bytes) as executor:
             gate=IndependentGate(GatePlan(len(ends),alpha=body.get('gate_alpha',.05),seed=body.get('gate_seed',73)),reserve_bytes=reserve_bytes)
             gate_seconds=3600. if body['remaining_seconds'] is None else min(360.,body['remaining_seconds']*.1)
-            plan=LoopPlan(ends,gate_seconds=gate_seconds,continue_after_evaluation_budget=True)
+            plan=LoopPlan(ends,gate_seconds=gate_seconds,continue_after_evaluation_budget=True,
+                adaptive_schedule=body.get('adaptive_gate_schedule',False))
             with ChampionLoop(executor,plan,gate,initial_champion=body['initial_champion'],resume=resume,
                 publish_manifest=body['publication'],screen=IndependentScreen(ScreenPlan(),reserve_bytes=reserve_bytes)) as loop:
                 initialize(executor,loop,body)

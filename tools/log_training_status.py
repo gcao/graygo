@@ -86,6 +86,17 @@ def summary(project):
     champion = published.get('body', {}).get('champion', {}).get('label', '?')
     promotions = league.get('prior_promotions',0)+sum(r['promoted'] for r in league.get('rounds', []))
     fields.append(f'promotions={promotions} champion={champion}')
+    scheduler=league.get('adaptive_scheduler')
+    if scheduler:
+        observed=clock.get('observed_seconds',0.)+clock.get('recovery_charge_seconds',0.)
+        inflight=league.get('evaluation_inflight')
+        evaluating=0. if inflight is None else max(0.,observed-inflight)
+        learning=max(0.,observed-league.get('evaluation_seconds',0.)-evaluating)
+        screen_in=max(0.,scheduler['next_screen_learning_seconds']-learning)/60
+        gate_in=max(0.,scheduler['next_gate_learning_seconds']-learning)/60
+        fields.append(f"gate_schedule=adaptive interval={scheduler['interval_seconds']/60:.0f}m signal={scheduler['last_signal']}")
+        if pending.get('status')=='evaluating':fields.append('gate_evaluation=running')
+        else:fields.append(f"screen_due_in={screen_in:.0f}m gate_timer_in={gate_in:.0f}m trigger=strong_screen_or_timer action={scheduler['last_action']}")
     fields.extend(benchmark_fields(receipt, root, progress.get('records', records)))
     if pending.get('status')=='evaluating' and pending.get('index') is not None:
         evaluation=root/'learner/league/evaluations'/f"{pending['index']:04d}"

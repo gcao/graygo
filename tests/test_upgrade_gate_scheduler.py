@@ -7,6 +7,7 @@ from tools.continuous_training import create,run
 from tools.learning_loop import worker
 from tools.champion_loop import ChampionLoop
 from tools.upgrade_gate_scheduler import apply
+from graygo.confidence import canonical_sha
 from test_continuous_training import parent_run
 
 
@@ -32,6 +33,55 @@ class SchedulerUpgradeTests(unittest.TestCase):
             self.assertTrue((Path(receipt['archive'])/'league-state.json').exists())
             result=run(campaign,max_segments=1,reserve_bytes=0)
             self.assertEqual(result['completed_segments'],1)
+
+    def test_legacy_allowance_schedule_can_upgrade_and_resume_without_changing_checkpoint(self):
+        checkout=Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory() as directory:
+            base=Path(directory);parent,publication=parent_run(base);campaign=base/'campaign'
+            create(campaign,parent,checkout,publication,project=base,segment_records=16,block=8,reserve_bytes=0)
+            def legacy_worker(stage,**kwargs):
+                stage=Path(stage);path=stage/'plan.json';wrapper=json.loads(path.read_text())
+                wrapper['body']['adaptive_gate_schedule']=False
+                wrapper['body']['tools'].pop('adaptive_gate_schedule.py')
+                wrapper['sha256']=canonical_sha(wrapper['body']);path.write_text(json.dumps(wrapper))
+                reservation=Path(wrapper['body']['initialization']['parent_run'])/'handoff.json'
+                record=json.loads(reservation.read_text());record['plan_sha256']=wrapper['sha256']
+                reservation.write_text(json.dumps(record))
+                kwargs['stop_state'].append(True)
+                return worker(stage,**kwargs)
+            with patch('tools.continuous_training.worker',side_effect=legacy_worker):
+                run(campaign,max_segments=1,reserve_bytes=0)
+            stage=campaign/'stages/000000';checkpoint=stage/'learner/resume/000000000008/manifest.json'
+            saved=checkpoint.read_bytes()
+            state_path=stage/'learner/league/state.json'
+            self.assertNotIn('adaptive_scheduler',json.loads(state_path.read_text())['body'])
+            receipt=apply(campaign,reserve_bytes=0,adaptive_schedule=True)
+            state=json.loads(state_path.read_text())['body']
+            self.assertTrue(receipt['adaptive_schedule_enabled'])
+            self.assertEqual(saved,checkpoint.read_bytes())
+            self.assertTrue(state['contract']['loop_plan']['adaptive_schedule'])
+            self.assertIn('adaptive_scheduler',state)
+            self.assertEqual(run(campaign,max_segments=1,reserve_bytes=0)['completed_segments'],1)
+
+    def test_adaptive_upgrade_preserves_started_gate_and_saved_state(self):
+        checkout=Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory() as directory:
+            base=Path(directory);parent,publication=parent_run(base);campaign=base/'campaign'
+            create(campaign,parent,checkout,publication,project=base,segment_records=16,block=8,reserve_bytes=0)
+            def stop_at_gate(loop,archive,candidate,pending,stop_requested):
+                pending.update(status='evaluating',candidate=candidate)
+                loop._save()
+                return {'status':'interrupted','numeric_pass':False,'promotion_permitted':False}
+            with patch.object(ChampionLoop,'_evaluate',stop_at_gate):run(campaign,max_segments=1,reserve_bytes=0)
+            stage=campaign/'stages/000000';state_path=stage/'learner/league/state.json'
+            before=json.loads(state_path.read_text())['body']
+            receipt=apply(campaign,reserve_bytes=0,adaptive_schedule=True)
+            after=json.loads(state_path.read_text())['body']
+            self.assertTrue(receipt['adaptive_schedule_enabled'])
+            self.assertEqual(before['pending'],after['pending'])
+            self.assertEqual(before['adaptive_scheduler'],after['adaptive_scheduler'])
+            self.assertEqual(before['evaluation_seconds'],after['evaluation_seconds'])
+            self.assertEqual(before['champion'],after['champion'])
 
     def test_old_incomplete_gate_is_retired_without_reusing_evidence_or_changing_model(self):
         checkout=Path(__file__).resolve().parents[1]
