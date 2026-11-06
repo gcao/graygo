@@ -11,6 +11,12 @@ import sqlite3
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+# The service also supports execution by absolute script path.
+try:
+    from tools.training_benchmarks import benchmark_fields, stage_roots
+except ModuleNotFoundError:
+    from training_benchmarks import benchmark_fields, stage_roots
+
 
 def read(path):
     try:
@@ -75,25 +81,11 @@ def summary(project):
         fields.append(f"Q_loss={checkpoint['mean_q_loss']:.6f}")
     if checkpoint.get('mean_game_rounds') is not None:
         fields.append(f"mean_rounds={checkpoint['mean_game_rounds']:.1f}")
-    screens = sorted((root / 'learner/league/screens').glob('*/screen.json'))
-    if screens:
-        screen = read(screens[-1])
-        index = int(screens[-1].parent.name)
-        ends = league.get('contract', {}).get('loop_plan', {}).get('round_ends', [])
-        if index < len(ends):
-            fields.append(f'screen_records={count(ends[index])}')
-        for head, report in screen.get('heads', {}).items():
-            name = 'Q' if head == 'greedy_q' else head
-            if report.get('status') == 'uninitialized':
-                fields.append(f'{name}=uninitialized')
-                continue
-            if report.get('opening_pass_probability') is not None:
-                fields.append(f"{name}_opening_pass={report['opening_pass_probability']:.1%}")
-            for opponent, result in report.get('opponents', {}).items():
-                if result.get('games', 0):
-                    fields.append(f"{name}_vs_{opponent}={result['wins']}W/{result['draws']}D/{result['losses']}L"
-                                  f" score={result['win_score']:.1%} n={result['games']}")
+    published = read(receipt.get('publication', root / 'learner/league/champion.json'))
+    champion = published.get('body', {}).get('champion', {}).get('label', '?')
     promotions = league.get('prior_promotions',0)+sum(r['promoted'] for r in league.get('rounds', []))
+    fields.append(f'promotions={promotions} champion={champion}')
+    fields.extend(benchmark_fields(receipt, root, progress.get('records', records)))
     if pending.get('status')=='evaluating' and pending.get('index') is not None:
         evaluation=root/'learner/league/evaluations'/f"{pending['index']:04d}"
         if (evaluation/'positive-pool-gain-v2').is_dir():evaluation=evaluation/'positive-pool-gain-v2'
@@ -109,10 +101,18 @@ def summary(project):
             maximum=max(counts.values());target=next((n for n in looks if n>=maximum),looks[-1])
             fields.append(f"gate_candidate_records={count(pending.get('target'))}")
             fields.extend(f'gate_{label}={games}/{target}' for label,games in counts.items())
-    assessment=read(league['champion_assessment']) if league.get('champion_assessment') else {}
+    assessment_path=league.get('champion_assessment') or published.get('body',{}).get('champion_assessment')
+    if not assessment_path:
+        for previous_stage in stage_roots(receipt, root):
+            assessment_path=read(previous_stage/'learner/league/state.json').get('body',{}).get('champion_assessment')
+            if assessment_path:break
+    assessment=read(assessment_path) if assessment_path else {}
     if assessment:
         fields.append(f"promotion_policy={assessment.get('promotion_policy',assessment.get('decision',{}).get('promotion_policy','unknown'))}")
-    for row in reversed(league.get('rounds',[])):
+    all_rounds=[]
+    for stage in reversed(stage_roots(receipt, root)):
+        all_rounds.extend(read(stage/'learner/league/state.json').get('body',{}).get('rounds',[]))
+    for row in reversed(all_rounds):
         decision=row.get('decision',{})
         if 'criteria' in decision:
             if (assessment.get('version')=='graygo/promotion-policy-assessment/2' and assessment.get('records')==row['records']
@@ -122,9 +122,6 @@ def summary(project):
             failed=','.join(k for k,v in decision['criteria'].items() if not v) or 'none'
             fields.append(f"last_gate_records={count(row['records'])} gate_pass={decision['numeric_pass']} failed={failed}")
             break
-    published = read(receipt.get('publication', root / 'learner/league/champion.json'))
-    champion = published.get('body', {}).get('champion', {}).get('label', '?')
-    fields.append(f'promotions={promotions} champion={champion}')
     return fields
 
 

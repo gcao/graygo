@@ -20,7 +20,7 @@ from graygo.board_journal import BoardJournalPlan
 from graygo.board_runtime import BoardRuntimeConfig
 from graygo.confidence import canonical_sha
 from graygo.engine import Rules
-from graygo.evaluation import BaselinePolicy,FrozenNeuralPolicy
+from graygo.evaluation import FrozenNeuralPolicy
 from graygo.manifest import source_digest,write_report
 from graygo.models import ModelConfig,PolicyNet
 from graygo.storage import CheckpointStore,DEFAULT_RESERVE,digest as _digest,DiskBudgetError
@@ -207,8 +207,9 @@ class ChampionLoop:
         return dict(descriptor,bundle=str(target),bundle_sha256=digest(target))
 
     def _pool(self,history):
-        result={'random':BaselinePolicy('random'),'tactical':BaselinePolicy('tactical')}
-        for i,descriptor in enumerate(history[-self.plan.history_size:] if self.plan.history_size else []):
+        result={}
+        selected=history[-self.plan.history_size:] if self.plan.history_size else []
+        for i,descriptor in enumerate(selected or [self.state['bootstrap']]):
             result['historical-'+str(i)]=policy(descriptor)
         return result
 
@@ -234,7 +235,12 @@ class ChampionLoop:
         resuming_gate=unlimited and pending['status']=='evaluating' and 'candidate' in pending
         if resuming_gate:
             require(pending['candidate']['policy_sha256']==candidate['policy_sha256'],'pending gate candidate changed')
-        if not resuming_gate and self._evaluation_remaining()<=0:
+        credit_before_screen=self._evaluation_remaining()
+        average_ready=self.executor.runtime.backend.average_ready
+        refresh=getattr(getattr(self.screen,'plan',None),'refresh_seconds',None)
+        periodic_screen=(unlimited and average_ready and refresh is not None
+            and self.executor._spent()-self.state.get('last_strength_screen_observed',0.)>=refresh)
+        if not resuming_gate and credit_before_screen<=0 and not periodic_screen:
             return dict(rejected,reason='evaluation_budget_exhausted')
         self.state['evaluation_inflight']=self.executor._spent();self._save()
         try:
@@ -242,13 +248,20 @@ class ChampionLoop:
             if self.screen is not None and not resuming_gate:
                 pending['status']='screening';self._save()
                 pending['screen']=self.screen.evaluate(archive,average_ready=average_ready,
-                    root=self.root/'screens'/f'{pending["index"]:04d}',time_cap_seconds=self._evaluation_remaining(),
-                    stop_requested=lambda:stop_requested() or self._evaluation_remaining()<=0)
+                    root=self.root/'screens'/f'{pending["index"]:04d}',
+                    time_cap_seconds=self.screen.plan.seconds if periodic_screen and credit_before_screen<=0 else self._evaluation_remaining(),
+                    reference_opponents={'champion':policy(pending['champion']),
+                        **{name:opponent for name,opponent in self._pool(pending['history']).items() if name.startswith('historical-')}} if average_ready else None,
+                    round_index=pending['index'],candidate_records=pending['target'],
+                    stop_requested=stop_requested if periodic_screen else lambda:stop_requested() or self._evaluation_remaining()<=0)
+                self.state['last_strength_screen_observed']=self.executor._spent()
                 self._save()
                 if stop_requested():return dict(rejected,status='interrupted')
                 if not average_ready:return dict(rejected,reason='average_not_ready')
                 if not pending['screen']['average_eligible']:return dict(rejected,reason='screen_not_cleared')
             elif not average_ready and not resuming_gate:return dict(rejected,reason='average_not_ready')
+            if not resuming_gate and credit_before_screen<=0:
+                return dict(rejected,reason='promotion_deferred_evaluation_debt')
             if candidate['weights_sha256']==pending['champion']['weights_sha256']:
                 return dict(rejected,reason='unchanged_average_weights')
             remaining=self._evaluation_remaining()

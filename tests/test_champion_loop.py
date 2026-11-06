@@ -108,7 +108,7 @@ class ChampionLoopTests(unittest.TestCase):
                 gate=Gate(learner);screen=Screen()
                 with ChampionLoop(learner,LoopPlan((16,),gate_seconds=3600,continue_after_evaluation_budget=True),gate,screen=screen) as loop:
                     candidate={'policy_sha256':'candidate','weights_sha256':'new-weights'}
-                    pending={'index':0,'status':'training','history':[],'champion':loop.state['champion']}
+                    pending={'index':0,'target':16,'status':'training','history':[],'champion':loop.state['champion']}
                     loop.state['pending']=pending
                     actor=object()
                     with patch('tools.champion_loop.policy',return_value=actor),patch.object(NFSPBackend,'average_ready',new_callable=PropertyMock,return_value=True):
@@ -124,6 +124,33 @@ class ChampionLoopTests(unittest.TestCase):
                         deferred=loop._evaluate('fixture',candidate,next_pending,lambda:False)
                         self.assertEqual(deferred['reason'],'evaluation_budget_exhausted')
                         self.assertEqual(len(gate.calls),2)
+
+    def test_hourly_model_screen_can_refresh_during_debt_without_starting_a_gate(self):
+        class Plan:
+            seconds=2.;refresh_seconds=3600.
+        class Screen:
+            plan=Plan();sha256=canonical_sha({'fixture':'periodic-screen'})
+            def __init__(self):self.calls=0
+            def evaluate(self,*args,**kwargs):
+                self.calls+=1
+                self.cap=kwargs['time_cap_seconds']
+                return {'status':'complete','average_eligible':True,'promotion_permitted':False}
+        with tempfile.TemporaryDirectory() as directory:
+            with self.unlimited(directory) as learner:
+                learner.base_observed+=36000.
+                gate=FixtureGate();gate.plan=GatePlan(1,(4,));screen=Screen()
+                with ChampionLoop(learner,LoopPlan((16,)),gate,screen=screen) as loop:
+                    loop.state['evaluation_seconds']=50000.
+                    candidate={'policy_sha256':'candidate','weights_sha256':'new-weights'}
+                    pending={'index':0,'target':16,'status':'training','history':[],'champion':loop.state['champion']}
+                    with patch('tools.champion_loop.policy',return_value=object()),patch.object(NFSPBackend,'average_ready',new_callable=PropertyMock,return_value=True):
+                        first=loop._evaluate('fixture',candidate,pending,lambda:False)
+                        self.assertEqual(first['reason'],'promotion_deferred_evaluation_debt')
+                        self.assertEqual((screen.calls,screen.cap),(1,2.))
+                        second=loop._evaluate('fixture',candidate,pending,lambda:False)
+                        self.assertEqual(second['reason'],'evaluation_budget_exhausted')
+                        self.assertEqual(screen.calls,1)
+                        self.assertEqual(gate.calls,[])
 
     def test_gate_pending_retries_without_training_or_switching_models(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -205,8 +232,33 @@ class ChampionLoopTests(unittest.TestCase):
                 self.assertEqual(result['status'],'complete')
                 self.assertEqual(result['heads']['average']['status'],'uninitialized')
                 self.assertFalse(result['average_eligible']);self.assertFalse(result['promotion_permitted'])
-                for report in result['heads']['greedy_q']['opponents'].values():self.assertEqual(report['games'],4)
+                self.assertEqual(result['heads']['greedy_q']['opponents'],{})
+                self.assertIn('opening_pass_probability',result['heads']['greedy_q'])
                 exact(normalized(expected),normalized(learner.runtime.state_dict()))
+
+    def test_screen_uses_only_frozen_models_and_keeps_learner_unchanged(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with execute(directory) as learner:
+                archive=learner.root/'weights/000000000000'
+                expected=deepcopy(learner.runtime.state_dict())
+                champion=FrozenNeuralPolicy.from_archive(archive,label='incumbent')
+                screen=IndependentScreen(ScreenPlan(4,30),reserve_bytes=0)
+                result=screen.evaluate(archive,average_ready=True,root=learner.root/'model-screen',
+                    time_cap_seconds=30,reference_opponents={'champion':champion,'historical-0':champion},
+                    candidate_records=0,round_index=0)
+                self.assertEqual(set(result['heads']['average']['opponents']),{'champion','historical-0'})
+                self.assertEqual(result['heads']['greedy_q']['opponents'],{})
+                self.assertFalse(result['promotion_permitted'])
+                exact(normalized(expected),normalized(learner.runtime.state_dict()))
+
+    def test_promotion_pool_contains_only_models_and_always_has_a_reference(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with execute(directory) as learner:
+                with ChampionLoop(learner,LoopPlan((128,256)),FixtureGate()) as loop:
+                    pool=loop._pool([])
+                    self.assertEqual(tuple(pool),('historical-0',))
+                    self.assertTrue(all(isinstance(opponent,FrozenNeuralPolicy) for opponent in pool.values()))
+                    self.assertEqual(pool['historical-0'].sha256,loop.state['bootstrap']['policy_sha256'])
 
     def test_cli_preserves_primary_schedule_and_requires_explicit_early_diagnostic(self):
         base=['--run-dir','unused','--time-cap-seconds','60']

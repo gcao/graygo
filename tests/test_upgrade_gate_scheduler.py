@@ -1,9 +1,11 @@
+import json
 from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
 from tools.continuous_training import create,run
 from tools.learning_loop import worker
+from tools.champion_loop import ChampionLoop
 from tools.upgrade_gate_scheduler import apply
 from test_continuous_training import parent_run
 
@@ -21,13 +23,39 @@ class SchedulerUpgradeTests(unittest.TestCase):
             original=checkpoint.read_bytes()
             evidence=stage/'learner/league/evaluations/0000/retained-evidence.txt'
             evidence.parent.mkdir(parents=True);evidence.write_text('fixture preserved')
-            receipt=apply(campaign,reserve_bytes=0)
+            receipt=apply(campaign,reserve_bytes=0,evaluation_schedule=True)
+            self.assertTrue(receipt['evaluation_schedule_changed'])
+            self.assertEqual(receipt['opponents'],'champion-and-frozen-model-history')
             self.assertFalse(receipt['numeric_promotion_policy_changed'])
             self.assertEqual(checkpoint.read_bytes(),original)
             self.assertEqual(evidence.read_text(),'fixture preserved')
             self.assertTrue((Path(receipt['archive'])/'league-state.json').exists())
             result=run(campaign,max_segments=1,reserve_bytes=0)
             self.assertEqual(result['completed_segments'],1)
+
+    def test_old_incomplete_gate_is_retired_without_reusing_evidence_or_changing_model(self):
+        checkout=Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory() as directory:
+            base=Path(directory);parent,publication=parent_run(base);campaign=base/'campaign'
+            create(campaign,parent,checkout,publication,project=base,segment_records=16,block=8,reserve_bytes=0)
+            def stop_at_gate(loop,archive,candidate,pending,stop_requested):
+                pending.update(status='evaluating',candidate=candidate)
+                loop._save()
+                return {'status':'interrupted','numeric_pass':False,'promotion_permitted':False}
+            with patch.object(ChampionLoop,'_evaluate',stop_at_gate):
+                first=run(campaign,max_segments=1,reserve_bytes=0)
+            self.assertEqual(first['status'],'interrupted')
+            stage=campaign/'stages/000000';checkpoint=stage/'learner/resume/000000000016/manifest.json'
+            original=checkpoint.read_bytes()
+            before=json.loads(publication.read_text())['body']['champion']['policy_sha256']
+            apply(campaign,reserve_bytes=0,evaluation_schedule=True)
+            state=json.loads((stage/'learner/league/state.json').read_text())['body']
+            self.assertIsNone(state['pending'])
+            self.assertEqual(state['rounds'][-1]['decision']['reason'],'evaluation_schedule_superseded')
+            self.assertFalse(state['rounds'][-1]['promoted'])
+            self.assertEqual(checkpoint.read_bytes(),original)
+            self.assertEqual(json.loads(publication.read_text())['body']['champion']['policy_sha256'],before)
+            self.assertEqual(run(campaign,max_segments=1,reserve_bytes=0)['completed_segments'],1)
 
 
 if __name__=='__main__':unittest.main()

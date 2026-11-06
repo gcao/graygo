@@ -19,7 +19,7 @@ def wrapped(path):
     return value
 
 
-def apply(campaign,*,reserve_bytes=DEFAULT_RESERVE):
+def apply(campaign,*,reserve_bytes=DEFAULT_RESERVE,evaluation_schedule=False):
     campaign=Path(campaign).resolve();checkout=Path(__file__).resolve().parents[1];locks=[]
     def write(path,value):write_report(path,value,reserve_bytes=reserve_bytes)
     try:
@@ -42,9 +42,10 @@ def apply(campaign,*,reserve_bytes=DEFAULT_RESERVE):
         if published['body']['loop_contract_sha256']!=old_contract:raise ValueError('a different loop owns publication')
         if league['body']['contract']['implementation_sha256']!=plan['body']['tools']['champion_loop.py']:
             raise ValueError('recorded scheduler identities differ')
+        allowed={'champion_loop.py','champion_screen.py'} if evaluation_schedule else {'champion_loop.py'}
         for name,sha in plan['body']['tools'].items():
             if digest(Path(plan['body']['checkout'])/'tools'/name)!=sha:raise ValueError('original source changed')
-            if name!='champion_loop.py' and digest(checkout/'tools'/name)!=sha:
+            if name not in allowed and digest(checkout/'tools'/name)!=sha:
                 raise ValueError('upgrade changes more than scheduling: '+name)
         reservation=json.loads((parent/'handoff.json').read_text())
         if reservation['plan_sha256']!=plan['sha256'] or reservation['destination']!=str(stage):
@@ -57,9 +58,27 @@ def apply(campaign,*,reserve_bytes=DEFAULT_RESERVE):
         for name,value in originals.items():write(archive/name,value)
         old_implementation=league['body']['contract']['implementation_sha256']
         implementation=digest(checkout/'tools/champion_loop.py')
+        if evaluation_schedule:
+            from tools.champion_screen import IndependentScreen
+            league['body']['contract']['screen_sha256']=IndependentScreen().sha256
+            pending=league['body'].get('pending')
+            if pending and pending.get('status') in ('evaluating','screening'):
+                # Never resume an old baseline gate under a new opponent set or
+                # reuse its confidence family for another candidate.
+                target=pending['target']
+                if clock['last_checkpoint']['records']!=target:
+                    raise ValueError('unfinished evaluation is not at its frozen checkpoint')
+                league['body']['rounds'].append({'index':pending['index'],'records':target,
+                    'candidate':pending.get('candidate'),'incumbent':pending['champion'],
+                    'decision':{'status':'complete','numeric_pass':False,
+                        'promotion_permitted':False,'experimental_promotion_permitted':False,
+                        'reason':'evaluation_schedule_superseded'},'promoted':False,
+                    'learner_reinitialized':False,'buffers_flushed':False})
+                league['body'].update(round=pending['index']+1,completed_records=target,pending=None)
         league['body']['contract']['implementation_sha256']=implementation
         league['sha256']=canonical_sha(league['body'])
-        plan['body']['checkout']=str(checkout);plan['body']['tools']['champion_loop.py']=implementation
+        plan['body']['checkout']=str(checkout)
+        for name in allowed:plan['body']['tools'][name]=digest(checkout/'tools'/name)
         plan['sha256']=canonical_sha(plan['body'])
         reservation['previous_plan_sha256']=reservation['plan_sha256'];reservation['plan_sha256']=plan['sha256']
         campaign_plan['body']['checkout']=str(checkout);campaign_plan['sha256']=canonical_sha(campaign_plan['body'])
@@ -74,7 +93,9 @@ def apply(campaign,*,reserve_bytes=DEFAULT_RESERVE):
                  'source_sha256':source_digest(),'old_scheduler_sha256':old_implementation,
                  'new_scheduler_sha256':implementation,'checkpoint_records':clock['last_checkpoint']['records'],
                  'numeric_promotion_policy_changed':False,'evaluation_evidence_changed':False,
-                 'checkpoint_or_optimizer_changed':False,'checkout':str(checkout)}
+                 'checkpoint_or_optimizer_changed':False,'checkout':str(checkout),
+                 'evaluation_schedule_changed':evaluation_schedule,
+                 'opponents':'champion-and-frozen-model-history' if evaluation_schedule else 'unchanged'}
         write(archive/'receipt.json',receipt)
         return receipt
     finally:
@@ -82,8 +103,9 @@ def apply(campaign,*,reserve_bytes=DEFAULT_RESERVE):
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--campaign',required=True);args=parser.parse_args()
-    print(json.dumps(apply(args.campaign),sort_keys=True))
+    parser=argparse.ArgumentParser();parser.add_argument('--campaign',required=True)
+    parser.add_argument('--evaluation-schedule',action='store_true');args=parser.parse_args()
+    print(json.dumps(apply(args.campaign,evaluation_schedule=args.evaluation_schedule),sort_keys=True))
 
 
 if __name__=='__main__':main()

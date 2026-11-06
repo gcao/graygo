@@ -90,23 +90,43 @@ entire training budget has gone. The API can still request resumable pending
 evaluations through continue_after_evaluation_budget=False.
 
 The full gate retains independent actors, fixed looks, confidence allocation,
-historical/baseline regression checks and atomic publication. A rejection-only
+historical-model regression checks and atomic publication. A rejection-only
 futility check stops a clearly unpromising first look before the larger look.
 Futility and screening never authorize promotion.
 
-## Q and average-policy diagnostics
+## Model-only evaluation (owner approved November 6)
 
-tools/champion_screen.py evaluates frozen greedy Q and initialized average
-policies separately against random and tactical opponents. Defaults are 20 games
-per matchup, paired across colors, with a 30-second total screen ceiling. Reports
-include wins/draws/losses, utility, game lengths/endings and empty-board pass
-probability. An uninitialized average policy is reported explicitly and skipped.
-Screening does not mutate learner parameters, buffers or RNG state.
+The active learning/release loop no longer schedules random or tactical bots.
+NFSP collection remains self-play; exploration, replay, reservoir, optimizers,
+private action RNGs and the averaging schedule are unchanged.
 
-An initialized average must have positive sample mean utility against both
-baselines to proceed to an expensive champion gate. This is a cheap rejection
-filter with a small fixed sample, not a confidence or deployment-readiness claim.
-Only an average policy can be released; Q diagnostics cannot promote Q.
+tools/champion_screen.py screens the frozen average policy against the current
+champion and up to three frozen historical models, with 20 color-paired games
+per opponent and a 120-second total screen ceiling. Q reports its opening pass
+probability without playing separate diagnostic matches. Before average-policy
+initialization no strength matchups are run. A positive sample mean against the
+champion is a rejection-only filter; historical matchups are descriptive here.
+A screen cannot promote a model. During evaluation debt, a bounded model-only
+screen is permitted at the first checkpoint after an hour so progress remains
+visible. Its time is charged to the same evaluation ledger, and it cannot start
+a new expensive gate until credit is positive again. Started gates still finish.
+Full gates retain their confidence bounds,
+head-to-head requirement, positive pool-gain rule, regression checks and absolute
+floors. Their pool now contains historical models only, with the frozen
+bootstrap model as the initial reference if no previous champion exists.
+
+Reports use a separate champion-first-v2 namespace; original baseline screens
+and promotion evidence remain intact. A stopped campaign can adopt the schedule
+with tools/upgrade_gate_scheduler.py --evaluation-schedule. The upgrade verifies
+unchanged numerical source and checkpoints, archives controller metadata, and
+updates only the pinned tools and operational contracts. An unfinished old gate
+is retired without promotion; its confidence slot and evidence are not reused.
+
+The hourly observer leads with the champion and learned-opponent results, names
+the opponent actually tested, and reports benchmark_records, benchmark_age,
+benchmark_measured_at and lag_records. It carries the latest measurement across
+archive segments and distinguishes screening from an in-progress/full gate.
+A repeated historical result is not a new measurement of the current learner.
 
 ## Preserve the learning schedule
 
@@ -130,7 +150,7 @@ Three bounded public modes are available:
   promote it. Like the fixed-opening confirmation recipe, opening is not filtered
   by the per-seed development window. This mode makes no A2/cohort/confirmation
   claim. Existing formal development-window and confirmation controls remain
-  unchanged. Only initialized averages clearing screening and the independent
+  unchanged. Only initialized averages clearing model-only screening and the independent
   promotion gate can update the selected arena manifest.
 
 Formal development/confirmation configuration, readiness decisions and calibrated
