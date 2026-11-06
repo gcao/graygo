@@ -228,11 +228,16 @@ class ChampionLoop:
     def _evaluate(self,archive,candidate,pending,stop_requested):
         rejected={'status':'complete','numeric_pass':False,'promotion_permitted':False,
                   'experimental_promotion_permitted':False}
-        if self._evaluation_remaining()<=0:return dict(rejected,reason='evaluation_budget_exhausted')
+        unlimited=self.executor.plan.time_ceiling_seconds is None
+        resuming_gate=unlimited and pending['status']=='evaluating' and 'candidate' in pending
+        if resuming_gate:
+            require(pending['candidate']['policy_sha256']==candidate['policy_sha256'],'pending gate candidate changed')
+        if not resuming_gate and self._evaluation_remaining()<=0:
+            return dict(rejected,reason='evaluation_budget_exhausted')
         self.state['evaluation_inflight']=self.executor._spent();self._save()
         try:
             average_ready=self.executor.runtime.backend.average_ready
-            if self.screen is not None:
+            if self.screen is not None and not resuming_gate:
                 pending['status']='screening';self._save()
                 pending['screen']=self.screen.evaluate(archive,average_ready=average_ready,
                     root=self.root/'screens'/f'{pending["index"]:04d}',time_cap_seconds=self._evaluation_remaining(),
@@ -241,18 +246,24 @@ class ChampionLoop:
                 if stop_requested():return dict(rejected,status='interrupted')
                 if not average_ready:return dict(rejected,reason='average_not_ready')
                 if not pending['screen']['average_eligible']:return dict(rejected,reason='screen_not_cleared')
-            elif not average_ready:return dict(rejected,reason='average_not_ready')
+            elif not average_ready and not resuming_gate:return dict(rejected,reason='average_not_ready')
             if candidate['weights_sha256']==pending['champion']['weights_sha256']:
                 return dict(rejected,reason='unchanged_average_weights')
             remaining=self._evaluation_remaining()
-            if remaining<=0:return dict(rejected,reason='evaluation_budget_exhausted')
+            if remaining<=0 and not unlimited:return dict(rejected,reason='evaluation_budget_exhausted')
             pending['status']='evaluating';pending['candidate']=candidate;self._save()
+            # An unlimited run can borrow enough time to finish a qualified
+            # candidate's finite gate. Charge every second; subsequent candidates
+            # wait while learning repays this debt. Never throw away a started
+            # gate merely because a new checkpoint is available.
             decision=self.gate.evaluate(policy(candidate),policy(pending['champion']),self._pool(pending['history']),
                 self.root/'evaluations'/f'{pending["index"]:04d}',round_index=pending['index'],
-                time_cap_seconds=min(remaining,self.plan.gate_seconds),
-                stop_requested=lambda:stop_requested() or self._evaluation_remaining()<=0)
+                time_cap_seconds=self.plan.gate_seconds if unlimited else min(remaining,self.plan.gate_seconds),
+                stop_requested=stop_requested if unlimited else lambda:stop_requested() or self._evaluation_remaining()<=0)
+            if unlimited and decision['status']=='budget_limited' and not stop_requested():
+                return dict(rejected,status='gate_pending',reason='resume_same_frozen_candidate')
             if (decision['status'] in ('budget_limited','interrupted') and not stop_requested()
-                    and self.plan.continue_after_evaluation_budget):
+                    and self.plan.continue_after_evaluation_budget and not unlimited):
                 return dict(rejected,reason='evaluation_budget_exhausted',evaluation_status=decision['status'])
             return decision
         finally:self._finish_evaluation()
@@ -277,6 +288,7 @@ class ChampionLoop:
             archive=self.executor.root/'weights'/f'{target:012d}'
             candidate=self._export(self._candidate(archive,'candidate-'+str(target)))
             decision=self._evaluate(archive,candidate,pending,stop_requested)
+            if decision['status']=='gate_pending':continue
             if decision['status']!='complete':status=decision['status'];break
             promoted=bool(decision.get('experimental_promotion_permitted') if self.diagnostic else decision.get('promotion_permitted'))
             if promoted:

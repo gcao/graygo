@@ -3,6 +3,7 @@ from pathlib import Path
 import json
 import tempfile
 import unittest
+from unittest.mock import patch,PropertyMock
 import numpy as np
 import torch
 from graygo.board_execution import BoardExecutor,BoardExecutionPlan
@@ -11,6 +12,7 @@ from graygo.board_runtime import BoardRuntimeConfig
 from graygo.confidence import canonical_sha
 from graygo.engine import Rules
 from graygo.evaluation import BaselinePolicy,FrozenNeuralPolicy
+from graygo.nfsp import NFSPBackend
 from tools.champion_gate import GatePlan,IndependentGate
 from tools.champion_loop import ChampionLoop,LoopPlan,parse_args
 from tools.champion_screen import IndependentScreen,ScreenPlan
@@ -78,6 +80,66 @@ class ChampionGateTests(unittest.TestCase):
 
 class ChampionLoopTests(unittest.TestCase):
     def setUp(self):torch.set_num_threads(1)
+
+    def unlimited(self,root):
+        cfg=BoardRuntimeConfig(rules=Rules(3,5),envs=2,capacity=256,batch=4,learning_start=4,
+            target_every=8,width=8,blocks=1,norm_groups=2)
+        return BoardExecutor(root,cfg,BoardJournalPlan('loop',16,(0,16)),BoardExecutionPlan(None),reserve_bytes=0)
+
+    def test_unlimited_gate_borrows_time_and_resumes_the_same_candidate_before_new_work(self):
+        class Gate:
+            plan=GatePlan(1,(4,));sha256=canonical_sha({'fixture':'completion'});protected_authorizer=None
+            def __init__(self,executor):self.executor=executor;self.calls=[]
+            def evaluate(self,candidate,champion,pool,root,**kwargs):
+                self.calls.append((candidate,champion,kwargs['time_cap_seconds']))
+                self.executor.base_observed+=1000.
+                assert not kwargs['stop_requested']() # Credit exhaustion cannot cancel a started full gate.
+                return {'status':'budget_limited' if len(self.calls)==1 else 'complete',
+                        'numeric_pass':False,'promotion_permitted':False,'experimental_promotion_permitted':False}
+        class Screen:
+            sha256=canonical_sha({'fixture':'screen'})
+            def __init__(self):self.calls=0
+            def evaluate(self,*args,**kwargs):
+                self.calls+=1
+                return {'status':'complete','average_eligible':True,'promotion_permitted':False}
+        with tempfile.TemporaryDirectory() as directory:
+            with self.unlimited(directory) as learner:
+                learner.base_observed+=100.
+                gate=Gate(learner);screen=Screen()
+                with ChampionLoop(learner,LoopPlan((16,),gate_seconds=3600,continue_after_evaluation_budget=True),gate,screen=screen) as loop:
+                    candidate={'policy_sha256':'candidate','weights_sha256':'new-weights'}
+                    pending={'index':0,'status':'training','history':[],'champion':loop.state['champion']}
+                    loop.state['pending']=pending
+                    actor=object()
+                    with patch('tools.champion_loop.policy',return_value=actor),patch.object(NFSPBackend,'average_ready',new_callable=PropertyMock,return_value=True):
+                        first=loop._evaluate('fixture',candidate,pending,lambda:False)
+                        self.assertEqual(first['status'],'gate_pending')
+                        self.assertEqual(pending['candidate'],candidate)
+                        self.assertEqual(loop._evaluation_remaining(),0)
+                        second=loop._evaluate('fixture',candidate,pending,lambda:False)
+                        self.assertEqual(second['status'],'complete');self.assertFalse(second['numeric_pass'])
+                        self.assertEqual(screen.calls,1);self.assertEqual(len(gate.calls),2)
+                        self.assertTrue(all(call==(actor,actor,3600) for call in gate.calls))
+                        next_pending=dict(pending,status='training');next_pending.pop('candidate')
+                        deferred=loop._evaluate('fixture',candidate,next_pending,lambda:False)
+                        self.assertEqual(deferred['reason'],'evaluation_budget_exhausted')
+                        self.assertEqual(len(gate.calls),2)
+
+    def test_gate_pending_retries_without_training_or_switching_models(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with self.unlimited(directory) as learner:
+                gate=FixtureGate();gate.plan=GatePlan(1,(4,))
+                with ChampionLoop(learner,LoopPlan((16,)),gate) as loop:
+                    calls=[]
+                    def evaluate(archive,candidate,pending,stop_requested):
+                        calls.append((learner.runtime.records,candidate['policy_sha256']))
+                        pending['status']='evaluating';pending['candidate']=candidate
+                        return {'status':'gate_pending' if len(calls)==1 else 'complete','numeric_pass':False,
+                                'promotion_permitted':False,'experimental_promotion_permitted':False}
+                    with patch.object(loop,'_evaluate',side_effect=evaluate):result=loop.run()
+                    self.assertEqual(result['learner_records'],16);self.assertEqual(result['rounds'],1)
+                    self.assertEqual(len(calls),2);self.assertEqual(calls[0],calls[1])
+                    self.assertFalse(loop.state['rounds'][0]['promoted'])
 
     def test_evaluation_quota_survives_resume_and_does_not_block_learning(self):
         with tempfile.TemporaryDirectory() as directory:

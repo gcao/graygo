@@ -7,6 +7,7 @@ import argparse
 from datetime import datetime
 import json
 import os
+import sqlite3
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -93,6 +94,26 @@ def summary(project):
                     fields.append(f"{name}_vs_{opponent}={result['wins']}W/{result['draws']}D/{result['losses']}L"
                                   f" score={result['win_score']:.1%} n={result['games']}")
     promotions = league.get('prior_promotions',0)+sum(r['promoted'] for r in league.get('rounds', []))
+    if pending.get('status')=='evaluating' and pending.get('index') is not None:
+        evaluation=root/'learner/league/evaluations'/f"{pending['index']:04d}"
+        gate=read(evaluation/'gate-plan.json');looks=gate.get('family',{}).get('looks',[500,2000])
+        counts={}
+        for path in sorted(evaluation.glob('*/evidence.sqlite')):
+            try:
+                connection=sqlite3.connect('file:'+str(path)+'?mode=ro',uri=True,timeout=.1)
+                try:counts[path.parent.name]=connection.execute('SELECT COUNT(*) FROM units').fetchone()[0]*2
+                finally:connection.close()
+            except sqlite3.Error:pass
+        if counts:
+            maximum=max(counts.values());target=next((n for n in looks if n>=maximum),looks[-1])
+            fields.append(f"gate_candidate_records={count(pending.get('target'))}")
+            fields.extend(f'gate_{label}={games}/{target}' for label,games in counts.items())
+    for row in reversed(league.get('rounds',[])):
+        decision=row.get('decision',{})
+        if 'criteria' in decision:
+            failed=','.join(k for k,v in decision['criteria'].items() if not v) or 'none'
+            fields.append(f"last_gate_records={count(row['records'])} gate_pass={decision['numeric_pass']} failed={failed}")
+            break
     published = read(receipt.get('publication', root / 'learner/league/champion.json'))
     champion = published.get('body', {}).get('champion', {}).get('label', '?')
     fields.append(f'promotions={promotions} champion={champion}')

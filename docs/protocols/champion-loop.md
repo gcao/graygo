@@ -20,11 +20,13 @@ refresh never restart at a segment boundary. Only the execution clock and archiv
 controller gain unlimited operation. Historical elapsed and evaluation time also
 carry forward.
 
-Evaluation earns at most ten percent of cumulative elapsed execution time, with
-complete-pair/IO overruns retained. This is a finite allowance that grows as
-training proceeds. Full candidate gates can use up to one hour when earned, so a
-long gate can finish without consuming the entire learning process. Gate
-thresholds remain unchanged. New segments get distinct evaluation seeds and a
+Evaluation normally earns ten percent of cumulative elapsed execution time.
+A screened candidate in an unlimited run may borrow time to complete its finite
+promotion gate. Each evaluation session is at most one hour; an incomplete
+session resumes the same frozen candidate and saved evidence. Training waits
+for that gate's decision. Every second is charged, and subsequent candidates wait
+while continued learning repays any evaluation debt. Bounded diagnostic
+allocations retain their original hard ceilings. Gate thresholds remain unchanged. New segments get distinct evaluation seeds and a
 summable alpha allocation .05/((i+1)*(i+2)); their total across the continuous
 campaign is at most .05. Existing formal scientific/cohort grants are separate.
 
@@ -241,3 +243,29 @@ Inspect the schedule or request an immediate status entry:
 systemctl --user list-timers graygo-training-watch.timer
 systemctl --user start graygo-training-watch.service
 ~~~
+
+
+## Completing an eligible candidate's gate
+
+The initial sustained scheduler incorrectly applied its earned time allowance as
+a hard cancellation inside every full gate. It then rejected the incomplete
+candidate and started a new one at the next checkpoint. This could repeatedly
+collect only tens of head-to-head games instead of finishing the registered
+500/2,000-game looks. It was an operational timeout, not a completed statistical
+rejection.
+
+Unlimited runs now finish a started gate, reusing its frozen candidate, incumbent,
+pool, confidence family, seeds and committed color pairs across sessions and
+restarts. Completing a gate can temporarily exceed the ten-percent target. The
+resulting debt defers future evaluations while learning continues. Screening,
+head-to-head, pool-gain, regression and absolute-floor thresholds are unchanged.
+
+A tools-only upgrade can be applied offline with tools/upgrade_gate_scheduler.py.
+It requires stopped execution and publisher locks, admits only a changed
+champion_loop.py implementation, and archives the original plans and contracts.
+Checkpoint/optimizer payloads and evaluation databases remain untouched. A pinned
+source checkout and operational fingerprints are amended explicitly so the
+existing campaign can resume.
+
+Hourly logs include full gate counts such as gate_head=72/500 and any completed
+gate's failed criteria, separately from the small screening results.
