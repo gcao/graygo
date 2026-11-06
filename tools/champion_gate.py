@@ -13,7 +13,17 @@ from tools.nfsp_resources import require
 
 def digest(path):return _digest(Path(path))
 
-VERSION='graygo/champion-loop-gate/1'
+VERSION='graygo/champion-loop-gate/2'
+POSITIVE_POOL_GAIN='positive-pool-gain/v2'
+LEGACY_POOL_GAIN='minimum-pool-gain/v1'
+
+
+def gate_root(root,plan):
+    return Path(root)/'positive-pool-gain-v2' if plan.pool_gain_policy==POSITIVE_POOL_GAIN else Path(root)
+
+
+def pool_gain_passes(lower,plan):
+    return lower>0 if plan.pool_gain_policy==POSITIVE_POOL_GAIN else lower>=plan.improvement
 
 
 @dataclass(frozen=True)
@@ -22,9 +32,10 @@ class GatePlan:
     looks:tuple=(500,2000)
     seed:int=73
     alpha:float=.05
-    improvement:float=.03
+    improvement:float=0.
     regression:float=-.15
     floor:float=-.10
+    pool_gain_policy:str=POSITIVE_POOL_GAIN
 
     def __post_init__(self):
         object.__setattr__(self,'looks',tuple(self.looks))
@@ -32,7 +43,9 @@ class GatePlan:
         require(type(self.seed) is int and self.seed>=0,'nonnegative gate seed required')
         require(self.looks and tuple(sorted(set(self.looks)))==self.looks and all(type(n) is int and n>=4 and n%2==0 for n in self.looks),'fixed increasing paired looks required')
         require(isinstance(self.alpha,(int,float)) and 0<self.alpha<=.05,'positive promotion alpha at most .05 required')
-        require((self.improvement,self.regression,self.floor)==(.03,-.15,-.10),'fixed promotion tolerances required')
+        require(self.pool_gain_policy in (POSITIVE_POOL_GAIN,LEGACY_POOL_GAIN),'versioned pool-gain policy required')
+        expected=0. if self.pool_gain_policy==POSITIVE_POOL_GAIN else .03
+        require((self.improvement,self.regression,self.floor)==(expected,-.15,-.10),'fixed promotion tolerances required')
     def identity(self):return asdict(self)
 
     def family(self,round_index,labels):
@@ -50,13 +63,15 @@ class GatePlan:
             opponents[k]={'delta':family.estimate('delta/'+k,games,np.asarray(pool[k])-np.asarray(incumbent[k]),minimum=-2,maximum=2),
                           'utility':family.estimate('utility/'+k,games,pool[k],minimum=-1,maximum=1)}
         criteria={'head_to_head_win_score_lower_above_half':head_bound['lower']>0,
-                  'pool_gain':aggregate['lower']>=self.improvement,
+                  'pool_gain':pool_gain_passes(aggregate['lower'],self),
                   'no_historical_regression':all(v['delta']['lower']>=self.regression for v in opponents.values()),
                   'absolute_floor':all(v['utility']['lower']>=self.floor for v in opponents.values())}
         return {'numeric_pass':all(criteria.values()),'criteria':criteria,'head':head_bound,'aggregate':aggregate,
+                'promotion_policy':self.pool_gain_policy,'minimum_pool_gain_lower':self.improvement,
                 # Rejection-only futility checks cannot authorize a promotion.
                 'stop_for_futility':(head_bound['mean']+head_bound['radius']<=0
-                    or aggregate['mean']+aggregate['radius']<self.improvement
+                    or (aggregate['mean']+aggregate['radius']<=0 if self.pool_gain_policy==POSITIVE_POOL_GAIN
+                        else aggregate['mean']+aggregate['radius']<self.improvement)
                     or any(v['delta']['mean']+v['delta']['radius']<self.regression
                         or v['utility']['mean']+v['utility']['radius']<self.floor for v in opponents.values())),
                 'head_win_score':{'mean':(head_bound['mean']+1)/2,'lower':(head_bound['lower']+1)/2},
@@ -71,7 +86,7 @@ class IndependentGate:
         self.sha256=canonical_sha(self.identity)
 
     def evaluate(self,candidate,champion,pool,root,*,round_index,time_cap_seconds,stop_requested=lambda:False):
-        root=Path(root);root.mkdir(parents=True,exist_ok=True);labels=tuple(pool)
+        root=gate_root(root,self.plan);root.mkdir(parents=True,exist_ok=True);labels=tuple(pool)
         require(pool and 'head' not in pool and len(pool)<=10,'one to ten frozen baseline/historical opponents required')
         require(candidate.identity.get('origin',{}).get('rules') is not None,'candidate rules binding required')
         from graygo.engine import Rules

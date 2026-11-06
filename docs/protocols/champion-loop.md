@@ -1,5 +1,28 @@
 # Persistent learning and champion releases
 
+## Promotion policy v2 (owner approved November 6)
+
+The pool-improvement rule now requires its lower confidence bound to be strictly
+positive. The previous minimum of +0.03 utility is retained as the explicit legacy
+policy minimum-pool-gain/v1 for reproducing historical decisions. Head-to-head
+confidence above 50%, historical regression bounds, absolute floors, planned
+sample looks, confidence allocation and private actor sampling are unchanged.
+
+New evaluations use a positive-pool-gain-v2 subdirectory so historical plans and
+databases retain their original meaning. The tested 7,340,032-record snapshot is
+reassessed from its complete 2,000-game-per-pairing evidence. The original failed
+decision remains intact; a separate owner-approved assessment records the policy
+change and successful result.
+
+tools/adopt_positive_gain_policy.py verifies evidence hashes, reproduces all
+original statistics, verifies immutable model identities and requires the
+evaluated incumbent to still be current. Offline application archives mutable
+controller plans/contracts, updates the selected champion pointer atomically,
+retains the previous champion as history and rebases any unfinished candidate on
+the new incumbent. The current learner, optimizer, replay, counters and RNG state
+are untouched. New games resolve the new model; existing games keep their pinned
+snapshot.
+
 ## Continuous training (current operation)
 
 The owner removed the training budget limit on November 5. The managed

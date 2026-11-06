@@ -13,7 +13,7 @@ from graygo.confidence import canonical_sha
 from graygo.engine import Rules
 from graygo.evaluation import BaselinePolicy,FrozenNeuralPolicy
 from graygo.nfsp import NFSPBackend
-from tools.champion_gate import GatePlan,IndependentGate
+from tools.champion_gate import GatePlan,IndependentGate,gate_root
 from tools.champion_loop import ChampionLoop,LoopPlan,parse_args
 from tools.champion_screen import IndependentScreen,ScreenPlan
 
@@ -321,7 +321,7 @@ class ChampionLoopTests(unittest.TestCase):
                     Path(directory)/'gate',round_index=0,time_cap_seconds=30)
                 self.assertFalse(decision['promotion_permitted'])
                 self.assertEqual(decision['status'],'complete')
-                self.assertTrue((Path(directory)/'gate/head/evidence.sqlite').is_file())
+                self.assertTrue((gate_root(Path(directory)/'gate',gate.plan)/'head/evidence.sqlite').is_file())
 
 
 if __name__=='__main__':unittest.main()

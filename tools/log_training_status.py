@@ -96,6 +96,7 @@ def summary(project):
     promotions = league.get('prior_promotions',0)+sum(r['promoted'] for r in league.get('rounds', []))
     if pending.get('status')=='evaluating' and pending.get('index') is not None:
         evaluation=root/'learner/league/evaluations'/f"{pending['index']:04d}"
+        if (evaluation/'positive-pool-gain-v2').is_dir():evaluation=evaluation/'positive-pool-gain-v2'
         gate=read(evaluation/'gate-plan.json');looks=gate.get('family',{}).get('looks',[500,2000])
         counts={}
         for path in sorted(evaluation.glob('*/evidence.sqlite')):
@@ -108,9 +109,16 @@ def summary(project):
             maximum=max(counts.values());target=next((n for n in looks if n>=maximum),looks[-1])
             fields.append(f"gate_candidate_records={count(pending.get('target'))}")
             fields.extend(f'gate_{label}={games}/{target}' for label,games in counts.items())
+    assessment=read(league['champion_assessment']) if league.get('champion_assessment') else {}
+    if assessment:
+        fields.append(f"promotion_policy={assessment.get('promotion_policy',assessment.get('decision',{}).get('promotion_policy','unknown'))}")
     for row in reversed(league.get('rounds',[])):
         decision=row.get('decision',{})
         if 'criteria' in decision:
+            if (assessment.get('version')=='graygo/promotion-policy-assessment/2' and assessment.get('records')==row['records']
+                    and assessment.get('decision',{}).get('numeric_pass')):
+                fields.append(f"last_gate_records={count(row['records'])} promotion_reassessment_pass=True original_gate_pass={decision['numeric_pass']}")
+                break
             failed=','.join(k for k,v in decision['criteria'].items() if not v) or 'none'
             fields.append(f"last_gate_records={count(row['records'])} gate_pass={decision['numeric_pass']} failed={failed}")
             break

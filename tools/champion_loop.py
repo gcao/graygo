@@ -24,7 +24,7 @@ from graygo.evaluation import BaselinePolicy,FrozenNeuralPolicy
 from graygo.manifest import source_digest,write_report
 from graygo.models import ModelConfig,PolicyNet
 from graygo.storage import CheckpointStore,DEFAULT_RESERVE,digest as _digest,DiskBudgetError
-from tools.champion_gate import GatePlan,IndependentGate
+from tools.champion_gate import GatePlan,IndependentGate,gate_root
 from tools.champion_screen import IndependentScreen,ScreenPlan
 from tools.legacy_policy import LegacyPolicy
 from tools.nfsp_resources import require
@@ -172,7 +172,9 @@ class ChampionLoop:
 
     def _publish(self):
         body={'version':RELEASE_VERSION,'champion':self.state['champion'],'completed_round':self.state['round'],
-              'loop_state_sha256':canonical_sha(self.state),'loop_contract_sha256':canonical_sha(self.contract),'experimental':self.diagnostic,'formal_training_or_promotion_grant':False}
+              'loop_state_sha256':canonical_sha(self.state),'loop_contract_sha256':canonical_sha(self.contract),'experimental':self.diagnostic,'formal_training_or_promotion_grant':False,
+              'promotion_policy':getattr(self.gate.plan,'pool_gain_policy','unspecified')}
+        if 'champion_assessment' in self.state:body['champion_assessment']=self.state['champion_assessment']
         write_report(self.root/'champion.json',{'body':body,'sha256':canonical_sha(body)},reserve_bytes=self.reserve)
         if self.publication!=self.root/'champion.json':write_report(self.publication,{'body':body,'sha256':canonical_sha(body)},reserve_bytes=self.reserve)
 
@@ -293,6 +295,8 @@ class ChampionLoop:
             promoted=bool(decision.get('experimental_promotion_permitted') if self.diagnostic else decision.get('promotion_permitted'))
             if promoted:
                 self.state['history'].append(pending['champion']);self.state['champion']=candidate
+                if not decision.get('fixture_only'):
+                    self.state['champion_assessment']=str(gate_root(self.root/'evaluations'/f'{index:04d}',self.gate.plan)/'decision.json')
             self.state['rounds'].append({'index':index,'records':target,'candidate':candidate,'incumbent':pending['champion'],
                 'decision':decision,'screen':pending.get('screen'),'promoted':promoted,'learner_reinitialized':False,'buffers_flushed':False})
             self.state.update(round=index+1,completed_records=target,pending=None)
