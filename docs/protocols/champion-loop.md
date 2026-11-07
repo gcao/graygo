@@ -1,6 +1,34 @@
 # Persistent learning and champion releases
 
-## Promotion policy v2 (owner approved November 6)
+## Promotion policy v3 (owner approved November 6)
+
+Promotion now requires a statistically convincing head-to-head win against the
+current champion, no material historical regression, and the existing absolute
+strength floors. Pool improvement remains a reported diagnostic and cannot veto
+promotion or terminate a gate for futility. The remaining thresholds, confidence
+families, alpha allocation, fixed looks and independent private actors are
+unchanged. The aggregate endpoint remains in the confidence family so existing
+bounds reproduce exactly and future bounds are not weakened.
+
+This corrects the saturated-opponent problem: an incumbent scoring 97.1% against
+an older model has only 2.9 percentage points of possible improvement left.
+Requiring statistically positive additional gains there can block a candidate
+that convincingly beats the incumbent directly.
+
+New gates use a head-to-head-history-v3 directory. Completed original gates and
+their evidence remain immutable. tools/adopt_head_to_head_policy.py reassesses
+complete sealed evidence, reproduces every original confidence bound and tests
+the three retained safeguards before an offline publication upgrade. It verifies
+that the evaluated incumbent is still current, preserves the learner checkpoint,
+optimizers, replay, RNG and historical decisions, retains the prior champion in
+history, and resets only the adaptive evaluation reference/cooldown. A pending
+gate whose incumbent changed is retired without reusing its confidence slot.
+
+The owner requested this correction after the 22,544,384-record candidate scored
+74.3% head-to-head against the incumbent and passed the other safeguards, while
+its additional gain against the old model was too small to prove statistically.
+
+## Historical promotion policy v2
 
 The pool-improvement rule now requires its lower confidence bound to be strictly
 positive. The previous minimum of +0.03 utility is retained as the explicit legacy
@@ -140,8 +168,7 @@ champion is a rejection-only filter; historical matchups are descriptive here.
 A screen cannot promote a model. Unlimited runs use the adaptive schedule above;
 its screen and gate costs remain in the evaluation ledger for observability.
 Full gates retain their confidence bounds,
-head-to-head requirement, positive pool-gain rule, regression checks and absolute
-floors. Their pool now contains historical models only, with the frozen
+head-to-head requirement, historical regression checks and absolute floors. Their pool now contains historical models only, with the frozen
 bootstrap model as the initial reference if no previous champion exists.
 
 Reports use a separate champion-first-v2 namespace; original baseline screens

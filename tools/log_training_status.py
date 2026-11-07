@@ -100,7 +100,8 @@ def summary(project):
     fields.extend(benchmark_fields(receipt, root, progress.get('records', records)))
     if pending.get('status')=='evaluating' and pending.get('index') is not None:
         evaluation=root/'learner/league/evaluations'/f"{pending['index']:04d}"
-        if (evaluation/'positive-pool-gain-v2').is_dir():evaluation=evaluation/'positive-pool-gain-v2'
+        if (evaluation/'head-to-head-history-v3/gate-plan.json').is_file():evaluation=evaluation/'head-to-head-history-v3'
+        elif (evaluation/'positive-pool-gain-v2/gate-plan.json').is_file():evaluation=evaluation/'positive-pool-gain-v2'
         gate=read(evaluation/'gate-plan.json');looks=gate.get('family',{}).get('looks',[500,2000])
         counts={}
         for path in sorted(evaluation.glob('*/evidence.sqlite')):
@@ -127,8 +128,13 @@ def summary(project):
     for row in reversed(all_rounds):
         decision=row.get('decision',{})
         if 'criteria' in decision:
-            if (assessment.get('version')=='graygo/promotion-policy-assessment/2' and assessment.get('records')==row['records']
-                    and assessment.get('decision',{}).get('numeric_pass')):
+            reassessed=(assessment.get('version') in ('graygo/promotion-policy-assessment/2','graygo/promotion-policy-assessment/3') and assessment.get('records')==row['records']
+                    and assessment.get('decision',{}).get('numeric_pass'))
+            effective=assessment['decision'] if reassessed else decision
+            if effective.get('pool_gain_required') is False:
+                gain=effective['aggregate']
+                fields.append(f"pool_gain_info={gain['mean']*50:+.1f}pp lower={gain['lower']*50:+.1f}pp required=False")
+            if reassessed:
                 fields.append(f"last_gate_records={count(row['records'])} promotion_reassessment_pass=True original_gate_pass={decision['numeric_pass']}")
                 break
             failed=','.join(k for k,v in decision['criteria'].items() if not v) or 'none'

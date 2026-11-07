@@ -16,14 +16,16 @@ def digest(path):return _digest(Path(path))
 VERSION='graygo/champion-loop-gate/2'
 POSITIVE_POOL_GAIN='positive-pool-gain/v2'
 LEGACY_POOL_GAIN='minimum-pool-gain/v1'
+HEAD_TO_HEAD_HISTORY='head-to-head-history/v3'
 
 
 def gate_root(root,plan):
+    if plan.pool_gain_policy==HEAD_TO_HEAD_HISTORY:return Path(root)/'head-to-head-history-v3'
     return Path(root)/'positive-pool-gain-v2' if plan.pool_gain_policy==POSITIVE_POOL_GAIN else Path(root)
 
 
 def pool_gain_passes(lower,plan):
-    return lower>0 if plan.pool_gain_policy==POSITIVE_POOL_GAIN else lower>=plan.improvement
+    return lower>0 if plan.pool_gain_policy!=LEGACY_POOL_GAIN else lower>=plan.improvement
 
 
 @dataclass(frozen=True)
@@ -35,7 +37,7 @@ class GatePlan:
     improvement:float=0.
     regression:float=-.15
     floor:float=-.10
-    pool_gain_policy:str=POSITIVE_POOL_GAIN
+    pool_gain_policy:str=HEAD_TO_HEAD_HISTORY
 
     def __post_init__(self):
         object.__setattr__(self,'looks',tuple(self.looks))
@@ -43,8 +45,8 @@ class GatePlan:
         require(type(self.seed) is int and self.seed>=0,'nonnegative gate seed required')
         require(self.looks and tuple(sorted(set(self.looks)))==self.looks and all(type(n) is int and n>=4 and n%2==0 for n in self.looks),'fixed increasing paired looks required')
         require(isinstance(self.alpha,(int,float)) and 0<self.alpha<=.05,'positive promotion alpha at most .05 required')
-        require(self.pool_gain_policy in (POSITIVE_POOL_GAIN,LEGACY_POOL_GAIN),'versioned pool-gain policy required')
-        expected=0. if self.pool_gain_policy==POSITIVE_POOL_GAIN else .03
+        require(self.pool_gain_policy in (POSITIVE_POOL_GAIN,LEGACY_POOL_GAIN,HEAD_TO_HEAD_HISTORY),'versioned pool-gain policy required')
+        expected=.03 if self.pool_gain_policy==LEGACY_POOL_GAIN else 0.
         require((self.improvement,self.regression,self.floor)==(expected,-.15,-.10),'fixed promotion tolerances required')
     def identity(self):return asdict(self)
 
@@ -66,12 +68,16 @@ class GatePlan:
                   'pool_gain':pool_gain_passes(aggregate['lower'],self),
                   'no_historical_regression':all(v['delta']['lower']>=self.regression for v in opponents.values()),
                   'absolute_floor':all(v['utility']['lower']>=self.floor for v in opponents.values())}
+        pool_required=self.pool_gain_policy!=HEAD_TO_HEAD_HISTORY
+        pool_positive=criteria['pool_gain']
+        if not pool_required:del criteria['pool_gain']
         return {'numeric_pass':all(criteria.values()),'criteria':criteria,'head':head_bound,'aggregate':aggregate,
                 'promotion_policy':self.pool_gain_policy,'minimum_pool_gain_lower':self.improvement,
+                'pool_gain_required':pool_required,'diagnostics':{'pool_gain':pool_positive},
                 # Rejection-only futility checks cannot authorize a promotion.
                 'stop_for_futility':(head_bound['mean']+head_bound['radius']<=0
-                    or (aggregate['mean']+aggregate['radius']<=0 if self.pool_gain_policy==POSITIVE_POOL_GAIN
-                        else aggregate['mean']+aggregate['radius']<self.improvement)
+                    or (pool_required and (aggregate['mean']+aggregate['radius']<=0 if self.pool_gain_policy==POSITIVE_POOL_GAIN
+                        else aggregate['mean']+aggregate['radius']<self.improvement))
                     or any(v['delta']['mean']+v['delta']['radius']<self.regression
                         or v['utility']['mean']+v['utility']['radius']<self.floor for v in opponents.values())),
                 'head_win_score':{'mean':(head_bound['mean']+1)/2,'lower':(head_bound['lower']+1)/2},
@@ -95,6 +101,7 @@ class IndependentGate:
         contract={'version':VERSION,'candidate':candidate.sha256,'champion':champion.sha256,
                   'pool':{k:v.sha256 for k,v in pool.items()},'round_index':round_index,
                   'family':family.to_dict(),'rules':asdict(rules),'openings':openings.identity}
+        if self.plan.pool_gain_policy==HEAD_TO_HEAD_HISTORY:contract['promotion_policy']=HEAD_TO_HEAD_HISTORY
         path=root/'gate-plan.json'
         if path.exists():require(json.loads(path.read_text())==contract,'gate identities/plan changed during resume')
         else:write_report(path,contract,reserve_bytes=self.reserve)

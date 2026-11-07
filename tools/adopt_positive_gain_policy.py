@@ -43,7 +43,7 @@ def reassess(stage,records):
     body=wrapped(stage/'plan.json')['body']
     args=dict(rounds=len(league['contract']['loop_plan']['round_ends']),looks=tuple(contract['family']['looks']),
               alpha=body.get('gate_alpha',.05),seed=body.get('gate_seed',73))
-    current=GatePlan(**args)
+    current=GatePlan(**args,pool_gain_policy=POSITIVE_POOL_GAIN)
     legacy=GatePlan(**args,improvement=.03,pool_gain_policy=LEGACY_POOL_GAIN)
     if current.family(row['index'],labels).sha256!=original['family_sha256']:
         raise ValueError('confidence family changed; existing bounds cannot be reused')
@@ -109,7 +109,7 @@ def apply(campaign,records,*,reserve_bytes=DEFAULT_RESERVE):
         assessment['adopted_at']=datetime.now(timezone.utc).isoformat();assessment_path=archive/'assessment-v2.json'
         write(assessment_path,assessment)
         gate_plan=GatePlan(len(state['contract']['loop_plan']['round_ends']),alpha=plan['body'].get('gate_alpha',.05),
-                           seed=plan['body'].get('gate_seed',73))
+                           seed=plan['body'].get('gate_seed',73),pool_gain_policy=POSITIVE_POOL_GAIN)
         gate=IndependentGate(gate_plan,reserve_bytes=reserve_bytes)
         state['contract']['implementation_sha256']=digest(checkout/'tools/champion_loop.py')
         state['contract']['gate_sha256']=gate.sha256

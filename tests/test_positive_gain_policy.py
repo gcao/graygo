@@ -24,7 +24,7 @@ def inputs():
 
 class PositiveGainPolicyTests(unittest.TestCase):
     def test_positive_supported_improvement_passes_without_relaxing_other_guards(self):
-        values=inputs();new=GatePlan(74,alpha=.025)
+        values=inputs();new=GatePlan(74,alpha=.025,pool_gain_policy=POSITIVE_POOL_GAIN)
         old=GatePlan(74,alpha=.025,improvement=.03,pool_gain_policy=LEGACY_POOL_GAIN)
         current=new.numeric(24,*values,2000);original=old.numeric(24,*values,2000)
         self.assertGreater(current['aggregate']['lower'],0);self.assertLess(current['aggregate']['lower'],.03)
@@ -34,7 +34,7 @@ class PositiveGainPolicyTests(unittest.TestCase):
         self.assertEqual(new.regression,old.regression);self.assertEqual(new.floor,old.floor)
 
     def test_zero_and_negative_pool_lower_bounds_still_fail(self):
-        plan=GatePlan(1)
+        plan=GatePlan(1,pool_gain_policy=POSITIVE_POOL_GAIN)
         self.assertFalse(pool_gain_passes(0,plan));self.assertFalse(pool_gain_passes(-.001,plan))
         self.assertTrue(pool_gain_passes(.00001,plan))
 

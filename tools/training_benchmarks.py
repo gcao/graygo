@@ -63,7 +63,9 @@ def latest_benchmark(roots):
             if not isinstance(index, int):
                 continue
             gate = folder / 'evaluations' / f'{index:04d}'
-            if (gate / 'positive-pool-gain-v2/gate-plan.json').is_file():
+            if (gate / 'head-to-head-history-v3/gate-plan.json').is_file():
+                gate = gate / 'head-to-head-history-v3'
+            elif (gate / 'positive-pool-gain-v2/gate-plan.json').is_file():
                 gate = gate / 'positive-pool-gain-v2'
             plan = read(gate / 'gate-plan.json')
             if not plan:

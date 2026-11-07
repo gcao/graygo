@@ -23,7 +23,7 @@ from graygo.confidence import canonical_sha
 from graygo.engine import Rules
 from graygo.manifest import source_digest,write_report
 from graygo.storage import CheckpointStore,DEFAULT_RESERVE,digest
-from tools.champion_gate import GatePlan,IndependentGate
+from tools.champion_gate import GatePlan,IndependentGate,HEAD_TO_HEAD_HISTORY,LEGACY_POOL_GAIN
 from tools.champion_loop import ChampionLoop,LoopPlan
 from tools.champion_screen import IndependentScreen,ScreenPlan
 from tools.training_comparison import run_limited
@@ -120,6 +120,7 @@ def prepare(root,parent,parent_checkout,publication,*,total_seconds=3600,records
         body={'version':'graygo/learning-loop-handoff/1','initialization':initialization,'runtime':data['config'],
             'remaining_seconds':remaining,'records':records,'block':block,'publication':str(Path(publication).resolve()),
             'initial_champion':published['body']['champion'],'history':old['body']['history'],
+            'promotion_policy':published['body'].get('promotion_policy',HEAD_TO_HEAD_HISTORY),
             'parent_evaluation_seconds':old['body']['evaluation_seconds'],
             'adaptive_gate_schedule':unlimited,
             'parent_adaptive_scheduler':deepcopy(old['body'].get('adaptive_scheduler')),
@@ -184,7 +185,9 @@ def worker(root,*,stop_state=None,reserve_bytes=DEFAULT_RESERVE):
         inherited=init['prior_used_seconds'] if body['remaining_seconds'] is None and not resume else 0.
         with BoardExecutor(root/'learner',cfg,journal,execution,resume=resume,initialization=init,
                            prior_setup_seconds=inherited,reserve_bytes=reserve_bytes) as executor:
-            gate=IndependentGate(GatePlan(len(ends),alpha=body.get('gate_alpha',.05),seed=body.get('gate_seed',73)),reserve_bytes=reserve_bytes)
+            promotion=body.get('promotion_policy',HEAD_TO_HEAD_HISTORY)
+            gate=IndependentGate(GatePlan(len(ends),alpha=body.get('gate_alpha',.05),seed=body.get('gate_seed',73),
+                pool_gain_policy=promotion,improvement=.03 if promotion==LEGACY_POOL_GAIN else 0.),reserve_bytes=reserve_bytes)
             gate_seconds=3600. if body['remaining_seconds'] is None else min(360.,body['remaining_seconds']*.1)
             plan=LoopPlan(ends,gate_seconds=gate_seconds,continue_after_evaluation_budget=True,
                 adaptive_schedule=body.get('adaptive_gate_schedule',False))

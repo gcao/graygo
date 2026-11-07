@@ -87,6 +87,24 @@ class BenchmarkLogTests(unittest.TestCase):
             self.assertIn('screen_due_in=0m gate_timer_in=60m',text)
             self.assertIn('trigger=strong_screen_or_timer',text)
 
+    def test_v3_gate_path_and_informational_pool_gain_are_reported_without_failure(self):
+        with tempfile.TemporaryDirectory() as directory:
+            project=Path(directory);root=project/'run';league=root/'learner/league'
+            write(project/'runs/latest-training-loop.json',{'run_dir':str(root)})
+            write(root/'status.json',{'status':'running'})
+            decision={'criteria':{'head_to_head_win_score_lower_above_half':True,'no_historical_regression':True,
+                'absolute_floor':True},'numeric_pass':True,'pool_gain_required':False,
+                'aggregate':{'mean':.0295,'lower':-.1263}}
+            write(league/'state.json',{'body':{'rounds':[{'index':0,'records':100,'incumbent':{'label':'current'},
+                'decision':decision,'promoted':False}]}})
+            gate=league/'evaluations/0000/head-to-head-history-v3'
+            write(gate/'gate-plan.json',{'pool':{'historical-0':'old'}})
+            evidence(gate/'head/evidence.sqlite',[1,1,1,-1])
+            text=' | '.join(summary(project))
+            self.assertIn('average_vs_champion(current)=3W/0D/1L',text)
+            self.assertIn('pool_gain_info=+1.5pp lower=-6.3pp required=False',text)
+            self.assertIn('gate_pass=True failed=none',text)
+
 
 if __name__ == '__main__':
     unittest.main()
