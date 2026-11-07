@@ -124,22 +124,22 @@ def apply(campaign,trial,*,reserve_bytes=DEFAULT_RESERVE):
                 pending.update(champion=deepcopy(state['champion']),history=deepcopy(state['history']),status='training')
                 for key in ('candidate','screen','schedule_action'):pending.pop(key,None)
         selection=state['champion']['selection'];state['contract']['loop_plan'].update(release_temperature=selection['temperature'],release_placement_only=selection['placement_only'])
-        state['contract'].update(implementation_sha256=digest(checkout/'tools/champion_loop.py'),screen_sha256=IndependentScreen(ScreenPlan()).sha256,gate_workers=8)
-        gate_plan=GatePlan(len(state['contract']['loop_plan']['round_ends']),alpha=plan['body'].get('gate_alpha',.05),seed=plan['body'].get('gate_seed',73))
+        state['contract'].update(implementation_sha256=digest(checkout/'tools/champion_loop.py'),screen_sha256=IndependentScreen(ScreenPlan()).sha256,gate_workers=8,gate_looks=[500,2000,4000])
+        gate_plan=GatePlan(len(state['contract']['loop_plan']['round_ends']),looks=tuple(state['contract']['gate_looks']),alpha=plan['body'].get('gate_alpha',.05),seed=plan['body'].get('gate_seed',73))
         state['contract']['gate_sha256']=ParallelGate(gate_plan,workers=8,reserve_bytes=reserve_bytes).sha256
         if state.get('adaptive_scheduler'):
             learning=max(0.,clock['observed_seconds']+clock['recovery_charge_seconds']-state['evaluation_seconds'])
             state['adaptive_scheduler']=adaptive.observe_gate(state['adaptive_scheduler'],assessment['decision'],learning,previous['policy_sha256'],promoted=True)
-        league['sha256']=canonical_sha(state);plan['body'].update(checkout=str(checkout),release_selection=selection,gate_workers=8)
+        league['sha256']=canonical_sha(state);plan['body'].update(checkout=str(checkout),release_selection=selection,gate_workers=8,gate_looks=state['contract']['gate_looks'])
         for name in allowed:plan['body']['tools'][name]=digest(checkout/'tools'/name)
         plan['sha256']=canonical_sha(plan['body']);reservation.update(previous_plan_sha256=reservation['plan_sha256'],plan_sha256=plan['sha256'])
-        campaign_plan['body'].update(checkout=str(checkout),release_selection=selection,gate_workers=8);campaign_plan['sha256']=canonical_sha(campaign_plan['body']);campaign_state['plan_sha256']=campaign_plan['sha256']
+        campaign_plan['body'].update(checkout=str(checkout),release_selection=selection,gate_workers=8,gate_looks=state['contract']['gate_looks']);campaign_plan['sha256']=canonical_sha(campaign_plan['body']);campaign_state['plan_sha256']=campaign_plan['sha256']
         published['body'].update(champion=deepcopy(state['champion']),completed_round=state['round'],loop_contract_sha256=canonical_sha(state['contract']),loop_state_sha256=league['sha256'],champion_assessment=str(assessment_path))
         published['sha256']=canonical_sha(published['body'])
         for path,value in ((stage/'plan.json',plan),(parent/'handoff.json',reservation),(learner/'league/state.json',league),(learner/'league/champion.json',published),(publication,published),(campaign/'plan.json',campaign_plan),(campaign/'state.json',campaign_state)):write(path,value)
         receipt={'archive':str(archive),'candidate_records':state['champion']['records'],'champion_sha256':state['champion']['policy_sha256'],
             'learner_checkpoint_records':clock['last_checkpoint']['records'],'selection':selection,'head_win_score':assessment['decision']['head_win_score'],
-            'learner_payload_changed':False,'allocated_alpha_reused':False,'training_recipe_changed':False,'gate_workers':8}
+            'learner_payload_changed':False,'allocated_alpha_reused':False,'training_recipe_changed':False,'gate_workers':8,'gate_looks':state['contract']['gate_looks']}
         write(archive/'receipt.json',receipt);return receipt
     finally:
         for lock in reversed(locks):lock.close()

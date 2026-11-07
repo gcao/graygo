@@ -419,3 +419,10 @@ source and worker count. Interrupted sessions resume the same frozen candidate,
 confidence family and evidence. Tests compare complete raw pair records, evidence
 hashes and decisions against serial execution. The GPU remains available to the
 learner while a separate release trial is being validated.
+
+New promotion slots after selection adoption predeclare looks at 500, 2,000 and
+4,000 games. The original per-slot alpha is divided over all three looks. The
+November 7 trial illustrates why the larger final look matters: a 62.95% head-to-head
+score passed superiority at 2,000 games, but the nearly tied legacy-opponent
+comparison still had too wide a non-regression bound. Older gate plans and evidence
+keep their original looks. Archive rollover inherits the new look inventory.

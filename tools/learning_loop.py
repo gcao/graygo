@@ -124,6 +124,7 @@ def prepare(root,parent,parent_checkout,publication,*,total_seconds=3600,records
             'promotion_policy':published['body'].get('promotion_policy',HEAD_TO_HEAD_HISTORY),
             'release_selection':published['body']['champion'].get('selection'),
             'gate_workers':old['body'].get('contract',{}).get('gate_workers',1),
+            'gate_looks':old['body'].get('contract',{}).get('gate_looks',[500,2000]),
             'parent_evaluation_seconds':old['body']['evaluation_seconds'],
             'adaptive_gate_schedule':unlimited,
             'parent_adaptive_scheduler':deepcopy(old['body'].get('adaptive_scheduler')),
@@ -189,7 +190,7 @@ def worker(root,*,stop_state=None,reserve_bytes=DEFAULT_RESERVE):
         with BoardExecutor(root/'learner',cfg,journal,execution,resume=resume,initialization=init,
                            prior_setup_seconds=inherited,reserve_bytes=reserve_bytes) as executor:
             promotion=body.get('promotion_policy',HEAD_TO_HEAD_HISTORY)
-            gate=IndependentGate(GatePlan(len(ends),alpha=body.get('gate_alpha',.05),seed=body.get('gate_seed',73),
+            gate=IndependentGate(GatePlan(len(ends),looks=tuple(body.get('gate_looks',[500,2000])),alpha=body.get('gate_alpha',.05),seed=body.get('gate_seed',73),
                 pool_gain_policy=promotion,improvement=.03 if promotion==LEGACY_POOL_GAIN else 0.),reserve_bytes=reserve_bytes)
             if body.get('gate_workers',1)>1:gate=ParallelGate(gate.plan,workers=body['gate_workers'],reserve_bytes=reserve_bytes)
             gate_seconds=3600. if body['remaining_seconds'] is None else min(360.,body['remaining_seconds']*.1)

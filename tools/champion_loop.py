@@ -128,6 +128,7 @@ class ChampionLoop:
             'loop_plan':asdict(plan),'gate_sha256':gate.sha256,'screen_sha256':None if screen is None else screen.sha256,
             'scope':executor.journal_plan.scope,'publication':str(self.publication)}
         self.contract['gate_workers']=getattr(gate,'workers',1)
+        self.contract['gate_looks']=list(gate.plan.looks)
         if plan.adaptive_schedule:self.contract['adaptive_scheduler']=adaptive.contract()
         self.contract=json.loads(json.dumps(self.contract))
         self.lock=(self.root/'.loop.lock').open('a+b');fcntl.flock(self.lock,fcntl.LOCK_EX|fcntl.LOCK_NB)

@@ -13,7 +13,7 @@ from tools.adopt_selection import apply,assess
 from graygo.manifest import source_digest
 from graygo.storage import digest
 from tools.continuous_training import create,run
-from tools.learning_loop import worker
+from tools.learning_loop import worker,prepare
 from tools.champion_loop import ChampionLoop,LoopPlan
 from tools.champion_gate import GatePlan
 from test_continuous_training import parent_run,config
@@ -93,7 +93,12 @@ class SelectionAdoptionTests(unittest.TestCase):
             self.assertEqual(after['history'][-1],before['champion'])
             self.assertEqual(after['contract']['loop_plan']['release_temperature'],0.)
             self.assertEqual(after['contract']['gate_workers'],8)
+            self.assertEqual(after['contract']['gate_looks'],[500,2000,4000])
             self.assertEqual(after['prior_promotions'],before.get('prior_promotions',0)+1)
             self.assertEqual(after['external_evaluations'][-1]['candidate'],candidate)
             result=run(campaign,max_segments=1,reserve_bytes=0)
             self.assertEqual(result['completed_segments'],1)
+            next_plan=prepare(root/'next',stage/'learner',checkout,publication,total_seconds=None,records=32,block=8,reserve_bytes=0)
+            self.assertEqual(next_plan['gate_looks'],[500,2000,4000])
+            self.assertEqual(next_plan['gate_workers'],8)
+            self.assertEqual(next_plan['release_selection'],selection)
