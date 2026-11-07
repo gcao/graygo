@@ -43,6 +43,31 @@ class BenchmarkLogTests(unittest.TestCase):
             self.assertNotIn('random', text)
             self.assertNotIn('tactical', text)
 
+    def test_external_gate_is_visible_without_rewriting_an_unused_round(self):
+        with tempfile.TemporaryDirectory() as directory:
+            project=Path(directory);root=project/'run';league=root/'learner/league'
+            write(project/'runs/latest-training-loop.json',{'run_dir':str(root)})
+            write(root/'status.json',{'status':'running'})
+            gate_root=project/'independent-trial/evaluation'
+            decision={'status':'complete','numeric_pass':True,'pool_gain_required':False,
+                'aggregate':{'mean':.1,'lower':-.1},'criteria':{'head_to_head_win_score_lower_above_half':True}}
+            write(league/'state.json',{'body':{'rounds':[{'index':0,'records':100,
+                'decision':{'reason':'adaptive_training_interval'},'promoted':False}],
+                'external_evaluations':[{'index':0,'records':100,'incumbent':{'label':'original'},
+                    'evaluation_root':str(gate_root),'decision':decision,'promoted':True,
+                    'candidate':{'selection':{'temperature':0.,'placement_only':True}}}]}})
+            write(league/'champion.json',{'body':{'champion':{'label':'selected',
+                'selection':{'temperature':0.,'placement_only':True}}}})
+            gate=gate_root/'head-to-head-history-v3'
+            write(gate/'gate-plan.json',{'pool':{}})
+            write(gate/'decision.json',decision)
+            evidence(gate/'head/evidence.sqlite',[1,1,1,-1])
+            text=' | '.join(summary(project))
+            self.assertIn('average_vs_champion(original)=3W/0D/1L',text)
+            self.assertIn('benchmark_policy=selected_average temperature:0.0 placement_only:True',text)
+            self.assertIn('last_gate_records=100 gate_pass=True failed=none',text)
+            self.assertIn('policy_selection=temperature:0.0 placement_only:True learned_PASS:preserved',text)
+
     def test_newer_screen_takes_precedence_over_old_gate_and_shows_histories(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

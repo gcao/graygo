@@ -23,6 +23,7 @@ from graygo.confidence import canonical_sha
 from graygo.engine import Rules
 from graygo.manifest import source_digest,write_report
 from graygo.storage import CheckpointStore,DEFAULT_RESERVE,digest
+from tools.parallel_gate import ParallelGate
 from tools.champion_gate import GatePlan,IndependentGate,HEAD_TO_HEAD_HISTORY,LEGACY_POOL_GAIN
 from tools.champion_loop import ChampionLoop,LoopPlan
 from tools.champion_screen import IndependentScreen,ScreenPlan
@@ -121,6 +122,8 @@ def prepare(root,parent,parent_checkout,publication,*,total_seconds=3600,records
             'remaining_seconds':remaining,'records':records,'block':block,'publication':str(Path(publication).resolve()),
             'initial_champion':published['body']['champion'],'history':old['body']['history'],
             'promotion_policy':published['body'].get('promotion_policy',HEAD_TO_HEAD_HISTORY),
+            'release_selection':published['body']['champion'].get('selection'),
+            'gate_workers':old['body'].get('contract',{}).get('gate_workers',1),
             'parent_evaluation_seconds':old['body']['evaluation_seconds'],
             'adaptive_gate_schedule':unlimited,
             'parent_adaptive_scheduler':deepcopy(old['body'].get('adaptive_scheduler')),
@@ -128,7 +131,7 @@ def prepare(root,parent,parent_checkout,publication,*,total_seconds=3600,records
             'gate_alpha':gate_alpha,'gate_seed':gate_seed,
             'checkout':str(checkout),'source_sha256':source_digest(),
             'tools':{name:digest(Path(__file__).with_name(name)) for name in
-                     ('learning_loop.py','champion_loop.py','champion_gate.py','champion_screen.py','legacy_policy.py','training_comparison.py','adaptive_gate_schedule.py')},
+                     ('learning_loop.py','champion_loop.py','champion_gate.py','champion_screen.py','legacy_policy.py','training_comparison.py','adaptive_gate_schedule.py','policy_selection.py','parallel_gate.py')},
             'formal_training_or_promotion_grant':False,'experimental':True}
         root.mkdir(parents=True,exist_ok=False)
         write_report(root/'plan.json',{'body':body,'sha256':canonical_sha(body)},reserve_bytes=reserve_bytes)
@@ -188,9 +191,12 @@ def worker(root,*,stop_state=None,reserve_bytes=DEFAULT_RESERVE):
             promotion=body.get('promotion_policy',HEAD_TO_HEAD_HISTORY)
             gate=IndependentGate(GatePlan(len(ends),alpha=body.get('gate_alpha',.05),seed=body.get('gate_seed',73),
                 pool_gain_policy=promotion,improvement=.03 if promotion==LEGACY_POOL_GAIN else 0.),reserve_bytes=reserve_bytes)
+            if body.get('gate_workers',1)>1:gate=ParallelGate(gate.plan,workers=body['gate_workers'],reserve_bytes=reserve_bytes)
             gate_seconds=3600. if body['remaining_seconds'] is None else min(360.,body['remaining_seconds']*.1)
             plan=LoopPlan(ends,gate_seconds=gate_seconds,continue_after_evaluation_budget=True,
-                adaptive_schedule=body.get('adaptive_gate_schedule',False))
+                adaptive_schedule=body.get('adaptive_gate_schedule',False),
+                release_temperature=(body.get('release_selection') or {}).get('temperature'),
+                release_placement_only=(body.get('release_selection') or {}).get('placement_only',True))
             with ChampionLoop(executor,plan,gate,initial_champion=body['initial_champion'],resume=resume,
                 publish_manifest=body['publication'],screen=IndependentScreen(ScreenPlan(),reserve_bytes=reserve_bytes)) as loop:
                 initialize(executor,loop,body)

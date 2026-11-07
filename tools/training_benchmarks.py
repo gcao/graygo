@@ -53,16 +53,17 @@ def latest_benchmark(roots):
             if not opponents.get('champion', {}).get('games'):
                 continue
             candidates.append({'records': screen.get('candidate_records') or 0,
+                'selection':screen.get('heads',{}).get('average',{}).get('selection'),
                 'at': path.stat().st_mtime, 'source': 'screen', 'status': screen.get('status', 'unknown') if screen.get('completed_at') else 'in_progress',
                 'opponents': {name: dict(row, opponent_label=labels.get(row.get('opponent_sha256'),row.get('opponent_label','?'))) for name, row in opponents.items()
                               if name == 'champion' or name.startswith('historical-')}})
         pending = league.get('pending')
-        rounds = [*league.get('rounds', []), *([pending] if pending else [])]
+        rounds = [*league.get('rounds', []), *league.get('external_evaluations', []), *([pending] if pending else [])]
         for row in rounds:
             index = row.get('index')
             if not isinstance(index, int):
                 continue
-            gate = folder / 'evaluations' / f'{index:04d}'
+            gate = Path(row['evaluation_root']) if row.get('evaluation_root') else folder / 'evaluations' / f'{index:04d}'
             if (gate / 'head-to-head-history-v3/gate-plan.json').is_file():
                 gate = gate / 'head-to-head-history-v3'
             elif (gate / 'positive-pool-gain-v2/gate-plan.json').is_file():
@@ -86,6 +87,7 @@ def latest_benchmark(roots):
                 continue
             decision = read(gate / 'decision.json')
             candidates.append({'records': row.get('records', row.get('target', ends[index] if index < len(ends) else 0)),
+                'selection':(row.get('candidate') or {}).get('selection'),
                 'at': max(modified), 'source': 'gate', 'status': decision.get('status', 'in_progress'),
                 'opponents': opponents})
     return max(candidates, key=lambda row: (row['records'], row['source'] == 'gate', row['at']), default=None)
@@ -101,6 +103,9 @@ def benchmark_fields(receipt, root, live_records, *, now=None):
     fields = [f"benchmark_records={benchmark['records']:,} source={benchmark['source']} status={benchmark['status']}",
               f"benchmark_age={age:.1f}h lag_records={lag:,}" if isinstance(lag, int) else f'benchmark_age={age:.1f}h lag_records=?',
               'benchmark_measured_at=' + datetime.fromtimestamp(benchmark['at'], timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')]
+    selection=benchmark.get('selection')
+    fields.append('benchmark_policy=raw_average' if selection is None else
+        f"benchmark_policy=selected_average temperature:{selection['temperature']} placement_only:{selection['placement_only']}")
     for name, result in benchmark['opponents'].items():
         fields.append(f"average_vs_{name}({result.get('opponent_label', '?')})="
                       f"{result['wins']}W/{result['draws']}D/{result['losses']}L"

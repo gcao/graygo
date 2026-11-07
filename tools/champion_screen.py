@@ -52,7 +52,7 @@ class IndependentScreen:
         self.sha256 = canonical_sha(self.identity)
 
     def evaluate(self, archive, *, average_ready, root, time_cap_seconds, stop_requested=lambda: False,
-                 reference_opponents=None, round_index=0, candidate_records=None):
+                 reference_opponents=None, round_index=0, candidate_records=None, subject_policy=None):
         if not math.isfinite(time_cap_seconds) or time_cap_seconds <= 0:
             raise ValueError('screen requires a positive remaining budget')
         if type(round_index) is not int or round_index < 0:
@@ -81,10 +81,11 @@ class IndependentScreen:
             if stop_requested() or time.monotonic() >= deadline:
                 result['status'] = 'interrupted' if stop_requested() else 'budget_limited'
                 break
-            subject = FrozenNeuralPolicy.from_archive(archive, representation=head, label='screen-'+head)
+            subject = subject_policy if head=='average' and subject_policy is not None else FrozenNeuralPolicy.from_archive(archive, representation=head, label='screen-'+head)
             rules = Rules(**subject.identity['origin']['rules'])
             distribution = subject.initial_distribution(State(rules), BLACK, fresh_episode=True)
-            report = {'status': 'complete', 'opening_pass_probability': float(distribution[-1]), 'opponents': {}}
+            report = {'status': 'complete', 'opening_pass_probability': float(distribution[-1]), 'opponents': {},
+                      'policy_sha256':subject.sha256,'selection':subject.identity.get('selection')}
             result['heads'][head] = report
             opponents = dict(references) if head == 'average' else {}
             for name, opponent in opponents.items():

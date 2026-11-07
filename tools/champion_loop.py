@@ -30,6 +30,8 @@ from tools.legacy_policy import LegacyPolicy
 from tools.nfsp_resources import require
 from tools.task_pipeline_parity import state_sha
 from tools import adaptive_gate_schedule as adaptive
+from tools import policy_selection
+from tools.parallel_gate import ParallelGate
 
 def digest(path):return _digest(Path(path))
 
@@ -45,6 +47,8 @@ class LoopPlan:
     evaluation_fraction:float=.1
     continue_after_evaluation_budget:bool=False
     adaptive_schedule:bool=False
+    release_temperature:float|None=None
+    release_placement_only:bool=True
 
     def __post_init__(self):
         object.__setattr__(self,'round_ends',tuple(self.round_ends))
@@ -56,6 +60,8 @@ class LoopPlan:
                 and 0<=self.evaluation_fraction<=.1,'evaluation may reserve at most ten percent of the run ceiling')
         require(type(self.continue_after_evaluation_budget) is bool,'explicit evaluation exhaustion policy required')
         require(type(self.adaptive_schedule) is bool,'explicit adaptive schedule required')
+        require(type(self.release_placement_only) is bool,'explicit release placement selection required')
+        if self.release_temperature is not None:policy_selection.selection_spec(self.release_temperature,self.release_placement_only)
 
 
 def load(path):return json.loads(Path(path).read_text())
@@ -78,6 +84,7 @@ def policy(descriptor):
         result=FrozenNeuralPolicy(model,representation='average',label=descriptor['label'],
             origin={'rules':descriptor['rules'],'records':data['training_records'],'imported_bundle_sha256':descriptor['bundle_sha256']})
     else:raise ValueError('unknown frozen champion representation')
+    result=policy_selection.apply_selection(result,descriptor.get('selection'),descriptor.get('bundle'))
     if 'policy_sha256' in descriptor:require(result.sha256==descriptor['policy_sha256'],'frozen policy identity changed')
     return result
 
@@ -120,6 +127,7 @@ class ChampionLoop:
             'training_run_sha256':executor.journal.run_sha256,'execution_contract_sha256':canonical_sha(executor.contract),
             'loop_plan':asdict(plan),'gate_sha256':gate.sha256,'screen_sha256':None if screen is None else screen.sha256,
             'scope':executor.journal_plan.scope,'publication':str(self.publication)}
+        self.contract['gate_workers']=getattr(gate,'workers',1)
         if plan.adaptive_schedule:self.contract['adaptive_scheduler']=adaptive.contract()
         self.contract=json.loads(json.dumps(self.contract))
         self.lock=(self.root/'.loop.lock').open('a+b');fcntl.flock(self.lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -188,9 +196,13 @@ class ChampionLoop:
 
     def _candidate(self,archive,label):
         frozen=FrozenNeuralPolicy.from_archive(archive,label=label)
+        selection=None if self.plan.release_temperature is None else policy_selection.selection_spec(self.plan.release_temperature,self.plan.release_placement_only)
+        frozen=policy_selection.apply_selection(frozen,selection)
         origin=frozen.identity['origin']
-        return {'kind':'archive','archive':str(Path(archive).resolve()),'label':label,'rules':origin['rules'],
+        descriptor={'kind':'archive','archive':str(Path(archive).resolve()),'label':label,'rules':origin['rules'],
                 'records':origin['records'],'policy_sha256':frozen.sha256,'weights_sha256':frozen.identity['weights_sha256']}
+        if selection is not None:descriptor['selection']=selection
+        return descriptor
 
     def _export(self,descriptor):
         if descriptor['kind']!='archive':return descriptor
@@ -202,6 +214,13 @@ class ChampionLoop:
             'board_size':descriptor['rules']['size'],'rules':descriptor['rules'],'training_records':descriptor['records'],
             'model_config':{k:cfg[k] for k in ('width','blocks','norm_groups')},'state_dict':data['average'],
             'strength_validated':False,'source_archive_sha256':digest(source/'manifest.json')}
+        if descriptor.get('selection') is not None:
+            blob['selection']=descriptor['selection']
+            sidecar=folder/'policy_selection.py'
+            expected=descriptor['selection']['implementation_sha256']
+            if sidecar.exists():require(digest(sidecar)==expected,'existing sampler sidecar changed')
+            else:shutil.copyfile(policy_selection.__file__,sidecar)
+            require(digest(sidecar)==expected,'sampler sidecar differs from candidate')
         if target.exists():
             stored=torch.load(target,weights_only=True,map_location='cpu')
             require(state_sha(stored)==state_sha(blob),'existing immutable release payload differs')
@@ -214,12 +233,18 @@ class ChampionLoop:
             temporary.replace(target)
         return dict(descriptor,bundle=str(target),bundle_sha256=digest(target))
 
-    def _pool(self,history):
-        result={}
+    def _pool_descriptors(self,history):
         selected=history[-self.plan.history_size:] if self.plan.history_size else []
-        for i,descriptor in enumerate(selected or [self.state['bootstrap']]):
-            result['historical-'+str(i)]=policy(descriptor)
-        return result
+        return {'historical-'+str(i):descriptor for i,descriptor in enumerate(selected or [self.state['bootstrap']])}
+
+    def _pool(self,history):return {key:policy(value) for key,value in self._pool_descriptors(history).items()}
+
+    def _invoke_gate(self,candidate,pending,root,*,time_cap_seconds,stop_requested):
+        if isinstance(self.gate,ParallelGate):
+            return self.gate.evaluate_descriptors(candidate,pending['champion'],self._pool_descriptors(pending['history']),root,
+                round_index=pending['index'],time_cap_seconds=time_cap_seconds,stop_requested=stop_requested)
+        return self.gate.evaluate(policy(candidate),policy(pending['champion']),self._pool(pending['history']),root,
+            round_index=pending['index'],time_cap_seconds=time_cap_seconds,stop_requested=stop_requested)
 
     def _evaluation_remaining(self):
         spent=self.state['evaluation_seconds']
@@ -259,6 +284,7 @@ class ChampionLoop:
                 pending['status']='screening';self._save()
                 pending['screen']=self.screen.evaluate(archive,average_ready=True,
                     root=self.root/'screens'/f'{pending["index"]:04d}',time_cap_seconds=self.screen.plan.seconds,
+                    subject_policy=policy(candidate),
                     reference_opponents={'champion':policy(pending['champion']),**self._pool(pending['history'])},
                     round_index=pending['index'],candidate_records=pending['target'],stop_requested=stop_requested)
                 if stop_requested():return dict(rejected,status='interrupted')
@@ -267,8 +293,7 @@ class ChampionLoop:
                 self.state['adaptive_scheduler']=schedule;pending['schedule_action']=action;self._save()
                 if not action['run_gate']:return dict(rejected,reason=action['reason'],schedule=action)
             pending['status']='evaluating';pending['candidate']=candidate;self._save()
-            decision=self.gate.evaluate(policy(candidate),policy(pending['champion']),self._pool(pending['history']),
-                self.root/'evaluations'/f'{pending["index"]:04d}',round_index=pending['index'],
+            decision=self._invoke_gate(candidate,pending,self.root/'evaluations'/f'{pending["index"]:04d}',
                 time_cap_seconds=self.plan.gate_seconds,stop_requested=stop_requested)
             if decision['status']=='budget_limited' and not stop_requested():
                 return dict(rejected,status='gate_pending',reason='resume_same_frozen_candidate')
@@ -305,7 +330,7 @@ class ChampionLoop:
                     time_cap_seconds=self.screen.plan.seconds if periodic_screen and credit_before_screen<=0 else self._evaluation_remaining(),
                     reference_opponents={'champion':policy(pending['champion']),
                         **{name:opponent for name,opponent in self._pool(pending['history']).items() if name.startswith('historical-')}} if average_ready else None,
-                    round_index=pending['index'],candidate_records=pending['target'],
+                    round_index=pending['index'],candidate_records=pending['target'],subject_policy=policy(candidate) if average_ready else None,
                     stop_requested=stop_requested if periodic_screen else lambda:stop_requested() or self._evaluation_remaining()<=0)
                 self.state['last_strength_screen_observed']=self.executor._spent()
                 self._save()
@@ -324,8 +349,7 @@ class ChampionLoop:
             # candidate's finite gate. Charge every second; subsequent candidates
             # wait while learning repays this debt. Never throw away a started
             # gate merely because a new checkpoint is available.
-            decision=self.gate.evaluate(policy(candidate),policy(pending['champion']),self._pool(pending['history']),
-                self.root/'evaluations'/f'{pending["index"]:04d}',round_index=pending['index'],
+            decision=self._invoke_gate(candidate,pending,self.root/'evaluations'/f'{pending["index"]:04d}',
                 time_cap_seconds=self.plan.gate_seconds if unlimited else min(remaining,self.plan.gate_seconds),
                 stop_requested=stop_requested if unlimited else lambda:stop_requested() or self._evaluation_remaining()<=0)
             if unlimited and decision['status']=='budget_limited' and not stop_requested():

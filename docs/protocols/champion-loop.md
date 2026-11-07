@@ -372,3 +372,50 @@ existing campaign can resume.
 
 Hourly logs include full gate counts such as gate_head=72/500 and any completed
 gate's failed criteria, separately from the small screening results.
+
+
+## Placement selection with learned pass probability
+
+The average policy is trained as before. Releases can use an explicitly identified
+selection profile: preserve the learned probability of pass, then choose among
+the highest-probability legal placements. Near ties use a relative tolerance of
+1e-6 and share placement probability equally. This avoids making pass certain
+merely because its one action has more probability than any individual point
+among many equivalent placements. Unrestricted greedy selection had that failure
+on the empty 9x9 board; changing the entire distribution's temperature also changes
+pass probability and is a separate policy.
+
+Selection is part of the frozen policy identity and exported bundle metadata.
+Each selected bundle retains the exact pure-Python `policy_selection.py` source
+beside its weights; the implementation hash is checked before evaluation and
+arena inference. Old bundles keep their original behavior. The arena maps the
+backend's authoritative legal moves into the same joint action vector, with pass
+last, and uses the identical frozen transformation. The deployment check compares
+both implementations' probability vectors on varied legal positions.
+
+This is an inference and release change. NFSP's Q learning, average-policy
+supervision, exploration, replay, reservoir, active actors and optimizers are
+unchanged. The profile is inherited by screening, promotion evaluation, publication
+and future archive segments. It does not establish that continued Q learning has
+improved or that greedy placements are an equilibrium policy.
+
+An existing campaign can adopt a selected release with `tools/adopt_selection.py`.
+A completed unused confidence slot must first be exclusively reserved in a frozen
+trial plan, before new validation games. The original skipped round and all past
+gate evidence remain unchanged. Independent full-gate games use the slot's
+original alpha allocation, predeclared looks and current head-to-head/historical
+regression criteria. No extra confidence allocation is granted. The assessor
+reproduces statistics from sealed evidence, verifies frozen policy identities and
+checks deployment parity. Application requires a stopped controller, closed clocks
+and publisher locks, archives the old operational metadata, and preserves every
+learner checkpoint payload. The independent decision is stored as an external
+evaluation rather than replacing the skipped round.
+
+`tools/parallel_gate.py` runs independent color pairs on up to eight CPU workers,
+using the original seeds, paired incumbent comparisons and ordered committed
+prefixes. The original serial gate validates the evidence and makes every final
+decision without collecting additional games. Its identity binds the execution
+source and worker count. Interrupted sessions resume the same frozen candidate,
+confidence family and evidence. Tests compare complete raw pair records, evidence
+hashes and decisions against serial execution. The GPU remains available to the
+learner while a separate release trial is being validated.

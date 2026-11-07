@@ -86,6 +86,8 @@ def summary(project):
     champion = published.get('body', {}).get('champion', {}).get('label', '?')
     promotions = league.get('prior_promotions',0)+sum(r['promoted'] for r in league.get('rounds', []))
     fields.append(f'promotions={promotions} champion={champion}')
+    selection=published.get('body',{}).get('champion',{}).get('selection')
+    if selection:fields.append(f"policy_selection=temperature:{selection['temperature']} placement_only:{selection['placement_only']} learned_PASS:preserved")
     scheduler=league.get('adaptive_scheduler')
     if scheduler:
         observed=clock.get('observed_seconds',0.)+clock.get('recovery_charge_seconds',0.)
@@ -124,8 +126,9 @@ def summary(project):
         fields.append(f"promotion_policy={assessment.get('promotion_policy',assessment.get('decision',{}).get('promotion_policy','unknown'))}")
     all_rounds=[]
     for stage in reversed(stage_roots(receipt, root)):
-        all_rounds.extend(read(stage/'learner/league/state.json').get('body',{}).get('rounds',[]))
-    for row in reversed(all_rounds):
+        state=read(stage/'learner/league/state.json').get('body',{})
+        all_rounds.extend(state.get('rounds',[]));all_rounds.extend(state.get('external_evaluations',[]))
+    for row in sorted(all_rounds,key=lambda row:row.get('records',0),reverse=True):
         decision=row.get('decision',{})
         if 'criteria' in decision:
             reassessed=(assessment.get('version') in ('graygo/promotion-policy-assessment/2','graygo/promotion-policy-assessment/3') and assessment.get('records')==row['records']
