@@ -9,7 +9,7 @@ from graygo.confidence import canonical_sha
 from graygo.evaluation import FrozenNeuralPolicy
 from graygo.models import ModelConfig
 from tools.policy_selection import selection_spec,SelectedAveragePolicy
-from tools.adopt_selection import apply,assess
+from tools.adopt_selection import apply,assess,verify_bundle
 from graygo.manifest import source_digest
 from graygo.storage import digest
 from tools.continuous_training import create,run
@@ -38,6 +38,12 @@ class SelectionAdoptionTests(unittest.TestCase):
                     self.assertEqual(policy(descriptor).sha256,descriptor['policy_sha256'])
                     bundle=torch.load(descriptor['bundle'],map_location='cpu',weights_only=True)
                     self.assertEqual(bundle['selection'],descriptor['selection'])
+                    verify_bundle(descriptor)
+                    first=next(iter(bundle['state_dict']))
+                    bundle['state_dict'][first].add_(1)
+                    torch.save(bundle,descriptor['bundle'])
+                    changed=dict(descriptor,bundle_sha256=digest(Path(descriptor['bundle'])))
+                    with self.assertRaisesRegex(ValueError,'weights differ'):verify_bundle(changed)
 
     def test_assessor_rejects_spent_changed_or_double_allocated_confidence_slots(self):
         for condition,message in (('spent','already used'),('changed','already used'),

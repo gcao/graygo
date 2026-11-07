@@ -20,6 +20,24 @@ from tools.parallel_gate import ParallelGate,load_policy
 from tools.upgrade_gate_scheduler import wrapped
 from tools import adaptive_gate_schedule as adaptive
 from tools import policy_selection
+from tools.task_pipeline_parity import state_sha
+
+
+def verify_bundle(descriptor):
+    """The arena payload must contain the exact average weights used by the gate."""
+    if descriptor['kind']!='archive' or not descriptor.get('bundle'):return
+    import torch
+    bundle=Path(descriptor['bundle']);archive=Path(descriptor['archive'])
+    if digest(bundle)!=descriptor['bundle_sha256']:raise ValueError('release bundle checksum differs')
+    exported=torch.load(bundle,map_location='cpu',weights_only=True)
+    source=torch.load(archive/'models.pt',map_location='cpu',weights_only=True)
+    if state_sha(exported['state_dict'])!=state_sha(source['average']):raise ValueError('release bundle weights differ from the gated archive')
+    if (exported['format_version']!='graygo/arena-nfsp-average/1' or exported['head']!='average'
+        or exported['rules']!=descriptor['rules'] or exported['training_records']!=descriptor['records']
+        or exported.get('selection')!=descriptor.get('selection')
+        or exported['model_config']!={key:source['config'][key] for key in ('width','blocks','norm_groups')}
+        or exported['source_archive_sha256']!=digest(archive/'manifest.json')):
+        raise ValueError('release bundle metadata differs from the gated archive')
 
 
 def assess(trial):
@@ -62,7 +80,8 @@ def assess(trial):
         {name:[r['incumbent_utility'] for r in snapshots[name].rows] for name in labels},games)
     for key in ('head','aggregate','opponents','criteria','head_win_score','numeric_pass','family_sha256'):
         if canonical_sha(reproduced[key])!=canonical_sha(decision[key]):raise ValueError('gate statistics do not reproduce')
-    for descriptor in (plan['candidate'],plan['incumbent'],*plan['pool'].values()):load_policy(descriptor).assert_frozen()
+    for descriptor in (plan['candidate'],plan['incumbent'],*plan['pool'].values()):
+        load_policy(descriptor).assert_frozen();verify_bundle(descriptor)
     for evidence in snapshots.values():evidence.assert_current()
     parity=json.loads((trial/'deployment-parity.json').read_text())
     parity_input=json.loads((trial/'deployment-parity-input.json').read_text())
