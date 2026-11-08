@@ -68,6 +68,31 @@ class BenchmarkLogTests(unittest.TestCase):
             self.assertIn('last_gate_records=100 gate_pass=True failed=none',text)
             self.assertIn('policy_selection=temperature:0.0 placement_only:True learned_PASS:preserved',text)
 
+    def test_q_release_benchmark_is_labeled_as_q_rather_than_average(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            write(root/'learner/league/screens/0000/champion-first-v2/screen.json',
+                {'candidate_records':100,'completed_at':'2026-11-08T00:00:00Z','status':'complete','heads':{'average':
+                 {'representation':'greedy_q','opponents':{'champion':{'games':4,'wins':3,'draws':0,'losses':1,'win_score':.75,'opponent_label':'champion'}}}}})
+            text=' | '.join(benchmark_fields({},root,200))
+            self.assertIn('benchmark_policy=greedy_q',text)
+            self.assertIn('Q_vs_champion(champion)=3W/0D/1L',text)
+            self.assertNotIn('average_vs_champion',text)
+
+    def test_adopted_q_gate_wins_a_log_tie_with_an_average_gate_at_the_same_record(self):
+        with tempfile.TemporaryDirectory() as directory:
+            project=Path(directory);root=project/'run';league=root/'learner/league'
+            write(project/'runs/latest-training-loop.json',{'run_dir':str(root)})
+            write(root/'status.json',{'status':'running'})
+            write(league/'champion.json',{'body':{'champion':{'label':'Q-champion','head':'greedy_q'}}})
+            write(league/'state.json',{'body':{'rounds':[{'index':28,'records':100,'promoted':False,
+                'decision':{'criteria':{'head':False},'numeric_pass':False}}],
+                'external_evaluations':[{'index':1,'records':100,'promoted':True,'external':True,
+                    'decision':{'criteria':{'head':True},'numeric_pass':True}}]}})
+            text=' | '.join(summary(project))
+            self.assertIn('release_head=greedy_q',text)
+            self.assertIn('last_gate_records=100 gate_pass=True failed=none',text)
+
     def test_newer_screen_takes_precedence_over_old_gate_and_shows_histories(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

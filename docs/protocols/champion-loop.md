@@ -426,3 +426,38 @@ November 7 trial illustrates why the larger final look matters: a 62.95% head-to
 score passed superiority at 2,000 games, but the nearly tied legacy-opponent
 comparison still had too wide a non-regression bound. Older gate plans and evidence
 keep their original looks. Archive rollover inherits the new look inventory.
+
+
+## Greedy Q releases
+
+A registered Q release trial can evaluate the frozen `greedy_q` head against the
+current champion and the same three historical opponents. It uses a completed,
+previously unused confidence slot, reserves `external-q-allocation.json` before
+collecting fresh games, and preserves the original skipped round. Diagnostic
+comparisons do not count toward its promotion evidence. Alpha, planned looks and
+numeric head-to-head, regression and absolute-floor requirements remain fixed.
+
+Q releases declare `head: greedy_q` in the descriptor and use the
+`graygo/arena-nfsp-policy/2` payload with the exact archived Q tensors. Missing
+head fields retain the original average-policy behavior and payload format.
+The Q network includes its trained tanh output. Move selection is uniform among
+exactly tied maximum legal Q values, including pass. There is no temperature,
+placement-only transformation or tie tolerance for Q. The arena worker validates
+the requested head against the payload before choosing the matching network.
+Deployment parity covers real model inference, legal masks, connected gray stones,
+public history, one mutual-pass round, both colors and forced-pass mask fixtures.
+
+When a Q trial qualifies, the offline release adopter archives operational plans
+and verifies every learner checkpoint payload remains unchanged. It sets
+`release_head: greedy_q`, clears the average selection profile, and carries that
+choice through screening, future candidate gates, release export and archive
+rollover. The legacy screen field `heads.average` holds the primary release
+candidate for compatibility; its explicit `representation` identifies Q or
+average. Logs and benchmark labels use that representation, and distinguish
+external Q evidence from an average gate at the same checkpoint.
+
+This changes the policy evaluated and released. NFSP collection, Q targets,
+average supervision, replay, reservoir, optimizers and RNG state are preserved.
+The average model continues to train. The offline adopter rejects a changed
+incumbent, altered evidence, conflicting slot allocations or deployment source
+that differs from the tested implementation.

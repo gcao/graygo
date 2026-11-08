@@ -24,7 +24,10 @@ def load_policy(descriptor):
     from tools.legacy_policy import LegacyPolicy
     from tools.policy_selection import apply_selection
     if descriptor['kind']=='archive':
-        base=FrozenNeuralPolicy.from_archive(descriptor['archive'],label=descriptor['label'])
+        from graygo.storage import digest
+        if descriptor.get('bundle') and digest(Path(descriptor['bundle']))!=descriptor['bundle_sha256']:
+            raise ValueError('gate release payload changed')
+        base=FrozenNeuralPolicy.from_archive(descriptor['archive'],representation=descriptor.get('head','average'),label=descriptor['label'])
     elif descriptor['kind']=='legacy':
         from graygo.storage import digest
         if digest(Path(descriptor['checkpoint']))!=descriptor['checkpoint_sha256']:raise ValueError('legacy payload changed')

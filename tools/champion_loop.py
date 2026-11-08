@@ -22,7 +22,7 @@ from graygo.confidence import canonical_sha
 from graygo.engine import Rules
 from graygo.evaluation import FrozenNeuralPolicy
 from graygo.manifest import source_digest,write_report
-from graygo.models import ModelConfig,PolicyNet
+from graygo.models import ModelConfig,PolicyNet,QNet
 from graygo.storage import CheckpointStore,DEFAULT_RESERVE,digest as _digest,DiskBudgetError
 from tools.champion_gate import GatePlan,IndependentGate,gate_root
 from tools.champion_screen import IndependentScreen,ScreenPlan
@@ -49,6 +49,7 @@ class LoopPlan:
     adaptive_schedule:bool=False
     release_temperature:float|None=None
     release_placement_only:bool=True
+    release_head:str="average"
 
     def __post_init__(self):
         object.__setattr__(self,'round_ends',tuple(self.round_ends))
@@ -61,6 +62,7 @@ class LoopPlan:
         require(type(self.continue_after_evaluation_budget) is bool,'explicit evaluation exhaustion policy required')
         require(type(self.adaptive_schedule) is bool,'explicit adaptive schedule required')
         require(type(self.release_placement_only) is bool,'explicit release placement selection required')
+        require(self.release_head in ('average','greedy_q'),'explicit supported release head required')
         if self.release_temperature is not None:policy_selection.selection_spec(self.release_temperature,self.release_placement_only)
 
 
@@ -70,18 +72,18 @@ def load(path):return json.loads(Path(path).read_text())
 def policy(descriptor):
     kind=descriptor['kind']
     if kind=='archive':
-        if 'bundle' in descriptor:require(digest(descriptor['bundle'])==descriptor['bundle_sha256'],'published average bundle changed')
-        result=FrozenNeuralPolicy.from_archive(descriptor['archive'],label=descriptor['label'])
+        if 'bundle' in descriptor:require(digest(descriptor['bundle'])==descriptor['bundle_sha256'],'published policy bundle changed')
+        result=FrozenNeuralPolicy.from_archive(descriptor['archive'],representation=descriptor.get('head','average'),label=descriptor['label'])
     elif kind=='legacy':
         require(digest(descriptor['checkpoint'])==descriptor['checkpoint_sha256'],'legacy snapshot changed')
         result=LegacyPolicy(descriptor['repo'],descriptor['checkpoint'],label=descriptor['label'])
     elif kind=='bundle':
         require(digest(descriptor['bundle'])==descriptor['bundle_sha256'],'imported bundle changed')
         data=torch.load(descriptor['bundle'],weights_only=True,map_location='cpu')
-        require(data['format_version']=='graygo/arena-nfsp-average/1' and data['head']=='average','supported average-policy bundle required')
-        with torch.random.fork_rng(devices=[]),torch.device('cpu'):model=PolicyNet(ModelConfig(**data['model_config']))
+        head=data['head'];require((data['format_version'],head) in (('graygo/arena-nfsp-average/1','average'),('graygo/arena-nfsp-policy/2','greedy_q')),'supported frozen-policy bundle required')
+        with torch.random.fork_rng(devices=[]),torch.device('cpu'):model=(QNet if head=='greedy_q' else PolicyNet)(ModelConfig(**data['model_config']))
         model.load_state_dict(data['state_dict'],strict=True)
-        result=FrozenNeuralPolicy(model,representation='average',label=descriptor['label'],
+        result=FrozenNeuralPolicy(model,representation=head,label=descriptor['label'],
             origin={'rules':descriptor['rules'],'records':data['training_records'],'imported_bundle_sha256':descriptor['bundle_sha256']})
     else:raise ValueError('unknown frozen champion representation')
     result=policy_selection.apply_selection(result,descriptor.get('selection'),descriptor.get('bundle'))
@@ -196,13 +198,14 @@ class ChampionLoop:
         if self.publication!=self.root/'champion.json':write_report(self.publication,{'body':body,'sha256':canonical_sha(body)},reserve_bytes=self.reserve)
 
     def _candidate(self,archive,label):
-        frozen=FrozenNeuralPolicy.from_archive(archive,label=label)
-        selection=None if self.plan.release_temperature is None else policy_selection.selection_spec(self.plan.release_temperature,self.plan.release_placement_only)
+        frozen=FrozenNeuralPolicy.from_archive(archive,representation=self.plan.release_head,label=label)
+        selection=None if self.plan.release_head!='average' or self.plan.release_temperature is None else policy_selection.selection_spec(self.plan.release_temperature,self.plan.release_placement_only)
         frozen=policy_selection.apply_selection(frozen,selection)
         origin=frozen.identity['origin']
         descriptor={'kind':'archive','archive':str(Path(archive).resolve()),'label':label,'rules':origin['rules'],
                 'records':origin['records'],'policy_sha256':frozen.sha256,'weights_sha256':frozen.identity['weights_sha256']}
         if selection is not None:descriptor['selection']=selection
+        if self.plan.release_head!='average':descriptor['head']=self.plan.release_head
         return descriptor
 
     def _export(self,descriptor):
@@ -211,9 +214,10 @@ class ChampionLoop:
         target=folder/'policy.pt'
         source=Path(descriptor['archive']);CheckpointStore.verify(source)
         data=torch.load(source/'models.pt',weights_only=True,map_location='cpu');cfg=data['config']
-        blob={'format_version':'graygo/arena-nfsp-average/1','head':'average','encoding_version':'graygo/encoding/1',
+        head=descriptor.get('head','average');require(head in ('average','greedy_q'),'supported archive release head required')
+        blob={'format_version':'graygo/arena-nfsp-policy/2' if head=='greedy_q' else 'graygo/arena-nfsp-average/1','head':head,'encoding_version':'graygo/encoding/1',
             'board_size':descriptor['rules']['size'],'rules':descriptor['rules'],'training_records':descriptor['records'],
-            'model_config':{k:cfg[k] for k in ('width','blocks','norm_groups')},'state_dict':data['average'],
+            'model_config':{k:cfg[k] for k in ('width','blocks','norm_groups')},'state_dict':data['q' if head=='greedy_q' else 'average'],
             'strength_validated':False,'source_archive_sha256':digest(source/'manifest.json')}
         if descriptor.get('selection') is not None:
             blob['selection']=descriptor['selection']

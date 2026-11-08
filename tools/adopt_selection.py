@@ -1,4 +1,4 @@
-"""Audit and adopt one experimentally gated average-policy selection profile.
+"""Audit and adopt one experimentally gated frozen policy release.
 
 A completed, unused promotion slot is reserved before collecting independent
 validation games. No old decision/evidence or learner payload is rewritten.
@@ -24,15 +24,20 @@ from tools.task_pipeline_parity import state_sha
 
 
 def verify_bundle(descriptor):
-    """The arena payload must contain the exact average weights used by the gate."""
+    """The arena payload must contain the exact policy weights used by the gate."""
     if descriptor['kind']!='archive' or not descriptor.get('bundle'):return
     import torch
     bundle=Path(descriptor['bundle']);archive=Path(descriptor['archive'])
     if digest(bundle)!=descriptor['bundle_sha256']:raise ValueError('release bundle checksum differs')
     exported=torch.load(bundle,map_location='cpu',weights_only=True)
     source=torch.load(archive/'models.pt',map_location='cpu',weights_only=True)
-    if state_sha(exported['state_dict'])!=state_sha(source['average']):raise ValueError('release bundle weights differ from the gated archive')
-    if (exported['format_version']!='graygo/arena-nfsp-average/1' or exported['head']!='average'
+    head=descriptor.get('head','average')
+    if head not in ('average','greedy_q'):raise ValueError('unsupported release head')
+    if state_sha(exported['state_dict'])!=state_sha(source['q' if head=='greedy_q' else 'average']):raise ValueError('release bundle weights differ from the gated archive')
+    expected_format='graygo/arena-nfsp-policy/2' if head=='greedy_q' else 'graygo/arena-nfsp-average/1'
+    if (exported['format_version']!=expected_format or exported['head']!=head
+        or exported['encoding_version']!='graygo/encoding/1' or exported['board_size']!=descriptor['rules']['size']
+        or (head=='greedy_q' and descriptor.get('selection') is not None)
         or exported['rules']!=descriptor['rules'] or exported['training_records']!=descriptor['records']
         or exported.get('selection')!=descriptor.get('selection')
         or exported['model_config']!={key:source['config'][key] for key in ('width','blocks','norm_groups')}
@@ -42,7 +47,8 @@ def verify_bundle(descriptor):
 
 def assess(trial):
     trial=Path(trial).resolve();wrapper=wrapped(trial/'plan.json');plan=wrapper['body'];stage=Path(plan['allocation_stage'])
-    if plan.get('version')!='graygo/selection-release-trial/1':raise ValueError('unknown selection trial')
+    if plan.get('version') not in ('graygo/selection-release-trial/1','graygo/q-release-trial/1'):raise ValueError('unknown release trial')
+    is_q=plan['version']=='graygo/q-release-trial/1'
     if digest(trial/'parallel_gate.py')!=plan['parallel_runner_sha256']:raise ValueError('parallel execution source changed')
     if digest(Path(__file__).with_name('champion_gate.py'))!=plan['numeric_gate_sha256']:raise ValueError('numeric gate source changed')
     frozen_plan=trial/'allocation-stage-plan.json'
@@ -52,7 +58,8 @@ def assess(trial):
     row=next(r for r in state['rounds'] if r['index']==plan['round_index'])
     if canonical_sha(row)!=plan['original_row_sha256'] or 'criteria' in row['decision'] or row.get('promoted'):
         raise ValueError('allocated confidence slot was already used or changed')
-    authority=stage/'learner/league/evaluations'/f"{plan['round_index']:04d}"/'external-selection-allocation.json'
+    authority=stage/'learner/league/evaluations'/f"{plan['round_index']:04d}"/('external-q-allocation.json' if is_q else 'external-selection-allocation.json')
+    if list(authority.parent.glob('external-*-allocation.json'))!=[authority]:raise ValueError('slot has conflicting external allocations')
     if json.loads(authority.read_text())['plan_sha256']!=wrapper['sha256']:raise ValueError('trial allocation differs')
     if list(authority.parent.glob('**/evidence.sqlite')):raise ValueError('ordinary gate also used this slot')
     gate_plan=GatePlan(**plan['gate_plan'])
@@ -86,10 +93,20 @@ def assess(trial):
     parity=json.loads((trial/'deployment-parity.json').read_text())
     parity_input=json.loads((trial/'deployment-parity-input.json').read_text())
     if parity_input['candidate']!=plan['candidate'] or parity['states']!=len(parity_input['cases']):raise ValueError('deployment parity tested another candidate')
-    if parity['selection_sha256']!=plan['candidate']['selection']['implementation_sha256'] or parity['maximum_probability_error']>=2e-5:
-        raise ValueError('deployment probability parity is not verified')
-    if plan['candidate']['selection']!=policy_selection.selection_spec(0.,True,1e-6):raise ValueError('untested selection profile')
-    return {'version':'graygo/selection-assessment/1','promotion_policy':HEAD_TO_HEAD_HISTORY,
+    if is_q:
+        import math
+        candidate=plan['candidate']
+        if candidate.get('head')!='greedy_q' or candidate.get('selection') is not None:raise ValueError('registered Q representation differs')
+        if (parity.get('candidate_sha256')!=candidate['policy_sha256'] or parity.get('head')!='greedy_q'
+            or parity['states']<20 or not math.isfinite(parity['maximum_probability_error'])
+            or parity['maximum_probability_error']>=1e-9):raise ValueError('greedy Q deployment parity is not verified')
+        for path,sha in parity['arena_sources'].items():
+            if digest(Path(parity['arena_source_checkout'])/path)!=sha:raise ValueError('tested Q arena source changed')
+    else:
+        if parity['selection_sha256']!=plan['candidate']['selection']['implementation_sha256'] or parity['maximum_probability_error']>=2e-5:
+            raise ValueError('deployment probability parity is not verified')
+        if plan['candidate']['selection']!=policy_selection.selection_spec(0.,True,1e-6):raise ValueError('untested selection profile')
+    return {'version':'graygo/q-release-assessment/1' if is_q else 'graygo/selection-assessment/1','promotion_policy':HEAD_TO_HEAD_HISTORY,
         'trial':str(trial),'records':plan['candidate']['records'],'candidate':plan['candidate'],'incumbent':plan['incumbent'],
         'pool':plan['pool'],'decision':decision,'evaluation_root':str(trial/'evaluation'),
         'allocation':str(authority),'allocation_plan_sha256':wrapper['sha256'],'round_index':plan['round_index'],
@@ -137,27 +154,29 @@ def apply(campaign,trial,*,reserve_bytes=DEFAULT_RESERVE):
             if pending.get('status') in ('evaluating','screening'):
                 if clock['last_checkpoint']['records']!=pending['target']:raise ValueError('pending gate is not at its frozen checkpoint')
                 state['rounds'].append({'index':pending['index'],'records':pending['target'],'candidate':pending.get('candidate'),'incumbent':pending['champion'],
-                    'decision':{'status':'complete','numeric_pass':False,'promotion_permitted':False,'experimental_promotion_permitted':False,'reason':'incumbent_changed_on_selection_adoption'},'promoted':False,'learner_reinitialized':False,'buffers_flushed':False})
+                    'decision':{'status':'complete','numeric_pass':False,'promotion_permitted':False,'experimental_promotion_permitted':False,'reason':'incumbent_changed_on_release_adoption'},'promoted':False,'learner_reinitialized':False,'buffers_flushed':False})
                 state.update(round=pending['index']+1,completed_records=pending['target'],pending=None)
             else:
                 pending.update(champion=deepcopy(state['champion']),history=deepcopy(state['history']),status='training')
                 for key in ('candidate','screen','schedule_action'):pending.pop(key,None)
-        selection=state['champion']['selection'];state['contract']['loop_plan'].update(release_temperature=selection['temperature'],release_placement_only=selection['placement_only'])
+        selection=state['champion'].get('selection');head=state['champion'].get('head','average')
+        state['contract']['loop_plan'].update(release_head=head,release_temperature=None if selection is None else selection['temperature'],
+            release_placement_only=True if selection is None else selection['placement_only'])
         state['contract'].update(implementation_sha256=digest(checkout/'tools/champion_loop.py'),screen_sha256=IndependentScreen(ScreenPlan()).sha256,gate_workers=8,gate_looks=[500,2000,4000])
         gate_plan=GatePlan(len(state['contract']['loop_plan']['round_ends']),looks=tuple(state['contract']['gate_looks']),alpha=plan['body'].get('gate_alpha',.05),seed=plan['body'].get('gate_seed',73))
         state['contract']['gate_sha256']=ParallelGate(gate_plan,workers=8,reserve_bytes=reserve_bytes).sha256
         if state.get('adaptive_scheduler'):
             learning=max(0.,clock['observed_seconds']+clock['recovery_charge_seconds']-state['evaluation_seconds'])
             state['adaptive_scheduler']=adaptive.observe_gate(state['adaptive_scheduler'],assessment['decision'],learning,previous['policy_sha256'],promoted=True)
-        league['sha256']=canonical_sha(state);plan['body'].update(checkout=str(checkout),release_selection=selection,gate_workers=8,gate_looks=state['contract']['gate_looks'])
+        league['sha256']=canonical_sha(state);plan['body'].update(checkout=str(checkout),release_selection=selection,release_head=head,gate_workers=8,gate_looks=state['contract']['gate_looks'])
         for name in allowed:plan['body']['tools'][name]=digest(checkout/'tools'/name)
         plan['sha256']=canonical_sha(plan['body']);reservation.update(previous_plan_sha256=reservation['plan_sha256'],plan_sha256=plan['sha256'])
-        campaign_plan['body'].update(checkout=str(checkout),release_selection=selection,gate_workers=8,gate_looks=state['contract']['gate_looks']);campaign_plan['sha256']=canonical_sha(campaign_plan['body']);campaign_state['plan_sha256']=campaign_plan['sha256']
+        campaign_plan['body'].update(checkout=str(checkout),release_selection=selection,release_head=head,gate_workers=8,gate_looks=state['contract']['gate_looks']);campaign_plan['sha256']=canonical_sha(campaign_plan['body']);campaign_state['plan_sha256']=campaign_plan['sha256']
         published['body'].update(champion=deepcopy(state['champion']),completed_round=state['round'],loop_contract_sha256=canonical_sha(state['contract']),loop_state_sha256=league['sha256'],champion_assessment=str(assessment_path))
         published['sha256']=canonical_sha(published['body'])
         for path,value in ((stage/'plan.json',plan),(parent/'handoff.json',reservation),(learner/'league/state.json',league),(learner/'league/champion.json',published),(publication,published),(campaign/'plan.json',campaign_plan),(campaign/'state.json',campaign_state)):write(path,value)
         receipt={'archive':str(archive),'candidate_records':state['champion']['records'],'champion_sha256':state['champion']['policy_sha256'],
-            'learner_checkpoint_records':clock['last_checkpoint']['records'],'selection':selection,'head_win_score':assessment['decision']['head_win_score'],
+            'learner_checkpoint_records':clock['last_checkpoint']['records'],'selection':selection,'head':head,'head_win_score':assessment['decision']['head_win_score'],
             'learner_payload_changed':False,'allocated_alpha_reused':False,'training_recipe_changed':False,'gate_workers':8,'gate_looks':state['contract']['gate_looks']}
         write(archive/'receipt.json',receipt);return receipt
     finally:

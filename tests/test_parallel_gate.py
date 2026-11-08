@@ -45,6 +45,22 @@ class ParallelGateTests(unittest.TestCase):
                     db=sqlite3.connect(gate_root(root/mode,plan)/label/'evidence.sqlite')
                     values.append(db.execute('SELECT idx,uid,payload,sha256 FROM units ORDER BY idx').fetchall());db.close()
                 self.assertEqual(values[0],values[1]);self.assertEqual(values[0],values[2])
+    def test_q_head_parallel_gate_reproduces_serial_statistics(self):
+        torch.set_num_threads(1)
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            config=BoardRuntimeConfig(rules=Rules(3,5),envs=2,capacity=64,batch=4,learning_start=4,target_every=8,width=8,blocks=1,norm_groups=2)
+            with BoardExecutor(root/'model',config,BoardJournalPlan('diagnostic',8,(0,8)),BoardExecutionPlan(60),reserve_bytes=0):pass
+            archive=root/'model/weights/000000000000';base=FrozenNeuralPolicy.from_archive(archive,label='reference')
+            reference={'kind':'archive','archive':str(archive),'label':'reference','rules':{'size':3,'max_rounds':5,'collision':'gray'},
+                'records':0,'policy_sha256':base.sha256,'weights_sha256':base.identity['weights_sha256']}
+            q=FrozenNeuralPolicy.from_archive(archive,representation='greedy_q',label='q-candidate')
+            candidate=dict(reference,head='greedy_q',label='q-candidate',policy_sha256=q.sha256,weights_sha256=q.identity['weights_sha256'])
+            plan=GatePlan(1,looks=(4,))
+            serial=IndependentGate(plan,reserve_bytes=0).evaluate(q,base,{'historical-0':base},root/'serial',round_index=0,time_cap_seconds=30)
+            parallel=ParallelGate(plan,workers=2,reserve_bytes=0).evaluate_descriptors(candidate,reference,{'historical-0':reference},root/'parallel',round_index=0)
+            self.assertEqual(serial,parallel)
+
 
 
 if __name__=='__main__':unittest.main()

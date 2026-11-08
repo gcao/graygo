@@ -45,35 +45,66 @@ class SelectionAdoptionTests(unittest.TestCase):
                     changed=dict(descriptor,bundle_sha256=digest(Path(descriptor['bundle'])))
                     with self.assertRaisesRegex(ValueError,'weights differ'):verify_bundle(changed)
 
+    def test_q_candidate_exports_the_gated_q_weights_and_round_trips(self):
+        from tools.champion_loop import policy
+        from tools.parallel_gate import load_policy
+        class FixtureGate:
+            plan=GatePlan(1,(4,));sha256=canonical_sha({'fixture':'q-release'});protected_authorizer=None
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            with BoardExecutor(root,config(),BoardJournalPlan('loop',16,(0,16)),BoardExecutionPlan(None),reserve_bytes=0) as executor:
+                with ChampionLoop(executor,LoopPlan((16,),release_head='greedy_q',release_temperature=0.),FixtureGate()) as loop:
+                    descriptor=loop._export(loop._candidate(root/'weights/000000000000','q-fixture'))
+                    self.assertEqual(descriptor['head'],'greedy_q')
+                    self.assertNotIn('selection',descriptor)
+                    self.assertFalse(Path(descriptor['bundle']).with_name('policy_selection.py').exists())
+                    self.assertEqual(policy(descriptor).sha256,descriptor['policy_sha256'])
+                    self.assertEqual(load_policy(descriptor).sha256,descriptor['policy_sha256'])
+                    bundle=torch.load(descriptor['bundle'],map_location='cpu',weights_only=True)
+                    self.assertEqual(bundle['head'],'greedy_q')
+                    self.assertEqual(bundle['format_version'],'graygo/arena-nfsp-policy/2')
+                    verify_bundle(descriptor)
+                    bundle['head']='average';torch.save(bundle,descriptor['bundle'])
+                    with self.assertRaisesRegex(ValueError,'metadata differs'):
+                        verify_bundle(dict(descriptor,bundle_sha256=digest(Path(descriptor['bundle']))))
+
     def test_assessor_rejects_spent_changed_or_double_allocated_confidence_slots(self):
-        for condition,message in (('spent','already used'),('changed','already used'),
-                                  ('alpha','per-slot alpha'),('ordinary','ordinary gate also used')):
-            with self.subTest(condition=condition),tempfile.TemporaryDirectory() as directory:
-                trial=Path(directory)/'trial';stage=Path(directory)/'stage';trial.mkdir()
-                def save(path,body):
-                    path.parent.mkdir(parents=True,exist_ok=True)
-                    path.write_text(json.dumps({'body':body,'sha256':canonical_sha(body)}))
-                row={'index':0,'decision':{'reason':'adaptive_training_interval'},'promoted':False}
-                if condition=='spent':row['decision']['criteria']={}
-                stage_plan={'gate_alpha':.05};save(trial/'allocation-stage-plan.json',stage_plan)
-                (trial/'parallel_gate.py').write_text('# frozen runner fixture\n')
-                gate=GatePlan(1,(4,))
-                body={'version':'graygo/selection-release-trial/1','allocation_stage':str(stage),
-                    'parallel_runner_sha256':digest(trial/'parallel_gate.py'),
-                    'numeric_gate_sha256':digest(Path(__file__).resolve().parents[1]/'tools/champion_gate.py'),
-                    'stage_plan_sha256':canonical_sha(stage_plan),'source_sha256':source_digest(),
-                    'round_index':0,'original_row_sha256':canonical_sha(row),'gate_plan':asdict(gate),
-                    'allocated_alpha':.1 if condition=='alpha' else .05}
-                save(trial/'plan.json',body)
-                if condition=='changed':row['decision']['reason']='changed'
-                save(stage/'learner/league/state.json',{'rounds':[row],
-                    'contract':{'loop_plan':{'round_ends':[10]}}})
-                authority=stage/'learner/league/evaluations/0000/external-selection-allocation.json'
-                authority.parent.mkdir(parents=True);authority.write_text(json.dumps({'plan_sha256':canonical_sha(body)}))
-                if condition=='ordinary':(authority.parent/'evidence.sqlite').touch()
-                with self.assertRaisesRegex(ValueError,message):assess(trial)
+        for version in ('graygo/selection-release-trial/1','graygo/q-release-trial/1'):
+            for condition,message in (('spent','already used'),('changed','already used'),
+                                      ('alpha','per-slot alpha'),('ordinary','ordinary gate also used'),('conflicting','conflicting external')):
+                with self.subTest(version=version,condition=condition),tempfile.TemporaryDirectory() as directory:
+                    trial=Path(directory)/'trial';stage=Path(directory)/'stage';trial.mkdir()
+                    def save(path,body):
+                        path.parent.mkdir(parents=True,exist_ok=True)
+                        path.write_text(json.dumps({'body':body,'sha256':canonical_sha(body)}))
+                    row={'index':0,'decision':{'reason':'adaptive_training_interval'},'promoted':False}
+                    if condition=='spent':row['decision']['criteria']={}
+                    stage_plan={'gate_alpha':.05};save(trial/'allocation-stage-plan.json',stage_plan)
+                    (trial/'parallel_gate.py').write_text('# frozen runner fixture\n')
+                    gate=GatePlan(1,(4,))
+                    body={'version':version,'allocation_stage':str(stage),
+                        'parallel_runner_sha256':digest(trial/'parallel_gate.py'),
+                        'numeric_gate_sha256':digest(Path(__file__).resolve().parents[1]/'tools/champion_gate.py'),
+                        'stage_plan_sha256':canonical_sha(stage_plan),'source_sha256':source_digest(),
+                        'round_index':0,'original_row_sha256':canonical_sha(row),'gate_plan':asdict(gate),
+                        'allocated_alpha':.1 if condition=='alpha' else .05}
+                    save(trial/'plan.json',body)
+                    if condition=='changed':row['decision']['reason']='changed'
+                    save(stage/'learner/league/state.json',{'rounds':[row],
+                        'contract':{'loop_plan':{'round_ends':[10]}}})
+                    authority=stage/'learner/league/evaluations/0000'/('external-q-allocation.json' if version=='graygo/q-release-trial/1' else 'external-selection-allocation.json')
+                    authority.parent.mkdir(parents=True);authority.write_text(json.dumps({'plan_sha256':canonical_sha(body)}))
+                    if condition=='conflicting':(authority.parent/('external-selection-allocation.json' if version=='graygo/q-release-trial/1' else 'external-q-allocation.json')).write_text('{}')
+                    if condition=='ordinary':(authority.parent/'evidence.sqlite').touch()
+                    with self.assertRaisesRegex(ValueError,message):assess(trial)
 
     def test_adoption_preserves_learner_and_continues_selected_parallel_gates(self):
+        self.assert_adoption_and_rollover('average')
+
+    def test_q_adoption_preserves_learner_and_carries_q_releases_across_segments(self):
+        self.assert_adoption_and_rollover('greedy_q')
+
+    def assert_adoption_and_rollover(self,head):
         checkout=Path(__file__).resolve().parents[1]
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);parent,publication=parent_run(root);campaign=root/'campaign'
@@ -81,9 +112,11 @@ class SelectionAdoptionTests(unittest.TestCase):
             def stopped(stage,**kwargs):kwargs['stop_state'].append(True);return worker(stage,**kwargs)
             with patch('tools.continuous_training.worker',side_effect=stopped):run(campaign,max_segments=1,reserve_bytes=0)
             stage=campaign/'stages/000000';state_path=stage/'learner/league/state.json';before=json.loads(state_path.read_text())['body']
-            archive=stage/'learner/weights/000000000008';base=FrozenNeuralPolicy.from_archive(archive,label='selected-fixture');selection=selection_spec();selected=SelectedAveragePolicy(base,selection)
+            archive=stage/'learner/weights/000000000008';base=FrozenNeuralPolicy.from_archive(archive,representation=head,label='selected-fixture');selection=selection_spec() if head=='average' else None;selected=SelectedAveragePolicy(base,selection) if selection is not None else base
             candidate={'kind':'archive','archive':str(archive),'label':'selected-fixture','rules':base.identity['origin']['rules'],
-                'records':8,'policy_sha256':selected.sha256,'weights_sha256':base.identity['weights_sha256'],'selection':selection}
+                'records':8,'policy_sha256':selected.sha256,'weights_sha256':base.identity['weights_sha256']}
+            if selection is not None:candidate['selection']=selection
+            if head!='average':candidate['head']=head
             trial=root/'trial';trial.mkdir();stage_plan_sha=json.loads((stage/'plan.json').read_text())['sha256']
             trial_body={'allocation_stage':str(stage),'stage_plan_sha256':stage_plan_sha}
             (trial/'plan.json').write_text(json.dumps({'body':trial_body,'sha256':canonical_sha(trial_body)}))
@@ -97,7 +130,8 @@ class SelectionAdoptionTests(unittest.TestCase):
             after=json.loads(state_path.read_text())['body']
             self.assertEqual(checkpoint.read_bytes(),payload)
             self.assertEqual(after['history'][-1],before['champion'])
-            self.assertEqual(after['contract']['loop_plan']['release_temperature'],0.)
+            self.assertEqual(after['contract']['loop_plan']['release_temperature'],0. if head=='average' else None)
+            self.assertEqual(after['contract']['loop_plan']['release_head'],head)
             self.assertEqual(after['contract']['gate_workers'],8)
             self.assertEqual(after['contract']['gate_looks'],[500,2000,4000])
             self.assertEqual(after['prior_promotions'],before.get('prior_promotions',0)+1)
@@ -108,3 +142,4 @@ class SelectionAdoptionTests(unittest.TestCase):
             self.assertEqual(next_plan['gate_looks'],[500,2000,4000])
             self.assertEqual(next_plan['gate_workers'],8)
             self.assertEqual(next_plan['release_selection'],selection)
+            self.assertEqual(next_plan['release_head'],head)

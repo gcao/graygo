@@ -85,7 +85,8 @@ class IndependentScreen:
             rules = Rules(**subject.identity['origin']['rules'])
             distribution = subject.initial_distribution(State(rules), BLACK, fresh_episode=True)
             report = {'status': 'complete', 'opening_pass_probability': float(distribution[-1]), 'opponents': {},
-                      'policy_sha256':subject.sha256,'selection':subject.identity.get('selection')}
+                      'policy_sha256':subject.sha256,'selection':subject.identity.get('selection'),
+                      'representation':subject.identity['kind']}
             result['heads'][head] = report
             opponents = dict(references) if head == 'average' else {}
             for name, opponent in opponents.items():

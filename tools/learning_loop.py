@@ -123,6 +123,7 @@ def prepare(root,parent,parent_checkout,publication,*,total_seconds=3600,records
             'initial_champion':published['body']['champion'],'history':old['body']['history'],
             'promotion_policy':published['body'].get('promotion_policy',HEAD_TO_HEAD_HISTORY),
             'release_selection':published['body']['champion'].get('selection'),
+            'release_head':published['body']['champion'].get('head','average'),
             'gate_workers':old['body'].get('contract',{}).get('gate_workers',1),
             'gate_looks':old['body'].get('contract',{}).get('gate_looks',[500,2000]),
             'parent_evaluation_seconds':old['body']['evaluation_seconds'],
@@ -196,6 +197,7 @@ def worker(root,*,stop_state=None,reserve_bytes=DEFAULT_RESERVE):
             gate_seconds=3600. if body['remaining_seconds'] is None else min(360.,body['remaining_seconds']*.1)
             plan=LoopPlan(ends,gate_seconds=gate_seconds,continue_after_evaluation_budget=True,
                 adaptive_schedule=body.get('adaptive_gate_schedule',False),
+                release_head=body.get('release_head','average'),
                 release_temperature=(body.get('release_selection') or {}).get('temperature'),
                 release_placement_only=(body.get('release_selection') or {}).get('placement_only',True))
             with ChampionLoop(executor,plan,gate,initial_champion=body['initial_champion'],resume=resume,
