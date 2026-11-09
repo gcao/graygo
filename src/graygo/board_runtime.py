@@ -22,7 +22,7 @@ from .nfsp import NFSPBackend,NFSPConfig
 from .nfsp_collection import FrozenPolicies
 from .rule_state import RuleStateSpec
 from .schedules import LearnerSchedule
-from .storage import CheckpointStore,DEFAULT_RESERVE
+from .storage import CheckpointStore,DEFAULT_RESERVE,digest
 from .manifest import make_manifest,source_digest,write_report
 from .confidence import canonical_sha
 
@@ -69,10 +69,18 @@ class BoardRuntimeConfig:
     trace_length: int=32
     trace_lambda: float=.95
     target_batch: int=512
+    initial_weights_archive: str|None=None
+    initial_weights_sha256: str|None=None
 
     def __post_init__(self):
         if not isinstance(self.rules,Rules) or type(self.envs) is not int or self.envs<1 or type(self.seed) is not int or self.seed<0:raise ValueError('board rules, env count and seed required')
         if type(self.batch) is not int or self.batch%2 or type(self.capacity) is not int or self.capacity<self.learning_start:raise ValueError('paired update batch and adequate replay required')
+        if self.initial_weights_archive is not None:
+            if self.rules.ko!='full-history':raise ValueError('weights-only v2 initialization requires explicit v2 rules')
+            path=Path(self.initial_weights_archive).expanduser().resolve();CheckpointStore.verify(path);sha=digest(path/'manifest.json')
+            if self.initial_weights_sha256 is not None and self.initial_weights_sha256!=sha:raise ValueError('initial weights archive changed')
+            object.__setattr__(self,'initial_weights_archive',str(path));object.__setattr__(self,'initial_weights_sha256',sha)
+        elif self.initial_weights_sha256 is not None:raise ValueError('initial weights fingerprint requires an archive')
         self.backend_config();self.model_config();self.schedule()
         if self.reservoir_open%2 or self.handoff_end%2:raise ValueError('paired opening boundaries required')
         if any(type(v) is not bool for v in (self.augmentation,self.deterministic,self.uniform_comparison,self.cuda_graphs)):raise ValueError('explicit runtime flags required')
@@ -82,7 +90,11 @@ class BoardRuntimeConfig:
         self.q_target,self.trace_length,self.trace_lambda,self.target_batch)
     def model_config(self):return ModelConfig(self.width,self.blocks,self.norm_groups)
     def schedule(self):return LearnerSchedule(40_000_000,self.reservoir_open,self.handoff_end)
-    def plan(self):return json.loads(json.dumps(asdict(self)))
+    def plan(self):
+        result=json.loads(json.dumps(asdict(self)));result["rules"]=self.rules.to_dict()
+        if self.initial_weights_archive is None:
+            result.pop("initial_weights_archive");result.pop("initial_weights_sha256")
+        return result
 
 
 class BoardNFSPRuntime:
@@ -96,7 +108,19 @@ class BoardNFSPRuntime:
         self.collector=BoardCollector(config.rules,config.envs,config.seed,starts=starts);self.schedule=config.schedule();self.snapshot=None
         from .evaluation import seed_for
         self.rng={name:np.random.default_rng(seed_for(config.seed,'board-runtime',name)) for name in ('labels','q_replay','supervised','augment_q','augment_supervised')}
+        self.initial_weights=None
+        if config.initial_weights_archive is not None:self._seed_weights(config.initial_weights_archive)
         self.timings={'collection':0.,'learning':0.,'checkpoint':0.};self.loss={'q_updates':0,'q_loss_sum':0.,'supervised_updates':0,'supervised_loss_sum':0.,'projected_targets':0}
+
+    def _seed_weights(self,archive):
+        path=Path(archive);data=torch.load(path/'models.pt',map_location='cpu',weights_only=True)
+        if {k:data['config'][k] for k in ('width','blocks','norm_groups')}!=asdict(self.config.model_config()):raise ValueError('warm-start network architecture differs')
+        old_rules=data['config']['rules']
+        if (old_rules['size'],old_rules['max_rounds'],old_rules['collision'])!=(self.config.rules.size,self.config.rules.max_rounds,self.config.rules.collision):raise ValueError('warm-start board/capture configuration differs')
+        self.backend.q.load_state_dict(data['q']);self.backend.target.load_state_dict(data['q']);self.backend.average.load_state_dict(data['average'])
+        self.backend.average_seeded=True
+        self.initial_weights={'archive':str(path),'manifest_sha256':self.config.initial_weights_sha256,'training_rules':old_rules,
+            'new_rules':self.config.rules.to_dict(),'transfer':'weights-only','replay_imported':False,'optimizer_imported':False}
 
     @property
     def records(self):return self.backend.counters.fresh_records
@@ -145,6 +169,7 @@ class BoardNFSPRuntime:
     def state_dict(self):
         return {'version':RUNTIME_VERSION,'config':self.config.plan(),'settings':self.settings,'backend':self.backend.state_dict(),'collector':self.collector.state_dict(),
             'rng':{k:v.bit_generator.state for k,v in self.rng.items()},'timings':self.timings,'loss':self.loss,
+            **({'initial_weights':self.initial_weights} if self.initial_weights is not None else {}),
             'torch_rng':torch.get_rng_state(),'cuda_rng':torch.cuda.get_rng_state_all() if self.backend.device.type=='cuda' else []}
 
     def save(self,root,*,reserve_bytes=DEFAULT_RESERVE,controller_state=None):
@@ -180,6 +205,6 @@ class BoardNFSPRuntime:
         self.collector.load_state_dict(state['collector'],self.backend.q,self.backend.average,forward_pool=self.forward_pool)
         if self.collector.records!=self.records or self.replay.insertions!=self.records or self.replay.q_insertions!=self.backend.counters.fresh_q or meta['step']!=self.records:raise ValueError('runtime record accounting differs')
         for k,v in state['rng'].items():self.rng[k].bit_generator.state=v
-        self.timings=state['timings'];self.loss=state['loss'];self.snapshot=None
+        self.timings=state['timings'];self.loss=state['loss'];self.snapshot=None;self.initial_weights=state.get('initial_weights')
         torch.set_rng_state(state['torch_rng'].cpu())
         if self.backend.device.type=='cuda':torch.cuda.set_rng_state_all([x.cpu() for x in state['cuda_rng']])

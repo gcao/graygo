@@ -20,7 +20,7 @@ class BoardCollector:
         self.game=_TelemetryGame();self.active=[None]*envs;self.start_records=[None]*envs;self.start_families=[None]*envs;self.births=[{} for _ in range(envs)]
         self.cursor=self.records=self.started=self.completed=0
         self.rng=[{name:np.random.default_rng(seed_for(seed,'collector',env,name)) for name in ('mode_b','mode_w','action_b','action_w')} for env in range(envs)]
-        self.metrics={'start_counts':{'empty':0,'gray':0},'starting_gray_counts':[0]*(rules.points+1),'family_starts':{},'physical_rounds':0,'collisions':0,'history_match_rounds':0,'restriction_point_rounds':[0,0],
+        self.metrics={'start_counts':{'empty':0,'gray':0},'starting_gray_counts':[0]*(rules.points+1),'family_starts':{},'physical_rounds':0,'repetition_rejections':0,'collisions':0,'history_match_rounds':0,'restriction_point_rounds':[0,0],
             'captured_stones':[0]*4,'suicidal_stones':[0]*4,'created_gray':0,'removed_gray_lifetimes':[0]*(rules.max_rounds+1),
             'terminal_gray_ages':[0]*(rules.max_rounds+1),'terminal_gray_stones':0,'terminal_empty_points':0,'gray_boundary_empty_points':0,
             'fractional_bias_empty_points':0,'episode_lengths':[0]*(rules.max_rounds+1),'endings':{'mutual_pass':0,'round_limit':0},'outcomes':[0,0,0],
@@ -63,7 +63,7 @@ class BoardCollector:
         return count
 
     def _observe(self,env,before,episode,event,transition,schedule):
-        m=self.metrics;after=episode.state;step=episode.steps;m['physical_rounds']+=1
+        m=self.metrics;after=episode.state;step=episode.steps;m['physical_rounds']+=1;m['repetition_rejections']+=int(transition.repetition_rejected)
         m['collisions']+=int(transition.collision is not None)
         m['history_match_rounds']+=int(any(h.before==after.board for h in before.history))
         m['restriction_point_rounds'][0]+=len(after.forbidden_black);m['restriction_point_rounds'][1]+=len(after.forbidden_white)
@@ -107,20 +107,21 @@ class BoardCollector:
         for episode in self.active:
             if episode is not None:
                 for actor in episode.actors.values():snapshots[actor.snapshot.version]=actor.snapshot.state_dict()
-        return {'version':COLLECTOR_VERSION,'rules':{'size':self.rules.size,'max_rounds':self.rules.max_rounds,'collision':self.rules.collision},
+        return {'version':COLLECTOR_VERSION,'rules':self.rules.to_dict(),
             'envs':self.envs,'seed':self.seed,'starts_sha256':self.starts.sha256,'cursor':self.cursor,'records':self.records,'started':self.started,'completed':self.completed,
             'rng':[{k:v.bit_generator.state for k,v in rng.items()} for rng in self.rng],
             'active':[None if e is None else e.state_dict(lambda s:s.to_dict()) for e in self.active],
             'snapshots':snapshots,'start_records':self.start_records,'start_families':self.start_families,'births':self.births,'metrics':deepcopy(self.metrics)}
 
     def load_state_dict(self,state,q,average,*,forward_pool=None):
-        expected=(COLLECTOR_VERSION,{'size':self.rules.size,'max_rounds':self.rules.max_rounds,'collision':self.rules.collision},self.envs,self.seed,self.starts.sha256)
+        expected=(COLLECTOR_VERSION,self.rules.to_dict(),self.envs,self.seed,self.starts.sha256)
         actual=(state['version'],state['rules'],state['envs'],state['seed'],state['starts_sha256'])
         if actual!=expected:raise ValueError('collector configuration/start distribution differs')
         snapshots={}
         for version,saved in state['snapshots'].items():
             snapshot=FrozenPolicies(q,average,version=int(version),average_ready=saved['average_ready'],forward_pool=forward_pool);snapshot.load_state_dict(saved);snapshots[int(version)]=snapshot
         for name in ('cursor','records','started','completed','start_records','start_families','births','metrics'):setattr(self,name,deepcopy(state[name]))
+        self.metrics.setdefault('repetition_rejections',0)
         if not 0<=self.cursor<self.envs or self.records<0 or self.records%2 or self.completed>self.started:raise ValueError('invalid collector clocks')
         if len(self.start_records)!=self.envs or len(self.start_families)!=self.envs or len(self.births)!=self.envs:raise ValueError('collector curriculum progress dimensions differ')
         if sum(self.metrics['start_counts'].values())!=self.started or sum(self.metrics['starting_gray_counts'])!=self.started:raise ValueError('collector start counts differ')

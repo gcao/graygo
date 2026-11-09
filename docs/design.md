@@ -1,5 +1,7 @@
 # Gray Go: Game Summary and AI Design
 
+> **November 9, 2026 rule amendment:** [Gray Go v2](ko-v2.md) supersedes the two-round ko rule for explicitly selected v2 games. Existing v1 campaigns and historical reviews retain their original rules. Neural inputs and weights remain compatible; the v2 observation omits full-game repetition history.
+
 **Status:** Proposed research and implementation design. Revised November 1, 2026. Reviewer-reported experiments are identified separately; this revision did not run or independently audit training.
 
 This document incorporates the game owner's specification and capture-resolution clarification supplied on October 31, 2026. These supersede the provisional rule discussion in the [original training notes](gray-go-ai-training-discussion.md). Neural-network dimensions and training settings below are proposed engineering choices, not measured results. Scoring edge cases inferred from the full-board accounting requirement are explicitly identified.

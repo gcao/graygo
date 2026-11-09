@@ -1,0 +1,29 @@
+{
+  "source_game": "game_d6f830dc33fa4af8a258b3a3a238dcc7",
+  "source_turn_index": 58,
+  "board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+  "moves": [
+    {
+      "black": "g3",
+      "white": "g3",
+      "legacy_post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+"
+    },
+    {
+      "black": "i9",
+      "white": "f3",
+      "legacy_post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB"
+    },
+    {
+      "black": "g3",
+      "white": "g3",
+      "legacy_post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB"
+    },
+    {
+      "black": "i1",
+      "white": "f3",
+      "legacy_post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+"
+    }
+  ],
+  "expected_rejected_black": "i1",
+  "expected_rejected_white": "f3"
+}

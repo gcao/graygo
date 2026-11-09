@@ -49,7 +49,7 @@ def make_manifest(*, seed, command, rules=None):
         host_memory={"total_bytes":memory.get("MemTotal"),"available_bytes":memory.get("MemAvailable"),"swap_bytes":memory.get("SwapTotal")}
     return {"format_version": 1, "run_id": uuid.uuid4().hex,
             "created_at": datetime.now(timezone.utc).isoformat(), "seed": seed, "command": command,
-            "rule_version": RULE_VERSION, "encoding_version": ENCODING_VERSION, "baseline_version": BASELINE_VERSION,
+            "rule_version": "graygo/2" if rules and rules.get("ko")=="full-history" else RULE_VERSION, "encoding_version": ENCODING_VERSION, "baseline_version": BASELINE_VERSION,
             "rules": rules, "source_sha256": source_digest(), "design_sha256": design_sha,
             "git_commit": _command(["git","rev-parse","HEAD"]),
             "git_dirty": bool(_command(["git","status","--porcelain"])),

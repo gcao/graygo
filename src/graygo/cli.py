@@ -21,7 +21,7 @@ def render(state):
 
 
 def _rules(args):
-    return Rules(args.size,args.limit,args.collision)
+    return Rules(args.size,args.limit,args.collision,getattr(args,'ko','two-round'))
 
 
 def simulate(args):
@@ -479,7 +479,7 @@ def evaluate(args):
             if archive is not None:raise ValueError("baseline does not use a checkpoint")
             return BaselinePolicy(name)
         if archive is None:raise ValueError("neural evaluation requires an archived public checkpoint")
-        return FrozenNeuralPolicy.from_archive(archive,representation=representation,device=args.device,label=label,inference_batch_size=args.inference_batch_size,cuda_graphs=args.cuda_graphs)
+        return FrozenNeuralPolicy.from_archive(archive,representation=representation,device=args.device,label=label,inference_batch_size=args.inference_batch_size,cuda_graphs=args.cuda_graphs,evaluation_rules=_rules(args) if args.ko=='full-history' else None)
     subject=policy(args.subject,args.subject_archive,args.representation,args.subject_label)
     opponent=policy(args.opponent,args.opponent_archive,args.opponent_representation,'opponent')
     incumbent=None if args.incumbent is None else policy(args.incumbent,args.incumbent_archive,args.incumbent_representation,'incumbent')
@@ -538,6 +538,7 @@ def main(argv=None):
         p.add_argument("--size",type=int,default=9)
         p.add_argument("--limit",type=int)
         p.add_argument("--collision",choices=("gray","remove"),default="gray")
+        p.add_argument("--ko",choices=("two-round","full-history"),default="two-round")
         p.add_argument("--seed",type=int,default=0)
         p.add_argument("--output")
         if name=="calibrate-promotion":
@@ -684,7 +685,7 @@ def main(argv=None):
         matrix_command=args.command in ("train-matrix","preflight","train-nfsp","train-nfsp-task")
         rules=None if matrix_command or args.command in ("build-native","calibrate-promotion") else _rules(args)
         metadata=make_manifest(seed=args.seed,command=vars(args),rules=None if rules is None else
-                               {"size":rules.size,"max_rounds":rules.max_rounds,"collision":rules.collision})
+                               rules.to_dict())
         if args.command in ("build-native","calibrate-promotion"):metadata.update({"rule_version":None,"baseline_version":None,"encoding_version":None})
         if matrix_command:
             metadata.update({"rule_version":None,"baseline_version":None,"encoding_version":"graygo/matrix-role/1"})

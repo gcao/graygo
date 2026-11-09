@@ -1,0 +1,733 @@
+{
+  "source_game": "game_d6f830dc33fa4af8a258b3a3a238dcc7",
+  "turns": [
+    {
+      "turn_index": 0,
+      "pre_board_key": "+++++++++/+++++++++/+++++++++/+++++++++/+++++++++/+++++++++/+++++++++/+++++++++/+++++++++",
+      "post_board_key": "+++++++++/+++++++++/B++++++++/+++++++++/+++++++++/+++++++++/W++++++++/+++++++++/+++++++++",
+      "black_move": "c1",
+      "white_move": "g1",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 1,
+      "pre_board_key": "+++++++++/+++++++++/B++++++++/+++++++++/+++++++++/+++++++++/W++++++++/+++++++++/+++++++++",
+      "post_board_key": "+++++++++/+++++++++/B+B++++++/+++++++++/+++++++++/+++++++++/W++++++W+/+++++++++/+++++++++",
+      "black_move": "c3",
+      "white_move": "g8",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 2,
+      "pre_board_key": "+++++++++/+++++++++/B+B++++++/+++++++++/+++++++++/+++++++++/W++++++W+/+++++++++/+++++++++",
+      "post_board_key": "+++++++++/+++++++++/B+B+B++++/+++++++++/+++++++++/+++++++++/W++++W+W+/+++++++++/+++++++++",
+      "black_move": "c5",
+      "white_move": "g6",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 3,
+      "pre_board_key": "+++++++++/+++++++++/B+B+B++++/+++++++++/+++++++++/+++++++++/W++++W+W+/+++++++++/+++++++++",
+      "post_board_key": "+++++++++/+++++++++/B+B+B+B++/+++++++++/+++++++++/+++++++++/W++W+W+W+/+++++++++/+++++++++",
+      "black_move": "c7",
+      "white_move": "g4",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 4,
+      "pre_board_key": "+++++++++/+++++++++/B+B+B+B++/+++++++++/+++++++++/+++++++++/W++W+W+W+/+++++++++/+++++++++",
+      "post_board_key": "+++++++++/++++++++B/B+B+B+B++/+++++++++/+++++++++/+++++++++/W++W+W+W+/+W+++++++/+++++++++",
+      "black_move": "b9",
+      "white_move": "h2",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 5,
+      "pre_board_key": "+++++++++/++++++++B/B+B+B+B++/+++++++++/+++++++++/+++++++++/W++W+W+W+/+W+++++++/+++++++++",
+      "post_board_key": "+++++++++/++++++++B/B+B+B+B++/+++++++++/B++++++++/+++++++++/W++W+W+W+/+W++W++++/+++++++++",
+      "black_move": "e1",
+      "white_move": "h5",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 6,
+      "pre_board_key": "+++++++++/++++++++B/B+B+B+B++/+++++++++/B++++++++/+++++++++/W++W+W+W+/+W++W++++/+++++++++",
+      "post_board_key": "+++++++++/++++++++B/B+B+B+B++/+++++++++/B++++++B+/+++++++++/W++W+W+W+/+W++W++++/+++++++W+",
+      "black_move": "e8",
+      "white_move": "i8",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 7,
+      "pre_board_key": "+++++++++/++++++++B/B+B+B+B++/+++++++++/B++++++B+/+++++++++/W++W+W+W+/+W++W++++/+++++++W+",
+      "post_board_key": "++++W++++/++++++++B/B+B+B+B++/+++++++++/B++++B+B+/+++++++++/W++W+W+W+/+W++W++++/+++++++W+",
+      "black_move": "e6",
+      "white_move": "a5",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 8,
+      "pre_board_key": "++++W++++/++++++++B/B+B+B+B++/+++++++++/B++++B+B+/+++++++++/W++W+W+W+/+W++W++++/+++++++W+",
+      "post_board_key": "++W+W++++/++++++++B/B+B+B+B++/+++++++++/B++B+B+B+/+++++++++/W++W+W+W+/+W++W++++/+++++++W+",
+      "black_move": "e4",
+      "white_move": "a3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 9,
+      "pre_board_key": "++W+W++++/++++++++B/B+B+B+B++/+++++++++/B++B+B+B+/+++++++++/W++W+W+W+/+W++W++++/+++++++W+",
+      "post_board_key": "W+W+W++++/++++++++B/B+B+B+B++/+++++++++/B++B+B+B+/+B+++++++/W++W+W+W+/+W++W++++/+++++++W+",
+      "black_move": "f2",
+      "white_move": "a1",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 10,
+      "pre_board_key": "W+W+W++++/++++++++B/B+B+B+B++/+++++++++/B++B+B+B+/+B+++++++/W++W+W+W+/+W++W++++/+++++++W+",
+      "post_board_key": "W+W+W+++W/++++++++B/B+B+B+B++/+++++++++/B++B+B+B+/+B++++++B/W++W+W+W+/+W++W++++/+++++++W+",
+      "black_move": "f9",
+      "white_move": "a9",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 11,
+      "pre_board_key": "W+W+W+++W/++++++++B/B+B+B+B++/+++++++++/B++B+B+B+/+B++++++B/W++W+W+W+/+W++W++++/+++++++W+",
+      "post_board_key": "W+W+W+++W/W++++++BB/B+B+B+B++/+++++++++/B++B+B+B+/+B++++++B/W++W+W+W+/+W++W++++/+++++++W+",
+      "black_move": "b8",
+      "white_move": "b1",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 12,
+      "pre_board_key": "W+W+W+++W/W++++++BB/B+B+B+B++/+++++++++/B++B+B+B+/+B++++++B/W++W+W+W+/+W++W++++/+++++++W+",
+      "post_board_key": "W+W+W+W+W/WB+++++BB/B+B+B+B++/+++++++++/B++B+B+B+/+B++++++B/W++W+W+W+/+W++W++++/+++++++W+",
+      "black_move": "b2",
+      "white_move": "a7",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 13,
+      "pre_board_key": "W+W+W+W+W/WB+++++BB/B+B+B+B++/+++++++++/B++B+B+B+/+B++++++B/W++W+W+W+/+W++W++++/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/B++B+B+B+/+B++++++B/W++W+W+W+/+W++W++++/+++++++W+",
+      "black_move": "b3",
+      "white_move": "a2",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 14,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/B++B+B+B+/+B++++++B/W++W+W+W+/+W++W++++/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/B++B+B+B+/+B++++++B/WW+W+W+WB/+W++W++++/+++++++W+",
+      "black_move": "g9",
+      "white_move": "g2",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 15,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/B++B+B+B+/+B++++++B/WW+W+W+WB/+W++W++++/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/B+BB+B+B+/+B++++++B/WW+W+W+WB/+W++W+++W/+++++++W+",
+      "black_move": "e3",
+      "white_move": "h9",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 16,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/B+BB+B+B+/+B++++++B/WW+W+W+WB/+W++W+++W/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/B+BB+B+B+/WB+++++BB/WW+W+W+WB/+W++W+++W/+++++++W+",
+      "black_move": "f8",
+      "white_move": "f1",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 17,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/B+BB+B+B+/WB+++++BB/WW+W+W+WB/+W++W+++W/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+B+B+/WBW++++BB/WW+W+W+WB/+W++W+++W/+++++++W+",
+      "black_move": "e2",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 18,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+B+B+/WBW++++BB/WW+W+W+WB/+W++W+++W/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+B+B+/WBWG+++BB/WW+W+W+WB/+W++W+++W/+++++++W+",
+      "black_move": "f4",
+      "white_move": "f4",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 19,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+B+B+/WBWG+++BB/WW+W+W+WB/+W++W+++W/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+B+B+/WB++W++BB/WWBW+W+WB/+W++W+++W/+++++++W+",
+      "black_move": "g3",
+      "white_move": "f5",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 20,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+B+B+/WB++W++BB/WWBW+W+WB/+W++W+++W/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+B+B+/WB+BW++BB/WWBW+W+WB/+WW+W+++W/+++++++W+",
+      "black_move": "f4",
+      "white_move": "h3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 21,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+B+B+/WB+BW++BB/WWBW+W+WB/+WW+W+++W/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+B+B+/WB+BWBWBB/WWBW+W+WB/+WW+W+++W/+++++++W+",
+      "black_move": "f6",
+      "white_move": "f7",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 22,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+B+B+/WB+BWBWBB/WWBW+W+WB/+WW+W+++W/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+BBB+/WB+BWBWBB/WWBW+W+WB/+WW+W+W+W/+++++++W+",
+      "black_move": "e7",
+      "white_move": "h7",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 23,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+BBB+/WB+BWBWBB/WWBW+W+WB/+WW+W+W+W/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+BBB+/WB+BWB+BB/WWBWWWBWB/+WW+W+W+W/+++++++W+",
+      "black_move": "g7",
+      "white_move": "g5",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 24,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+BBB+/WB+BWB+BB/WWBWWWBWB/+WW+W+W+W/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+BBB+/WB+BWBWBB/WWBWWW++B/+WW+W+WBW/+++++++W+",
+      "black_move": "h8",
+      "white_move": "f7",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 25,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+BBB+/WB+BWBWBB/WWBWWW++B/+WW+W+WBW/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+BBB+/WB+BWB+BB/WWBWWWBWB/+WW+W+W+W/+++++++W+",
+      "black_move": "g7",
+      "white_move": "g8",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 26,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+BBB+/WB+BWB+BB/WWBWWWBWB/+WW+W+W+W/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+BBB+/WB+BWBBBB/WWBWWWBWB/+WW+W+WWW/+++++++W+",
+      "black_move": "f7",
+      "white_move": "h8",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 27,
+      "pre_board_key": "WWW+W+W+W/WBB++++BB/B+B+B+B++/+++++++++/BBBB+BBB+/WB+BWBBBB/WWBWWWBWB/+WW+W+WWW/+++++++W+",
+      "post_board_key": "WWW+W+W+W/WBB++BWBB/B+B+B+B++/+++++++++/BBBB+BBB+/WB+BWBBBB/WWBWWWBWB/+WW+W+WWW/+++++++W+",
+      "black_move": "b6",
+      "white_move": "b7",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 28,
+      "pre_board_key": "WWW+W+W+W/WBB++BWBB/B+B+B+B++/+++++++++/BBBB+BBB+/WB+BWBBBB/WWBWWWBWB/+WW+W+WWW/+++++++W+",
+      "post_board_key": "WWW+WWW+W/WBB++BWBB/B+B+B+B+B/+++++++++/BBBB+BBB+/WB+BWBBBB/WWBWWWBWB/+WW+W+WWW/+++++++W+",
+      "black_move": "c9",
+      "white_move": "a6",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 29,
+      "pre_board_key": "WWW+WWW+W/WBB++BWBB/B+B+B+B+B/+++++++++/BBBB+BBB+/WB+BWBBBB/WWBWWWBWB/+WW+W+WWW/+++++++W+",
+      "post_board_key": "WWW+WWW+W/WBB+WBWBB/B+B+BBB+B/+++++++++/BBBB+BBB+/WB+BWBBBB/WWBWWWBWB/+WW+W+WWW/+++++++W+",
+      "black_move": "c6",
+      "white_move": "b5",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 30,
+      "pre_board_key": "WWW+WWW+W/WBB+WBWBB/B+B+BBB+B/+++++++++/BBBB+BBB+/WB+BWBBBB/WWBWWWBWB/+WW+W+WWW/+++++++W+",
+      "post_board_key": "WWW+WWW+W/WBBGWBWBB/B+B+BBB+B/+++++++++/BBBB+BBB+/WB+BWBBBB/WWBWWWBWB/+WW+W+WWW/+++++++W+",
+      "black_move": "b4",
+      "white_move": "b4",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 31,
+      "pre_board_key": "WWW+WWW+W/WBBGWBWBB/B+B+BBB+B/+++++++++/BBBB+BBB+/WB+BWBBBB/WWBWWWBWB/+WW+W+WWW/+++++++W+",
+      "post_board_key": "WWW+WWWWW/WBBGWBWBB/B+B+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWBWWWBWB/+WW+W+WWW/+++++++W+",
+      "black_move": "e5",
+      "white_move": "a8",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 32,
+      "pre_board_key": "WWW+WWWWW/WBBGWBWBB/B+B+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWBWWWBWB/+WW+W+WWW/+++++++W+",
+      "post_board_key": "WWW+WWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/+WW+W+WWW/+++++++W+",
+      "black_move": "c2",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 33,
+      "pre_board_key": "WWW+WWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/+WW+W+WWW/+++++++W+",
+      "post_board_key": "WWW+WWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/+WW+W+WWW/+++++++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 34,
+      "pre_board_key": "WWW+WWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/+WW+W+WWW/+++++++W+",
+      "post_board_key": "WWW+WWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WW+WWWBWB/+WW+W+WWW/+++++++W+",
+      "black_move": "f3",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 35,
+      "pre_board_key": "WWW+WWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WW+WWWBWB/+WW+W+WWW/+++++++W+",
+      "post_board_key": "WWW+WWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/+WW+W+WWW/+++++++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 36,
+      "pre_board_key": "WWW+WWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/+WW+W+WWW/+++++++W+",
+      "post_board_key": "WWWWWWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/+WW+W+WWW/B++++++W+",
+      "black_move": "i1",
+      "white_move": "a4",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 37,
+      "pre_board_key": "WWWWWWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/+WW+W+WWW/B++++++W+",
+      "post_board_key": "WWWWWWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/+WW+W+WWW/BG+++++W+",
+      "black_move": "i2",
+      "white_move": "i2",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 38,
+      "pre_board_key": "WWWWWWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/+WW+W+WWW/BG+++++W+",
+      "post_board_key": "WWWWWWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/B+B++++W+",
+      "black_move": "i3",
+      "white_move": "h1",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 39,
+      "pre_board_key": "WWWWWWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/B+B++++W+",
+      "post_board_key": "WWWWWWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/B+B++++W+",
+      "black_move": "i2",
+      "white_move": "i2",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 40,
+      "pre_board_key": "WWWWWWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/B+B++++W+",
+      "post_board_key": "WWWWWWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/B+BG+++W+",
+      "black_move": "i4",
+      "white_move": "i4",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 41,
+      "pre_board_key": "WWWWWWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/B+BG+++W+",
+      "post_board_key": "WWWWWWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/BG+G+++W+",
+      "black_move": "i2",
+      "white_move": "i2",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 42,
+      "pre_board_key": "WWWWWWWWW/WBBGWBWBB/BBB+BBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/BG+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBB+WBWBB/BBBBBBB+B/+++++++++/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/BG+G+++W+",
+      "black_move": "c4",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 43,
+      "pre_board_key": "WWWWWWWWW/WBB+WBWBB/BBBBBBB+B/+++++++++/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/BG+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWBWWWBWB/WWW+W+WWW/BG+G+++W+",
+      "black_move": "g3",
+      "white_move": "b4",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 44,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+++++++++/BBBBBBBB+/WB+BWBBBB/WWBWWWBWB/WWW+W+WWW/BG+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/++++++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/BG+G+++W+",
+      "black_move": "d9",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 45,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/++++++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/BG+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/++++++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/BG+G+++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 46,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/++++++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/BG+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/++++++++B/BBBBBBBB+/WB+BWBBBB/WW+WWWBWB/WWW+W+WWW/BG+G+++W+",
+      "black_move": "f3",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 47,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/++++++++B/BBBBBBBB+/WB+BWBBBB/WW+WWWBWB/WWW+W+WWW/BG+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/++++++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/BG+G+++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 48,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/++++++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/BG+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+W++++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "i9",
+      "white_move": "d2",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 49,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+W++++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "d3",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 50,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 51,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "i9",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 52,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 53,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "i1",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 54,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWBWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "g3",
+      "white_move": "PASS",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 55,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWBWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "i9",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 56,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 57,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "i1",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 58,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 59,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "i9",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 60,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 61,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "i1",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 62,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 63,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "i9",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 64,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 65,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "i1",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 66,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 67,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "i9",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 68,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 69,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "i1",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 70,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 71,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "i9",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 72,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 73,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "i1",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 74,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 75,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "i9",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 76,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWBWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "g3",
+      "white_move": "PASS",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 77,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWBWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "i1",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 78,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 79,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "i9",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 80,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 81,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "i1",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 82,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 83,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "i9",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 84,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 85,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "i1",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 86,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 87,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "i9",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 88,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 89,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++WB",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "i1",
+      "white_move": "f3",
+      "status": "resolved"
+    },
+    {
+      "turn_index": 90,
+      "pre_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WBWBWBBBB/WW+WWWBWB/WWW+W+WWW/+G+G+++W+",
+      "post_board_key": "WWWWWWWWW/WBBWWBWBB/BBBBBBB+B/+WB+++++B/BBBBBBBB+/WB+BWBBBB/WWGWWWBWB/WWW+W+WWW/+G+G+++W+",
+      "black_move": "g3",
+      "white_move": "g3",
+      "status": "resolved"
+    }
+  ]
+}

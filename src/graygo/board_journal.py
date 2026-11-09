@@ -70,7 +70,7 @@ class BoardMilestoneJournal:
             raise ValueError('practice/loop preserves the primary averaging schedule')
         if plan.scope in ('development','confirmation'):
             cohort=DEVELOPMENT_SEEDS if plan.scope=='development' else CONFIRMATION_SEEDS
-            if c.seed not in cohort or c.rules.size!=9 or c.rules.max_rounds!=200 or (plan.scope=='development' and c.rules.collision!='gray') or (c.width,c.blocks,c.norm_groups)!=(64,8,8) or (c.batch,c.learning_start,c.capacity,c.target_every)!=(512,4096,500000,12800):raise ValueError('formal journal requires the declared board/cohort/learner configuration')
+            if c.seed not in cohort or c.rules.size!=9 or c.rules.max_rounds!=200 or c.rules.ko!='two-round' or (plan.scope=='development' and c.rules.collision!='gray') or (c.width,c.blocks,c.norm_groups)!=(64,8,8) or (c.batch,c.learning_start,c.capacity,c.target_every)!=(512,4096,500000,12800):raise ValueError('formal journal requires the declared board/cohort/learner configuration')
             if (c.learning_rate,c.max_grad_norm)!=(3e-4,.5):raise ValueError('formal optimizer protocol differs')
             starts=runtime.collector.starts.identity
             if plan.scope=='development' and starts.get('kind')!='official-empty':raise ValueError('primary development starts must be official empty')
@@ -87,7 +87,7 @@ class BoardMilestoneJournal:
         else:
             if path.exists():raise FileExistsError('board run manifest exists; use its original controller/resume')
             if runtime.records or runtime.replay.insertions or runtime.reservoir.seen:raise ValueError('new run manifest requires a fresh initialized runtime')
-            self.manifest=make_manifest(seed=c.seed,command={'board_journal':plan.to_dict(),'runtime':c.plan()},rules=asdict(c.rules))
+            self.manifest=make_manifest(seed=c.seed,command={'board_journal':plan.to_dict(),'runtime':c.plan()},rules=c.rules.to_dict())
             self.manifest.update(config=config,training_starts=runtime.collector.starts.identity,
                 scope_approval_verified=False,approval_scope='journal declaration only; project A2/resource controller must authorize actual training')
             if initialization is not None:self.manifest['initialization']=initialization

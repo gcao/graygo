@@ -1,6 +1,8 @@
 # Gray Go
 
-Simultaneous Go on a 9×9 torus. Both players secretly choose a placement or pass; collisions create neutral gray stones. The game uses capture-before-suicide resolution, player-specific restrictions, two-round ko history, and exact fractional area scoring.
+Simultaneous Go on a 9×9 torus. Both players secretly choose a placement or pass; collisions create neutral gray stones. The game uses capture-before-suicide resolution, player-specific restrictions, versioned ko rules, and exact fractional area scoring.
+
+[Gray Go v2](docs/ko-v2.md) adds full-game repetition rejection with cumulative per-player bans. New arena games default to v2; existing training plans stay v1 unless explicitly configured.
 
 The authoritative [design](docs/design.md) includes rules, the neural-network architecture, training gates, and review history. [Implementation status](docs/implementation.md) tracks the full project against it.
 
@@ -103,7 +105,7 @@ See [NFSP backend verification](docs/verification/nfsp-backend.md) for the check
 .venv/bin/graygo train-nfsp-task --task gray-mixed --learner neural --storage rule-state --purpose profile --records 10000 --time-cap-hours .25 --run-dir runs/compact-gray-profile
 ```
 
-Rule-state packets retain the full public game state and player perspective. Masks/global planes are regenerated rather than duplicated in host arrays. Feature-storage snapshots remain supported. Timing budgets must match the storage choice; the reference Python decoder's cost is not yet a production throughput claim. See [storage verification](docs/verification/rule-state-storage.md).
+Rule-state packets retain the neural observation and player perspective. Under v1 this is the full public rule state; under [v2](docs/ko-v2.md) full-game ko history is stored separately in active game checkpoints. Masks/global planes are regenerated rather than duplicated in host arrays. Feature-storage snapshots remain supported. Timing budgets must match the storage choice; the reference Python decoder's cost is not yet a production throughput claim. See [storage verification](docs/verification/rule-state-storage.md).
 
 ## Native compact decoding
 

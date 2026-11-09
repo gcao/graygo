@@ -208,12 +208,12 @@ class NFSPBackend:
         self.q_optimizer=torch.optim.Adam(self.q.parameters(),lr=config.learning_rate)
         self.exact_average=bool(getattr(self.average,'exact_reservoir_average',False))
         self.average_optimizer=None if self.exact_average else torch.optim.Adam(self.average.parameters(),lr=config.learning_rate)
-        self.counters=NFSPCadence()
+        self.counters=NFSPCadence();self.average_seeded=False
         from .sequence_targets import TraceDiagnostics
         self.trace=TraceDiagnostics() if config.q_target=='retrace' else None
 
     @property
-    def average_ready(self):return self.counters.supervised_updates>0
+    def average_ready(self):return self.average_seeded or self.counters.supervised_updates>0
 
     def learn_after_fresh(self,count,ordinary,replay,reservoir,rng,*,epsilon,q_eligible=None,supervised_rng=None,sample_observer=None,q_observer=None,q_transform=None,supervised_transform=None):
         if replay.spec!=reservoir.spec:raise ValueError('replay and reservoir schemas differ')
@@ -265,7 +265,8 @@ class NFSPBackend:
         return {'clock_version':2,'config':asdict(self.config),'q':self.q.state_dict(),'target':self.target.state_dict(),
                 'average':self.average.state_dict(),'q_optimizer':self.q_optimizer.state_dict(),
                 'average_optimizer':None if self.average_optimizer is None else self.average_optimizer.state_dict(),'counters':asdict(self.counters),
-                **({'trace_diagnostics':self.trace.state_dict()} if self.trace is not None else {})}
+                **({'trace_diagnostics':self.trace.state_dict()} if self.trace is not None else {}),
+                **({'average_seeded':True} if self.average_seeded else {})}
 
     def load_state_dict(self,state):
         if state.get('clock_version')!=2:raise ValueError('NFSP clock/eligibility version differs; use the original source for historical continuation')
@@ -285,5 +286,5 @@ class NFSPBackend:
         else:self.average_optimizer.load_state_dict(state['average_optimizer'])
         if self.trace is not None:self.trace.load_state_dict(state['trace_diagnostics'],counters.q_loss_targets)
         elif 'trace_diagnostics' in state:raise ValueError('one-step state cannot contain sequence diagnostics')
-        self.counters=counters
+        self.counters=counters;self.average_seeded=bool(state.get("average_seeded",False))
         self.target.eval().requires_grad_(False)

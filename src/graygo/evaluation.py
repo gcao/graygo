@@ -85,7 +85,7 @@ class FrozenNeuralPolicy:
         if cuda_graphs:self.identity['frozen_execution']=execution_identity(True)
         self.sha256=canonical_sha(self.identity)
     @classmethod
-    def from_archive(cls,archive,*,representation='average',device='cpu',label='checkpoint',inference_batch_size=1,cuda_graphs=False):
+    def from_archive(cls,archive,*,representation='average',device='cpu',label='checkpoint',inference_batch_size=1,cuda_graphs=False,evaluation_rules=None):
         import torch
         from .models import QNet,PolicyNet,ModelConfig
         from .storage import CheckpointStore
@@ -102,6 +102,9 @@ class FrozenNeuralPolicy:
         model.load_state_dict(data['q' if representation=='greedy_q' else 'average'])
         origin={'training_run_sha256':hashlib.sha256((root/'run.json').read_bytes()).hexdigest(),'source_sha256':manifest['source_sha256'],
             'archive_sha256':hashlib.sha256((directory/'manifest.json').read_bytes()).hexdigest(),'records':sealed['step'],'seed':config['seed'],'rules':manifest['rules']}
+        if evaluation_rules is not None:
+            if (evaluation_rules.size,evaluation_rules.max_rounds,evaluation_rules.collision)!=(config['rules']['size'],config['rules']['max_rounds'],config['rules']['collision']):raise ValueError('weights-only rule transfer must preserve board dimensions and capture rules')
+            origin.update(training_rules=origin['rules'],rules=evaluation_rules.to_dict(),transfer='weights-only')
         return cls(model,representation=representation,label=label,origin=origin,inference_batch_size=inference_batch_size,cuda_graphs=cuda_graphs)
 
     def _weight_sha(self):
@@ -305,7 +308,7 @@ def evaluation_contract(plan,subject,opponent,openings,incumbent=None):
         'execution':pair_execution_identity(plan.pair_batch_size,incumbent is not None),
         'subject':subject.identity,'subject_sha256':subject.sha256,'opponent':opponent.identity,'opponent_sha256':opponent.sha256,
         'incumbent':None if incumbent is None else incumbent.identity,'incumbent_sha256':None if incumbent is None else incumbent.sha256,
-        'opening_distribution':openings.identity,'opening_sha256':openings.sha256,'rule_version':RULE_VERSION,'source_sha256':source_digest(),
+        'opening_distribution':openings.identity,'opening_sha256':openings.sha256,'rule_version':plan.rules.rule_version,'source_sha256':source_digest(),
         'unit':'agents exchange colors on the same complete opening; within-pair dependence retained; no trajectory deduplication','opening_semantics':'declared new episode roots; continuation-prefix mixtures require strategies.py'}
 
 

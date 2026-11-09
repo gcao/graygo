@@ -20,6 +20,7 @@ class Rules:
     size: int = 9
     max_rounds: int | None = None
     collision: str = "gray"
+    ko: str = "two-round"
 
     def __post_init__(self):
         if isinstance(self.size, bool) or not isinstance(self.size, int) or self.size < 3:
@@ -32,6 +33,16 @@ class Rules:
             raise ValueError("max_rounds must be a positive integer")
         if self.collision not in ("gray", "remove"):
             raise ValueError("collision must be 'gray' or the labeled 'remove' ablation")
+        if self.ko not in ("two-round","full-history"):raise ValueError("unsupported ko rule")
+
+    @property
+    def rule_version(self):
+        return "graygo/2" if self.ko == "full-history" else RULE_VERSION
+
+    def to_dict(self):
+        result={"size":self.size,"max_rounds":self.max_rounds,"collision":self.collision}
+        if self.ko != "two-round":result["ko"]=self.ko
+        return result
 
     @property
     def points(self) -> int:
@@ -112,6 +123,7 @@ class State:
     history: tuple[RoundRecord, ...] = ()  # oldest first
     pass_streak: int = 0
     rounds_played: int = 0
+    seen_boards: tuple[tuple[int, ...], ...] | None = ()
 
     def __post_init__(self):
         # () is the convenient empty-board initializer; malformed supplied boards fail.
@@ -148,6 +160,17 @@ class State:
         if any(not group.liberties for group in groups(self.board, self.rules.size)):
             raise ValueError("a resolved starting state cannot contain zero-liberty groups")
 
+        if self.rules.ko == "full-history" and self.seen_boards is not None:
+            seen=tuple(_board(board,self.rules) for board in self.seen_boards)
+            if not seen:
+                if self.rounds_played:raise ValueError("full game state requires complete ko history")
+                seen=(self.board,)
+            if len(seen)>self.rounds_played+1 or len(set(seen))!=len(seen) or self.board not in seen:
+                raise ValueError("invalid full-game ko history")
+            object.__setattr__(self,"seen_boards",seen)
+        elif self.rules.ko == "two-round" and self.seen_boards:
+            raise ValueError("legacy rules do not carry full-game ko history")
+
     @property
     def done(self):
         return self.pass_streak == 2 or self.rounds_played == self.rules.max_rounds
@@ -174,30 +197,37 @@ class State:
         return tuple(p for p, color in enumerate(self.board) if color == EMPTY and p not in blocked) + (self.rules.pass_action,)
 
     def to_dict(self):
-        return {
-            "rule_version": RULE_VERSION,
-            "rules": {"size": self.rules.size, "max_rounds": self.rules.max_rounds, "collision": self.rules.collision},
+        if self.rules.ko == "full-history" and self.seen_boards is None:raise ValueError("observation-only state cannot be saved as a game")
+        result = {
+            "rule_version": self.rules.rule_version,
+            "rules": self.rules.to_dict(),
             "board": list(self.board),
             "forbidden_black": sorted(self.forbidden_black),
             "forbidden_white": sorted(self.forbidden_white),
             "history": [{"before": list(h.before), "black": h.black, "white": h.white} for h in self.history],
             "pass_streak": self.pass_streak, "rounds_played": self.rounds_played,
         }
+        if self.rules.ko == "full-history":result["seen_boards"]=[list(board) for board in self.seen_boards]
+        return result
 
     @classmethod
     def from_dict(cls, value):
         if not isinstance(value, dict):
             raise ValueError("state must be a JSON object")
-        if value.get("rule_version") != RULE_VERSION:
+        if value.get("rule_version") not in (RULE_VERSION,"graygo/2"):
             raise ValueError("unsupported rule version")
         expected = {"rule_version", "rules", "board", "forbidden_black", "forbidden_white", "history", "pass_streak", "rounds_played"}
+        if value["rule_version"] == "graygo/2":expected.add("seen_boards")
         if set(value) != expected:
-            raise ValueError("state schema fields do not match version 1")
+            raise ValueError("state schema fields do not match rule version")
+        if value["rule_version"] == "graygo/2" and not isinstance(value["seen_boards"],list):raise ValueError("serialized game requires complete ko history")
         rules = Rules(**value["rules"])
+        if rules.rule_version != value["rule_version"]:raise ValueError("rules and state version differ")
         return cls(rules, _board(value["board"], rules),
                    frozenset(value["forbidden_black"]), frozenset(value["forbidden_white"]),
                    tuple(RoundRecord(tuple(h["before"]), h["black"], h["white"]) for h in value["history"]),
-                   value["pass_streak"], value["rounds_played"])
+                   value["pass_streak"], value["rounds_played"],
+                   tuple(tuple(board) for board in value["seen_boards"]) if rules.ko == "full-history" else ())
 
     def canonical_json(self):
         return json.dumps(self.to_dict(), sort_keys=True, separators=(",", ":"))
@@ -289,10 +319,12 @@ class Transition:
     suicidal: tuple[Group, ...]
     board_changed: bool
     reward_black: int
+    repetition_rejected: bool = False
 
 
 def resolve_reference(state, black, white):
     """Validate both commitments against one pre-round state, then resolve once."""
+    if state.rules.ko == "full-history" and state.seen_boards is None:raise ValueError("resolution requires complete ko history")
     if state.done:
         raise ValueError("cannot play after termination")
     rules = state.rules
@@ -319,8 +351,12 @@ def resolve_reference(state, black, white):
         for p in group.stones:
             board[p] = EMPTY
     board = tuple(board)
+    both_pass=black == white == rules.pass_action
+    rejected=rules.ko == "full-history" and not both_pass and board in state.seen_boards
+    if rejected:
+        board=state.board;collision=None;captured=suicidal=()
     changed = board != state.board
-    matching = tuple(h for h in state.history if h.before == board)
+    matching = tuple(h for h in state.history if h.before == board) if rules.ko == "two-round" else ()
     fb, fw = set(state.forbidden_black), set(state.forbidden_white)
     if changed and not matching:
         fb.clear()
@@ -338,9 +374,10 @@ def resolve_reference(state, black, white):
     next_state = State(rules, board, frozenset(fb), frozenset(fw),
                        (state.history + (RoundRecord(state.board, black, white),))[-2:],
                        state.pass_streak + 1 if black == white == rules.pass_action else 0,
-                       state.rounds_played + 1)
+                       state.rounds_played + 1,
+                       state.seen_boards + (board,) if rules.ko == "full-history" and changed else state.seen_boards)
     reward = score(board, rules.size).utility_black if next_state.done else 0
-    return Transition(next_state, black, white, collision, captured, suicidal, changed, reward)
+    return Transition(next_state, black, white, collision, captured, suicidal, changed, reward, rejected)
 
 
 @dataclass(frozen=True)
@@ -413,7 +450,7 @@ class PlacementResolver:
             placed_group = None
         black, white = (action, rules.pass_action) if player == BLACK else (rules.pass_action, action)
         transition = _finish_placement(state, tuple(board), black, white, tuple(captured), suicidal)
-        return PlacementOutcome(transition, placed_group)
+        return PlacementOutcome(transition, None if transition.repetition_rejected else placed_group)
 
 
 def _finish_placement(state, board, black, white, captured, suicidal):
@@ -424,6 +461,7 @@ def _finish_placement(state, board, black, white, captured, suicidal):
     validating external data. The independent resolver still uses that path.
     """
     rules = state.rules
+    if rules.ko == "full-history":return resolve_reference(state,black,white)
     changed = board != state.board
     matching = tuple(h for h in state.history if h.before == board)
     fb, fw = set(state.forbidden_black), set(state.forbidden_white)
@@ -454,6 +492,7 @@ def _finish_placement(state, board, black, white, captured, suicidal):
 
 def resolve(state, black, white):
     """Resolve complete commitments, specializing single-placement rounds."""
+    if state.rules.ko == "full-history":return resolve_reference(state,black,white)
     passed = state.rules.pass_action
     if type(black) is int and type(white) is int:
         if black == passed and white != passed:
@@ -493,4 +532,5 @@ def transform(state, *, shift=(0, 0), rotation=0, reflect=False, swap=False):
     records = tuple(RoundRecord(board(h.before), action(h.white if swap else h.black),
                                 action(h.black if swap else h.white)) for h in state.history)
     return State(state.rules, board(state.board), frozenset(map(action, fb)), frozenset(map(action, fw)),
-                 records, state.pass_streak, state.rounds_played)
+                 records, state.pass_streak, state.rounds_played,
+                 None if state.seen_boards is None else tuple(board(values) for values in state.seen_boards))

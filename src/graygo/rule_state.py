@@ -21,7 +21,7 @@ class RuleStateCodec:
         self.board_bytes=(2*self.points+7)//8;self.mask_bytes=(self.points+7)//8
         self.action_bytes=max(1,(self.points.bit_length()+7)//8)
         self.round_bytes=max(1,(rules.max_rounds.bit_length()+7)//8)
-        fingerprint=hashlib.sha256(json.dumps({'codec':CODEC_VERSION,'rule_version':RULE_VERSION,'rules':asdict(rules)},sort_keys=True,separators=(',',':')).encode()).digest()[:8]
+        fingerprint=hashlib.sha256(json.dumps({'codec':CODEC_VERSION,'rule_version':rules.rule_version,'rules':rules.to_dict()},sort_keys=True,separators=(',',':')).encode()).digest()[:8]
         self.prefix=b'GG\x01'+fingerprint
         self.header_bytes=len(self.prefix)+3+self.round_bytes
         self.packet_bytes=self.header_bytes+3*self.board_bytes+2*self.mask_bytes+4*self.action_bytes
@@ -75,7 +75,8 @@ class RuleStateCodec:
             if slot<2-count:
                 if any(raw) or any(raw_boards[slot+1]):raise ValueError('noncanonical absent history slot')
             else:history.append(RoundRecord(boards[slot+1],int.from_bytes(raw[:self.action_bytes],'little'),int.from_bytes(raw[self.action_bytes:],'little')))
-        state=State(self.rules,boards[0],*restrictions,tuple(history),passes,rounds)
+        state=State(self.rules,boards[0],*restrictions,tuple(history),passes,rounds,
+                    None if self.rules.ko=="full-history" else ())
         return state,player
 
 
@@ -146,13 +147,13 @@ class RuleStateSpec:
         return NativeRuleDecoder(self.native_library,self.native_sha256)
 
     def to_dict(self):
-        value={'storage':'rule-state','codec':CODEC_VERSION,'rule_version':RULE_VERSION,'encoding_version':ENCODING_VERSION,'rules':asdict(self.rules)}
+        value={'storage':'rule-state','codec':CODEC_VERSION,'rule_version':self.rules.rule_version,'encoding_version':ENCODING_VERSION,'rules':self.rules.to_dict()}
         if self.native_library is not None:value['native_decoder']={'path':self.native_library,'sha256':self.native_sha256,'abi':1}
         return value
     @classmethod
     def from_dict(cls,value):
         fields={'storage','codec','rule_version','encoding_version','rules'}
-        if set(value) not in (fields,fields|{'native_decoder'}) or value['storage']!='rule-state' or value['codec']!=CODEC_VERSION or value['rule_version']!=RULE_VERSION or value['encoding_version']!=ENCODING_VERSION:
+        if set(value) not in (fields,fields|{'native_decoder'}) or value['storage']!='rule-state' or value['codec']!=CODEC_VERSION or value['rule_version']!=Rules(**value['rules']).rule_version or value['encoding_version']!=ENCODING_VERSION:
             raise ValueError('unsupported rule-state storage schema')
         if 'native_decoder' not in value:return cls(Rules(**value['rules']))
         native=value['native_decoder']
