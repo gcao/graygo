@@ -6,7 +6,8 @@ from unittest.mock import patch
 from tools.continuous_training import create,run
 from tools.learning_loop import worker
 from tools.champion_loop import ChampionLoop
-from tools.upgrade_gate_scheduler import apply
+from tools.upgrade_gate_scheduler import apply,screen_defaults_only
+from tools.champion_screen import IndependentScreen,ScreenPlan
 from graygo.confidence import canonical_sha
 from test_continuous_training import parent_run
 
@@ -106,6 +107,73 @@ class SchedulerUpgradeTests(unittest.TestCase):
             self.assertEqual(checkpoint.read_bytes(),original)
             self.assertEqual(json.loads(publication.read_text())['body']['champion']['policy_sha256'],before)
             self.assertEqual(run(campaign,max_segments=1,reserve_bytes=0)['completed_segments'],1)
+
+
+    def screen_size_fixture(self,base,status):
+        checkout=Path(__file__).resolve().parents[1]
+        parent,publication=parent_run(base);campaign=base/'campaign'
+        create(campaign,parent,checkout,publication,project=base,segment_records=16,block=8,reserve_bytes=0)
+        def stop_during_evaluation(loop,archive,candidate,pending,stop_requested):
+            pending.update(status=status,candidate=candidate,screen={'fixture':'old 20-game screen'})
+            loop._save()
+            return {'status':'interrupted','numeric_pass':False,'promotion_permitted':False}
+        def old_screen(plan,**kwargs):return IndependentScreen(ScreenPlan(20,120.),**kwargs)
+        with patch('tools.learning_loop.IndependentScreen',side_effect=old_screen),patch.object(ChampionLoop,'_evaluate',stop_during_evaluation):
+            run(campaign,max_segments=1,reserve_bytes=0)
+        stage=campaign/'stages/000000';path=stage/'learner/league/state.json';wrapper=json.loads(path.read_text())
+        wrapper['body']['adaptive_scheduler'].update(previous_score=.675,last_gate_score=.825,
+            history_scores={'old-20-game-baseline':.825},next_gate_learning_seconds=99999.)
+        wrapper['sha256']=canonical_sha(wrapper['body']);path.write_text(json.dumps(wrapper))
+        return campaign,stage,publication
+
+    def test_screen_size_upgrade_preserves_frozen_gate_and_full_learner_payload(self):
+        with tempfile.TemporaryDirectory() as directory:
+            campaign,stage,publication=self.screen_size_fixture(Path(directory),'evaluating')
+            path=stage/'learner/league/state.json';before=json.loads(path.read_text())['body']
+            checkpoint=stage/'learner/resume/000000000016/runtime.pt';payload=checkpoint.read_bytes()
+            evidence=stage/'learner/league/evaluations/0000/frozen-fixture.txt'
+            evidence.parent.mkdir(parents=True,exist_ok=True);evidence.write_text('retain the same candidate, seeds and evidence')
+            receipt=apply(campaign,reserve_bytes=0,screen_size=True);after=json.loads(path.read_text())['body']
+            self.assertTrue(receipt['inflight_gate_preserved'])
+            self.assertEqual(before['pending'],after['pending'])
+            self.assertEqual(before['champion'],after['champion'])
+            self.assertEqual(before['contract']['gate_sha256'],after['contract']['gate_sha256'])
+            self.assertEqual(before['contract']['gate_looks'],after['contract']['gate_looks'])
+            self.assertEqual(payload,checkpoint.read_bytes())
+            self.assertEqual(evidence.read_text(),'retain the same candidate, seeds and evidence')
+            self.assertEqual(after['contract']['screen_sha256'],IndependentScreen().sha256)
+            self.assertEqual(after['adaptive_scheduler']['history_scores'],{})
+            self.assertIsNone(after['adaptive_scheduler']['previous_score'])
+            self.assertIsNone(after['adaptive_scheduler']['last_gate_score'])
+            self.assertEqual(after['adaptive_scheduler']['last_gate_learning_seconds'],before['adaptive_scheduler']['last_gate_learning_seconds'])
+            self.assertEqual(after['adaptive_scheduler']['next_gate_learning_seconds'],99999.)
+            def resume_same_gate(loop,archive,candidate,pending,stop_requested):
+                self.assertEqual(pending,before['pending'])
+                return {'status':'interrupted','numeric_pass':False,'promotion_permitted':False}
+            with patch.object(ChampionLoop,'_evaluate',resume_same_gate):
+                self.assertEqual(run(campaign,max_segments=1,reserve_bytes=0)['status'],'interrupted')
+
+    def test_screen_size_upgrade_retires_only_an_incomplete_old_screen(self):
+        with tempfile.TemporaryDirectory() as directory:
+            campaign,stage,publication=self.screen_size_fixture(Path(directory),'screening')
+            checkpoint=stage/'learner/resume/000000000016/runtime.pt';payload=checkpoint.read_bytes()
+            receipt=apply(campaign,reserve_bytes=0,screen_size=True)
+            after=json.loads((stage/'learner/league/state.json').read_text())['body']
+            self.assertFalse(receipt['inflight_gate_preserved']);self.assertIsNone(after['pending'])
+            self.assertEqual(after['rounds'][-1]['decision']['reason'],'screen_size_changed')
+            self.assertEqual(after['rounds'][-1]['screen'],{'fixture':'old 20-game screen'})
+            self.assertEqual(payload,checkpoint.read_bytes())
+            self.assertEqual(run(campaign,max_segments=1,reserve_bytes=0)['completed_segments'],1)
+
+    def test_screen_size_source_admission_rejects_an_unrelated_behavior_change(self):
+        checkout=Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory() as directory:
+            old=Path(directory)/'old.py';new=Path(directory)/'new.py'
+            source=(checkout/'tools/champion_screen.py').read_text()
+            old.write_text(source.replace('games: int = 100','games: int = 20').replace('seconds: float = 600.','seconds: float = 120.'))
+            new.write_text(source);screen_defaults_only(old,new,'champion_screen.py')
+            new.write_text(source.replace("mean_utility'] > 0","mean_utility'] > -.1"))
+            with self.assertRaisesRegex(ValueError,'other code'):screen_defaults_only(old,new,'champion_screen.py')
 
 
 if __name__=='__main__':unittest.main()

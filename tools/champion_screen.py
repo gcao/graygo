@@ -14,8 +14,8 @@ from graygo.storage import DEFAULT_RESERVE, digest
 
 @dataclass(frozen=True)
 class ScreenPlan:
-    games: int = 20
-    seconds: float = 120.
+    games: int = 100
+    seconds: float = 600.
     seed: int = 107
     refresh_seconds: float = 3600.
 

@@ -461,3 +461,25 @@ average supervision, replay, reservoir, optimizers and RNG state are preserved.
 The average model continues to train. The offline adopter rejects a changed
 incumbent, altered evidence, conflicting slot allocations or deployment source
 that differs from the tested implementation.
+
+## 100-game screening comparisons
+
+Sustained-loop screens now collect 100 color-paired games against each learned
+reference: the champion and three historical policies, normally 400 games total.
+The screen deadline is 600 seconds, scaled from 120 seconds with the former
+20-game comparisons. These descriptive screens schedule full evaluations; they
+cannot promote a model. The full gate keeps its existing 500/2,000/4,000 looks,
+confidence allocation and numeric requirements.
+
+`tools/upgrade_gate_scheduler.py --screen-size` admits only the changed screen
+count/time defaults and matching command-line defaults. It requires a stopped,
+closed-clock controller and publisher locks, archives the old operational plans,
+and preserves learner checkpoints. A frozen full gate resumes its existing
+candidate, plans and evidence. An interrupted old screen is retained and retired
+so that its 20-game plan is not reinterpreted as a 100-game plan.
+
+The upgrade clears the old descriptive screening baselines, including their
+historical scores and last-screen comparison score. Full-gate clocks, cooldowns,
+evidence, champion, training state and promotion criteria remain unchanged. The
+next new screen establishes the 100-game baseline; later archive segments inherit
+the pinned implementation defaults.

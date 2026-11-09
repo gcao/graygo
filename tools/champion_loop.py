@@ -413,7 +413,7 @@ def parse_args(argv=None):
     mode.add_argument('--diagnostic',action='store_true');mode.add_argument('--practice',action='store_true');mode.add_argument('--loop',action='store_true')
     parser.add_argument('--records',type=int);parser.add_argument('--block-records',type=int,default=65536)
     parser.add_argument('--time-cap-seconds',type=float,required=True);parser.add_argument('--gate-seconds',type=float,default=60)
-    parser.add_argument('--screen-games',type=int,default=20);parser.add_argument('--screen-seconds',type=float,default=30)
+    parser.add_argument('--screen-games',type=int,default=100);parser.add_argument('--screen-seconds',type=float,default=600.)
     parser.add_argument('--evaluation-fraction',type=float,default=.1)
     parser.add_argument('--gate-looks',type=int,nargs='+',default=[500,2000]);parser.add_argument('--device',default='cpu')
     parser.add_argument('--seed',type=int,default=17);parser.add_argument('--resume',action='store_true')
