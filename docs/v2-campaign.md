@@ -1,5 +1,7 @@
 # V2 training handoff — November 10, 2026
 
+The November 10 [v3 counting rule](iterative-counting.md) is a separate game version. This running v2 campaign keeps its original region scoring and reward data.
+
 This is a separate, unlimited v2 campaign. It preserves pretrained knowledge,
 starts fresh rule-versioned buffers, and evaluates frozen candidates on CPUs while
 the GPU learner keeps advancing. V1 checkpoints and evidence remain available.

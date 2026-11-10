@@ -113,12 +113,15 @@ Board comparisons for this rule compare stone occupancy only. Full state compari
 
 ### 1.5 Scoring
 
-Use Chinese-style area counting: surviving stones plus connected empty regions. There is no prisoner tracking.
+The current v3 rule uses [iterative territory marking](iterative-counting.md) before area counting. Mark locally uncontested empty points Black or White in simultaneous passes, allowing existing marks to seed later passes. Require a colored seed, block marks next to gray or conflicting colors, and retain marks for the duration of the count. Then apply the fractional table below to connected regions of the remaining unmarked empties, treating marks as boundary colors. Marks are scoring-only labels. All surviving actual stones count as alive; there is no prisoner tracking.
+
+Legacy v1/v2 counting skips the marking phase and applies this table directly to whole empty regions. Existing games, training data and evidence retain their recorded rule version.
 
 - Each black stone contributes one point to black.
 - Each white stone contributes one point to white.
 - Each gray stone contributes half a point to each player.
-- For each empty connected region, determine the set of stone colors bordering it using toroidal adjacency.
+- Each Black/White scoring mark contributes one point to its owner.
+- For each remaining unmarked connected empty region, determine the set of actual-stone and marked-point colors bordering it using toroidal adjacency.
 
 Per-point allocation for an empty region:
 

@@ -19,7 +19,7 @@ class GrayGoGame:
     @staticmethod
     def terminal(state):return state.done
     @staticmethod
-    def utility(state):return float(score(state.board,state.rules.size).utility_black)
+    def utility(state):return float(score(state.board,state.rules.size,scoring=state.rules.scoring).utility_black)
 
 
 @dataclass(frozen=True)

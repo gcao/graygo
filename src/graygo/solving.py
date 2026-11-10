@@ -75,7 +75,7 @@ class FiniteSolver:
             raise SolveBudgetExceeded(f"finite solver exhausted {self.max_nodes} states")
         self.nodes += 1
         if state.done:
-            value = float(score(state.board, state.rules.size).utility_black)
+            value = float(score(state.board,state.rules.size,scoring=state.rules.scoring).utility_black)
             result = (value, (), (), None)
         else:
             black, white = state.legal_actions(BLACK), state.legal_actions(WHITE)
@@ -116,7 +116,7 @@ def markov_best_response(state, opponent, player, *, max_nodes=100_000):
         if count > max_nodes:
             raise SolveBudgetExceeded("best-response state budget exhausted")
         if s.done:
-            return float(score(s.board,s.rules.size).utility_black)
+            return float(score(s.board,s.rules.size,scoring=s.rules.scoring).utility_black)
         black, white = s.legal_actions(BLACK), s.legal_actions(WHITE)
         probs = np.asarray(opponent(s), dtype=float)
         expected_shape = (len(white) if player == BLACK else len(black),)

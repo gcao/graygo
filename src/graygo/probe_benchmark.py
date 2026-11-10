@@ -36,7 +36,7 @@ def json_numbers(value):
 @lru_cache(maxsize=2048)
 def variant_payoffs(root):
     state=replace(root.state,rules=replace(root.state.rules,collision='remove'))
-    return tuple(tuple(Fraction(score(resolve(state,b,w).state.board,state.rules.size).utility_black)
+    return tuple(tuple(Fraction(score(resolve(state,b,w).state.board,state.rules.size,scoring=state.rules.scoring).utility_black)
                        for w in root.certificate.white_actions) for b in root.certificate.black_actions)
 
 

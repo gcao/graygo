@@ -1,10 +1,12 @@
 # Gray Go
 
+[Gray Go v3 counting](docs/iterative-counting.md) propagates local Black/White territory marks, then shares the unmarked remainder. Select v3 for new arena games; existing versions remain available.
+
 Simultaneous Go on a 9×9 torus. Both players secretly choose a placement or pass; collisions create neutral gray stones. The game uses capture-before-suicide resolution, player-specific restrictions, versioned ko rules, and exact fractional area scoring.
 
 [The v2 training campaign](docs/v2-campaign.md) reuses pretrained weights with conditional history features, fresh replay, native decoding and asynchronous paired gates.
 
-[Gray Go v2](docs/ko-v2.md) adds full-game repetition rejection with cumulative per-player bans. New arena games default to v2; existing training plans stay v1 unless explicitly configured.
+[Gray Go v2](docs/ko-v2.md) adds full-game repetition rejection with cumulative per-player bans. New arena games offer v3 counting; existing training plans retain their explicitly selected version.
 
 The authoritative [design](docs/design.md) includes rules, the neural-network architecture, training gates, and review history. [Implementation status](docs/implementation.md) tracks the full project against it.
 

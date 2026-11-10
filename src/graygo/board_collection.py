@@ -1,7 +1,7 @@
 """Batched real-board NFSP collection; no hidden commitments enter inference."""
 from copy import deepcopy
 import numpy as np
-from .engine import BLACK,WHITE,GRAY,EMPTY,State,resolve,neighbors
+from .engine import BLACK,WHITE,GRAY,EMPTY,State,resolve,neighbors,territory_labels
 from .evaluation import EmptyStarts,seed_for
 from .rule_state import RuleObservation
 from .nfsp_collection import RuleBoardGame,FrozenPolicies,EpisodeActor,JointEpisode,commit_many
@@ -90,6 +90,11 @@ class BoardCollector:
             self.completed+=1;self.active[env]=None;self.start_records[env]=None;self.start_families[env]=None;self.births[env]={}
 
     def _territory(self,board):
+        self.metrics['terminal_empty_points']+=board.count(EMPTY)
+        if self.rules.scoring=='iterative':
+            labels=territory_labels(board,self.rules.size)
+            self.metrics['terminal_marked_points']=self.metrics.get('terminal_marked_points',0)+sum(a==EMPTY and b in (BLACK,WHITE) for a,b in zip(board,labels))
+            board=labels
         adjacent=neighbors(self.rules.size);seen=set()
         for p,color in enumerate(board):
             if color!=EMPTY or p in seen:continue
@@ -99,7 +104,6 @@ class BoardCollector:
                 for q in adjacent[stack.pop()]:
                     if board[q]:boundary|=1<<(board[q]-1)
                     elif q not in seen:seen.add(q);stack.append(q)
-            self.metrics['terminal_empty_points']+=count
             if boundary&4:self.metrics['gray_boundary_empty_points']+=count
             if boundary in (5,6):self.metrics['fractional_bias_empty_points']+=count
 

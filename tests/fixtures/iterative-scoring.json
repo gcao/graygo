@@ -1,0 +1,53 @@
+{
+  "version": "graygo/iterative-scoring-fixtures/1",
+  "cases": [
+    {
+      "name": "gray-at-edge-does-not-dilute-all-interior",
+      "board_key": "BBBBB/BBBBB/B+++G/BBBBB/BBBBB",
+      "labels_key": "BBBBB/BBBBB/BBB+G/BBBBB/BBBBB",
+      "black": 24.25,
+      "white": 0.75,
+      "legacy_black": 23.75
+    },
+    {
+      "name": "marks-propagate-through-empty-neighbors",
+      "board_key": "B++++/+++++/++G++/+++++/+++++",
+      "labels_key": "BBBBB/BB+BB/B+G+B/BB+BB/BBBBB",
+      "black": 23.5,
+      "white": 1.5,
+      "legacy_black": 18.75
+    },
+    {
+      "name": "opposing-fronts-use-simultaneous-passes",
+      "board_key": "B+W/+++/+++",
+      "labels_key": "B+W/B+W/B+W",
+      "black": 4.5,
+      "white": 4.5,
+      "legacy_black": 4.5
+    },
+    {
+      "name": "empty-board-has-no-color-seed",
+      "board_key": "+++/+++/+++",
+      "labels_key": "+++/+++/+++",
+      "black": 4.5,
+      "white": 4.5,
+      "legacy_black": 4.5
+    },
+    {
+      "name": "gray-does-not-propagate-ownership",
+      "board_key": "G++/+++/+++",
+      "labels_key": "G++/+++/+++",
+      "black": 4.5,
+      "white": 4.5,
+      "legacy_black": 4.5
+    },
+    {
+      "name": "gray-blocks-marks-across-both-toroidal-seams",
+      "board_key": "G++++/+++++/++B++/+++++/+++++",
+      "labels_key": "G+BB+/+BBBB/BBBBB/BBBBB/+BBBB",
+      "black": 23.5,
+      "white": 1.5,
+      "legacy_black": 18.75
+    }
+  ]
+}

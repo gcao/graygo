@@ -64,7 +64,7 @@ class _Game:
         self.hash.update(json.dumps([black,white],separators=(',',':')).encode())
         self.state=resolve(self.state,black,white).state;self.rounds+=1
         if self.state.done:
-            scored=score(self.state.board,self.state.rules.size);black=float(scored.utility_black)
+            scored=score(self.state.board,self.state.rules.size,scoring=self.state.rules.scoring);black=float(scored.utility_black)
             self.result={'subject_utility':black if self.player==BLACK else -black,'black_utility':black,'rounds':self.rounds,
                 'termination':self.state.terminal_reason,'black_score_units':scored.black_units,'white_score_units':scored.white_units,
                 'trajectory_sha256':self.hash.hexdigest(),'subject_component':getattr(self.subject,'component',None),

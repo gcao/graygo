@@ -240,7 +240,7 @@ def play_frozen(subject,opponent,root,player,*,subject_seed,opponent_seed):
         black,white=(mine,theirs) if player==BLACK else (theirs,mine)
         if black not in state.legal_actions(BLACK) or white not in state.legal_actions(WHITE):raise ValueError('evaluation policy chose an illegal move')
         h.update(json.dumps([black,white],separators=(',',':')).encode());state=resolve(state,black,white).state;rounds+=1
-    result=score(state.board,state.rules.size);black=float(result.utility_black)
+    result=score(state.board,state.rules.size,scoring=state.rules.scoring);black=float(result.utility_black)
     return {'subject_utility':black if player==BLACK else -black,'black_utility':black,'rounds':rounds,
             'termination':state.terminal_reason,'black_score_units':result.black_units,'white_score_units':result.white_units,
             'trajectory_sha256':h.hexdigest(),'subject_component':getattr(a,'component',None),'opponent_component':getattr(b,'component',None)}

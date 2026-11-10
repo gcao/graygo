@@ -21,6 +21,7 @@ class Rules:
     max_rounds: int | None = None
     collision: str = "gray"
     ko: str = "two-round"
+    scoring: str = "region"
 
     def __post_init__(self):
         if isinstance(self.size, bool) or not isinstance(self.size, int) or self.size < 3:
@@ -34,14 +35,17 @@ class Rules:
         if self.collision not in ("gray", "remove"):
             raise ValueError("collision must be 'gray' or the labeled 'remove' ablation")
         if self.ko not in ("two-round","full-history"):raise ValueError("unsupported ko rule")
+        if self.scoring not in ("region","iterative"):raise ValueError("unsupported scoring rule")
+        if self.scoring=="iterative" and self.ko!="full-history":raise ValueError("iterative scoring requires full-history ko")
 
     @property
     def rule_version(self):
-        return "graygo/2" if self.ko == "full-history" else RULE_VERSION
+        return "graygo/3" if self.scoring=="iterative" else "graygo/2" if self.ko == "full-history" else RULE_VERSION
 
     def to_dict(self):
         result={"size":self.size,"max_rounds":self.max_rounds,"collision":self.collision}
         if self.ko != "two-round":result["ko"]=self.ko
+        if self.scoring != "region":result["scoring"]=self.scoring
         return result
 
     @property
@@ -214,13 +218,13 @@ class State:
     def from_dict(cls, value):
         if not isinstance(value, dict):
             raise ValueError("state must be a JSON object")
-        if value.get("rule_version") not in (RULE_VERSION,"graygo/2"):
+        if value.get("rule_version") not in (RULE_VERSION,"graygo/2","graygo/3"):
             raise ValueError("unsupported rule version")
         expected = {"rule_version", "rules", "board", "forbidden_black", "forbidden_white", "history", "pass_streak", "rounds_played"}
-        if value["rule_version"] == "graygo/2":expected.add("seen_boards")
+        if value["rule_version"] in ("graygo/2","graygo/3"):expected.add("seen_boards")
         if set(value) != expected:
             raise ValueError("state schema fields do not match rule version")
-        if value["rule_version"] == "graygo/2" and not isinstance(value["seen_boards"],list):raise ValueError("serialized game requires complete ko history")
+        if value["rule_version"] in ("graygo/2","graygo/3") and not isinstance(value["seen_boards"],list):raise ValueError("serialized game requires complete ko history")
         rules = Rules(**value["rules"])
         if rules.rule_version != value["rule_version"]:raise ValueError("rules and state version differ")
         return cls(rules, _board(value["board"], rules),
@@ -286,8 +290,23 @@ class Score:
         return (self.black_units > self.white_units) - (self.black_units < self.white_units)
 
 
-def score(board, size):
-    board = _board(board, Rules(size, 1))
+def territory_labels(board,size):
+    """Simultaneous irreversible B/W scoring marks; the played board is untouched."""
+    labels=list(_board(board,Rules(size,1)));adjacent=neighbors(size)
+    while True:
+        updates=[]
+        for point,color in enumerate(labels):
+            if color!=EMPTY:continue
+            colors={labels[other] for other in adjacent[point]}-{EMPTY}
+            if colors=={BLACK}:updates.append((point,BLACK))
+            elif colors=={WHITE}:updates.append((point,WHITE))
+        if not updates:return tuple(labels)
+        for point,color in updates:labels[point]=color
+
+
+def score(board, size, *, scoring="region"):
+    if scoring not in ("region","iterative"):raise ValueError("unsupported scoring rule")
+    board = territory_labels(board,size) if scoring=="iterative" else _board(board, Rules(size, 1))
     adjacent, seen = neighbors(size), set()
     black = 0
     region_share = {0: 2, 1: 4, 2: 0, 3: 2, 4: 2, 5: 3, 6: 1, 7: 2}
@@ -383,7 +402,7 @@ def resolve_reference(state, black, white):
         for name,value in zip(('rules','board','forbidden_black','forbidden_white','history','pass_streak','rounds_played','seen_boards'),values):
             object.__setattr__(next_state,name,value)
     else:next_state=State(*values)
-    reward = score(board, rules.size).utility_black if next_state.done else 0
+    reward = score(board, rules.size, scoring=rules.scoring).utility_black if next_state.done else 0
     return Transition(next_state, black, white, collision, captured, suicidal, changed, reward, rejected)
 
 
@@ -502,7 +521,7 @@ def _finish_placement(state, board, black, white, captured, suicidal):
                         ("forbidden_white", frozenset(fw)), ("history", (state.history + (record,))[-2:]),
                         ("pass_streak", 0), ("rounds_played", state.rounds_played + 1)):
         object.__setattr__(next_state, name, value)
-    reward = score(board, rules.size).utility_black if next_state.done else 0
+    reward = score(board, rules.size, scoring=rules.scoring).utility_black if next_state.done else 0
     return Transition(next_state, black, white, None, captured, suicidal, changed, reward)
 
 

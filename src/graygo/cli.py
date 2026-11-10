@@ -21,7 +21,7 @@ def render(state):
 
 
 def _rules(args):
-    return Rules(args.size,args.limit,args.collision,getattr(args,'ko','two-round'))
+    return Rules(args.size,args.limit,args.collision,getattr(args,'ko','two-round'),getattr(args,'scoring','region'))
 
 
 def simulate(args):
@@ -42,7 +42,7 @@ def simulate(args):
             state=result.state
         hashes.add(transcript.hexdigest())
         lengths.append(state.rounds_played)
-        outcomes.append(score(state.board,rules.size).utility_black)
+        outcomes.append(score(state.board,rules.size,scoring=rules.scoring).utility_black)
         terminations[state.terminal_reason]=terminations.get(state.terminal_reason,0)+1
     return {"games":args.games,"black_wins":outcomes.count(1),"white_wins":outcomes.count(-1),
             "draws":outcomes.count(0),"mean_black_utility":statistics.mean(outcomes),
@@ -405,7 +405,7 @@ def play(args):
             except EOFError: return {"interrupted":True,"state":state.to_dict()}
         state=resolve(state,action,ai).state
         print(f"Revealed: black={action}, white={ai}")
-    print(render(state)); result=score(state.board,state.rules.size)
+    print(render(state)); result=score(state.board,state.rules.size,scoring=state.rules.scoring)
     return {"black_score":str(result.black),"white_score":str(result.white),"reason":state.terminal_reason}
 
 
@@ -539,6 +539,7 @@ def main(argv=None):
         p.add_argument("--limit",type=int)
         p.add_argument("--collision",choices=("gray","remove"),default="gray")
         p.add_argument("--ko",choices=("two-round","full-history"),default="two-round")
+        p.add_argument("--scoring",choices=("region","iterative"),default="region")
         p.add_argument("--seed",type=int,default=0)
         p.add_argument("--output")
         if name=="calibrate-promotion":

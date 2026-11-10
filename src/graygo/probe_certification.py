@@ -208,7 +208,7 @@ def _one_round_matrix(state,budget):
         for w in white:
             following=resolve(state,b,w).state
             if not following.done:raise ValueError('one-round leaf is not terminal')
-            result=score(following.board,following.rules.size)
+            result=score(following.board,following.rules.size,scoring=following.rules.scoring)
             row.append(Fraction(int(result.black_units>result.white_units)-int(result.black_units<result.white_units)))
         matrix.append(tuple(row))
     return tuple(matrix),black,white

@@ -69,7 +69,7 @@ def verify_probes(path,*,regenerate=False,time_cap_seconds=180):
             count=0
             for i,black in enumerate(root.certificate.black_actions):
                 for j,white in enumerate(root.certificate.white_actions):
-                    following=resolve(state,black,white).state;value=score(following.board,9).utility_black
+                    following=resolve(state,black,white).state;value=score(following.board,9,scoring=following.rules.scoring).utility_black
                     if value!=root.certificate.payoffs[i][j]:
                         if black!=white or black==state.rules.pass_action:raise ValueError('collision ablation changed a noncollision payoff')
                         count+=1
