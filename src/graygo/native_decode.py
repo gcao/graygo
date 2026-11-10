@@ -41,6 +41,20 @@ class NativeRuleDecoder:
         self.function.restype=ct.c_int
 
     def decode(self,codec,packets,valid=None):
+        if codec.ko_hints:
+            from .rule_state import RuleStateCodec
+            base=RuleStateCodec(codec.rules);base.prefix=codec.prefix
+            rows=np.asarray(packets)
+            if rows.dtype!=np.uint8 or rows.ndim!=2 or rows.shape[1]!=codec.packet_bytes:raise ValueError("ko packet rows differ")
+            x,g,legal=self.decode(base,rows[:,:codec.base_packet_bytes],valid)
+            raw=rows[:,codec.base_packet_bytes:].reshape(len(rows),2,codec.mask_bytes)
+            keep=np.ones(len(rows),bool) if valid is None else np.asarray(valid,dtype=bool)
+            if codec.points%8 and np.any((raw[:,:,-1]>>(codec.points%8))*keep[:,None]):raise ValueError("noncanonical hint padding")
+            hints=np.unpackbits(raw,axis=-1,count=codec.points,bitorder="little")
+            players=rows[:,len(codec.prefix)]
+            hints=hints[np.arange(len(rows))[:,None],np.where(players[:,None]==1,np.array([0,1]),np.array([1,0]))]
+            if valid is not None:hints=hints*np.asarray(valid)[:,None,None]
+            return np.concatenate((x,hints.reshape(len(rows),2,codec.rules.size,codec.rules.size)),axis=1),g,legal
         rules=codec.rules
         if not 3<=rules.size<=19 or rules.max_rounds>2**32-1:raise ValueError('native decoder supports sizes 3..19 and 32-bit round limits')
         packets=np.asarray(packets)

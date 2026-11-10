@@ -26,7 +26,7 @@ Behavior probability/reward/globals stay scalar-invariant; illegal masks, pass,
 executed actions and frozen target distributions transform together.
 """
     x=data['spatial']
-    if x.ndim not in (4,5) or x.shape[-1]!=x.shape[-2] or x.shape[-3]!=30:raise ValueError('board feature batch/sequence required')
+    if x.ndim not in (4,5) or x.shape[-1]!=x.shape[-2] or x.shape[-3] not in (30,32):raise ValueError('board feature batch/sequence required')
     n=x.shape[-1];points=n*n;table,inverse=permutations(n);batch=len(x)
     if choices is None:choices=rng.integers(0,len(table),batch)
     choices=np.asarray(choices)

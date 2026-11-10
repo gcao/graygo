@@ -371,11 +371,18 @@ def resolve_reference(state, black, white):
             fb.add(h.black)
         if h.white != rules.pass_action:
             fw.add(h.white)
-    next_state = State(rules, board, frozenset(fb), frozenset(fw),
-                       (state.history + (RoundRecord(state.board, black, white),))[-2:],
-                       state.pass_streak + 1 if black == white == rules.pass_action else 0,
-                       state.rounds_played + 1,
-                       state.seen_boards + (board,) if rules.ko == "full-history" and changed else state.seen_boards)
+    values=(rules,board,frozenset(fb),frozenset(fw),
+            (state.history+(RoundRecord(state.board,black,white),))[-2:],
+            state.pass_streak+1 if both_pass else 0,state.rounds_played+1,
+            state.seen_boards+(board,) if rules.ko=="full-history" and changed else state.seen_boards)
+    if rules.ko=="full-history":
+        # Parent ledger is validated and the tentative board is resolved. A
+        # changed board was proved unseen above; all other fields are derived.
+        # Do not rescan every historical stone on every internal transition.
+        next_state=object.__new__(State)
+        for name,value in zip(('rules','board','forbidden_black','forbidden_white','history','pass_streak','rounds_played','seen_boards'),values):
+            object.__setattr__(next_state,name,value)
+    else:next_state=State(*values)
     reward = score(board, rules.size).utility_black if next_state.done else 0
     return Transition(next_state, black, white, collision, captured, suicidal, changed, reward, rejected)
 
@@ -416,14 +423,14 @@ class PlacementResolver:
         object.__setattr__(self, "_membership", tuple(membership))
         object.__setattr__(self, "_actions", frozenset(actions))
 
-    def resolve(self, action):
+    def _tentative(self, action):
         state, player = self.state, self.player
         rules = state.rules
         action = _action(action, rules)
         if action not in self._actions:
             raise ValueError("occupied or player-forbidden placement")
         if action == rules.pass_action:
-            return PlacementOutcome(resolve_reference(state, action, action), None)
+            return state.board, (), (), None
         adjacent = neighbors(rules.size)
         touching = {self._membership[p] for p in adjacent[action] if self._membership[p] >= 0}
         own = {action}
@@ -448,8 +455,17 @@ class PlacementResolver:
             for point in own:
                 board[point] = EMPTY
             placed_group = None
+        return tuple(board), tuple(captured), suicidal, placed_group
+
+    def resolve(self, action):
+        state, player = self.state, self.player
+        rules = state.rules
+        action = _action(action, rules)
+        if action == rules.pass_action:
+            return PlacementOutcome(resolve_reference(state, action, action), None)
+        board, captured, suicidal, placed_group = self._tentative(action)
         black, white = (action, rules.pass_action) if player == BLACK else (rules.pass_action, action)
-        transition = _finish_placement(state, tuple(board), black, white, tuple(captured), suicidal)
+        transition = _finish_placement(state, board, black, white, captured, suicidal)
         return PlacementOutcome(transition, None if transition.repetition_rejected else placed_group)
 
 
@@ -534,3 +550,18 @@ def transform(state, *, shift=(0, 0), rotation=0, reflect=False, swap=False):
     return State(state.rules, board(state.board), frozenset(map(action, fb)), frozenset(map(action, fw)),
                  records, state.pass_streak, state.rounds_played,
                  None if state.seen_boards is None else tuple(board(values) for values in state.seen_boards))
+
+
+def solo_repeat_hints(state):
+    """Cached B/W conditional repetition versus PASS, never legality masks."""
+    if state.rules.ko != 'full-history' or state.seen_boards is None:
+        raise ValueError('conditional repetition hints require full v2 history')
+    cached=state.__dict__.get('_solo_repeat_hints')
+    if cached is not None:return cached
+    seen=frozenset(state.seen_boards);result=[]
+    for player in (BLACK,WHITE):
+        if state.done:result.append(frozenset());continue
+        resolver=PlacementResolver(state,player)
+        result.append(frozenset(a for a in state.legal_actions(player) if a!=state.rules.pass_action and resolver._tentative(a)[0] in seen))
+    value=tuple(result);object.__setattr__(state,'_solo_repeat_hints',value)
+    return value

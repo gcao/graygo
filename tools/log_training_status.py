@@ -45,6 +45,12 @@ def summary(project):
     if not receipt:
         return ['state=IDLE', 'status=no_training_run']
     root = Path(receipt['run_dir'])
+    if receipt.get('version')=='graygo/v2-campaign/1':
+        try:
+            from tools.v2_watch import fields
+        except ModuleNotFoundError:
+            from v2_watch import fields
+        return fields(root)
     status = read(root / 'status.json')
     execution = read(root / 'learner/execution.json').get('body', {})
     clock = execution.get('clock', {})

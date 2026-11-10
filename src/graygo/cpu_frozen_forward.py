@@ -12,7 +12,9 @@ from .models import QNet,PolicyNet
 CACHE_VERSION='graygo/cpu-3x3-frozen-raw-forward/1'
 
 
-def supports_model(model):return type(model) in (QNet,PolicyNet)
+def supports_model(model):
+    if getattr(getattr(model,"encoder",None),"spatial_channels",30)!=30:return False
+    return type(model) in (QNet,PolicyNet)
 
 
 class CPU3x3ForwardCache:

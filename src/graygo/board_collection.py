@@ -3,6 +3,7 @@ from copy import deepcopy
 import numpy as np
 from .engine import BLACK,WHITE,GRAY,EMPTY,State,resolve,neighbors
 from .evaluation import EmptyStarts,seed_for
+from .rule_state import RuleObservation
 from .nfsp_collection import RuleBoardGame,FrozenPolicies,EpisodeActor,JointEpisode,commit_many
 
 COLLECTOR_VERSION='graygo/board-collector/2'
@@ -14,10 +15,10 @@ class _TelemetryGame(RuleBoardGame):
 
 
 class BoardCollector:
-    def __init__(self,rules,envs,seed,*,starts=None,on_episode=None):
+    def __init__(self,rules,envs,seed,*,starts=None,on_episode=None,ko_hints=False):
         if type(envs) is not int or envs<1 or type(seed) is not int or seed<0:raise ValueError('positive env count and seed required')
         self.rules,self.envs,self.seed=rules,envs,seed;self.starts=starts or EmptyStarts();self.on_episode=on_episode
-        self.game=_TelemetryGame();self.active=[None]*envs;self.start_records=[None]*envs;self.start_families=[None]*envs;self.births=[{} for _ in range(envs)]
+        self.game=_TelemetryGame();self.game.observation=lambda state,player:RuleObservation(state,player,ko_hints);self.active=[None]*envs;self.start_records=[None]*envs;self.start_families=[None]*envs;self.births=[{} for _ in range(envs)]
         self.cursor=self.records=self.started=self.completed=0
         self.rng=[{name:np.random.default_rng(seed_for(seed,'collector',env,name)) for name in ('mode_b','mode_w','action_b','action_w')} for env in range(envs)]
         self.metrics={'start_counts':{'empty':0,'gray':0},'starting_gray_counts':[0]*(rules.points+1),'family_starts':{},'physical_rounds':0,'repetition_rejections':0,'collisions':0,'history_match_rounds':0,'restriction_point_rounds':[0,0],

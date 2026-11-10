@@ -70,3 +70,9 @@ class EpisodeChoice:
 def _records(records):
     if isinstance(records,(bool,np.bool_)) or not isinstance(records,(int,np.integer)) or records<0:
         raise ValueError("nonnegative cumulative fresh-record count required")
+
+
+@dataclass(frozen=True)
+class WarmLearnerSchedule(LearnerSchedule):
+    epsilon_offset_records:int=0
+    def epsilon(self,records):return super().epsilon(records+self.epsilon_offset_records)

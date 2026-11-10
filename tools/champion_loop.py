@@ -93,7 +93,7 @@ def policy(descriptor):
 
 def legacy_descriptor(repo,checkpoint,rules):
     result={'kind':'legacy','repo':str(Path(repo).resolve()),'checkpoint':str(Path(checkpoint).resolve()),
-            'checkpoint_sha256':digest(checkpoint),'rules':asdict(rules),'label':'old-champion'}
+            'checkpoint_sha256':digest(checkpoint),'rules':rules.to_dict(),'label':'old-champion'}
     frozen=policy(result);require(frozen.size==rules.size,'legacy board shape differs')
     return dict(result,policy_sha256=frozen.sha256,weights_sha256=frozen.identity['weights_sha256'])
 
@@ -106,9 +106,9 @@ def bundle_descriptor(bundle,rules):
     require(digest(original/'manifest.json')==data['source_checkpoint_manifest_sha256'],'imported model origin changed')
     CheckpointStore.verify(original)
     runtime=torch.load(original/'runtime.pt',weights_only=True,map_location='cpu')
-    require(runtime['config']['rules']==asdict(rules),'bundle training rules differ')
+    require(runtime['config']['rules']==rules.to_dict(),'bundle training rules differ')
     result={'kind':'bundle','bundle':str(Path(bundle).resolve()),'bundle_sha256':digest(bundle),
-            'rules':asdict(rules),'label':'imported-average','records':data['training_records']}
+            'rules':rules.to_dict(),'label':'imported-average','records':data['training_records']}
     frozen=policy(result)
     return dict(result,policy_sha256=frozen.sha256,weights_sha256=frozen.identity['weights_sha256'])
 
@@ -161,7 +161,7 @@ class ChampionLoop:
                     archive=executor.journal.capture()
                     initial_champion=self._candidate(archive,'initial')
                 initial_champion=self._export(initial_champion)
-                require(initial_champion['rules']==asdict(executor.config.rules),'champion and learner game rules differ')
+                require(initial_champion['rules']==executor.config.rules.to_dict(),'champion and learner game rules differ')
                 policy(initial_champion).assert_frozen()
                 if self.publication.exists():
                     old=load(self.publication)

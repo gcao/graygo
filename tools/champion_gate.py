@@ -20,6 +20,7 @@ HEAD_TO_HEAD_HISTORY='head-to-head-history/v3'
 
 
 def gate_root(root,plan):
+    if plan.pool_gain_policy=='paired-betting/v4':return Path(root)/'paired-betting-v4'
     if plan.pool_gain_policy==HEAD_TO_HEAD_HISTORY:return Path(root)/'head-to-head-history-v3'
     return Path(root)/'positive-pool-gain-v2' if plan.pool_gain_policy==POSITIVE_POOL_GAIN else Path(root)
 

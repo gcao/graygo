@@ -42,7 +42,7 @@ class FrozenEvaluationEvidence:
         root=Path(root).resolve();plan_path=root/'plan.json';database=root/'evidence.sqlite'
         if not database.is_file():raise ValueError('committed evaluation database is missing')
         original=plan_path.read_bytes();contract=json.loads(original)
-        if contract.get('evaluation_version')!=EVALUATION_VERSION or contract.get('rule_version')!=RULE_VERSION:
+        if contract.get('evaluation_version')!=EVALUATION_VERSION or contract.get('rule_version')!=Rules(**contract['plan']['rules']).rule_version:
             raise ValueError('unsupported evaluation/rule version')
         data=dict(contract['plan']);data['rules']=Rules(**data['rules']);plan=EvaluationPlan(**data)
         incumbent=contract['incumbent'];has_incumbent=incumbent is not None

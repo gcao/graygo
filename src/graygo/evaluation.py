@@ -18,7 +18,7 @@ import time
 import numpy as np
 from .agents import uniform,tactical,BASELINE_VERSION
 from .confidence import canonical_sha
-from .encoding import ENCODING_VERSION,encode
+from .encoding import KO_ENCODING_VERSION,ENCODING_VERSION,encode
 from .engine import BLACK,WHITE,RULE_VERSION,Rules,State,resolve,score,transform
 from .manifest import source_digest,write_report
 from .storage import DEFAULT_RESERVE,DiskBudgetError
@@ -80,7 +80,7 @@ class FrozenNeuralPolicy:
         from .frozen_forward import FrozenForwardPool,execution_identity
         if type(cuda_graphs) is not bool:raise ValueError('explicit frozen CUDA graph selection required')
         self.cuda_graphs=cuda_graphs;self.forward_pool=FrozenForwardPool(self.device) if cuda_graphs else None
-        self.identity={'kind':representation,'model_class':type(model).__name__,'weights_sha256':self._weights,'encoding_version':ENCODING_VERSION,'source_sha256':source_digest(),'origin':None if origin is None else json.loads(json.dumps(origin))}
+        self.identity={'kind':representation,'model_class':type(model).__name__,'weights_sha256':self._weights,'encoding_version':KO_ENCODING_VERSION if getattr(getattr(model,'encoder',None),'spatial_channels',30)==32 else ENCODING_VERSION,'source_sha256':source_digest(),'origin':None if origin is None else json.loads(json.dumps(origin))}
         if inference_batch_size>1:self.identity['inference']=self._inference_identity()
         if cuda_graphs:self.identity['frozen_execution']=execution_identity(True)
         self.sha256=canonical_sha(self.identity)
@@ -98,7 +98,7 @@ class FrozenNeuralPolicy:
         config=data['config'];shape=ModelConfig(config.get('width',64),config.get('blocks',8),config.get('norm_groups',8))
         # Loading public weights must not consume the training process's RNG.
         with torch.random.fork_rng(devices=[]),torch.device('cpu'):
-            model=(QNet(shape) if representation=='greedy_q' else PolicyNet(shape)).to(device)
+            model=(QNet(shape,spatial_channels=32 if config.get('history_features') else 30) if representation=='greedy_q' else PolicyNet(shape,spatial_channels=32 if config.get('history_features') else 30)).to(device)
         model.load_state_dict(data['q' if representation=='greedy_q' else 'average'])
         origin={'training_run_sha256':hashlib.sha256((root/'run.json').read_bytes()).hexdigest(),'source_sha256':manifest['source_sha256'],
             'archive_sha256':hashlib.sha256((directory/'manifest.json').read_bytes()).hexdigest(),'records':sealed['step'],'seed':config['seed'],'rules':manifest['rules']}
@@ -140,7 +140,7 @@ class FrozenNeuralPolicy:
         # immutable weights, while every actor still draws its own private RNG.
         result=[None]*len(requests);batch=self.inference_batch_size;unique={};lanes={}
         for index,(state,player) in enumerate(requests):
-            observation=encode(state,player)
+            observation=encode(state,player,ko_hints=getattr(getattr(self._model,"encoder",None),"spatial_channels",30)==32)
             key=observation.spatial.tobytes()+observation.global_features.tobytes()+observation.legal.tobytes()
             if key in unique:unique[key][1].append(index);continue
             item=(observation,[index]);unique[key]=item

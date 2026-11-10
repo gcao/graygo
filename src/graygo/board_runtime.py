@@ -71,6 +71,8 @@ class BoardRuntimeConfig:
     target_batch: int=512
     initial_weights_archive: str|None=None
     initial_weights_sha256: str|None=None
+    history_features: bool=False
+    epsilon_offset_records: int=0
 
     def __post_init__(self):
         if not isinstance(self.rules,Rules) or type(self.envs) is not int or self.envs<1 or type(self.seed) is not int or self.seed<0:raise ValueError('board rules, env count and seed required')
@@ -81,6 +83,8 @@ class BoardRuntimeConfig:
             if self.initial_weights_sha256 is not None and self.initial_weights_sha256!=sha:raise ValueError('initial weights archive changed')
             object.__setattr__(self,'initial_weights_archive',str(path));object.__setattr__(self,'initial_weights_sha256',sha)
         elif self.initial_weights_sha256 is not None:raise ValueError('initial weights fingerprint requires an archive')
+        if type(self.history_features) is not bool or (self.history_features and self.rules.ko!="full-history"):raise ValueError("history features require v2")
+        if type(self.epsilon_offset_records) is not int or self.epsilon_offset_records<0:raise ValueError("nonnegative epsilon offset required")
         self.backend_config();self.model_config();self.schedule()
         if self.reservoir_open%2 or self.handoff_end%2:raise ValueError('paired opening boundaries required')
         if any(type(v) is not bool for v in (self.augmentation,self.deterministic,self.uniform_comparison,self.cuda_graphs)):raise ValueError('explicit runtime flags required')
@@ -89,23 +93,27 @@ class BoardRuntimeConfig:
     def backend_config(self):return NFSPConfig(self.batch,self.learning_start,self.q_reuse,self.target_every,self.learning_rate,self.max_grad_norm,
         self.q_target,self.trace_length,self.trace_lambda,self.target_batch)
     def model_config(self):return ModelConfig(self.width,self.blocks,self.norm_groups)
-    def schedule(self):return LearnerSchedule(40_000_000,self.reservoir_open,self.handoff_end)
+    def schedule(self):
+        from .schedules import WarmLearnerSchedule
+        return (WarmLearnerSchedule(40_000_000,self.reservoir_open,self.handoff_end,epsilon_offset_records=self.epsilon_offset_records) if self.epsilon_offset_records else LearnerSchedule(40_000_000,self.reservoir_open,self.handoff_end))
     def plan(self):
         result=json.loads(json.dumps(asdict(self)));result["rules"]=self.rules.to_dict()
         if self.initial_weights_archive is None:
             result.pop("initial_weights_archive");result.pop("initial_weights_sha256")
+        if not self.history_features:result.pop("history_features")
+        if not self.epsilon_offset_records:result.pop("epsilon_offset_records")
         return result
 
 
 class BoardNFSPRuntime:
     def __init__(self,config,*,starts=None):
         self.config=config;torch.set_num_threads(1);self.settings=configure_runtime(config.device,config.deterministic)
-        torch.manual_seed(config.seed);self.spec=RuleStateSpec(config.rules,config.native_library)
-        self.backend=NFSPBackend(QNet(config.model_config()),PolicyNet(config.model_config()),config.backend_config(),device=config.device)
+        torch.manual_seed(config.seed);self.spec=RuleStateSpec(config.rules,config.native_library,ko_hints=config.history_features)
+        self.backend=NFSPBackend(QNet(config.model_config(),spatial_channels=self.spec.spatial_shape[0]),PolicyNet(config.model_config(),spatial_channels=self.spec.spatial_shape[0]),config.backend_config(),device=config.device)
         from .frozen_forward import FrozenForwardPool
         self.forward_pool=FrozenForwardPool(config.device) if config.cuda_graphs else None
         self.replay=ReplayBuffer(config.capacity,self.spec);self.reservoir=ReservoirBuffer(config.capacity,self.spec,opening_record=config.reservoir_open)
-        self.collector=BoardCollector(config.rules,config.envs,config.seed,starts=starts);self.schedule=config.schedule();self.snapshot=None
+        self.collector=BoardCollector(config.rules,config.envs,config.seed,starts=starts,ko_hints=config.history_features);self.schedule=config.schedule();self.snapshot=None
         from .evaluation import seed_for
         self.rng={name:np.random.default_rng(seed_for(config.seed,'board-runtime',name)) for name in ('labels','q_replay','supervised','augment_q','augment_supervised')}
         self.initial_weights=None
@@ -117,7 +125,8 @@ class BoardNFSPRuntime:
         if {k:data['config'][k] for k in ('width','blocks','norm_groups')}!=asdict(self.config.model_config()):raise ValueError('warm-start network architecture differs')
         old_rules=data['config']['rules']
         if (old_rules['size'],old_rules['max_rounds'],old_rules['collision'])!=(self.config.rules.size,self.config.rules.max_rounds,self.config.rules.collision):raise ValueError('warm-start board/capture configuration differs')
-        self.backend.q.load_state_dict(data['q']);self.backend.target.load_state_dict(data['q']);self.backend.average.load_state_dict(data['average'])
+        from .models import transfer_board_weights
+        transfer_board_weights(self.backend.q,data['q']);transfer_board_weights(self.backend.target,data['q']);transfer_board_weights(self.backend.average,data['average'])
         self.backend.average_seeded=True
         self.initial_weights={'archive':str(path),'manifest_sha256':self.config.initial_weights_sha256,'training_rules':old_rules,
             'new_rules':self.config.rules.to_dict(),'transfer':'weights-only','replay_imported':False,'optimizer_imported':False}

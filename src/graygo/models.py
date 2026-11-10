@@ -31,15 +31,17 @@ class ResidualBlock(nn.Module):
 
 
 class Encoder(nn.Module):
-    def __init__(self, config):
+    def __init__(self, config, spatial_channels=SPATIAL_CHANNELS):
         super().__init__()
-        self.stem = nn.Conv2d(SPATIAL_CHANNELS + GLOBAL_FEATURES, config.width, 3,
+        if spatial_channels not in (30,32):raise ValueError("supported board input channels required")
+        self.spatial_channels=spatial_channels
+        self.stem = nn.Conv2d(spatial_channels + GLOBAL_FEATURES, config.width, 3,
                               padding=1, padding_mode="circular")
         self.norm = nn.GroupNorm(config.norm_groups, config.width)
         self.blocks = nn.Sequential(*(ResidualBlock(config) for _ in range(config.blocks)))
 
     def forward(self, spatial, globals):
-        if spatial.ndim != 4 or spatial.shape[1] != SPATIAL_CHANNELS or spatial.shape[-1] != spatial.shape[-2]:
+        if spatial.ndim != 4 or spatial.shape[1] != self.spatial_channels or spatial.shape[-1] != spatial.shape[-2]:
             raise ValueError("expected spatial [batch,30,N,N]")
         if globals.shape != (spatial.shape[0], GLOBAL_FEATURES):
             raise ValueError("expected globals [batch,14]")
@@ -88,10 +90,10 @@ class PolicyValueNet(nn.Module):
 
 class PolicyNet(nn.Module):
     """Independent public-input average policy for the NFSP branch."""
-    def __init__(self, config=ModelConfig()):
+    def __init__(self, config=ModelConfig(), *, spatial_channels=30):
         super().__init__()
         self.config = config
-        self.encoder = Encoder(config)
+        self.encoder = Encoder(config,spatial_channels)
         self.head = ActionHead(config.width)
 
     def forward(self, spatial, globals):
@@ -99,10 +101,10 @@ class PolicyNet(nn.Module):
 
 
 class QNet(nn.Module):
-    def __init__(self, config=ModelConfig()):
+    def __init__(self, config=ModelConfig(), *, spatial_channels=30):
         super().__init__()
         self.config = config
-        self.encoder = Encoder(config)
+        self.encoder = Encoder(config,spatial_channels)
         self.head = ActionHead(config.width)
 
     def forward(self, spatial, globals):
@@ -144,3 +146,12 @@ exploration coin branch happened to be used when drawing the action.
     greedy=greedy_distribution(q,legal)
     uniform=legal.to(q.dtype)/legal.sum(-1,keepdim=True)
     return (1-eps)*greedy+eps*uniform
+
+
+def transfer_board_weights(model, weights):
+    """Preserve old spatial/globals coefficients and zero only new hint inputs."""
+    copied=dict(weights);key='encoder.stem.weight';old=weights[key];new=model.state_dict()[key]
+    if old.shape != new.shape:
+        if old.shape[1]!=44 or new.shape[1]!=46 or old.shape[0]!=new.shape[0]:raise ValueError('unsupported input-channel transfer')
+        value=torch.zeros_like(new);value[:,:30]=old[:,:30];value[:,32:]=old[:,30:];copied[key]=value
+    model.load_state_dict(copied,strict=True)

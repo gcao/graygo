@@ -1,5 +1,7 @@
 # Gray Go v2: full-game ko
 
+> November 10 training amendment: [the v2 campaign](v2-campaign.md) adds two conditional history hints, weight-preserving input expansion, fresh v2 data, and asynchronous calibrated gates. The original compatibility rollout below used the unchanged 30-plane observation.
+
 Owner-approved rule change, November 9, 2026. This document supersedes the
 two-round ko rule and the claim that the fixed neural observation is the complete
 rule state **for v2 only**. Existing v1 games, evidence, checkpoints and campaigns

@@ -1,7 +1,8 @@
-"""Canonical compact complete-rule-state storage for board learning.
+"""Compact versioned board observations for replay.
 
-Packets bind to the immutable rules/version and retain all public history. Neural
-features and legality are regenerated on sampling, never saved as duplicate maps.
+Full v2 ko history belongs to active game checkpoints. Hint-enabled packets
+store two conditional masks at collection so native replay decoding needs no
+history simulation. The original v1 observation/packet layout is preserved.
 """
 from dataclasses import asdict,dataclass
 from functools import cached_property
@@ -9,22 +10,25 @@ import hashlib
 import json
 import numpy as np
 from .engine import BLACK,WHITE,RULE_VERSION,Rules,State,RoundRecord
-from .encoding import ENCODING_VERSION,SPATIAL_CHANNELS,GLOBAL_FEATURES,encode
+from .encoding import ENCODING_VERSION,KO_ENCODING_VERSION,SPATIAL_CHANNELS,GLOBAL_FEATURES,encode
 
 CODEC_VERSION='graygo/rule-state/1'
 
 
 class RuleStateCodec:
-    def __init__(self,rules=Rules()):
+    def __init__(self,rules=Rules(),ko_hints=False):
         if not isinstance(rules,Rules):raise ValueError('immutable Rules required')
-        self.rules=rules;self.points=rules.points
+        if type(ko_hints) is not bool or (ko_hints and rules.ko!="full-history"):raise ValueError("ko hints require explicit v2 rules")
+        self.rules=rules;self.points=rules.points;self.ko_hints=ko_hints
         self.board_bytes=(2*self.points+7)//8;self.mask_bytes=(self.points+7)//8
         self.action_bytes=max(1,(self.points.bit_length()+7)//8)
         self.round_bytes=max(1,(rules.max_rounds.bit_length()+7)//8)
         fingerprint=hashlib.sha256(json.dumps({'codec':CODEC_VERSION,'rule_version':rules.rule_version,'rules':rules.to_dict()},sort_keys=True,separators=(',',':')).encode()).digest()[:8]
-        self.prefix=b'GG\x01'+fingerprint
+        if ko_hints:fingerprint=hashlib.sha256(fingerprint+b'ko-hints/2').digest()[:8]
+        self.prefix=(b'GG\x02' if ko_hints else b'GG\x01')+fingerprint
         self.header_bytes=len(self.prefix)+3+self.round_bytes
-        self.packet_bytes=self.header_bytes+3*self.board_bytes+2*self.mask_bytes+4*self.action_bytes
+        self.base_packet_bytes=self.header_bytes+3*self.board_bytes+2*self.mask_bytes+4*self.action_bytes
+        self.packet_bytes=self.base_packet_bytes+(2*self.mask_bytes if ko_hints else 0)
 
     def _colors(self,board):
         a=np.asarray(board,dtype=np.uint8);packed=np.zeros(self.board_bytes,dtype=np.uint8)
@@ -52,7 +56,11 @@ class RuleStateCodec:
         for slot,h in enumerate(state.history,start=2-len(state.history)):
             boards[slot]=self._colors(h.before)
             moves[slot]=h.black.to_bytes(self.action_bytes,'little')+h.white.to_bytes(self.action_bytes,'little')
-        return b''.join((header,self._colors(state.board),*boards,self._forbidden(state.forbidden_black),self._forbidden(state.forbidden_white),*moves))
+        packet=b''.join((header,self._colors(state.board),*boards,self._forbidden(state.forbidden_black),self._forbidden(state.forbidden_white),*moves))
+        if self.ko_hints:
+            from .engine import solo_repeat_hints
+            packet+=b''.join(self._forbidden(points) for points in solo_repeat_hints(state))
+        return packet
 
     def unpack(self,payload):
         if not isinstance(payload,(bytes,bytearray,memoryview)):
@@ -77,20 +85,27 @@ class RuleStateCodec:
             else:history.append(RoundRecord(boards[slot+1],int.from_bytes(raw[:self.action_bytes],'little'),int.from_bytes(raw[self.action_bytes:],'little')))
         state=State(self.rules,boards[0],*restrictions,tuple(history),passes,rounds,
                     None if self.rules.ko=="full-history" else ())
+        if self.ko_hints:self.hints(payload) # Validate canonical padding on decode.
         return state,player
+
+    def hints(self,payload):
+        if not self.ko_hints:raise ValueError("packet has no ko hints")
+        raw=bytes(payload);start=self.base_packet_bytes
+        return tuple(self._points(raw[start+i*self.mask_bytes:start+(i+1)*self.mask_bytes]) for i in range(2))
 
 
 @dataclass(frozen=True)
 class RuleObservation:
-    """Features bound by construction to one immutable complete public state."""
+    """Features bound to one immutable public state and observation version."""
     state: State
     player: int
+    ko_hints: bool=False
 
     def __post_init__(self):
         if not isinstance(self.state,State) or type(self.player) is not int or self.player not in (BLACK,WHITE):raise ValueError('public State and black/white perspective required')
 
     @cached_property
-    def _features(self):return encode(self.state,self.player)
+    def _features(self):return encode(self.state,self.player,ko_hints=self.ko_hints)
     @property
     def spatial(self):return self._features.spatial
     @property
@@ -108,8 +123,10 @@ class RuleStateSpec:
     rules: Rules=Rules()
     native_library: str|None=None
     native_sha256: str|None=None
+    ko_hints: bool=False
 
     def __post_init__(self):
+        if type(self.ko_hints) is not bool or (self.ko_hints and self.rules.ko!='full-history'):raise ValueError('ko hints require v2 rules')
         if not isinstance(self.rules,Rules) or self.rules.points+1>65536:raise ValueError('rules exceed compact-buffer action range')
         if self.native_library is None:
             if self.native_sha256 is not None:raise ValueError('native checksum requires a library')
@@ -122,15 +139,15 @@ class RuleStateSpec:
             object.__setattr__(self,'native_library',path);object.__setattr__(self,'native_sha256',checksum)
 
     @cached_property
-    def codec(self):return RuleStateCodec(self.rules)
+    def codec(self):return RuleStateCodec(self.rules,self.ko_hints)
     @property
-    def spatial_shape(self):return (SPATIAL_CHANNELS,self.rules.size,self.rules.size)
+    def spatial_shape(self):return (32 if self.ko_hints else SPATIAL_CHANNELS,self.rules.size,self.rules.size)
     @property
     def globals(self):return GLOBAL_FEATURES
     @property
     def actions(self):return self.rules.points+1
     @property
-    def version(self):return ENCODING_VERSION
+    def version(self):return KO_ENCODING_VERSION if self.ko_hints else ENCODING_VERSION
     @property
     def spatial_bytes(self):return self.codec.packet_bytes
     @property
@@ -148,10 +165,15 @@ class RuleStateSpec:
 
     def to_dict(self):
         value={'storage':'rule-state','codec':CODEC_VERSION,'rule_version':self.rules.rule_version,'encoding_version':ENCODING_VERSION,'rules':self.rules.to_dict()}
+        if self.ko_hints:value.update(codec='graygo/rule-state/2',encoding_version=KO_ENCODING_VERSION,ko_hints=True)
         if self.native_library is not None:value['native_decoder']={'path':self.native_library,'sha256':self.native_sha256,'abi':1}
         return value
     @classmethod
     def from_dict(cls,value):
+        if value.get('ko_hints') is True:
+            raw=dict(value);raw.pop('ko_hints');raw['codec']=CODEC_VERSION;raw['encoding_version']=ENCODING_VERSION
+            if value.get('codec')!='graygo/rule-state/2' or value.get('encoding_version')!=KO_ENCODING_VERSION:raise ValueError('ko observation schema differs')
+            base=cls.from_dict(raw);return cls(base.rules,base.native_library,base.native_sha256,True)
         fields={'storage','codec','rule_version','encoding_version','rules'}
         if set(value) not in (fields,fields|{'native_decoder'}) or value['storage']!='rule-state' or value['codec']!=CODEC_VERSION or value['rule_version']!=Rules(**value['rules']).rule_version or value['encoding_version']!=ENCODING_VERSION:
             raise ValueError('unsupported rule-state storage schema')
@@ -162,6 +184,7 @@ class RuleStateSpec:
 
     def pack(self,observation):
         if not isinstance(observation,RuleObservation):raise ValueError('rule-state storage requires a state-bound RuleObservation')
+        if observation.ko_hints!=self.ko_hints:raise ValueError("observation and replay hint versions differ")
         payload=self.codec.pack(observation.state,observation.player)
         return np.frombuffer(payload,dtype=np.uint8),np.empty(0,dtype=np.float32),np.empty(0,dtype=np.uint8)
 
@@ -181,7 +204,7 @@ class RuleStateSpec:
         flat_x=x.reshape(-1,*self.spatial_shape);flat_g=g.reshape(-1,self.globals);flat_masks=masks.reshape(-1,self.actions)
         for index,row in enumerate(rows):
             if not valid[index]:continue
-            state,player=self.codec.unpack(row);features=encode(state,player)
+            state,player=self.codec.unpack(row);features=encode(state,player,ko_hints=self.ko_hints,hint_points=self.codec.hints(row) if self.ko_hints else None)
             flat_x[index]=features.spatial;flat_g[index]=features.global_features;flat_masks[index]=features.legal
         return x,g,masks
 
