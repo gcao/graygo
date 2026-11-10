@@ -48,6 +48,14 @@
       "black": 23.5,
       "white": 1.5,
       "legacy_black": 18.75
+    },
+    {
+      "name": "reported-legacy-tie-is-white-ahead-under-v3",
+      "board_key": "WB+BWW++W/+WBBBW++W/WB+B+W+WW/BBB+BBW+W/B++BBW+GB/B+++BWW+W/G+BBWW+WW/BB+G+W++G/B+B+G++WW",
+      "labels_key": "WBBBWWWWW/WWBBBWWWW/WBBB+WWWW/BBBBBBW+W/BBBBBW+GB/BBBBBWW+W/G+BBWWWWW/BB+G+WW+G/BBB+G+WWW",
+      "black": 39.75,
+      "white": 41.25,
+      "legacy_black": 40.5
     }
   ]
 }
